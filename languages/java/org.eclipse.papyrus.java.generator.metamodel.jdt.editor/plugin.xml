@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated generatoroptionsmm -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.papyrus.java.generator.metamodel.jdt.generatoroptionsmm.presentation.GeneratoroptionsmmModelWizardID"
+            name="%_UI_GeneratoroptionsmmModelWizard_label"
+            class="org.eclipse.papyrus.java.generator.metamodel.jdt.generatoroptionsmm.presentation.GeneratoroptionsmmModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GeneratoroptionsmmModelFile.gif">
+         <description>%_UI_GeneratoroptionsmmModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated generatoroptionsmm -->
+      <editor
+            id="org.eclipse.papyrus.java.generator.metamodel.jdt.generatoroptionsmm.presentation.GeneratoroptionsmmEditorID"
+            name="%_UI_GeneratoroptionsmmEditor_label"
+            icon="icons/full/obj16/GeneratoroptionsmmModelFile.gif"
+            extensions="generatoroptionsmm"
+            class="org.eclipse.papyrus.java.generator.metamodel.jdt.generatoroptionsmm.presentation.GeneratoroptionsmmEditor"
+            contributorClass="org.eclipse.papyrus.java.generator.metamodel.jdt.generatoroptionsmm.presentation.GeneratoroptionsmmActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.papyrus.qompass.popup?after=codegen">
+          <command
+               commandId="org.eclipse.papyrus.cpp.codegen.command"
+               icon="icons/codegen.gif"
+               label="Generate C++ code"
+               style="push"
+               tooltip="Generate C++ code">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Generate C++ code"
+            categoryId="org.eclipse.papyrus.editor.category"
+            id="org.eclipse.papyrus.cpp.codegen.command"
+            defaultHandler="org.eclipse.papyrus.cpp.codegen.ui.handlers.GenerateCodeHandler"
+            name="Generate C++ code">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Re-write CDT project settings"
+            categoryId="org.eclipse.papyrus.editor.category"
+            id="org.eclipse.papyrus.cpp.codegen.cdtproject"
+            defaultHandler="org.eclipse.papyrus.cpp.codegen.ui.handlers.CDTprojectHandler"
+            name="Configure CDT project">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.cpp.codegen.ui.preferences.CodegenPreferencePage"
+            id="org.eclipse.papyrus.cpp.codegen.ui.preferences.CodeGenPreferencePage"
+            name="C++ code generation"/>
+   </extension>
+</plugin>

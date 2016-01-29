@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Tracepoints"
+            icon="icons/breakpoint_view.gif"
+            category="org.eclipse.papyrus.views.category"
+            class="org.eclipse.papyrus.views.tracepoints.views.TracepointView"
+            id="org.eclipse.papyrus.views.tracepoints.views.Tracepoints">
+      </view>
+   </extension>
+</plugin>

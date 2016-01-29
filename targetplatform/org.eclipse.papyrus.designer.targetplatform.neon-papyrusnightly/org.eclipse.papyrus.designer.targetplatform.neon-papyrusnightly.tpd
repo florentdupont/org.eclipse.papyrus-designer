@@ -1,0 +1,21 @@
+target "Papyrus Neon Nightly" with source requirements
+
+location "http://download.eclipse.org/releases/neon/" eclipse-neon {
+ org.eclipse.platform.feature.group
+ org.eclipse.rcp.feature.group
+ org.eclipse.jdt.feature.group
+ org.eclipse.acceleo.feature.group
+ org.eclipse.cdt.feature.group
+ org.eclipse.equinox.p2.discovery.feature.feature.group
+ org.eclipse.equinox.executable.feature.group
+}
+
+location "http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/neon/main/" eclipse-papyrus-nighlty-neon {
+ org.eclipse.papyrus.sdk.feature.feature.group lazy
+}
+
+
+location "http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/neon/extra/" eclipse-papyrus-extra-nighlty-neon {
+ org.eclipse.papyrus.extra.marte.feature.feature.group lazy
+}
+

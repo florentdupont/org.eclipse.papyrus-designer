@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension
+         point="org.eclipse.ui.menus">
+	<menuContribution
+		allPopups="true"
+		locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup">
+		<menu
+			icon="icons/qompass-16x16.gif"
+			id="org.eclipse.papyrus.qompass.popup"
+			label="Qompass">
+			<separator name="designer" visible="true"/>
+		</menu>
+	</menuContribution>
+	<menuContribution
+		allPopups="true"
+		locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=filtersMenu">
+		<menu
+			icon="icons/qompass-16x16.gif"
+			id="org.eclipse.papyrus.qompass.popup"
+			label="Qompass">
+			<separator name="codegen" visible="true"/>
+			<separator name="designer" visible="true"/>
+			<separator name="architect" visible="true"/>
+		</menu>
+	</menuContribution>
+</extension>
+</plugin>

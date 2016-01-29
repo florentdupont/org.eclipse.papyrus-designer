@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?>
+
+<plugin>
+	<extension point="org.eclipse.papyrus.emf.facet.util.emf.core.modeldeclaration">
+		<modeldeclaration file="resources/TextEditorFacet.custom"/>
+	</extension>
+	<extension point="org.eclipse.core.runtime.adapters">
+		<factory 
+			adaptableType="org.eclipse.papyrus.texteditor.model.texteditormodel.TextEditorModel"
+ 			class="org.eclipse.papyrus.texteditor.modelexplorer.adapters.TextEditorAdapterFactory">
+			<adapter
+				type="org.eclipse.papyrus.infra.core.sasheditor.di.contentprovider.IOpenable">
+			</adapter>
+		</factory>
+	</extension>
+</plugin>

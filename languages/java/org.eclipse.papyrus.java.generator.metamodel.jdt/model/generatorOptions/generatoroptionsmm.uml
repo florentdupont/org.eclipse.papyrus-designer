@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Model xmi:id="_2YCzgPw6EeOA9cUxa0QbfA" name="GeneratorOptionsMM">
+    <packagedElement xmi:type="uml:Class" xmi:id="_CE41IPw7EeOA9cUxa0QbfA" name="Options">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Dni6sPw7EeOA9cUxa0QbfA" name="defaultSourceFolder">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_6l8-YPw6EeOA9cUxa0QbfA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6qSr0Pw6EeOA9cUxa0QbfA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Ecore:EPackage xmi:id="_71WwwPw6EeOA9cUxa0QbfA" base_Package="_2YCzgPw6EeOA9cUxa0QbfA" packageName="generatoroptionsmm" basePackage="org.eclipse.papyrus.java.generator.metamodel.jdt"/>
+</xmi:XMI>

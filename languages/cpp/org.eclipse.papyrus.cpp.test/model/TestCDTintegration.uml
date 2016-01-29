@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_Ae6MwPccEd-KM6l7lmIPkw" name="TestCDTintegration">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_EbtcwFG8EeOLNIKOajeerQ" annotatedElement="_419y0A7hEeKpbseGaEy1LA">
+      <body>This class contains a state machine</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_GQ1SgP6SEeKlg5tzGV3QVQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_DV8nkBv8EduZN5aJJITI5w"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_wCdtcH_1EeGMcIDCiaPhww" name="implementation">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_13ZsYBhXEeKGC8dT0Hrc_A"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KOvvIPccEd-KM6l7lmIPkw" name="Class0">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_U_ezUMzYEeGcRfFFcVPhOg" name="operation1" specification="_mbXNMH8tEeGWNf8qHJJtnw">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_42nn4BoKEeKjbYasGOLMuA" name="Parameter1">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_42o2ABoKEeKjbYasGOLMuA" name="Parameter2">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_42z1IBoKEeKjbYasGOLMuA" name="p3">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <language>C/C++</language>
+          <body></body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_a9tFQMzYEeGcRfFFcVPhOg" name="operation2" specification="_XC6DoMzYEeGcRfFFcVPhOg">
+          <language>C/C++</language>
+          <body>my Text</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_vZAVMBnOEeK5EK5DdRYilA" name="operation3" specification="_q1fIIBRnEeK2iINwXBL4pA">
+          <language>C/C++</language>
+          <body></body>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_mbXNMH8tEeGWNf8qHJJtnw" name="operation1" method="_U_ezUMzYEeGcRfFFcVPhOg">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_42nA0BoKEeKjbYasGOLMuA" name="Parameter1">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_42oO8BoKEeKjbYasGOLMuA" name="Parameter2">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_42zOEBoKEeKjbYasGOLMuA" name="p3">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_XC6DoMzYEeGcRfFFcVPhOg" name="operation2" method="_a9tFQMzYEeGcRfFFcVPhOg"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_q1fIIBRnEeK2iINwXBL4pA" name="operation3" method="_vZAVMBnOEeK5EK5DdRYilA"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_BVivAB0LEeKlYLZOWTi6uw" name="Operation1"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_419y0A7hEeKpbseGaEy1LA" name="Class2">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_2lDO8FG7EeOLNIKOajeerQ" name="StateMachine">
+        <region xmi:type="uml:Region" xmi:id="_6m9lMFG7EeOLNIKOajeerQ" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_Z2_5oFG8EeOLNIKOajeerQ" name="Transition0" source="_UcSkcFG8EeOLNIKOajeerQ" target="_TYx5AFG8EeOLNIKOajeerQ">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_OVqvAFG9EeOLNIKOajeerQ" name="effectBehavior" isAbstract="true">
+              <language>C/C++</language>
+              <body>// this effect is a C++
+// opaque behavior with several lines</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="__ExX0FG8EeOLNIKOajeerQ" name="Trigger"/>
+          </transition>
+          <subvertex xmi:type="uml:State" xmi:id="_TYx5AFG8EeOLNIKOajeerQ" name="State0"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_UcSkcFG8EeOLNIKOajeerQ" name="Initial0"/>
+        </region>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xe7iUFG-EeOLNIKOajeerQ" name="triggerOp" specification="_gixOEFG8EeOLNIKOajeerQ" isReentrant="false">
+        <language>C/C++</language>
+        <body>// Aber hier geht's, oder?
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xe8JYVG-EeOLNIKOajeerQ" name="effectBehavior" specification="_xe8JYFG-EeOLNIKOajeerQ" isReentrant="false">
+        <language>C/C++</language>
+        <body>// this effect is a C++ np
+// opaque behavior with several lines</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_gixOEFG8EeOLNIKOajeerQ" name="triggerOp" method="_xe7iUFG-EeOLNIKOajeerQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_xe8JYFG-EeOLNIKOajeerQ" name="effectBehavior" method="_xe8JYVG-EeOLNIKOajeerQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_K8FLcB0LEeKlYLZOWTi6uw" name="Class1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_x0eUMPuWEeObXf7LzGwVbQ" name="constAttr">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_KyTqwPuXEeObXf7LzGwVbQ" name="FIVE" value="5"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5WkzsPuWEeObXf7LzGwVbQ" name="volatileAttr">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_JkS_gPuXEeObXf7LzGwVbQ" name="FIVE" value="5"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5chDoPuWEeObXf7LzGwVbQ" name="constVolatileAttr">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_IEKCcPuXEeObXf7LzGwVbQ" name="FIVE" value="5"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5hUEEPuWEeObXf7LzGwVbQ" name="staticConstVolatileAttr" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_Gph3gPuXEeObXf7LzGwVbQ" name="FIVE" value="5"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_kTVuwP6QEeKlg5tzGV3QVQ" name="Operation1" specification="_TY18YB0LEeKlYLZOWTi6uw" isReentrant="false">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_8cPkcVG-EeOLNIKOajeerQ" name="arg">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <language>C/C++</language>
+        <body>// Now let's add some code
+cout &lt;&lt; &quot;value: &quot; &lt;&lt; arg;</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pX7DgDcmEeO6UdbIk03c9Q" name="Operation2" specification="_jnWMADcmEeO6UdbIk03c9Q" isReentrant="false">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_8cRZoVG-EeOLNIKOajeerQ" name="args">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <language>C/C++</language>
+        <body>// Now let's add some code
+args[0] = 2;</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_TY18YB0LEeKlYLZOWTi6uw" name="Operation1" method="_kTVuwP6QEeKlg5tzGV3QVQ">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_II4ccP6WEeKlg5tzGV3QVQ" annotatedElement="_II4ccP6WEeKlg5tzGV3QVQ">
+          <body></body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_8cPkcFG-EeOLNIKOajeerQ" name="arg">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_jnWMADcmEeO6UdbIk03c9Q" name="Operation2" method="_pX7DgDcmEeO6UdbIk03c9Q">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_rH4lQDcmEeO6UdbIk03c9Q" annotatedElement="_rH4lQDcmEeO6UdbIk03c9Q">
+          <body></body>
+        </ownedComment>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_8cRZoFG-EeOLNIKOajeerQ" name="args">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_NJkdEPuXEeObXf7LzGwVbQ" name="constOperation"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_P49bgPuXEeObXf7LzGwVbQ" name="volatileOperation"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_QCDGEPuXEeObXf7LzGwVbQ" name="constVolatileOperation"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_QGndAPuXEeObXf7LzGwVbQ" name="staticConstVolatileOperation" isStatic="true"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_-2_pQC-IEeObJ6ARx67E0g" name="Package1">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_DHJ24C-JEeObJ6ARx67E0g" name="Test"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_G5ec8CcLEeGC--E0ZVgUkg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_G6JLUCcLEeGC--E0ZVgUkg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/FCM/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://FCM_PROFILES/FCM.profile.uml#_5mvT0MtjEd2H_o0jIC6qDQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_VN5k0CcLEeGC--E0ZVgUkg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VRMJYCcLEeGC--E0ZVgUkg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//Alloc"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_ar8OsAPMEdyuUt-4qHuVvQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_WAm0ICcLEeGC--E0ZVgUkg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WDDEICcLEeGC--E0ZVgUkg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//HLAM"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_yNSZIAPMEdyuUt-4qHuVvQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_YgXbICcLEeGC--E0ZVgUkg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Yi1gUCcLEeGC--E0ZVgUkg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//GCM"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_YgAioAPMEdyuUt-4qHuVvQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_1PzP4P6QEeKlg5tzGV3QVQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1QM4gP6QEeKlg5tzGV3QVQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:Typedef xmi:id="_D6FjUDcWEeO6UdbIk03c9Q" definition="int" base_primitivetype="_DHJ24C-JEeObJ6ARx67E0g"/>
+  <C_Cpp:Const xmi:id="_8cVEAFG-EeOLNIKOajeerQ" base_parameter="_8cRZoFG-EeOLNIKOajeerQ"/>
+  <C_Cpp:Ptr xmi:id="_8cYuYFG-EeOLNIKOajeerQ" base_parameter="_8cRZoFG-EeOLNIKOajeerQ"/>
+  <C_Cpp:Array xmi:id="_8cbxsFG-EeOLNIKOajeerQ" base_parameter="_8cRZoFG-EeOLNIKOajeerQ" definition="[5]"/>
+  <C_Cpp:Const xmi:id="_AwqmsPuXEeObXf7LzGwVbQ" base_property="_5chDoPuWEeObXf7LzGwVbQ"/>
+  <C_Cpp:Volatile xmi:id="_AxE2YPuXEeObXf7LzGwVbQ" base_property="_5chDoPuWEeObXf7LzGwVbQ"/>
+  <C_Cpp:Volatile xmi:id="_BnQ3gPuXEeObXf7LzGwVbQ" base_property="_5WkzsPuWEeObXf7LzGwVbQ"/>
+  <C_Cpp:Const xmi:id="_CrTHYPuXEeObXf7LzGwVbQ" base_property="_x0eUMPuWEeObXf7LzGwVbQ"/>
+  <C_Cpp:Const xmi:id="_ECotwPuXEeObXf7LzGwVbQ" base_property="_5hUEEPuWEeObXf7LzGwVbQ"/>
+  <C_Cpp:Volatile xmi:id="_EC3-UPuXEeObXf7LzGwVbQ" base_property="_5hUEEPuWEeObXf7LzGwVbQ"/>
+  <C_Cpp:Const xmi:id="_WK3ecPuXEeObXf7LzGwVbQ" base_operation="_QGndAPuXEeObXf7LzGwVbQ"/>
+  <C_Cpp:Volatile xmi:id="_WLBPcPuXEeObXf7LzGwVbQ" base_operation="_QGndAPuXEeObXf7LzGwVbQ"/>
+  <C_Cpp:Const xmi:id="_XOookPuXEeObXf7LzGwVbQ" base_operation="_QCDGEPuXEeObXf7LzGwVbQ"/>
+  <C_Cpp:Volatile xmi:id="_XO1c4PuXEeObXf7LzGwVbQ" base_operation="_QCDGEPuXEeObXf7LzGwVbQ"/>
+  <C_Cpp:Volatile xmi:id="_YBPxQPuXEeObXf7LzGwVbQ" base_operation="_P49bgPuXEeObXf7LzGwVbQ"/>
+  <C_Cpp:Const xmi:id="_YyNUIPuXEeObXf7LzGwVbQ" base_operation="_NJkdEPuXEeObXf7LzGwVbQ"/>
+</xmi:XMI>

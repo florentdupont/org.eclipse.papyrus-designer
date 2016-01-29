@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+		<extension
+			point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+		<library
+			description="Standard C Ansi types"
+			iconpath="icons/transfo_cpp.gif"
+			name="AnsiCLibrary"
+			path="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml"
+			provider="Eclipse Modeling Project"/>
+	</extension>
+</plugin>
