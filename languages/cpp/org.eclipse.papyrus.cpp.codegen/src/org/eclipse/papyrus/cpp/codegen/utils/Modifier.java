@@ -44,7 +44,7 @@ public class Modifier {
 		String ptr; //$NON-NLS-1$
 		Ptr cppPtr = UMLUtil.getStereotypeApplication(propertyOrParameter, Ptr.class);
 		if (cppPtr != null) {
-			ptr = (cppPtr.getDeclaration() != null) ? cppPtr.getDeclaration() : "*"; //$NON-NLS-1$
+			ptr = (cppPtr.getDeclaration() != null && !cppPtr.getDeclaration().equals("")) ? cppPtr.getDeclaration() : "*"; //$NON-NLS-1$
 		} else {
 			if (propertyOrParameter instanceof Property
 					&& ((Property) propertyOrParameter).getAggregation() == AggregationKind.SHARED_LITERAL) {
