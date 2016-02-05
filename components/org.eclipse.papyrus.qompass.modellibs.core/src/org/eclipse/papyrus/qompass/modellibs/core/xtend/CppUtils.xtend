@@ -6,8 +6,9 @@ import org.eclipse.uml2.uml.Operation
 import org.eclipse.uml2.uml.Parameter
 import org.eclipse.uml2.uml.ParameterDirectionKind
 import org.eclipse.uml2.uml.Type
+import org.eclipse.papyrus.qompass.designer.core.extensions.IXtend
 
-class CppUtils {
+class CppUtils implements IXtend {
 
 	/**
 	 * create the C++ signature for an operation (including parenthesis)

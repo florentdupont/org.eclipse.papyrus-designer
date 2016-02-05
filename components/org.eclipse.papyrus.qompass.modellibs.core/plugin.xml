@@ -136,21 +136,27 @@
 			class="org.eclipse.papyrus.qompass.modellibs.core.bindinghelpers.BindOperation">
 		</client>
 	</extension>
- <extension
-       id="BindCppIncludeToFirstActual"
-       point="org.eclipse.papyrus.fcm.profile.fcmBindingHelper">
-    <client
-          bindingHelperName="BindCppIncludeToFirstActual"
-          class="org.eclipse.papyrus.qompass.modellibs.core.bindinghelpers.BindCppIncludeToFirstActual">
-    </client>
- </extension>
-	<extension point="org.eclipse.help.toc">
+	<extension
+  			id="BindCppIncludeToFirstActual"
+			point="org.eclipse.papyrus.fcm.profile.fcmBindingHelper">
+		<client
+			bindingHelperName="BindCppIncludeToFirstActual"
+			class="org.eclipse.papyrus.qompass.modellibs.core.bindinghelpers.BindCppIncludeToFirstActual">
+		</client>
+	</extension>
+	<extension
+			point="org.eclipse.help.toc">
 		<toc file="help/modellibs-core-examples.xml"/>
 		<toc file="help/modellibs-core-library.xml"/>
 	</extension>
- <extension
-       point="org.eclipse.papyrus.qompass.designer.core.xtendGenerator">
-       <client class="org.eclipse.papyrus.qompass.modellibs.core.xtend.StateMachineGen" templateID="StateMachineGen">
-       </client>
+	<extension
+			point="org.eclipse.papyrus.qompass.designer.core.xtendGenerator">
+		<client class="org.eclipse.papyrus.qompass.modellibs.core.xtend.StateMachineGen" templateID="StateMachineGen">
+		</client>
+	</extension>
+	<extension
+			point="org.eclipse.papyrus.qompass.designer.core.xtendGenerator">
+		<client class="org.eclipse.papyrus.qompass.modellibs.core.xtend.CppUtils" templateID="CppUtils">
+		</client>
  </extension>
 </plugin>
