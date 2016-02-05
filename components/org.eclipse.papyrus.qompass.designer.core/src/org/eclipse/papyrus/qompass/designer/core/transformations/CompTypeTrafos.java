@@ -15,7 +15,7 @@
 package org.eclipse.papyrus.qompass.designer.core.transformations;
 
 import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.papyrus.C_Cpp.Ptr;
+import org.eclipse.papyrus.designer.languages.cpp.profile.Ptr;
 import org.eclipse.papyrus.qompass.designer.core.Messages;
 import org.eclipse.papyrus.qompass.designer.core.PortUtils;
 import org.eclipse.papyrus.qompass.designer.core.Utils;

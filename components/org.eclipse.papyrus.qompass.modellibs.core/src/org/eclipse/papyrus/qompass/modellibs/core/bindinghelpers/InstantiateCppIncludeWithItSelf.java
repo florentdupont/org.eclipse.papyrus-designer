@@ -15,9 +15,9 @@
 package org.eclipse.papyrus.qompass.modellibs.core.bindinghelpers;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.C_Cpp.Include;
 import org.eclipse.papyrus.FCM.Template;
 import org.eclipse.papyrus.FCM.util.IBindingHelper;
+import org.eclipse.papyrus.designer.languages.cpp.profile.Include;
 import org.eclipse.papyrus.qompass.designer.core.listeners.PostCopyListener;
 import org.eclipse.papyrus.qompass.designer.core.templates.TextTemplateBinding;
 import org.eclipse.papyrus.qompass.designer.core.transformations.LazyCopier;

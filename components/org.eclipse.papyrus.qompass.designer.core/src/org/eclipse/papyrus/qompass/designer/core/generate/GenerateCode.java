@@ -19,7 +19,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
  import org.eclipse.emf.compare.util.ModelUtils;
  */
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.codegen.extensionpoints.ILangCodegen;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
 import org.eclipse.papyrus.qompass.designer.core.Messages;
 import org.eclipse.papyrus.qompass.designer.core.ModelManagement;
 import org.eclipse.papyrus.qompass.designer.core.transformations.TransformationException;

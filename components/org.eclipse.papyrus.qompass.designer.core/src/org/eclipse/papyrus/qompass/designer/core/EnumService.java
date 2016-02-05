@@ -17,12 +17,15 @@ package org.eclipse.papyrus.qompass.designer.core;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.papyrus.designer.languages.cpp.profile.CppInit;
 import org.eclipse.papyrus.qompass.designer.core.transformations.TransformationContext;
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Dependency;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.UMLPackage;
@@ -84,23 +87,56 @@ public class EnumService {
 	 * @return
 	 */
 	public static String literal(String enumName, String literal) {
-		Enumeration enumeration = enumHash.get(enumName);
-		if (enumPkg == null) {
-			return literal;
-		}
-		if (enumeration == null) {
-			if (enumName.startsWith("L")) { //$NON-NLS-1$
-				// magic prefix for class local
-				enumeration = (Enumeration)
-						((Class) TransformationContext.classifier).createNestedClassifier(enumName, UMLPackage.eINSTANCE.getEnumeration());
+		return literal(enumName, literal, -1);
+	}
+	
+	/**
+	 * Create a literal within an enumeration. Both, the literal and the enumeration may be an
+	 * xtend template. If the name of the enumeration starts with "L", it is considered as a
+	 * local enumeration, i.e. a nested classifier within the classifier (it has to be a class)
+	 * from the transformation context.
+	 *
+	 * @param enumName
+	 *            the name of an enumeration
+	 * @param literal
+	 *            the name of a literal within that enumeration.
+	 * @return
+	 */
+	public static String literal(String enumName, String literal, int initialValue) {
+		Enumeration enumeration;
+		boolean first = false;
+		if (enumName.startsWith("L")) { //$NON-NLS-1$
+			// magic prefix for class local (only allowed for local classes)
+			if (TransformationContext.classifier instanceof Class) {
+				Class clazz = (Class) TransformationContext.classifier;
+				enumeration = (Enumeration) clazz.getNestedClassifier(enumName);
+				if (enumeration == null) {
+					enumeration = (Enumeration)
+							((Class) TransformationContext.classifier).createNestedClassifier(enumName, UMLPackage.eINSTANCE.getEnumeration());
+				}
 			}
 			else {
-				enumeration = enumPkg.createOwnedEnumeration(enumName);
+				throw new RuntimeException("Local enumeration " + enumName + " is not used in the transformation context of a class");
 			}
-			enumHash.put(enumName, enumeration);
+		}
+		else {
+			enumeration = enumHash.get(enumName);
+			if (enumPkg == null) {
+				// enumeration can not be created
+				throw new RuntimeException("global enumeration " + enumName + " can not be created, since the enumPkg (from Transformation context) is not initialized");
+			}
+			if (enumeration == null) {
+				enumeration = enumPkg.createOwnedEnumeration(enumName);
+				enumHash.put(enumName, enumeration);
+				first = true;
+			}
 		}
 		if (enumeration.getOwnedLiteral(literal) == null) {
-			enumeration.createOwnedLiteral(literal);
+			EnumerationLiteral umlLiteral = enumeration.createOwnedLiteral(literal);
+			if (first && initialValue != -1) {
+				CppInit cppInit = StereotypeUtil.applyApp(umlLiteral, CppInit.class);
+				cppInit.setValue(initialValue);
+			}
 		}
 		// declare a dependency to the enumeration from the current classifier
 		checkAndCreateDependency(TransformationContext.classifier, enumeration);

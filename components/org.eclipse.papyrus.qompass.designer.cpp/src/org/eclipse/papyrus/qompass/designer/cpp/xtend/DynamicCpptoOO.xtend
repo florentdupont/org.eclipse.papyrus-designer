@@ -30,7 +30,7 @@ import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.ConnectorEnd
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil
-import org.eclipse.papyrus.C_Cpp.Ptr
+import org.eclipse.papyrus.designer.languages.cpp.profile.Ptr
 import org.eclipse.uml2.uml.Type
 import java.util.HashMap
 import java.util.Map

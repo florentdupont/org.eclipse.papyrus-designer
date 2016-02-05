@@ -13,9 +13,9 @@
 	<description>This module contains the different plugins relative to xxx</description>
 
 	<modules>
-		<module>org.eclipse.papyrus.codegen.base</module>
-		<module>org.eclipse.papyrus.codegen.extensionpoints</module>
-		<module>org.eclipse.papyrus.texteditor.model</module>
-		<module>org.eclipse.papyrus.texteditor.modelexplorer</module>
+		<module>org.eclipse.papyrus.designer.languages.common.base</module>
+		<module>org.eclipse.papyrus.designer.languages.common.extensionpoints</module>
+		<module>org.eclipse.papyrus.designer.languages.common.texteditor.model</module>
+		<module>org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer</module>
 	</modules>
 </project>

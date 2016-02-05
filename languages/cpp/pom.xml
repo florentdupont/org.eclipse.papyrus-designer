@@ -13,16 +13,16 @@
 	<description>This module contains the different plugins relative to xxx</description>
 
 	<modules>
-		<module>org.eclipse.papyrus.cpp.cdtproject</module>
-		<module>org.eclipse.papyrus.cpp.codegen</module>
-		<module>org.eclipse.papyrus.cpp.codegen.ui</module>
-		<module>org.eclipse.papyrus.cpp.examples</module>
-		<module>org.eclipse.papyrus.cpp.library</module>
-		<module>org.eclipse.papyrus.cpp.library.ui</module>
-		<module>org.eclipse.papyrus.cpp.profile</module>
-		<module>org.eclipse.papyrus.cpp.profile.ui</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.cdt.project</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.codegen</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.codegen.ui</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.examples</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.library</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.library.ui</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.profile</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.profile.ui</module>
 		<!-- module>org.eclipse.papyrus.cpp.test</module-->
-		<module>org.eclipse.papyrus.texteditor.cdt</module>
-		<module>org.eclipse.papyrus.views.cpp</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.view</module>
 	</modules>
 </project>

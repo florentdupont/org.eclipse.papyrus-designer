@@ -3,7 +3,7 @@ package org.eclipse.papyrus.qompass.modellibs.core.xtend
 import org.eclipse.emf.common.util.BasicEList
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.util.EcoreUtil
-import org.eclipse.papyrus.C_Cpp.Ptr
+import org.eclipse.papyrus.designer.languages.cpp.profile.Ptr
 import org.eclipse.papyrus.FCM.DerivedElement
 import org.eclipse.papyrus.qompass.designer.core.StUtils
 import org.eclipse.papyrus.qompass.designer.core.Utils
@@ -42,15 +42,21 @@ import static extension org.eclipse.papyrus.qompass.modellibs.core.xtend.Behavio
 import static extension org.eclipse.papyrus.qompass.modellibs.core.xtend.CppUtils.cppCall
 import static extension org.eclipse.papyrus.qompass.modellibs.core.xtend.StateMachineUtil.*
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil
-import org.eclipse.uml2.uml.UMLPackage
-import org.eclipse.uml2.uml.Enumeration
+import org.eclipse.papyrus.qompass.modellibs.core.Activator
+import org.eclipse.papyrus.qompass.designer.core.transformations.filters.FilterStateMachines
 
 class StateMachineGen implements IXtend {
 
 	Class clazz
 	
-	boolean ooPattern = true;
+	boolean ooPattern;
 	
+	String executorRef
+	
+	String sigParamName
+
+	static final int SIG_INITIAL = 1000
+
 	def getStateMachine(Class clazz) {
 		// organized in a loop. But effectively supports single state machine
 		for (smBehavior : (clazz as BehavioredClassifier).ownedBehaviors.filter[it instanceof StateMachine]) {
@@ -59,9 +65,32 @@ class StateMachineGen implements IXtend {
 		return null
 	}
 	
+	def void init(boolean ooPattern) {
+		this.ooPattern = ooPattern
+		if (ooPattern) {
+			executorRef = ""
+			sigParamName = "params"
+		}
+		else {
+			executorRef = "executor->"
+			sigParamName = "signal"
+		}
+	}
+	
 	def activate(Class clazz) {
 		val sm = clazz.stateMachine
 		val flattener = new UMLFlattener
+		init(false)
+		flattener.transform(sm)
+		activate(clazz, sm)
+	}
+
+	def activateOO(Class clazz) {
+		// caveat: order is important. Make sure that this is the first operation in the template definition
+		// within the model  (must be flattened once)
+		val sm = clazz.stateMachine
+		val flattener = new UMLFlattener
+		init(true)
 		flattener.transform(sm)
 		activate(clazz, sm)
 	}
@@ -76,14 +105,24 @@ class StateMachineGen implements IXtend {
 		}
 	'''
 	
+	def processEventsOO(Class clazz) {
+		init(true)
+		processEventsCommon(clazz)
+	}
+	
 	def processEvents(Class clazz) {
+		init(false)
+		processEventsCommon(clazz)
+	}
+	
+	def processEventsCommon(Class clazz) {
 		val sm = clazz.stateMachine
 		// - Option to put processElements into original class (but, would need to copy dependencies & attributes)
 		// create new operation in class owning the state machine.
 		// val operation = clazz.createOperation("processEvents", null)
 		// val ob = clazz.createOpaqueBehavior(operation)
 		// ob.set(clazz.processEventsSM(sm).toString)
-		// return "executor->processEvents();"
+		// return "«executor»processEvents();"
 		this.clazz = clazz
 		return clazz.processEventsSM(sm)
 	}
@@ -102,6 +141,7 @@ class StateMachineGen implements IXtend {
 	 * then calls the original method (handled by LW container)
 	 */
 	def eventInterceptorOO(Operation operation) '''
+		«init(true)»
 		«operation.eventInterceptorCommon» 
 	'''
 
@@ -111,7 +151,7 @@ class StateMachineGen implements IXtend {
 			«val signal = (derivedElement.source as Reception).signal»
 			// create event with global signal ID
 			core::ContainerServices::CallEvent_ event;
-			event.operationID = «literal(SIGNAL_ENUM, operation.name)»;
+			event.operationID = «literal(SIGNAL_ENUM, InterfaceSync.SIG_PREFIX + signal.name, SIG_INITIAL)»;
 			// map signal into value-buffer and copy attributes
 			::«signal.qualifiedName» * signal = (::«signal.qualifiedName» *) &event.params;
 			«FOR attribute : signal.ownedAttributes»
@@ -123,11 +163,12 @@ class StateMachineGen implements IXtend {
 			// create event with operationID/portID and pass call
 			core::ContainerServices::CallEvent_ event;
 			«IF ooPattern»
-				event.operationID = OP_ID_«operation.name»;
+				event.operationID = «literal("LOperationIDs", '''OP_ID_«operation.name»''')»;
 			«ELSE»
 				event.operationID = ID_«operation.name»;
 			«ENDIF»
 		«ENDIF»
+		eventPool.writeEvent(event);
 	'''
 	
 	def processEventsSM(BehavioredClassifier clazz, StateMachine sm) '''
@@ -151,9 +192,11 @@ class StateMachineGen implements IXtend {
 				OSAL_ERROR ("Inconsistent state");
 			break;
 		}
-		if (animOut != 0) {
-			animOut->enterState(newState, «clazz.fragment»);
-		}
+		«IF (!ooPattern)»
+			if (animOut != 0) {
+				animOut->enterState(newState, «clazz.fragment»);
+			}
+		«ENDIF»
 	'''
 
 	/*
@@ -178,7 +221,7 @@ class StateMachineGen implements IXtend {
 	// Use service for global enumerations
 	def setrigger(Trigger trigger) {
 		val se = trigger.event as SignalEvent
-		literal(SIGNAL_ENUM, InterfaceSync.SIG_PREFIX + se.signal.name)
+		literal(SIGNAL_ENUM, InterfaceSync.SIG_PREFIX + se.signal.name, SIG_INITIAL)
 	}
 
 	/**
@@ -203,7 +246,7 @@ class StateMachineGen implements IXtend {
 
 		«IF ((state instanceof State) && (state as State).entry != null)»
 			// execute entry action
-			executor->«(state as State).entry.name»();
+			«executorRef»«(state as State).entry.name»();
 		«ENDIF»
 
 		needsTrigger = true;
@@ -213,14 +256,14 @@ class StateMachineGen implements IXtend {
 				«IF transition.triggers.size == 0»
 					«IF transition.guard != null»
 						«transition.guard.specification.createGuardFct(null)»
-						if (executor->«transition.guard.specification.name»()) {
+						if («executorRef»«transition.guard.specification.name»()) {
 					«ENDIF»
 					newState = STATE_«transition.target.name»;
 #ifdef SM_VERBOSE
 						cout << "SM «clazz.name»: transition to state «transition.target.name»" << endl;
 #endif
 					«IF (transition.effect != null)»
-						executor->«effectName(transition)»();
+						«executorRef»«effectName(transition)»();
 					«ENDIF»
 						needsTrigger = false;
 					«IF transition.guard != null»
@@ -252,21 +295,20 @@ class StateMachineGen implements IXtend {
 					if (event.operationID == core::ContainerServices::EventPool::ID_TIMEOUT) {
 						«IF transition.guard != null»
 							«transition.guard.specification.createGuardFct(null)»
-							if (executor->«transition.guard.specification.name»()) {
+							if («executorRef»«transition.guard.specification.name»()) {
 						«ENDIF»
 						newState = STATE_«transition.target.name»;
 #ifdef SM_VERBOSE
 						cout << "SM «clazz.name»: transition to state «transition.target.name»" << endl;
 #endif
 						«IF (transition.effect != null)»
-							executor->«effectName(transition)»();
+							«executorRef»«effectName(transition)»();
 						«ENDIF»
 						«IF transition.guard != null»
 							}
 						«ENDIF»
 					}
-				«ENDIF»
-				«IF (trigger.event instanceof CallEvent)» 
+				«ELSEIF (trigger.event instanceof CallEvent)» 
 					// transition «trigger.name» - trigger: CallEvent («trigger.event.name»), operation «(trigger.event as CallEvent).operation.name»
 					if (event.operationID == «cetrigger((trigger.event as CallEvent).operation)») {
 						newState = STATE_«transition.target.name»;
@@ -274,7 +316,7 @@ class StateMachineGen implements IXtend {
 						cout << "SM «clazz.name»: transition to state «transition.target.name»" << endl;
 #endif
 						«IF (transition.effect != null)»
-							executor->«effectName(transition)»();
+							«executorRef»«effectName(transition)»();
 						«ENDIF»
 					} 
 				«ENDIF»
@@ -288,7 +330,7 @@ class StateMachineGen implements IXtend {
 						«ENDIF»
 						«IF transition.guard != null»
 							«transition.guard.specification.createGuardFct(signalEvent)»
-							if (executor->«transition.guard.specification.name»(signal)) {
+							if («executorRef»«transition.guard.specification.name»(signal)) {
 						«ENDIF»
 						newState = STATE_«transition.target.name»;
 #ifdef SM_VERBOSE
@@ -296,7 +338,7 @@ class StateMachineGen implements IXtend {
 #endif
 						«IF (transition.effect != null)»
 							«transition.effect.addSignalParameter(signalEvent.signal)»
-							executor->«effectName(transition)»(«IF signalEvent.signal.attributes.size > 0»signal«ENDIF»);
+							«executorRef»«effectName(transition)»(«IF signalEvent.signal.attributes.size > 0»signal«ENDIF»);
 						«ENDIF»
 						// ok = EvQUEUE ;
 						«IF transition.guard != null»
@@ -311,7 +353,7 @@ class StateMachineGen implements IXtend {
 			m_currentState = newState;
 			«IF ((state instanceof State) && (state as State).exit != null)»
 			// execute exit action
-			executor->«(state as State).exit.name»();
+			«executorRef»«(state as State).exit.name»();
 		«ENDIF»
 
 			
@@ -346,18 +388,21 @@ class StateMachineGen implements IXtend {
 	 * effects. The class FilterStateMachines moves the effects (TODO: single name calculation)
 	 */
 	def effectName(Transition transition) {
-		// transition.containingStateMachine.name + "_" + transition.effect.name
 		if (transition.effect.name == null) {
 			throw new TransformationException(
 				String.format("effect of transition has no name (in SM %s)", transition.containingStateMachine.name))
 		}
-		transition.effect.name
+		FilterStateMachines.newBehaviorName(transition)
 	}
 	
 	def void addSignalParameter(Behavior behavior, Signal signal) {
 		if (behavior.ownedParameters.size == 0) {
-			val parameter = behavior.createOwnedParameter("signal", signal)
+			val parameter = behavior.createOwnedParameter(sigParamName, signal)
 			StereotypeUtil.apply(parameter, Ptr)
+			if (ooPattern) {
+				// create dependency between class hosting stereotype and signal (used by C++ code generators to add proper code)
+				clazz.createDependency(signal)
+			}
 		}
 	}
 
@@ -404,9 +449,7 @@ class StateMachineGen implements IXtend {
 			}
 		}
 		else {
-			System.out.println("was");
+			Activator.log.debug("error, expecting a guard typed with a boolean value");
 		}
-			// if (tmClass.getOwnedOperation(newName, null, null) != null) {
-		// copiedEffect.setSpecification(operation);
 	}
 }

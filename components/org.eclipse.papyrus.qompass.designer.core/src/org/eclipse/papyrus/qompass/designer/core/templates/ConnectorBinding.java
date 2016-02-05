@@ -118,7 +118,7 @@ public class ConnectorBinding {
 		if (!found) {
 			throw new TransformationException(String.format(
 					Messages.ConnectorBinding_CannotFindConsistentBinding,
-					port.getName(), connector.getName(), connector.getNamespace().getName(), actual.getName()));
+					port.getName(), connector.getName(), connector.getNamespace().getName(), (actual != null) ? actual.getName() : "null"));
 		}
 		return actual;
 	}

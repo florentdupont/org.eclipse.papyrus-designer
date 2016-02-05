@@ -3,7 +3,7 @@ package org.eclipse.papyrus.qompass.designer.cpp.xtend
 import org.eclipse.uml2.uml.Property ;
 import org.eclipse.uml2.uml.AggregationKind
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
-import org.eclipse.papyrus.C_Cpp.Ptr
+import org.eclipse.papyrus.designer.languages.cpp.profile.Ptr
 
 public class CppUtils {
 	public static def nameRef(Property part) {

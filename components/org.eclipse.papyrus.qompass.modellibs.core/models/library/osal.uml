@@ -4081,12 +4081,16 @@ getPtr part is commented out => reconsider whether this class is needed)</body>
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_kor6MFdhEd-9TNLvplUFDQ" name="funcPtr_AvpRvp"/>
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_l2xogFdiEd-9TNLvplUFDQ" name="ThreadId"/>
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5J3-8FdkEd-9TNLvplUFDQ" name="sigset_t"/>
-      <packagedElement xmi:type="uml:Usage" xmi:id="_BARjMFnFEd-9TNLvplUFDQ" name="FromProDesctoBString200" client="_oSgIME_BEdy2tpS719xBwQ" supplier="_0AwCEDO0EdyG-pUz-bb-Lg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_BARjMFnFEd-9TNLvplUFDQ" name="FromProDesctoBString200" client="_oSgIME_BEdy2tpS719xBwQ" supplier="_oT0acC-OEdySSa8YESkO2w"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_HQSIsFnFEd-9TNLvplUFDQ" name="FromProDesctoBString500" client="_oSgIME_BEdy2tpS719xBwQ" supplier="_1vnXoDO0EdyG-pUz-bb-Lg"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_JMMZwFnbEd-9TNLvplUFDQ" name="FromThreadtoTrace" client="_-HeCsDj_Edy0Rd6V_tf1-Q" supplier="_1DM54DxBEdyfAeav5abbAw"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_aG940FnbEd-9TNLvplUFDQ" name="FromThreadtoSetOf" client="_-HeCsDj_Edy0Rd6V_tf1-Q" supplier="_2bXLkDUuEdyDReAOQiyvOg"/>
       <packagedElement xmi:type="uml:Usage" xmi:id="_9knnwFncEd-9TNLvplUFDQ" name="FromThreadtoProDesc" client="_-HeCsDj_Edy0Rd6V_tf1-Q" supplier="_oSgIME_BEdy2tpS719xBwQ"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_ONsuENqFEeKrRY-H1kHnNA" name="Dependency1" client="_-HeCsDj_Edy0Rd6V_tf1-Q" supplier="_4lsq4NqEEeKrRY-H1kHnNA"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_kqxWkL-NEeWzCKjiZE_bAw" client="_oSgIME_BEdy2tpS719xBwQ" supplier="_Fqa9QDUPEdy0feurbW0fyQ"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_7mmHML-PEeWzCKjiZE_bAw" client="_-HeCsDj_Edy0Rd6V_tf1-Q" supplier="_1vnXoDO0EdyG-pUz-bb-Lg"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_8O3BEL-PEeWzCKjiZE_bAw" client="_-HeCsDj_Edy0Rd6V_tf1-Q" supplier="_Fqa9QDUPEdy0feurbW0fyQ"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_Qh8fwL-QEeWzCKjiZE_bAw" client="_9-OUUE_uEdy2tpS719xBwQ" supplier="_Fqa9QDUPEdy0feurbW0fyQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_q6QRMC-OEdySSa8YESkO2w" name="Sets">
       <ownedComment xmi:type="uml:Comment" xmi:id="_S5s5gDalEdyMZ7r5-upW2A" annotatedElement="_zOJVcDaeEdyC6dXxO2UOEQ">
@@ -7124,6 +7128,7 @@ return result;&#xD;
         <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_3I10wBEcEeG3cfLoiI6G7g" name="InterProcess"/>
       </packagedElement>
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_U_uoIBEhEeG3cfLoiI6G7g" name="ConditionId"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_3y1pEL-MEeWzCKjiZE_bAw" client="_QWlVgPRTEeCUGrV0Hl4JwQ" supplier="_1vnXoDO0EdyG-pUz-bb-Lg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_vlmmAC-OEdySSa8YESkO2w" name="Time">
       <packagedElement xmi:type="uml:Class" xmi:id="_BN92YDj8Edy0Rd6V_tf1-Q" name="DebugTimer">
@@ -8432,6 +8437,7 @@ represents this deadline.</body>
       <packagedElement xmi:type="uml:Usage" xmi:id="_z1gvcFLcEd-mj-y6sW0V8w" name="FromTimeValtoPrint" client="_FuKEEDj8Edy0Rd6V_tf1-Q" supplier="_Fqa9QDUPEdy0feurbW0fyQ"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_5YJA0It4EeCA0czgCf_91g" name="timer_t"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_SPVucIt6EeCA0czgCf_91g" name="itimerspec"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_QHa8YL-PEeWzCKjiZE_bAw" client="_ETakYDj8Edy0Rd6V_tf1-Q" supplier="_Fqa9QDUPEdy0feurbW0fyQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_w86XMC-OEdySSa8YESkO2w" name="Tracing">
       <ownedComment xmi:type="uml:Comment" xmi:id="_qhfYAFIhEdy7g9CjxdN7jw" annotatedElement="_1DM54DxBEdyfAeav5abbAw">
@@ -11142,7 +11148,7 @@ Show: output the whole line immediately and reset the output string</body>
   <C_Cpp:Inline xmi:id="_8xvS4E_JEdy2tpS719xBwQ" base_operation="_fbomcE_HEdy2tpS719xBwQ"/>
   <C_Cpp:Inline xmi:id="_9gOwkE_JEdy2tpS719xBwQ" base_operation="_ffqK0E_HEdy2tpS719xBwQ"/>
   <C_Cpp:Inline xmi:id="_-NYKcE_JEdy2tpS719xBwQ" base_operation="_fkkgAE_HEdy2tpS719xBwQ"/>
-  <C_Cpp:Include xmi:id="_bphYAE_NEdy2tpS719xBwQ" body="#include &lt;OS_AL/ProcessingResources/System.h>&#xD;&#xA;#include &lt;OS_AL/ProcessingResources/ProDesc.h>&#xD;&#xA;#include &lt;OS_AL/Tracing/Trace.h>&#xD;&#xA;#include &lt;OS_AL/Time/DebugTimer.h>&#xD;&#xA;&#xD;&#xA;#if defined SYSTEM_Solaris&#xD;&#xA;&#x9;#include &lt;sys/priocntl.h>&#xD;&#xA;&#x9;#include &lt;sys/rtpriocntl.h>&#xD;&#xA;&#x9;#include &lt;sys/tspriocntl.h>&#xD;&#xA;&#xD;&#xA;#elif defined SYSTEM_VxWorks&#xD;&#xA;&#x9;#include &lt;configAll.h>&#x9;//-VxW&#xD;&#xA;&#xD;&#xA;#elif defined SYSTEM_Cygwin&#xD;&#xA;    #include &lt;sys/unistd.h>&#x9;&#x9;// for _SC_SEM_NSEMS_MAX and _SC_OPEN_MQ_MAX&#xD;&#xA;#endif&#xD;&#xA;&#xD;&#xA;#if defined SYSTEM_Linux || defined SYSTEM_Solaris&#xD;&#xA;&#x9;#include &lt;sys/utsname.h>&#xD;&#xA;#endif&#xD;&#xA;" header="#if defined SYSTEM_POSIX4 || defined SYSTEM_Linux&#xD;&#xA;&#x9;#define SYS_NMLN&#x9;250&#x9;&#x9;&#x9;// vérif. s'il existe&#xD;&#xA;&#x9;#include &lt;limits.h>&#xD;&#xA;&#x9;#include &lt;unistd.h>&#xD;&#xA;&#xD;&#xA;#elif defined  SYSTEM_Solaris&#xD;&#xA;&#x9;#include &lt;sys/utsname.h>&#xD;&#xA;&#xD;&#xA;#elif defined  SYSTEM_VxWorks&#xD;&#xA;&#x9;#include &lt;vxWorks.h>&#xD;&#xA;&#x9;#include &lt;configAll.h>&#x9;&#x9;//-VxW&#xD;&#xA;&#x9;#define SYS_NMLN&#x9;250&#x9;&#x9;// vérif. s'il existe&#xD;&#xA;#else&#xD;&#xA;&#x9;SYSTEM_x_not_defined;&#xD;&#xA;#endif&#xD;&#xA;" base_class="_TVGDsE_NEdy2tpS719xBwQ"/>
+  <C_Cpp:Include xmi:id="_bphYAE_NEdy2tpS719xBwQ" body="#include &lt;OS_AL/ProcessingResources/System.h>&#xD;&#xA;#include &lt;OS_AL/ProcessingResources/ProDesc.h>&#xD;&#xA;#include &lt;OS_AL/Tracing/Trace.h>&#xD;&#xA;&#xD;&#xA;#if defined SYSTEM_Solaris&#xD;&#xA;&#x9;#include &lt;sys/priocntl.h>&#xD;&#xA;&#x9;#include &lt;sys/rtpriocntl.h>&#xD;&#xA;&#x9;#include &lt;sys/tspriocntl.h>&#xD;&#xA;&#xD;&#xA;#elif defined SYSTEM_VxWorks&#xD;&#xA;&#x9;#include &lt;configAll.h>&#x9;//-VxW&#xD;&#xA;&#xD;&#xA;#elif defined SYSTEM_Cygwin&#xD;&#xA;    #include &lt;sys/unistd.h>&#x9;&#x9;// for _SC_SEM_NSEMS_MAX and _SC_OPEN_MQ_MAX&#xD;&#xA;#endif&#xD;&#xA;&#xD;&#xA;#if defined SYSTEM_Linux || defined SYSTEM_Solaris&#xD;&#xA;&#x9;#include &lt;sys/utsname.h>&#xA;&#x9;#include &lt;errno.h>&#xD;&#xA;#endif&#xD;&#xA;" header="#if defined SYSTEM_POSIX4 || defined SYSTEM_Linux&#xD;&#xA;&#x9;#define SYS_NMLN&#x9;250&#x9;&#x9;&#x9;// vérif. s'il existe&#xD;&#xA;&#x9;#include &lt;limits.h>&#xD;&#xA;&#x9;#include &lt;unistd.h>&#xD;&#xA;&#xD;&#xA;#elif defined  SYSTEM_Solaris&#xD;&#xA;&#x9;#include &lt;sys/utsname.h>&#xD;&#xA;&#xD;&#xA;#elif defined  SYSTEM_VxWorks&#xD;&#xA;&#x9;#include &lt;vxWorks.h>&#xD;&#xA;&#x9;#include &lt;configAll.h>&#x9;&#x9;//-VxW&#xD;&#xA;&#x9;#define SYS_NMLN&#x9;250&#x9;&#x9;// vérif. s'il existe&#xD;&#xA;#else&#xD;&#xA;&#x9;SYSTEM_x_not_defined;&#xD;&#xA;#endif&#xD;&#xA;" base_class="_TVGDsE_NEdy2tpS719xBwQ"/>
   <C_Cpp:Const xmi:id="_cZtCUE_OEdy2tpS719xBwQ" base_parameter="_YIRCUE_OEdy2tpS719xBwQ"/>
   <C_Cpp:Ptr xmi:id="_cZtCUU_OEdy2tpS719xBwQ" base_parameter="_YIRCUE_OEdy2tpS719xBwQ"/>
   <C_Cpp:Ptr xmi:id="_5ufNME_dEdy2tpS719xBwQ" base_parameter="_1uCPgE_dEdy2tpS719xBwQ"/>
@@ -11642,4 +11648,6 @@ Show: output the whole line immediately and reset the output string</body>
   <C_Cpp:Ptr xmi:id="_v3RN8CBbEeOMKsPXBVC0DA" base_parameter="_v2XPACBbEeOMKsPXBVC0DA"/>
   <C_Cpp:Const xmi:id="_v4eH0CBbEeOMKsPXBVC0DA" base_parameter="_v3jh0CBbEeOMKsPXBVC0DA"/>
   <C_Cpp:Ref xmi:id="_v4lckCBbEeOMKsPXBVC0DA" base_parameter="_v3jh0CBbEeOMKsPXBVC0DA"/>
+  <standard:Create xmi:id="_jMIuAL-QEeWzCKjiZE_bAw" base_BehavioralFeature="_ZtXqAE_xEdy2tpS719xBwQ"/>
+  <C_Cpp:NoCodeGen xmi:id="_AKjPML-_EeWSBNihBXiulQ" base_element="_9-OUUE_uEdy2tpS719xBwQ"/>
 </xmi:XMI>

@@ -33,6 +33,8 @@ import org.eclipse.uml2.uml.Transition;
  */
 public class FilterStateMachines implements PreCopyListener {
 
+	private static final String TRANSITION = "transition"; //$NON-NLS-1$
+
 	public static FilterStateMachines getInstance() {
 		if (instance == null) {
 			instance = new FilterStateMachines();
@@ -40,21 +42,39 @@ public class FilterStateMachines implements PreCopyListener {
 		return instance;
 	}
 
+	/**
+	 * Calculate the new name of an effect that will become an operation/behavior
+	 * at the class level
+	 * @param sm The state-machine
+	 * @param transition the transition holding an effect
+	 * @return the new name
+	 */
+	public static String newBehaviorName(Transition transition) {
+		Behavior effect = transition.getEffect();
+	
+		String transitionName = transition.getName();
+		if (transitionName == null) {
+			transitionName = TRANSITION;
+		}
+		return transition.containingStateMachine().getName() + "_" + transitionName //$NON-NLS-1$
+		 		+ "_" + effect.getName(); //$NON-NLS-1$
+	}
+	
 	@Override
-	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj) {
+	public EObject preCopyEObject(LazyCopier copier, EObject sourceEObj) {
 		if (sourceEObj instanceof StateMachine) {
 			StateMachine sm = (StateMachine) sourceEObj;
-			Class tmClass = getTargetClass(copy, sm);
-
+			// Class tmClass = getTargetClass(copy, sm);
+			Class tmClass =  (Class) sm.getOwner();
+					
 			// copy opaque behavior in state machine to class level
 			for (Region region : sm.getRegions()) {
 				for (Transition transition : region.getTransitions()) {
 					Behavior effect = transition.getEffect();
 					if (effect != null) {
 						if (tmClass != null) {
-							String newName = sm.getName() + "_" + transition.getName() //$NON-NLS-1$
-							 		+ "_" + effect.getName(); //$NON-NLS-1$
-							moveBehavior(newName, tmClass, effect);
+							String newName = newBehaviorName(transition);
+							moveBehavior(copier, newName, tmClass, effect);
 						}
 					}
 				}
@@ -74,7 +94,7 @@ public class FilterStateMachines implements PreCopyListener {
 		return null;
 	}
 
-	public void moveBehavior(String newName, Class tmClass, Behavior effect) {
+	public void moveBehavior(LazyCopier copier, String newName, Class tmClass, Behavior effect) {
 		Behavior copiedEffect = EcoreUtil.copy(effect);
 		if (tmClass.getOwnedOperation(newName, null, null) != null) {
 			// has already been added

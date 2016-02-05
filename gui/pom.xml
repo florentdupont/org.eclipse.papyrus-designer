@@ -12,6 +12,6 @@
 	<description>This module contains the different plugins relative to the graphical user interface for Designer.</description>
 	
 	<modules>
-		<module>org.eclipse.papyrus.qompass.ui</module>
+		<module>org.eclipse.papyrus.designer.ui</module>
 	</modules>
 </project>

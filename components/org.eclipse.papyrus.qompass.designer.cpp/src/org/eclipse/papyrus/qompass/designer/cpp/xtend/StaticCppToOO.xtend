@@ -30,7 +30,7 @@ import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.ConnectorEnd
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil
-import org.eclipse.papyrus.C_Cpp.Ptr
+import org.eclipse.papyrus.designer.languages.cpp.profile.Ptr
 import org.eclipse.uml2.uml.Type
 import java.util.HashMap
 import java.util.Map
@@ -182,7 +182,7 @@ class StaticCppToOO implements IOOTrafo {
 	 * 
 	 * @param implementation
 	 */
-	static def addConnectPortOperation(Class implementation) {
+	def addConnectPortOperation(Class implementation) {
 		for (PortInfo portInfo : PortUtils.flattenExtendedPorts(PortUtils.getAllPorts2(implementation))) {
 			val requiredIntf = portInfo.getRequired()
 			if (requiredIntf != null) {
@@ -201,8 +201,11 @@ class StaticCppToOO implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						val eLong = Utils.getQualifiedElement(PackageUtil.getRootPackage(implementation),
+						var eLong = Utils.getQualifiedElement(copier.source,
 							CompTypeTrafos.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
+						if (eLong != null) {
+							eLong = copier.getCopy(eLong);
+						}
 						if (eLong instanceof Type) {
 							op.createOwnedParameter("index", eLong as Type)
 						} else {

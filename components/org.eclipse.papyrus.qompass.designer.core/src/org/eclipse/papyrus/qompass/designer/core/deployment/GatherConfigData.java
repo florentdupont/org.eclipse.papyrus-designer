@@ -15,8 +15,8 @@
 package org.eclipse.papyrus.qompass.designer.core.deployment;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.codegen.extensionpoints.AbstractSettings;
-import org.eclipse.papyrus.codegen.extensionpoints.ILangProjectSupport;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
 import org.eclipse.papyrus.qompass.designer.core.listeners.PreCopyListener;
 import org.eclipse.papyrus.qompass.designer.core.transformations.LazyCopier;
 import org.eclipse.uml2.uml.Class;

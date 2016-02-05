@@ -16,7 +16,7 @@ package org.eclipse.papyrus.qompass.designer.core.templates;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.papyrus.C_Cpp.ConstInit;
+import org.eclipse.papyrus.designer.languages.cpp.profile.ConstInit;
 import org.eclipse.papyrus.qompass.designer.core.Messages;
 import org.eclipse.papyrus.qompass.designer.core.PortUtils;
 import org.eclipse.papyrus.qompass.designer.core.StUtils;
