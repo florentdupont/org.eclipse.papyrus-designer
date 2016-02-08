@@ -15,7 +15,7 @@
 		<module>components</module>
 		<module>languages</module>
 		<module>gui</module>
-		<!-- module>releng</module-->
+		<module>releng</module>
 		<module>targetplatform</module>
 	</modules>
 	<properties>
