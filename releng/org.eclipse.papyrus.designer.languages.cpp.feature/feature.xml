@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.papyrus.designer.languages.cpp.feature"
+      label="%featureName"
+      version="0.7.0.qualifier"
+      provider-name="%providerName">
+
+   <description url="http://www.example.com/description">
+      C++ code generation from Papyrus. The feature includes
+- A C++ profile, enabling the specification for C++ features, for instance: pointers, friends, constructor initializers
+- A code generator from UML enriched with the C++ profile
+- A C++ view allowing simple editing of opaque behaviors and manipulation of C++ profile attributes
+- An experimental CDT integration
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2012 CEA LIST
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.papyrus.designer.languages.common.feature"
+         version="0.0.0"/>
+
+   <requires>
+      <import feature="org.eclipse.cdt" version="8.4.0.201406031009"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.codegen"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.codegen.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.profile"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.profile.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.library"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.library.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.view"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.cdt.project"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.examples"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -13,5 +13,14 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<description>This plug-in contains the different modules relatives to the releng of Designer from update site, to feature , product and rcp.</description>
 	<modules>
 		<module>org.eclipse.papyrus.designer.languages.common.feature</module>
+		<module>org.eclipse.papyrus.designer.basic.feature</module>
+		
+		<!-- cpp -->
+		<module>org.eclipse.papyrus.designer.languages.cpp.feature</module>
+		
+		<!-- java -->
+		<module>org.eclipse.papyrus.designer.languages.java.profile.feature</module>
+		<module>org.eclipse.papyrus.designer.languages.java.reverse.feature</module>
+		<module>org.eclipse.papyrus.designer.languages.java.generator.feature</module>
 	</modules>
 </project>

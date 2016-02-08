@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.papyrus.designer.basic.feature"
+      label="%featureName"
+      version="0.7.0.qualifier"
+      provider-name="%providerName">
+
+   <description>
+      The Qompass tool suite is a component based design methodology
+based
+on
+- A profile derived from a flexible component model (FCM) with
+- extensible port definitions (kind)
+- extensible set of connector types and implementations
+- extensible set of container services
+- A library of predefined port kinds
+- A library of connector types along with their implementations
+- The tool chain supporting a set of model-to-model transformation
+(connector and container expansion)
+- A C++ code generator
+- CDT support, i.e. the generation of a CDT project from the
+model
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2012 CEA LIST
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.papyrus.designer.languages.cpp.feature"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.components.transformation.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.components.doc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.components.validation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.components.modellibs.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.components.vsl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.components.fcm.profile"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.components.transformation.cpp"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
