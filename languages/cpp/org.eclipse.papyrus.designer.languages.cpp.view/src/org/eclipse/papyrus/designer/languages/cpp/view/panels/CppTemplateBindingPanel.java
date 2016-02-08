@@ -125,7 +125,7 @@ public class CppTemplateBindingPanel extends CppAbstractPanel {
 					if (newB.equals("")) {
 						StereotypeUtil.unapply(selectedTB, TemplateBinding.class);
 					} else {
-						org.eclipse.papyrus.designer.languages.cpp.profile.TemplateBinding templateBinding = StereotypeUtil.applyApp(selectedTB, org.eclipse.papyrus.designer.languages.cpp.profile.TemplateBinding.class);
+						org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateBinding templateBinding = StereotypeUtil.applyApp(selectedTB, org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateBinding.class);
 						// TODO: use UML template bindings?
 						templateBinding.setBinding(newB);
 					}
@@ -142,7 +142,7 @@ public class CppTemplateBindingPanel extends CppAbstractPanel {
 	@Override
 	protected void refreshPanel() {
 		if (selectedTB != null) {
-			org.eclipse.papyrus.designer.languages.cpp.profile.TemplateBinding templateBinding = UMLUtil.getStereotypeApplication(selectedTB, org.eclipse.papyrus.designer.languages.cpp.profile.TemplateBinding.class);
+			org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateBinding templateBinding = UMLUtil.getStereotypeApplication(selectedTB, org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateBinding.class);
 			// TODO: use UML template bindings?
 			docBinding.set(templateBinding != null ? templateBinding.getBinding() : "");
 		}
@@ -166,7 +166,7 @@ public class CppTemplateBindingPanel extends CppAbstractPanel {
 	 */
 	@Override
 	public boolean checkModifications() {
-		org.eclipse.papyrus.designer.languages.cpp.profile.TemplateBinding templateBinding = UMLUtil.getStereotypeApplication(selectedTB, org.eclipse.papyrus.designer.languages.cpp.profile.TemplateBinding.class);
+		org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateBinding templateBinding = UMLUtil.getStereotypeApplication(selectedTB, org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateBinding.class);
 		// TODO: use UML template bindings?
 		String bindingValue = templateBinding != null ? templateBinding.getBinding() : "";
 		if (!docBinding.get().equals(bindingValue)) {

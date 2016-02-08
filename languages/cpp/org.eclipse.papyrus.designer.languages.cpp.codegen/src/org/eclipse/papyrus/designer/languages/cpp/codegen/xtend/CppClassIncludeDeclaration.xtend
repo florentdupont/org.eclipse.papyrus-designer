@@ -13,9 +13,9 @@
 
 import java.util.ArrayList
 import java.util.List
-import org.eclipse.papyrus.designer.languages.cpp.profile.ExternLibrary
-import org.eclipse.papyrus.designer.languages.cpp.profile.External
-import org.eclipse.papyrus.designer.languages.cpp.profile.Template
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Template
 import org.eclipse.papyrus.designer.languages.cpp.codegen.preferences.CppCodeGenUtils
 import org.eclipse.uml2.uml.NamedElement
 import org.eclipse.uml2.uml.util.UMLUtil

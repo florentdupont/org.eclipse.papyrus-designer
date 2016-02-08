@@ -12,7 +12,7 @@ package org.eclipse.papyrus.designer.languages.cpp.codegen.xtend
  *******************************************************************************/
  
  import org.eclipse.uml2.uml.NamedElement
-import org.eclipse.papyrus.designer.languages.cpp.profile.Include
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include
 import org.eclipse.uml2.uml.util.UMLUtil
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
 import org.eclipse.papyrus.designer.languages.cpp.codegen.Constants

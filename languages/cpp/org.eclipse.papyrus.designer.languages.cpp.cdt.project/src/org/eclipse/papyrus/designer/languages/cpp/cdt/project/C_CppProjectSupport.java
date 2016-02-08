@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
-import org.eclipse.papyrus.designer.languages.cpp.profile.ExternLibrary;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;

@@ -13,14 +13,14 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://www.eclipse.org/papyrus/JAVA/1"
-            class="org.eclipse.papyrus.designer.languages.java.profile.JavaPackage"
+            class="org.eclipse.papyrus.designer.languages.java.profile.java.JavaPackage"
             genModel="models/java.profile.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="java"
-            class="org.eclipse.papyrus.designer.languages.java.profile.util.JavaResourceFactoryImpl"/>
+            class="org.eclipse.papyrus.designer.languages.java.profile.java.util.JavaResourceFactoryImpl"/>
    </extension>
    <extension
          point="org.eclipse.emf.ecore.uri_mapping">

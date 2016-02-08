@@ -11,7 +11,7 @@
  
  package org.eclipse.papyrus.designer.languages.cpp.codegen.xtend
 
-import org.eclipse.papyrus.designer.languages.cpp.profile.Union
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Union
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
 import org.eclipse.papyrus.designer.languages.cpp.codegen.preferences.CppCodeGenUtils
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils

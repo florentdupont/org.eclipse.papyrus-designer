@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.papyrus.designer.components.vsl
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.papyrus.marte.vsl;bundle-version="1.2.0",
+ org.eclipse.xtext;bundle-version="2.4.0",
+ org.eclipse.papyrus.marte.static.profile;bundle-version="1.2.0"
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 0.7.0.qualifier
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-Activator: org.eclipse.papyrus.designer.components.vsl.Activator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.papyrus.designer.components.vsl
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

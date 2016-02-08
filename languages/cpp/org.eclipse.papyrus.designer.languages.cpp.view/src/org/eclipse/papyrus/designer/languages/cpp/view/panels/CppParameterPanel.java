@@ -13,10 +13,10 @@ package org.eclipse.papyrus.designer.languages.cpp.view.panels;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.source.SourceViewer;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Array;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Const;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Ptr;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Ref;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Const;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref;
 import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.widgets.Button;

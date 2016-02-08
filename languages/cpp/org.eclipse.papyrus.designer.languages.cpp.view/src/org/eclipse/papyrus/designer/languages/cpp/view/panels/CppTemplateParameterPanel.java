@@ -124,10 +124,10 @@ public class CppTemplateParameterPanel extends CppAbstractPanel {
 					// Treat Parameter name
 					String newB = docParameter.get();
 					if (newB.equals("")) {
-						StereotypeUtil.unapply(selectedTP, org.eclipse.papyrus.designer.languages.cpp.profile.TemplateParameter.class);
+						StereotypeUtil.unapply(selectedTP, org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateParameter.class);
 					}
 					else {
-						org.eclipse.papyrus.designer.languages.cpp.profile.TemplateParameter templateParameter = StereotypeUtil.applyApp(selectedTP, org.eclipse.papyrus.designer.languages.cpp.profile.TemplateParameter.class);
+						org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateParameter templateParameter = StereotypeUtil.applyApp(selectedTP, org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateParameter.class);
 						templateParameter.setName(newB);
 					}
 				}
@@ -146,7 +146,7 @@ public class CppTemplateParameterPanel extends CppAbstractPanel {
 			/* Log.debug("resetBody : selectedProperty is null"); */
 		} else {
 
-			org.eclipse.papyrus.designer.languages.cpp.profile.TemplateParameter templateParameter = UMLUtil.getStereotypeApplication(selectedTP, org.eclipse.papyrus.designer.languages.cpp.profile.TemplateParameter.class);
+			org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateParameter templateParameter = UMLUtil.getStereotypeApplication(selectedTP, org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateParameter.class);
 			String parameterName = templateParameter != null ? templateParameter.getName() : "";
 			docParameter.set(parameterName);
 		}
@@ -170,7 +170,7 @@ public class CppTemplateParameterPanel extends CppAbstractPanel {
 	 */
 	@Override
 	public boolean checkModifications() {
-		org.eclipse.papyrus.designer.languages.cpp.profile.TemplateParameter templateParameter = UMLUtil.getStereotypeApplication(selectedTP, org.eclipse.papyrus.designer.languages.cpp.profile.TemplateParameter.class);
+		org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateParameter templateParameter = UMLUtil.getStereotypeApplication(selectedTP, org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.TemplateParameter.class);
 		// TODO: use UML template bindings?
 		String parameterName = templateParameter != null ? templateParameter.getName() : "";
 		if (!docParameter.get().equals(parameterName)) {

@@ -21,7 +21,7 @@ import org.eclipse.papyrus.designer.languages.common.extensionpoints.SyncInforma
 import org.eclipse.papyrus.designer.languages.cpp.codegen.preferences.CppCodeGenUtils;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.transformation.CppModelElementsCreator;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.LocateCppProject;
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_CppPackage;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.C_CppPackage;
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;

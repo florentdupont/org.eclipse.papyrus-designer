@@ -11,8 +11,8 @@ package org.eclipse.papyrus.designer.languages.cpp.codegen.xtend
  *     CEA LIST - initial API and implementation
  *******************************************************************************/
  
- import org.eclipse.papyrus.designer.languages.cpp.profile.Inline
-import org.eclipse.papyrus.designer.languages.cpp.profile.Virtual
+ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Inline
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Virtual
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.Modifier
 import org.eclipse.uml2.uml.Behavior
@@ -25,14 +25,14 @@ import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.Operation
 import org.eclipse.uml2.uml.profile.standard.Create
 import org.eclipse.uml2.uml.profile.standard.Destroy
-import org.eclipse.papyrus.designer.languages.cpp.profile.ConstInit
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ConstInit
 import org.eclipse.uml2.uml.util.UMLUtil
 import org.eclipse.papyrus.designer.languages.cpp.codegen.Constants
 import org.eclipse.uml2.uml.NamedElement
 import org.eclipse.uml2.uml.Region
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.ClassUtils
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
-import org.eclipse.papyrus.designer.languages.cpp.profile.Variadic
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Variadic
 import org.eclipse.uml2.uml.ParameterDirectionKind
 
 class CppOperations {

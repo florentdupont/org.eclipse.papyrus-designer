@@ -16,11 +16,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils;
-import org.eclipse.papyrus.designer.languages.cpp.profile.ExternLibrary;
-import org.eclipse.papyrus.designer.languages.cpp.profile.External;
-import org.eclipse.papyrus.designer.languages.cpp.profile.NoCodeGen;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Typedef;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Visibility;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Visibility;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.ClassifierTemplateParameter;
 import org.eclipse.uml2.uml.ConnectableElementTemplateParameter;

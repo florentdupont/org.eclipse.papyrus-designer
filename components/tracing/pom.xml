@@ -16,7 +16,7 @@
 		<!-- module>org.eclipse.papyrus.infra.services.tracebreakpoints</module>
 		<module>org.eclipse.papyrus.infra.services.tracebreakpoints.ui</module-->
 		<module>org.eclipse.papyrus.infra.services.tracepoints</module>
-		<module>org.eclipse.papyrus.qompass.modellibs.tracing</module>
+		<module>org.eclipse.papyrus.designer.components.modellibs.tracing</module>
 		<module>org.eclipse.papyrus.views.tracepoints</module>
 	</modules>
 </project>

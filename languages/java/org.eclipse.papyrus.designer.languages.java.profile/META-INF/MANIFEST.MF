@@ -3,9 +3,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.uml2.uml;visibility:=reexport
-Export-Package: org.eclipse.papyrus.designer.languages.java.profile,
- org.eclipse.papyrus.designer.languages.java.profile.impl,
- org.eclipse.papyrus.designer.languages.java.profile.util
+Export-Package: org.eclipse.papyrus.designer.languages.java.profile.java,
+ org.eclipse.papyrus.designer.languages.java.profile.java.impl,
+ org.eclipse.papyrus.designer.languages.java.profile.java.util
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .

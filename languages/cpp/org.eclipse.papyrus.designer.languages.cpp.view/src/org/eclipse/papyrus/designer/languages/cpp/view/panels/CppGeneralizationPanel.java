@@ -11,7 +11,7 @@
 
 package org.eclipse.papyrus.designer.languages.cpp.view.panels;
 
-import org.eclipse.papyrus.designer.languages.cpp.profile.Visibility;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Visibility;
 import org.eclipse.papyrus.designer.languages.cpp.view.Activator;
 import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
 import org.eclipse.swt.SWT;

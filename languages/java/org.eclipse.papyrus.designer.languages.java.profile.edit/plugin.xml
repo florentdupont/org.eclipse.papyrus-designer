@@ -13,7 +13,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.eclipse.org/papyrus/JAVA/1"
-            class="org.eclipse.papyrus.designer.languages.java.profile.provider.JavaItemProviderAdapterFactory"
+            class="org.eclipse.papyrus.designer.languages.java.profile.java.provider.JavaItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

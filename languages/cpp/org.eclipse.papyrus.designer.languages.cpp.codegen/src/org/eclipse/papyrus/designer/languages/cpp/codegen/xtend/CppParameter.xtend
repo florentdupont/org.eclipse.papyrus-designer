@@ -17,7 +17,7 @@ import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.Modifier
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
 import org.eclipse.uml2.uml.ParameterDirectionKind
 import org.eclipse.uml2.uml.Behavior
-import org.eclipse.papyrus.designer.languages.cpp.profile.Array
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
 import org.eclipse.uml2.uml.util.UMLUtil
 
 /**

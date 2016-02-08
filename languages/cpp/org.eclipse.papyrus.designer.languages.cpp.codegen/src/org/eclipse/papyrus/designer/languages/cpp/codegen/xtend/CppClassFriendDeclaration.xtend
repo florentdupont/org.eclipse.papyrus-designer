@@ -13,8 +13,8 @@
 
 import org.eclipse.uml2.uml.Classifier
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
-import org.eclipse.papyrus.designer.languages.cpp.profile.Friend
-import org.eclipse.papyrus.designer.languages.cpp.profile.NoCodeGen
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Friend
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
 
 /**

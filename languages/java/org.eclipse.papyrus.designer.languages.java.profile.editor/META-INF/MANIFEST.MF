@@ -4,14 +4,14 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  org.eclipse.core.resources
-Export-Package: org.eclipse.papyrus.designer.languages.java.profile.editor
+Export-Package: org.eclipse.papyrus.designer.languages.java.profile.java.presentation
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Bundle-Version: 0.7.0.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
-Bundle-Activator: org.eclipse.papyrus.designer.languages.java.profile.editor.JavaEditorPlugin$Implementation
+Bundle-Activator: org.eclipse.papyrus.designer.languages.java.profile.java.presentation.JavaEditorPlugin$Implementation
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.eclipse.papyrus.designer.languages.java.profile.editor;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

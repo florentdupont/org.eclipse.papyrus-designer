@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.uml2.uml;bundle-version="5.0.0"
-Export-Package: org.eclipse.papyrus.designer.languages.cpp.profile,
- org.eclipse.papyrus.designer.languages.cpp.profile.impl,
- org.eclipse.papyrus.designer.languages.cpp.profile.util
+Export-Package: org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp,
+ org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl,
+ org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.util
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .

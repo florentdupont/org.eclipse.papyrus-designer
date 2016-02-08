@@ -9,8 +9,8 @@
 		locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup">
 		<menu
 			icon="icons/qompass-16x16.gif"
-			id="org.eclipse.papyrus.qompass.popup"
-			label="Qompass">
+			id="org.eclipse.papyrus.designer.popup"
+			label="Designer">
 			<separator name="designer" visible="true"/>
 		</menu>
 	</menuContribution>
@@ -19,10 +19,10 @@
 		locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=filtersMenu">
 		<menu
 			icon="icons/qompass-16x16.gif"
-			id="org.eclipse.papyrus.qompass.popup"
-			label="Qompass">
+			id="org.eclipse.papyrus.designer.popup"
+			label="Designer">
 			<separator name="codegen" visible="true"/>
-			<separator name="designer" visible="true"/>
+			<separator name="components" visible="true"/>
 			<separator name="architect" visible="true"/>
 		</menu>
 	</menuContribution>

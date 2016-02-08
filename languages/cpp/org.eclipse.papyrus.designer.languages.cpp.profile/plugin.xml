@@ -5,7 +5,7 @@
 			point="org.eclipse.emf.ecore.uri_mapping">
 		<mapping
 			source="pathmap://PapyrusC_Cpp_PROFILES/"
-			target="platform:/plugin/org.eclipse.papyrus.cpp.profile/profiles/"/>
+			target="platform:/plugin/org.eclipse.papyrus.designer.languages.cpp.profile/profiles/"/>
 	</extension>
   
 	<extension 
@@ -19,7 +19,7 @@
       <!-- @generated C_Cpp -->
       <package
             uri="http://www.eclipse.org/papyrus/C_Cpp/1"
-            class="org.eclipse.papyrus.designer.languages.cpp.profile.C_CppPackage"
+            class="org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.C_CppPackage"
             genModel="profiles/C_Cpp.genmodel"/>
    </extension>
 
@@ -27,6 +27,6 @@
       <!-- @generated C_Cpp -->
       <parser
             type="c_cpp"
-            class="org.eclipse.papyrus.designer.languages.cpp.profile.util.C_CppResourceFactoryImpl"/>
+            class="org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.util.C_CppResourceFactoryImpl"/>
    </extension>
 </plugin>

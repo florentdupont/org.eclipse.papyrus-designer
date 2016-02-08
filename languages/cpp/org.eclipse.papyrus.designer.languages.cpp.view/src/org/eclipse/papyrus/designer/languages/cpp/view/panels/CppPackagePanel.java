@@ -12,7 +12,7 @@
 package org.eclipse.papyrus.designer.languages.cpp.view.panels;
 
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Include;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include;
 import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.widgets.Composite;

@@ -13,15 +13,15 @@
 	<description>This module contains the different plugins relative to the graphical user interface for Designer.</description>
 
 	<modules>
-		<module>org.eclipse.papyrus.fcm.profile</module>
-		<module>org.eclipse.papyrus.qompass.designer.core</module>
-		<module>org.eclipse.papyrus.qompass.designer.cpp</module>
-		<module>org.eclipse.papyrus.qompass.designer.doc</module>
-		<module>org.eclipse.papyrus.qompass.designer.java</module>
-		<module>org.eclipse.papyrus.qompass.designer.ui</module>
-		<module>org.eclipse.papyrus.qompass.designer.validation</module>
-		<module>org.eclipse.papyrus.qompass.designer.vsl</module>
-		<module>org.eclipse.papyrus.qompass.modellibs.core</module>
+		<module>org.eclipse.papyrus.designer.components.fcm.profile</module>
+		<module>org.eclipse.papyrus.designer.components.doc</module>
+		<module>org.eclipse.papyrus.designer.components.transformation.core</module>
+		<module>org.eclipse.papyrus.designer.components.transformation.cpp</module>
+		<module>org.eclipse.papyrus.designer.components.transformation.java</module>
+		<module>org.eclipse.papyrus.designer.components.transformation.ui</module>
+		<module>org.eclipse.papyrus.designer.components.validation</module>
+		<module>org.eclipse.papyrus.designer.components.vsl</module>
+		<module>org.eclipse.papyrus.designer.components.modellibs.core</module>
 		<module>tracing</module>
 	</modules>
 </project>

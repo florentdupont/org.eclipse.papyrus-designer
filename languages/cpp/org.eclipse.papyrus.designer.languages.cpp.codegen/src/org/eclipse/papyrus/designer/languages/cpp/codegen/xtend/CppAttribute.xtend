@@ -11,17 +11,14 @@
  
  package org.eclipse.papyrus.designer.languages.cpp.codegen.xtend
 
-import org.eclipse.uml2.uml.Classifier
+import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
+import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.Modifier
 import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Classifier
 import org.eclipse.uml2.uml.DataType
 import org.eclipse.uml2.uml.Interface
-import org.eclipse.uml2.uml.Signal
 import org.eclipse.uml2.uml.Property
-import org.eclipse.papyrus.designer.languages.common.base.GenUtils
-import org.eclipse.papyrus.designer.languages.cpp.profile.Const
-import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.Modifier
-import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
-import org.eclipse.papyrus.designer.languages.cpp.profile.Mutable
+import org.eclipse.uml2.uml.Signal
 
 /**
  * @author Önder GÜRCAN (onder.gurcan@cea.fr)

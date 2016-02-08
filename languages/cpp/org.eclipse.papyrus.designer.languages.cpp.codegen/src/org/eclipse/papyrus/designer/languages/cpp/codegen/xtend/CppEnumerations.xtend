@@ -12,7 +12,7 @@
  package org.eclipse.papyrus.designer.languages.cpp.codegen.xtend
 
 import org.eclipse.uml2.uml.Enumeration
-import org.eclipse.papyrus.designer.languages.cpp.profile.CppInit
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.CppInit
 import org.eclipse.uml2.uml.util.UMLUtil
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
 

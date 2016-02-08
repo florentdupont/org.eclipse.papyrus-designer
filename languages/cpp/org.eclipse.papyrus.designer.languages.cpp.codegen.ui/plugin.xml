@@ -5,9 +5,9 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="popup:org.eclipse.papyrus.qompass.popup?after=codegen">
+            locationURI="popup:org.eclipse.papyrus.designer.popup?after=codegen">
           <command
-               commandId="org.eclipse.papyrus.cpp.codegen.command"
+               commandId="org.eclipse.papyrus.designer.languages.cpp.codegen.command"
                icon="icons/codegen.gif"
                label="Generate C++ code"
                style="push"
@@ -23,8 +23,8 @@
       <command
             description="Generate C++ code"
             categoryId="org.eclipse.papyrus.editor.category"
-            id="org.eclipse.papyrus.cpp.codegen.command"
-            defaultHandler="org.eclipse.papyrus.cpp.codegen.ui.handlers.GenerateCodeHandler"
+            id="org.eclipse.papyrus.designer.languages.cpp.codegen.command"
+            defaultHandler="org.eclipse.papyrus.designer.languages.cpp.codegen.ui.handlers.GenerateCodeHandler"
             name="Generate C++ code">
       </command>
    </extension>
@@ -33,8 +33,8 @@
       <command
             description="Re-write CDT project settings"
             categoryId="org.eclipse.papyrus.editor.category"
-            id="org.eclipse.papyrus.cpp.codegen.cdtproject"
-            defaultHandler="org.eclipse.papyrus.cpp.codegen.ui.handlers.CDTprojectHandler"
+            id="org.eclipse.papyrus.designer.languages.cpp.codegen.cdtproject"
+            defaultHandler="org.eclipse.papyrus.designer.languages.cpp.codegen.ui.handlers.CDTprojectHandler"
             name="Configure CDT project">
       </command>
    </extension>
@@ -42,8 +42,8 @@
          point="org.eclipse.ui.preferencePages">
       <page
             category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
-            class="org.eclipse.papyrus.cpp.codegen.ui.preferences.CodegenPreferencePage"
-            id="org.eclipse.papyrus.cpp.codegen.ui.preferences.CodeGenPreferencePage"
+            class="org.eclipse.papyrus.designer.languages.cpp.codegen.ui.preferences.CodegenPreferencePage"
+            id="org.eclipse.papyrus.designer.languages.cpp.codegen.ui.preferences.CodeGenPreferencePage"
             name="C++ code generation"/>
    </extension>
 </plugin>

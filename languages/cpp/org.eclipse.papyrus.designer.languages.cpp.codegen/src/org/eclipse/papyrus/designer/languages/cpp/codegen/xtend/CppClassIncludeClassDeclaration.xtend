@@ -10,22 +10,21 @@ package org.eclipse.papyrus.designer.languages.cpp.codegen.xtend
  * Contributors:
  *     CEA LIST - initial API and implementation
  *******************************************************************************/
- 
- import org.eclipse.papyrus.designer.languages.cpp.profile.CppRoot
-import org.eclipse.uml2.uml.Package
-import org.eclipse.uml2.uml.Classifier
-import org.eclipse.emf.common.util.EList
-import org.eclipse.papyrus.designer.languages.cpp.profile.NoCodeGen
-import org.eclipse.papyrus.designer.languages.cpp.profile.External
-import org.eclipse.uml2.uml.Enumeration
-import org.eclipse.uml2.uml.PrimitiveType
-import java.util.List
+
 import java.util.ArrayList
-import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.ClassUtils
+import java.util.List
+import org.eclipse.emf.common.util.EList
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
-import org.eclipse.uml2.uml.DataType
-import org.eclipse.uml2.uml.UMLFactory
+import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.ClassUtils
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.CppRoot
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen
+import org.eclipse.uml2.uml.Classifier
+import org.eclipse.uml2.uml.DataType
+import org.eclipse.uml2.uml.Enumeration
+import org.eclipse.uml2.uml.Package
+import org.eclipse.uml2.uml.PrimitiveType
 
 /**
  * @author Önder GÜRCAN (onder.gurcan@cea.fr)

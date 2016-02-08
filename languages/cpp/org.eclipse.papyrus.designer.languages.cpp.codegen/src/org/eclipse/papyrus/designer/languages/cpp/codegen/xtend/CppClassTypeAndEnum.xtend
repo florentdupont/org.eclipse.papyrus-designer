@@ -11,7 +11,7 @@
  
  package org.eclipse.papyrus.designer.languages.cpp.codegen.xtend
 
-import org.eclipse.papyrus.designer.languages.cpp.profile.NoCodeGen
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
 import org.eclipse.uml2.uml.Classifier
 import org.eclipse.uml2.uml.Element

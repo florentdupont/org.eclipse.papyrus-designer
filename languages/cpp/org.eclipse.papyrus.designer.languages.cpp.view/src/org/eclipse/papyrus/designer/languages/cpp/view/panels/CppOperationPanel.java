@@ -13,11 +13,11 @@ package org.eclipse.papyrus.designer.languages.cpp.view.panels;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.source.ISourceViewer;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Const;
-import org.eclipse.papyrus.designer.languages.cpp.profile.ConstInit;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Friend;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Inline;
-import org.eclipse.papyrus.designer.languages.cpp.profile.Virtual;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Const;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ConstInit;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Friend;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Inline;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Virtual;
 import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.SWT;

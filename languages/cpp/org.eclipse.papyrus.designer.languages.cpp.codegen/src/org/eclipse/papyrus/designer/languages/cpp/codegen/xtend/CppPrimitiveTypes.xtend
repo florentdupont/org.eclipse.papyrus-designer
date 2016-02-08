@@ -12,7 +12,7 @@
  package org.eclipse.papyrus.designer.languages.cpp.codegen.xtend
 
 import org.eclipse.uml2.uml.PrimitiveType
-import org.eclipse.papyrus.designer.languages.cpp.profile.Typedef
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
 import org.eclipse.uml2.uml.util.UMLUtil
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
