@@ -18,6 +18,7 @@
 		<module>releng</module>
 		<module>targetplatform</module>
 	</modules>
+	
 	<properties>
 		<!-- plugins versions -->
 		<!-- use 'mvn versions:display-plugin-updates' to check for the latest -->
@@ -30,11 +31,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- Sonar properties -->
-		<!-- sonar.language>java</sonar.language>
-		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-		<sonar.jacoco.reportPath>${session.executionRootDirectory}/target/jacoco.exec</sonar.jacoco.reportPath>
-		<jacoco-version>0.7.4.201502262128</jacoco-version>
-		<siteMainDirectory>${user.home}/staging</siteMainDirectory-->
+		<!-- sonar.language>java</sonar.language> <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin> 
+			<sonar.jacoco.reportPath>${session.executionRootDirectory}/target/jacoco.exec</sonar.jacoco.reportPath> 
+			<jacoco-version>0.7.4.201502262128</jacoco-version -->
+		<siteMainDirectory>${user.home}/staging</siteMainDirectory>
 
 		<!-- Eclipse properties -->
 		<xtext.version>2.7.3</xtext.version>
@@ -49,15 +49,11 @@
 		<env.ui.test>-Xms512m -Xmx2048m -XX:MaxPermSize=512M</env.ui.test>
 	</properties>
 
-	<!-- mailingLists>
-		<mailingList>
-			<name>Papyrus Designer users Mailing List</name>
-			<post>papyrus-designer-users@eclipse.org</post>
-			<subscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</subscribe>
-			<unsubscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</unsubscribe>
-			<archive>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</archive>
-		</mailingList>
-	</mailingLists-->
+	<!-- mailingLists> <mailingList> <name>Papyrus Designer users Mailing List</name> 
+		<post>papyrus-designer-users@eclipse.org</post> <subscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</subscribe> 
+		<unsubscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</unsubscribe> 
+		<archive>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</archive> 
+		</mailingList> </mailingLists -->
 
 	<ciManagement>
 		<system>Hudson</system>
@@ -81,11 +77,16 @@
 			<url>https://repo.eclipse.org/content/repositories/papyrus-snapshots/</url>
 			<uniqueVersion>true</uniqueVersion>
 		</snapshotRepository>
+		<site>
+			<id>Designer</id>
+			<url>scp://www.eclipse.org/papyrus/components/designer/</url>
+		</site>
 	</distributionManagement>
 	<organization>
 		<name>Eclipse foundation</name>
 		<url>https://www.eclipse.org/</url>
 	</organization>
+	
 	<developers>
 		<developer>
 			<name>Ansgar RADERMACHER</name>
@@ -141,7 +142,7 @@
 						<target>${java.target.version}</target>
 					</configuration>
 				</plugin>
-								<plugin>
+				<plugin>
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
 					<version>${xtext.version}</version>
@@ -479,7 +480,7 @@
 								<exclude>**/DocModelTest.java</exclude>
 							</excludes>
 						</configuration>
-					</plugin>					
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
@@ -509,6 +510,210 @@
 			</properties>
 		</profile>
 		<!-- Profiles to manage the OS environment end -->
+
+		<!-- Profile for Site generation -->
+		<profile>
+			<id>documentation</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>buildnumber-maven-plugin</artifactId>
+						<version>1.3</version>
+						<executions>
+							<execution>
+								<phase>pre-site</phase>
+								<goals>
+									<goal>create</goal>
+								</goals>
+								<configuration>
+									<doCheck>false</doCheck>
+									<doUpdate>false</doUpdate>
+									<format>{0,date,yyyy-MM-dd_HH-mm}</format>
+									<items>
+										<item>timestamp</item>
+									</items>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-site-plugin</artifactId>
+						<configuration>
+							<siteDirectory>site</siteDirectory>
+							<generateReports>true</generateReports>
+							<inputEncoding>UTF-8</inputEncoding>
+							<outputEncoding>UTF-8</outputEncoding>
+							<skipDeploy>false</skipDeploy>
+							<stagingSiteURL>file://${siteMainDirectory}/${project.version}</stagingSiteURL>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>lt.velykis.maven.skins</groupId>
+								<artifactId>reflow-velocity-tools</artifactId>
+								<version>1.1.1</version>
+							</dependency>
+							<dependency>
+								<groupId>org.apache.velocity</groupId>
+								<artifactId>velocity</artifactId>
+								<version>1.7</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+			<reporting>
+				<excludeDefaults>false</excludeDefaults>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
+						<reportSets>
+							<reportSet>
+								<reports>
+									<report>javadoc-no-fork</report>
+									<report>test-javadoc-no-fork</report>
+								</reports>
+							</reportSet>
+						</reportSets>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-project-info-reports-plugin</artifactId>
+						<version>2.8.1</version>
+						<reportSets>
+							<reportSet>
+								<reports>
+									<report>index</report>
+									<report>dependencies</report>
+									<report>project-team</report>
+									<report>mailing-list</report>
+									<report>cim</report>
+									<report>issue-tracking</report>
+									<report>license</report>
+									<report>scm</report>
+								</reports>
+							</reportSet>
+						</reportSets>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-report-plugin</artifactId>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-changelog-plugin</artifactId>
+						<version>2.3</version>
+						<reportSets>
+							<reportSet>
+								<id>dual-report</id>
+								<configuration>
+									<type>range</type>
+									<range>30</range>
+								</configuration>
+								<reports>
+									<report>changelog</report>
+									<report>file-activity</report>
+									<report>dev-activity</report>
+								</reports>
+							</reportSet>
+						</reportSets>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-changes-plugin</artifactId>
+						<version>2.11</version>
+						<reportSets>
+							<reportSet>
+								<reports>
+									<report>changes-report</report>
+								</reports>
+							</reportSet>
+						</reportSets>
+					</plugin>
+				</plugins>
+			</reporting>
+
+		</profile>
+
+		<!-- Have to be activated with profile documentation -->
+		<profile>
+			<id>documentation-pdf</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<!-- Failed on hudson see https://bugs.eclipse.org/bugs/show_bug.cgi?id=473888 -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-pdf-plugin</artifactId>
+						<version>1.3</version>
+						<inherited>false</inherited>
+						<dependencies>
+							<dependency>
+								<groupId>org.slf4j</groupId>
+								<artifactId>jcl-over-slf4j</artifactId>
+								<version>1.7.5</version>
+							</dependency>
+							<dependency>
+								<groupId>org.slf4j</groupId>
+								<artifactId>slf4j-api</artifactId>
+								<version>1.7.5</version>
+							</dependency>
+							<dependency>
+								<groupId>org.slf4j</groupId>
+								<artifactId>slf4j-jdk14</artifactId>
+								<version>1.7.5</version>
+							</dependency>
+							<dependency>
+								<groupId>org.slf4j</groupId>
+								<artifactId>slf4j-nop</artifactId>
+								<version>1.7.5</version>
+							</dependency>
+							<dependency>
+								<groupId>commons-logging</groupId>
+								<artifactId>commons-logging</artifactId>
+								<version>1.2</version>
+							</dependency>
+						</dependencies>
+						<executions>
+							<execution>
+								<id>userguidepdf</id>
+								<phase>site</phase>
+								<goals>
+									<goal>pdf</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.reporting.outputDirectory}/pdf</outputDirectory>
+									<includeReports>false</includeReports>
+									<docDescriptor>src/site/pdf/user-guide.pdf.xml</docDescriptor>
+								</configuration>
+							</execution>
+							<execution>
+								<id>developerguidepdf</id>
+								<phase>site</phase>
+								<goals>
+									<goal>pdf</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.reporting.outputDirectory}/pdf</outputDirectory>
+									<includeReports>false</includeReports>
+									<docDescriptor>src/site/pdf/developer-guide.pdf.xml</docDescriptor>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
 		<!-- Profile for web publication -->
 		<profile>

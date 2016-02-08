@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+	<properties>
+		<title>Papyrus designer - Developer</title>
+	</properties>
+
+	<body>
+		<section name="Requirements">
+			<subsection name="Eclipse">
+				<p>Use Eclipse, at least Neon version</p>
+			</subsection>
+			<subsection name="Maven">
+				<p>Use Maven 3.3.1 at least</p>
+			</subsection>
+			<subsection name="Eclipse plugins">
+				<p>Install M2e plugin in your Eclipse</p>
+				<p>Install Tycho Configurator as an additional maven connector</p>
+				<p>No specific extra from papyrus</p>
+			</subsection>
+			<subsection
+				name="Check your installation by a basic checkout, compilation">
+				<ul>
+					<li>
+						Clone the Papyrus Designer git repository git clone
+						https://git.eclipse.org/r/papyrus/org.eclipse.papyrus-designer.
+					</li>
+					<li>
+						Run maven at the root of the repo: mvn clean install; it should
+						pass
+					</li>
+					<li>
+						Get Papyrus designer maven eclipse plugins in your eclipse workspace
+					</li>
+					<li>Et “Voila” you are good to go.</li>
+				</ul>
+			</subsection>
+			<subsection name="Target Environment">
+				<p>We have developed a target-platform-configuration artifact located at /org.eclipse.papyrus-designer/targetplatform/org.eclipse.papyrus.designer.targetplatform.neon/org.eclipse.papyrus.designer.targetplatform.neon.target</p>
+				<p>Open it and click at the upper right corner to set it has the target platform.</p>
+			</subsection>
+		</section>
+
+	</body>
+
+</document>
