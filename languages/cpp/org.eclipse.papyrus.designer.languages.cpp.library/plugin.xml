@@ -5,6 +5,6 @@
 			point="org.eclipse.emf.ecore.uri_mapping">
 		<mapping
 			source="pathmap://PapyrusC_Cpp_LIBRARIES/"
-			target="platform:/plugin/org.eclipse.papyrus.cpp.library/models/"/>
+			target="platform:/plugin/org.eclipse.papyrus.designer.languages.cpp.library/models/"/>
 	</extension>
 </plugin>
