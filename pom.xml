@@ -18,7 +18,7 @@
 		<module>releng</module>
 		<module>targetplatform</module>
 	</modules>
-	
+
 	<properties>
 		<!-- plugins versions -->
 		<!-- use 'mvn versions:display-plugin-updates' to check for the latest -->
@@ -86,7 +86,7 @@
 		<name>Eclipse foundation</name>
 		<url>https://www.eclipse.org/</url>
 	</organization>
-	
+
 	<developers>
 		<developer>
 			<name>Ansgar RADERMACHER</name>
@@ -400,117 +400,6 @@
 	</build>
 
 	<profiles>
-		<!-- Profiles to manage the target eclipse platform environment -->
-		<profile>
-			<id>neon</id>
-			<activation>
-				<property>
-					<name>eclipse.release</name>
-					<value>neon</value>
-				</property>
-			</activation>
-			<properties>
-				<java.source>1.8</java.source>
-				<java.target>1.8</java.target>
-				<eclipse.targetrelease>neon</eclipse.targetrelease>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-enforcer-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>enforce-java</id>
-								<goals>
-									<goal>enforce</goal>
-								</goals>
-								<configuration>
-									<rules>
-										<requireJavaVersion>
-											<version>1.8.0</version>
-										</requireJavaVersion>
-									</rules>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>neon-papyrusnightly</id>
-			<activation>
-				<property>
-					<name>eclipse.release</name>
-					<value>neon-papyrusnightly</value>
-				</property>
-			</activation>
-			<properties>
-				<java.source>1.8</java.source>
-				<java.target>1.8</java.target>
-				<eclipse.targetrelease>neon-papyrusnightly</eclipse.targetrelease>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-enforcer-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>enforce-java</id>
-								<goals>
-									<goal>enforce</goal>
-								</goals>
-								<configuration>
-									<rules>
-										<requireJavaVersion>
-											<version>1.8.0</version>
-										</requireJavaVersion>
-									</rules>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-surefire-plugin</artifactId>
-						<configuration>
-							<excludes>
-								<exclude>**/DocModelTest.java</exclude>
-							</excludes>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<!-- Profiles to manage the target eclipse platform environment end -->
-
-		<!-- Profiles to manage the OS environment -->
-		<profile>
-			<id>macosx</id>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-			</activation>
-			<properties>
-				<ui.test.vmargs>-XstartOnFirstThread ${env.ui.test}</ui.test.vmargs>
-			</properties>
-		</profile>
-		<profile>
-			<id>other-os</id>
-			<activation>
-				<os>
-					<family>!mac</family>
-				</os>
-			</activation>
-			<properties>
-				<ui.test.vmargs>${env.ui.test}</ui.test.vmargs>
-			</properties>
-		</profile>
-		<!-- Profiles to manage the OS environment end -->
-
 		<!-- Profile for Site generation -->
 		<profile>
 			<id>documentation</id>
@@ -714,6 +603,244 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<!-- Profiles for Eclipse Server - start -->
+		<!-- Stable release profile. Eclipse servers only -->
+		<profile>
+			<id>eclipse-sign</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<configuration>
+							<includePackedArtifacts>true</includePackedArtifacts>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200a-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>pack200-normalize</id>
+								<goals>
+									<goal>normalize</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.cbi.maven.plugins</groupId>
+						<artifactId>eclipse-jarsigner-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200b-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>pack200-pack</id>
+								<goals>
+									<goal>pack</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-p2-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>p2-metadata</id>
+								<goals>
+									<goal>p2-metadata</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<defaultP2Metadata>false</defaultP2Metadata>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>eclipse-pack</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<configuration>
+							<includePackedArtifacts>true</includePackedArtifacts>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200a-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>pack200-normalize</id>
+								<goals>
+									<goal>normalize</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200b-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>pack200-pack</id>
+								<goals>
+									<goal>pack</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-p2-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>p2-metadata</id>
+								<goals>
+									<goal>p2-metadata</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<defaultP2Metadata>false</defaultP2Metadata>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<!-- Profiles for Eclipse Server - end -->
+
+		<!-- Profiles to manage the target eclipse platform environment -->
+		<profile>
+			<id>neon</id>
+			<activation>
+				<property>
+					<name>eclipse.release</name>
+					<value>neon</value>
+				</property>
+			</activation>
+			<properties>
+				<java.source>1.8</java.source>
+				<java.target>1.8</java.target>
+				<eclipse.targetrelease>neon</eclipse.targetrelease>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-enforcer-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>enforce-java</id>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<configuration>
+									<rules>
+										<requireJavaVersion>
+											<version>1.8.0</version>
+										</requireJavaVersion>
+									</rules>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>neon-papyrusnightly</id>
+			<activation>
+				<property>
+					<name>eclipse.release</name>
+					<value>neon-papyrusnightly</value>
+				</property>
+			</activation>
+			<properties>
+				<java.source>1.8</java.source>
+				<java.target>1.8</java.target>
+				<eclipse.targetrelease>neon-papyrusnightly</eclipse.targetrelease>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-enforcer-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>enforce-java</id>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<configuration>
+									<rules>
+										<requireJavaVersion>
+											<version>1.8.0</version>
+										</requireJavaVersion>
+									</rules>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-surefire-plugin</artifactId>
+						<configuration>
+							<excludes>
+								<exclude>**/DocModelTest.java</exclude>
+							</excludes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<!-- Profiles to manage the target eclipse platform environment end -->
+
+		<!-- Profiles to manage the OS environment -->
+		<profile>
+			<id>macosx</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<ui.test.vmargs>-XstartOnFirstThread ${env.ui.test}</ui.test.vmargs>
+			</properties>
+		</profile>
+		<profile>
+			<id>other-os</id>
+			<activation>
+				<os>
+					<family>!mac</family>
+				</os>
+			</activation>
+			<properties>
+				<ui.test.vmargs>${env.ui.test}</ui.test.vmargs>
+			</properties>
+		</profile>
+		<!-- Profiles to manage the OS environment end -->
 
 		<!-- Profile for web publication -->
 		<profile>
