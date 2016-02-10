@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.command.reverseToNewUmlModel"
+            name="Reverse to new UML model">
+      </command>
+      <command
+            id="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.command.reverseToExistingUmlModelOverwrite"
+            name="Reverse to existing UML model (Overwrite)">
+      </command>
+      <!--<command
+            id="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.command.reverseToExistingUmlModelMerge"
+            name="Reverse to existing UML model (Merge)">
+      </command>-->
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               id="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.reverseMenu"
+               label="Reverse">
+            <command
+                  commandId="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.command.reverseToNewUmlModel"
+                  id="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.reverseToNewUmlModel"
+                  label="To new UML model"
+                  style="push"
+                  tooltip="Reverse project to new UML model">
+            </command>
+            <command
+                  commandId="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.command.reverseToExistingUmlModelOverwrite"
+                  id="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.reverseToExistingUmlModelOverwrite"
+                  label="To existing UML model (Overwrite)"
+                  style="push"
+                  tooltip="Reverse project to existing UML model (Overwrite)">
+            </command>
+            <!--<command
+                  commandId="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.command.reverseToExistingUmlModelMerge"
+                  id="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.reverseToExistingUmlModelMerge"
+                  label="To existing UML model (Merge)"
+                  style="push"
+                  tooltip="Reverse project to existing UML model (Merge)">
+            </command>-->
+            <visibleWhen>
+               <or>
+                  <and>
+	                 <with variable="selection">
+	                   <iterate ifEmpty="false" operator="or">
+	                      <adapt type="org.eclipse.core.resources.IResource">
+	                         <or>
+	                            <!--<test property="org.eclipse.core.resources.extension" value="c"/>
+	                            <test property="org.eclipse.core.resources.extension" value="h"/>
+	                            <test property="org.eclipse.core.resources.extension" value="cpp"/>
+	                            <test property="org.eclipse.core.resources.extension" value="hpp"/>
+	                            <test property="org.eclipse.core.resources.extension" value="cc"/>
+	                            <test property="org.eclipse.core.resources.extension" value="hh"/>
+	                            <test property="org.eclipse.core.resources.extension" value="c++"/>
+	                            <test property="org.eclipse.core.resources.extension" value="h++"/>-->
+	                            <test property="org.eclipse.core.resources.projectNature" value="org.eclipse.cdt.core.cnature"/>
+	                         </or>
+	                      </adapt>
+	                   </iterate>
+	                 </with>
+	              </and>
+	              <and>
+	                 <with variable="activeEditorId">
+	                    <equals value="org.eclipse.cdt.ui.editor.CEditor"/>
+                     </with>
+                     <with variable="selection">
+	                    <iterate ifEmpty="false">
+	                       <instanceof value="org.eclipse.jface.text.ITextSelection"/>
+	                    </iterate>
+                     </with>
+                  </and>
+	           </or>
+            </visibleWhen>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.handler.ReverseToNewUmlModel"
+            commandId="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.command.reverseToNewUmlModel">
+         <activeWhen>
+            <or>
+               <and>
+	              <with variable="selection">
+	                <iterate ifEmpty="false" operator="or">
+	                   <adapt type="org.eclipse.core.resources.IResource">
+	                      <or>
+	                         <!--<test property="org.eclipse.core.resources.extension" value="c"/>
+	                         <test property="org.eclipse.core.resources.extension" value="h"/>
+	                         <test property="org.eclipse.core.resources.extension" value="cpp"/>
+	                         <test property="org.eclipse.core.resources.extension" value="hpp"/>
+	                         <test property="org.eclipse.core.resources.extension" value="cc"/>
+	                         <test property="org.eclipse.core.resources.extension" value="hh"/>
+	                         <test property="org.eclipse.core.resources.extension" value="c++"/>
+	                         <test property="org.eclipse.core.resources.extension" value="h++"/>-->
+	                         <test property="org.eclipse.core.resources.projectNature" value="org.eclipse.cdt.core.cnature"/>
+	                      </or>
+	                   </adapt>
+	                </iterate>
+	              </with>
+	           </and>
+	           <and>
+	              <with variable="activeEditorId">
+	                 <equals value="org.eclipse.cdt.ui.editor.CEditor"/>
+                  </with>
+                  <with variable="selection">
+	                 <iterate ifEmpty="false">
+	                    <instanceof value="org.eclipse.jface.text.ITextSelection"/>
+	                 </iterate>
+                  </with>
+               </and>
+	        </or>
+         </activeWhen>
+      </handler>
+      <handler
+            class="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.handler.ReverseToExistingUmlModelOverwrite"
+            commandId="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.command.reverseToExistingUmlModelOverwrite">
+         <activeWhen>
+            <or>
+               <and>
+	              <with variable="selection">
+	                <iterate ifEmpty="false" operator="or">
+	                   <adapt type="org.eclipse.core.resources.IResource">
+	                      <or>
+	                         <!--<test property="org.eclipse.core.resources.extension" value="c"/>
+	                         <test property="org.eclipse.core.resources.extension" value="h"/>
+	                         <test property="org.eclipse.core.resources.extension" value="cpp"/>
+	                         <test property="org.eclipse.core.resources.extension" value="hpp"/>
+	                         <test property="org.eclipse.core.resources.extension" value="cc"/>
+	                         <test property="org.eclipse.core.resources.extension" value="hh"/>
+	                         <test property="org.eclipse.core.resources.extension" value="c++"/>
+	                         <test property="org.eclipse.core.resources.extension" value="h++"/>-->
+	                         <test property="org.eclipse.core.resources.projectNature" value="org.eclipse.cdt.core.cnature"/>
+	                      </or>
+	                   </adapt>
+	                </iterate>
+	              </with>
+	           </and>
+	           <and>
+	              <with variable="activeEditorId">
+	                 <equals value="org.eclipse.cdt.ui.editor.CEditor"/>
+                  </with>
+                  <with variable="selection">
+	                 <iterate ifEmpty="false">
+	                    <instanceof value="org.eclipse.jface.text.ITextSelection"/>
+	                 </iterate>
+                  </with>
+               </and>
+	        </or>
+         </activeWhen>
+      </handler>
+      <!--<handler
+            class="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.handler.ReverseToExistingUmlModelMerge"
+            commandId="org.eclipse.papyrus.designer.languages.cpp.reverse.ui.command.reverseToExistingUmlModelMerge">
+         <activeWhen>
+            <or>
+               <and>
+	              <with variable="selection">
+	                <iterate ifEmpty="false" operator="or">
+	                   <adapt type="org.eclipse.core.resources.IResource">
+	                      <or>
+	                         <test property="org.eclipse.core.resources.extension" value="c"/>
+	                         <test property="org.eclipse.core.resources.extension" value="h"/>
+	                         <test property="org.eclipse.core.resources.extension" value="cpp"/>
+	                         <test property="org.eclipse.core.resources.extension" value="hpp"/>
+	                         <test property="org.eclipse.core.resources.extension" value="cc"/>
+	                         <test property="org.eclipse.core.resources.extension" value="hh"/>
+	                         <test property="org.eclipse.core.resources.extension" value="c++"/>
+	                         <test property="org.eclipse.core.resources.extension" value="h++"/>
+	                         <test property="org.eclipse.core.resources.projectNature" value="org.eclipse.cdt.core.cnature"/>
+	                      </or>
+	                   </adapt>
+	                </iterate>
+	              </with>
+	           </and>
+	           <and>
+	              <with variable="activeEditorId">
+	                 <equals value="org.eclipse.cdt.ui.editor.CEditor"/>
+                  </with>
+                  <with variable="selection">
+	                 <iterate ifEmpty="false">
+	                    <instanceof value="org.eclipse.jface.text.ITextSelection"/>
+	                 </iterate>
+                  </with>
+               </and>
+	        </or>
+         </activeWhen>
+      </handler>-->
+   </extension>
+   
+</plugin>

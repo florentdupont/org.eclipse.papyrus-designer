@@ -23,6 +23,8 @@
 		<module>org.eclipse.papyrus.designer.languages.cpp.profile</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.profile.ui</module>
 		<!-- module>org.eclipse.papyrus.cpp.test</module-->
+		<module>org.eclipse.papyrus.designer.languages.cpp.reverse</module>
+		<module>org.eclipse.papyrus.designer.languages.cpp.reverse.ui</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.view</module>
 	</modules>
 </project>
