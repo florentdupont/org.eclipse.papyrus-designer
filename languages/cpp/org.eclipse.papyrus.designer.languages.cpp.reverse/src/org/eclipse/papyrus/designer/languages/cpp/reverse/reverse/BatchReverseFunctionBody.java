@@ -156,7 +156,6 @@ public class BatchReverseFunctionBody {
 					}
 				}
 				if (!isFound) {
-					//Type typeRet = m_reverseCppUml.getUMLType(classifierName, m_iTu, m_reverseCppUml.getContextNamespaces(element));
 					List<String> contextNamespaces = new UniqueEList<String>();
 					String qualifiedTypeName = "";
 					for (int i = 0; i < classifierNameTokens.length - 1; i++) {
@@ -448,7 +447,7 @@ public class BatchReverseFunctionBody {
 		String names[] = qualifiedName.split(Utils.nsSep);
 		String name = names[names.length - 1];
 
-		Operation operation = RoundtripCppUtils.findMatchOperation(m_classifier, declarator, names);
+		Operation operation = RoundtripCppUtils.findMatchOperation(m_classifier, declarator, names, m_reverseCppUml, m_iTu);
 
 		if (operation == null) {
 			// operation is not found via name in the model. That does not

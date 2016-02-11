@@ -38,6 +38,8 @@ import org.eclipse.uml2.uml.ParameterDirectionKind
 import org.eclipse.uml2.uml.Profile
 import org.eclipse.uml2.uml.Type
 import org.eclipse.papyrus.designer.languages.cpp.reverse.reverse.BatchReverseFunctionBody
+import org.eclipse.papyrus.designer.languages.cpp.reverse.reverse.ReverseCpp2Uml
+import org.eclipse.cdt.core.model.IFunctionDeclaration
 
 /**
  * Utility methods for round-trip
@@ -135,12 +137,38 @@ class RoundtripCppUtils {
 		}
 	}
 
-	public static def Operation findMatchOperation(Classifier classifier, IASTFunctionDeclarator declarator, String[] names) {
+	public static def Operation findMatchOperation(Classifier classifier, IASTFunctionDeclarator declarator, String[] names, ReverseCpp2Uml reverseCppUml, ITranslationUnit iTu) {
 		var Operation ret = null;
 		
-		if (classifier != null && declarator != null && names != null) {
+		if (classifier != null && declarator != null && names != null && reverseCppUml != null && iTu != null) {
+			
+			
 			if (names.length == 1) {
 				// TODO: function not inside any classes
+				return null;
+			} else if (names.length > 1) {
+				var String classifierName = names.get(names.length - 2);
+				
+				if (!classifier.name.equals(classifierName)) {
+					return null;
+				}
+				
+				var List<String> contextNamespaces = new UniqueEList<String>()
+				var String qualifiedTypeName = ""
+				for (i : 0 ..< names.length - 1) {
+					qualifiedTypeName += names.get(i)
+					if (i != names.length - 2) {
+						qualifiedTypeName += "::"
+					}
+				}
+				contextNamespaces.add(qualifiedTypeName);
+				
+				var Type ownerClass = reverseCppUml.getUMLType(classifierName, iTu, contextNamespaces);
+				if (ownerClass instanceof Classifier) {
+					if (ownerClass != classifier) {
+						return null;
+					}
+				}
 			}
 			
 			// Single parameter of type void ==> no parameters
