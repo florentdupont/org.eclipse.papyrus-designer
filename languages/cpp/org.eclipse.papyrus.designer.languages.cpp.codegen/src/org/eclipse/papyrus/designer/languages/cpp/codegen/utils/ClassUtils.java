@@ -11,7 +11,6 @@
 
 package org.eclipse.papyrus.designer.languages.cpp.codegen.utils;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -19,11 +18,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Inline;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref;
-import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
@@ -31,8 +30,6 @@ import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PrimitiveType;
-import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.Type;
 
 /**
  * A set of utility functions related to classes.
@@ -101,19 +98,19 @@ public class ClassUtils {
 		
 		// class attributes dependencies (non-ptr and non-ref)
 		usedClasses.addAll(GenUtils.getTypesViaAttributes(currentClass, ptrRefStereotypes, null, true, true));
-		addEnumerationsAndPrimitiveTypes(usedClasses, GenUtils.getTypesViaAttributes(currentClass));
+		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getTypesViaAttributes(currentClass));
 		
 		// class inline operation parameters dependencies (non-ptr and non-ref)
 		usedClasses.addAll(GenUtils.getTypesViaOperations(currentClass, noCodeGenStereotypes, inlineStereotypes, ptrRefStereotypes, null, true));
-		addEnumerationsAndPrimitiveTypes(usedClasses, GenUtils.getTypesViaOperations(currentClass));
+		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getTypesViaOperations(currentClass));
 		
 		// inner classifier attribute dependencies (non-ptr and non-ref)
 		usedClasses.addAll(GenUtils.getInnerClassifierTypesViaAttributes(currentClass, ptrRefStereotypes, null, true, true));
-		addEnumerationsAndPrimitiveTypes(usedClasses, GenUtils.getInnerClassifierTypesViaAttributes(currentClass));
+		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getInnerClassifierTypesViaAttributes(currentClass));
 		
 		// inner classifier operation parameters dependencies (non-ptr and non-ref)
 		usedClasses.addAll(GenUtils.getInnerClassifierTypesViaOperations(currentClass, noCodeGenStereotypes, inlineStereotypes, ptrRefStereotypes, null, true));
-		addEnumerationsAndPrimitiveTypes(usedClasses, GenUtils.getInnerClassifierTypesViaOperations(currentClass));
+		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getInnerClassifierTypesViaOperations(currentClass));
 		
 		// realized interface dependencies
 		if (currentClass instanceof org.eclipse.uml2.uml.Class) {
@@ -150,19 +147,19 @@ public class ClassUtils {
 		
 		// operation parameter dependencies (non-ptr and non-ref)
 		usedClasses.addAll(GenUtils.getTypesViaOperations(currentClass, noCodeGenInlineStereotypes, null, ptrRefStereotypes, null, true));
-		addEnumerationsAndPrimitiveTypes(usedClasses, GenUtils.getTypesViaOperations(currentClass));
+		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getTypesViaOperations(currentClass));
 		
 		// opaque behavior (no-specification) parameter dependencies (non-ptr and non-ref)
 		usedClasses.addAll(GenUtils.getTypesViaOpaqueBehaviors(currentClass, null, null, ptrRefStereotypes, null, true)); // TODO some excluded/included stereotypes for opaque behavior once bug on "noCodeGen" is fixed
-		addEnumerationsAndPrimitiveTypes(usedClasses, GenUtils.getTypesViaOpaqueBehaviors(currentClass));
+		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getTypesViaOpaqueBehaviors(currentClass));
 		
 		// inner classifier operation parameter dependencies (non-ptr and non-ref)
 		usedClasses.addAll(GenUtils.getInnerClassifierTypesViaOperations(currentClass, noCodeGenInlineStereotypes, null, ptrRefStereotypes, null, true));
-		addEnumerationsAndPrimitiveTypes(usedClasses, GenUtils.getInnerClassifierTypesViaOperations(currentClass));
+		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getInnerClassifierTypesViaOperations(currentClass));
 		
 		// inner classifier opaque behavior (no-specification) parameter dependencies (non-ptr and non-ref)
 		usedClasses.addAll(GenUtils.getInnerClassifierTypesViaOpaqueBehaviors(currentClass, null, null, ptrRefStereotypes, null, true)); // TODO some excluded/included stereotypes for opaque behavior once bug on "noCodeGen" is fixed
-		addEnumerationsAndPrimitiveTypes(usedClasses, GenUtils.getInnerClassifierTypesViaOpaqueBehaviors(currentClass));
+		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getInnerClassifierTypesViaOpaqueBehaviors(currentClass));
 		
 		// dependency relationships
 		usedClasses.addAll(GenUtils.getTypesViaDependencies(currentClass));
@@ -250,13 +247,15 @@ public class ClassUtils {
 		return nestedOperations;
 	}
 	
-	private static void addEnumerationsAndPrimitiveTypes(List<Classifier> usedClasses, List<Classifier> unfilteredClasses) {
+	private static void addEnumerationsPrimitiveTypesExternalTypes(List<Classifier> usedClasses, List<Classifier> unfilteredClasses) {
 		if (usedClasses != null && unfilteredClasses != null) {
 			for (Classifier classifier : unfilteredClasses) {
 				if ((classifier instanceof Enumeration) || (classifier instanceof PrimitiveType)) {
 					if (classifier.getOwner() instanceof Package) {
 						usedClasses.add(classifier);
 					}
+				} else if (GenUtils.hasStereotype(classifier, External.class)) {
+					usedClasses.add(classifier);
 				}
 			}
 		}
