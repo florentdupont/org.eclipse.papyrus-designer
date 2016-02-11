@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.papyrus.designer.tracing.feature"
+      id="org.eclipse.papyrus.designer.components.tracing.feature"
       label="%featureName"
       version="0.7.0.qualifier"
       provider-name="%providerName">
 
    <description>
-      This is an add-on for the Qompass tool suite supporting model based tracing, in particular
+      This is an add-on for the Designer tool suite supporting model based tracing, in particular
   with LTTng
    </description>
 
@@ -24,7 +24,7 @@ http://www.eclipse.org/legal/epl-v10.html
    </license>
 
    <plugin
-         id="org.eclipse.papyrus.qompass.modellibs.tracing"
+         id="org.eclipse.papyrus.designer.components.modellibs.tracing"
          download-size="0"
          install-size="0"
          version="0.0.0"

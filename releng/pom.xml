@@ -15,6 +15,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		<module>org.eclipse.papyrus.designer.languages.common.feature</module>
 		<module>org.eclipse.papyrus.designer.basic.feature</module>
 		
+		<module>org.eclipse.papyrus.designer.components.tracing.feature</module>
+		
 		<!-- cpp -->
 		<module>org.eclipse.papyrus.designer.languages.cpp.feature</module>
 		

@@ -36,8 +36,7 @@ Contributors:
       <import plugin="org.eclipse.gmf.runtime.diagram.core"/>
       <import plugin="org.eclipse.papyrus.infra.gmfdiag.dnd" version="1.0.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.papyrus.infra.emf.diagram.common" version="1.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.papyrus.uml.diagram.common" version="1.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.papyrus.designer.languages.java.reverse" version="0.7.0.qualifier" match="greaterOrEqual"/>      
+      <import plugin="org.eclipse.papyrus.uml.diagram.common" version="1.0.1" match="greaterOrEqual"/>   
    </requires>
 
    <plugin

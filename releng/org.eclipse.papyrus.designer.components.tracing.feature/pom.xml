@@ -6,6 +6,6 @@
 		<artifactId>org.eclipse.papyrus.designer.releng</artifactId>
 		<version>0.7.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>org.eclipse.papyrus.designer.tracing.feature</artifactId>
+	<artifactId>org.eclipse.papyrus.designer.components.tracing.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 </project>
