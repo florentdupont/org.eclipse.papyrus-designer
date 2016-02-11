@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
-            class="org.eclipse.papyrus.cpp.codegen.preferences.CppCodeGenPreferenceInitializer">
+            class="org.eclipse.papyrus.designer.languages.cpp.codegen.preferences.CppCodeGenPreferenceInitializer">
       </initializer>
    </extension>
    <extension
