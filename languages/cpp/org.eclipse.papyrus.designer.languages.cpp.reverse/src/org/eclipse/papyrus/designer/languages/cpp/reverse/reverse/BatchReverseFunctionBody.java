@@ -39,6 +39,8 @@ import org.eclipse.cdt.core.model.CoreModel;
 import org.eclipse.cdt.core.model.ICElement;
 import org.eclipse.cdt.core.model.ICProject;
 import org.eclipse.cdt.core.model.IFunctionDeclaration;
+import org.eclipse.cdt.core.model.IInclude;
+import org.eclipse.cdt.core.model.IMacro;
 import org.eclipse.cdt.core.model.IMethod;
 import org.eclipse.cdt.core.model.IMethodDeclaration;
 import org.eclipse.cdt.core.model.IParent;
@@ -335,6 +337,8 @@ public class BatchReverseFunctionBody {
 						}
 					}
 				}
+			} else if (child instanceof IMacro || child instanceof IInclude) {
+				
 			}
 		}
 	}

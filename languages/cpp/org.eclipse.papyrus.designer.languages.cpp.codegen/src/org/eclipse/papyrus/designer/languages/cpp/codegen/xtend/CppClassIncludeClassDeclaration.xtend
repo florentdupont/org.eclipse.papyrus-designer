@@ -47,8 +47,8 @@ class CppClassIncludeClassDeclaration {
 		var List<String> newList = new ArrayList<String>()
 		for (cl : list) {
 			//var String str = null
-			if ((cl != classifier) && (!GenUtils.hasStereotype(cl, NoCodeGen)) || (GenUtils.hasStereotype(cl, External))) {
-				if ((cl instanceof Enumeration) || (cl instanceof PrimitiveType)) {
+			if (cl != classifier && !GenUtils.hasStereotype(cl, NoCodeGen) || GenUtils.hasStereotype(cl, External)) {
+				if ((cl instanceof Enumeration || cl instanceof PrimitiveType) && !GenUtils.hasStereotype(cl, External)) {
 					if (cl.owner instanceof Package && cl.owner != classifier.owner) {
 						/* Enum and Primitive must not be in same package as classifier since
 						we always enums and primitives are defined in the package header which
@@ -77,7 +77,7 @@ class CppClassIncludeClassDeclaration {
 			}
 			
 			for (cl : declaredClassifiers) {
-				if ((cl != classifier) && (!GenUtils.hasStereotype(cl, NoCodeGen)) || (GenUtils.hasStereotype(cl, External))) {
+				if (cl != classifier && !GenUtils.hasStereotype(cl, NoCodeGen) || GenUtils.hasStereotype(cl, External)) {
 					var declaration = "";
 					
 					if (!(cl instanceof Enumeration) && !(cl instanceof PrimitiveType)) {
