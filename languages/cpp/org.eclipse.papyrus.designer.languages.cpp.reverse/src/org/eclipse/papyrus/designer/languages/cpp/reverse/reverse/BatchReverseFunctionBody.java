@@ -28,11 +28,14 @@ import org.eclipse.cdt.core.dom.ast.IASTFunctionDeclarator;
 import org.eclipse.cdt.core.dom.ast.IASTFunctionDefinition;
 import org.eclipse.cdt.core.dom.ast.IASTInitializer;
 import org.eclipse.cdt.core.dom.ast.IASTInitializerClause;
+import org.eclipse.cdt.core.dom.ast.IASTInitializerList;
 import org.eclipse.cdt.core.dom.ast.IASTNode;
 import org.eclipse.cdt.core.dom.ast.IASTNodeSelector;
 import org.eclipse.cdt.core.dom.ast.IASTSimpleDeclaration;
 import org.eclipse.cdt.core.dom.ast.IASTStatement;
 import org.eclipse.cdt.core.dom.ast.IASTTranslationUnit;
+import org.eclipse.cdt.core.dom.ast.cpp.ICPPASTConstructorInitializer;
+import org.eclipse.cdt.core.dom.ast.cpp.ICPPASTInitializerList;
 import org.eclipse.cdt.core.index.IIndex;
 import org.eclipse.cdt.core.model.CModelException;
 import org.eclipse.cdt.core.model.CoreModel;
@@ -323,22 +326,47 @@ public class BatchReverseFunctionBody {
 							IASTInitializer initializer = declarator.getInitializer();
 							
 							if (initializer instanceof IASTEqualsInitializer) {
-								IASTEqualsInitializer equalsInitialiser = (IASTEqualsInitializer) initializer;
-								IASTInitializerClause clause = equalsInitialiser.getInitializerClause();
-								
+								IASTEqualsInitializer equalsInitializer = (IASTEqualsInitializer) initializer;
+								IASTInitializerClause clause = equalsInitializer.getInitializerClause();
 								if (clause != null) {
 									value = clause.getRawSignature();
-									
-									if (value != null) {
-										updateProperty(name, typeName, value, m_classifier);
-									}
 								}
+							} else if (initializer instanceof ICPPASTConstructorInitializer) {
+								ICPPASTConstructorInitializer constructorInitializer = (ICPPASTConstructorInitializer) initializer;
+								IASTInitializerClause[] clauses = constructorInitializer.getArguments();
+								if (clauses != null && clauses.length > 0) {
+									value = "(";
+									for (int i = 0; i < clauses.length; i++) {
+										value += clauses[i].getRawSignature();
+										if (i != clauses.length - 1) {
+											value += ",";
+										}
+									}
+									value += ")";
+								}
+							} else if (initializer instanceof IASTInitializerList) {
+								IASTInitializerList listInitializer = (IASTInitializerList) initializer;
+								IASTInitializerClause[] clauses = listInitializer.getClauses();
+								if (clauses != null && clauses.length > 0) {
+									value = "{";
+									for (int i = 0; i < clauses.length; i++) {
+										value += clauses[i].getRawSignature();
+										if (i != clauses.length - 1) {
+											value += ",";
+										}
+									}
+									value += "}";
+								}
+							} else {
+								// TODO
 							}
 						}
 					}
 				}
-			} else if (child instanceof IMacro || child instanceof IInclude) {
 				
+				if (value != null) {
+					updateProperty(name, typeName, value, m_classifier);
+				}
 			}
 		}
 	}
