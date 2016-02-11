@@ -187,12 +187,14 @@ class DependencyAnalysis {
 	}
 
 	private def void createDependency(NamedElement suplier) {
-		var nearestPack = reverseUtils.getNearestPackage(m_operation)
-		if (nearestPack != null) {
-			var usages = nearestPack.ownedElements.filter(typeof(Usage)).toList
-			var usage = usages.filter[it.clients.contains(m_operation) && it.suppliers.contains(suplier)].head
-			if (usage == null) {
-				m_operation.createUsage(suplier)
+		if (m_operation.owner instanceof NamedElement) {
+			var nearestPack = reverseUtils.getNearestPackage(m_operation)
+			if (nearestPack != null) {
+				var usages = nearestPack.ownedElements.filter(typeof(Usage)).toList
+				var usage = usages.filter[it.clients.contains(m_operation.owner) && it.suppliers.contains(suplier)].head
+				if (usage == null) {
+					(m_operation.owner as NamedElement).createUsage(suplier)
+				}
 			}
 		}
 	}
