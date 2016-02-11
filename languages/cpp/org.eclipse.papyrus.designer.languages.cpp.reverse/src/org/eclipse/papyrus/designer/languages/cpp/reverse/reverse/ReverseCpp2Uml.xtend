@@ -1817,7 +1817,21 @@ class ReverseCpp2Uml {
 			return prinmitiveType
 		}
 		
-		if (ideclaration.elementType == ICElement.C_CLASS || ideclaration.elementType == ICElement.C_TEMPLATE_CLASS) {
+		var boolean structIsClassLike = false
+		if (ideclaration.elementType == ICElement.C_STRUCT || ideclaration.elementType == ICElement.C_UNION) {
+			val iStructure = ideclaration as IStructure
+			
+			var i = 0
+			while (!structIsClassLike && i < iStructure.children.size) {
+				var child = iStructure.children.get(i)
+				if (child instanceof IMethodDeclaration || child instanceof IStructure) {
+					structIsClassLike = true
+				}
+				i++;
+			}
+		}
+		
+		if (ideclaration.elementType == ICElement.C_CLASS || ideclaration.elementType == ICElement.C_TEMPLATE_CLASS || structIsClassLike) {
 //			var isAbstract = !iStructure.methods.filter[it.isPureVirtual].empty
 			val IStructure iStructure = ideclaration as IStructure
 			var Class temp = null
@@ -1909,7 +1923,7 @@ class ReverseCpp2Uml {
 				}
 			]
 			map.put(ideclaration, enumeration)
-		} else if (ideclaration.elementType == ICElement.C_STRUCT || ideclaration.elementType == ICElement.C_UNION) {
+		} else if (!structIsClassLike && (ideclaration.elementType == ICElement.C_STRUCT || ideclaration.elementType == ICElement.C_UNION)) {
 			var DataType temp = null
 			val iStructure = ideclaration as IStructure
 			if (existing != null) {
@@ -1934,7 +1948,6 @@ class ReverseCpp2Uml {
 				}
 			]
 			map.put(ideclaration, dataType)
-			dataType
 		}
 	}
 
