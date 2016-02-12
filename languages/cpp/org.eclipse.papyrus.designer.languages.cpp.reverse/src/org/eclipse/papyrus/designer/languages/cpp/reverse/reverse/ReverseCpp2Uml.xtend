@@ -1858,6 +1858,9 @@ class ReverseCpp2Uml {
 					createMethod(it, classifier)
 				}
 			]
+			
+			//
+			
 			var superTypes = iStructure.superClassesNames.map [
 				it.getUMLType(iStructure.translationUnit, iStructure.contextNamespaces)
 			]
@@ -1947,6 +1950,16 @@ class ReverseCpp2Uml {
 					createProperty(it as IField, dataType)
 				}
 			]
+			
+			var superTypes = iStructure.superClassesNames.map [
+				it.getUMLType(iStructure.translationUnit, iStructure.contextNamespaces)
+			]
+			superTypes.forEach [
+				if (it != null && it instanceof Classifier) {
+					dataType.createGeneralization(it as Classifier)
+				}
+			]
+			
 			map.put(ideclaration, dataType)
 		}
 	}
