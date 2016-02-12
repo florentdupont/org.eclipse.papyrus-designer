@@ -116,6 +116,8 @@ import org.eclipse.uml2.uml.VisibilityKind
 import org.eclipse.uml2.uml.profile.standard.Create
 import org.eclipse.uml2.uml.profile.standard.Destroy
 import org.eclipse.uml2.uml.util.UMLUtil
+import org.eclipse.uml2.uml.Generalization
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Visibility
 
 /**
  * The main reverser class that will reverse C++ to UML
@@ -1866,11 +1868,20 @@ class ReverseCpp2Uml {
 			]
 			superTypes.forEach [
 				if (it != null && it instanceof Classifier) {
-					classifier.createGeneralization(it as Classifier)
+					var Generalization generalization = classifier.createGeneralization(it as Classifier)
+					
+					var Visibility visibilitySt = UMLUtil.getStereotypeApplication(generalization, Visibility)
+					if (visibilitySt == null) {
+						StereotypeUtil.apply(generalization, Visibility)
+						visibilitySt = UMLUtil.getStereotypeApplication(generalization, Visibility)
+					}
+					
+					val visibility = iStructure.getSuperClassAccess(it.name)
+					if (visibility != null) {
+						visibilitySt.value = visibility.name.toLowerCase
+					}
 				}
 			]
-			
-			// TODO includes handling should be here or below (?)
 			
 			map.put(ideclaration, classifier)
 			if (iStructure.elementType == ICElement.C_TEMPLATE_CLASS) {
@@ -1878,7 +1889,6 @@ class ReverseCpp2Uml {
 				StereotypeUtil.apply(classifier, Template)
 				UMLUtil.getStereotypeApplication(classifier, Template).declaration = istructureTemplate.
 					templateSignature
-			// println(var2)
 			}
 
 			return classifier
@@ -1956,7 +1966,18 @@ class ReverseCpp2Uml {
 			]
 			superTypes.forEach [
 				if (it != null && it instanceof Classifier) {
-					dataType.createGeneralization(it as Classifier)
+					var Generalization generalization = dataType.createGeneralization(it as Classifier)
+					
+					var Visibility visibilitySt = UMLUtil.getStereotypeApplication(generalization, Visibility)
+					if (visibilitySt == null) {
+						StereotypeUtil.apply(generalization, Visibility)
+						visibilitySt = UMLUtil.getStereotypeApplication(generalization, Visibility)
+					}
+					
+					val visibility = iStructure.getSuperClassAccess(it.name)
+					if (visibility != null) {
+						visibilitySt.value = visibility.name.toLowerCase
+					}
 				}
 			]
 			
