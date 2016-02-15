@@ -15,6 +15,7 @@ import org.eclipse.uml2.uml.Enumeration
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.CppInit
 import org.eclipse.uml2.uml.util.UMLUtil
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
+import org.eclipse.uml2.uml.EnumerationLiteral
 
 /**
  * @author Önder GÜRCAN (onder.gurcan@cea.fr)
@@ -23,11 +24,18 @@ class CppEnumerations {
 	static def CppEnumerationDefinition(Enumeration enumeration) '''
 		«CppDocumentation.CppElementDoc(enumeration)»
 		enum «enumeration.name» {
-			«FOR ownedLiteral : enumeration.ownedLiterals»
-				«CppDocumentation.CppElementDoc(ownedLiteral)»
-				«ownedLiteral.name»«IF GenUtils.hasStereotype(ownedLiteral, CppInit)» = «UMLUtil.
-				getStereotypeApplication(ownedLiteral, CppInit).value»«ENDIF»,
+			«FOR i : 0 ..< enumeration.ownedLiterals.size»
+				«CppDocumentation.CppElementDoc(enumeration.ownedLiterals.get(i))»
+				«enumeration.ownedLiterals.get(i).name»«enumeration.ownedLiterals.get(i).defaultValue»«IF i < enumeration.ownedLiterals.size - 1»,«ENDIF»
 			«ENDFOR»
 		};
 	'''
+	
+	static def defaultValue(EnumerationLiteral literal) {
+		if (literal.specification != null) {
+			" = " + literal.specification.stringValue()
+		} else if (GenUtils.hasStereotype(literal, CppInit)) {
+			" = " +  UMLUtil.getStereotypeApplication(literal, CppInit).value
+		}
+	}
 }
