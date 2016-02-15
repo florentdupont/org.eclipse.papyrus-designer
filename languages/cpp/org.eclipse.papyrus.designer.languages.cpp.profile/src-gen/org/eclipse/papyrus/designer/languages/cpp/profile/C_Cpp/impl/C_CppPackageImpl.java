@@ -689,6 +689,15 @@ public class C_CppPackageImpl extends EPackageImpl implements C_CppPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRef_Declaration() {
+		return (EAttribute)refEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EClass getExternal() {
 		return externalEClass;
@@ -1232,6 +1241,7 @@ public class C_CppPackageImpl extends EPackageImpl implements C_CppPackage {
 		refEClass = createEClass(REF);
 		createEReference(refEClass, REF__BASE_PARAMETER);
 		createEReference(refEClass, REF__BASE_PROPERTY);
+		createEAttribute(refEClass, REF__DECLARATION);
 
 		externalEClass = createEClass(EXTERNAL);
 		createEAttribute(externalEClass, EXTERNAL__NAME);
@@ -1379,6 +1389,7 @@ public class C_CppPackageImpl extends EPackageImpl implements C_CppPackage {
 		initEClass(refEClass, Ref.class, "Ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRef_Base_parameter(), theUMLPackage.getParameter(), null, "base_parameter", null, 0, 1, Ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRef_Base_property(), theUMLPackage.getProperty(), null, "base_property", null, 0, 1, Ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRef_Declaration(), theTypesPackage.getString(), "declaration", null, 0, 1, Ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(externalEClass, External.class, "External", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExternal_Name(), theTypesPackage.getString(), "name", null, 0, 1, External.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

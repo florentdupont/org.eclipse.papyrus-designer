@@ -27,6 +27,7 @@ import org.eclipse.uml2.uml.Property;
  * <ul>
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref#getBase_parameter <em>Base parameter</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref#getBase_property <em>Base property</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref#getDeclaration <em>Declaration</em>}</li>
  * </ul>
  *
  * @see org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.C_CppPackage#getRef()
@@ -83,5 +84,31 @@ public interface Ref extends EObject {
 	 * @generated
 	 */
 	void setBase_property(Property value);
+
+	/**
+	 * Returns the value of the '<em><b>Declaration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Declaration</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Declaration</em>' attribute.
+	 * @see #setDeclaration(String)
+	 * @see org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.C_CppPackage#getRef_Declaration()
+	 * @model unique="false" dataType="org.eclipse.uml2.types.String" ordered="false"
+	 * @generated
+	 */
+	String getDeclaration();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref#getDeclaration <em>Declaration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Declaration</em>' attribute.
+	 * @see #getDeclaration()
+	 * @generated
+	 */
+	void setDeclaration(String value);
 
 } // Ref

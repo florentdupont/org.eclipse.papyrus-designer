@@ -72,8 +72,16 @@ public class Modifier {
 	}
 
 	public static String modRef(Element propertyOrParameter) {
-		// Ref
-		return GenUtils.hasStereotype(propertyOrParameter, Ref.class) ? "&" : ""; //$NON-NLS-1$ //$NON-NLS-2$
+		// Reference
+		String ref; //$NON-NLS-1$
+		Ref cppRef = UMLUtil.getStereotypeApplication(propertyOrParameter, Ref.class);
+		if (cppRef != null) {
+			ref = (cppRef.getDeclaration() != null && !cppRef.getDeclaration().equals("")) ? cppRef.getDeclaration() : "&"; //$NON-NLS-1$
+		} else {
+			ref = "";
+		}
+		
+		return ref;
 	}
 
 	public static String modArray(Element propertyOrParameter) {

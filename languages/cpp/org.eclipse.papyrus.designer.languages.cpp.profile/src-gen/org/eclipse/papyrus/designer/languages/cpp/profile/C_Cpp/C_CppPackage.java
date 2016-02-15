@@ -553,13 +553,22 @@ public interface C_CppPackage extends EPackage {
 	int REF__BASE_PROPERTY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Declaration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF__DECLARATION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REF_FEATURE_COUNT = 2;
+	int REF_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Ref</em>' class.
@@ -1709,6 +1718,17 @@ public interface C_CppPackage extends EPackage {
 	EReference getRef_Base_property();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref#getDeclaration <em>Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Declaration</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref#getDeclaration()
+	 * @see #getRef()
+	 * @generated
+	 */
+	EAttribute getRef_Declaration();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External <em>External</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2552,6 +2572,14 @@ public interface C_CppPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REF__BASE_PROPERTY = eINSTANCE.getRef_Base_property();
+
+		/**
+		 * The meta object literal for the '<em><b>Declaration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REF__DECLARATION = eINSTANCE.getRef_Declaration();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl.ExternalImpl <em>External</em>}' class.

@@ -32,6 +32,7 @@ import org.eclipse.uml2.uml.Property;
  * <ul>
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl.RefImpl#getBase_parameter <em>Base parameter</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl.RefImpl#getBase_property <em>Base property</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl.RefImpl#getDeclaration <em>Declaration</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +57,26 @@ public class RefImpl extends MinimalEObjectImpl.Container implements Ref {
 	 * @ordered
 	 */
 	protected Property base_property;
+
+	/**
+	 * The default value of the '{@link #getDeclaration() <em>Declaration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeclaration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DECLARATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDeclaration() <em>Declaration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeclaration()
+	 * @generated
+	 * @ordered
+	 */
+	protected String declaration = DECLARATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,6 +182,27 @@ public class RefImpl extends MinimalEObjectImpl.Container implements Ref {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDeclaration() {
+		return declaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeclaration(String newDeclaration) {
+		String oldDeclaration = declaration;
+		declaration = newDeclaration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, C_CppPackage.REF__DECLARATION, oldDeclaration, declaration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -170,6 +212,8 @@ public class RefImpl extends MinimalEObjectImpl.Container implements Ref {
 			case C_CppPackage.REF__BASE_PROPERTY:
 				if (resolve) return getBase_property();
 				return basicGetBase_property();
+			case C_CppPackage.REF__DECLARATION:
+				return getDeclaration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -187,6 +231,9 @@ public class RefImpl extends MinimalEObjectImpl.Container implements Ref {
 				return;
 			case C_CppPackage.REF__BASE_PROPERTY:
 				setBase_property((Property)newValue);
+				return;
+			case C_CppPackage.REF__DECLARATION:
+				setDeclaration((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,6 +253,9 @@ public class RefImpl extends MinimalEObjectImpl.Container implements Ref {
 			case C_CppPackage.REF__BASE_PROPERTY:
 				setBase_property((Property)null);
 				return;
+			case C_CppPackage.REF__DECLARATION:
+				setDeclaration(DECLARATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -222,8 +272,26 @@ public class RefImpl extends MinimalEObjectImpl.Container implements Ref {
 				return base_parameter != null;
 			case C_CppPackage.REF__BASE_PROPERTY:
 				return base_property != null;
+			case C_CppPackage.REF__DECLARATION:
+				return DECLARATION_EDEFAULT == null ? declaration != null : !DECLARATION_EDEFAULT.equals(declaration);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (declaration: ");
+		result.append(declaration);
+		result.append(')');
+		return result.toString();
 	}
 
 } // RefImpl

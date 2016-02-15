@@ -99,6 +99,8 @@
         unique="false" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Parameter"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_property" ordered="false"
         unique="false" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="declaration" ordered="false"
+        unique="false" eType="ecore:EDataType types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="External">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"

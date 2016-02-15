@@ -127,21 +127,29 @@ class ReverseUtils {
 			}
 			for (pointerOperator : declarator.pointerOperators) {
 				if (pointerOperator instanceof ICPPASTReferenceOperator) {
-					applyStereotype(typedElement, true, StereotypeType.REFERENCE, pointerOperator.syntax.toString)
+					var reference = pointerOperator as ICPPASTReferenceOperator
+					if (!StereotypeUtil.isApplied(typedElement, Ref)) {
+						applyStereotype(typedElement, true, StereotypeType.REFERENCE, reference.syntax.toString)
+					} else {
+						var value = UMLUtil.getStereotypeApplication(typedElement, Ref).declaration
+						UMLUtil.getStereotypeApplication(typedElement, Ref).declaration = value + reference.syntax.toString
+					}
 				} else if (pointerOperator instanceof IASTPointerOperator) {
 					var pointer = pointerOperator as IASTPointerOperator
 					if (!StereotypeUtil.isApplied(typedElement, Ptr)) {
 						applyStereotype(typedElement, true, StereotypeType.POINTER, pointer.syntax.toString)
 					} else {
 						var value = UMLUtil.getStereotypeApplication(typedElement, Ptr).declaration
-						UMLUtil.getStereotypeApplication(typedElement, Ptr).declaration = value +
-							pointer.syntax.toString
+						UMLUtil.getStereotypeApplication(typedElement, Ptr).declaration = value + pointer.syntax.toString
 					}
 				}
 			}
 			
 			if (StereotypeUtil.isApplied(typedElement, Ptr)) {
 				var value = UMLUtil.getStereotypeApplication(typedElement, Ptr).declaration
+				if (value == null) {
+					value = "*"
+				}
 				
 				var Pattern pattern = Pattern.compile("(\\*)([\\s]*)(const)");
 				var Matcher matcher = pattern.matcher(declarator.rawSignature);
@@ -150,8 +158,16 @@ class ReverseUtils {
 					UMLUtil.getStereotypeApplication(typedElement, Ptr).declaration = value
 				}
 				
-				if (value.equals("*")) {
-					UMLUtil.getStereotypeApplication(typedElement, Ptr).declaration = ""
+				if (value.trim.equals("*")) {
+					UMLUtil.getStereotypeApplication(typedElement, Ptr).declaration = null
+				}
+			}
+			
+			if (StereotypeUtil.isApplied(typedElement, Ref)) {
+				var value = UMLUtil.getStereotypeApplication(typedElement, Ref).declaration
+				
+				if (value != null && value.trim.equals("&")) {
+					UMLUtil.getStereotypeApplication(typedElement, Ref).declaration = null
 				}
 			}
 		}
@@ -208,6 +224,7 @@ class ReverseUtils {
 			}
 			case REFERENCE: {
 				StereotypeUtil.apply(element, Ref)
+				UMLUtil.getStereotypeApplication(element, Ref).declaration = additional
 			}
 			case EXTERNAL: {
 				StereotypeUtil.apply(element, External)
