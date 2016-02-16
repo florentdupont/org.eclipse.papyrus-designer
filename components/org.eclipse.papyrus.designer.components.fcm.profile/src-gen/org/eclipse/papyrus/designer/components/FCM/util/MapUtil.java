@@ -23,7 +23,7 @@ import org.eclipse.papyrus.designer.components.FCM.DerivedElement;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
 import org.eclipse.papyrus.designer.components.FCM.TemplatePort;
-import org.eclipse.papyrus.designer.components.fcm.profile.Activator;
+import org.eclipse.papyrus.designer.components.FCM.profile.Activator;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Interface;

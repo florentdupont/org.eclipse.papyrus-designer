@@ -10,7 +10,7 @@
  *   Ansgar Radermacher - Initial API and implementation
  *******************************************************************************/
 
-package org.eclipse.papyrus.designer.components.fcm.profile;
+package org.eclipse.papyrus.designer.components.FCM.profile;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

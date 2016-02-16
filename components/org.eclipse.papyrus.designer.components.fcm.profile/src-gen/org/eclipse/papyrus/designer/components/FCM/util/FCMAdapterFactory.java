@@ -55,7 +55,7 @@ import org.eclipse.papyrus.designer.components.FCM.TargetArchitecture;
 import org.eclipse.papyrus.designer.components.FCM.Template;
 import org.eclipse.papyrus.designer.components.FCM.TemplatePort;
 import org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator;
-import org.eclipse.papyrus.designer.components.fcm.profile.*;
+import org.eclipse.papyrus.designer.components.FCM.profile.*;
 
 /**
  * <!-- begin-user-doc -->

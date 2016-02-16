@@ -31,7 +31,7 @@ import org.eclipse.uml2.uml.TemplateBinding;
  */
 public class BindingHelperExt {
 
-	public static final String IBINDING_HELPER_ID = org.eclipse.papyrus.designer.components.fcm.profile.Activator.PLUGIN_ID + ".fcmBindingHelper"; //$NON-NLS-1$
+	public static final String IBINDING_HELPER_ID = org.eclipse.papyrus.designer.components.FCM.profile.Activator.PLUGIN_ID + ".fcmBindingHelper"; //$NON-NLS-1$
 
 	/**
 	 *
