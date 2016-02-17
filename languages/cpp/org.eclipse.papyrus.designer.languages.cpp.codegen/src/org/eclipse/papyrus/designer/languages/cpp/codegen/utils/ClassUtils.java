@@ -134,32 +134,14 @@ public class ClassUtils {
 	 * @return
 	 */
 	public static EList<Classifier> includedImplementationClassifiers(Classifier currentClass) {
+		// Retrieve package used by current package (dependencies)
+		// use a unique list to avoid duplicates
 		EList<Classifier> usedClasses = new UniqueEList<Classifier>();
 
-		// List of excluded/included stereotypes
-		EList<Class<? extends EObject>> ptrRefStereotypes = new BasicEList<Class<? extends EObject>>();
-		ptrRefStereotypes.add(Ptr.class);
-		ptrRefStereotypes.add(Ref.class);
-		
-		EList<Class<? extends EObject>> noCodeGenInlineStereotypes = new BasicEList<Class<? extends EObject>>();
-		noCodeGenInlineStereotypes.add(NoCodeGen.class);
-		noCodeGenInlineStereotypes.add(Inline.class);
-		
-		// operation parameter dependencies (non-ptr and non-ref)
-		usedClasses.addAll(GenUtils.getTypesViaOperations(currentClass, noCodeGenInlineStereotypes, null, ptrRefStereotypes, null, true));
-		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getTypesViaOperations(currentClass));
-		
-		// opaque behavior (no-specification) parameter dependencies (non-ptr and non-ref)
-		usedClasses.addAll(GenUtils.getTypesViaOpaqueBehaviors(currentClass, null, null, ptrRefStereotypes, null, true)); // TODO some excluded/included stereotypes for opaque behavior once bug on "noCodeGen" is fixed
-		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getTypesViaOpaqueBehaviors(currentClass));
-		
-		// inner classifier operation parameter dependencies (non-ptr and non-ref)
-		usedClasses.addAll(GenUtils.getInnerClassifierTypesViaOperations(currentClass, noCodeGenInlineStereotypes, null, ptrRefStereotypes, null, true));
-		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getInnerClassifierTypesViaOperations(currentClass));
-		
-		// inner classifier opaque behavior (no-specification) parameter dependencies (non-ptr and non-ref)
-		usedClasses.addAll(GenUtils.getInnerClassifierTypesViaOpaqueBehaviors(currentClass, null, null, ptrRefStereotypes, null, true)); // TODO some excluded/included stereotypes for opaque behavior once bug on "noCodeGen" is fixed
-		addEnumerationsPrimitiveTypesExternalTypes(usedClasses, GenUtils.getInnerClassifierTypesViaOpaqueBehaviors(currentClass));
+		// Include all declared classifiers in header
+		// Make sure to not include classifiers already included in header
+		usedClasses.addAll(declaredClassifiers(currentClass));
+		usedClasses.removeAll(includedClassifiers(currentClass));
 		
 		// dependency relationships
 		usedClasses.addAll(GenUtils.getTypesViaDependencies(currentClass));
