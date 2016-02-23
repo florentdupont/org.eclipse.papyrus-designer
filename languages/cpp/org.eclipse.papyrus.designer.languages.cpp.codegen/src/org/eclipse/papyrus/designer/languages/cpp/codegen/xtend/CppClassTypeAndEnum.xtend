@@ -62,7 +62,11 @@ class CppClassTypeAndEnum {
 					if (GenUtils.isTemplateBoundElement(element as Classifier)) {
 						return CppInnerClassifiers.CppInnerBindDefinition(element as Classifier)
 					} else {
-						return CppInnerClassifiers.CppInnerClassDefinition(element as Classifier)
+						val currentVisibility = CppGenUtils.currentVisibility
+						CppGenUtils.resetVisibility(null)
+						val definition = CppInnerClassifiers.CppInnerClassDefinition(element as Classifier)
+						CppGenUtils.resetVisibility(currentVisibility)
+						return definition
 					}
 					
 				}

@@ -362,6 +362,13 @@ public class CppGenUtils {
 	public static void resetVisibility(VisibilityKind v) {
 		currVisibility = v;
 	}
+	
+	/**
+	 * Get the current visibility so we can restore it when generating nested classes
+	 */
+	public static VisibilityKind getCurrentVisibility() {
+		return currVisibility;
+	}
 
 	/**
 	 * Create a section of code with the appropriate visibility. Merges the content with
