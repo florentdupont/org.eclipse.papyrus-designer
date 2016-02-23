@@ -82,7 +82,7 @@ public class Modifier {
 		String array = ""; //$NON-NLS-1$
 		if (cppArray != null) {
 			// explicit array definition
-			array = (cppArray.getDefinition() != null) ? cppArray.getDefinition() : "[]"; //$NON-NLS-1$
+			array = (cppArray.getDefinition() != null && !cppArray.getDefinition().isEmpty()) ? cppArray.getDefinition() : "[]"; //$NON-NLS-1$
 		} else {
 			// calculate array from multiplicity definition
 			int multiplicity = 1;
