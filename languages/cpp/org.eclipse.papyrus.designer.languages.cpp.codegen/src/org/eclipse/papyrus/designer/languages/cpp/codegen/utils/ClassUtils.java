@@ -173,11 +173,11 @@ public class ClassUtils {
 		noCodeGenStereotypes.add(NoCodeGen.class);
 		
 		// class attributes dependencies (only ptr and ref and shared aggregation)
-		usedClasses.addAll(GenUtils.getTypesViaAttributes(currentClass, null, ptrRefStereotypes, true, false));
+		usedClasses.addAll(GenUtils.getTypesViaAttributes(currentClass, null, ptrRefStereotypes, false, false));
 		usedClasses.addAll(GenUtils.getTypesViaSharedAggregationAttributes(currentClass));
 		// operation parameters dependencies
 		usedClasses.addAll(GenUtils.getTypesViaOperations(currentClass));
-		usedClasses.removeAll(GenUtils.getTypesViaOperations(currentClass, noCodeGenStereotypes, inlineStereotypes, ptrRefStereotypes, null, false)); // Remove inline operation parameter types that have been included previously
+		usedClasses.removeAll(GenUtils.getTypesViaOperations(currentClass, noCodeGenStereotypes, inlineStereotypes, ptrRefStereotypes, null, true)); // Remove inline operation parameter types that have been included previously
 		// no-specification opaque behavior dependencies
 		usedClasses.addAll(GenUtils.getTypesViaOpaqueBehaviors(currentClass));
 		
@@ -186,7 +186,7 @@ public class ClassUtils {
 		usedClasses.addAll(GenUtils.getInnerClassifierTypesViaSharedAggregationAttributes(currentClass));
 		// inner classifier parameters dependencies
 		usedClasses.addAll(GenUtils.getInnerClassifierTypesViaOperations(currentClass));
-		usedClasses.removeAll(GenUtils.getInnerClassifierTypesViaOperations(currentClass, noCodeGenStereotypes, inlineStereotypes, ptrRefStereotypes, null, false)); // Remove inner classifier inline operation parameter types that have been included previously
+		usedClasses.removeAll(GenUtils.getInnerClassifierTypesViaOperations(currentClass, noCodeGenStereotypes, inlineStereotypes, ptrRefStereotypes, null, true)); // Remove inner classifier inline operation parameter types that have been included previously
 		// inner classifier no-specification opaque behavior dependencies
 		usedClasses.addAll(GenUtils.getInnerClassifierTypesViaOpaqueBehaviors(currentClass));
 		

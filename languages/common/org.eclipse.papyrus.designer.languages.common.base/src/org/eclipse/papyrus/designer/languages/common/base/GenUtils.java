@@ -313,13 +313,14 @@ public class GenUtils {
 				ok = false;
 			}
 			
-			if (ok) {
+			boolean operationOk = ok;
+			if (operationOk || bypassForInnerClassifiers) {
 				for (Parameter param : operation.getOwnedParameters()) {
 					Type type = param.getType();
 					if  (type != null) {
 						if (bypassForInnerClassifiers && !(type.getOwner() instanceof Package)) { // if we force inner class types to be processed
 							addFarthestOwnerType(type, result);
-						} else {
+						} else if (operationOk) {
 							ok = true;
 							
 							if (excludedParameterStereotypes != null && GenUtils.hasAnyStereotype(param, excludedParameterStereotypes)) {
