@@ -699,6 +699,13 @@ public class GenUtils {
 				}
 			}
 		}
+		
+		for (Element owned : current.getOwnedElements()) {
+			if (owned instanceof Classifier) {
+				classifiers.addAll(getTypesViaRelationshipsNoDeps((Classifier) owned));
+			}
+		}
+		
 		return classifiers;
 	}
 
