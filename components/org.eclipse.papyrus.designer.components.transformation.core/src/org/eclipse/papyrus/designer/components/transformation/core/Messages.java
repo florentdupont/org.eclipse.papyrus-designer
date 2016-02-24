@@ -105,6 +105,8 @@ public class Messages extends NLS {
 	public static String MainModelTrafo_NoDefiningFeature;
 	public static String MainModelTrafo_NoInstanceAssociated;
 
+	public static String MainModelTrafo_NoTypeDefinedFor;
+
 	public static String CompImplSync_InfoSyncIntf;
 	public static String CompImplSync_InfoSyncViaImpl;
 	public static String CompImplSync_InfoSyncViaType;

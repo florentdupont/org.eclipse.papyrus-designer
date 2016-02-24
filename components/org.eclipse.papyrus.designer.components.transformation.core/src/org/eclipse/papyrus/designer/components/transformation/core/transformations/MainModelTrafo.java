@@ -338,11 +338,14 @@ public class MainModelTrafo {
 						String.format(Messages.MainModelTrafo_NoDefiningFeature, smIS.getName()));
 			}
 			StructuralFeature smPartDF = slot.getDefiningFeature();
+			Type type = smPartDF.getType();
+			if(type==null){
+				throw new TransformationException(String.format(Messages.MainModelTrafo_NoTypeDefinedFor, smPartDF.getName()));	
+			}
 			if (StereotypeUtil.isApplied(smPartDF.getType(), InteractionComponent.class)) {
 				if (smPartDF instanceof Property) {
 					Property tmPart = ConnectorReification.reifyConnector(copy, tmComponent, (Property) smPartDF, tmIS);
 					// update value specification (to the one just created)
-					Type type = tmPart.getType();
 					InstanceSpecification tmPartIS = EcoreUtil.copy(DepUtils.getInstance(slot));
 					tmCDP.getPackagedElements().add(tmPartIS);
 					if (type instanceof Classifier) {
