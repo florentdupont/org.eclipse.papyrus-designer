@@ -192,6 +192,7 @@ class CppOperations {
 				if (operation.ownedParameters.get(i).direction != ParameterDirectionKind.RETURN_LITERAL) {
 					hasParameters = true;
 				}
+				i++
 			}
 			
 			if (hasParameters) {
