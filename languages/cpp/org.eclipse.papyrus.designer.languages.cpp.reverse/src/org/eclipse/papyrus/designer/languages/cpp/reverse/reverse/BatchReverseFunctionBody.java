@@ -527,9 +527,9 @@ public class BatchReverseFunctionBody {
 			IMethodDeclaration method = (IMethodDeclaration) function;
 			try {
 				if (method.isConstructor()) {
-					StereotypeUtil.apply(operation, ConstInit.class);
 					String initStr = ReverseCpp2Uml.getMemberInit(functionNode);
 					if (!initStr.isEmpty()) {
+						StereotypeUtil.apply(operation, ConstInit.class);
 						UMLUtil.getStereotypeApplication(operation, ConstInit.class).setInitialisation(initStr);
 					}
 				}

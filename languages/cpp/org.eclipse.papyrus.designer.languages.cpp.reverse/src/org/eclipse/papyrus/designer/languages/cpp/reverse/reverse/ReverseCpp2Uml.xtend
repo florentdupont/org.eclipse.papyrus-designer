@@ -2269,9 +2269,9 @@ class ReverseCpp2Uml {
 		
 		if (body != null) {
 			if (method.constructor) {
-				StereotypeUtil.apply(op, ConstInit)
 				var initStr = method.memberInit
 				if (!initStr.empty) {
+					StereotypeUtil.apply(op, ConstInit)
 					UMLUtil.getStereotypeApplication(op, ConstInit).initialisation = initStr
 				}				
 			}
