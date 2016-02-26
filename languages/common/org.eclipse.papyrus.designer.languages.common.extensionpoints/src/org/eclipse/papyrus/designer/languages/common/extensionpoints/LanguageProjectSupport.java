@@ -15,6 +15,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 
 /**
  * Support for multiple target languages via the Eclipse extension mechanism
@@ -43,7 +44,8 @@ public class LanguageProjectSupport {
 					}
 				}
 			} catch (CoreException exception) {
-				exception.printStackTrace();
+				Activator.getDefault().getLog().log(
+						new Status(Status.ERROR, Activator.PLUGIN_ID, Messages.LanguageSupport_LanguageNotSupported, exception));
 			}
 		}
 		throw new RuntimeException(String.format(Messages.LanguageSupport_LanguageNotSupported, language));

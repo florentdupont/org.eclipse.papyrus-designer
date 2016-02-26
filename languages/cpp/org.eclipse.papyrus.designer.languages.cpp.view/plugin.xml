@@ -5,9 +5,9 @@
          point="org.eclipse.ui.views">
       <view
             category="org.eclipse.papyrus.views.category"
-            class="org.eclipse.papyrus.views.cpp.CppPanelView"
+            class="org.eclipse.papyrus.designer.languages.cpp.view.CppPanelView"
             icon="resources/icons/transfo_cpp.gif"
-            id="com.cea.papyrus.views.cpp"
+            id="org.eclipse.papyrus.designer.languages.cpp.view.cpp"
             name="C/C++"/>
    </extension>
 </plugin>
