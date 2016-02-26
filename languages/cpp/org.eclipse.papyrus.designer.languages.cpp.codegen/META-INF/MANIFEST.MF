@@ -20,7 +20,6 @@ Export-Package: org.eclipse.papyrus.designer.languages.cpp.codegen;uses:="org.ec
  org.eclipse.papyrus.designer.languages.cpp.codegen.preferences;uses:="org.eclipse.jface.preference,org.eclipse.core.runtime.preferences",
  org.eclipse.papyrus.designer.languages.cpp.codegen.transformation;
   uses:="org.eclipse.core.runtime,
-   org.eclipse.papyrus.acceleo,
    org.eclipse.core.resources,
    org.eclipse.uml2.uml",
  org.eclipse.papyrus.designer.languages.cpp.codegen.utils;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util,org.eclipse.uml2.uml",

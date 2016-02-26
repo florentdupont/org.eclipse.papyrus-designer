@@ -7,7 +7,6 @@
       <unit id="org.eclipse.platform.feature.group" version="4.6.0.v20160128-2000"/>
       <unit id="org.eclipse.rcp.feature.group" version="4.6.0.v20160128-2000"/>
       <unit id="org.eclipse.jdt.feature.group" version="3.12.0.v20160128-2000"/>
-      <unit id="org.eclipse.acceleo.feature.group" version="3.6.3.201601290717"/>
       <unit id="org.eclipse.cdt.feature.group" version="9.0.0.201602011105"/>
       <unit id="org.eclipse.equinox.p2.discovery.feature.feature.group" version="1.0.300.v20150907-2149"/>
       <unit id="org.eclipse.equinox.executable.feature.group" version="3.6.300.v20160128-1437"/>
