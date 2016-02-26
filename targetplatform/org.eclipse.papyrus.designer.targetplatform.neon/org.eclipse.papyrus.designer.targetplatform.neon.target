@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Papyrus Neon" sequenceNumber="1454063832">
+<target name="Papyrus Neon" sequenceNumber="1456493848">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.platform.feature.group" version="4.6.0.v20151209-2300"/>
-      <unit id="org.eclipse.rcp.feature.group" version="4.6.0.v20151209-2300"/>
-      <unit id="org.eclipse.jdt.feature.group" version="3.12.0.v20151209-2300"/>
-      <unit id="org.eclipse.acceleo.feature.group" version="3.6.2.201512111602"/>
-      <unit id="org.eclipse.cdt.feature.group" version="8.8.0.201511071104"/>
-      <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="1.2.0.201512161142"/>
+      <unit id="org.eclipse.platform.feature.group" version="4.6.0.v20160128-2000"/>
+      <unit id="org.eclipse.rcp.feature.group" version="4.6.0.v20160128-2000"/>
+      <unit id="org.eclipse.jdt.feature.group" version="3.12.0.v20160128-2000"/>
+      <unit id="org.eclipse.acceleo.feature.group" version="3.6.3.201601290717"/>
+      <unit id="org.eclipse.cdt.feature.group" version="9.0.0.201602011105"/>
+      <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="1.2.0.201602031041"/>
       <unit id="org.eclipse.equinox.p2.discovery.feature.feature.group" version="1.0.300.v20150907-2149"/>
-      <unit id="org.eclipse.equinox.executable.feature.group" version="3.6.200.v20151113-1733"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="3.6.300.v20160128-1437"/>
       <repository id="eclipse-neon" location="http://download.eclipse.org/releases/neon/"/>
     </location>
   </locations>
