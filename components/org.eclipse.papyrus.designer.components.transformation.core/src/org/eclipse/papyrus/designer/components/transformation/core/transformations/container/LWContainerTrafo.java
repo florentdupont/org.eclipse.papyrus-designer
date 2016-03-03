@@ -43,6 +43,8 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Dependency;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.InstanceSpecification;
+import org.eclipse.uml2.uml.Interface;
+import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.OpaqueBehavior;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
@@ -184,7 +186,7 @@ public class LWContainerTrafo extends AbstractContainerTrafo {
 	public void applyRule(ContainerRule smContainerRule, Class smComponent, Class tmComponent)
 			throws TransformationException
 	{
-		// dependencies of the rule become dependencies of he class. These dependencies must be instantiated
+		// dependencies of the rule become dependencies of the class that applies this rule.
 		for (Dependency dependency : smContainerRule.getBase_Class().getClientDependencies()) {
 			//
 			for (Element target : dependency.getTargets()) {
@@ -193,9 +195,14 @@ public class LWContainerTrafo extends AbstractContainerTrafo {
 					Class targetCl = (Class) target;
 					Class extClass = expandAggregationDep(targetCl, smComponent);
 					tmComponent.createDependency(extClass);
-					// if(TemplateUtils.getSignature(targetCl) != null) {
-					// }
 				}
+				else if (target instanceof Interface) {
+					Interface targetIntf = (Interface) target;
+					if (dependency instanceof InterfaceRealization) {
+						tmComponent.createInterfaceRealization(((InterfaceRealization) dependency).getName(), copier.getCopy(targetIntf));
+					}
+				}
+				// TODO: handle additional dependencies, better use generic copier?
 			}
 		}
 
