@@ -11,7 +11,7 @@
  *  (with the help of examining table support from Vincent Lorenzo)
  *
  *****************************************************************************/
-package org.eclipse.papyrus.texteditor.modelexplorer.queries;
+package org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer.queries;
 
 import org.eclipse.papyrus.emf.facet.custom.metamodel.custompt.IImage;
 import org.eclipse.papyrus.emf.facet.custom.ui.ImageUtils;

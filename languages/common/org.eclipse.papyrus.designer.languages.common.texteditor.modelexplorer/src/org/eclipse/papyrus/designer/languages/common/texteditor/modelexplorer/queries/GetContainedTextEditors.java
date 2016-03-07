@@ -13,7 +13,7 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.texteditor.modelexplorer.queries;
+package org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer.queries;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,12 +25,11 @@ import org.eclipse.papyrus.emf.facet.efacet.core.IFacetManager;
 import org.eclipse.papyrus.emf.facet.efacet.core.exception.DerivedTypedElementException;
 import org.eclipse.papyrus.emf.facet.query.java.core.IJavaQuery2;
 import org.eclipse.papyrus.emf.facet.query.java.core.IParameterValueList2;
+import org.eclipse.papyrus.infra.viewpoints.policy.NotationUtils;
 import org.eclipse.papyrus.languages.designer.common.texteditor.model.TextEditorModel;
-import org.eclipse.papyrus.views.modelexplorer.NavigatorUtils;
-import org.eclipse.papyrus.views.modelexplorer.queries.AbstractEditorContainerQuery;
 
 /** Get the collection of all contained text editors */
-public class GetContainedTextEditors extends AbstractEditorContainerQuery implements IJavaQuery2<EObject, Collection<TextEditorModel>> {
+public class GetContainedTextEditors implements IJavaQuery2<EObject, Collection<TextEditorModel>> {
 
 	/**
 	 * {@inheritDoc}
@@ -39,7 +38,7 @@ public class GetContainedTextEditors extends AbstractEditorContainerQuery implem
 	public Collection<TextEditorModel> evaluate(EObject source, IParameterValueList2 parameterValues, IFacetManager manager) throws DerivedTypedElementException  {
 
 		List<TextEditorModel> result = new ArrayList<TextEditorModel>();
-		Iterator<EObject> roots = NavigatorUtils.getNotationRoots(source);
+		Iterator<EObject> roots = NotationUtils.getNotationRoots(source);
 		if (roots == null) {
 			return result;
 		}

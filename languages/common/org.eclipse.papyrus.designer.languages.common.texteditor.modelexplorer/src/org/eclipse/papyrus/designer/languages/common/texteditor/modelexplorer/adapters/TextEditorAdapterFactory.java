@@ -12,7 +12,7 @@
  *    (derived from DiagramAdapterFactory)
  *
  *****************************************************************************/
-package org.eclipse.papyrus.texteditor.modelexplorer.adapters;
+package org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer.adapters;
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.papyrus.infra.core.sasheditor.di.contentprovider.IOpenable;

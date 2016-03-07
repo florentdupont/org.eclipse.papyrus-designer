@@ -13,7 +13,7 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.texteditor.modelexplorer;
+package org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer;
 
 import org.eclipse.papyrus.infra.core.log.LogHelper;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

@@ -7,8 +7,8 @@
 	</extension>
 	<extension point="org.eclipse.core.runtime.adapters">
 		<factory 
-			adaptableType="org.eclipse.papyrus.texteditor.model.texteditormodel.TextEditorModel"
- 			class="org.eclipse.papyrus.texteditor.modelexplorer.adapters.TextEditorAdapterFactory">
+			adaptableType="org.eclipse.papyrus.designer.languages.common.texteditor.model.texteditormodel.TextEditorModel"
+ 			class="org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer.adapters.TextEditorAdapterFactory">
 			<adapter
 				type="org.eclipse.papyrus.infra.core.sasheditor.di.contentprovider.IOpenable">
 			</adapter>

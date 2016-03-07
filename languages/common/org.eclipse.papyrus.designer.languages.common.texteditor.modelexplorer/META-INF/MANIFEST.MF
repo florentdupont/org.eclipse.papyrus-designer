@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Export-Package: org.eclipse.papyrus.texteditor.modelexplorer,
- org.eclipse.papyrus.texteditor.modelexplorer.queries
+Export-Package: org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer,
+ org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer.queries
 Bundle-ActivationPolicy: lazy
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
@@ -19,7 +19,7 @@ Require-Bundle: org.eclipse.ui,
 Bundle-Vendor: %pluginProvider
 Bundle-Version: 0.7.0.qualifier
 Bundle-ManifestVersion: 2
-Bundle-Activator: org.eclipse.papyrus.texteditor.modelexplorer.Activator
+Bundle-Activator: org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer.Activator
 Bundle-SymbolicName: org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer;singleton:=true
 Import-Package: org.eclipse.papyrus.infra.ui.editorsfactory,
  org.eclipse.papyrus.infra.viewpoints.policy
