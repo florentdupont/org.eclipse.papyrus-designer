@@ -17,15 +17,15 @@ package org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer.q
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.papyrus.emf.facet.efacet.core.IFacetManager;
 import org.eclipse.papyrus.emf.facet.efacet.core.exception.DerivedTypedElementException;
 import org.eclipse.papyrus.emf.facet.query.java.core.IJavaQuery2;
 import org.eclipse.papyrus.emf.facet.query.java.core.IParameterValueList2;
-import org.eclipse.papyrus.infra.viewpoints.policy.NotationUtils;
+import org.eclipse.papyrus.infra.emf.utils.EMFHelper;
 import org.eclipse.papyrus.languages.designer.common.texteditor.model.TextEditorModel;
 
 /** Get the collection of all contained text editors */
@@ -35,20 +35,18 @@ public class GetContainedTextEditors implements IJavaQuery2<EObject, Collection<
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Collection<TextEditorModel> evaluate(EObject source, IParameterValueList2 parameterValues, IFacetManager manager) throws DerivedTypedElementException  {
+	public Collection<TextEditorModel> evaluate(EObject source, IParameterValueList2 parameterValues, IFacetManager manager) throws DerivedTypedElementException {
 
 		List<TextEditorModel> result = new ArrayList<TextEditorModel>();
-		Iterator<EObject> roots = NotationUtils.getNotationRoots(source);
-		if (roots == null) {
-			return result;
-		}
-
-		while (roots.hasNext()) {
-			EObject root = roots.next();
-			if (root instanceof TextEditorModel) {
-				TextEditorModel textEditorModel = (TextEditorModel) root; 
-				if (textEditorModel.getEditedObject() == source) {
-					result.add(textEditorModel);
+		Collection<Setting> settings = EMFHelper.getUsages(source);
+		if (settings != null) {
+			for (Setting setting : settings) {		
+				EObject usingElement = setting.getEObject();
+				if (usingElement instanceof TextEditorModel) {
+					TextEditorModel textEditorModel = (TextEditorModel) usingElement;
+					if (textEditorModel.getEditedObject() == source) {
+						result.add(textEditorModel);
+					}
 				}
 			}
 		}
