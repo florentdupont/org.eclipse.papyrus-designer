@@ -56,6 +56,7 @@ import org.eclipse.papyrus.designer.components.transformation.core.generate.Gene
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterRuleApplication;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterStateMachines;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterTemplate;
+import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterTemplateBinding;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -307,6 +308,7 @@ private void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> ins
 		// can it be realized with a copy filter ?
 		targetCopy.preCopyListeners.add(FilterStateMachines.getInstance());
 		targetCopy.preCopyListeners.add(FilterRuleApplication.getInstance());
+		targetCopy.preCopyListeners.add(FilterTemplateBinding.getInstance());
 
 		monitor.setTaskName(String.format(
 				Messages.InstantiateDepPlan_InfoDeployingForNode,
