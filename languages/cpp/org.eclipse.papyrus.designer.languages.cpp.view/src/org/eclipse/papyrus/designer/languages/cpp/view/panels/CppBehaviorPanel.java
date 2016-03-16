@@ -146,21 +146,21 @@ public class CppBehaviorPanel extends CppAbstractPanel {
 	{
 		if (behavior instanceof OpaqueBehavior) {
 			OpaqueBehavior ob = (OpaqueBehavior) behavior;
-			int i = 0;
-			for (String language : ob.getLanguages()) {
-				if (language.equals(C_CPP_ID)) {
-					return ob.getBodies().get(i);
+			if (ob.getBodies().size() == ob.getLanguages().size()) {
+				int i = 0;
+				for (String language : ob.getLanguages()) {
+					if (language.equals(C_CPP_ID)) {
+						return ob.getBodies().get(i);
+					} else if (language.equals(CPP_ID)) {
+						return ob.getBodies().get(i);
+					} else if (language.equals(C_ID)) {
+						return ob.getBodies().get(i);
+					}
+					i++;
 				}
-				else if (language.equals(CPP_ID)) {
-					return ob.getBodies().get(i);
-				}
-				else if (language.equals(C_ID)) {
-					return ob.getBodies().get(i);
-				}
-				i++;
 			}
 		}
-		return "";
+		return ""; //$NON-NLS-1$
 	}
 
 	public static void setCppBody(Behavior behavior, String body)
@@ -256,7 +256,7 @@ public class CppBehaviorPanel extends CppAbstractPanel {
 	@Override
 	protected void updateModel()
 	{
-		CommandSupport.exec("C++ behavior save", new Runnable() {
+		CommandSupport.exec("C++ behavior save", new Runnable() { //$NON-NLS-1$
 
 			@Override
 			public void run()

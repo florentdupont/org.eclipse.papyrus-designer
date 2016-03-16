@@ -176,8 +176,14 @@ public class CppOperationPanel extends CppAbstractPanel {
 
 					@Override
 					public void widgetSelected(SelectionEvent event) {
-						checkVirtual();
-						reset();
+						CommandSupport.exec("C++ virtual update", new Runnable() {
+
+							@Override
+							public void run() {
+								checkVirtual();
+								reset();
+							}
+						});
 					}
 				});
 
@@ -271,18 +277,18 @@ public class CppOperationPanel extends CppAbstractPanel {
 		for (Behavior behavior : operation.getMethods()) {
 			if (behavior instanceof OpaqueBehavior) {
 				OpaqueBehavior ob = (OpaqueBehavior) behavior;
-				int i = 0;
-				for (String language : ob.getLanguages()) {
-					if (language.equals(C_CPP_ID)) {
-						return ob.getBodies().get(i);
+				if (ob.getBodies().size() == ob.getLanguages().size()) {
+					int i = 0;
+					for (String language : ob.getLanguages()) {
+						if (language.equals(C_CPP_ID)) {
+							return ob.getBodies().get(i);
+						} else if (language.equals(CPP_ID)) {
+							return ob.getBodies().get(i);
+						} else if (language.equals(C_ID)) {
+							return ob.getBodies().get(i);
+						}
+						i++;
 					}
-					else if (language.equals(CPP_ID)) {
-						return ob.getBodies().get(i);
-					}
-					else if (language.equals(C_ID)) {
-						return ob.getBodies().get(i);
-					}
-					i++;
 				}
 			}
 		}
@@ -325,8 +331,9 @@ public class CppOperationPanel extends CppAbstractPanel {
 	protected void checkStatic()
 	{
 		boolean boxState = isStatic.getSelection();
-
-		selectedOperation.setIsStatic(boxState);
+		if (boxState != selectedOperation.isStatic()) {
+			selectedOperation.setIsStatic(boxState);
+		}
 	}
 
 	/**
@@ -436,12 +443,16 @@ public class CppOperationPanel extends CppAbstractPanel {
 		}
 		else if (comboSelected == 1 /* virtual */) {
 
-			selectedOperation.setIsAbstract(false);
+			if (selectedOperation.isAbstract()) { 
+				selectedOperation.setIsAbstract(false);
+			}
 			StereotypeUtil.apply(selectedOperation, Virtual.class);
 		}
 		else if (comboSelected == 2 /* pure virtual */) {
 
-			selectedOperation.setIsAbstract(true);
+			if (!selectedOperation.isAbstract()) { 
+				selectedOperation.setIsAbstract(true);
+			}
 			StereotypeUtil.apply(selectedOperation, Virtual.class);
 		}
 

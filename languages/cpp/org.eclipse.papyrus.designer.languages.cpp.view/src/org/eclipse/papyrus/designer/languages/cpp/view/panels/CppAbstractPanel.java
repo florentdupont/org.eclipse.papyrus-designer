@@ -68,6 +68,7 @@ public abstract class CppAbstractPanel extends Composite {
 		layoutData.bottom = new FormAttachment(100);
 		layoutData.left = new FormAttachment(0);
 		layoutData.right = new FormAttachment(100);
+		umlListener = new UMLElementPanelListener(this);
 		this.setLayoutData(layoutData);
 		this.setBackground(parent.getBackground());
 		this.setVisible(true);
