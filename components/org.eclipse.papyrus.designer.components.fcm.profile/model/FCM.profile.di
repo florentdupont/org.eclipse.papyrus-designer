@@ -51,6 +51,9 @@
           <children>
             <emfPageIdentifier href="FCM.profile.notation#_hbTVgMnpEeK-j9yGRHQ3Jw"/>
           </children>
+          <children>
+            <emfPageIdentifier href="FCM.profile.notation#_2t0Q4JMoEd-I9dVdNhZAGQ"/>
+          </children>
         </children>
       </windows>
     </sashModel>

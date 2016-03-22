@@ -28,12 +28,12 @@ import org.eclipse.uml2.uml.Collaboration;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.InteractionComponent#isForDistribution <em>For Distribution</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.InteractionComponent#getConnectionPattern <em>Connection Pattern</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.InteractionComponent#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.InteractionComponent#isForDistribution <em>For Distribution</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.InteractionComponent#getConnectionPattern <em>Connection Pattern</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.InteractionComponent#getBase_Class <em>Base Class</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getInteractionComponent()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getInteractionComponent()
  * @model
  * @generated
  */
@@ -48,14 +48,14 @@ public interface InteractionComponent extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>For Distribution</em>' attribute.
 	 * @see #setForDistribution(boolean)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getInteractionComponent_ForDistribution()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getInteractionComponent_ForDistribution()
 	 * @model default="false" unique="false" dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false"
 	 * @generated
 	 */
 	boolean isForDistribution();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.InteractionComponent#isForDistribution <em>For Distribution</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.InteractionComponent#isForDistribution <em>For Distribution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>For Distribution</em>' attribute.
@@ -73,14 +73,14 @@ public interface InteractionComponent extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Connection Pattern</em>' reference.
 	 * @see #setConnectionPattern(Collaboration)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getInteractionComponent_ConnectionPattern()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getInteractionComponent_ConnectionPattern()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	Collaboration getConnectionPattern();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.InteractionComponent#getConnectionPattern <em>Connection Pattern</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.InteractionComponent#getConnectionPattern <em>Connection Pattern</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Connection Pattern</em>' reference.
@@ -98,14 +98,14 @@ public interface InteractionComponent extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Class</em>' reference.
 	 * @see #setBase_Class(org.eclipse.uml2.uml.Class)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getInteractionComponent_Base_Class()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getInteractionComponent_Base_Class()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Class getBase_Class();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.InteractionComponent#getBase_Class <em>Base Class</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.InteractionComponent#getBase_Class <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Class</em>' reference.

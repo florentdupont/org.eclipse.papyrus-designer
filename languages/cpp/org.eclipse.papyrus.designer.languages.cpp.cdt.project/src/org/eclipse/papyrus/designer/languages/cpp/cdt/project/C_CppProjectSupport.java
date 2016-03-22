@@ -23,6 +23,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
@@ -47,8 +48,8 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 
 	private static final String CPP = "cpp"; //$NON-NLS-1$
 
-	private int dialogStatus;
-
+	protected int dialogStatus;
+	
 	/**
 	 * Create a C++ project.
 	 * Caller should test before calling, whether the project exists already
@@ -84,14 +85,18 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 					dialogStatus = wizDiag.open();
 				}
 			});
+			if (dialogStatus == Window.OK) {
+				// update project (name might have changed by user)
+				project = wiz.getLastProject();
+			}
+			else if (dialogStatus == Window.CANCEL) {
+				return null;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			project = null;
 		}
-		if (dialogStatus == 1) {
-			// corresponds to Cancel
-			return null;
-		}
+	
 		if ((project == null) || !project.exists()) {
 			throw new RuntimeException("Could not create CDT project. This might indicate that there is a problem with your CDT installation."); //$NON-NLS-1$
 		}

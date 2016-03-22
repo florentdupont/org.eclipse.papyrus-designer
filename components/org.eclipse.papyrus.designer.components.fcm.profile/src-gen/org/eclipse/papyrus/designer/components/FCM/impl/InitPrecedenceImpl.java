@@ -32,9 +32,9 @@ import org.eclipse.papyrus.designer.components.FCM.InitPrecedence;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InitPrecedenceImpl#getInvokeAfter <em>Invoke After</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InitPrecedenceImpl#getInvokeBefore <em>Invoke Before</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InitPrecedenceImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InitPrecedenceImpl#getInvokeAfter <em>Invoke After</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InitPrecedenceImpl#getInvokeBefore <em>Invoke Before</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InitPrecedenceImpl#getBase_Class <em>Base Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,12 +107,62 @@ public class InitPrecedenceImpl extends EObjectImpl implements InitPrecedence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.eclipse.uml2.uml.Class getInvokeAfter(String name) {
+		return getInvokeAfter(name, false, null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.uml2.uml.Class getInvokeAfter(String name, boolean ignoreCase, EClass eClass) {
+		invokeAfterLoop: for (org.eclipse.uml2.uml.Class invokeAfter : getInvokeAfter()) {
+			if (eClass != null && !eClass.isInstance(invokeAfter))
+				continue invokeAfterLoop;
+			if (name != null && !(ignoreCase ? name.equalsIgnoreCase(invokeAfter.getName()) : name.equals(invokeAfter.getName())))
+				continue invokeAfterLoop;
+			return invokeAfter;
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EList<org.eclipse.uml2.uml.Class> getInvokeBefore() {
 		if (invokeBefore == null) {
 			invokeBefore = new EObjectResolvingEList<org.eclipse.uml2.uml.Class>(org.eclipse.uml2.uml.Class.class, this, FCMPackage.INIT_PRECEDENCE__INVOKE_BEFORE);
 		}
 		return invokeBefore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.uml2.uml.Class getInvokeBefore(String name) {
+		return getInvokeBefore(name, false, null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.uml2.uml.Class getInvokeBefore(String name, boolean ignoreCase, EClass eClass) {
+		invokeBeforeLoop: for (org.eclipse.uml2.uml.Class invokeBefore : getInvokeBefore()) {
+			if (eClass != null && !eClass.isInstance(invokeBefore))
+				continue invokeBeforeLoop;
+			if (name != null && !(ignoreCase ? name.equalsIgnoreCase(invokeBefore.getName()) : name.equals(invokeBefore.getName())))
+				continue invokeBeforeLoop;
+			return invokeBefore;
+		}
+		return null;
 	}
 
 	/**

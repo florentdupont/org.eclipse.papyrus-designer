@@ -29,8 +29,8 @@ import org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.UseInstanceConfiguratorImpl#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.UseInstanceConfiguratorImpl#getConfigurator <em>Configurator</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.UseInstanceConfiguratorImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.UseInstanceConfiguratorImpl#getConfigurator <em>Configurator</em>}</li>
  * </ul>
  *
  * @generated

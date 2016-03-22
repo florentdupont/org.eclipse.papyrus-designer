@@ -33,9 +33,9 @@ import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.RuleApplicationImpl#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.RuleApplicationImpl#getContainerRule <em>Container Rule</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.RuleApplicationImpl#getBase_Package <em>Base Package</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.RuleApplicationImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.RuleApplicationImpl#getContainerRule <em>Container Rule</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.RuleApplicationImpl#getBase_Package <em>Base Package</em>}</li>
  * </ul>
  *
  * @generated

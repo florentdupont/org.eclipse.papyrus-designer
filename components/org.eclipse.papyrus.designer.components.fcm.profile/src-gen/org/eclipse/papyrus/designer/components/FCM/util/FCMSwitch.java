@@ -15,6 +15,7 @@ package org.eclipse.papyrus.designer.components.FCM.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.papyrus.designer.components.FCM.*;
 import org.eclipse.papyrus.designer.components.FCM.Assembly;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndex;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndexPerNode;
@@ -65,7 +66,7 @@ import org.eclipse.papyrus.designer.components.FCM.profile.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage
  * @generated
  */
 public class FCMSwitch<T> extends Switch<T> {

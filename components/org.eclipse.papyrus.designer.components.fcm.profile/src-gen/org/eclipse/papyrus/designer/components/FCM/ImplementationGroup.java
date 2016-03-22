@@ -27,10 +27,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.ImplementationGroup#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.ImplementationGroup#getBase_Class <em>Base Class</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getImplementationGroup()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getImplementationGroup()
  * @model
  * @generated
  */
@@ -44,14 +44,14 @@ public interface ImplementationGroup extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Class</em>' reference.
 	 * @see #setBase_Class(org.eclipse.uml2.uml.Class)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getImplementationGroup_Base_Class()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getImplementationGroup_Base_Class()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Class getBase_Class();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.ImplementationGroup#getBase_Class <em>Base Class</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.ImplementationGroup#getBase_Class <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Class</em>' reference.

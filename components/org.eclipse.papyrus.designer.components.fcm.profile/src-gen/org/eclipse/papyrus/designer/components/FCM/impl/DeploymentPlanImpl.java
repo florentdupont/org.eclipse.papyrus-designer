@@ -12,11 +12,14 @@
  */
 package org.eclipse.papyrus.designer.components.FCM.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.papyrus.designer.components.FCM.DeploymentPlan;
 import org.eclipse.papyrus.designer.components.FCM.FCMPackage;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -29,8 +32,9 @@ import org.eclipse.uml2.uml.InstanceSpecification;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.DeploymentPlanImpl#getMainInstance <em>Main Instance</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.DeploymentPlanImpl#getBase_Package <em>Base Package</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.DeploymentPlanImpl#getMainInstance <em>Main Instance</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.DeploymentPlanImpl#getBase_Package <em>Base Package</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.DeploymentPlanImpl#getProjectMappings <em>Project Mappings</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,6 +59,16 @@ public class DeploymentPlanImpl extends EObjectImpl implements DeploymentPlan {
 	 * @ordered
 	 */
 	protected org.eclipse.uml2.uml.Package base_Package;
+
+	/**
+	 * The cached value of the '{@link #getProjectMappings() <em>Project Mappings</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProjectMappings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> projectMappings;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,6 +174,18 @@ public class DeploymentPlanImpl extends EObjectImpl implements DeploymentPlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getProjectMappings() {
+		if (projectMappings == null) {
+			projectMappings = new EDataTypeUniqueEList<String>(String.class, this, FCMPackage.DEPLOYMENT_PLAN__PROJECT_MAPPINGS);
+		}
+		return projectMappings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -169,6 +195,8 @@ public class DeploymentPlanImpl extends EObjectImpl implements DeploymentPlan {
 			case FCMPackage.DEPLOYMENT_PLAN__BASE_PACKAGE:
 				if (resolve) return getBase_Package();
 				return basicGetBase_Package();
+			case FCMPackage.DEPLOYMENT_PLAN__PROJECT_MAPPINGS:
+				return getProjectMappings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +206,7 @@ public class DeploymentPlanImpl extends EObjectImpl implements DeploymentPlan {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -186,6 +215,10 @@ public class DeploymentPlanImpl extends EObjectImpl implements DeploymentPlan {
 				return;
 			case FCMPackage.DEPLOYMENT_PLAN__BASE_PACKAGE:
 				setBase_Package((org.eclipse.uml2.uml.Package)newValue);
+				return;
+			case FCMPackage.DEPLOYMENT_PLAN__PROJECT_MAPPINGS:
+				getProjectMappings().clear();
+				getProjectMappings().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -205,6 +238,9 @@ public class DeploymentPlanImpl extends EObjectImpl implements DeploymentPlan {
 			case FCMPackage.DEPLOYMENT_PLAN__BASE_PACKAGE:
 				setBase_Package((org.eclipse.uml2.uml.Package)null);
 				return;
+			case FCMPackage.DEPLOYMENT_PLAN__PROJECT_MAPPINGS:
+				getProjectMappings().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -221,8 +257,26 @@ public class DeploymentPlanImpl extends EObjectImpl implements DeploymentPlan {
 				return mainInstance != null;
 			case FCMPackage.DEPLOYMENT_PLAN__BASE_PACKAGE:
 				return base_Package != null;
+			case FCMPackage.DEPLOYMENT_PLAN__PROJECT_MAPPINGS:
+				return projectMappings != null && !projectMappings.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (projectMappings: "); //$NON-NLS-1$
+		result.append(projectMappings);
+		result.append(')');
+		return result.toString();
 	}
 
 } // DeploymentPlanImpl

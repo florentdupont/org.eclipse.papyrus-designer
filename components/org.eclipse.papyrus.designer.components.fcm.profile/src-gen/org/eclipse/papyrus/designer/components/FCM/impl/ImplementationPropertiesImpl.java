@@ -34,12 +34,12 @@ import org.eclipse.papyrus.designer.components.FCM.TargetArchitecture;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ImplementationPropertiesImpl#getSizeRAM <em>Size RAM</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ImplementationPropertiesImpl#getSupportedOS <em>Supported OS</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ImplementationPropertiesImpl#getArch <em>Arch</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ImplementationPropertiesImpl#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ImplementationPropertiesImpl#getSizeROM <em>Size ROM</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ImplementationPropertiesImpl#getSupportedTargetArch <em>Supported Target Arch</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ImplementationPropertiesImpl#getSizeRAM <em>Size RAM</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ImplementationPropertiesImpl#getSupportedOS <em>Supported OS</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ImplementationPropertiesImpl#getArch <em>Arch</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ImplementationPropertiesImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ImplementationPropertiesImpl#getSizeROM <em>Size ROM</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ImplementationPropertiesImpl#getSupportedTargetArch <em>Supported Target Arch</em>}</li>
  * </ul>
  *
  * @generated

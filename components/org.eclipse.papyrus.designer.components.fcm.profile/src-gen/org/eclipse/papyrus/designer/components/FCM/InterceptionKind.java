@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * - "Matching" = kind of interceptor and component port need to match
  * 
  * <!-- end-model-doc -->
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getInterceptionKind()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getInterceptionKind()
  * @model
  * @generated
  */

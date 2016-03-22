@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage
  * @generated
  */
 public interface FCMFactory extends EFactory {

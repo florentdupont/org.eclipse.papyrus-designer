@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.papyrus.designer.components.FCM.*;
 import org.eclipse.papyrus.designer.components.FCM.Assembly;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndex;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndexPerNode;

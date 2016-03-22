@@ -30,9 +30,9 @@ import org.eclipse.papyrus.designer.components.FCM.ProgLanguage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.CodeGenOptionsImpl#getBase_Package <em>Base Package</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.CodeGenOptionsImpl#getCompToOOmapping <em>Comp To OOmapping</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.CodeGenOptionsImpl#getProgLanguage <em>Prog Language</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.CodeGenOptionsImpl#getBase_Package <em>Base Package</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.CodeGenOptionsImpl#getCompToOOmapping <em>Comp To OOmapping</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.CodeGenOptionsImpl#getProgLanguage <em>Prog Language</em>}</li>
  * </ul>
  *
  * @generated

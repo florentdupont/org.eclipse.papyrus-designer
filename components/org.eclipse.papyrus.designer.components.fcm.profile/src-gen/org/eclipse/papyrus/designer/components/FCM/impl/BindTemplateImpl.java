@@ -34,8 +34,8 @@ import org.eclipse.uml2.uml.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.BindTemplateImpl#getActual <em>Actual</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.BindTemplateImpl#getBase_Property <em>Base Property</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.BindTemplateImpl#getActual <em>Actual</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.BindTemplateImpl#getBase_Property <em>Base Property</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,6 +91,31 @@ public class BindTemplateImpl extends EObjectImpl implements BindTemplate {
 			actual = new EObjectResolvingEList<Type>(Type.class, this, FCMPackage.BIND_TEMPLATE__ACTUAL);
 		}
 		return actual;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type getActual(String name) {
+		return getActual(name, false, null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type getActual(String name, boolean ignoreCase, EClass eClass) {
+		actualLoop: for (Type actual : getActual()) {
+			if (eClass != null && !eClass.isInstance(actual))
+				continue actualLoop;
+			if (name != null && !(ignoreCase ? name.equalsIgnoreCase(actual.getName()) : name.equals(actual.getName())))
+				continue actualLoop;
+			return actual;
+		}
+		return null;
 	}
 
 	/**

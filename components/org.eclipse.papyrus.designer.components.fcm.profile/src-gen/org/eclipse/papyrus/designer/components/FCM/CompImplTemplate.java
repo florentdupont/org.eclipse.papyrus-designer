@@ -23,11 +23,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.CompImplTemplate#getTemplateDefs <em>Template Defs</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.CompImplTemplate#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.CompImplTemplate#getTemplateDefs <em>Template Defs</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.CompImplTemplate#getBase_Class <em>Base Class</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCompImplTemplate()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCompImplTemplate()
  * @model
  * @generated
  */
@@ -41,14 +41,14 @@ public interface CompImplTemplate extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Template Defs</em>' attribute.
 	 * @see #setTemplateDefs(String)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCompImplTemplate_TemplateDefs()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCompImplTemplate_TemplateDefs()
 	 * @model unique="false" dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getTemplateDefs();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.CompImplTemplate#getTemplateDefs <em>Template Defs</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.CompImplTemplate#getTemplateDefs <em>Template Defs</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Template Defs</em>' attribute.
@@ -66,14 +66,14 @@ public interface CompImplTemplate extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Class</em>' reference.
 	 * @see #setBase_Class(org.eclipse.uml2.uml.Class)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCompImplTemplate_Base_Class()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCompImplTemplate_Base_Class()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Class getBase_Class();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.CompImplTemplate#getBase_Class <em>Base Class</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.CompImplTemplate#getBase_Class <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Class</em>' reference.

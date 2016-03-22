@@ -25,16 +25,16 @@ import org.eclipse.uml2.uml.Node;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getTargetArch <em>Target Arch</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getOptions <em>Options</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getBase_Node <em>Base Node</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getUsedOS <em>Used OS</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getAvailRAM <em>Avail RAM</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getAvailROM <em>Avail ROM</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getCompiler <em>Compiler</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Target#getTargetArch <em>Target Arch</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Target#getOptions <em>Options</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Target#getBase_Node <em>Base Node</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Target#getUsedOS <em>Used OS</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Target#getAvailRAM <em>Avail RAM</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Target#getAvailROM <em>Avail ROM</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Target#getCompiler <em>Compiler</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTarget()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTarget()
  * @model
  * @generated
  */
@@ -48,14 +48,14 @@ public interface Target extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Arch</em>' reference.
 	 * @see #setTargetArch(TargetArchitecture)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTarget_TargetArch()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTarget_TargetArch()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	TargetArchitecture getTargetArch();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getTargetArch <em>Target Arch</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Target#getTargetArch <em>Target Arch</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Target Arch</em>' reference.
@@ -66,14 +66,14 @@ public interface Target extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.papyrus.designer.components.fcm.profile.ConfigOption}.
+	 * The list contents are of type {@link org.eclipse.papyrus.designer.components.FCM.ConfigOption}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Options</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' reference list.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTarget_Options()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTarget_Options()
 	 * @model ordered="false"
 	 * @generated
 	 */
@@ -88,14 +88,14 @@ public interface Target extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Node</em>' reference.
 	 * @see #setBase_Node(Node)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTarget_Base_Node()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTarget_Base_Node()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Node getBase_Node();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getBase_Node <em>Base Node</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Target#getBase_Node <em>Base Node</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Node</em>' reference.
@@ -113,14 +113,14 @@ public interface Target extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Used OS</em>' reference.
 	 * @see #setUsedOS(OperatingSystem)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTarget_UsedOS()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTarget_UsedOS()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	OperatingSystem getUsedOS();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getUsedOS <em>Used OS</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Target#getUsedOS <em>Used OS</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Used OS</em>' reference.
@@ -138,14 +138,14 @@ public interface Target extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Avail RAM</em>' attribute.
 	 * @see #setAvailRAM(int)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTarget_AvailRAM()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTarget_AvailRAM()
 	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
 	 * @generated
 	 */
 	int getAvailRAM();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getAvailRAM <em>Avail RAM</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Target#getAvailRAM <em>Avail RAM</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Avail RAM</em>' attribute.
@@ -163,14 +163,14 @@ public interface Target extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Avail ROM</em>' attribute.
 	 * @see #setAvailROM(int)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTarget_AvailROM()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTarget_AvailROM()
 	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
 	 * @generated
 	 */
 	int getAvailROM();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getAvailROM <em>Avail ROM</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Target#getAvailROM <em>Avail ROM</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Avail ROM</em>' attribute.
@@ -188,14 +188,14 @@ public interface Target extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Compiler</em>' reference.
 	 * @see #setCompiler(CompilerChain)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTarget_Compiler()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTarget_Compiler()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	CompilerChain getCompiler();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Target#getCompiler <em>Compiler</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Target#getCompiler <em>Compiler</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Compiler</em>' reference.

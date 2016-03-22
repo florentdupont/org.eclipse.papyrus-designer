@@ -28,8 +28,8 @@ import org.eclipse.papyrus.designer.components.FCM.InstanceConfigurator;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InstanceConfiguratorImpl#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InstanceConfiguratorImpl#isOnNodeModel <em>On Node Model</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InstanceConfiguratorImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InstanceConfiguratorImpl#isOnNodeModel <em>On Node Model</em>}</li>
  * </ul>
  *
  * @generated

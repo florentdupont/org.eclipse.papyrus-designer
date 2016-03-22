@@ -27,7 +27,7 @@ import org.eclipse.papyrus.designer.components.FCM.util.MapUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TemplatePortImpl#getBoundType <em>Bound Type</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TemplatePortImpl#getBoundType <em>Bound Type</em>}</li>
  * </ul>
  *
  * @generated

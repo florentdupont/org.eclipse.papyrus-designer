@@ -27,12 +27,12 @@ import org.eclipse.uml2.uml.Property;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Connector#getBase_Connector <em>Base Connector</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Connector#getIc <em>Ic</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Connector#getBase_Property <em>Base Property</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Connector#getBase_Connector <em>Base Connector</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Connector#getIc <em>Ic</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Connector#getBase_Property <em>Base Property</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConnector()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConnector()
  * @model
  * @generated
  */
@@ -46,14 +46,14 @@ public interface Connector extends ConfigurableElementInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Connector</em>' reference.
 	 * @see #setBase_Connector(org.eclipse.uml2.uml.Connector)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConnector_Base_Connector()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConnector_Base_Connector()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Connector getBase_Connector();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Connector#getBase_Connector <em>Base Connector</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Connector#getBase_Connector <em>Base Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Connector</em>' reference.
@@ -71,14 +71,14 @@ public interface Connector extends ConfigurableElementInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ic</em>' reference.
 	 * @see #setIc(InteractionComponent)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConnector_Ic()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConnector_Ic()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	InteractionComponent getIc();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Connector#getIc <em>Ic</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Connector#getIc <em>Ic</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Ic</em>' reference.
@@ -96,14 +96,14 @@ public interface Connector extends ConfigurableElementInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Property</em>' reference.
 	 * @see #setBase_Property(Property)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConnector_Base_Property()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConnector_Base_Property()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	Property getBase_Property();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Connector#getBase_Property <em>Base Property</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Connector#getBase_Property <em>Base Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Property</em>' reference.

@@ -30,8 +30,8 @@ import org.eclipse.uml2.uml.Element;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TemplateImpl#getBase_Element <em>Base Element</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TemplateImpl#getHelper <em>Helper</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TemplateImpl#getBase_Element <em>Base Element</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TemplateImpl#getHelper <em>Helper</em>}</li>
  * </ul>
  *
  * @generated

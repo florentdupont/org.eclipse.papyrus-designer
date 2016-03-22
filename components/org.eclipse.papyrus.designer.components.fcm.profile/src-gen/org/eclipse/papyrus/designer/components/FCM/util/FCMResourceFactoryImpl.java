@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
  * <!-- begin-user-doc -->
  * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
- * @see org.eclipse.papyrus.designer.components.fcm.profile.util.FCMResourceImpl
+ * @see org.eclipse.papyrus.designer.components.FCM.util.FCMResourceImpl
  * @generated
  */
 public class FCMResourceFactoryImpl extends ResourceFactoryImpl {
@@ -43,7 +43,7 @@ public class FCMResourceFactoryImpl extends ResourceFactoryImpl {
 	 */
 	@Override
 	public Resource createResource(URI uri) {
-		Resource result = new FCMResourceImpl(uri);
+		XMLResource result = new FCMResourceImpl(uri);
 		return result;
 	}
 

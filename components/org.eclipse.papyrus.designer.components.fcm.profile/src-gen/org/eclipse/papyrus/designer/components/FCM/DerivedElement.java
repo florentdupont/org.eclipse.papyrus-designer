@@ -24,11 +24,11 @@ import org.eclipse.uml2.uml.Element;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.DerivedElement#getBase_Element <em>Base Element</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.DerivedElement#getSource <em>Source</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.DerivedElement#getBase_Element <em>Base Element</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.DerivedElement#getSource <em>Source</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getDerivedElement()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getDerivedElement()
  * @model
  * @generated
  */
@@ -42,14 +42,14 @@ public interface DerivedElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Element</em>' reference.
 	 * @see #setBase_Element(Element)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getDerivedElement_Base_Element()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getDerivedElement_Base_Element()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Element getBase_Element();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.DerivedElement#getBase_Element <em>Base Element</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.DerivedElement#getBase_Element <em>Base Element</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Element</em>' reference.
@@ -67,14 +67,14 @@ public interface DerivedElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Element)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getDerivedElement_Source()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getDerivedElement_Source()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Element getSource();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.DerivedElement#getSource <em>Source</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.DerivedElement#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source</em>' reference.

@@ -27,12 +27,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.CodeGenOptions#getBase_Package <em>Base Package</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.CodeGenOptions#getCompToOOmapping <em>Comp To OOmapping</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.CodeGenOptions#getProgLanguage <em>Prog Language</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.CodeGenOptions#getBase_Package <em>Base Package</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.CodeGenOptions#getCompToOOmapping <em>Comp To OOmapping</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.CodeGenOptions#getProgLanguage <em>Prog Language</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCodeGenOptions()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCodeGenOptions()
  * @model
  * @generated
  */
@@ -46,14 +46,14 @@ public interface CodeGenOptions extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Package</em>' reference.
 	 * @see #setBase_Package(org.eclipse.uml2.uml.Package)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCodeGenOptions_Base_Package()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCodeGenOptions_Base_Package()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Package getBase_Package();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.CodeGenOptions#getBase_Package <em>Base Package</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.CodeGenOptions#getBase_Package <em>Base Package</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Package</em>' reference.
@@ -71,14 +71,14 @@ public interface CodeGenOptions extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comp To OOmapping</em>' reference.
 	 * @see #setCompToOOmapping(CompToOOmapping)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCodeGenOptions_CompToOOmapping()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCodeGenOptions_CompToOOmapping()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	CompToOOmapping getCompToOOmapping();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.CodeGenOptions#getCompToOOmapping <em>Comp To OOmapping</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.CodeGenOptions#getCompToOOmapping <em>Comp To OOmapping</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Comp To OOmapping</em>' reference.
@@ -96,14 +96,14 @@ public interface CodeGenOptions extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Prog Language</em>' reference.
 	 * @see #setProgLanguage(ProgLanguage)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCodeGenOptions_ProgLanguage()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCodeGenOptions_ProgLanguage()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	ProgLanguage getProgLanguage();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.CodeGenOptions#getProgLanguage <em>Prog Language</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.CodeGenOptions#getProgLanguage <em>Prog Language</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Prog Language</em>' reference.

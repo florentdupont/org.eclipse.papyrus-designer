@@ -24,12 +24,12 @@ import org.eclipse.uml2.uml.Type;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Port#getBase_Port <em>Base Port</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Port#getKind <em>Kind</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Port#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Port#getBase_Port <em>Base Port</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Port#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Port#getType <em>Type</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getPort()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getPort()
  * @model
  * @generated
  */
@@ -43,14 +43,14 @@ public interface Port extends ConfigurableElementInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Port</em>' reference.
 	 * @see #setBase_Port(org.eclipse.uml2.uml.Port)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getPort_Base_Port()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getPort_Base_Port()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Port getBase_Port();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Port#getBase_Port <em>Base Port</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Port#getBase_Port <em>Base Port</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Port</em>' reference.
@@ -68,14 +68,14 @@ public interface Port extends ConfigurableElementInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Kind</em>' reference.
 	 * @see #setKind(PortKind)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getPort_Kind()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getPort_Kind()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	PortKind getKind();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Port#getKind <em>Kind</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Port#getKind <em>Kind</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Kind</em>' reference.
@@ -94,14 +94,14 @@ public interface Port extends ConfigurableElementInstance {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(Type)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getPort_Type()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getPort_Type()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Type getType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Port#getType <em>Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Port#getType <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' reference.

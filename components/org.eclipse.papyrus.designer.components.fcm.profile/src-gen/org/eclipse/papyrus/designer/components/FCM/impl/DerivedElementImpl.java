@@ -29,8 +29,8 @@ import org.eclipse.uml2.uml.Element;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.DerivedElementImpl#getBase_Element <em>Base Element</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.DerivedElementImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.DerivedElementImpl#getBase_Element <em>Base Element</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.DerivedElementImpl#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @generated

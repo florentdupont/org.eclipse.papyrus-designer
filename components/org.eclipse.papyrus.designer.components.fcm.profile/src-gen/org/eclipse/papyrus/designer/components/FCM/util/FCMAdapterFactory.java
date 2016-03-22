@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.papyrus.designer.components.FCM.*;
 import org.eclipse.papyrus.designer.components.FCM.Assembly;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndex;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndexPerNode;
@@ -62,7 +63,7 @@ import org.eclipse.papyrus.designer.components.FCM.profile.*;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage
  * @generated
  */
 public class FCMAdapterFactory extends AdapterFactoryImpl {
@@ -286,13 +287,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.Template <em>Template</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.Template <em>Template</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.Template
+	 * @see org.eclipse.papyrus.designer.components.FCM.Template
 	 * @generated
 	 */
 	public Adapter createTemplateAdapter() {
@@ -300,13 +301,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.BindingHelper <em>Binding Helper</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.BindingHelper <em>Binding Helper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.BindingHelper
+	 * @see org.eclipse.papyrus.designer.components.FCM.BindingHelper
 	 * @generated
 	 */
 	public Adapter createBindingHelperAdapter() {
@@ -314,13 +315,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.ConfigurationProperty <em>Configuration Property</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.ConfigurationProperty <em>Configuration Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ConfigurationProperty
+	 * @see org.eclipse.papyrus.designer.components.FCM.ConfigurationProperty
 	 * @generated
 	 */
 	public Adapter createConfigurationPropertyAdapter() {
@@ -328,13 +329,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.ImplementationGroup <em>Implementation Group</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.ImplementationGroup <em>Implementation Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ImplementationGroup
+	 * @see org.eclipse.papyrus.designer.components.FCM.ImplementationGroup
 	 * @generated
 	 */
 	public Adapter createImplementationGroupAdapter() {
@@ -342,13 +343,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.Assembly <em>Assembly</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.Assembly <em>Assembly</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.Assembly
+	 * @see org.eclipse.papyrus.designer.components.FCM.Assembly
 	 * @generated
 	 */
 	public Adapter createAssemblyAdapter() {
@@ -356,13 +357,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.Flatten <em>Flatten</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.Flatten <em>Flatten</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.Flatten
+	 * @see org.eclipse.papyrus.designer.components.FCM.Flatten
 	 * @generated
 	 */
 	public Adapter createFlattenAdapter() {
@@ -370,13 +371,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.CompToOOmapping <em>Comp To OOmapping</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.CompToOOmapping <em>Comp To OOmapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.CompToOOmapping
+	 * @see org.eclipse.papyrus.designer.components.FCM.CompToOOmapping
 	 * @generated
 	 */
 	public Adapter createCompToOOmappingAdapter() {
@@ -384,13 +385,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.ProgLanguage <em>Prog Language</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.ProgLanguage <em>Prog Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ProgLanguage
+	 * @see org.eclipse.papyrus.designer.components.FCM.ProgLanguage
 	 * @generated
 	 */
 	public Adapter createProgLanguageAdapter() {
@@ -398,13 +399,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.CodeGenOptions <em>Code Gen Options</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.CodeGenOptions <em>Code Gen Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.CodeGenOptions
+	 * @see org.eclipse.papyrus.designer.components.FCM.CodeGenOptions
 	 * @generated
 	 */
 	public Adapter createCodeGenOptionsAdapter() {
@@ -412,13 +413,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.InteractionComponent <em>Interaction Component</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.InteractionComponent <em>Interaction Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.InteractionComponent
+	 * @see org.eclipse.papyrus.designer.components.FCM.InteractionComponent
 	 * @generated
 	 */
 	public Adapter createInteractionComponentAdapter() {
@@ -426,13 +427,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.Singleton <em>Singleton</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.Singleton <em>Singleton</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.Singleton
+	 * @see org.eclipse.papyrus.designer.components.FCM.Singleton
 	 * @generated
 	 */
 	public Adapter createSingletonAdapter() {
@@ -440,13 +441,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.Connector <em>Connector</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.Connector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.Connector
+	 * @see org.eclipse.papyrus.designer.components.FCM.Connector
 	 * @generated
 	 */
 	public Adapter createConnectorAdapter() {
@@ -454,13 +455,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.ConfigurableElementInstance <em>Configurable Element Instance</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.ConfigurableElementInstance <em>Configurable Element Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ConfigurableElementInstance
+	 * @see org.eclipse.papyrus.designer.components.FCM.ConfigurableElementInstance
 	 * @generated
 	 */
 	public Adapter createConfigurableElementInstanceAdapter() {
@@ -468,13 +469,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.UseInstanceConfigurator <em>Use Instance Configurator</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator <em>Use Instance Configurator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.UseInstanceConfigurator
+	 * @see org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator
 	 * @generated
 	 */
 	public Adapter createUseInstanceConfiguratorAdapter() {
@@ -482,13 +483,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.InstanceConfigurator <em>Instance Configurator</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.InstanceConfigurator <em>Instance Configurator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.InstanceConfigurator
+	 * @see org.eclipse.papyrus.designer.components.FCM.InstanceConfigurator
 	 * @generated
 	 */
 	public Adapter createInstanceConfiguratorAdapter() {
@@ -496,13 +497,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.RuleApplication <em>Rule Application</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.RuleApplication <em>Rule Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.RuleApplication
+	 * @see org.eclipse.papyrus.designer.components.FCM.RuleApplication
 	 * @generated
 	 */
 	public Adapter createRuleApplicationAdapter() {
@@ -510,13 +511,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.ContainerRule <em>Container Rule</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.ContainerRule <em>Container Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ContainerRule
+	 * @see org.eclipse.papyrus.designer.components.FCM.ContainerRule
 	 * @generated
 	 */
 	public Adapter createContainerRuleAdapter() {
@@ -524,13 +525,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.ConfigOption <em>Config Option</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.ConfigOption <em>Config Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ConfigOption
+	 * @see org.eclipse.papyrus.designer.components.FCM.ConfigOption
 	 * @generated
 	 */
 	public Adapter createConfigOptionAdapter() {
@@ -538,13 +539,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.TemplatePort <em>Template Port</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.TemplatePort <em>Template Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.TemplatePort
+	 * @see org.eclipse.papyrus.designer.components.FCM.TemplatePort
 	 * @generated
 	 */
 	public Adapter createTemplatePortAdapter() {
@@ -552,13 +553,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.Port <em>Port</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.Port <em>Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.Port
+	 * @see org.eclipse.papyrus.designer.components.FCM.Port
 	 * @generated
 	 */
 	public Adapter createPortAdapter() {
@@ -566,13 +567,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.PortKind <em>Port Kind</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.PortKind <em>Port Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.PortKind
+	 * @see org.eclipse.papyrus.designer.components.FCM.PortKind
 	 * @generated
 	 */
 	public Adapter createPortKindAdapter() {
@@ -580,13 +581,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.DeploymentPlan <em>Deployment Plan</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.DeploymentPlan <em>Deployment Plan</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.DeploymentPlan
+	 * @see org.eclipse.papyrus.designer.components.FCM.DeploymentPlan
 	 * @generated
 	 */
 	public Adapter createDeploymentPlanAdapter() {
@@ -594,13 +595,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.DerivedElement <em>Derived Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.DerivedElement <em>Derived Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.DerivedElement
+	 * @see org.eclipse.papyrus.designer.components.FCM.DerivedElement
 	 * @generated
 	 */
 	public Adapter createDerivedElementAdapter() {
@@ -608,13 +609,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.CompImplTemplate <em>Comp Impl Template</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.CompImplTemplate <em>Comp Impl Template</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.CompImplTemplate
+	 * @see org.eclipse.papyrus.designer.components.FCM.CompImplTemplate
 	 * @generated
 	 */
 	public Adapter createCompImplTemplateAdapter() {
@@ -622,13 +623,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.ImplementationProperties <em>Implementation Properties</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.ImplementationProperties <em>Implementation Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ImplementationProperties
+	 * @see org.eclipse.papyrus.designer.components.FCM.ImplementationProperties
 	 * @generated
 	 */
 	public Adapter createImplementationPropertiesAdapter() {
@@ -636,13 +637,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.OperatingSystem <em>Operating System</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.OperatingSystem <em>Operating System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.OperatingSystem
+	 * @see org.eclipse.papyrus.designer.components.FCM.OperatingSystem
 	 * @generated
 	 */
 	public Adapter createOperatingSystemAdapter() {
@@ -650,13 +651,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.TargetArchitecture <em>Target Architecture</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.TargetArchitecture <em>Target Architecture</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.TargetArchitecture
+	 * @see org.eclipse.papyrus.designer.components.FCM.TargetArchitecture
 	 * @generated
 	 */
 	public Adapter createTargetArchitectureAdapter() {
@@ -664,13 +665,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.Configuration <em>Configuration</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.Configuration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.Configuration
+	 * @see org.eclipse.papyrus.designer.components.FCM.Configuration
 	 * @generated
 	 */
 	public Adapter createConfigurationAdapter() {
@@ -678,13 +679,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.InterceptionRule <em>Interception Rule</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.InterceptionRule <em>Interception Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.InterceptionRule
+	 * @see org.eclipse.papyrus.designer.components.FCM.InterceptionRule
 	 * @generated
 	 */
 	public Adapter createInterceptionRuleAdapter() {
@@ -692,13 +693,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.Target <em>Target</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.Target <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.Target
+	 * @see org.eclipse.papyrus.designer.components.FCM.Target
 	 * @generated
 	 */
 	public Adapter createTargetAdapter() {
@@ -706,13 +707,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.CompilerChain <em>Compiler Chain</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.CompilerChain <em>Compiler Chain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.CompilerChain
+	 * @see org.eclipse.papyrus.designer.components.FCM.CompilerChain
 	 * @generated
 	 */
 	public Adapter createCompilerChainAdapter() {
@@ -720,13 +721,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.Fragment <em>Fragment</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.Fragment <em>Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.Fragment
+	 * @see org.eclipse.papyrus.designer.components.FCM.Fragment
 	 * @generated
 	 */
 	public Adapter createFragmentAdapter() {
@@ -734,13 +735,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.CopyAttributeValue <em>Copy Attribute Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.CopyAttributeValue <em>Copy Attribute Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.CopyAttributeValue
+	 * @see org.eclipse.papyrus.designer.components.FCM.CopyAttributeValue
 	 * @generated
 	 */
 	public Adapter createCopyAttributeValueAdapter() {
@@ -748,13 +749,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.AutoIndex <em>Auto Index</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.AutoIndex <em>Auto Index</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.AutoIndex
+	 * @see org.eclipse.papyrus.designer.components.FCM.AutoIndex
 	 * @generated
 	 */
 	public Adapter createAutoIndexAdapter() {
@@ -762,13 +763,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.AutoIndexPerNode <em>Auto Index Per Node</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.AutoIndexPerNode <em>Auto Index Per Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.AutoIndexPerNode
+	 * @see org.eclipse.papyrus.designer.components.FCM.AutoIndexPerNode
 	 * @generated
 	 */
 	public Adapter createAutoIndexPerNodeAdapter() {
@@ -776,13 +777,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.InitPrecedence <em>Init Precedence</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.InitPrecedence <em>Init Precedence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.InitPrecedence
+	 * @see org.eclipse.papyrus.designer.components.FCM.InitPrecedence
 	 * @generated
 	 */
 	public Adapter createInitPrecedenceAdapter() {
@@ -790,13 +791,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.ConnectorConfiguration <em>Connector Configuration</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.ConnectorConfiguration <em>Connector Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ConnectorConfiguration
+	 * @see org.eclipse.papyrus.designer.components.FCM.ConnectorConfiguration
 	 * @generated
 	 */
 	public Adapter createConnectorConfigurationAdapter() {
@@ -804,13 +805,13 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.fcm.profile.BindTemplate <em>Bind Template</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.BindTemplate <em>Bind Template</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.BindTemplate
+	 * @see org.eclipse.papyrus.designer.components.FCM.BindTemplate
 	 * @generated
 	 */
 	public Adapter createBindTemplateAdapter() {

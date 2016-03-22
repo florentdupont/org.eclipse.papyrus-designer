@@ -27,10 +27,10 @@ package org.eclipse.papyrus.designer.components.FCM;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.TemplatePort#getBoundType <em>Bound Type</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.TemplatePort#getBoundType <em>Bound Type</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTemplatePort()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTemplatePort()
  * @model
  * @generated
  */
@@ -46,14 +46,14 @@ public interface TemplatePort extends Port {
 	 * @see #isSetBoundType()
 	 * @see #unsetBoundType()
 	 * @see #setBoundType(PortKind)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTemplatePort_BoundType()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTemplatePort_BoundType()
 	 * @model unsettable="true" transient="true" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	PortKind getBoundType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.TemplatePort#getBoundType <em>Bound Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.TemplatePort#getBoundType <em>Bound Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Bound Type</em>' reference.
@@ -65,7 +65,7 @@ public interface TemplatePort extends Port {
 	void setBoundType(PortKind value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.TemplatePort#getBoundType <em>Bound Type</em>}' reference.
+	 * Unsets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.TemplatePort#getBoundType <em>Bound Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSetBoundType()
@@ -76,7 +76,7 @@ public interface TemplatePort extends Port {
 	void unsetBoundType();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.TemplatePort#getBoundType <em>Bound Type</em>}' reference is set.
+	 * Returns whether the value of the '{@link org.eclipse.papyrus.designer.components.FCM.TemplatePort#getBoundType <em>Bound Type</em>}' reference is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return whether the value of the '<em>Bound Type</em>' reference is set.

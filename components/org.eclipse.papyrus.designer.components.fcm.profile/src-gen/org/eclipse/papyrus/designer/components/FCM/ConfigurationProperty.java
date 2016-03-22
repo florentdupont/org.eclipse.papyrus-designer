@@ -28,10 +28,10 @@ import org.eclipse.uml2.uml.Property;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.ConfigurationProperty#getBase_Property <em>Base Property</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.ConfigurationProperty#getBase_Property <em>Base Property</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConfigurationProperty()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConfigurationProperty()
  * @model
  * @generated
  */
@@ -45,14 +45,14 @@ public interface ConfigurationProperty extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Property</em>' reference.
 	 * @see #setBase_Property(Property)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConfigurationProperty_Base_Property()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConfigurationProperty_Base_Property()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Property getBase_Property();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.ConfigurationProperty#getBase_Property <em>Base Property</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.ConfigurationProperty#getBase_Property <em>Base Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Property</em>' reference.

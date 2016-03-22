@@ -29,7 +29,7 @@ import org.eclipse.uml2.uml.InstanceSpecification;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ConfigurableElementInstanceImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ConfigurableElementInstanceImpl#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  *
  * @generated

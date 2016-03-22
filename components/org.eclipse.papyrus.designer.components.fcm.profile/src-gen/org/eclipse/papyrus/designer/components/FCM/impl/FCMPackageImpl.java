@@ -360,7 +360,7 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 	 * if one already exists.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#eNS_URI
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
@@ -1046,6 +1046,15 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDeploymentPlan_ProjectMappings() {
+		return (EAttribute)deploymentPlanEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EClass getDerivedElement() {
 		return derivedElementEClass;
@@ -1714,6 +1723,7 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 		deploymentPlanEClass = createEClass(DEPLOYMENT_PLAN);
 		createEReference(deploymentPlanEClass, DEPLOYMENT_PLAN__MAIN_INSTANCE);
 		createEReference(deploymentPlanEClass, DEPLOYMENT_PLAN__BASE_PACKAGE);
+		createEAttribute(deploymentPlanEClass, DEPLOYMENT_PLAN__PROJECT_MAPPINGS);
 
 		derivedElementEClass = createEClass(DERIVED_ELEMENT);
 		createEReference(derivedElementEClass, DERIVED_ELEMENT__BASE_ELEMENT);
@@ -1912,6 +1922,7 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 		initEClass(deploymentPlanEClass, DeploymentPlan.class, "DeploymentPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getDeploymentPlan_MainInstance(), theUMLPackage.getInstanceSpecification(), null, "mainInstance", null, 1, 1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 		initEReference(getDeploymentPlan_Base_Package(), theUMLPackage.getPackage(), null, "base_Package", null, 1, 1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getDeploymentPlan_ProjectMappings(), theTypesPackage.getString(), "projectMappings", null, 0, -1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(derivedElementEClass, DerivedElement.class, "DerivedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getDerivedElement_Base_Element(), theUMLPackage.getElement(), null, "base_Element", null, 1, 1, DerivedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$

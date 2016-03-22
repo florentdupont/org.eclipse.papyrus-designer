@@ -29,8 +29,8 @@ import org.eclipse.uml2.uml.Property;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.CopyAttributeValueImpl#getSource <em>Source</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.CopyAttributeValueImpl#getBase_Property <em>Base Property</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.CopyAttributeValueImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.CopyAttributeValueImpl#getBase_Property <em>Base Property</em>}</li>
  * </ul>
  *
  * @generated

@@ -190,6 +190,8 @@
         unique="false" lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//InstanceSpecification"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
         unique="false" lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectMappings" ordered="false"
+        upperBound="-1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DerivedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Element" ordered="false"

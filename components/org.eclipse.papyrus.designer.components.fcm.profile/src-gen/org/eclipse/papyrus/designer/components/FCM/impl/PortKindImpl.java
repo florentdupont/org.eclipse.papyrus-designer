@@ -33,10 +33,10 @@ import org.eclipse.uml2.uml.Stereotype;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.PortKindImpl#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.PortKindImpl#getProvidedInterface <em>Provided Interface</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.PortKindImpl#getRequiredInterface <em>Required Interface</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.PortKindImpl#isExtendedPort <em>Extended Port</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.PortKindImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.PortKindImpl#getProvidedInterface <em>Provided Interface</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.PortKindImpl#getRequiredInterface <em>Required Interface</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.PortKindImpl#isExtendedPort <em>Extended Port</em>}</li>
  * </ul>
  *
  * @generated

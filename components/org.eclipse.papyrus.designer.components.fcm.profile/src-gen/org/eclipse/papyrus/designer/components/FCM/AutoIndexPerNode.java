@@ -19,7 +19,7 @@ package org.eclipse.papyrus.designer.components.FCM;
  * <!-- end-user-doc -->
  *
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getAutoIndexPerNode()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getAutoIndexPerNode()
  * @model
  * @generated
  */

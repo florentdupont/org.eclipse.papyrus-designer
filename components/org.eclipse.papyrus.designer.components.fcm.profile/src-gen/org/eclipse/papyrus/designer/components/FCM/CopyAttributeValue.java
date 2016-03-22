@@ -24,11 +24,11 @@ import org.eclipse.uml2.uml.Property;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.CopyAttributeValue#getSource <em>Source</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.CopyAttributeValue#getBase_Property <em>Base Property</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.CopyAttributeValue#getSource <em>Source</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.CopyAttributeValue#getBase_Property <em>Base Property</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCopyAttributeValue()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCopyAttributeValue()
  * @model
  * @generated
  */
@@ -42,14 +42,14 @@ public interface CopyAttributeValue extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Property)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCopyAttributeValue_Source()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCopyAttributeValue_Source()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Property getSource();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.CopyAttributeValue#getSource <em>Source</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.CopyAttributeValue#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source</em>' reference.
@@ -67,14 +67,14 @@ public interface CopyAttributeValue extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Property</em>' reference.
 	 * @see #setBase_Property(Property)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getCopyAttributeValue_Base_Property()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getCopyAttributeValue_Base_Property()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Property getBase_Property();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.CopyAttributeValue#getBase_Property <em>Base Property</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.CopyAttributeValue#getBase_Property <em>Base Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Property</em>' reference.

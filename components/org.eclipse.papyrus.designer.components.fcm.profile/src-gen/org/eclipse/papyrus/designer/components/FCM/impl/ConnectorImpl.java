@@ -29,9 +29,9 @@ import org.eclipse.uml2.uml.Property;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ConnectorImpl#getBase_Connector <em>Base Connector</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ConnectorImpl#getIc <em>Ic</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ConnectorImpl#getBase_Property <em>Base Property</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ConnectorImpl#getBase_Connector <em>Base Connector</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ConnectorImpl#getIc <em>Ic</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ConnectorImpl#getBase_Property <em>Base Property</em>}</li>
  * </ul>
  *
  * @generated

@@ -29,9 +29,9 @@ import org.eclipse.uml2.uml.Collaboration;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InteractionComponentImpl#isForDistribution <em>For Distribution</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InteractionComponentImpl#getConnectionPattern <em>Connection Pattern</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InteractionComponentImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InteractionComponentImpl#isForDistribution <em>For Distribution</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InteractionComponentImpl#getConnectionPattern <em>Connection Pattern</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InteractionComponentImpl#getBase_Class <em>Base Class</em>}</li>
  * </ul>
  *
  * @generated

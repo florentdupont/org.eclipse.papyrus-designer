@@ -36,10 +36,10 @@ import org.eclipse.uml2.uml.Property;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InterceptionRuleImpl#getInterceptionKind <em>Interception Kind</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InterceptionRuleImpl#getInterceptionSet <em>Interception Set</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InterceptionRuleImpl#getBase_Property <em>Base Property</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.InterceptionRuleImpl#getBase_Operation <em>Base Operation</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InterceptionRuleImpl#getInterceptionKind <em>Interception Kind</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InterceptionRuleImpl#getInterceptionSet <em>Interception Set</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InterceptionRuleImpl#getBase_Property <em>Base Property</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.InterceptionRuleImpl#getBase_Operation <em>Base Operation</em>}</li>
  * </ul>
  *
  * @generated
@@ -148,6 +148,31 @@ public class InterceptionRuleImpl extends EObjectImpl implements InterceptionRul
 			interceptionSet = new EObjectResolvingEList<Feature>(Feature.class, this, FCMPackage.INTERCEPTION_RULE__INTERCEPTION_SET);
 		}
 		return interceptionSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Feature getInterceptionSet(String name) {
+		return getInterceptionSet(name, false, null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Feature getInterceptionSet(String name, boolean ignoreCase, EClass eClass) {
+		interceptionSetLoop: for (Feature interceptionSet : getInterceptionSet()) {
+			if (eClass != null && !eClass.isInstance(interceptionSet))
+				continue interceptionSetLoop;
+			if (name != null && !(ignoreCase ? name.equalsIgnoreCase(interceptionSet.getName()) : name.equals(interceptionSet.getName())))
+				continue interceptionSetLoop;
+			return interceptionSet;
+		}
+		return null;
 	}
 
 	/**

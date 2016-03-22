@@ -13,6 +13,7 @@
 package org.eclipse.papyrus.designer.components.FCM;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,12 +25,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.InitPrecedence#getInvokeAfter <em>Invoke After</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.InitPrecedence#getInvokeBefore <em>Invoke Before</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.InitPrecedence#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.InitPrecedence#getInvokeAfter <em>Invoke After</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.InitPrecedence#getInvokeBefore <em>Invoke Before</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.InitPrecedence#getBase_Class <em>Base Class</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getInitPrecedence()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getInitPrecedence()
  * @model
  * @generated
  */
@@ -43,11 +44,35 @@ public interface InitPrecedence extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Invoke After</em>' reference list.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getInitPrecedence_InvokeAfter()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getInitPrecedence_InvokeAfter()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<org.eclipse.uml2.uml.Class> getInvokeAfter();
+
+	/**
+	 * Retrieves the first {@link org.eclipse.uml2.uml.Class} with the specified '<em><b>Name</b></em>' from the '<em><b>Invoke After</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param name The '<em><b>Name</b></em>' of the {@link org.eclipse.uml2.uml.Class} to retrieve, or <code>null</code>.
+	 * @return The first {@link org.eclipse.uml2.uml.Class} with the specified '<em><b>Name</b></em>', or <code>null</code>.
+	 * @see #getInvokeAfter()
+	 * @generated
+	 */
+	org.eclipse.uml2.uml.Class getInvokeAfter(String name);
+
+	/**
+	 * Retrieves the first {@link org.eclipse.uml2.uml.Class} with the specified '<em><b>Name</b></em>' from the '<em><b>Invoke After</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param name The '<em><b>Name</b></em>' of the {@link org.eclipse.uml2.uml.Class} to retrieve, or <code>null</code>.
+	 * @param ignoreCase Whether to ignore case in {@link java.lang.String} comparisons.
+	 * @param eClass The Ecore class of the {@link org.eclipse.uml2.uml.Class} to retrieve, or <code>null</code>.
+	 * @return The first {@link org.eclipse.uml2.uml.Class} with the specified '<em><b>Name</b></em>', or <code>null</code>.
+	 * @see #getInvokeAfter()
+	 * @generated
+	 */
+	org.eclipse.uml2.uml.Class getInvokeAfter(String name, boolean ignoreCase, EClass eClass);
 
 	/**
 	 * Returns the value of the '<em><b>Invoke Before</b></em>' reference list.
@@ -58,11 +83,35 @@ public interface InitPrecedence extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Invoke Before</em>' reference list.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getInitPrecedence_InvokeBefore()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getInitPrecedence_InvokeBefore()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<org.eclipse.uml2.uml.Class> getInvokeBefore();
+
+	/**
+	 * Retrieves the first {@link org.eclipse.uml2.uml.Class} with the specified '<em><b>Name</b></em>' from the '<em><b>Invoke Before</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param name The '<em><b>Name</b></em>' of the {@link org.eclipse.uml2.uml.Class} to retrieve, or <code>null</code>.
+	 * @return The first {@link org.eclipse.uml2.uml.Class} with the specified '<em><b>Name</b></em>', or <code>null</code>.
+	 * @see #getInvokeBefore()
+	 * @generated
+	 */
+	org.eclipse.uml2.uml.Class getInvokeBefore(String name);
+
+	/**
+	 * Retrieves the first {@link org.eclipse.uml2.uml.Class} with the specified '<em><b>Name</b></em>' from the '<em><b>Invoke Before</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param name The '<em><b>Name</b></em>' of the {@link org.eclipse.uml2.uml.Class} to retrieve, or <code>null</code>.
+	 * @param ignoreCase Whether to ignore case in {@link java.lang.String} comparisons.
+	 * @param eClass The Ecore class of the {@link org.eclipse.uml2.uml.Class} to retrieve, or <code>null</code>.
+	 * @return The first {@link org.eclipse.uml2.uml.Class} with the specified '<em><b>Name</b></em>', or <code>null</code>.
+	 * @see #getInvokeBefore()
+	 * @generated
+	 */
+	org.eclipse.uml2.uml.Class getInvokeBefore(String name, boolean ignoreCase, EClass eClass);
 
 	/**
 	 * Returns the value of the '<em><b>Base Class</b></em>' reference.
@@ -73,14 +122,14 @@ public interface InitPrecedence extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Class</em>' reference.
 	 * @see #setBase_Class(org.eclipse.uml2.uml.Class)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getInitPrecedence_Base_Class()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getInitPrecedence_Base_Class()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Class getBase_Class();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.InitPrecedence#getBase_Class <em>Base Class</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.InitPrecedence#getBase_Class <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Class</em>' reference.

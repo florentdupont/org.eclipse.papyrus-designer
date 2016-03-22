@@ -27,11 +27,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.UseInstanceConfigurator#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.UseInstanceConfigurator#getConfigurator <em>Configurator</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator#getConfigurator <em>Configurator</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getUseInstanceConfigurator()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getUseInstanceConfigurator()
  * @model
  * @generated
  */
@@ -45,14 +45,14 @@ public interface UseInstanceConfigurator extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Class</em>' reference.
 	 * @see #setBase_Class(org.eclipse.uml2.uml.Class)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getUseInstanceConfigurator_Base_Class()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getUseInstanceConfigurator_Base_Class()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Class getBase_Class();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.UseInstanceConfigurator#getBase_Class <em>Base Class</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator#getBase_Class <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Class</em>' reference.
@@ -70,14 +70,14 @@ public interface UseInstanceConfigurator extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Configurator</em>' reference.
 	 * @see #setConfigurator(InstanceConfigurator)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getUseInstanceConfigurator_Configurator()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getUseInstanceConfigurator_Configurator()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	InstanceConfigurator getConfigurator();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.UseInstanceConfigurator#getConfigurator <em>Configurator</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator#getConfigurator <em>Configurator</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Configurator</em>' reference.

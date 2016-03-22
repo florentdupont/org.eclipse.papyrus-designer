@@ -24,13 +24,13 @@ import org.eclipse.uml2.uml.Interface;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.PortKind#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.PortKind#getProvidedInterface <em>Provided Interface</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.PortKind#getRequiredInterface <em>Required Interface</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.PortKind#isExtendedPort <em>Extended Port</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.PortKind#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.PortKind#getProvidedInterface <em>Provided Interface</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.PortKind#getRequiredInterface <em>Required Interface</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.PortKind#isExtendedPort <em>Extended Port</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getPortKind()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getPortKind()
  * @model
  * @generated
  */
@@ -44,14 +44,14 @@ public interface PortKind extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Class</em>' reference.
 	 * @see #setBase_Class(org.eclipse.uml2.uml.Class)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getPortKind_Base_Class()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getPortKind_Base_Class()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Class getBase_Class();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.PortKind#getBase_Class <em>Base Class</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.PortKind#getBase_Class <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Class</em>' reference.
@@ -69,14 +69,14 @@ public interface PortKind extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Interface</em>' reference.
 	 * @see #setProvidedInterface(Interface)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getPortKind_ProvidedInterface()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getPortKind_ProvidedInterface()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	Interface getProvidedInterface();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.PortKind#getProvidedInterface <em>Provided Interface</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.PortKind#getProvidedInterface <em>Provided Interface</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Provided Interface</em>' reference.
@@ -94,14 +94,14 @@ public interface PortKind extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Interface</em>' reference.
 	 * @see #setRequiredInterface(Interface)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getPortKind_RequiredInterface()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getPortKind_RequiredInterface()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	Interface getRequiredInterface();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.PortKind#getRequiredInterface <em>Required Interface</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.PortKind#getRequiredInterface <em>Required Interface</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Required Interface</em>' reference.
@@ -119,14 +119,14 @@ public interface PortKind extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extended Port</em>' attribute.
 	 * @see #isSetExtendedPort()
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getPortKind_ExtendedPort()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getPortKind_ExtendedPort()
 	 * @model unsettable="true" dataType="org.eclipse.uml2.types.Boolean" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	boolean isExtendedPort();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.PortKind#isExtendedPort <em>Extended Port</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.papyrus.designer.components.FCM.PortKind#isExtendedPort <em>Extended Port</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return whether the value of the '<em>Extended Port</em>' attribute is set.

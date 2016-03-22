@@ -36,9 +36,9 @@ import org.eclipse.uml2.uml.Type;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.PortImpl#getBase_Port <em>Base Port</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.PortImpl#getKind <em>Kind</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.PortImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.PortImpl#getBase_Port <em>Base Port</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.PortImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.PortImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated

@@ -28,15 +28,12 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.papyrus.designer.components.FCM.Configuration;
+import org.eclipse.papyrus.designer.components.FCM.DeploymentPlan;
 import org.eclipse.papyrus.designer.components.FCM.OperatingSystem;
 import org.eclipse.papyrus.designer.components.FCM.Target;
 import org.eclipse.papyrus.designer.components.FCM.util.MapUtil;
+import org.eclipse.papyrus.designer.components.transformation.core.CommandSupport;
 import org.eclipse.papyrus.designer.components.transformation.core.EnumService;
 import org.eclipse.papyrus.designer.components.transformation.core.Log;
 import org.eclipse.papyrus.designer.components.transformation.core.Messages;
@@ -57,6 +54,11 @@ import org.eclipse.papyrus.designer.components.transformation.core.transformatio
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterStateMachines;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterTemplate;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterTemplateBinding;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -226,8 +228,7 @@ public class InstantiateDepPlan {
 		MainModelTrafo mainModelTrafo = new MainModelTrafo(intermediateModelCopier,
 				intermediateModelComponentDeploymentPlan);
 
-		Map<InstanceSpecification, InstanceSpecification> instanceMap =
-				new HashMap<InstanceSpecification, InstanceSpecification>();
+		Map<InstanceSpecification, InstanceSpecification> instanceMap = new HashMap<InstanceSpecification, InstanceSpecification>();
 		for (PackageableElement pe : srcModelComponentDeploymentPlan.getPackagedElements()) {
 			if (pe instanceof InstanceSpecification) {
 				InstanceSpecification instance = (InstanceSpecification) pe;
@@ -255,7 +256,7 @@ public class InstantiateDepPlan {
 		if (!generateCACOnly) {
 			deployOnNodes(instanceMap, existingModel, intermediateModel);
 		}
-		
+
 		intermediateModelManagement.saveModel(project, TEMP_MODEL_FOLDER,
 				TEMP_MODEL_POSTFIX);
 
@@ -266,9 +267,9 @@ public class InstantiateDepPlan {
 		intermediateModelManagement.dispose();
 	}
 
-private void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> instanceMap,
+	private void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> instanceMap,
 			Model existingModel, Model tmpModel)
-					throws TransformationException, InterruptedException {
+			throws TransformationException, InterruptedException {
 
 		// not deploy on each node
 		DepCreation.initAutoValues(instanceMap.values());
@@ -290,7 +291,7 @@ private void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> ins
 	private void deployNode(Map<InstanceSpecification, InstanceSpecification> instanceMap,
 			Model existingModel, Model tmpModel,
 			EList<InstanceSpecification> nodes, int nodeIndex, InstanceSpecification node)
-					throws TransformationException, InterruptedException {
+			throws TransformationException, InterruptedException {
 		ModelManagement genModelManagement = createTargetModel(existingModel,
 				MapUtil.rootModelName, false);
 		Model generatedModel = genModelManagement.getModel();
@@ -338,7 +339,7 @@ private void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> ins
 		if ((generationOptions & GenerationOptions.REWRITE_SETTINGS) != 0) {
 			projectSupport.setSettings(genProject, gatherConfigData.getSettings());
 		}
-	
+
 		// --------------------------------------------------------------------
 		checkProgressStatus();
 		// --------------------------------------------------------------------
@@ -377,12 +378,17 @@ private void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> ins
 			InstanceSpecification node) throws TransformationException {
 		ILangProjectSupport projectSupport = LanguageProjectSupport.getProjectSupport(targetLanguage);
 		AbstractSettings settings = projectSupport.initialConfigurationData();
-		settings.targetOS = getTargetOS(node);
+		if (settings != null) {
+			settings.targetOS = getTargetOS(node);
+		}
 
-		String modelName = getModelName(existingModel, node);
-		genProject = ProjectManagement.getNamedProject(modelName);
+		String projectName = getProjectName(existingModel, node);
+		genProject = ProjectManagement.getNamedProject(projectName);
 		if ((genProject == null) || !genProject.exists()) {
-			genProject = projectSupport.createProject(modelName);
+			genProject = projectSupport.createProject(projectName);
+			if (!genProject.getName().equals(projectName)) {
+				updateProjectMapping(projectName, genProject.getName());
+			}
 			// project is new, force re-write of settings
 			generationOptions |= GenerationOptions.REWRITE_SETTINGS;
 		}
@@ -433,16 +439,59 @@ private void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> ins
 		}
 	}
 
-	private String getModelName(Model existingModel, InstanceSpecification node) {
-		String modelName = existingModel.getName() + "_" + node.getName(); //$NON-NLS-1$
+	/**
+	 * Return the name of a project that is associated with a model that
+	 * is deployed on a node (in the context of a deployment plan)
+	 * 
+	 * @param model
+	 *            The model that is deployed
+	 * @param node
+	 *            The node onto which the software is deployed
+	 * @return The resulting project name
+	 */
+	public String getProjectName(Model model, InstanceSpecification node) {
+		String projectName = model.getName() + "_" + node.getName(); //$NON-NLS-1$
 		if (configuration != null) {
-			modelName += "_" + configuration.getBase_Class().getName(); //$NON-NLS-1$
+			projectName += "_" + configuration.getBase_Class().getName(); //$NON-NLS-1$
 		} else {
-			modelName += "_" + srcModelComponentDeploymentPlan.getName(); //$NON-NLS-1$
+			projectName += "_" + srcModelComponentDeploymentPlan.getName(); //$NON-NLS-1$
 		}
-		return modelName;
+		DeploymentPlan depPlan = UMLUtil.getStereotypeApplication(srcModelComponentDeploymentPlan, DeploymentPlan.class);
+		for (String mapping : depPlan.getProjectMappings()) {
+			if (mapping.startsWith(projectName)) {
+				int index = mapping.indexOf("="); //$NON-NLS-1$
+				if (index != -1) {
+					return mapping.substring(index+1);
+				}
+			}
+		}
+		return projectName;
 	}
 
+	/**
+	 * 
+	 * @param canonicalProjectName the automatically calculated project name
+	 * @param userProjectName the project name choosen by the user
+	 */
+	public void updateProjectMapping(final String canonicalProjectName, final String userProjectName) {
+		CommandSupport.exec(srcModelComponentDeploymentPlan, "Update project mapping", new Runnable() {
+			
+			@Override
+			public void run() {
+				DeploymentPlan depPlan = UMLUtil.getStereotypeApplication(srcModelComponentDeploymentPlan, DeploymentPlan.class);
+				String mapName = canonicalProjectName + "=" + userProjectName;
+				for (String mapping : depPlan.getProjectMappings()) {
+					if (mapping.startsWith(canonicalProjectName)) {
+						mapping = mapName;
+						return;
+					}
+				}
+				depPlan.getProjectMappings().add(mapName);				
+			}
+		});
+		
+	}
+	
 	private void initiateProgressMonitor(boolean generateCode,
 			EList<InstanceSpecification> nodes) {
 		// -- calc # of steps for progress monitor

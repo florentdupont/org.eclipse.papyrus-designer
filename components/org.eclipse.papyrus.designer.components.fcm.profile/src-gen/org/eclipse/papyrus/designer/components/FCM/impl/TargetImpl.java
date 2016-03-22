@@ -37,13 +37,13 @@ import org.eclipse.uml2.uml.Node;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TargetImpl#getTargetArch <em>Target Arch</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TargetImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TargetImpl#getBase_Node <em>Base Node</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TargetImpl#getUsedOS <em>Used OS</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TargetImpl#getAvailRAM <em>Avail RAM</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TargetImpl#getAvailROM <em>Avail ROM</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.TargetImpl#getCompiler <em>Compiler</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TargetImpl#getTargetArch <em>Target Arch</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TargetImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TargetImpl#getBase_Node <em>Base Node</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TargetImpl#getUsedOS <em>Used OS</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TargetImpl#getAvailRAM <em>Avail RAM</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TargetImpl#getAvailROM <em>Avail ROM</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.TargetImpl#getCompiler <em>Compiler</em>}</li>
  * </ul>
  *
  * @generated

@@ -25,7 +25,9 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
@@ -54,6 +56,18 @@ public class CommandSupport {
 		}
 	}
 
+	/**
+	 * Execute the passed Runnable within a command
+	 *
+	 * @param eObject an element of the model that is modified (domain will be determined from it)
+	 * @param label A command label
+	 * @param command The command in form of a runnable
+	 */
+	public static void exec(EObject eObject, String label, final Runnable command) {
+		exec(TransactionUtil.getEditingDomain(eObject), label, command);
+	}
+	
+	
 	/**
 	 * Execute the passed Runnable with result within a command
 	 *

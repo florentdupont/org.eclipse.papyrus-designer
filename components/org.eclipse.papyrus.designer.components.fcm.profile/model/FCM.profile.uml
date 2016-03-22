@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
   <uml:Profile xmi:id="_5mvT0MtjEd2H_o0jIC6qDQ" name="FCM" metaclassReference="_NYUA4MtkEd2H_o0jIC6qDQ _pb8DsMtkEd2H_o0jIC6qDQ _WPBJkMtpEd2H_o0jIC6qDQ _WSSgAMtpEd2H_o0jIC6qDQ _4Sf2AMtpEd2H_o0jIC6qDQ _IDbl4MtvEd2H_o0jIC6qDQ _ofc4YMuHEd2H_o0jIC6qDQ _asQCAC5SEd6q9cO948d5Fw _5OunYGV9Ed6b6erIXzmEEA _nKCJAGu2Ed647PfocwT3eg _wo2GgMewEd6zpahAtGCOkA _9HS28MnvEd6fKfvcq7rbxA _Y3dP0DdMEd-Qn7_dAqT11Q _Zc-ksJODEd-5qPBhYeIVtw _wTDjYKvTEd-i17GN-GaZ6g _kK724LTaEd-jOpA9YHRXqw _03w64NXnEd-CUqOXH3INsw _eAlkcCm_EeKgOdm6HirHfA _4r98wIR_EeO2oJGF2cvpFw">
     <ownedComment xmi:type="uml:Comment" xmi:id="_D0js0O69Ed2rSKyRUaSRjw">
       <body>The associations between PortKind and Operation simply denote the fact that we want to target something that encapsulates the definition of interface mapping rules (i.e. the rules that determine the interfaces that are provided/required on a port &#xD;
@@ -284,6 +284,11 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ecD1QFLpEd6rYflXebIz1g" name="base_Package" isUnique="false" association="_eamcsFLpEd6rYflXebIz1g">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_tpQRIPA4EeW7Q69mopU75Q" name="projectMappings" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2nq9oPA4EeW7Q69mopU75Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2nuA8PA4EeW7Q69mopU75Q" value="*"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_BOnDoFLpEd6rYflXebIz1g" name="Template">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_hEi6cFLpEd6rYflXebIz1g" name="base_Element" isUnique="false" association="_hC4tkFLpEd6rYflXebIz1g">
@@ -294,7 +299,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IRpTAHJqEeOMF7YEvnQt5g" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_eamcsFLpEd6rYflXebIz1g" name="Extension_DeploymentPlan" memberEnd="_ecAK4FLpEd6rYflXebIz1g _ecD1QFLpEd6rYflXebIz1g">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_eamcsFLpEd6rYflXebIz1g" name="E_DeploymentPlan_Package" memberEnd="_ecAK4FLpEd6rYflXebIz1g _ecD1QFLpEd6rYflXebIz1g">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_ecAK4FLpEd6rYflXebIz1g" name="extension_DeploymentPlan" type="_5XyRUFLoEd6rYflXebIz1g" aggregation="composite" association="_eamcsFLpEd6rYflXebIz1g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_hC4tkFLpEd6rYflXebIz1g" name="E_Template_Element" memberEnd="_hEf3IFLpEd6rYflXebIz1g _hEi6cFLpEd6rYflXebIz1g">
@@ -470,7 +475,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AJC0gNTHEeKiLbHSN_MIRQ" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_biaAIJODEd-5qPBhYeIVtw" name="E_Target_Node0" memberEnd="_biaAIZODEd-5qPBhYeIVtw _biZZEJODEd-5qPBhYeIVtw">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_biaAIJODEd-5qPBhYeIVtw" name="E_Target_Node" memberEnd="_biaAIZODEd-5qPBhYeIVtw _biZZEJODEd-5qPBhYeIVtw">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_biaAIZODEd-5qPBhYeIVtw" name="extension_Target" type="_0KEH0JOCEd-5qPBhYeIVtw" aggregation="composite" association="_biaAIJODEd-5qPBhYeIVtw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_maLdwLCJEd-D5aqfqbr7IQ" name="Fragment">
@@ -478,7 +483,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_5QfccLCJEd-D5aqfqbr7IQ" name="E_Part_Class1" memberEnd="_5QfccbCJEd-D5aqfqbr7IQ _5QeOULCJEd-D5aqfqbr7IQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_5QfccLCJEd-D5aqfqbr7IQ" name="E_Fragment_Class" memberEnd="_5QfccbCJEd-D5aqfqbr7IQ _5QeOULCJEd-D5aqfqbr7IQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_5QfccbCJEd-D5aqfqbr7IQ" name="extension_Fragment" type="_maLdwLCJEd-D5aqfqbr7IQ" aggregation="composite" association="_5QfccLCJEd-D5aqfqbr7IQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_QiSSgLCLEd-D5aqfqbr7IQ" name="CopyAttributeValue">
@@ -491,7 +496,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_j0vaoLCLEd-D5aqfqbr7IQ" name="E_CopyAttributeValue_Property0" memberEnd="_j0vaobCLEd-D5aqfqbr7IQ _j0uzkLCLEd-D5aqfqbr7IQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_j0vaoLCLEd-D5aqfqbr7IQ" name="E_CopyAttributeValue_Property" memberEnd="_j0vaobCLEd-D5aqfqbr7IQ _j0uzkLCLEd-D5aqfqbr7IQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_j0vaobCLEd-D5aqfqbr7IQ" name="extension_CopyAttributeValue" type="_QiSSgLCLEd-D5aqfqbr7IQ" aggregation="composite" association="_j0vaoLCLEd-D5aqfqbr7IQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_7yDdYLFREd-D5aqfqbr7IQ" name="AutoIndex">
@@ -502,7 +507,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_CRCTALFSEd-D5aqfqbr7IQ" name="AutoIndexPerNode">
       <generalization xmi:type="uml:Generalization" xmi:id="_ElzyALFSEd-D5aqfqbr7IQ" general="_7yDdYLFREd-D5aqfqbr7IQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_IpRncLFSEd-D5aqfqbr7IQ" name="E_autoIndex_Property0" memberEnd="_IpRncbFSEd-D5aqfqbr7IQ _IpRAYLFSEd-D5aqfqbr7IQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_IpRncLFSEd-D5aqfqbr7IQ" name="E_autoIndex_Property" memberEnd="_IpRncbFSEd-D5aqfqbr7IQ _IpRAYLFSEd-D5aqfqbr7IQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_IpRncbFSEd-D5aqfqbr7IQ" name="extension_AutoIndex" type="_7yDdYLFREd-D5aqfqbr7IQ" aggregation="composite" association="_IpRncLFSEd-D5aqfqbr7IQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_8t77ULc6Ed-kAZ42Z8lTBg" name="InitPrecedence">
@@ -520,7 +525,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_szqagLc7Ed-kAZ42Z8lTBg" name="E_Precedence_Port0" memberEnd="_szqagbc7Ed-kAZ42Z8lTBg _szpzcLc7Ed-kAZ42Z8lTBg">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_szqagLc7Ed-kAZ42Z8lTBg" name="E_Precedence_Port" memberEnd="_szqagbc7Ed-kAZ42Z8lTBg _szpzcLc7Ed-kAZ42Z8lTBg">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_szqagbc7Ed-kAZ42Z8lTBg" name="extension_InitPrecedence" type="_8t77ULc6Ed-kAZ42Z8lTBg" aggregation="composite" association="_szqagLc7Ed-kAZ42Z8lTBg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_mditANXnEd-CUqOXH3INsw" name="ConnectorConfiguration">
@@ -532,7 +537,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6-J7QNXwEd-CUqOXH3INsw" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_ZfRJoNXwEd-CUqOXH3INsw" name="E_ConnectorConfiguration_Slot0" memberEnd="_ZfRJodXwEd-CUqOXH3INsw _ZfQikNXwEd-CUqOXH3INsw">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_ZfRJoNXwEd-CUqOXH3INsw" name="E_ConnectorConfiguration_Slot" memberEnd="_ZfRJodXwEd-CUqOXH3INsw _ZfQikNXwEd-CUqOXH3INsw">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_ZfRJodXwEd-CUqOXH3INsw" name="extension_ConnectorConfiguration" type="_mditANXnEd-CUqOXH3INsw" aggregation="composite" association="_ZfRJoNXwEd-CUqOXH3INsw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_KBrOsDyEEeCYGtteoBz6vQ" name="TemplatePort">
@@ -551,7 +556,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x-ozAEZ0EeCLCJBkU67iDQ" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_ejj6YEZ0EeCLCJBkU67iDQ" name="E_UseInstanceConfigurator_Class0" memberEnd="_ejj6YUZ0EeCLCJBkU67iDQ _ejisQEZ0EeCLCJBkU67iDQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_ejj6YEZ0EeCLCJBkU67iDQ" name="E_UseInstanceConfigurator_Class" memberEnd="_ejj6YUZ0EeCLCJBkU67iDQ _ejisQEZ0EeCLCJBkU67iDQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_ejj6YUZ0EeCLCJBkU67iDQ" name="extension_UseInstanceConfigurator" type="_beqmAEZ0EeCLCJBkU67iDQ" aggregation="composite" association="_ejj6YEZ0EeCLCJBkU67iDQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_kDGFMEZ0EeCLCJBkU67iDQ" name="InstanceConfigurator">
@@ -564,29 +569,29 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cekA0GsuEeOoCYTKo-XKlQ" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_rsCMgUZ0EeCLCJBkU67iDQ" name="E_InstanceConfigurator_Class0" memberEnd="_rsCMgkZ0EeCLCJBkU67iDQ _rsCMgEZ0EeCLCJBkU67iDQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_rsCMgUZ0EeCLCJBkU67iDQ" name="E_InstanceConfigurator_Class" memberEnd="_rsCMgkZ0EeCLCJBkU67iDQ _rsCMgEZ0EeCLCJBkU67iDQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_rsCMgkZ0EeCLCJBkU67iDQ" name="extension_InstanceConfigurator" type="_kDGFMEZ0EeCLCJBkU67iDQ" aggregation="composite" association="_rsCMgUZ0EeCLCJBkU67iDQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_Qnb2gPS3EeCLI_ythlfGJw" name="E_InterceptionRule_Property0" memberEnd="_Qnb2gfS3EeCLI_ythlfGJw _QnaoYPS3EeCLI_ythlfGJw">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_Qnb2gPS3EeCLI_ythlfGJw" name="E_InterceptionRule_Property" memberEnd="_Qnb2gfS3EeCLI_ythlfGJw _QnaoYPS3EeCLI_ythlfGJw">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Qnb2gfS3EeCLI_ythlfGJw" name="extension_InterceptionRule" type="_JWyAMJDxEd-I9dVdNhZAGQ" aggregation="composite" association="_Qnb2gPS3EeCLI_ythlfGJw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_f-DsgEzuEeG_JK8KIEXPxQ" name="E_InteractionComponent_Class1" memberEnd="_f-DsgUzuEeG_JK8KIEXPxQ _f-DFcEzuEeG_JK8KIEXPxQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_f-DsgEzuEeG_JK8KIEXPxQ" name="E_InteractionComponent_Class" memberEnd="_f-DsgUzuEeG_JK8KIEXPxQ _f-DFcEzuEeG_JK8KIEXPxQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_f-DsgUzuEeG_JK8KIEXPxQ" name="extension_InteractionComponent" type="_Z1W68MtlEd2H_o0jIC6qDQ" aggregation="composite" association="_f-DsgEzuEeG_JK8KIEXPxQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_5OkugEzuEeG_JK8KIEXPxQ" name="E_ImplementationGroup_Class1" memberEnd="_5OkugUzuEeG_JK8KIEXPxQ _5OkHcEzuEeG_JK8KIEXPxQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_5OkugEzuEeG_JK8KIEXPxQ" name="E_ImplementationGroup_Class" memberEnd="_5OkugUzuEeG_JK8KIEXPxQ _5OkHcEzuEeG_JK8KIEXPxQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_5OkugUzuEeG_JK8KIEXPxQ" name="extension_ImplementationGroup" type="_aQTf0FSdEd-w9f5DG2hQCA" aggregation="composite" association="_5OkugEzuEeG_JK8KIEXPxQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_Bo7rsUzvEeG_JK8KIEXPxQ" name="E_Singleton_Class2" memberEnd="_Bo7rskzvEeG_JK8KIEXPxQ _Bo7rsEzvEeG_JK8KIEXPxQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Bo7rskzvEeG_JK8KIEXPxQ" name="extension_Singleton" type="_zjaC8MtkEd2H_o0jIC6qDQ" aggregation="composite" association="_Bo7rsUzvEeG_JK8KIEXPxQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_DaA8UCNaEeKGuM7MKNu-KA" name="E_RuleApplication_Package1" memberEnd="_DaA8USNaEeKGuM7MKNu-KA _DZQuYCNaEeKGuM7MKNu-KA">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_DaA8UCNaEeKGuM7MKNu-KA" name="E_RuleApplication_Package" memberEnd="_DaA8USNaEeKGuM7MKNu-KA _DZQuYCNaEeKGuM7MKNu-KA">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_DaA8USNaEeKGuM7MKNu-KA" name="extension_RuleApplication" type="_te7YAMtkEd2H_o0jIC6qDQ" aggregation="composite" association="_DaA8UCNaEeKGuM7MKNu-KA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_FFvQcCm_EeKgOdm6HirHfA" name="ContainerRuleKind">
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GMSBwCm_EeKgOdm6HirHfA" name="ComponentRule"/>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_HsIq8Cm_EeKgOdm6HirHfA" name="LightWeightOORule"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_gEFvkCq3EeKWMcuhL1C5sA" name="E_InterceptionRule_Operation1" memberEnd="_gEFvkSq3EeKWMcuhL1C5sA _gEEhcCq3EeKWMcuhL1C5sA">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_gEFvkCq3EeKWMcuhL1C5sA" name="E_InterceptionRule_Operation" memberEnd="_gEFvkSq3EeKWMcuhL1C5sA _gEEhcCq3EeKWMcuhL1C5sA">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gEFvkSq3EeKWMcuhL1C5sA" name="extension_InterceptionRule" type="_JWyAMJDxEd-I9dVdNhZAGQ" aggregation="composite" association="_gEFvkCq3EeKWMcuhL1C5sA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_D8dRUNM-EeKflOoYwofqLA" name="Flatten">
@@ -623,10 +628,10 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_aTxukNRwEeKiLbHSN_MIRQ" name="E_CodeGenOptions_Package1" memberEnd="_aTxukdRwEeKiLbHSN_MIRQ _aTurQNRwEeKiLbHSN_MIRQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_aTxukNRwEeKiLbHSN_MIRQ" name="E_CodeGenOptions_Package" memberEnd="_aTxukdRwEeKiLbHSN_MIRQ _aTurQNRwEeKiLbHSN_MIRQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_aTxukdRwEeKiLbHSN_MIRQ" name="extension_CodeGenOptions" type="_C-GooNRwEeKiLbHSN_MIRQ" aggregation="composite" association="_aTxukNRwEeKiLbHSN_MIRQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_eiejoNRwEeKiLbHSN_MIRQ" name="E_CompToOOmapping_Class1" memberEnd="_eiejodRwEeKiLbHSN_MIRQ _eiZrINRwEeKiLbHSN_MIRQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_eiejoNRwEeKiLbHSN_MIRQ" name="E_CompToOOmapping_Class" memberEnd="_eiejodRwEeKiLbHSN_MIRQ _eiZrINRwEeKiLbHSN_MIRQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_eiejodRwEeKiLbHSN_MIRQ" name="extension_CompToOOmapping" type="_HjF2wNRwEeKiLbHSN_MIRQ" aggregation="composite" association="_eiejoNRwEeKiLbHSN_MIRQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="__QLv8NRwEeKiLbHSN_MIRQ" name="ProgLanguage">
@@ -634,7 +639,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_B_Ci4NRxEeKiLbHSN_MIRQ" name="E_ProgLanguage_Class1" memberEnd="_B_Ci4dRxEeKiLbHSN_MIRQ _B--4gNRxEeKiLbHSN_MIRQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_B_Ci4NRxEeKiLbHSN_MIRQ" name="E_ProgLanguage_Class" memberEnd="_B_Ci4dRxEeKiLbHSN_MIRQ _B--4gNRxEeKiLbHSN_MIRQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_B_Ci4dRxEeKiLbHSN_MIRQ" name="extension_ProgLanguage" type="__QLv8NRwEeKiLbHSN_MIRQ" aggregation="composite" association="_B_Ci4NRxEeKiLbHSN_MIRQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_iDiaINRxEeKiLbHSN_MIRQ" name="CompilerChain">
@@ -642,7 +647,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_jzYnINRxEeKiLbHSN_MIRQ" name="E_CompilerChain_Class1" memberEnd="_jzYnIdRxEeKiLbHSN_MIRQ _jzVj0NRxEeKiLbHSN_MIRQ">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_jzYnINRxEeKiLbHSN_MIRQ" name="E_CompilerChain_Class" memberEnd="_jzYnIdRxEeKiLbHSN_MIRQ _jzVj0NRxEeKiLbHSN_MIRQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_jzYnIdRxEeKiLbHSN_MIRQ" name="extension_CompilerChain" type="_iDiaINRxEeKiLbHSN_MIRQ" aggregation="composite" association="_jzYnINRxEeKiLbHSN_MIRQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_8IkbcHI0EeOZxcUd14vDog" name="BindingHelper">
@@ -650,7 +655,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_SdnDcHI4EeOCrdvV8oxOKA" name="E_BindingHelper_Class1" memberEnd="_SdnDcXI4EeOCrdvV8oxOKA _SdmcYHI4EeOCrdvV8oxOKA">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_SdnDcHI4EeOCrdvV8oxOKA" name="E_BindingHelper_Class" memberEnd="_SdnDcXI4EeOCrdvV8oxOKA _SdmcYHI4EeOCrdvV8oxOKA">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_SdnDcXI4EeOCrdvV8oxOKA" name="extension_BindingHelper" type="_8IkbcHI0EeOZxcUd14vDog" aggregation="composite" association="_SdnDcHI4EeOCrdvV8oxOKA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_q5Z-4IRKEeO2oJGF2cvpFw" name="BindTemplate">
@@ -663,7 +668,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_KKt5UISFEeOY0rziOe6V0Q" name="E_BindTemplate_Property1" memberEnd="_KKt5UYSFEeOY0rziOe6V0Q _KKRNYISFEeOY0rziOe6V0Q">
+    <packagedElement xmi:type="uml:Extension" xmi:id="_KKt5UISFEeOY0rziOe6V0Q" name="E_BindTemplate_Property" memberEnd="_KKt5UYSFEeOY0rziOe6V0Q _KKRNYISFEeOY0rziOe6V0Q">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_KKt5UYSFEeOY0rziOe6V0Q" name="extension_BindTemplate" type="_q5Z-4IRKEeO2oJGF2cvpFw" aggregation="composite" association="_KKt5UISFEeOY0rziOe6V0Q"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_aTo0UC27Ed6q9cO948d5Fw">
@@ -672,8 +677,15 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_xnHN0PA4EeW7Q69mopU75Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xnKRIPA4EeW7Q69mopU75Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
   </uml:Profile>
   <Ecore:EPackage xmi:id="_bIrl8C27Ed6q9cO948d5Fw" base_Package="_5mvT0MtjEd2H_o0jIC6qDQ" packageName="FCM" nsPrefix="FCM" nsURI="http://www.eclipse.org/papyrus/FCM/1" prefix="FCM"/>
   <Ecore:EAttribute xmi:id="_yiNMoOSBEeCPMMwBhvVAnA" isTransient="true" isVolatile="true" isUnsettable="true" base_Property="_nkb3gOSBEeCPMMwBhvVAnA"/>
   <Ecore:EReference xmi:id="_ERitsOIqEeKl1vaXi7stuw" isTransient="true" isVolatile="true" isUnsettable="true" base_Property="_RgadAOHNEeKl1vaXi7stuw"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_xnPwsPA4EeW7Q69mopU75Q" language="org.eclipse.papyrus.uml.textedit.property.xtext.UmlProperty"/>
 </xmi:XMI>

@@ -24,10 +24,10 @@ import org.eclipse.uml2.uml.InstanceSpecification;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.ConfigurableElementInstance#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.ConfigurableElementInstance#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConfigurableElementInstance()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConfigurableElementInstance()
  * @model abstract="true"
  * @generated
  */
@@ -41,14 +41,14 @@ public interface ConfigurableElementInstance extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Configuration</em>' reference.
 	 * @see #setConfiguration(InstanceSpecification)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConfigurableElementInstance_Configuration()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConfigurableElementInstance_Configuration()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	InstanceSpecification getConfiguration();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.ConfigurableElementInstance#getConfiguration <em>Configuration</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.ConfigurableElementInstance#getConfiguration <em>Configuration</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Configuration</em>' reference.

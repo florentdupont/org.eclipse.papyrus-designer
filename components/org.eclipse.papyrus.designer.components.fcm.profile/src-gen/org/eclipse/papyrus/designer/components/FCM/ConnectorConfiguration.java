@@ -24,11 +24,11 @@ import org.eclipse.uml2.uml.Slot;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.ConnectorConfiguration#getBase_Slot <em>Base Slot</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.ConnectorConfiguration#getConnector <em>Connector</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.ConnectorConfiguration#getBase_Slot <em>Base Slot</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.ConnectorConfiguration#getConnector <em>Connector</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConnectorConfiguration()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConnectorConfiguration()
  * @model
  * @generated
  */
@@ -42,14 +42,14 @@ public interface ConnectorConfiguration extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Slot</em>' reference.
 	 * @see #setBase_Slot(Slot)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConnectorConfiguration_Base_Slot()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConnectorConfiguration_Base_Slot()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Slot getBase_Slot();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.ConnectorConfiguration#getBase_Slot <em>Base Slot</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.ConnectorConfiguration#getBase_Slot <em>Base Slot</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Slot</em>' reference.
@@ -67,14 +67,14 @@ public interface ConnectorConfiguration extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Connector</em>' reference.
 	 * @see #setConnector(Connector)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getConnectorConfiguration_Connector()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getConnectorConfiguration_Connector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Connector getConnector();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.ConnectorConfiguration#getConnector <em>Connector</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.ConnectorConfiguration#getConnector <em>Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Connector</em>' reference.

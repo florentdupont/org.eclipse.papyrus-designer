@@ -28,7 +28,7 @@ import org.eclipse.papyrus.designer.components.FCM.ImplementationGroup;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.impl.ImplementationGroupImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.ImplementationGroupImpl#getBase_Class <em>Base Class</em>}</li>
  * </ul>
  *
  * @generated

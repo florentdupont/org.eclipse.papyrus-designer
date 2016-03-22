@@ -28,12 +28,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.ContainerRule#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.ContainerRule#getForConfig <em>For Config</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.ContainerRule#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.ContainerRule#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.ContainerRule#getForConfig <em>For Config</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.ContainerRule#getKind <em>Kind</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getContainerRule()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getContainerRule()
  * @model
  * @generated
  */
@@ -47,14 +47,14 @@ public interface ContainerRule extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Class</em>' reference.
 	 * @see #setBase_Class(org.eclipse.uml2.uml.Class)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getContainerRule_Base_Class()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getContainerRule_Base_Class()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Class getBase_Class();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.ContainerRule#getBase_Class <em>Base Class</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.ContainerRule#getBase_Class <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Class</em>' reference.
@@ -65,14 +65,14 @@ public interface ContainerRule extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>For Config</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.papyrus.designer.components.fcm.profile.ConfigOption}.
+	 * The list contents are of type {@link org.eclipse.papyrus.designer.components.FCM.ConfigOption}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>For Config</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>For Config</em>' reference list.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getContainerRule_ForConfig()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getContainerRule_ForConfig()
 	 * @model ordered="false"
 	 * @generated
 	 */
@@ -80,27 +80,27 @@ public interface ContainerRule extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.eclipse.papyrus.designer.components.fcm.profile.ContainerRuleKind}.
+	 * The literals are from the enumeration {@link org.eclipse.papyrus.designer.components.FCM.ContainerRuleKind}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Kind</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Kind</em>' attribute.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ContainerRuleKind
+	 * @see org.eclipse.papyrus.designer.components.FCM.ContainerRuleKind
 	 * @see #setKind(ContainerRuleKind)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getContainerRule_Kind()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getContainerRule_Kind()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	ContainerRuleKind getKind();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.ContainerRule#getKind <em>Kind</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.ContainerRule#getKind <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Kind</em>' attribute.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.ContainerRuleKind
+	 * @see org.eclipse.papyrus.designer.components.FCM.ContainerRuleKind
 	 * @see #getKind()
 	 * @generated
 	 */

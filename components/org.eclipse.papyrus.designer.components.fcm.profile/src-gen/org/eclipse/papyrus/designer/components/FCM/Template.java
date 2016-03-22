@@ -28,11 +28,11 @@ import org.eclipse.uml2.uml.Element;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Template#getBase_Element <em>Base Element</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.Template#getHelper <em>Helper</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Template#getBase_Element <em>Base Element</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.Template#getHelper <em>Helper</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTemplate()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTemplate()
  * @model
  * @generated
  */
@@ -46,14 +46,14 @@ public interface Template extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Element</em>' reference.
 	 * @see #setBase_Element(Element)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTemplate_Base_Element()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTemplate_Base_Element()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Element getBase_Element();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Template#getBase_Element <em>Base Element</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Template#getBase_Element <em>Base Element</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Element</em>' reference.
@@ -71,14 +71,14 @@ public interface Template extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Helper</em>' reference.
 	 * @see #setHelper(BindingHelper)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getTemplate_Helper()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getTemplate_Helper()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	BindingHelper getHelper();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.Template#getHelper <em>Helper</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.Template#getHelper <em>Helper</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Helper</em>' reference.

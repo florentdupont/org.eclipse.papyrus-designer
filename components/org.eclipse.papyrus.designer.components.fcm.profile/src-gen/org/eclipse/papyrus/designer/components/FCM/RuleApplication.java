@@ -28,12 +28,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.RuleApplication#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.RuleApplication#getContainerRule <em>Container Rule</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.fcm.profile.RuleApplication#getBase_Package <em>Base Package</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.RuleApplication#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.RuleApplication#getContainerRule <em>Container Rule</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.components.FCM.RuleApplication#getBase_Package <em>Base Package</em>}</li>
  * </ul>
  *
- * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getRuleApplication()
+ * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getRuleApplication()
  * @model
  * @generated
  */
@@ -47,14 +47,14 @@ public interface RuleApplication extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Class</em>' reference.
 	 * @see #setBase_Class(org.eclipse.uml2.uml.Class)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getRuleApplication_Base_Class()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getRuleApplication_Base_Class()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Class getBase_Class();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.RuleApplication#getBase_Class <em>Base Class</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.RuleApplication#getBase_Class <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Class</em>' reference.
@@ -65,14 +65,14 @@ public interface RuleApplication extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Container Rule</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.papyrus.designer.components.fcm.profile.ContainerRule}.
+	 * The list contents are of type {@link org.eclipse.papyrus.designer.components.FCM.ContainerRule}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Container Rule</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Container Rule</em>' reference list.
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getRuleApplication_ContainerRule()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getRuleApplication_ContainerRule()
 	 * @model ordered="false"
 	 * @generated
 	 */
@@ -87,14 +87,14 @@ public interface RuleApplication extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Package</em>' reference.
 	 * @see #setBase_Package(org.eclipse.uml2.uml.Package)
-	 * @see org.eclipse.papyrus.designer.components.fcm.profile.FCMPackage#getRuleApplication_Base_Package()
+	 * @see org.eclipse.papyrus.designer.components.FCM.FCMPackage#getRuleApplication_Base_Package()
 	 * @model ordered="false"
 	 * @generated
 	 */
 	org.eclipse.uml2.uml.Package getBase_Package();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.fcm.profile.RuleApplication#getBase_Package <em>Base Package</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.components.FCM.RuleApplication#getBase_Package <em>Base Package</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Base Package</em>' reference.

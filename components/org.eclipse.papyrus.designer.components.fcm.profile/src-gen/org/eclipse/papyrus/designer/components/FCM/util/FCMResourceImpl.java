@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
- * @see org.eclipse.papyrus.designer.components.fcm.profile.util.FCMResourceFactoryImpl
+ * @see org.eclipse.papyrus.designer.components.FCM.util.FCMResourceFactoryImpl
  * @generated
  */
 public class FCMResourceImpl extends XMLResourceImpl {
