@@ -20,6 +20,7 @@ import org.eclipse.papyrus.designer.components.transformation.core.transformatio
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Parameter;
+import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Type;
 
 public class OperationUtils {
@@ -123,6 +124,17 @@ public class OperationUtils {
 			if ((parameter1.getUpper() != parameter2.getUpper()) ||
 					(parameter1.getLower() != parameter2.getLower())) {
 				return false;
+			}
+			if (parameter1.getStereotypeApplications().size() != parameter2.getStereotypeApplications().size()) {
+				return false;
+			}
+			Iterator<Stereotype> par2StereoIter = parameter2.getAppliedStereotypes().iterator();
+			for (Stereotype par1Stereo : parameter1.getAppliedStereotypes()) {
+				// don't need to check whether iterator has next, since size has already been compared.
+				Stereotype par2Stereo = par2StereoIter.next();
+				if (par1Stereo != par2Stereo) {
+					return false;
+				}
 			}
 		}
 		// true, if operations have same number of parameters
