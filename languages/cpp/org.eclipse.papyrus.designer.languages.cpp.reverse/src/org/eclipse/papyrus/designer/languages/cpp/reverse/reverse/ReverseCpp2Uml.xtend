@@ -2461,6 +2461,8 @@ class ReverseCpp2Uml {
 			e.printStackTrace
 		}
 		
+		field.excludeIncludFromTranslationUnit(prop) // Important to do this before the next instruction, otherwise we can have Class1 > Class4 > Class11 > Class1.h processed without any includes excluded previously
+		
 		if (type == null) {
 			type = field.getUMLType(reverse_utils.getContextNamespaces(field))
 		}
@@ -2481,7 +2483,6 @@ class ReverseCpp2Uml {
 		reverse_utils.applyStereotype(prop, field.volatile, StereotypeType.VOLATILE, "")
 		reverse_utils.applyStereotype(prop, field.mutable, StereotypeType.MUTABLE, "")
 		
-		
 		var asso = TypeOperationsEnhanced.createAssociationFromProperty(prop, true, AggregationKind.NONE_LITERAL, false, 
 				AggregationKind.NONE_LITERAL, (prop.eContainer as Classifier).name.toFirstLower, 1, 1
 			)
@@ -2493,8 +2494,6 @@ class ReverseCpp2Uml {
 		} else if (prop.isComposition) {
 			prop.aggregation = AggregationKind.COMPOSITE_LITERAL
 		}
-		
-		field.excludeIncludFromTranslationUnit(prop)
 	}
 
 	private def convertVisibility(ASTAccessVisibility visibility) {
@@ -2743,7 +2742,7 @@ class ReverseCpp2Uml {
 			
 			var owner = property.owner
 			while (owner != null && !(owner instanceof Classifier)) {
-				owner = owner.owner
+				owner = owner.owner // TODO what about inner inner class?
 			}
 			if (owner instanceof Classifier) {
 				structure = (owner as Classifier)
@@ -2810,7 +2809,7 @@ class ReverseCpp2Uml {
 		
 		for (include : itu.children.filter(typeof(IInclude))) {
 			// only lookup in files of project
-			if (include.fullFileName.contains(m_project.elementName) && lookupTypeInInclude(simpleTypeName, include, iUsings) != null) {
+			if (include.fullFileName.contains(m_project.elementName)) { // TODO Do we need this second condition? ==> lookupTypeInInclude(simpleTypeName, include, iUsings) != null
 				includes.add(include)
 			}
 		}
