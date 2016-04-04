@@ -2376,7 +2376,7 @@ class ReverseCpp2Uml {
 				var Pattern pattern = Pattern.compile("(\\()(\\s*)(\\*)(.*)(\\))(\\s*)(\\()(.*)(\\))");
 				var Matcher matcher = pattern.matcher(rawSignature);
 				if (matcher.find()) {
-					val String typeName = rawSignature.replaceFirst(Pattern.quote(field.elementName), "typeName")
+					var String typeName = rawSignature.replaceFirst(Pattern.quote(field.elementName), "typeName").replaceFirst("typedef", "");
 					
 					var PackageableElement packageable = null
 					if (prop.owner instanceof Class) {
