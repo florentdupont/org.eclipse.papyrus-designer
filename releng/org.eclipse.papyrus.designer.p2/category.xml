@@ -10,15 +10,9 @@
 	</feature>
 	
 	<!--Java -->
-	<feature id="org.eclipse.papyrus.designer.languages.java.profile.feature" url="features/org.eclipse.papyrus.designer.languages.java.profile.feature_0.7.0.qualifier.jar" version="0.7.0">
+	<feature id="org.eclipse.papyrus.designer.languages.java.feature" url="features/org.eclipse.papyrus.designer.languages.java.profile.feature_0.7.0.qualifier.jar" version="0.7.0">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
-	<feature id="org.eclipse.papyrus.designer.languages.java.generator.feature" url="features/org.eclipse.papyrus.designer.languages.java.generator.feature_0.7.0.qualifier.jar" version="0.7.0">
-		<category name="org.eclipse.papyrus.category"/>
-	</feature>
-	<feature id="org.eclipse.papyrus.designer.languages.java.reverse.feature" url="features/org.eclipse.papyrus.designer.languages.java.reverse.feature_0.7.0.qualifier.jar" version="0.7.0">
-		<category name="org.eclipse.papyrus.category"/>
-	</feature>	
 	
 	<feature id="org.eclipse.papyrus.designer.components.tracing.feature" url="features/org.eclipse.papyrus.designer.components.tracing.feature_0.7.0.qualifier.jar" version="0.7.0">
 		<category name="org.eclipse.papyrus.category"/>

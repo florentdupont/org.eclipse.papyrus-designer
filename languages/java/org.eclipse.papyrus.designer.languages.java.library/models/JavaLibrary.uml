@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_DV8nkBv8EduZN5aJJITI5w" name="JavaLibrary">
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5lVhgBydEduyofBvg4RL2w" name="char"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6j0jABydEduyofBvg4RL2w" name="double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_7W3wkBydEduyofBvg4RL2w" name="float"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_7wRIABydEduyofBvg4RL2w" name="int"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_8I6RgBydEduyofBvg4RL2w" name="void"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_8heigBydEduyofBvg4RL2w" name="long"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_K-lFQByeEduyofBvg4RL2w" name="short"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_vAIV4I7PEdySGvm5GN66HA" name="boolean"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_DxuQ4PaLEeW5KOK8aDMdgA" name="byte"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_ILxaUPaLEeW5KOK8aDMdgA" name="Integer"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_JdHtcPaLEeW5KOK8aDMdgA" name="Byte"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_KgG0cPaLEeW5KOK8aDMdgA" name="Double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MCbi0PaLEeW5KOK8aDMdgA" name="Short"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_MtpDAPaLEeW5KOK8aDMdgA" name="Float"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_NeU5EPaLEeW5KOK8aDMdgA" name="Long"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_az5zEPaLEeW5KOK8aDMdgA" name="Character"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_f-GnEPaLEeW5KOK8aDMdgA" name="Boolean"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_a7EN4CAREdu9HM4q-Epbgg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a7EN4SAREdu9HM4q-Epbgg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:ModelLibrary xmi:id="_c2eKoCAREdu9HM4q-Epbgg" base_Package="_DV8nkBv8EduZN5aJJITI5w"/>
+</xmi:XMI>

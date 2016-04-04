@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.eclipse.papyrus.designer.languages.java.codegen.preferences.JavaCodeGenPreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.designer.languages.common.extensionpoints.languageCodegen">
+      <generator
+            id="Standard Java"
+            language="Java"
+            class="org.eclipse.papyrus.designer.languages.java.codegen.JavaLangCodegen">
+      </generator>
+   </extension>
+</plugin>

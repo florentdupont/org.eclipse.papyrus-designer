@@ -167,6 +167,27 @@ public class GenUtils {
 	}
 	
 	/**
+	 * Retrieve a list of types of attributes that belong to the current classifier.
+	 * Inner classifiers are returned as is
+	 *
+	 * @param current
+	 *            Class on which the attributes are searched
+	 * @return Collection of classifiers which are the types of the attributes
+	 */
+	public static EList<Classifier> getDirectTypesViaAttributes(Classifier current) {
+		EList<Classifier> result = new UniqueEList<Classifier>();
+
+		Iterator<Property> attributes;
+		attributes = current.getAttributes().iterator();
+		while (attributes.hasNext()) {
+			Property currentAttribute = attributes.next();
+			Type type = currentAttribute.getType();
+			addClosestOwnerType(type, result);
+		}
+		return result;
+	}
+	
+	/**
 	 * Retrieve a list of types of attributes that belong to the current classifier. Filter by stereotypes.
 	 *
 	 * @param current
@@ -268,6 +289,38 @@ public class GenUtils {
 			for (Parameter param : operation.getOwnedParameters()) {
 				Type type = param.getType();
 				addFarthestOwnerType(type, result);
+				
+				
+			}
+			
+			for (Type type : operation.getRaisedExceptions()) {
+				addFarthestOwnerType(type, result);
+			}
+			
+		}
+		return result;
+	}
+	
+	/**
+	 * Retrieve the operations in the current classifier. For each
+	 * operation, collect direct types of its parameters.
+	 * This method thus finds types, on
+	 * which the signature depends.
+	 *
+	 * @param current
+	 *            Classifier on which the operations are searched for
+	 * @return Collection of classifiers which are the types of the operation parameters
+	 */
+	public static EList<Classifier> getDirectTypesViaOperations(Classifier current) {
+		EList<Classifier> result = new UniqueEList<Classifier>();
+		for (Operation operation : current.getOperations()) {
+			for (Parameter param : operation.getOwnedParameters()) {
+				Type type = param.getType();
+				addClosestOwnerType(type, result);
+			}
+			
+			for (Type type : operation.getRaisedExceptions()) {
+				addClosestOwnerType(type, result);
 			}
 		}
 		return result;
@@ -458,6 +511,20 @@ public class GenUtils {
 	}
 	
 	/**
+	 * Retrieves a list of direct types of attributes of inner classifiers of the current classifier
+	 * 
+	 * @param current
+	 *            Class on which the attributes are searched
+	 * @return collection of classes which are the types of the operations parameters
+	 */
+	public static EList<Classifier> getDirectInnerClassifierTypes(Classifier current) {
+		EList<Classifier> result = new UniqueEList<Classifier>();
+		result.addAll(getDirectInnerClassifierTypesViaAttributes(current));
+		result.addAll(getDirectInnerClassifierTypesViaOperations(current));
+		return result;
+	}
+	
+	/**
 	 * Retrieve a list of types of attributes of inner classifiers that belong to the current classifier.
 	 *
 	 * @param current
@@ -469,6 +536,23 @@ public class GenUtils {
 		for (Element ownedElement : current.allOwnedElements()) {
 			if (ownedElement instanceof Classifier) {
 				result.addAll(getTypesViaAttributes((Classifier) ownedElement));
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * Retrieve a list of direct types of attributes of inner classifiers that belong to the current classifier.
+	 *
+	 * @param current
+	 *            Class on which the attributes are searched
+	 * @return Collection of classifiers which are the type of the attributes of inner classifiers
+	 */
+	public static EList<Classifier> getDirectInnerClassifierTypesViaAttributes(Classifier current) {
+		EList<Classifier> result = new UniqueEList<Classifier>();
+		for (Element ownedElement : current.allOwnedElements()) {
+			if (ownedElement instanceof Classifier) {
+				result.addAll(getDirectTypesViaAttributes((Classifier) ownedElement));
 			}
 		}
 		return result;
@@ -531,6 +615,26 @@ public class GenUtils {
 		for (Element ownedElement : current.allOwnedElements()) {
 			if (ownedElement instanceof Classifier) {
 				result.addAll(getTypesViaOperations((Classifier) ownedElement));
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * Retrieve the operations of direct inner classifiers of the current classifier. For each
+	 * operation, collect types of its parameters.
+	 * This method thus finds types, on
+	 * which the signature depends.
+	 *
+	 * @param current
+	 *            Classifier on which the operations are searched for
+	 * @return Collection of classifiers which are the types of the parameters of inner classifiers
+	 */
+	public static EList<Classifier> getDirectInnerClassifierTypesViaOperations(Classifier current) {
+		EList<Classifier> result = new UniqueEList<Classifier>();
+		for (Element ownedElement : current.allOwnedElements()) {
+			if (ownedElement instanceof Classifier) {
+				result.addAll(getDirectTypesViaOperations((Classifier) ownedElement));
 			}
 		}
 		return result;
@@ -678,6 +782,28 @@ public class GenUtils {
 		}
 		return classifiers;
 	}
+	
+	/**
+	 * Return a list of classifiers that are referenced via dependencies
+	 *
+	 * @param current
+	 * @return
+	 */
+	public static EList<Classifier> getDirectTypesViaDependencies(Classifier current) {
+		EList<Classifier> classifiers = new UniqueEList<Classifier>();
+
+		for (DirectedRelationship relationship : current.getSourceDirectedRelationships()) {
+			if (relationship instanceof Dependency) {
+				if (relationship.getTargets().size() > 0) {
+					// there should always be at least one element in the target
+					// list and it should be a classifier, but better check.
+					Element element = relationship.getTargets().get(0);
+					addClosestOwnerType(element, classifiers);
+				}
+			}
+		}
+		return classifiers;
+	}
 
 	/**
 	 * Return a list of classifiers that are referenced via all kinds of relations except
@@ -708,6 +834,36 @@ public class GenUtils {
 		
 		return classifiers;
 	}
+	
+	/**
+	 * Return a list of classifiers that are referenced via all kinds of relations except
+	 * dependencies
+	 *
+	 * @param current
+	 * @return
+	 */
+	public static EList<Classifier> getDirectTypesViaRelationshipsNoDeps(Classifier current) {
+		EList<Classifier> classifiers = new UniqueEList<Classifier>();
+
+		for (DirectedRelationship relationship : current.getSourceDirectedRelationships()) {
+			if (!(relationship instanceof Dependency)) {
+				if (relationship.getTargets().size() > 0) {
+					// there should always be at least one element in the target
+					// list and it should be a classifier, but better check.
+					Element element = relationship.getTargets().get(0);
+					addClosestOwnerType(element, classifiers);
+				}
+			}
+		}
+		
+		for (Element owned : current.getOwnedElements()) {
+			if (owned instanceof Classifier) {
+				classifiers.addAll(getDirectTypesViaRelationshipsNoDeps((Classifier) owned));
+			}
+		}
+		
+		return classifiers;
+	}
 
 
 	/**
@@ -719,6 +875,17 @@ public class GenUtils {
 	 */
 	public static String getFullName(NamedElement ne) {
 		return ne.getQualifiedName().replace("::", "_"); //$NON-NLS-1$ //$NON-NLS-2$
+	}
+	
+	/**
+	 * Return the qualified name of a named element, but use separator instead of "::" as separator
+	 *
+	 * @param ne
+	 *            a named element
+	 * @return the fully qualified name with "_" as separator character
+	 */
+	public static String getFullName(NamedElement ne, String separator) {
+		return ne.getQualifiedName().replace("::", separator); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -805,6 +972,24 @@ public class GenUtils {
 	}
 	
 	/**
+	 * Adds the first element that is a classifier
+	 * 
+	 * @param classifier
+	 * @return
+	 */
+	public static void addClosestOwnerType(Element element, EList<Classifier> result) {
+		if (element == null || result == null) {
+			return;
+		}
+		
+		if (element instanceof Classifier) {
+			result.add((Classifier) element);
+		} else {
+			addClosestOwnerType(element.getOwner(), result);
+		}
+	}
+	
+	/**
 	 * Get the namespace of the farthest classifier owner that owns an operation
 	 * 
 	 * @param op
@@ -859,6 +1044,16 @@ public class GenUtils {
 	 */
 	public static String getFullPath(Package pkg) {
 		return pkg.getQualifiedName().replace("::", "/"); //$NON-NLS-1$//$NON-NLS-2$
+	}
+	
+	/**
+	 * Return the qualified name of a package, but use passed separator instead of "::" as separator
+	 *
+	 * @param pkg
+	 * @return
+	 */
+	public static String getFullPath(Package pkg, String seperator) {
+		return pkg.getQualifiedName().replace("::", seperator); //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	/**

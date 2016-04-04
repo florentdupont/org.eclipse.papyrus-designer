@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.papyrus.designer.popup?after=codegen">
+          <command
+               commandId="org.eclipse.papyrus.designer.languages.java.codegen.command"
+               icon="icons/java_workingset.png"
+               label="Generate Java code"
+               style="push"
+               tooltip="Generate Java code">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Generate Java code"
+            categoryId="org.eclipse.papyrus.editor.category"
+            id="org.eclipse.papyrus.designer.languages.java.codegen.command"
+            defaultHandler="org.eclipse.papyrus.designer.languages.java.codegen.ui.handlers.GenerateCodeHandler"
+            name="Generate Java code">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.designer.languages.java.codegen.ui.preferences.CodegenPreferencePage"
+            id="org.eclipse.papyrus.designer.languages.java.codegen.ui.preferences.CodeGenPreferencePage"
+            name="Java code generation"/>
+   </extension>
+</plugin>
