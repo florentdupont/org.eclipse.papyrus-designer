@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java</artifactId>
 	<packaging>pom</packaging>
-	<name>designer.languages.Languages JAVA</name>
+	<name>Designer Languages JAVA</name>
 	<description>This module contains the different plugins relative to Papyrus Designer java code generation and reverse</description>
 
 	<modules>
