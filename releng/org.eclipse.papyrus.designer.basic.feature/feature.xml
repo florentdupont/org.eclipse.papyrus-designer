@@ -35,13 +35,11 @@ http://www.eclipse.org/legal/epl-v10.html
       %license
    </license>
 
-   <includes
-         id="org.eclipse.papyrus.designer.languages.cpp.feature"
-         version="0.0.0"/>
-		 
-	<includes
-         id="org.eclipse.papyrus.designer.languages.java.feature"
-         version="0.0.0"/>	 
+   <requires>
+      <import feature="org.eclipse.papyrus.designer.languages.cpp.feature" version="0.7.0"/>
+      <import feature="org.eclipse.papyrus.designer.languages.java.feature" version="0.7.0"/>
+      <import feature="org.eclipse.papyrus.designer.languages.common.feature" version="0.7.0"/>
+   </requires>
 
    <plugin
          id="org.eclipse.papyrus.designer.components.transformation.core"

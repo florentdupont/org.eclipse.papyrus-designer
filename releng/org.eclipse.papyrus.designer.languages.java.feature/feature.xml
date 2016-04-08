@@ -25,12 +25,9 @@ http://www.eclipse.org/legal/epl-v10.html
       %license
    </license>
 
-   <includes
-         id="org.eclipse.papyrus.designer.languages.common.feature"
-         version="0.0.0"/>
-
    <requires>
       <import feature="org.eclipse.jdt" version="8.4.0.201406031009"/>
+      <import feature="org.eclipse.papyrus.designer.languages.cpp.feature" version="0.7.0"/>
    </requires>
 
    <plugin
@@ -74,11 +71,12 @@ http://www.eclipse.org/legal/epl-v10.html
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-		 
+
    <plugin
          id="org.eclipse.papyrus.designer.languages.java.jdt.project"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
 </feature>
