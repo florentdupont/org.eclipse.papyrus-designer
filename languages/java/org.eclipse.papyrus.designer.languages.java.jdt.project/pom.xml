@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.languages.java</artifactId>
-		<version>0.7.0-SNAPSHOT</version>
+		<version>0.7.0</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.jdt.project</artifactId>
 	<packaging>eclipse-plugin</packaging>

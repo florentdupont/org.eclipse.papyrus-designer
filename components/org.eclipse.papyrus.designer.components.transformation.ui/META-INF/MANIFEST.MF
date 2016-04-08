@@ -25,7 +25,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.infra.ui.emf;bundle-version="1.2.0"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.7.0
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.components.transformation.ui.Activator
