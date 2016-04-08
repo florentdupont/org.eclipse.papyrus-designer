@@ -2,9 +2,19 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
   <properties>
-    <title>Sample Changes Report: Papyrus Designer</title>
+    <title>Changes Report: Papyrus Designer</title>
   </properties>
   <body>
+    <release version="0.7.0" date="2016-04-05" description="Java feature">
+      <action dev="sli" type="add" issue="491025">
+        [Codegen Java] New Java code generator, profile, and library
+      </action>
+    </release>
+	<release version="0.7.0" date="2016-02-10" description="Reverse C++ feature">
+      <action dev="sli" type="add" issue="487526">
+        [Reverse C++] New C++ to UML reverse plugins
+      </action>
+    </release>
     <release version="0.7.0" date="2016-02-01" description="Feature migration">
       <action dev="flefevre" type="fix" issue="487432">
         [designer][releng] migrate the feature from extra to designer

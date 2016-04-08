@@ -9,10 +9,15 @@
 	<body>
 		<section name="Papyrus Designer">
 			<subsection name="Context">
-				<p>xxxxxxx.</p>
+<p>Papyrus Designer is a component based modeling approach that supports the code generation for embedded systems. Theses systems are characterized by timing and resource constraints - sometimes also denoted as non-functional properties. Since these systems get more and more complex, it is important that the non-functional properties are not just specified in the documentation and respected by the implemented system, but that these are explicitly modeled and suitable code is derived from the model. Papyrus Designer is part of the Papyrus tool-suite integrated into Papyrus.</p>
+
+<p>Papyrus Designer supports the code generation for a specified architecture. Papyrus Designer code generation starts from a model that includes the definition of software components, hardware nodes and deployment information. The latter consists of a definition of the instances of components and nodes and an allocation between these. Code generation is done by a sequence of transformations steps and a final code generation.</p>
+
+<p>Papyrus Designer is integrated into the open source UML editor [http://www.eclipse.org/papyrus Papyrus],
+The UML profile [http://www.omgmarte.org MARTE] is used for non-functional properties.
+Parts of the component model were developed in the context of the French national project [http://www.flex-eware.org Flex-eWare].</p>
 			</subsection>
 		</section>
-
 	</body>
 
 </document>

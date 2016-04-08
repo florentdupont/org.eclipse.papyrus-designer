@@ -9,9 +9,9 @@ Our application is a component of [Papyrus][epapyrus], an integrated and user-co
 
 #### [Designer][edesigner]
 
-[![Designer](images/carousel/carousel-papyrus.png)][edesigner]
+[![Designer](images/carousel/carousel-robot.png)][edesigner]
 
-Use [Designer][edesigner] to xxxxx.
+Use [Designer][edesigner] to design your application as interconnected components and ease their implementation through code generation.
 
 
 [edesigner]: http://www.eclipse.org/papyrus/components/designer/
@@ -46,6 +46,6 @@ Have a look at the online user documentation of [user][userhome] or download it 
 
 ### About
 
-Papyrus Designer is a component of the Eclipse [Papyrus][papyrus]'s galaxy. Papyrus Designer application is a Papyrus environment dedicated for xxxx.
+Papyrus Designer is a component of the Eclipse [Papyrus][papyrus]'s galaxy. Papyrus Designer application is a Papyrus environment dedicated for component-based modeling and code generation.
 
 [papyrus]: https://eclipse.org/papyrus/
