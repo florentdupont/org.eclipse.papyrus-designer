@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.components</artifactId>
-		<version>0.7.0</version>
+		<version>0.7.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.components.fcm.profile</artifactId>
 	<packaging>eclipse-plugin</packaging>

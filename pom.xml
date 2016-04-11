@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.papyrus.designer</groupId>
 	<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-	<version>0.7.0</version>
+	<version>0.7.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Designer</name>
 	<description>A Papyrus component for code generation and deployment</description>
@@ -41,8 +41,8 @@
 		<!-- default environment overridden by profile, tycho preempts profile -->
 		<java.source>1.7</java.source>
 		<java.target>1.7</java.target>
-		<eclipse.release>neon-papyrusnightly</eclipse.release>
-		<eclipse.targetrelease>neon-papyrusnightly</eclipse.targetrelease>
+		<eclipse.release>neon</eclipse.release>
+		<eclipse.targetrelease>neon</eclipse.targetrelease>
 		<target.version>${project.version}</target.version>
 
 		<!-- Platform properties -->
@@ -391,7 +391,7 @@
 						<artifact>
 							<groupId>org.eclipse.papyrus.designer</groupId>
 							<artifactId>org.eclipse.papyrus.designer.targetplatform.${eclipse.targetrelease}</artifactId>
-							<version>0.7.0</version>
+							<version>0.7.1-SNAPSHOT</version>
 						</artifact>
 					</target>
 				</configuration>
