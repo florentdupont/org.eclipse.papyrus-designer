@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.2"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
 <plugin>
-	<extension
-			point="org.eclipse.emf.ecore.uri_mapping">
-		<mapping
-			source="pathmap://PapyrusJava_PROFILES/"
-			target="platform:/plugin/org.eclipse.papyrus.designer.languages.java.profile/profiles/"/>
-	</extension>
-  
-	<extension 
-			point="org.eclipse.uml2.uml.generated_package">
-		<profile
-			uri="http://www.eclipse.org/papyrus/PapyrusJava/1"
-			location="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
-	</extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://www.eclipse.org/papyrus/PapyrusJava/1"
-            class="org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.PapyrusJavaPackage"
-            genModel="profiles/PapyrusJava.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated java.profile -->
       <package
             uri="http://www.eclipse.org/papyrus/JAVA/1"
             class="org.eclipse.papyrus.designer.languages.java.profile.java.JavaPackage"
@@ -31,12 +18,25 @@
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated java.profile -->
       <parser
             type="java"
             class="org.eclipse.papyrus.designer.languages.java.profile.java.util.JavaResourceFactoryImpl"/>
    </extension>
-      <extension
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://Papyrus_JAVA_PROFILES/"
+            target="platform:/plugin/org.eclipse.papyrus.designer.languages.java.profile/models/">
+      </mapping>
+   </extension>
+   <extension
+         point="org.eclipse.uml2.uml.generated_package">
+      <profile
+            location="pathmap://Papyrus_JAVA_PROFILES/java.profile.uml#_6TYLMN0yEd6P1qtlpBOZyg"
+            uri="http://www.eclipse.org/papyrus/JAVA/1">
+      </profile>
+   </extension>
+   <extension
          point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
       <profile
             description="Java profile for code generation and reverse (v1.0)"
@@ -46,4 +46,5 @@
             provider="Cedric Dumoulin">
       </profile>
    </extension>
+
 </plugin>
