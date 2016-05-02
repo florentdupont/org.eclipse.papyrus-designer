@@ -7,13 +7,15 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.infra.core;bundle-version="1.2.0",
  org.eclipse.papyrus.uml.tools;bundle-version="1.2.0",
  org.eclipse.gmf.runtime.diagram.core,
- org.eclipse.papyrus.infra.gmfdiag.dnd;bundle-version="1.2.0",
+ org.eclipse.jdt.ui,
  org.eclipse.papyrus.infra.emf.diagram.common;bundle-version="1.2.0",
  org.eclipse.papyrus.uml.diagram.common;bundle-version="1.2.0",
- org.eclipse.papyrus.infra.ui;bundle-version="1.2.0"
+ org.eclipse.papyrus.infra.ui;bundle-version="1.2.0",
+ org.eclipse.papyrus.infra.gmfdiag.dnd;bundle-version="1.2.0",
+ org.eclipse.papyrus.uml.diagram.clazz;bundle-version="2.0.0"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.7.1.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.languages.java.reverse.ui.Activator
