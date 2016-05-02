@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="org.eclipse.papyrus.designer.languages.java.reverse.ui.ReverseCodeHandler"
+            class="org.eclipse.papyrus.designer.languages.java.reverse.ui.handlers.JavaCodeReverseHandler"
             commandId="org.eclipse.papyrus.designer.languages.java.reverse.ui.reverseCodeCommand">
          <enabledWhen>
             <with
@@ -148,7 +148,25 @@
 	<extension
          point="org.eclipse.papyrus.infra.gmfdiag.dnd.dropStrategy">
       <strategy
-            strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.DropReverseStrategy">
+            strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.DropReverseStrategy2">
       </strategy>
+      <strategy
+            strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.DropReverseStrategy3">
+      </strategy>
+   </extension>
+      <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.designer.languages.java.reverse.ui.preference.PreferencePage"
+            id="org.eclipse.papyrus.java.reverse.ui.preference.PreferencePage"
+            name="Java Code Reverse">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.eclipse.papyrus.designer.languages.java.reverse.ui.preference.PreferenceInitializer">
+      </initializer>
    </extension>
 </plugin>

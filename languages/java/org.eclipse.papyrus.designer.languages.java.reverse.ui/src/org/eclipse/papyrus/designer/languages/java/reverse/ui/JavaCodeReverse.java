@@ -3,6 +3,7 @@
  */
 package org.eclipse.papyrus.designer.languages.java.reverse.ui;
 
+
 import java.io.StringReader;
 import java.util.Iterator;
 import java.util.List;
@@ -57,6 +58,13 @@ public class JavaCodeReverse {
 
 
 	/**
+	 * Try to reverse a {@link IResource}. A Resource can be one of the following :
+	 * <ul>
+	 *   <Li> {@link IFile} Usually a Java file (.java).</li> 
+	 *   <Li> {@link IFolder} A folder</li>   
+	 *   <Li> {@link IProject} An Eclipse project.</li> 
+	 * </ul>
+	 * 
 	 * @throws CoreException
 	 * @throws ParseException
 	 *
@@ -75,7 +83,7 @@ public class JavaCodeReverse {
 	}
 
 	/**
-	 * Walk throw each file in folder
+	 * Walk throw each element in folder
 	 *
 	 * @param resource
 	 * @param model
@@ -91,7 +99,7 @@ public class JavaCodeReverse {
 	}
 
 	/**
-	 * Walk throw each file in folder
+	 * Walk throw each element in project.
 	 *
 	 * @param resource
 	 * @param model
@@ -210,19 +218,13 @@ public class JavaCodeReverse {
 	}
 
 	/**
-	 * Real Implementation of the command.
-	 *
-	 * @param generationPackageName
-	 * @param searchPaths
+	 * Try to reverse elements found in the provided selection.
+	 * 
+	 * @param treeSelection
 	 */
-	public void executeCodeReverse(Resource umlResource, String generationPackageName, List<String> searchPaths) {
+	public void executeCodeReverse( TreeSelection treeSelection ) {
 		System.out.println("executeCodeReverse()");
 
-		// Get current selection
-		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-		ISelection selection = page.getSelection();
-
-		TreeSelection treeSelection = (TreeSelection) selection;
 		// String filename = treeSelection.
 		@SuppressWarnings("rawtypes")
 		Iterator iter = treeSelection.iterator();
@@ -280,6 +282,39 @@ public class JavaCodeReverse {
 
 		System.out.println("reverse done");
 
+	}
+
+	/**
+	 * Get the selection from the Active page, and reverse reversible selected elements.
+	 * It is preferable to use {@link #executeCodeReverse(TreeSelection)} instead of this method (selection can be null).
+	 *
+	 * @param generationPackageName Not used.
+	 * @param searchPaths Not used.
+	 * 
+	 */
+	public void executeCodeReverse() {
+
+		// Get current selection
+		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+		ISelection selection = page.getSelection();
+
+		if( ! (selection instanceof TreeSelection )) {
+			return;
+				}
+
+		executeCodeReverse((TreeSelection)selection);
+			}
+
+	/**
+	 * Get the selection from the Active page, and reverse reversible selected elements.
+	 *
+	 * @param generationPackageName Not used.
+	 * @param searchPaths Not used.
+	 * 
+	 * @deprecated Use {@link #executeCodeReverse()} instead.
+	 */
+	public void executeCodeReverse(Resource umlResource, String generationPackageName, List<String> searchPaths) {
+		executeCodeReverse();
 	}
 
 }

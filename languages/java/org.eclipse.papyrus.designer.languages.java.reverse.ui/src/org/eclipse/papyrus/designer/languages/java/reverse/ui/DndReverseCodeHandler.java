@@ -18,24 +18,26 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.TreeSet;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.gmf.runtime.notation.impl.ShapeImpl;
+import org.eclipse.gmf.runtime.notation.Shape;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeSelection;
-import org.eclipse.papyrus.infra.ui.editor.IMultiDiagramEditor;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.DndReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.ReverseCodeDialog;
-import org.eclipse.papyrus.uml.diagram.common.util.MDTUtil;
+import org.eclipse.papyrus.infra.core.Activator;
+import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 
@@ -70,7 +72,7 @@ public class DndReverseCodeHandler extends ReverseCodeHandler {
 	 * Find all resource to display (selection - resources which are already in the diagram), run the reverse command, before running the display command<br/>
 	 * @see org.eclipse.papyrus.designer.languages.java.reverse.ui.ReverseCodeHandler#doExecute(org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.ReverseCodeDialog)
 	 *
-	 * @param dialog
+	 * @param dialog The dialog previuosly used to get data from user. This dialog has already been called by execute().
 	 */
 	protected void doExecute(ReverseCodeDialog dialog) {
 		// Get user preferences on dialog
@@ -80,52 +82,53 @@ public class DndReverseCodeHandler extends ReverseCodeHandler {
 		displayCU = dndDialog.displayCU();
 
 		// get current selection
-		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-		ISelection selection = page.getSelection();
+		ISelection selection = getCurrentSelection();
 		TreeSelection treeSelection = (TreeSelection) selection;
-
-		// Find active papyrus diagram
-		Diagram diagram = null;
-		IEditorPart activeEditor = MDTUtil.getActiveEditor();
-		if (activeEditor != null) {
-			if (activeEditor instanceof IMultiDiagramEditor) {
-				diagram = (Diagram) ((IMultiDiagramEditor) activeEditor).getAdapter(Diagram.class);
-			}
-		}
-
-		// Remove items already in diagram from selection
-		List<IJavaElement> listSelection;
-		try {
-			listSelection = selectionMinusAlreadyInDiagram(treeSelection, diagram);
-		} catch (JavaModelException e1) {
-			e1.printStackTrace();
-			return;
-		}
-
+		
 		// Run the reverse
 		super.doExecute(dialog);
 
-		// Find model to display
-		Model model = null;
-		if (displayModel) {
-			String modelName = dndDialog.getValue();
-			model = getModelToDisplay(diagram, modelName);
-		}
-
-		// Run the reverse displayer
-		DisplayReverse displayReverse = new DisplayReverse(listSelection, diagram, getUmlResource(), model);
+		// Try to insert result into current diagram
 		try {
+			// Find active papyrus diagram
+			Diagram diagram = null;
+			IEditorPart activeEditor = getNestedActiveIEditorPart();
+			if (activeEditor != null) {
+				diagram = activeEditor.getAdapter(Diagram.class);
+			}
+
+			// Remove items already in diagram from selection
+			List<IJavaElement> listSelection;
+			listSelection = selectionMinusAlreadyInDiagram(treeSelection, diagram);
+
+			// Find model to display
+			Model model = null;
+			if (displayModel) {
+				String modelName = dndDialog.getValue();
+				model = getModelToDisplay(diagram, modelName);
+			}
+
+			// Run the reverse displayer
+			DisplayReverse displayReverse = new DisplayReverse(listSelection, diagram, getUmlResource(), model);
 			displayReverse.execute();
 		} catch (JavaModelException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// Can't get a Papyrus ServiceRegistry.
+			Shell shell = getShell();
+			Status errorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.DndReverseCodeHandler_CantDisplayResult_Title);
+			ErrorDialog.openError(shell, "", Messages.DndReverseCodeHandler_CantDisplayResult_Message, errorStatus);
+
+		} catch (ServiceException e) {
+			// Can't get a Papyrus ServiceRegistry.
+			Shell shell = getShell();
+			Status errorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.DndReverseCodeHandler_CantFindService_Title );
+			ErrorDialog.openError(shell, "", Messages.DndReverseCodeHandler_CantFindService_Message+ " - " + e.getMessage(), errorStatus);
 		}
 
 	}
 
 	@Override
 	protected ReverseCodeDialog getDialog(Shell shell, String modelUid) {
-		return new DndReverseCodeDialog(shell, modelUid, null, null);
+		return new DndReverseCodeDialog(shell, modelUid, getSelectedProjectName(), null);
 	}
 
 	/**
@@ -140,12 +143,13 @@ public class DndReverseCodeHandler extends ReverseCodeHandler {
 	private List<IJavaElement> selectionMinusAlreadyInDiagram(TreeSelection selection, Diagram diagram) throws JavaModelException {
 		// Add all diagram elements to Set
 		TreeSet<String> alreadyExists = new TreeSet<String>();
-		EList diagramList = diagram.getChildren();
-		Iterator diagramIt = diagramList.iterator();
-		ShapeImpl item;
+		@SuppressWarnings("unchecked")
+		List<View> diagramList = diagram.getChildren();
+		Iterator<View> diagramIt = diagramList.iterator();
+		Shape item;
 		NamedElement e;
 		while (diagramIt.hasNext()) {
-			item = (ShapeImpl) diagramIt.next();
+			item = (Shape) diagramIt.next();
 			e = (NamedElement) (item.getElement());
 			alreadyExists.add(e.getName());
 		}
@@ -184,8 +188,9 @@ public class DndReverseCodeHandler extends ReverseCodeHandler {
 	 * @param modelName
 	 *            the name of the model the find
 	 * @return the model which named <code>modelName</code>, or null if it doesn't exists into the current papyrus uml resource
+	 * @throws ServiceException 
 	 */
-	public Model getModel(String modelName) {
+	public Model getModel(String modelName) throws ServiceException {
 		TreeIterator<EObject> tree = getUmlResource().getAllContents();
 		while (tree.hasNext()) {
 			for (EObject o : tree.next().eContents()) {
@@ -214,8 +219,9 @@ public class DndReverseCodeHandler extends ReverseCodeHandler {
 	 *            the name of the model to find
 	 * @return model corresponding to the modelName if it has to be displayed, i.e. if it doesn't already displayed into the diagram, or null
 	 *         otherwise
+	 * @throws ServiceException 
 	 */
-	private Model getModelToDisplay(Diagram diagram, String modelName) {
+	private Model getModelToDisplay(Diagram diagram, String modelName) throws ServiceException {
 		Model model = getModel(modelName);
 		if (model != null && !isInDiagram(diagram, model)) {
 			System.out.println("display model " + model);
@@ -232,15 +238,17 @@ public class DndReverseCodeHandler extends ReverseCodeHandler {
 	 * @return true if model is in diagram
 	 */
 	private boolean isInDiagram(Diagram diagram, Model model) {
-		EList diagramList = diagram.getChildren();
-		Iterator diagramIt = diagramList.iterator();
-		ShapeImpl item;
+		@SuppressWarnings("unchecked")
+		EList<View> diagramList = diagram.getChildren();
+		Iterator<View> diagramIt = diagramList.iterator();
+		Shape item;
 		while (diagramIt.hasNext()) {
-			item = (ShapeImpl) diagramIt.next();
+			item = (Shape) diagramIt.next();
 			if (item.getElement() == model) {
 				return true;
 			}
 		}
 		return false;
 	}
+	
 }

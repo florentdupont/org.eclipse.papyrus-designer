@@ -18,6 +18,7 @@ import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.jdt.core.IJavaElement;
@@ -56,7 +57,7 @@ public class DropReverseCommand extends Command {
 	@Override
 	public boolean canExecute() {
 		// Find the type of each selected file (CompilationUnit, packages ...)
-		List selected; // The selected files from JDT
+		List<?> selected; // The selected files from JDT
 
 		IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 		ISelection selection = page.getSelection();
@@ -80,6 +81,7 @@ public class DropReverseCommand extends Command {
 	public void execute() {
 		DndReverseCodeHandler reverse = new DndReverseCodeHandler();
 		try {
+			
 			reverse.execute(null);
 		} catch (ExecutionException e) {
 			e.printStackTrace();
@@ -89,11 +91,12 @@ public class DropReverseCommand extends Command {
 	/**
 	 * return a singleton of this command
 	 * Change the request if it differ from the previous calling
+	 * @param targetEditPart 
 	 *
 	 *
 	 * @return a singleton of this command
 	 */
-	public static DropReverseCommand getInstance(Request request) {
+	public static DropReverseCommand getInstance(Request request, EditPart targetEditPart) {
 		if (instance == null) {
 			instance = new DropReverseCommand();
 		}

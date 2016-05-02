@@ -1,10 +1,19 @@
-/**
+/*****************************************************************************
+ * Copyright (c) 2016 Cedric Dumoulin and others.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
- */
-package org.eclipse.papyrus.designer.languages.java.reverse.ui;
+ * Contributors:
+ *   cedric.dumoulin@univ-lille1.fr - Initial API and implementation
+ *   
+ *****************************************************************************/
+
+package org.eclipse.papyrus.designer.languages.java.reverse.ui.handlers;
 
 import java.util.Arrays;
-import java.util.List;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -13,8 +22,8 @@ import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.expressions.IEvaluationContext;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
@@ -22,8 +31,13 @@ import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.window.Window;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.Messages;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.command.JavaCodeReverseOptions;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.command.JavaCodeReverseRecordingCommand;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.command.JobForTransactionalCommand;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.ReverseCodeDialog;
 import org.eclipse.papyrus.infra.core.Activator;
+import org.eclipse.papyrus.infra.core.resource.NotFoundException;
 import org.eclipse.papyrus.infra.core.sasheditor.editor.ISashWindowsContainer;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
@@ -37,14 +51,19 @@ import org.eclipse.ui.ISources;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.Model;
 
 
 /**
+ * A {@link IHandler} to start Java Code reverse.
+ * The current selection is retrieved. For each selected element, try to reverse it to UML if it correspond to 
+ * Java code.
+ *  
  * @author cedric dumoulin
- *
+ * 
+ * @since 2.0
  */
-public class ReverseCodeHandler extends AbstractHandler implements IHandler {
+public class JavaCodeReverseHandler extends AbstractHandler implements IHandler {
 
 	private static String DefaultGenerationModeleName = "generated";
 
@@ -53,7 +72,6 @@ public class ReverseCodeHandler extends AbstractHandler implements IHandler {
 	 * Other method can then use this event.
 	 */
 	protected ExecutionEvent event;
-	protected ServicesRegistry registry;
 	
 	/**
 	 * Method called when button is pressed.
@@ -63,25 +81,25 @@ public class ReverseCodeHandler extends AbstractHandler implements IHandler {
 		
 		// Store the event in order to be able to use it from utility methods.
 		this.event = event;
+		ServicesRegistry registry;
+		TransactionalEditingDomain domain ;
+		UmlModel umlModel;
+		Model modelRoot;
 		
-		// Try to find uml resource
-		final Resource umlResource;
 		try {
-			// Lookup ServiceRegistry
 			registry = lookupServiceRegistry(event);
-			
-			System.err.println("ServiceRegistry = " + registry);
-			umlResource = getUmlResource();
-		} catch (NullPointerException e) {
+			domain = getEditingDomain(registry);
+			umlModel = getUmlModel(registry);
+			modelRoot = (Model)umlModel.lookupRoot();
+		} catch (NotFoundException e) {
 			// No uml resource available. User must open a model. We open an error dialog with an explicit message to advice user.
 			Shell shell = getShell();
 			Status errorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.ReverseCodeHandler_NoModelError_Title);
 			ErrorDialog.openError(shell, "", Messages.ReverseCodeHandler_NoModelError_Message, errorStatus);
-
-			// Stop the reverse execution.
+			// Stop the handler execution.
 			return null;
 		} catch (ServiceException e) {
-			// Can't get a Papyrus ServiceRegistry.
+			// No uml resource available. User must open a model. We open an error dialog with an explicit message to advice user.
 			Shell shell = getShell();
 			Status errorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.ReverseCodeHandler_NoPapyrusEditor_Title);
 			ErrorDialog.openError(shell, "", Messages.ReverseCodeHandler_NoPapyrusEditor_Message, errorStatus);
@@ -89,9 +107,10 @@ public class ReverseCodeHandler extends AbstractHandler implements IHandler {
 			// Stop the handler execution.
 			return null;
 		}
-		;
-
-		String modelUid = getModelUid(umlResource);
+		
+		
+		// Open the dialog
+		String modelUid = getModelUid(umlModel.getResource());
 
 		// Get reverse parameters from a dialog
 		Shell shell = getShell();
@@ -103,28 +122,30 @@ public class ReverseCodeHandler extends AbstractHandler implements IHandler {
 		if (res == Window.CANCEL) {
 			return null;
 		}
+		
+		// Get reverse options from dialog
+		JavaCodeReverseOptions options = new JavaCodeReverseOptions();
+		options.setSearchPaths( Arrays.asList(dialog.getSearchPath() ) );
+		options.setUmlModel( umlModel);
+		options.setPackageName( getPackageName(dialog) );
+		
+		
+		// Create reverse command
+		ISelection selection = getCurrentSelection();
+		if(! (selection instanceof TreeSelection) ) {
+			Status errorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.ReverseCodeHandler_WrongSelectionType_Title);
+			ErrorDialog.openError(shell, "", Messages.ReverseCodeHandler_WrongSelectionType_Message, errorStatus);
 
-		// Execute the reverse with provided parameters
-		TransactionalEditingDomain editingDomain;
-		try {
-			editingDomain = getEditingDomain();
-		} catch (ServiceException e) {
-			// Can't get editing domain
-			e.printStackTrace();
-			throw new ExecutionException(e.getMessage());
+			// Stop the handler execution.
+			return null;
 		}
-
-		RecordingCommand command = new RecordingCommand(editingDomain, "Reverse Java Code") {
-
-			@Override
-			protected void doExecute() {
-				ReverseCodeHandler.this.doExecute(dialog);
-			}
-
-		};
-
-		editingDomain.getCommandStack().execute(command);
-
+		
+		JavaCodeReverseRecordingCommand reverseCommand = new JavaCodeReverseRecordingCommand(domain, (TreeSelection)selection, modelRoot, options);
+		// Create Job
+		Job job = new JobForTransactionalCommand("Reverse Java Code", domain, reverseCommand);
+		// Execute Job
+		job.setUser(true);
+		job.schedule();
 
 		return null;
 	}
@@ -180,25 +201,6 @@ public class ReverseCodeHandler extends AbstractHandler implements IHandler {
 		return modelUid;
 	}
 
-	/**
-	 * Command ran in a RecordingCommand, after the dialog
-	 * Run the @link{JavaCodeReverse.executeCodeReverse}
-	 * Shall be override to change command behavior
-	 */
-	protected void doExecute(ReverseCodeDialog dialog) {
-		// Create searchpaths. Add the rootmodelname as prefix.
-		final List<String> searchPaths = Arrays.asList(dialog.getSearchPath());
-		Resource umlResource;
-		try {
-			umlResource = getUmlResource();
-		} catch (ServiceException e) {
-			// Should never happen, as we have already used this method and check its result (with an error message).
-			return;
-		}
-		String packageName = getPackageName(dialog);
-		JavaCodeReverse reverse = new JavaCodeReverse(getRootPackage(umlResource), packageName, searchPaths);
-		reverse.executeCodeReverse(umlResource, packageName, searchPaths);
-	}
 
 	/**
 	 * The dialog used for user.
@@ -268,27 +270,17 @@ public class ReverseCodeHandler extends AbstractHandler implements IHandler {
 		return generationPackageName;
 	}
 
+
 	/**
 	 * Get the uml resource used by the model.
 	 *
 	 * @return the Uml Resource
 	 * @throws ServiceException 
 	 */
-	protected Resource getUmlResource() throws ServiceException {
+	protected UmlModel getUmlModel(ServicesRegistry registry) throws ServiceException {
 		
 		UmlModel umlModel = (UmlModel)ServiceUtils.getInstance().getModelSet(registry).getModel(UmlModel.MODEL_ID);
-		Resource umlResource = umlModel.getResource();
-		return umlResource;
-	}
-
-	/**
-	 * Get the name of the root model.
-	 *
-	 * @return
-	 */
-	protected Package getRootPackage(Resource umlResource) {
-		Package rootPackage = (Package) umlResource.getContents().get(0);
-		return rootPackage;
+		return umlModel;
 	}
 
 	/**
@@ -299,26 +291,17 @@ public class ReverseCodeHandler extends AbstractHandler implements IHandler {
 	 * @throws ServiceException
 	 *             If an error occurs while getting the requested service.
 	 */
-	public IEditorPart getNestedActiveIEditorPart() throws ServiceException {
+	public IEditorPart getNestedActiveIEditorPart(ServicesRegistry registry) throws ServiceException {
 		return ServiceUtils.getInstance().getService(ISashWindowsContainer.class, registry).getActiveEditor();
 	}
 
 	/**
-	 * Get the current MultiDiagramEditor.
-	 *
-	 * @return
-	 */
-//	protected IMultiDiagramEditor getMultiDiagramEditor() {
-//		return EditorUtils.getMultiDiagramEditor();
-//	}
-
-	/**
-	 * Get the main editing doamin.
+	 * Get the main editing domain.
 	 *
 	 * @return
 	 * @throws ServiceException
 	 */
-	protected TransactionalEditingDomain getEditingDomain() throws ServiceException {
+	protected TransactionalEditingDomain getEditingDomain(ServicesRegistry registry) throws ServiceException {
 		return ServiceUtils.getInstance().getTransactionalEditingDomain(registry);
 	}
 
