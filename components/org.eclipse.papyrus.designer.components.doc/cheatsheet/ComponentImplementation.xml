@@ -14,7 +14,7 @@
 	<description>
 		If order to implement the operations of a provided interface, these operations have to be
 		added to the component first. Since it would be tedious to copy an operation signature manually
-		and keep it synchronized, Qompass offers an operation "Synchronize derived elements" in the
+		and keep it synchronized, Papyrus designer offers an operation "Synchronize derived elements" in the
 		context menu of a component. It will automatically add an "interface realization"
 		relationship and the operations of the provided interfaces - as long as there is no delegation
 		to an internal component. These relationships carry the FCM stereotype "DerivedElement"
@@ -70,15 +70,15 @@
 		Once the inner parts have been added, the may be connected. Connectors may either delegate
 		from the composite towards an inner part or connect (assemble) two (or more) internal parts.
 		A connector may connect either the	ports of internal parts or directly an internal part. For the
-		moment, Qompass supports only the first option. It may be required to drag and drop ports first from
+		moment, Papyrus designer supports only the first option. It may be required to drag and drop ports first from
 		the model explorer to a part (whose type owns the port).<br/>
 		<br/>
-		A major concept in Qompass is that of a connector. Instead of simply being a "line" between
+		A major concept in the component-based part of designer is that of a connector. Instead of simply being a "line" between
 		parts, a connector may be realized a specific interaction component. Which interaction component
-		is used, is defined by an FCM stereotype attribute owned by the connector. The Qompass palette allows
+		is used, is defined by an FCM stereotype attribute owned by the connector. The Papyrus designer palette allows
 		you to add a connector with the appropriate FCM stereotype directly to your component.<br/>
 		<br/>
-		In addition, Qompass provides a specific dialog for the selection of an interaction component.
+		In addition, designer provides a specific dialog for the selection of an interaction component.
 		(open the context menu, once a connector is selected).
 	</description>
 </item>

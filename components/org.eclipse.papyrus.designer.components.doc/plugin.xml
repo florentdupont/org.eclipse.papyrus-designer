@@ -4,21 +4,21 @@
 	<extension point="org.eclipse.ui.cheatsheets.cheatSheetContent">
 		<category
 			id="org.eclipse.papyrus.designer.components.transformation.cheatsheet.category"
-			name="Qompass cheatsheets">
+			name="Papyrus designer cheatsheets">
 		</category>
 		<cheatsheet
 			category="org.eclipse.papyrus.designer.components.transformation.cheatsheet.category"
 			composite="true"
 			contentFile="cheatsheet/Main.xml"
 			id="org.eclipse.papyrus.designer.components.transformation.cheatsheet.application"
-			name="Create an Qompass application">
+			name="Create a component-based application with Papyrus designer">
 		</cheatsheet>
 		<cheatsheet
 			category="org.eclipse.papyrus.designer.components.transformation.cheatsheet.category"
 			composite="true"
 			contentFile="cheatsheet/MarteMain.xml"
 			id="org.eclipse.papyrus.designer.components.transformation.cheatsheet.applicationMARTE"
-			name="Create an Qompass application with MARTE">
+			name="Create a component-based application (that uses MARTE) with Papyrus designer">
 		</cheatsheet>
 	</extension>
 	<extension point="org.eclipse.help.toc">

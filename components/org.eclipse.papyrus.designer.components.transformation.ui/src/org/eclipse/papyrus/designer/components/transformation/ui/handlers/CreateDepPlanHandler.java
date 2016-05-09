@@ -92,6 +92,7 @@ public class CreateDepPlanHandler extends CmdHandler {
 					NamedElement existing = depPlans.getMember(name);
 					if (existing instanceof Package) {
 						DepPlanSync.syncDepPlan((Package) existing);
+						return null;
 					}
 					else {
 						MessageDialog.openError(shell, Messages.CreateDepPlanHandler_CannotSync,

@@ -59,41 +59,41 @@
       </mapping>
    </extension>
    <extension name="CORBA basic types" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library description="Qompass: CORBA basic types (long, wchar, ...)" iconpath="platform:/plugin/org.eclipse.papyrus.designer.components.transformation.ui/icons/Qompass-16x16.gif" name="Qompass model library: CORBA basic types" path="pathmap://QML_CORE/corba.uml" provider="CEA LIST">
+      <library description="Designer: CORBA basic types (long, wchar, ...)" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: CORBA basic types" path="pathmap://QML_CORE/corba.uml" provider="CEA LIST">
       </library>
    </extension>
-   <extension name="Qompass core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library description="Qompass core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.components.transformation.ui/icons/Qompass-16x16.gif" name="Qompass model library: basic" path="pathmap://QML_CORE/core.uml" provider="CEA LIST">
+   <extension name="Designer core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+      <library description="Designer core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: basic" path="pathmap://QML_CORE/core.uml" provider="CEA LIST">
       </library>
    </extension>
    <extension name="FIFO" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library iconpath="platform:/plugin/org.eclipse.papyrus.designer.components.transformation.ui/icons/Qompass-16x16.gif" name="Qompass model library: FIFO" path="pathmap://QML_CORE/fifo.uml" provider="CEA LIST">
+      <library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: FIFO" path="pathmap://QML_CORE/fifo.uml" provider="CEA LIST">
       </library>
 	</extension>
 	<extension name="OS-AL" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.components.transformation.ui/icons/Qompass-16x16.gif" name="Qompass model library: OS abstraction layer (OS-AL)" path="pathmap://QML_CORE/osal.uml" provider="CEA LIST">
+		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: OS abstraction layer (OS-AL)" path="pathmap://QML_CORE/osal.uml" provider="CEA LIST">
 		</library>
 	</extension>
 	<extension name="StateMachine" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.components.transformation.ui/icons/Qompass-16x16.gif" name="Qompass model library: State-machines" path="pathmap://QML_CORE/statemachine.uml" provider="CEA LIST">
+		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: State-machines" path="pathmap://QML_CORE/statemachine.uml" provider="CEA LIST">
 		</library>
 	</extension>
 	<extension point="org.eclipse.papyrus.uml.diagram.wizards.templates">
 		<template
-			id="org.eclipse.papyrus.designer.components.transformation.modelibs.core.wizardTemplates.QompassForMARTE"
+			id="org.eclipse.papyrus.designer.components.transformation.modelibs.core.wizardTemplates.DesignerCBForMARTE"
 			language="uml"
-			name="Qompass for MARTE"
-			file="models/wizardTemplates/QompassModel.uml"
-			di_file="models/wizardTemplates/QompassModel.di"
-			notation_file="models/wizardTemplates/QompassModel.notation">
+			name="Papyrus Designer for MARTE (component based)"
+			file="models/wizardTemplates/DesignerCBModel.uml"
+			di_file="models/wizardTemplates/DesignerCBModel.di"
+			notation_file="models/wizardTemplates/DesignerCBModel.notation">
 		</template>
 		<template
-			id="org.eclipse.papyrus.designer.components.transformation.modelibs.core.wizardTemplates.QompassSimple"
+			id="org.eclipse.papyrus.designer.components.transformation.modelibs.core.wizardTemplates.DesignerCBSimple"
 			language="uml"
-			name="Qompass without MARTE"
-			file="models/wizardTemplates/QompassSimple.uml"
-			di_file="models/wizardTemplates/QompassSimple.di"
-			notation_file="models/wizardTemplates/QompassSimple.notation">
+			name="Designer without MARTE (component based)"
+			file="models/wizardTemplates/DesignerCBSimple.uml"
+			di_file="models/wizardTemplates/DesignerCBSimple.di"
+			notation_file="models/wizardTemplates/DesignerCBSimple.notation">
 		</template>
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.components.transformation.core.instanceConfig">
@@ -109,18 +109,18 @@
 			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
 			class="org.eclipse.papyrus.designer.components.modellibs.core.HelloWorldModelWizard"
 			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-			icon="platform:/plugin/org.eclipse.papyrus.designer.components.transformation.ui/icons/Qompass-16x16.gif"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
 			id="org.eclipse.papyrus.designer.components.modellibs.core.new.HelloWorld"
-			name="Qompass hello world example">
+			name="Papyrus Designer component-based hello world example">
 			<selection class="org.eclipse.core.resources.IResource"/>
 		</wizard>
 		<wizard
 			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
 			class="org.eclipse.papyrus.designer.components.modellibs.core.ProducerConsumerModelWizard"
 			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-			icon="platform:/plugin/org.eclipse.papyrus.designer.components.transformation.ui/icons/Qompass-16x16.gif"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
 			id="org.eclipse.papyrus.designer.components.modellibs.core.new.ProducerConsumer"
-			name="Qompass producer/comsumer example">
+			name="Papyrus Designer component-based producer/comsumer example">
 			<selection class="org.eclipse.core.resources.IResource"/>
 		</wizard>
 	</extension>

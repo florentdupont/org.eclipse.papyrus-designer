@@ -8,5 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.components.transformation.core</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<description>This module contains the model transformation from an component based model with annotations (connector and containers) to an expanded object-oriented model</description>
+	<description>This module contains the model transformation from a component based model with annotations (connector and containers) to an expanded object-oriented model</description>
 </project>

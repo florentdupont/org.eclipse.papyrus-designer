@@ -5,7 +5,7 @@
          point="org.eclipse.emf.validation.constraintProviders">
       <category
             id="org.eclipse.papyrus.designer.components.validation.constraints"
-            name="Qompass rules">
+            name="Papyrus designer rules">
       </category>
       <constraintProvider
             mode="Batch">
@@ -26,7 +26,7 @@
                   severity="ERROR"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   The system component (main instance within deployment plan) may not have ports.
@@ -44,7 +44,7 @@
                   severity="WARNING"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Is there a slot for all properties of a component within an instance specification?
@@ -62,7 +62,7 @@
                   severity="WARNING"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Verify that a connection does not originate from a caller with to a server with the server multiplicity > 1
@@ -80,7 +80,7 @@
                   severity="WARNING"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Verify that at exactly one blocking start routine is defined.
@@ -99,7 +99,7 @@
                   severity="INFO"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Check whether a provided port is not connected. Typically, this is not problematic. Therefore, the rule is disabled by default.
@@ -117,7 +117,7 @@
                   severity="INFO"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Check whether a required port is not connected. This would result in an error, if the component owning the port tries to invoke a service through that port.
@@ -135,7 +135,7 @@
                   severity="WARNING"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Operation is not implemented
@@ -153,7 +153,7 @@
                   severity="ERROR"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Port is not correctly typed
@@ -171,7 +171,7 @@
                   severity="WARNING"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Behavior without specification
@@ -189,7 +189,7 @@
                   severity="WARNING"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Verify that a connector can be instantiated, i.e. a consistent connector binding can be found.
@@ -207,7 +207,7 @@
                   severity="WARNING"
                   statusCode="1">
                <message>
-                  &quot;Qompass: {0}&quot;
+                  &quot;Designer: {0}&quot;
                </message>
                <description>
                   Check whether aggregation kind is consistent with singleton information
@@ -225,7 +225,7 @@
                   severity="WARNING"
                   statusCode="1">
                <message>
-                  "Qompass: {0}"
+                  "Designer: {0}"
                </message>
                <description>
                   Check whether configuration attributes have a value in the deployment plans
@@ -243,7 +243,7 @@
                   severity="ERROR"
                   statusCode="1">
                <message>
-                  "Qompass: {0}"
+                  "Designer: {0}"
                </message>
                <description>
                   Check whether an operation contains more than one return parameter
@@ -261,7 +261,7 @@
                   severity="ERROR"
                   statusCode="1">
                <message>
-                  "Qompass: {0}"
+                  "Designer: {0}"
                </message>
                <description>
                   Check whether a template parameter is referenced out of scope

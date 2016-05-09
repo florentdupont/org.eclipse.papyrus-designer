@@ -8,5 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.components.doc</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<description>This module contains the documention for the component-based design</description>
+	<description>This module contains the documentation for the component-based design</description>
 </project>

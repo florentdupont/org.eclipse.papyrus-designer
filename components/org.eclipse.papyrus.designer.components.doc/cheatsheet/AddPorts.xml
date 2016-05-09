@@ -27,14 +27,14 @@
 		There are several ways to change a port name: either via the
 		&quot;Properties&quot; view or via a textual dialog that is shown once F2 is pressed.
 		
-		An Qompass (FCM) port has an additional parameter: it is characterized by a
+		An FCM port has an additional parameter: it is characterized by a
 		port kind. The latter defines for instance if the port
 		provides or requires an	interface or consumes a data-type.<br/>
 		A port kind may require a certain variant of a type: data-flow oriented kinds
 		require a datatype, client/server port kinds require an interface as port type. The user can
 		verify the suitability of the port type by observing the derived attributes provided and
 		required interface. If both are not set, the port is wrongly typed. This rule is part of
-		a set of Qompass related constraints that can be validated at any time.
+		a set of Papyrus designer related constraints that can be validated at any time.
 		<br/>	
 		<br/>	
 		Assign the port kind attribute: 

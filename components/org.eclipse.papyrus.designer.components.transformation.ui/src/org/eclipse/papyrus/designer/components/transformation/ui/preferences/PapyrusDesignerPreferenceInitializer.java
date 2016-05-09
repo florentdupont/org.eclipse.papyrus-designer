@@ -15,12 +15,12 @@ package org.eclipse.papyrus.designer.components.transformation.ui.preferences;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.papyrus.designer.components.transformation.core.preferences.QompassPreferenceConstants;
+import org.eclipse.papyrus.designer.components.transformation.core.preferences.PapyrusDesignerPreferenceConstants;
 
 /**
  * Class used to initialize default preference values.
  */
-public class QompassPreferenceInitializer extends AbstractPreferenceInitializer {
+public class PapyrusDesignerPreferenceInitializer extends AbstractPreferenceInitializer {
 
 	/*
 	 * (non-Javadoc)
@@ -30,10 +30,10 @@ public class QompassPreferenceInitializer extends AbstractPreferenceInitializer 
 	@Override
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = org.eclipse.papyrus.designer.components.transformation.core.Activator.getDefault().getPreferenceStore();
-		store.setDefault(QompassPreferenceConstants.P_SHOW_PROV_REQ_AS_PORT_ICONS, false);
-		store.setDefault(QompassPreferenceConstants.P_ALL_ATTRIBUTES_ARE_CONFIG_ATTRIBUTES, false);
-		store.setDefault(QompassPreferenceConstants.P_TREAT_NONE_AS_COMPOSITE, false);
-		store.setDefault(QompassPreferenceConstants.P_CODE_GEN_PREFIX, "// generated with Qompass toolchain");
+		store.setDefault(PapyrusDesignerPreferenceConstants.P_SHOW_PROV_REQ_AS_PORT_ICONS, false);
+		store.setDefault(PapyrusDesignerPreferenceConstants.P_ALL_ATTRIBUTES_ARE_CONFIG_ATTRIBUTES, false);
+		store.setDefault(PapyrusDesignerPreferenceConstants.P_TREAT_NONE_AS_COMPOSITE, false);
+		store.setDefault(PapyrusDesignerPreferenceConstants.P_CODE_GEN_PREFIX, "// generated with Qompass toolchain");
 	}
 
 }

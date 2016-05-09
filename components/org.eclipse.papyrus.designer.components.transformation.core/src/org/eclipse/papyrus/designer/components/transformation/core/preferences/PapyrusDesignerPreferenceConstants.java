@@ -16,7 +16,7 @@ package org.eclipse.papyrus.designer.components.transformation.core.preferences;
 /**
  * Constant definitions for plug-in preferences
  */
-public class QompassPreferenceConstants {
+public class PapyrusDesignerPreferenceConstants {
 
 	/**
 	 * For attributes, the default "aggregation kind" value is "none". When this option is set

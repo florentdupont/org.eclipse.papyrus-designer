@@ -29,7 +29,7 @@ import org.eclipse.papyrus.designer.components.FCM.Assembly;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
 import org.eclipse.papyrus.designer.components.FCM.Singleton;
-import org.eclipse.papyrus.designer.components.transformation.core.preferences.QompassPreferenceConstants;
+import org.eclipse.papyrus.designer.components.transformation.core.preferences.PapyrusDesignerPreferenceConstants;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Class;
@@ -393,12 +393,12 @@ public class Utils {
 
 	public static boolean treatNoneAsComposite() {
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
-		return store.getBoolean(QompassPreferenceConstants.P_TREAT_NONE_AS_COMPOSITE);
+		return store.getBoolean(PapyrusDesignerPreferenceConstants.P_TREAT_NONE_AS_COMPOSITE);
 	}
 
 	public static boolean allAttributesAreConfigAttributs() {
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
-		return store.getBoolean(QompassPreferenceConstants.P_ALL_ATTRIBUTES_ARE_CONFIG_ATTRIBUTES);
+		return store.getBoolean(PapyrusDesignerPreferenceConstants.P_ALL_ATTRIBUTES_ARE_CONFIG_ATTRIBUTES);
 	}
 
 	/**

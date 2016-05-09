@@ -49,7 +49,7 @@
            label="In your package &quot;System&quot;, create a composite diagram and open it. Outline &gt; Right-click on your package &gt; Add a diagram &gt; Create a new Composite Diagram. Double click on your newly created composite diagram to open it." skip="true">
       </subitem>      
      <subitem
-           label="From the &quot;Palette&quot; view, under &quot;Qompass&quot;, drag-and-drop a new component type (ComponentType), and name it according to your application needs. Herein, we will  call it &quot;System&quot;. In addition, drag and drop a new component implementation (ComponentImpl), and name it. In this tutorial, we will call it &quot;System_Impl&quot;."
+           label="From the &quot;Palette&quot; view, drag-and-drop a new component type (ComponentType), and name it according to your application needs. Herein, we will  call it &quot;System&quot;. In addition, drag and drop a new component implementation (ComponentImpl), and name it. In this tutorial, we will call it &quot;System_Impl&quot;."
            skip="true" > 
       </subitem>     
       <subitem       

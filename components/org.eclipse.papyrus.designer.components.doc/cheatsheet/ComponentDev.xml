@@ -21,7 +21,7 @@
 		As a good practice, we recommend to create a package for each component which will group all
 		component-related elements e.g. type, implementation(s) and associated diagrams.<br/>
 		ModelExplorer > Right-click on your "ComponentModel" package > Add child > Package.
-		Name the created package according to your application needs. A convention (not enforced) used in Qompass is
+		Name the created package according to your application needs. A convention (not enforced) used in Papyrus designer is
 		to use the same name for the package and component type, add the post-fix "Impl" in case of a
 		component implementation.
 		<subitem label=
@@ -54,12 +54,12 @@
 	<description>
 		A component is optionally enclosed by a so-called container which can perform additional processing.
 		So called container extensions either intercept incoming port request or perform additional processing.
-		For further information, consult the Qompass online help. From a user perspective, the choice of a
+		For further information, consult the Papyrus designer online help. From a user perspective, the choice of a
 		certain container option is controlled by the application of an ordered set of <i>container rules</i>.
 		which select the extension or interceptor to use and optionally restrict the use of the rule to
 		a specific configuration (see deployment)<br></br> 
 		
-		Qompass provides a specific dialog to selected a container extension. This can be found in the context
+		Papyrus designer provides a specific dialog to selected a container extension. This can be found in the context
 		menu of a component. 
 	</description>
 </item>

@@ -2,7 +2,7 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="Concepts" link_to="toc.xml#concepts"> 
-	<topic label="Qompass overview" href="html/concepts/overview.html">
+	<topic label="Papyrus designer overview" href="html/concepts/overview.html">
 	</topic>
 	<topic label="Input models" href="html/concepts/input-models.html">
 	</topic>

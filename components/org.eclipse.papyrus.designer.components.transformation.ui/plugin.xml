@@ -62,7 +62,7 @@
       <command
             categoryId="org.eclipse.papyrus.editor.category"
             defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.AddProfileAndModelLibsHandler"
-            description="Add Qompass profiles and model libraries"
+            description="Add FCM profile and basic model library (component-based design)"
             id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.AddProfileAndModelLibsCmd"
             name="dummy">
       </command>
@@ -217,15 +217,15 @@
          point="org.eclipse.ui.preferencePages">
       <page
             category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
-            class="org.eclipse.papyrus.designer.components.transformation.ui.preferences.QompassPreferencePage"
-            id="org.eclipse.papyrus.designer.components.transformation.ui.preferences.QompassPreferencePage_ID"
-            name="Qompass preferences">
+            class="org.eclipse.papyrus.designer.components.transformation.ui.preferences.PapyrusDesignerPreferencePage"
+            id="org.eclipse.papyrus.designer.components.transformation.ui.preferences.PapyrusDesignerPreferencePage_ID"
+            name="Papyrus designer preferences">
       </page>
     </extension>
     <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
-            class="org.eclipse.papyrus.designer.components.transformation.ui.preferences.QompassPreferenceInitializer">
+            class="org.eclipse.papyrus.designer.components.transformation.ui.preferences.PapyrusDesignerPreferenceInitializer">
       </initializer>
     </extension>
 </plugin>

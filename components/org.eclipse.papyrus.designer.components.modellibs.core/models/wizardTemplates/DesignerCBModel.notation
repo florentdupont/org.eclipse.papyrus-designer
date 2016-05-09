@@ -28,7 +28,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Fd2D-GnaEd-Ptdbbm65sVA"/>
           </children>
           <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_Fd1c4WnaEd-Ptdbbm65sVA"/>
-          <element xmi:type="uml:Package" href="QompassModel.uml#_FdsS8GnaEd-Ptdbbm65sVA"/>
+          <element xmi:type="uml:Package" href="DesignerCBModel.uml#_FdsS8GnaEd-Ptdbbm65sVA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Fd1c4mnaEd-Ptdbbm65sVA" x="44" y="17"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_JQ2bgGnaEd-Ptdbbm65sVA" type="3009" fontName="Sans Serif" fontHeight="10" lineColor="0">
@@ -46,7 +46,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JQ3CmGnaEd-Ptdbbm65sVA"/>
           </children>
           <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JQ2bgWnaEd-Ptdbbm65sVA"/>
-          <element xmi:type="uml:Package" href="QompassModel.uml#_JQvt0GnaEd-Ptdbbm65sVA"/>
+          <element xmi:type="uml:Package" href="DesignerCBModel.uml#_JQvt0GnaEd-Ptdbbm65sVA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JQ2bgmnaEd-Ptdbbm65sVA" x="44" y="130"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_P1qMUGnaEd-Ptdbbm65sVA" type="3009" fontName="Sans Serif" fontHeight="10" lineColor="0">
@@ -64,17 +64,17 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P1radGnaEd-Ptdbbm65sVA"/>
           </children>
           <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_P1qMUWnaEd-Ptdbbm65sVA"/>
-          <element xmi:type="uml:Package" href="QompassModel.uml#_P1nJAGnaEd-Ptdbbm65sVA"/>
+          <element xmi:type="uml:Package" href="DesignerCBModel.uml#_P1nJAGnaEd-Ptdbbm65sVA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P1qMUmnaEd-Ptdbbm65sVA" x="44" y="247"/>
         </children>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z020BmnZEd-Ptdbbm65sVA" x="-23" y="20" width="412" height="373"/>
       </children>
       <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_z01l4WnZEd-Ptdbbm65sVA"/>
-      <element xmi:type="uml:Model" href="QompassModel.uml#__brzMGmXEd-z7r5RKMpEpA"/>
+      <element xmi:type="uml:Model" href="DesignerCBModel.uml#__brzMGmXEd-z7r5RKMpEpA"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z01l4mnZEd-Ptdbbm65sVA" x="118" y="98" width="359" height="396"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="__buPcWmXEd-z7r5RKMpEpA"/>
-    <element xmi:type="uml:Model" href="QompassModel.uml#__brzMGmXEd-z7r5RKMpEpA"/>
+    <element xmi:type="uml:Model" href="DesignerCBModel.uml#__brzMGmXEd-z7r5RKMpEpA"/>
   </notation:Diagram>
   <notation:Diagram xmi:id="_nAvkcFM2EeGB_eR1RCgBpw" type="CompositeStructure" name="Platform" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_nkwQcFM2EeGB_eR1RCgBpw" type="2073" fontName="" fontHeight="10" lineColor="0">
@@ -104,16 +104,16 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_pkG5GFM2EeGB_eR1RCgBpw" showTitle="true"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pkG5GVM2EeGB_eR1RCgBpw"/>
           </children>
-          <element xmi:type="uml:Property" href="QompassModel.uml#_pkDOsFM2EeGB_eR1RCgBpw"/>
+          <element xmi:type="uml:Property" href="DesignerCBModel.uml#_pkDOsFM2EeGB_eR1RCgBpw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pkGSAVM2EeGB_eR1RCgBpw" x="26" y="9" width="125"/>
         </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_nkw3iFM2EeGB_eR1RCgBpw"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nkw3iVM2EeGB_eR1RCgBpw"/>
       </children>
-      <element xmi:type="uml:Class" href="QompassModel.uml#_l0_jAFM2EeGB_eR1RCgBpw"/>
+      <element xmi:type="uml:Class" href="DesignerCBModel.uml#_l0_jAFM2EeGB_eR1RCgBpw"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nkwQcVM2EeGB_eR1RCgBpw" x="97" y="92" width="273" height="143"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_nAvkcVM2EeGB_eR1RCgBpw"/>
-    <element xmi:type="uml:Package" href="QompassModel.uml#_JQvt0GnaEd-Ptdbbm65sVA"/>
+    <element xmi:type="uml:Package" href="DesignerCBModel.uml#_JQvt0GnaEd-Ptdbbm65sVA"/>
   </notation:Diagram>
 </xmi:XMI>

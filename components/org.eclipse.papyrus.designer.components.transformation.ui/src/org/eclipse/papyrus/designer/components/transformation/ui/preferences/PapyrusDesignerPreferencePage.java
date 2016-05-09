@@ -17,7 +17,7 @@ import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.papyrus.designer.components.transformation.core.Activator;
-import org.eclipse.papyrus.designer.components.transformation.core.preferences.QompassPreferenceConstants;
+import org.eclipse.papyrus.designer.components.transformation.core.preferences.PapyrusDesignerPreferenceConstants;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
@@ -27,14 +27,14 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
  * This page is used to modify preferences only. They are stored in the preference store that belongs to the main plug-in class. That way, preferences can be accessed directly via the preference store.
  */
 
-public class QompassPreferencePage
+public class PapyrusDesignerPreferencePage
 		extends FieldEditorPreferencePage
 		implements IWorkbenchPreferencePage {
 
-	public QompassPreferencePage() {
+	public PapyrusDesignerPreferencePage() {
 		super(GRID);
 		setPreferenceStore(Activator.getDefault().getPreferenceStore());
-		setDescription("Qompass options");
+		setDescription("Papyrus designer options (for component-based design)");
 	}
 
 	/**
@@ -46,22 +46,22 @@ public class QompassPreferencePage
 	@Override
 	public void createFieldEditors() {
 		addField(new BooleanFieldEditor(
-				QompassPreferenceConstants.P_SHOW_PROV_REQ_AS_PORT_ICONS,
+				PapyrusDesignerPreferenceConstants.P_SHOW_PROV_REQ_AS_PORT_ICONS,
 				"&Show icons associated with derived provided/required interfaces instead of kind",
 				getFieldEditorParent()));
 
 		addField(new BooleanFieldEditor(
-				QompassPreferenceConstants.P_TREAT_NONE_AS_COMPOSITE,
+				PapyrusDesignerPreferenceConstants.P_TREAT_NONE_AS_COMPOSITE,
 				"Treat aggregation kind \"&None\" as \"Composite\"",
 				getFieldEditorParent()));
 
 		addField(new BooleanFieldEditor(
-				QompassPreferenceConstants.P_ALL_ATTRIBUTES_ARE_CONFIG_ATTRIBUTES,
+				PapyrusDesignerPreferenceConstants.P_ALL_ATTRIBUTES_ARE_CONFIG_ATTRIBUTES,
 				"Treat all attributes as configuration attributes (if false, only attributes of abstract classes and attributes explicitly tagged as FCM::ConfigurationProperty will be considered as configuration attribute",
 				getFieldEditorParent()));
 
 		addField(new StringFieldEditor(
-				QompassPreferenceConstants.P_CODE_GEN_PREFIX,
+				PapyrusDesignerPreferenceConstants.P_CODE_GEN_PREFIX,
 				"Code generation prefix: ", getFieldEditorParent()));
 	}
 
