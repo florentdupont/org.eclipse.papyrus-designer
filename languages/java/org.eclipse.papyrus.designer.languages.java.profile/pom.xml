@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.profile</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a Java profile</description>
 </project>

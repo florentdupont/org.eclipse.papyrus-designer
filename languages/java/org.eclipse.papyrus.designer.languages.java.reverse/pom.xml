@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.reverse</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains the reversing of Java code into the model</description>
 </project>

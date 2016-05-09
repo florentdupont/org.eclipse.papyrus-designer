@@ -7,5 +7,6 @@
 		<version>0.7.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.components.validation</artifactId>
+	<description>This module contains the validation rules for component-based design</description>
 	<packaging>eclipse-plugin</packaging>
 </project>

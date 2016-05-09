@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains the Papyrus CDT integration for C++ (definition for model-explorer)</description>
 </project>

@@ -7,5 +7,6 @@
 		<version>0.7.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.components.vsl</artifactId>
+	<description>This module contains some utility function for MARTEs value specification language</description>
 	<packaging>eclipse-plugin</packaging>
 </project>

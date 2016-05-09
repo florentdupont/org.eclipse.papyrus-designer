@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.jdt.project</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a JDT integration into Papyrus</description>
 </project>

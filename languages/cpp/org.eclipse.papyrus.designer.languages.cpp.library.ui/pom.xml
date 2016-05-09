@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.cpp.library.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains the UI part (Papyrus registration) for the model library containing standard C/C++ types</description>
 </project>

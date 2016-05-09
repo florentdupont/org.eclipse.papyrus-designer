@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.cpp.view</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a simple view for C/C++ that simplifies the use of the C/C++ profile and editing of opaque behaviors</description>
 </project>

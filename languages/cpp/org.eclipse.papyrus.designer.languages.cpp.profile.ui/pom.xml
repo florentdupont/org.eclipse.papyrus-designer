@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.cpp.profile.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a UI part (Papyrus registration) of the C/C++ profile</description>
 </project>

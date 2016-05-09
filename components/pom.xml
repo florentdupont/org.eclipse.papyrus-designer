@@ -10,7 +10,7 @@
 	<artifactId>org.eclipse.papyrus.designer.components</artifactId>
 	<packaging>pom</packaging>
 	<name>Designer Components</name>
-	<description>This module contains the different plugins relative to the graphical user interface for Designer.</description>
+	<description>This module contains the different plugins relative to the component-based development within designer.</description>
 
 	<modules>
 		<module>org.eclipse.papyrus.designer.components.fcm.profile</module>

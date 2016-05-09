@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.reverse.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains the UI part of reversing of Java code</description>
 </project>

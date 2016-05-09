@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.profile.edit</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a Java profile (edit part)</description>
 </project>

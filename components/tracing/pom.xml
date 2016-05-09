@@ -10,7 +10,7 @@
 	<artifactId>org.eclipse.papyrus.designer.components.tracer</artifactId>
 	<packaging>pom</packaging>
 	<name>Designer Components Tracer</name>
-	<description>This module contains the different plugins relative to xxxxxxx.</description>
+	<description>This module contains a model library and view related to trace point definition as well as code generation</description>
 
 	<modules>
 		<!-- module>org.eclipse.papyrus.infra.services.tracebreakpoints</module>

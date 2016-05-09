@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.generator.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>UI integration of the Java generator</description>
 </project>

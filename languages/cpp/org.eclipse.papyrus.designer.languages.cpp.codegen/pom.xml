@@ -7,7 +7,8 @@
 		<version>0.7.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.cpp.codegen</artifactId>
-<packaging>eclipse-plugin</packaging>
+	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a C++ code generator based on xtend</description>
 
 <build>
 	<plugins>

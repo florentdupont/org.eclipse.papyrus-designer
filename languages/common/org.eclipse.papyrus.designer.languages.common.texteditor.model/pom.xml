@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.common.texteditor.model</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a definition of the attributes that are stored for text editors embedded into Papyrus</description>
 </project>

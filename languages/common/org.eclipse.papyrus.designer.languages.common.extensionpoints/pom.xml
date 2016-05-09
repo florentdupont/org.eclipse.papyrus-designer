@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.common.extensionpoints</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a definition of extension points that must be implemented by code generators for a certain programming language</description>
 </project>

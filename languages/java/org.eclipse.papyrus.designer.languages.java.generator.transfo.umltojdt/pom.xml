@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.generator.transfo.umltojdt</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a Java code generator based on QVT (not used by default)</description>
 </project>

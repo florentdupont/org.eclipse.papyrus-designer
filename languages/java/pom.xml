@@ -10,19 +10,11 @@
 	<artifactId>org.eclipse.papyrus.designer.languages.java</artifactId>
 	<packaging>pom</packaging>
 	<name>Designer Languages JAVA</name>
-	<description>This module contains the different plugins relative to Papyrus Designer java code generation and reverse</description>
+	<description>This module contains the different plugins relative to Papyrus Designer Java code generation and reverse</description>
 
 	<modules>
 		
-		
-		
-		
-		
-		
 		<module>org.eclipse.papyrus.designer.languages.java.profile</module>
-		
-		
-		
 		
 		<!-- module>org.eclipse.papyrus.designer.languages.java.template</module> 
 			<module>org.eclipse.papyrus.designer.languages.java-updatesite</module -->

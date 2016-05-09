@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains the support for text editors as sub-elements within the model explorer (similar as diagrams). The main use is the integration of editors such as CDT/JDT into the modeler</description>
 </project>

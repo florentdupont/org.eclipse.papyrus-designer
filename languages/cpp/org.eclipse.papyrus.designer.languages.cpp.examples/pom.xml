@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.cpp.examples</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains example models from which C++ code could be generated</description>
 </project>

@@ -10,7 +10,7 @@
 	<artifactId>org.eclipse.papyrus.designer.languages.cpp</artifactId>
 	<packaging>pom</packaging>
 	<name>Designer Languages CPP</name>
-	<description>This module contains the different plugins relative to xxx</description>
+	<description>This module contains the plugins for C++ code generation, model libraries, a profile dedicated for C/C++ and a CDT editor integration</description>
 
 	<modules>
 		<module>org.eclipse.papyrus.designer.languages.cpp.cdt.project</module>
@@ -22,7 +22,7 @@
 		<module>org.eclipse.papyrus.designer.languages.cpp.library.ui</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.profile</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.profile.ui</module>
-		<!-- module>org.eclipse.papyrus.cpp.test</module-->
+		<!-- module>org.eclipse.papyrus.designer.languages.cpp.tests</module-->
 		<module>org.eclipse.papyrus.designer.languages.cpp.reverse</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.reverse.ui</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.view</module>

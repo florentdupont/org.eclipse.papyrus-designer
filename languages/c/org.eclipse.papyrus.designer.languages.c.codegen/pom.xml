@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
-		<artifactId>org.eclipse.papyrus.designer.languages.java</artifactId>
-		<version>0.7.1-SNAPSHOT</version>
+		<artifactId>org.eclipse.papyrus.designer.languages.c</artifactId>
+		<version>0.7.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>org.eclipse.papyrus.designer.languages.java.codegen</artifactId>
+	<artifactId>org.eclipse.papyrus.designer.languages.c.codegen</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<description>This module contains a Java code generator</description>
+	<description>This module contains a C code generator based on xtend</description>
 
 <build>
 	<plugins>

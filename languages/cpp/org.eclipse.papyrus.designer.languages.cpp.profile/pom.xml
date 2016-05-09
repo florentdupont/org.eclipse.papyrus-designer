@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.cpp.profile</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a profile for C/C++ defining concepts such as for example "pointer" and "friend"</description>
 </project>

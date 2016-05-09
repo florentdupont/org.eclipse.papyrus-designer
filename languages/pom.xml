@@ -10,7 +10,7 @@
 	<artifactId>org.eclipse.papyrus.designer.languages</artifactId>
 	<packaging>pom</packaging>
 	<name>Designer Languages</name>
-	<description>This module contains the different plugins relative to xxx</description>
+	<description>This module contains the different plugins relative to different (programming) languages</description>
 
 	<modules>
 		<module>common</module>
