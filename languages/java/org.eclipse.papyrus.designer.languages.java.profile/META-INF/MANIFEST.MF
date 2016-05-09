@@ -1,18 +1,17 @@
 Manifest-Version: 1.0
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.uml2.types;visibility:=reexport,
- org.eclipse.uml2.uml;bundle-version="5.0.0";visibility:=reexport
-Export-Package: org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava,
- org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.impl,
- org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.util
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.uml2.uml;visibility:=reexport
+Export-Package: org.eclipse.papyrus.designer.languages.java.profile.java,
+ org.eclipse.papyrus.designer.languages.java.profile.java.impl,
+ org.eclipse.papyrus.designer.languages.java.profile.java.util
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
-Bundle-Version: 0.7.1.qualifier
+Bundle-Version: 0.7.0.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
-Bundle-Activator: org.eclipse.papyrus.designer.languages.java.profile.Activator
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.eclipse.papyrus.designer.languages.java.profile;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
