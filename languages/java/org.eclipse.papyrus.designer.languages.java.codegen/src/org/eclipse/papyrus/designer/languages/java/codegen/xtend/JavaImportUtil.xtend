@@ -17,9 +17,9 @@ import org.eclipse.uml2.uml.NamedElement
 import org.eclipse.uml2.uml.util.UMLUtil
 
 class JavaImportUtil {
-	static def importDirective(String path) {
+	static def importDirective(String path, String prefix) {
 		if ((path != null) && (path.length > 0))
-			return '''import ''' + path + ';'
+			return '''import ''' + prefix + path + ';'
 	}
 
 	static def javaImport(NamedElement ne) {

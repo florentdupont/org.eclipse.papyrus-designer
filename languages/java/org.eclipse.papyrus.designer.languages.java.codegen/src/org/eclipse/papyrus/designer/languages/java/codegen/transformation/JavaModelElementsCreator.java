@@ -40,6 +40,7 @@ import org.eclipse.papyrus.designer.languages.java.codegen.Activator;
 import org.eclipse.papyrus.designer.languages.java.codegen.Constants;
 import org.eclipse.papyrus.designer.languages.java.codegen.Messages;
 import org.eclipse.papyrus.designer.languages.java.codegen.preferences.JavaCodeGenUtils;
+import org.eclipse.papyrus.designer.languages.java.codegen.utils.LocateJavaProject;
 import org.eclipse.text.edits.MalformedTreeException;
 import org.eclipse.text.edits.TextEdit;
 import org.eclipse.uml2.uml.Association;
@@ -59,7 +60,8 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 public class JavaModelElementsCreator extends ModelElementsCreator {
 
 	private String sourceFolder;
-	public static final String DEFAULT_SOURCE_FOLDER = "src_codegen/"; 
+	
+	private String prefix;
 	
 	/**
 	 * Constructor.
@@ -67,9 +69,15 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 	 * @param project
 	 *            the project in which the generated code should be placed
 	 */
-	public JavaModelElementsCreator(IProject project) {
+	public JavaModelElementsCreator(IProject project, PackageableElement packageableElement) {
 		this(new ProjectBasedFileAccess(project), null);
-		setGeneratedSourceFolder(project);
+		sourceFolder = LocateJavaProject.getTargetSourceFolder(packageableElement, project);
+		prefix = LocateJavaProject.getTargetPrefix(packageableElement);
+		if (prefix != null) {
+			sourceFolder = sourceFolder + prefix.replaceAll("\\.", "/");
+		} else {
+			prefix = "";
+		}
 	}
 
 	/**
@@ -80,9 +88,15 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 	 * @param commentHeader
 	 *            Custom prefix for each generated file
 	 */
-	public JavaModelElementsCreator(IProject project, String commentHeader) {
+	public JavaModelElementsCreator(IProject project, String commentHeader, PackageableElement packageableElement) {
 		this(new ProjectBasedFileAccess(project), commentHeader);
-		setGeneratedSourceFolder(project);
+		sourceFolder = LocateJavaProject.getTargetSourceFolder(packageableElement, project);
+		prefix = LocateJavaProject.getTargetPrefix(packageableElement);
+		if (prefix != null) {
+			sourceFolder = sourceFolder + prefix.replaceAll("\\.", "/");
+		} else {
+			prefix = "";
+		}
 	}
 
 	/**
@@ -101,64 +115,6 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 		javaExt = JavaCodeGenUtils.getHeaderSuffix();
 	}
 	
-	private void setGeneratedSourceFolder(IProject project) {
-		IJavaProject javaProject = JavaCore.create(project);
-		if (javaProject != null) {
-			try {
-				IClasspathEntry[] classPathEntries = javaProject.getRawClasspath();
-				if (classPathEntries != null) {
-					boolean sourceFolderDefined = false;
-					for (IClasspathEntry pathEntry : classPathEntries) {
-						int entryKind = pathEntry.getEntryKind();
-						if (entryKind == IClasspathEntry.CPE_SOURCE) { // entry is a source folder
-							IPath path = pathEntry.getPath();
-							if (path.segmentCount() == 1) {
-								// Project root is a source folder, we don't need to prefix generated file paths with a source folder
-								sourceFolder = "";
-								sourceFolderDefined = true;
-								break;
-							}
-							
-							if (path.segmentCount() == 2) {
-								if (path.lastSegment().equals("src_codegen")) {
-									sourceFolder = DEFAULT_SOURCE_FOLDER;
-									sourceFolderDefined = true;
-									break;
-								}
-								
-								if (path.lastSegment().equals("src")) {
-									sourceFolder = "src/";
-									sourceFolderDefined = true;
-								}
-							}
-						}
-					}
-					
-					if (!sourceFolderDefined) {
-						// Either no src/ or src_codegen/ attached to project root, or no source folders defined in project config
-						IClasspathEntry[] newEntries = new IClasspathEntry[classPathEntries.length + 1];
-						System.arraycopy(classPathEntries, 0, newEntries, 0, classPathEntries.length);
-
-						IPath srcPath= javaProject.getPath().append("src_codegen");
-						IClasspathEntry srcEntry= JavaCore.newSourceEntry(srcPath, null);
-
-						newEntries[classPathEntries.length] = JavaCore.newSourceEntry(srcEntry.getPath());
-						javaProject.setRawClasspath(newEntries, null);
-						
-						sourceFolder = DEFAULT_SOURCE_FOLDER;
-					}
-				}
-			} catch (JavaModelException e) {
-				// TODO Auto-generated catch block
-				Activator.log.debug(e.getMessage());
-			}
-		}
-		
-		if (sourceFolder == null) {
-			sourceFolder = "";
-		}
-	}
-
 	protected String javaExt;
 
 	protected String commentHeader;
@@ -178,7 +134,7 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 		if ((element instanceof PrimitiveType) || (element instanceof Usage)) {
 			// do nothing
 		} else if (element instanceof Classifier) {
-			generateClassifier((Classifier) element);
+			generateClassifier((Classifier) element, prefix);
 		} else if (element instanceof Relationship) {
 			// no code generation for relationships
 		} else if (element instanceof Signal) {
@@ -190,7 +146,7 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 		}
 	}
 
-	protected void generateClassifier(Classifier classifier) {
+	protected void generateClassifier(Classifier classifier, String prefix) {
 		// treat case of manual code generation
 		if (GenUtils.hasStereotype(classifier, ManualGeneration.class)) {
 			final ManualGeneration mg = UMLUtil.getStereotypeApplication(classifier, ManualGeneration.class);
@@ -210,7 +166,7 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 			
 			// Generate file
 			final String classHeaderFileName = sourceFolder + locStrategy.getFileName(classifier) + Constants.DOT + javaExt;
-			generateFile(classHeaderFileName, commentHeader + JavaClassifierGenerator.generateClassCode(classifier));
+			generateFile(classHeaderFileName, commentHeader + JavaClassifierGenerator.generateClassCode(classifier, prefix));
 		}
 	}
 	

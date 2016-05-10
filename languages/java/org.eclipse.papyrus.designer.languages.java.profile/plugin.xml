@@ -21,12 +21,5 @@
             class="org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.PapyrusJavaPackage"
             genModel="profiles/PapyrusJava.genmodel"/>
    </extension>
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated PapyrusJava -->
-      <package
-            uri="http://www.eclipse.org/papyrus/PapyrusJava/1"
-            class="org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.PapyrusJavaPackage"
-            genModel="profiles/PapyrusJava.genmodel"/>
-   </extension>
 
 </plugin>

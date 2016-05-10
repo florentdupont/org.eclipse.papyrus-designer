@@ -28,11 +28,11 @@ class JavaClassifierGenerator {
 		return importPathList
 	}
 	
-	static def generateClassCode(Classifier classifier) '''
-		package «GenUtils.getFullPath(classifier.package, ".")»;
+	static def generateClassCode(Classifier classifier, String prefix) '''
+		package «prefix + GenUtils.getFullPath(classifier.package, ".")»;
 		
 		«FOR path : getSortedIncludePathList(classifier)»
-			«JavaImportUtil.importDirective(path)»
+			«JavaImportUtil.importDirective(path, prefix)»
 		«ENDFOR»
 		
 		«JavaImportUtil.javaImport(classifier)»

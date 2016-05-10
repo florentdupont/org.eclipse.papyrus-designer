@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension
+			point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+		<profile
+        description="Profile used for code generation"
+        name="Papyrus Code Generation Profile"
+        path="pathmap://Codegen_PROFILES/Codegen.profile.uml"
+        provider="Papyrus Designer"/>
+	</extension>
+</plugin>

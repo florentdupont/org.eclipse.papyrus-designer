@@ -101,7 +101,7 @@ public class JavaLangCodegen implements ILangCodegen2 {
 		}
 		if ((creator == null) || (project != lastProject)) {
 			lastProject = project;
-			creator = new JavaModelElementsCreator(project);
+			creator = new JavaModelElementsCreator(project, (PackageableElement) element);
 		}
 	}
 

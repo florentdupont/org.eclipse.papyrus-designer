@@ -118,7 +118,7 @@ public class GenerateCodeHandler extends CmdHandler {
 			}
 
 			// get the container for the current element
-			JavaModelElementsCreator mec = new JavaModelElementsCreator(modelProject);
+			JavaModelElementsCreator mec = new JavaModelElementsCreator(modelProject, pe);
 			generate(mec, pe, new BasicEList<PackageableElement>(), true);
 		}
 		
