@@ -20,19 +20,19 @@
 Use the context menu to find out that the PullConsumer supports the &quot;runStartThread&quot; interceptor which intercepts the lifecycle port.</body>
         </ownedComment>
         <ownedComment xmi:type="uml:Comment" xmi:id="_0D64MDedEeGPyrZ5I3hMlA">
-          <annotatedElement xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_-WNegNtxEd6nqsBVkgJEEA"/>
+          <annotatedElement xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_zDDlYMRcEeWq5unKf5DK_A"/>
           <body>Part of the Qompass model library. Provides the specific port &quot;lc&quot; (short for lifecycle). The &quot;activate&quot; operation of this port is called by generated boot-code after instantiation and configuration of a component. The deactivation is called before disposing a component</body>
         </ownedComment>
         <packagedElement xmi:type="uml:Class" xmi:id="_tyiqsc__Ed-TP80eVS-2Rg" name="PullConsumer_impl">
           <generalization xmi:type="uml:Generalization" xmi:id="_tyiqss__Ed-TP80eVS-2Rg">
-            <general xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_-WNegNtxEd6nqsBVkgJEEA"/>
+            <general xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_zDDlYMRcEeWq5unKf5DK_A"/>
           </generalization>
           <ownedAttribute xmi:type="uml:Port" xmi:id="_tyiqs8__Ed-TP80eVS-2Rg" name="p" type="_Oue04GzMEeWdOZKmOtT48A" aggregation="composite"/>
-          <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_DHTiQDF7EeCpQdhNuFCtew" name="derived realization of ILifeCycle" client="_tyiqsc__Ed-TP80eVS-2Rg">
-            <supplier xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
-            <contract xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
+          <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_NUk6MBbXEeasT4HdO7q9gg" name="derived realization of IRunnable" client="_tyiqsc__Ed-TP80eVS-2Rg">
+            <supplier xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
+            <contract xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
           </interfaceRealization>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tyjRwc__Ed-TP80eVS-2Rg" name="activate" specification="_tyjRy8__Ed-TP80eVS-2Rg">
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tyjRwc__Ed-TP80eVS-2Rg" name="run" specification="_NVBmIBbXEeasT4HdO7q9gg">
             <language>C/C++</language>
             <body>cout &lt;&lt; &quot;wait for data on port p&quot; &lt;&lt; endl;
 for (int i = 0; i&lt;25; i++) {
@@ -45,18 +45,13 @@ for (int i = 0; i&lt;25; i++) {
 cout &lt;&lt; &quot;finished waiting&quot; &lt;&lt; endl;
 </body>
           </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pIC-UH1OEeWG49zncsL-0g" name="deactivate" specification="_tyjRzM__Ed-TP80eVS-2Rg">
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sYPjwH1OEeWG49zncsL-0g" name="configuration_complete">
             <language>C/C++</language>
             <body></body>
           </ownedBehavior>
-          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sYPjwH1OEeWG49zncsL-0g" name="configuration_complete" specification="_FJPu4CxyEeOMQpc6Y-MAJw">
-            <language>C/C++</language>
-            <body></body>
-          </ownedBehavior>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_tyjRy8__Ed-TP80eVS-2Rg" name="activate" method="_tyjRwc__Ed-TP80eVS-2Rg"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_tyjRzM__Ed-TP80eVS-2Rg" name="deactivate" method="_pIC-UH1OEeWG49zncsL-0g"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_FJPu4CxyEeOMQpc6Y-MAJw" name="configuration_complete" method="_sYPjwH1OEeWG49zncsL-0g"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_NVBmIBbXEeasT4HdO7q9gg" name="run" method="_tyjRwc__Ed-TP80eVS-2Rg"/>
         </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_DarAYBbYEeasT4HdO7q9gg" client="_tyiqsc__Ed-TP80eVS-2Rg" supplier="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_OGM88DLaEd2qeKRLMdIx_A" name="PushConsumer">
         <ownedComment xmi:type="uml:Comment" xmi:id="_XfnmsDecEeGPyrZ5I3hMlA" annotatedElement="_oqZNUDLaEd2qeKRLMdIx_A">
@@ -411,12 +406,6 @@ Use the context menu on a selected connector to specify the interaction componen
     <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <C_Cpp:Visibility xmi:id="_0VnhsD15Ed-qiK1VZWszhA" value="public" base_generalization="_NItbAP94Ed6628OhKk_dpg"/>
-  <FCM:DerivedElement xmi:id="_igKiENAAEd-TP80eVS-2Rg" base_Element="_tyjRy8__Ed-TP80eVS-2Rg">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_igVhMNAAEd-TP80eVS-2Rg" base_Element="_tyjRzM__Ed-TP80eVS-2Rg">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
   <C_Cpp:Include xmi:id="_11OtwPcaEd-KM6l7lmIPkw" body="#include &lt;unistd.h>&#xA;#include &lt;iostream>&#xA;using namespace std;" base_class="_tyiqsc__Ed-TP80eVS-2Rg"/>
   <FCM:Target xmi:id="_LD_uICr7EeCfcI_SvPT4lw" base_Node="_zY9vMDLiEd2RVeNawwNNzg">
     <targetArch xmi:type="FCM:TargetArchitecture" href="pathmap://QML_CORE/core.uml#_FYOqwF0OEd-12d_h0i1xhQ"/>
@@ -442,12 +431,12 @@ Use the context menu on a selected connector to specify the interaction componen
   <FCM:DerivedElement xmi:id="_Ffh9YCxxEeOMQpc6Y-MAJw" base_Element="_FemwUCxxEeOMQpc6Y-MAJw">
     <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_ns4qsClUEeO4bs_nkcnKOg"/>
   </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_FKGqgCxyEeOMQpc6Y-MAJw" base_Element="_FJPu4CxyEeOMQpc6Y-MAJw">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_ns4qsClUEeO4bs_nkcnKOg"/>
-  </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_OGIDoGkXEeWAzPO1wYNudw" base_Element="_OGDyMGkXEeWAzPO1wYNudw" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
   <FCM:DerivedElement xmi:id="_QxvVUGkXEeWAzPO1wYNudw" base_Element="_QxsSAGkXEeWAzPO1wYNudw" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
   <FCM:DerivedElement xmi:id="_FM704GzGEeWdOZKmOtT48A" base_Element="_FMzSAGzGEeWdOZKmOtT48A" source="_Qxv8YGkXEeWAzPO1wYNudw"/>
   <FCM:DerivedElement xmi:id="_OugqEGzMEeWdOZKmOtT48A" base_Element="_Oue04GzMEeWdOZKmOtT48A" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
   <FCM:DerivedElement xmi:id="_gz2e0GzMEeWdOZKmOtT48A" base_Element="_gz0CkGzMEeWdOZKmOtT48A" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
+  <FCM:DerivedElement xmi:id="_NVHFsBbXEeasT4HdO7q9gg" base_Element="_NVBmIBbXEeasT4HdO7q9gg">
+    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_C9IK4JsqEd61Eo3nmu3JhQ"/>
+  </FCM:DerivedElement>
 </xmi:XMI>

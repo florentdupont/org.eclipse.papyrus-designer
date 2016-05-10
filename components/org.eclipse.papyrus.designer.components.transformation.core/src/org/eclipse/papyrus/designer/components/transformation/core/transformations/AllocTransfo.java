@@ -23,6 +23,19 @@ import org.eclipse.uml2.uml.Type;
  * is allocated to this thread.
  */
 public class AllocTransfo {
+	/**
+	 * Name of port provided by component being allocation target
+	*/
+	public static final String RUN = "run"; //$NON-NLS-1$
+	
+	/**
+	 * Name of port provided by thread component (a "required" port)
+	 */
+	public static final String R_RUN = "rRun"; //$NON-NLS-1$
+	
+	/**
+	 * name of main thread
+	 */
 	public static final String MAIN = "main"; //$NON-NLS-1$
 
 	/**
@@ -72,7 +85,7 @@ public class AllocTransfo {
 					ce1.setPartWithPort(attribute);
 					// TODO: should really use start port instead...
 					// ce1.setRole(AllocUtils.getStartPort(component));
-					NamedElement ne = Utils.getNamedElementFromList(component.getAllAttributes(), "lc"); //$NON-NLS-1$
+					NamedElement ne = Utils.getNamedElementFromList(component.getAllAttributes(), RUN);
 					if (ne instanceof Property) {
 						ce1.setRole((Property) ne);
 					}
@@ -81,7 +94,7 @@ public class AllocTransfo {
 					Type threadT = thread.getType();
 					if (threadT instanceof Class) {
 						// TODO: nicer way to obtain port ...
-						Property rLC = ((Class) threadT).getAttribute("rLC", null); //$NON-NLS-1$
+						Property rLC = ((Class) threadT).getAttribute(R_RUN, null);
 						if (rLC instanceof Port) {
 							ce2.setRole(rLC);
 						}
