@@ -83,7 +83,7 @@ public class DropReverseStrategy2 extends TransactionalDropStrategy {
 
 	@Override
 	public String getID() {
-		return "org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.reversedropstrategy2"; //$NON-NLS-1$
+		return this.getClass().getName(); //$NON-NLS-1$
 	}
 
 	private static String DefaultGenerationModeleName = "generated";
@@ -168,7 +168,7 @@ public class DropReverseStrategy2 extends TransactionalDropStrategy {
 			
 			/**
 			 * Get an UID identifying uniquely the resource. 
-			 * This is usuaaly the UTI of the resource.
+			 * This is usually the UTI of the resource.
 			 *
 			 * @param resource
 			 * @return the modelUid name

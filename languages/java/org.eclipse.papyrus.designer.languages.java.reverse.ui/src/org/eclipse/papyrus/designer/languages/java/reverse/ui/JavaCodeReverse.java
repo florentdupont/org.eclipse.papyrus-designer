@@ -21,6 +21,7 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.papyrus.designer.languages.java.reverse.ast.CompilationUnit;
 import org.eclipse.papyrus.designer.languages.java.reverse.ast.JavaParser;
@@ -222,7 +223,7 @@ public class JavaCodeReverse {
 	 * 
 	 * @param treeSelection
 	 */
-	public void executeCodeReverse( TreeSelection treeSelection ) {
+	public void executeCodeReverse( ITreeSelection treeSelection ) {
 		System.out.println("executeCodeReverse()");
 
 		// String filename = treeSelection.

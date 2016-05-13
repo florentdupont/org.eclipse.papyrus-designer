@@ -66,7 +66,7 @@ public class DropReverseStrategy3 extends TransactionalDropStrategy {
 	@Override
 	public String getLabel() {
 //		return Messages.DropReverseStrategy_LABEL;
-		return "Drop 3";
+		return "Drop 3 (Reverse without drawing)";
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class DropReverseStrategy3 extends TransactionalDropStrategy {
 
 	@Override
 	public String getID() {
-		return "org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.reversedropstrategy3"; //$NON-NLS-1$
+		return this.getClass().getName(); //$NON-NLS-1$
 	}
 
 	private static String DefaultGenerationModeleName = "generated";

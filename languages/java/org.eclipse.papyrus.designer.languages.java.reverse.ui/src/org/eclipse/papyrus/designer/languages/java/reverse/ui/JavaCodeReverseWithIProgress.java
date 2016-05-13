@@ -18,9 +18,8 @@ import java.util.List;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.jface.viewers.TreeSelection;
+import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.papyrus.designer.languages.java.reverse.ast.ParseException;
-import org.eclipse.papyrus.designer.languages.java.reverse.ui.command.RunnableWithIProgressMonitor;
 import org.eclipse.uml2.uml.Package;
 
 
@@ -67,7 +66,7 @@ public class JavaCodeReverseWithIProgress extends JavaCodeReverse  {
 	 * @param treeSelection
 	 */
 	@Override
-	public void executeCodeReverse(TreeSelection treeSelection) {
+	public void executeCodeReverse(ITreeSelection treeSelection) {
 		// TODO Auto-generated method stub
 		
 		int totalWork = treeSelection.size();

@@ -153,6 +153,12 @@
       <strategy
             strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.DropReverseStrategy3">
       </strategy>
+      <strategy
+            strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.ReverseJobAndTransactionalDropStrategy">
+      </strategy>
+      <strategy
+            strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.TestJobAndTransactionalDropStrategy">
+      </strategy>
    </extension>
       <extension
          point="org.eclipse.ui.preferencePages">
