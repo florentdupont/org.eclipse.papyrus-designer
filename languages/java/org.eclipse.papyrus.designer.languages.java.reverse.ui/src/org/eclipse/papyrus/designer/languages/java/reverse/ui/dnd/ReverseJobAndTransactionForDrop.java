@@ -18,6 +18,7 @@ import java.util.List;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
@@ -43,6 +44,7 @@ import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.gmfdiag.common.helper.NotationHelper;
 import org.eclipse.papyrus.infra.gmfdiag.common.utils.ServiceUtilsForEditPart;
 import org.eclipse.papyrus.uml.tools.model.UmlModel;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
@@ -52,7 +54,7 @@ import org.eclipse.uml2.uml.NamedElement;
  * @author cedric dumoulin
  *
  */
-public class ReverseJobAndTransactionForDrop implements IJobAndTransactionForDrop {
+public class ReverseJobAndTransactionForDrop extends AbstractJobAndTransactionForDrop implements IJobAndTransactionForDrop {
 
 
 	private static String DefaultGenerationModeleName = "generated";
@@ -85,6 +87,14 @@ public class ReverseJobAndTransactionForDrop implements IJobAndTransactionForDro
 	public void init(Request request, EditPart targetEditPart) throws StopExecutionException {
 		
 		System.err.println(this.getClass().getName() + ".init()");
+
+		super.init(request, targetEditPart);
+		
+		// Filter out sources that come from Papyrus Model Explorer.
+		List<EObject> sources = getSourceEObjects(request);
+		if (! sources.isEmpty()) {
+			throw new StopExecutionException();
+		}
 
 
 		try {
@@ -120,6 +130,8 @@ public class ReverseJobAndTransactionForDrop implements IJobAndTransactionForDro
 	@Override
 	public boolean canExecute() {
 		System.err.println(this.getClass().getName() + ".canExecute()");
+		
+		
 		return true;
 	}
 
@@ -189,11 +201,19 @@ public class ReverseJobAndTransactionForDrop implements IJobAndTransactionForDro
 		// Get created elements
 		List<String> names = QualifiedNamesFromIJavaElementCollector.collectQualifiedNamesFromSelection(getRecordedSelection());
 		System.err.println("names=" + names);
-		List<NamedElement> returnedReversedNamedElement = NamedElementFromQualifiedNamesCollector.collectNamedElementsFromQualifiedNames(names, rootPackage, searchPaths);
+		final List<NamedElement> returnedReversedNamedElement = NamedElementFromQualifiedNamesCollector.collectNamedElementsFromQualifiedNames(names, rootPackage, searchPaths);
 		System.err.println("corresponding uml elements=" + returnedReversedNamedElement);
 
-		DiagramNodeCreator nodeCreator = new DiagramNodeCreator(parentView, parentViewEditPart, firstNodeLocation);
-		nodeCreator.createNodesFor(progressMonitor, returnedReversedNamedElement);
+		final DiagramNodeCreator nodeCreator = new DiagramNodeCreator(parentView, parentViewEditPart, firstNodeLocation);
+		
+		  nodeCreator.createNodesFor(progressMonitor, returnedReversedNamedElement);
+		// Can't run in the main UI, because the transaction will be lost.
+//		// Update the user interface synchronously in the main thread
+//		Display.getDefault().syncExec(new Runnable() {
+//		  public void run() {
+//			  nodeCreator.createNodesFor(progressMonitor, returnedReversedNamedElement);
+//		  }
+//		});
 	}
 
 	/**

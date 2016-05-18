@@ -148,16 +148,7 @@
 	<extension
          point="org.eclipse.papyrus.infra.gmfdiag.dnd.dropStrategy">
       <strategy
-            strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.DropReverseStrategy2">
-      </strategy>
-      <strategy
-            strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.DropReverseStrategy3">
-      </strategy>
-      <strategy
             strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.ReverseJobAndTransactionalDropStrategy">
-      </strategy>
-      <strategy
-            strategy="org.eclipse.papyrus.designer.languages.java.reverse.ui.dnd.TestJobAndTransactionalDropStrategy">
       </strategy>
    </extension>
       <extension

@@ -97,7 +97,7 @@ public abstract class AbstractJobAndTransactionalDropStrategy extends Transactio
 		
 		// Create the command that will be executed by the DropStrategyMngr
 		final TransactionalEditingDomain domain = getTransactionalEditingDomain(targetEditPart);
-		Command cmd = new Command(getLabel()) {
+		Command cmd = new Command( getLabel() ) {
 			/**
 			 * Create the Job, and schedule it.
 			 *
@@ -116,6 +116,17 @@ public abstract class AbstractJobAndTransactionalDropStrategy extends Transactio
 				// Execute Job
 				job.setUser(true);
 				job.schedule();
+			}
+			
+			/**
+			 * @see org.eclipse.gef.commands.Command#canExecute()
+			 *
+			 * @return
+			 */
+			@Override
+			public boolean canExecute() {
+				// TODO Auto-generated method stub
+				return true;
 			}
 		};
 		
