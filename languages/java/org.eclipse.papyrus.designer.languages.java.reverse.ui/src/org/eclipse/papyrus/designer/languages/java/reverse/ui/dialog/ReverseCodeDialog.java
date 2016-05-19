@@ -13,12 +13,8 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.Activator;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.preference.ReversePreference;
 import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.CreationPackageCatalog;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.RowLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
 /**
@@ -42,7 +38,6 @@ public class ReverseCodeDialog extends InputDialog {
 
 	private String SEARCHPATHS_UID = ":searchpaths";
 	private String CREATIONPATHS_UID = ":creationpaths";
-	private static final String STEREOTYPERADIO_UID = ":stereotypeRadioButton";
 	private static final String PROJECTNAME_UID = ":projectName";
 	
 	protected String MODEL_UID = "nomodeluid";

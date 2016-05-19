@@ -44,7 +44,6 @@ import org.eclipse.papyrus.infra.core.utils.ServiceUtils;
 import org.eclipse.papyrus.infra.gmfdiag.common.helper.NotationHelper;
 import org.eclipse.papyrus.infra.gmfdiag.common.utils.ServiceUtilsForEditPart;
 import org.eclipse.papyrus.uml.tools.model.UmlModel;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;

@@ -109,6 +109,7 @@ public class QualifiedNamesFromIJavaElementCollector {
 	 * @throws JavaModelException
 	 */
 	private void addFromTreeSelection(TreeSelection selection)  {
+		@SuppressWarnings("unchecked")
 		Iterator<Object> selectionIterator = selection.iterator();
 		while (selectionIterator.hasNext()) {
 			Object ele = selectionIterator.next();

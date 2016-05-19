@@ -10,7 +10,6 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.JavaCodeReverse;
-import org.eclipse.papyrus.designer.languages.java.reverse.ui.JavaCodeReverseWithIProgress;
 import org.eclipse.uml2.uml.Model;
 
 /**
