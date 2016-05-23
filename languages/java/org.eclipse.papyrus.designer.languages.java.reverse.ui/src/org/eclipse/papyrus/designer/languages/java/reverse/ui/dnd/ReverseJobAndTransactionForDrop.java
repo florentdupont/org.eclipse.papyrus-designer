@@ -31,7 +31,9 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.window.Window;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.DebugProjectExplorerNodeVisitor;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.JavaCodeReverse;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.ProjectExplorerNodeSwitch;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.DndReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.ReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.exception.StopExecutionException;
@@ -182,6 +184,9 @@ public class ReverseJobAndTransactionForDrop extends AbstractJobAndTransactionFo
 	public void jobRun() throws StopExecutionException {
 		System.err.println(this.getClass().getName() + ".jobRun()");
 
+		ProjectExplorerNodeSwitch walker = new ProjectExplorerNodeSwitch(new DebugProjectExplorerNodeVisitor());
+		walker.visit(getRecordedSelection().toList());
+		
 		// Get parameters for reverse
 		final List<String> searchPaths = Arrays.asList(dialog.getSearchPath());
 		org.eclipse.uml2.uml.Package rootPackage;
