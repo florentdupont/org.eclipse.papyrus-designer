@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="org.eclipse.papyrus.designer.languages.java.reverse.ui.handlers.JavaCodeReverseHandler"
+            class="org.eclipse.papyrus.designer.languages.java.reverse.ui.handlers.JavaCodeReverseInJobHandler"
             commandId="org.eclipse.papyrus.designer.languages.java.reverse.ui.reverseCodeCommand">
          <enabledWhen>
             <with

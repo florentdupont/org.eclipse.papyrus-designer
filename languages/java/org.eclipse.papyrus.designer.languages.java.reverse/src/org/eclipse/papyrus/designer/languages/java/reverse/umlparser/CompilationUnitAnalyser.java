@@ -146,6 +146,15 @@ public class CompilationUnitAnalyser {
 	}
 
 	/**
+	 * The {@link ClassifierCatalog} can be used to get a UML::NamedElement by its qualified name.
+	 * 
+	 * @return the classifierCatalog
+	 */
+	public ClassifierCatalog getClassifierCatalog() {
+		return classifierCatalog;
+	}
+
+	/**
 	 * Initialize the class. Called by constructors.
 	 *
 	 * @param modelRootPackage

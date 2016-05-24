@@ -16,7 +16,6 @@ package org.eclipse.papyrus.designer.languages.java.reverse.ui;
 import java.util.List;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.IClassFile;
 import org.eclipse.jdt.core.IClasspathContainer;
@@ -29,28 +28,32 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 
 /**
- * This switch allows to explore nodes of the Eclipse Model Explorer.
- * The main switch require a list of selected Node, and then visit them according to the provided
- * options.
- * 
+ * This class allows to visit nodes of the Eclipse Model Explorer.
+ * The method {@link #visit(List)} take a list of node to visit. It visits each node and its sub-nodes according
+ * to the visit policy.
+ * <br>
+ * A visitor must be provided. Its method are called according to encountered node's type.
+ * <br>
+ * Here the visit is oriented to the exploration of Java classes for Java reverse.
  * 
  * @author cedric dumoulin
  *
  */
-public class ProjectExplorerNodeSwitch {
+public class ProjectExplorerNodeWalker {
 
 	protected IProjectExplorerNodeVisitor visitor;
 	
 	/**
 	 * Constructor.
-	 *
+	 * @param visitor The visitor called when a node is encountered.
+	 * 
 	 */
-	public ProjectExplorerNodeSwitch(IProjectExplorerNodeVisitor visitor) {
+	public ProjectExplorerNodeWalker(IProjectExplorerNodeVisitor visitor) {
 		this.visitor = visitor;
 	}
 
 	/**
-	 * 
+	 * Visit the provided node and their sub-nodes.
 	 */
 	public void visit(List<Object> nodes) {
 		doSwitch(nodes);

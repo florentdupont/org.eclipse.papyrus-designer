@@ -33,7 +33,8 @@ import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.DebugProjectExplorerNodeVisitor;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.JavaCodeReverse;
-import org.eclipse.papyrus.designer.languages.java.reverse.ui.ProjectExplorerNodeSwitch;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.ProjectExplorerNodeWalker;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.ReverseSelectedNodeVisitor;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.DndReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.ReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.exception.StopExecutionException;
@@ -184,8 +185,8 @@ public class ReverseJobAndTransactionForDrop extends AbstractJobAndTransactionFo
 	public void jobRun() throws StopExecutionException {
 		System.err.println(this.getClass().getName() + ".jobRun()");
 
-		ProjectExplorerNodeSwitch walker = new ProjectExplorerNodeSwitch(new DebugProjectExplorerNodeVisitor());
-		walker.visit(getRecordedSelection().toList());
+//		ProjectExplorerNodeWalker walker = new ProjectExplorerNodeWalker(new DebugProjectExplorerNodeVisitor());
+//		walker.visit(getRecordedSelection().toList());
 		
 		// Get parameters for reverse
 		final List<String> searchPaths = Arrays.asList(dialog.getSearchPath());
@@ -198,26 +199,18 @@ public class ReverseJobAndTransactionForDrop extends AbstractJobAndTransactionFo
 			throw new StopExecutionException(e);
 		}
 		
+		
 		// Perform reverse
-		JavaCodeReverse reverse = new JavaCodeReverse(rootPackage, getPackageName(dialog), searchPaths);
-		reverse.executeCodeReverse(getRecordedSelection());
-		
-		// Get created elements
-		List<String> names = QualifiedNamesFromIJavaElementCollector.collectQualifiedNamesFromSelection(getRecordedSelection());
-		System.err.println("names=" + names);
-		final List<NamedElement> returnedReversedNamedElement = NamedElementFromQualifiedNamesCollector.collectNamedElementsFromQualifiedNames(names, rootPackage, searchPaths);
-		System.err.println("corresponding uml elements=" + returnedReversedNamedElement);
+		ReverseSelectedNodeVisitor visitor = new ReverseSelectedNodeVisitor(rootPackage, getPackageName(dialog), searchPaths);
+		ProjectExplorerNodeWalker reverseWalker = new ProjectExplorerNodeWalker(visitor);
+		reverseWalker.visit(getRecordedSelection().toList());
 
+		// Draw reversed NamedElement in diagram
+		final List<NamedElement> returnedReversedNamedElement = visitor.getReversedNamedElement();
 		final DiagramNodeCreator nodeCreator = new DiagramNodeCreator(parentView, parentViewEditPart, firstNodeLocation);
-		
-		  nodeCreator.createNodesFor(progressMonitor, returnedReversedNamedElement);
-		// Can't run in the main UI, because the transaction will be lost.
-//		// Update the user interface synchronously in the main thread
-//		Display.getDefault().syncExec(new Runnable() {
-//		  public void run() {
-//			  nodeCreator.createNodesFor(progressMonitor, returnedReversedNamedElement);
-//		  }
-//		});
+		nodeCreator.createNodesFor(progressMonitor, returnedReversedNamedElement);
+		// Should not run in the main UI, because the transaction will be lost.
+
 	}
 
 	/**
