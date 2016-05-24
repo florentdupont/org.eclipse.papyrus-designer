@@ -26,6 +26,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.papyrus.designer.languages.java.codegen.transformation.JavaMerger;
 import org.eclipse.papyrus.designer.languages.java.codegen.transformation.JavaModelElementsCreator;
 import org.eclipse.papyrus.designer.languages.java.codegen.utils.ClassUtils;
 import org.eclipse.papyrus.designer.languages.java.codegen.utils.JavaGenUtils;
@@ -112,14 +113,17 @@ public class GenerateCodeHandler extends CmdHandler {
 		if (selectedEObject instanceof PackageableElement) {
 			PackageableElement pe = (PackageableElement) selectedEObject;
 
-			IProject modelProject = LocateJavaProject.getTargetProject(pe, true);
-			if (modelProject == null) {
+			IProject targetProject = LocateJavaProject.getTargetProject(pe, true);
+			if (targetProject == null) {
 				return null;
 			}
 
 			// get the container for the current element
-			JavaModelElementsCreator mec = new JavaModelElementsCreator(modelProject, pe);
+			JavaModelElementsCreator mec = new JavaModelElementsCreator(targetProject, pe);
 			generate(mec, pe, new BasicEList<PackageableElement>(), true);
+			
+			JavaMerger merger = new JavaMerger(targetProject, mec.getSourceFolder(), mec.getTargetFolder());
+			merger.merge();
 		}
 		
 		// TODO Find a better solution to clear imports map
