@@ -166,7 +166,7 @@ public abstract class AbstractJobAndTransactionalDropStrategy extends Transactio
 		}
 		
 		@Override
-		protected IStatus run(IProgressMonitor monitor) {
+		protected IStatus run(final IProgressMonitor monitor) {
 			try {
 				// Run preProcess
 				lifeCycle.jobPreprocess(monitor);
@@ -177,7 +177,7 @@ public abstract class AbstractJobAndTransactionalDropStrategy extends Transactio
 					@Override
 					protected void doExecute() {
 						try {
-							lifeCycle.jobRun();
+							lifeCycle.jobRun(monitor);
 						} catch (StopExecutionException e) {
 							System.err.println("TODO: should stop the Job execution !");
 							e.printStackTrace();

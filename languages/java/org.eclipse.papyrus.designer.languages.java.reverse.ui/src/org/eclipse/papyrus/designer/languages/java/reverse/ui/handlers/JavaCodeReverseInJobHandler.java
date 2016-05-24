@@ -26,7 +26,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.Messages;
-import org.eclipse.papyrus.designer.languages.java.reverse.ui.ProjectExplorerNodeWalker;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.ProjectExplorerNodeWalkerWithIProgress;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.ReverseSelectedNodeVisitor;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.ReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.exception.JavaReverseException;
@@ -140,8 +140,9 @@ public class JavaCodeReverseInJobHandler extends AbstractExecuteInJobHandler imp
 		
 		// Perform reverse
 		ReverseSelectedNodeVisitor visitor = new ReverseSelectedNodeVisitor(parameters);
-		ProjectExplorerNodeWalker reverseWalker = new ProjectExplorerNodeWalker(visitor);
-		reverseWalker.visit(recordedSelection.toList());
+//		ProjectExplorerNodeWalker reverseWalker = new ProjectExplorerNodeWalker(visitor);
+		ProjectExplorerNodeWalkerWithIProgress reverseWalker = new ProjectExplorerNodeWalkerWithIProgress(visitor);
+		reverseWalker.visit(recordedSelection.toList(), monitor);
 
 	}
 

@@ -79,9 +79,10 @@ public interface IJobAndTransactionForDrop {
 
 	/**
 	 * Run the job in a {@link Transaction}.
+	 * @param monitor 
 	 * @throws StopExecutionException 
 	 */
-	public void jobRun() throws StopExecutionException;
+	public void jobRun(IProgressMonitor monitor) throws StopExecutionException;
 
 	/**
 	 * 	Method called from the job, after the transactional method. 

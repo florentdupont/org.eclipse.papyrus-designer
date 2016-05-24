@@ -31,15 +31,11 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.window.Window;
-import org.eclipse.papyrus.designer.languages.java.reverse.ui.DebugProjectExplorerNodeVisitor;
-import org.eclipse.papyrus.designer.languages.java.reverse.ui.JavaCodeReverse;
-import org.eclipse.papyrus.designer.languages.java.reverse.ui.ProjectExplorerNodeWalker;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.ProjectExplorerNodeWalkerWithIProgress;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.ReverseSelectedNodeVisitor;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.DndReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.ReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.exception.StopExecutionException;
-import org.eclipse.papyrus.designer.languages.java.reverse.ui.utils.NamedElementFromQualifiedNamesCollector;
-import org.eclipse.papyrus.designer.languages.java.reverse.ui.utils.QualifiedNamesFromIJavaElementCollector;
 import org.eclipse.papyrus.infra.core.resource.NotFoundException;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
 import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
@@ -182,7 +178,7 @@ public class ReverseJobAndTransactionForDrop extends AbstractJobAndTransactionFo
 	 *
 	 */
 	@Override
-	public void jobRun() throws StopExecutionException {
+	public void jobRun(IProgressMonitor monitor) throws StopExecutionException {
 		System.err.println(this.getClass().getName() + ".jobRun()");
 
 //		ProjectExplorerNodeWalker walker = new ProjectExplorerNodeWalker(new DebugProjectExplorerNodeVisitor());
@@ -202,8 +198,8 @@ public class ReverseJobAndTransactionForDrop extends AbstractJobAndTransactionFo
 		
 		// Perform reverse
 		ReverseSelectedNodeVisitor visitor = new ReverseSelectedNodeVisitor(rootPackage, getPackageName(dialog), searchPaths);
-		ProjectExplorerNodeWalker reverseWalker = new ProjectExplorerNodeWalker(visitor);
-		reverseWalker.visit(getRecordedSelection().toList());
+		ProjectExplorerNodeWalkerWithIProgress reverseWalker = new ProjectExplorerNodeWalkerWithIProgress(visitor);
+		reverseWalker.visit(getRecordedSelection().toList(), monitor);
 
 		// Draw reversed NamedElement in diagram
 		final List<NamedElement> returnedReversedNamedElement = visitor.getReversedNamedElement();
