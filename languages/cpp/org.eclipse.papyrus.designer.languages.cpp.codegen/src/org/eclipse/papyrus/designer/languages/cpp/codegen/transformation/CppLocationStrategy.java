@@ -1,6 +1,7 @@
 package org.eclipse.papyrus.designer.languages.cpp.codegen.transformation;
 
 import org.eclipse.papyrus.designer.languages.common.base.HierarchyLocationStrategy;
+import org.eclipse.papyrus.infra.tools.file.IPFileSystemAccess;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;
 
@@ -21,7 +22,7 @@ public class CppLocationStrategy extends HierarchyLocationStrategy {
 			// specific prefix for packages
 			String folder = super.getFileName(element);
 			if (folder.length() > 0) {
-				folder += HierarchyLocationStrategy.SEP_CHAR;
+				folder += IPFileSystemAccess.SEP_CHAR;
 			}
 			return folder + PKG_PREFIX + element.getName();
 		}

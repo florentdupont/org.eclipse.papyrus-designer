@@ -1,15 +1,11 @@
 package org.eclipse.papyrus.designer.languages.common.base;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.papyrus.infra.tools.file.IPFileSystemAccess;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 
 public class HierarchyLocationStrategy implements ILocationStrategy {
-	
-	/**
-	 * Always use / instead of File.separationChar 
-	 */
-	public static final String SEP_CHAR = "/"; //$NON-NLS-1$
 
 	/**
 	 * Return the filename for a given named element.
@@ -24,7 +20,7 @@ public class HierarchyLocationStrategy implements ILocationStrategy {
 		String fileName = ""; //$NON-NLS-1$
 		for (int i = namespaces.size() - 1; i >= 0; i--) {
 			Namespace ns = namespaces.get(i);
-			fileName += ns.getName() + SEP_CHAR;
+			fileName += ns.getName() + IPFileSystemAccess.SEP_CHAR;
 		}
 		return fileName;
 	}
@@ -39,7 +35,7 @@ public class HierarchyLocationStrategy implements ILocationStrategy {
 	public String getFileName(NamedElement element) {
 		String folder = getFolder(element);
 		if (folder.length() > 0) {
-			folder += SEP_CHAR;
+			folder += IPFileSystemAccess.SEP_CHAR;
 		}
 		return getFolder(element) + element.getName();
 	}
