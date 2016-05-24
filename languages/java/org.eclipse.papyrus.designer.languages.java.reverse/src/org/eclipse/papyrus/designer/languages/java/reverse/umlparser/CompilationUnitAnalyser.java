@@ -15,6 +15,7 @@ import org.eclipse.papyrus.designer.languages.java.reverse.ast.Node;
 import org.eclipse.papyrus.designer.languages.java.reverse.ast.PackageDeclaration;
 import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.BodyDeclaration;
 import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.ClassOrInterfaceDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.EnumDeclaration;
 import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.FieldDeclaration;
 import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.JavadocComment;
 import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.MethodDeclaration;
@@ -37,6 +38,7 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Feature;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Namespace;
@@ -279,10 +281,19 @@ public class CompilationUnitAnalyser {
 			public Classifier visit(ClassOrInterfaceDeclaration n, List<Namespace> enclosingParents) {
 				return processClassOrInterfaceDeclaration(n, enclosingParents);
 			}
+			
+			public Classifier visit(EnumDeclaration n, List<Namespace> enclosingParents) {
+				return processEnumDeclaration(n, enclosingParents);
+			};
 
 			// TODO Other kind of types
 		}.doSwitch(typeDecl, enclosingParents);
 
+		// Check result
+		// Bug : Classifier is null in case of Enumeration
+		if( classifier == null) {
+			return;
+		}
 		// Set Visibility
 		createModifiers(classifier, typeDecl.getModifiers());
 
@@ -960,6 +971,23 @@ public class CompilationUnitAnalyser {
 	 *
 	 * Only need to create the object and fill it with data available at this level.
 	 *
+	 * @param enclosingParents
+	 *            enclosing parent, Package included, in case of nested declaration.
+	 * @param n
+	 * @return
+	 */
+	protected Enumeration createEnumeration(List<Namespace> enclosingParents, EnumDeclaration n) {
+		return UmlUtils.getEnumeration(enclosingParents, n.getName());
+	}
+
+	/**
+	 * Create an interface and return it.
+	 * The Classifier is created exactly in the directly enclosing namespace.
+	 * First, a lookup is done to check if it has been created elsewhere in the namespaces. If true, correct the location
+	 * and maybe the type.
+	 *
+	 * Only need to create the object and fill it with data available at this level.
+	 *
 	 * @param parent
 	 * @param n
 	 * @return
@@ -1093,7 +1121,23 @@ public class CompilationUnitAnalyser {
 		return processedClass;
 	}
 
+	/**
+	 * Process Class or Interface declaration (only the head of the class, not the members).
+	 *
+	 * @param n
+	 * @param parent
+	 * @return
+	 */
+	private Enumeration processEnumDeclaration(EnumDeclaration n, List<Namespace> enclosingParents) {
 
+		Enumeration processedClass = createEnumeration(enclosingParents, n);
+
+		// Comments
+		processJavadoc(n.getJavaDoc(), processedClass);
+
+		return processedClass;
+	}
+	
 	/**
 	 * Visitor used to create Package from a qualified names
 	 * Example : javagen.parser

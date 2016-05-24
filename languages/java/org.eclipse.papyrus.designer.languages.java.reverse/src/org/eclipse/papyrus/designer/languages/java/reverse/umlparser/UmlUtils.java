@@ -14,6 +14,7 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Dependency;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.NamedElement;
@@ -628,6 +629,20 @@ public class UmlUtils {
 	}
 
 	/**
+	 * @param enclosingParents
+	 *            list of enclosing parent, from the most outerside to the most inner side.
+	 * @param name
+	 * @return
+	 */
+	public static Enumeration getEnumeration(List<Namespace> enclosingParents, String name) {
+		EClass type = UMLPackage.eINSTANCE.getEnumeration();
+		Enumeration result = (Enumeration) getClassifier(enclosingParents, name, type);
+
+		return result;
+	}
+
+
+	/**
 	 * Get or create a Classifier by its name. The type of the classifier can be Class or Interface
 	 * Lookup is done in the provided namespaces, using the short name.
 	 * The classifier is expected to be in the directly enclosing parent, but lookup is done in all enclosing parents.
@@ -834,11 +849,14 @@ public class UmlUtils {
 	 */
 	public static Property createProperty(Classifier parent, Type type, String name, int arrayCount) {
 		Property p;
-		if (parent instanceof Class) {
+		if (parent instanceof Class ) {
 			p = createProperty((Class) parent, type, name, arrayCount);
 		} else if (parent instanceof Interface) {
 			p = createProperty((Interface) parent, type, name, arrayCount);
-		} else {
+		} else if (parent instanceof Enumeration) {
+			p = createProperty((Enumeration) parent, type, name, arrayCount);
+		}
+		else {
 			return null;
 		}
 
@@ -856,6 +874,19 @@ public class UmlUtils {
 	 * @return
 	 */
 	public static Property createProperty(Class parent, Type type, String name, int arrayCount) {
+		return parent.getOwnedAttribute(name, type, false, UMLPackage.eINSTANCE.getProperty(), true);
+	}
+
+	/**
+	 * Create a property for the Datatype (or Enumeration)
+	 *
+	 * @param parent
+	 * @param type
+	 * @param name
+	 * @param arrayCount
+	 * @return
+	 */
+	public static Property createProperty(DataType parent, Type type, String name, int arrayCount) {
 		return parent.getOwnedAttribute(name, type, false, UMLPackage.eINSTANCE.getProperty(), true);
 	}
 
