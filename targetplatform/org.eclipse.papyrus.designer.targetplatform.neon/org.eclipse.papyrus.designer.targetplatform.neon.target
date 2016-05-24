@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Papyrus Neon M6" sequenceNumber="1464090708">
+<target name="Papyrus Neon M6" sequenceNumber="1464097194">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.platform.feature.group" version="4.6.0.v20160512-1000"/>
@@ -13,9 +13,9 @@
       <repository id="eclipse-neon" location="http://download.eclipse.org/releases/neon/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="2.0.0.201603231318"/>
-      <unit id="org.eclipse.papyrus.extra.marte.feature.feature.group" version="1.2.0.201603231723"/>
-      <repository id="eclipse-papyrus-neon" location="http://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/2.0/M6/"/>
+      <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="2.0.0.201605181131"/>
+      <unit id="org.eclipse.papyrus.extra.marte.feature.feature.group" version="1.2.0.201605181133"/>
+      <repository id="eclipse-papyrus-neon" location="http://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/2.0/RC1/"/>
     </location>
   </locations>
 </target>
