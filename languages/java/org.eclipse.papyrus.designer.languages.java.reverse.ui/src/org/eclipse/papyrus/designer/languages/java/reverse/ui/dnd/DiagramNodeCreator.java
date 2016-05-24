@@ -110,7 +110,10 @@ public class DiagramNodeCreator  {
 				view = createViewForClass( getParentViewEditPart(), getParentView(), (Class)namedElement);
 			} 
 			else if( namedElement instanceof Package ) {
-				view = createViewForPackage( (Package)namedElement);
+				view = createViewForNamedElement( getParentViewEditPart(), getParentView(), (Package)namedElement);
+			}
+			else if( namedElement instanceof NamedElement ) { 
+				view = createViewForNamedElement( getParentViewEditPart(), getParentView(), (NamedElement)namedElement);
 			}
 			
 			// Set bounds
@@ -130,6 +133,20 @@ public class DiagramNodeCreator  {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	/**
+	 * @param namedElement
+	 * @return
+	 */
+	private View createViewForNamedElement(GraphicalEditPart parentViewEditPart, View parentView, NamedElement namedElement) {
+		
+		IHintedType elementType = (IHintedType) UMLElementTypes.getElementType(UMLVisualIDRegistry.getNodeVisualID(getParentView(), namedElement));
+
+		View view = ViewService.createNode(parentView, namedElement, elementType.getSemanticHint(), parentViewEditPart.getDiagramPreferencesHint()); //$NON-NLS-1$
+		
+		return view;
+	}
+
 
 	/**
 	 * @param namedElement
