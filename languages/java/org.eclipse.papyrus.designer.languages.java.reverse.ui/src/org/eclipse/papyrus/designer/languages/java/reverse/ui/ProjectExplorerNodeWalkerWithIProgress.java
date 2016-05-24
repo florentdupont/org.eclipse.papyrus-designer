@@ -162,6 +162,7 @@ public class ProjectExplorerNodeWalkerWithIProgress {
 	 * @param node
 	 */
 	private void visitIJavaProject(IJavaProject node, SubMonitor monitor) {
+		monitor.setTaskName(node.getElementName());
 		visitor.visitIJavaProject(node);
 		// Recurse in children
 		try {
@@ -214,6 +215,7 @@ public class ProjectExplorerNodeWalkerWithIProgress {
 	 * @param node
 	 */
 	private void visitIClassFile(IClassFile node, SubMonitor subMonitor) {
+		subMonitor.setTaskName(node.getElementName());
 		visitor.visitIClassFile(node);
 		
 	}
@@ -242,6 +244,7 @@ public class ProjectExplorerNodeWalkerWithIProgress {
 	 * @param node
 	 */
 	private void visitICompilationUnit(ICompilationUnit node, SubMonitor subMonitor) {
+		subMonitor.setTaskName(node.getElementName());
 		visitor.visitICompilationUnit(node);
 		
 	}
