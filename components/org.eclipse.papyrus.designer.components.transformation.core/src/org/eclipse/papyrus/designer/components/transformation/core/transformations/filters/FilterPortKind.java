@@ -15,36 +15,37 @@
 package org.eclipse.papyrus.designer.components.transformation.core.transformations.filters;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.papyrus.designer.components.FCM.PortKind;
 import org.eclipse.papyrus.designer.components.transformation.core.listeners.PreCopyListener;
+import org.eclipse.papyrus.designer.components.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier;
-import org.eclipse.uml2.uml.TemplateSignature;
 
 
 /**
- * Remove signatures from package template (only remove signatures within the
- * template, not others)
- *
- * @author ansgar
- *
+ * Filter the PortKind stereotype application, since it can be an extended port within a package template.
+ * The rule checks whether the package template is present.
+ * The objective is to avoid copying a package template into the target model.
  */
-public class FilterSignatures implements PreCopyListener {
+public class FilterPortKind implements PreCopyListener {
 
-	public static FilterSignatures getInstance() {
+	public static FilterPortKind getInstance() {
 		if (instance == null) {
-			instance = new FilterSignatures();
+			instance = new FilterPortKind();
 		}
 		return instance;
 	}
 
 	@Override
-	public EObject preCopyEObject(LazyCopier copier, EObject sourceEObj) {
-		if (sourceEObj instanceof TemplateSignature) {
-			if (copier.withinTemplate(sourceEObj)) {
-				return null;
+	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj) {
+		if (sourceEObj instanceof PortKind) {
+			PortKind portKind = (PortKind) sourceEObj;
+			org.eclipse.uml2.uml.Class umlPortKind = portKind.getBase_Class();
+			if ((umlPortKind != null) && TemplateUtils.getSignature(umlPortKind) != null) {
+				return LazyCopier.useSourceEObject;
 			}
 		}
 		return sourceEObj;
 	}
 
-	private static FilterSignatures instance = null;
+	private static FilterPortKind instance = null;
 }

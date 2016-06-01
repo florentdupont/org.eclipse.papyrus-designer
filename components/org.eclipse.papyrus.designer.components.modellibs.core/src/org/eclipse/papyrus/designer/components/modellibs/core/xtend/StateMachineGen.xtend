@@ -98,7 +98,7 @@ class StateMachineGen implements IXtend {
 	def activate(Class clazz, StateMachine sm) '''
 		m_currentState = STATE_«sm.region.initialState.name»;
 #ifdef SM_VERBOSE
-		cout << "SM «clazz.name»: in state «sm.region.initialState.name»" << endl;
+		std::cout << "SM «clazz.name»: in state «sm.region.initialState.name»" << std::endl;
 #endif
 		for (;;) {
 			processEvents();
@@ -196,6 +196,10 @@ class StateMachineGen implements IXtend {
 			if (animOut != 0) {
 				animOut->enterState(newState, «clazz.fragment»);
 			}
+		«ELSE»
+			if (localAnimServive != 0) {
+				localAnimService->get_animSvc()->enterState(newState, «clazz.fragment»);
+			}
 		«ENDIF»
 	'''
 
@@ -260,7 +264,7 @@ class StateMachineGen implements IXtend {
 					«ENDIF»
 					newState = STATE_«transition.target.name»;
 #ifdef SM_VERBOSE
-						cout << "SM «clazz.name»: transition to state «transition.target.name»" << endl;
+						std::cout << "SM «clazz.name»: transition to state «transition.target.name»" << std::endl;
 #endif
 					«IF (transition.effect != null)»
 						«executorRef»«effectName(transition)»();
@@ -299,7 +303,7 @@ class StateMachineGen implements IXtend {
 						«ENDIF»
 						newState = STATE_«transition.target.name»;
 #ifdef SM_VERBOSE
-						cout << "SM «clazz.name»: transition to state «transition.target.name»" << endl;
+						std::cout << "SM «clazz.name»: transition to state «transition.target.name»" << std::endl;
 #endif
 						«IF (transition.effect != null)»
 							«executorRef»«effectName(transition)»();
@@ -313,7 +317,7 @@ class StateMachineGen implements IXtend {
 					if (event.operationID == «cetrigger((trigger.event as CallEvent).operation)») {
 						newState = STATE_«transition.target.name»;
 #ifdef SM_VERBOSE
-						cout << "SM «clazz.name»: transition to state «transition.target.name»" << endl;
+						std::cout << "SM «clazz.name»: transition to state «transition.target.name»" << std::endl;
 #endif
 						«IF (transition.effect != null)»
 							«executorRef»«effectName(transition)»();
@@ -334,7 +338,7 @@ class StateMachineGen implements IXtend {
 						«ENDIF»
 						newState = STATE_«transition.target.name»;
 #ifdef SM_VERBOSE
-						cout << "SM «clazz.name»: transition to state «transition.target.name» (due to signal «signalEvent.signal.name»)" << endl;
+						std::cout << "SM «clazz.name»: transition to state «transition.target.name» (due to signal «signalEvent.signal.name»)" << std::endl;
 #endif
 						«IF (transition.effect != null)»
 							«transition.effect.addSignalParameter(signalEvent.signal)»
@@ -392,7 +396,25 @@ class StateMachineGen implements IXtend {
 			throw new TransformationException(
 				String.format("effect of transition has no name (in SM %s)", transition.containingStateMachine.name))
 		}
-		FilterStateMachines.newBehaviorName(transition)
+		newBehaviorName(transition)
+	}
+
+	/**
+	 * Calculate the new name of an effect that will become an operation/behavior
+	 * at the class level
+	 * @param sm The state-machine
+	 * @param transition the transition holding an effect
+	 * @return the new name
+	 */
+	def static newBehaviorName(Transition transition) {
+		val effect = transition.getEffect()
+
+		var transitionName = transition.getName();
+		if (transitionName == null) {
+			transitionName = "transition";
+		}
+		transition.containingStateMachine().getName() + "_" + transitionName
+		 		+ "_" + effect.getName()
 	}
 	
 	def void addSignalParameter(Behavior behavior, Signal signal) {

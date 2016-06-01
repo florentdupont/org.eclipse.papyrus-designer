@@ -57,13 +57,13 @@ public class Utils {
 	 * @return
 	 */
 	public static NamedElement getNamedElementFromList(
-			EList<? extends NamedElement> namedElementList, String name) {
-		Iterator<? extends NamedElement> namedElements = namedElementList
-				.iterator();
-		while (namedElements.hasNext()) {
-			NamedElement namedElement = namedElements.next();
-			if (namedElement.getName().equals(name)) {
-				return namedElement;
+			EList<? extends EObject> elementList, String name) {
+		for (EObject element : elementList) {
+			if (element instanceof NamedElement) {
+				NamedElement namedElement = (NamedElement) element;
+				if((namedElement.getName() != null) && namedElement.getName().equals(name)) {
+					return namedElement;
+				}
 			}
 		}
 		return null;

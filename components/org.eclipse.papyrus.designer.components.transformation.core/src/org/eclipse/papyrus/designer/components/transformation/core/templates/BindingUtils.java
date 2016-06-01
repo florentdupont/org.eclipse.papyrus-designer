@@ -40,7 +40,7 @@ public class BindingUtils {
 	/**
 	 * Bind an operation by copying the signature from the actual.
 	 *
-	 * @param copy
+	 * @param copier
 	 *            the copier
 	 * @param actual
 	 *            the actual. If an operation, its signature is copied to the template
@@ -48,13 +48,13 @@ public class BindingUtils {
 	 *            The operation template
 	 * @return
 	 */
-	public static Operation instantiateOperation(LazyCopier copy, Element actual, Operation operation) {
+	public static Operation instantiateOperation(LazyCopier copier, Element actual, Operation operation) {
 		try {
-			Operation newOperation = copy.getCopy(operation);
+			Operation newOperation = copier.getCopy(operation);
 			if (actual instanceof Operation) {
 				for (Parameter parameter : ((Operation) actual).getOwnedParameters()) {
 					Parameter newParam = EcoreUtil.copy(parameter); // copy parameter via EcoreUtil
-					newParam.setType(copy.getCopy(parameter.getType()));
+					newParam.setType(copier.getCopy(parameter.getType()));
 					newOperation.getOwnedParameters().add(newParam);
 					StUtils.copyStereotypes(parameter, newParam); // copy stereotypes of the parameter
 				}
@@ -76,7 +76,7 @@ public class BindingUtils {
 	/**
 	 * Instantiate a behavior
 	 *
-	 * @param copy
+	 * @param copier
 	 *            copier
 	 * @param actual
 	 *            actual in template instantiation

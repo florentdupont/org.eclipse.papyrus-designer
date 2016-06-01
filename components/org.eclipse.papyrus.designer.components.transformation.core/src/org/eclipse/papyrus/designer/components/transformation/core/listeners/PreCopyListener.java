@@ -27,12 +27,14 @@ public interface PreCopyListener {
 
 	/**
 	 * Is called for each EObject that is copied. If it returns null, the
-	 * indicated object should not be copied. If it returns a different object
-	 * than the passed EObject, this object is used (the returned object of the
-	 * first listener is used).
+	 * indicated object should not be copied. If it returns an object that
+	 * differs from the passed sourceEObj, this object is used (the returned
+	 * object of the first listener that returns a different object is used).
+	 * An exception is the specific "useSourceEObject" within the lazy
+	 * copier: if this object is returned, no copy is done
 	 *
 	 * @param sourceEObj
 	 *            the added classifier
 	 */
-	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj);
+	public EObject preCopyEObject(LazyCopier copier, EObject sourceEObj);
 }

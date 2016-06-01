@@ -6,7 +6,7 @@
          <meta.schema plugin="org.eclipse.papyrus.designer.components.transformation.core" id="ooTransformation" name="ooTransformation"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
+         A component to OO transformation, i.e. a transformation that replaces ports and connectors with the associated OO constructs.
       </documentation>
    </annotation>
 

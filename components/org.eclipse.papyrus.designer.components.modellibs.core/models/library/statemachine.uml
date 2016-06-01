@@ -7,6 +7,14 @@
     <ownedComment xmi:type="uml:Comment" xmi:id="_LuBKcDeoEeGPyrZ5I3hMlA" annotatedElement="_18qdsO67EeCZ9MjsZTV1zw">
       <body>Container rule for state machine realization. It consists of a collaboration of a call event interceptor, an event pool, the state-machine itself and a thread for this state-machine. The latter means that the state-machine will execute in its own thread and poll the pool for new events.</body>
     </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_iMJe4CdSEea6h5xPEh8iAg">
+      <body>HREAD_FUNC_CHANGEEVENT_TYPE 0
+#define THREAD_FUNC_DOACTIVITY_TYPE 1
+#define THREAD_FUNC_ENTER_REGION_TYPE 2
+#define THREAD_FUNC_EXIT_REGION_TYPE 3
+#define THREAD_FUNC_TIMEEVENT_TYPE 4
+#define THREAD_FUNC_TRANSITION_TYPE 5</body>
+    </ownedComment>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_e8dN0OUUEd-P08Bciq_LqQ">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/core.uml#_O6TiIDLUEd26WNosUASSSw"/>
     </packageImport>
@@ -109,12 +117,12 @@
 
 </body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_p_0sUCaiEeGRo-gX9igNzw" name="activate">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_p_0sUCaiEeGRo-gX9igNzw" name="run" specification="_PXRH0MTfEeWfEYAFL-UFuw">
           <language>C/C++</language>
           <body>!xtend StateMachineGen.activate</body>
         </ownedBehavior>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_b5mYgCaiEeGRo-gX9igNzw" name="processEvents" method="_rglykOupEeCTfOY57pgE3w"/>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_PXRH0MTfEeWfEYAFL-UFuw" name="run"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_PXRH0MTfEeWfEYAFL-UFuw" name="run" method="_p_0sUCaiEeGRo-gX9igNzw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_S99VcO3GEeCHv5BGhoZ8CA" name="stateMachine_executor" memberEnd="_S99Vce3GEeCHv5BGhoZ8CA _S9FLsO3GEeCHv5BGhoZ8CA">
         <ownedEnd xmi:type="uml:Property" xmi:id="_S99Vce3GEeCHv5BGhoZ8CA" name="stateMachine" type="_ens7QOUTEd-P08Bciq_LqQ" association="_S99VcO3GEeCHv5BGhoZ8CA">
@@ -146,9 +154,19 @@
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Port" xmi:id="_ZXYggHg_EeOejZqJpKQeww" name="outAnimSvc" type="_L-I7kF8wEeGerN33d-RdRg" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_ZXYggHg_EeOejZqJpKQeww" name="outAnimSvc" type="_dL_4EfCGEeWeJ4SmoZSqDg" aggregation="composite"/>
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_bmInQF_4EeGbQoflzrdx0g" name="derived realization of IAnimation" client="_xELAwF81EeGbQoflzrdx0g" supplier="_L-I7kF8wEeGerN33d-RdRg" contract="_L-I7kF8wEeGerN33d-RdRg"/>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_r5ewgHnxEeOfttgBwSq-Ig" name="leaveState" specification="_bmo9kF_4EeGbQoflzrdx0g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dMUoMPCGEeWeJ4SmoZSqDg" name="stateEnum">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dMVPQPCGEeWeJ4SmoZSqDg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dMV2UPCGEeWeJ4SmoZSqDg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dMV2UfCGEeWeJ4SmoZSqDg" name="eInstance">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dMV2UvCGEeWeJ4SmoZSqDg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dMV2U_CGEeWeJ4SmoZSqDg" value="1"/>
+          </ownedParameter>
           <language>C/C++</language>
           <body>if (outAnimSvc != 0) {
 	outAnimSvc->leaveState(stateEnum, eInstance);
@@ -156,6 +174,16 @@
 </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tczkcHnxEeOfttgBwSq-Ig" name="enterState" specification="_bmbiMF_4EeGbQoflzrdx0g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dMWdYPCGEeWeJ4SmoZSqDg" name="stateEnum">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dMWdYfCGEeWeJ4SmoZSqDg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dMWdYvCGEeWeJ4SmoZSqDg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dMXEcPCGEeWeJ4SmoZSqDg" name="eInstance">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dMXEcfCGEeWeJ4SmoZSqDg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dMXEcvCGEeWeJ4SmoZSqDg" value="1"/>
+          </ownedParameter>
           <language>C/C++</language>
           <body>if (outAnimSvc != 0) {
 	outAnimSvc->enterState(stateEnum, eInstance);
@@ -175,15 +203,15 @@
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_bmo9kF_4EeGbQoflzrdx0g" name="leaveState" method="_r5ewgHnxEeOfttgBwSq-Ig">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_OKJOoGEpEeGzd_21sXyuog" name="stateEnum">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dMSzAPCGEeWeJ4SmoZSqDg" name="stateEnum">
             <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OKKcwGEpEeGzd_21sXyuog" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OKLD0GEpEeGzd_21sXyuog" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dMSzAfCGEeWeJ4SmoZSqDg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dMTaEPCGEeWeJ4SmoZSqDg" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_OKLD0WEpEeGzd_21sXyuog" name="eInstance">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dMTaEfCGEeWeJ4SmoZSqDg" name="eInstance">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OKMR8GEpEeGzd_21sXyuog" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OKM5AGEpEeGzd_21sXyuog"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dMUBIPCGEeWeJ4SmoZSqDg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dMUBIfCGEeWeJ4SmoZSqDg" value="1"/>
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
@@ -422,6 +450,7 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_UT6tUOCREeW9GrJuOSoZTg" name="runAdapter" type="_JsV0cN_-EeW9GrJuOSoZTg"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_0xns8PHjEeWTnO8eSKpRLw" name="localAnimService" visibility="public" type="_xELAwF81EeGbQoflzrdx0g" aggregation="shared"/>
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_zusHkOCQEeW9GrJuOSoZTg" client="_0k6cIF1CEeWbP6DS-3NPyQ" supplier="_lqsBUOCQEeW9GrJuOSoZTg" contract="_lqsBUOCQEeW9GrJuOSoZTg"/>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_J-bDAF3VEeWbP6DS-3NPyQ" name="[name]" specification="_e5QLgF1DEeWbP6DS-3NPyQ">
           <language>C/C++</language>
@@ -469,7 +498,7 @@ thread.connect_rRun(runAdapter.get_run());</body>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_rpA0q8BJEeWmeYo0CV4Tlg" name="processEvents" method="_rpA0qMBJEeWmeYo0CV4Tlg"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_rpA0rMBJEeWmeYo0CV4Tlg" name="[name]" method="_rpA0psBJEeWmeYo0CV4Tlg"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_JsV0cN_-EeW9GrJuOSoZTg" name="RunStatemachiine">
+      <packagedElement xmi:type="uml:Class" xmi:id="_JsV0cN_-EeW9GrJuOSoZTg" name="RunStatemachine">
         <generalization xmi:type="uml:Generalization" xmi:id="_UVsYwN_-EeW9GrJuOSoZTg">
           <general xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_zDDlYMRcEeWq5unKf5DK_A"/>
         </generalization>
@@ -490,6 +519,52 @@ thread.connect_rRun(runAdapter.get_run());</body>
       <packagedElement xmi:type="uml:Interface" xmi:id="_lqsBUOCQEeW9GrJuOSoZTg" name="IRunSM">
         <ownedOperation xmi:type="uml:Operation" xmi:id="_rTe10OCQEeW9GrJuOSoZTg" name="runSM" isAbstract="true"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_6-9EUCPoEeauR8esGjVxRA" name="CompleteSM">
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_6-9EViPoEeauR8esGjVxRA" client="_6-9EUCPoEeauR8esGjVxRA" supplier="_lqsBUOCQEeW9GrJuOSoZTg" contract="_lqsBUOCQEeW9GrJuOSoZTg"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6-9EVyPoEeauR8esGjVxRA" name="[name]">
+          <language>C/C++</language>
+          <body>!xtend StateMachineGen.eventInterceptorOO</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6-9EWCPoEeauR8esGjVxRA" name="LWStateMachineWCallEvents">
+          <language>C/C++</language>
+          <body>// create connection between thread and this class
+runAdapter.sm = this;
+thread.connect_rRun(runAdapter.get_run());</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6-9EWSPoEeauR8esGjVxRA" name="processEvents" visibility="package">
+          <language>C/C++</language>
+          <body>!xtend StateMachineGen.processEventsOO
+
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6-9EWiPoEeauR8esGjVxRA" name="runSM">
+          <language>C/C++</language>
+          <body>!xtend StateMachineGen.activateOO
+</body>
+        </ownedBehavior>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_dL7moPCGEeWeJ4SmoZSqDg" name="derivedTypes">
+      <packagedElement xmi:type="uml:Package" xmi:id="_dL_RAPCGEeWeJ4SmoZSqDg" name="statemachine">
+        <packagedElement xmi:type="uml:Package" xmi:id="_dL_4EPCGEeWeJ4SmoZSqDg" name="Animation">
+          <packagedElement xmi:type="uml:Class" xmi:id="_dL_4EfCGEeWeJ4SmoZSqDg" name="Use_IAnimation"/>
+          <packagedElement xmi:type="uml:Usage" xmi:id="_dMMsYPCGEeWeJ4SmoZSqDg" client="_dL_4EfCGEeWeJ4SmoZSqDg" supplier="_L-I7kF8wEeGerN33d-RdRg"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_uYyt0CdFEea3Ob5UfxuCGA" name="SystemStateEnum_t">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_ER5vICdGEea3Ob5UfxuCGA" name="IDLE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_FvfugCdGEea3Ob5UfxuCGA" name="EVENT_PROCESSING"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GPdA8CdGEea3Ob5UfxuCGA" name="EVENT_DEFERRED"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GrYH8CdGEea3Ob5UfxuCGA" name="EVENT_CONSUMED"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_hNs5oCdSEea6h5xPEh8iAg" name="ThreadFunctions">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_kWR0ICdSEea6h5xPEh8iAg" name="TF_CHANGE_EVENT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_tj4MICdSEea6h5xPEh8iAg" name="TF_TIME_EVENT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_nY3bYCdSEea6h5xPEh8iAg" name="TF_DO_ACTIVITY"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_pgWsUCdSEea6h5xPEh8iAg" name="TF_ENTER_REGION"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_sGQXkCdSEea6h5xPEh8iAg" name="TF_EXIT_REGION"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_uSWbsCdSEea6h5xPEh8iAg" name="TF_TRANSITION"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_e8kikOUUEd-P08Bciq_LqQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fAD7cOUUEd-P08Bciq_LqQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -538,7 +613,7 @@ thread.connect_rRun(runAdapter.get_run());</body>
   </FCM:Port>
   <FCM:ContainerRule xmi:id="_IeZE8F81EeGbQoflzrdx0g" base_Class="_IeWosF81EeGbQoflzrdx0g"/>
   <FCM:InterceptionRule xmi:id="_IeaTEF81EeGbQoflzrdx0g" interceptionKind="InterceptAllIn" base_Property="_IeWosV81EeGbQoflzrdx0g"/>
-  <FCM:Port xmi:id="_5cn5cF81EeGbQoflzrdx0g" base_Port="_z94Y0F81EeGbQoflzrdx0g">
+  <FCM:Port xmi:id="_5cn5cF81EeGbQoflzrdx0g" base_Port="_z94Y0F81EeGbQoflzrdx0g" type="_L-I7kF8wEeGerN33d-RdRg">
     <kind xmi:type="FCM:PortKind" href="pathmap://QML_CORE/core.uml#_wySlkFRxEd6GqrP6fkWBoQ"/>
   </FCM:Port>
   <FCM:Singleton xmi:id="_uqa34F_1EeGbQoflzrdx0g" base_Class="_xELAwF81EeGbQoflzrdx0g"/>
@@ -547,10 +622,10 @@ thread.connect_rRun(runAdapter.get_run());</body>
   <FCM:InstanceConfigurator xmi:id="_SdiecGGDEeO2F4QRMDSOXg" base_Class="_QH7R8GGDEeO2F4QRMDSOXg"/>
   <FCM:UseInstanceConfigurator xmi:id="_VnhuMGGDEeO2F4QRMDSOXg" base_Class="_xELAwF81EeGbQoflzrdx0g" configurator="_SdiecGGDEeO2F4QRMDSOXg"/>
   <FCM:Singleton xmi:id="_JOwQEHg_EeOejZqJpKQeww" base_Class="_B0gFAHg_EeOejZqJpKQeww"/>
-  <FCM:Port xmi:id="_hw3T8Hg_EeOejZqJpKQeww" base_Port="_ZXYggHg_EeOejZqJpKQeww">
+  <FCM:Port xmi:id="_hw3T8Hg_EeOejZqJpKQeww" base_Port="_ZXYggHg_EeOejZqJpKQeww" type="_L-I7kF8wEeGerN33d-RdRg">
     <kind xmi:type="FCM:PortKind" href="pathmap://QML_CORE/core.uml#_9Fif4FRxEd6GqrP6fkWBoQ"/>
   </FCM:Port>
-  <FCM:Port xmi:id="_ncWQEHg_EeOejZqJpKQeww" base_Port="_MLu-kHg_EeOejZqJpKQeww">
+  <FCM:Port xmi:id="_ncWQEHg_EeOejZqJpKQeww" base_Port="_MLu-kHg_EeOejZqJpKQeww" type="_L-I7kF8wEeGerN33d-RdRg">
     <kind xmi:type="FCM:PortKind" href="pathmap://QML_CORE/core.uml#_wySlkFRxEd6GqrP6fkWBoQ"/>
   </FCM:Port>
   <FCM:UseInstanceConfigurator xmi:id="_4HKnkHg_EeOejZqJpKQeww" base_Class="_B0gFAHg_EeOejZqJpKQeww" configurator="_SdiecGGDEeO2F4QRMDSOXg"/>
@@ -593,4 +668,10 @@ thread.connect_rRun(runAdapter.get_run());</body>
   <FCM:Template xmi:id="_I1HpwODIEeW9GrJuOSoZTg" base_Element="_dkpREN_9EeW9GrJuOSoZTg">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://QML_CORE/core.uml#_7qhTUHkgEeOCpqruXGWNPw"/>
   </FCM:Template>
+  <FCM:DerivedElement xmi:id="_dMJCAPCGEeWeJ4SmoZSqDg" base_Element="_dL_4EfCGEeWeJ4SmoZSqDg" source="_L-I7kF8wEeGerN33d-RdRg"/>
+  <FCM:Template xmi:id="_V9bwcPEGEeWeJ4SmoZSqDg" base_Element="_PXRH0MTfEeWfEYAFL-UFuw">
+    <helper xmi:type="FCM:BindingHelper" href="pathmap://QML_CORE/core.uml#_7qhTUHkgEeOCpqruXGWNPw"/>
+  </FCM:Template>
+  <FCM:ContainerRule xmi:id="_7BlhkCPoEeauR8esGjVxRA" base_Class="_6-9EUCPoEeauR8esGjVxRA" kind="CustomTransformation"/>
+  <C_Cpp:Include xmi:id="_xYvwMCfnEeaUspRU-Igu6g" header="// common definitions for statemachine&#xA;&#xA;#define TIME_EVENT_LOWER_BOUND (0)&#xA;#define CHANGE_EVENT_LOWER_BOUND (2)&#xA;#define TE_INDEX(id) (id - TIME_EVENT_LOWER_BOUND)&#xA;#define CHE_INDEX(id) (id - CHANGE_EVENT_LOWER_BOUND)&#xA;#define SMSERVER_REGION0_DEFAULT (0)&#xA;#define SMSERVER_REGION0 (0)&#xA;#include &quot;time.h&quot;&#xA;#include &quot;pthread.h&quot;&#xA;#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING) {return;}" base_package="_ago_QOUTEd-P08Bciq_LqQ"/>
 </xmi:XMI>

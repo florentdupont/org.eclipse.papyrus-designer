@@ -6,7 +6,8 @@
          <meta.schema plugin="org.eclipse.papyrus.designer.components.transformation.core" id="xtendGenerator" name="xtendGeneratorName"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
+         An generator that can expand a string &quot;!xtend &lt;generatorName&gt;&quot; in an opaque expression. While the generator is typically written in xtend, it could also be written in Java.
+
       </documentation>
    </annotation>
 

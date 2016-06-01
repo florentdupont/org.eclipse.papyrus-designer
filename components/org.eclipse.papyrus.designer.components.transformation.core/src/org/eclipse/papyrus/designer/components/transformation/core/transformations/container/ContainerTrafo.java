@@ -37,9 +37,9 @@ import org.eclipse.papyrus.designer.components.transformation.core.UMLTool;
 import org.eclipse.papyrus.designer.components.transformation.core.Utils;
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.DepCreation;
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.DepUtils;
+import org.eclipse.papyrus.designer.components.transformation.core.extensions.AbstractContainerTrafo;
 import org.eclipse.papyrus.designer.components.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.components.transformation.core.templates.TemplateUtils;
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.AbstractContainerTrafo;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.RuleManagement;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationContext;
@@ -86,8 +86,8 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 	/**
 	 * Constructor
 	 *
-	 * @param sat
-	 *            information about source and target model
+	 * @param copier
+	 *            copier from source to target model
 	 * @param tmCDP
 	 *            deployment plan within target model
 	 */
@@ -143,7 +143,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 		for (Port port : PortUtils.getAllPorts(tmComponent)) {
 			// copy port
 			if (port.getVisibility() == VisibilityKind.PUBLIC_LITERAL) {
-				Port newPort = EcoreUtil.copy(port); // don't use Qompass copy, since this is not a copy from source to target model
+				Port newPort = EcoreUtil.copy(port); // don't use copier, since this is not a copier from source to target model
 				tmContainerImpl.getOwnedAttributes().add(newPort);
 				StUtils.copyStereotypes(port, newPort);
 

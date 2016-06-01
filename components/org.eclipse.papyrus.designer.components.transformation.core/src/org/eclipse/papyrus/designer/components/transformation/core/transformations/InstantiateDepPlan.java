@@ -47,9 +47,11 @@ import org.eclipse.papyrus.designer.components.transformation.core.deployment.De
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.Deploy;
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.DeployConstants;
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.GatherConfigData;
+import org.eclipse.papyrus.designer.components.transformation.core.extensions.AbstractContainerTrafo;
 import org.eclipse.papyrus.designer.components.transformation.core.extensions.InstanceConfigurator;
 import org.eclipse.papyrus.designer.components.transformation.core.generate.GenerateCode;
 import org.eclipse.papyrus.designer.components.transformation.core.generate.GenerationOptions;
+import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterPortKind;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterRuleApplication;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterStateMachines;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterTemplate;
@@ -304,12 +306,13 @@ public class InstantiateDepPlan {
 		// existing model
 		// Package originalRoot = genModel.createNestedPackage
 		// (existingModel.getName ());
-		LazyCopier targetCopy = new LazyCopier(tmpModel, generatedModel, true, true);
+		LazyCopier targetCopier = new LazyCopier(tmpModel, generatedModel, true, true);
 		// TODO: distribution to nodes is currently not done. How
-		// can it be realized with a copy filter ?
-		targetCopy.preCopyListeners.add(FilterStateMachines.getInstance());
-		targetCopy.preCopyListeners.add(FilterRuleApplication.getInstance());
-		targetCopy.preCopyListeners.add(FilterTemplateBinding.getInstance());
+		// can it be realized with a copier filter ?
+		targetCopier.preCopyListeners.add(FilterStateMachines.getInstance());
+		targetCopier.preCopyListeners.add(FilterRuleApplication.getInstance());
+		targetCopier.preCopyListeners.add(FilterTemplateBinding.getInstance());
+		targetCopier.preCopyListeners.add(FilterPortKind.getInstance());
 
 		monitor.setTaskName(String.format(
 				Messages.InstantiateDepPlan_InfoDeployingForNode,
@@ -327,7 +330,7 @@ public class InstantiateDepPlan {
 		}
 
 		GatherConfigData gatherConfigData = new GatherConfigData(projectSupport);
-		Deploy deployment = new Deploy(targetCopy, gatherConfigData, node,
+		Deploy deployment = new Deploy(targetCopier, gatherConfigData, node,
 				nodeIndex, nodes.size());
 
 		for (InstanceSpecification topLevelInstance : instanceMap.keySet()) {
@@ -346,7 +349,7 @@ public class InstantiateDepPlan {
 
 		removeDerivedInterfacesInRoot(generatedModel);
 
-		ExecuteOOTrafo.transform(targetCopy, deployment.getBootloader(), generatedModel);
+		ExecuteOOTrafo.transform(targetCopier, deployment.getBootloader(), generatedModel);
 
 		// --------------------------------------------------------------------
 		checkProgressStatus();
@@ -597,15 +600,18 @@ public class InstantiateDepPlan {
 					profileResource = ModelManagement.getResourceSet()
 							.getResource(profile.eResource().getURI(), true);
 				}
+				if (profileResource.getContents().size() == 0) {
+					throw new TransformationException(String.format("Cannot copy profile with URI %s. Check whether the URI corresponds to an existing location", profileResource.getURI()));
+				}
 				Profile newProfileTop = (Profile) profileResource.getContents().get(0);
 				Profile newProfile;
 				String qname = profile.getQualifiedName();
 				if ((qname != null) && qname.contains("::")) { //$NON-NLS-1$
 					// profile is a sub-profile within same resource
-					// TODO: should Copy class copy profile applications?
+					// TODO: should Copier class copy profile applications?
 					// Should be handled in shallowContainer class.
-					// if we put profile/newProfile pair into copy map, copy
-					// would find (and copy profile
+					// if we put profile/newProfile pair into copier map, copier
+					// would find (and copier profile
 					// applications in sub-folders
 					qname = qname.substring(qname.indexOf("::") + 2); //$NON-NLS-1$
 					newProfile = (Profile) Utils.getQualifiedElement(
@@ -622,7 +628,7 @@ public class InstantiateDepPlan {
 							+ e.toString());
 		}
 
-		// copy imports (and load resources associated - TODO: might not be
+		// copier imports (and load resources associated - TODO: might not be
 		// necessary)
 		// While this is useful in general, it implies that code for imported
 		// models

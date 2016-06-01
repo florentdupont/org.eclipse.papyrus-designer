@@ -38,15 +38,15 @@ public class FixTemplateSync implements PostCopyListener {
 	}
 
 	@Override
-	public void postCopyEObject(LazyCopier copy, EObject targetEObj) {
-		// if (copy.get(sourceEObj) isWithinTemplate)
+	public void postCopyEObject(LazyCopier copier, EObject targetEObj) {
+		// if (copier.get(sourceEObj) isWithinTemplate)
 		if (!(targetEObj instanceof Behavior)) {
 			if ((targetEObj instanceof Class) && Utils.isCompImpl((Class) targetEObj)) {
 				Class implementation = (Class) targetEObj;
 				CompImplSync.updatePorts(implementation);
 				CompImplSync.syncRealizations(implementation);
 				// commented out, since it causes dangling references
-				// TODO: why needed originally? (
+				// TODO: why needed originally?
 				// CompImplSync.syncDerivedOperations(implementation);
 			}
 		}

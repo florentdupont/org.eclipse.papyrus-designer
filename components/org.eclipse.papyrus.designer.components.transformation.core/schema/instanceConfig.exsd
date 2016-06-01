@@ -6,7 +6,7 @@
          <meta.schema plugin="org.eclipse.papyrus.designer.components.transformation.core" id="instanceConfig" name="instanceConfigName"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
+         A Java class that configures an instance (UML instance specification) automatically, e.g. retrieves data from a stereotype.
       </documentation>
    </annotation>
 

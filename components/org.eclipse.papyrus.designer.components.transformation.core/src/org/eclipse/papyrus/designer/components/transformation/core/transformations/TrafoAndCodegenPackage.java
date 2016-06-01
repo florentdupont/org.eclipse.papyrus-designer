@@ -41,6 +41,7 @@ import org.eclipse.papyrus.designer.components.transformation.core.ModelManageme
 import org.eclipse.papyrus.designer.components.transformation.core.StUtils;
 import org.eclipse.papyrus.designer.components.transformation.core.Utils;
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.DepUtils;
+import org.eclipse.papyrus.designer.components.transformation.core.extensions.AbstractContainerTrafo;
 import org.eclipse.papyrus.designer.components.transformation.core.generate.GenerateCode;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.container.LWContainerTrafo;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterTemplate;
@@ -69,7 +70,7 @@ public class TrafoAndCodegenPackage {
 	/**
 	 * Iterate over source model and apply transformation
 	 *
-	 * @param copy
+	 * @param copier
 	 * @param pkg
 	 * @throws TransformationException
 	 */
@@ -294,9 +295,9 @@ public class TrafoAndCodegenPackage {
 				String qname = profile.getQualifiedName();
 				if ((qname != null) && qname.contains("::")) { //$NON-NLS-1$
 					// profile is a sub-profile within same resource
-					// TODO: should Copy class copy profile applications?
+					// TODO: should Copier class copy profile applications?
 					// Should be handled in shallowContainer class.
-					// if we put profile/newProfile pair into copy map, copy would find (and copy profile
+					// if we put profile/newProfile pair into copy map, copier would find (and copy profile
 					// applications in sub-folders
 					qname = qname.substring(qname.indexOf("::") + 2); //$NON-NLS-1$
 					newProfile = (Profile) Utils.getQualifiedElement(newProfileTop, qname);
@@ -311,7 +312,7 @@ public class TrafoAndCodegenPackage {
 			throw new TransformationException(Messages.InstantiateDepPlan_IllegalArgumentDuringCopy + e.toString());
 		}
 
-		// copy imports (and load resources associated - TODO: might not be necessary)
+		// copier imports (and load resources associated - TODO: might not be necessary)
 		// While this is useful in general, it implies that code for imported models
 		// has been generated and compiled (for the right target) into a library. This may be
 		// quite tedious, unless automatically managed.

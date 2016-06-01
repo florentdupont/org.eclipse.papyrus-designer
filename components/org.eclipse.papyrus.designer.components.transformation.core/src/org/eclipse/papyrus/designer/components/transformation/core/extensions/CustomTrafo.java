@@ -19,22 +19,22 @@ import org.eclipse.papyrus.designer.components.transformation.core.Activator;
 
 
 /**
- * Support for embedding xtend templates
+ * Support for using customized transformations
  */
-public class XtendGenerator {
+public class CustomTrafo {
 
-	public static final String ITEMPLATE_ID = Activator.PLUGIN_ID + ".xtendGenerator"; //$NON-NLS-1$
+	public static final String ICUSTOM_TRAFO_ID = Activator.PLUGIN_ID + ".customTrafo"; //$NON-NLS-1$
 
-	public static IXtend getXtendGenerator(String generatorID) {
+	public static AbstractContainerTrafo getCustomTrafo(String transformationID) {
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] configElements = reg.getConfigurationElementsFor(ITEMPLATE_ID);
+		IConfigurationElement[] configElements = reg.getConfigurationElementsFor(ICUSTOM_TRAFO_ID);
 		for (IConfigurationElement configElement : configElements) {
 			try {
-				final String iTemplateID = configElement.getAttribute("templateID"); //$NON-NLS-1$
-				if (iTemplateID.equals(generatorID)) {
+				final String iTemplateID = configElement.getAttribute("transformationID"); //$NON-NLS-1$
+				if (iTemplateID.equals(transformationID)) {
 					final Object obj = configElement.createExecutableExtension("class"); //$NON-NLS-1$
-					if (obj instanceof IXtend) {
-						return (IXtend) obj;
+					if (obj instanceof AbstractContainerTrafo) {
+						return (AbstractContainerTrafo) obj;
 					}
 				}
 			} catch (CoreException exception) {

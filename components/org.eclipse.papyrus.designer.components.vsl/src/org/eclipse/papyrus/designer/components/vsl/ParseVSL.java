@@ -91,7 +91,6 @@ public class ParseVSL {
 	/**
 	 * Get the duration in micro-seconds
 	 *
-	 *
 	 * @param nfpDuration
 	 * @return
 	 */
@@ -103,6 +102,17 @@ public class ParseVSL {
 		}
 		return 0;
 	}
+
+	/**
+	 * Get the duration in milli seconds
+	 * 
+	 * @param nfpDuration
+	 * @return
+	 */
+	public static long getMsDurationFromVSL(String nfpDuration) {
+		return getDurationFromVSL(nfpDuration)/1000;
+	}
+
 
 	/**
 	 * Get the frequency in HZ

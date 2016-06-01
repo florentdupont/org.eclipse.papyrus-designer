@@ -36,7 +36,6 @@ import org.eclipse.uml2.uml.Element;
  * depend on template instantiation) and needs to be copied in this case.
  * (in most cases, these are not copied anyway, since these are in a different model,
  * but we do not want to exclude the case of defining model-local connectors)
- *
  */
 public class FilterTemplate implements PreCopyListener {
 
@@ -52,7 +51,7 @@ public class FilterTemplate implements PreCopyListener {
 	}
 
 	@Override
-	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj) {
+	public EObject preCopyEObject(LazyCopier copier, EObject sourceEObj) {
 		if (active && (sourceEObj instanceof Element)) {
 			Element sourceElem = (Element) sourceEObj;
 			if ((sourceEObj instanceof Connector) && StereotypeUtil.isApplied(sourceElem, org.eclipse.papyrus.designer.components.FCM.Connector.class)) {

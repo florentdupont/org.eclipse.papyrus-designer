@@ -42,9 +42,11 @@ import org.eclipse.papyrus.designer.components.transformation.core.deployment.Al
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.DepCreation;
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.DepPlanUtils;
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.DepUtils;
+import org.eclipse.papyrus.designer.components.transformation.core.extensions.AbstractContainerTrafo;
 import org.eclipse.papyrus.designer.components.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.connector.ConnectorReification;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.container.ContainerTrafo;
+import org.eclipse.papyrus.designer.components.transformation.core.transformations.container.CustomTrafoDelegate;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.container.LWContainerTrafo;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
@@ -77,14 +79,14 @@ public class MainModelTrafo {
 	/**
 	 * Create a new instance of main-model-transformation
 	 *
-	 * @param copy
+	 * @param copier
 	 *            Copier
 	 * @param tmCDP
 	 *            deployment plan in target model
 	 */
 	public MainModelTrafo(LazyCopier copy, Package tmCDP) {
 		nodeHandled = new HashMap<InstanceSpecification, Boolean>();
-		this.copy = copy;
+		this.copier = copy;
 		this.tmCDP = tmCDP;
 	}
 
@@ -200,7 +202,7 @@ public class MainModelTrafo {
 			newCDP.setMainInstance(tmIS);
 		}
 
-		Class tmComponent = copy.getCopy(smComponent);
+		Class tmComponent = copier.getCopy(smComponent);
 		if (tmComponent == null) {
 			return null;
 		}
@@ -225,10 +227,13 @@ public class MainModelTrafo {
 					// at least one active rule => create container (or get previously instantiated))
 					if (containerTrafo == null) {
 						if (rule.getKind() == ContainerRuleKind.LIGHT_WEIGHT_OO_RULE) {
-							containerTrafo = new LWContainerTrafo(copy, tmCDP);
+							containerTrafo = new LWContainerTrafo(copier, tmCDP);
+						}
+						else if (rule.getKind() == ContainerRuleKind.COMPONENT_RULE) {
+							containerTrafo = new  ContainerTrafo(copier, tmCDP, tmIS);
 						}
 						else {
-							containerTrafo = new ContainerTrafo(copy, tmCDP, tmIS);
+							containerTrafo = new CustomTrafoDelegate(copier, tmCDP, rule.getBase_Class().getQualifiedName());
 						}
 						containerTrafo.createContainer(smComponent, tmComponent);
 					}
@@ -250,9 +255,9 @@ public class MainModelTrafo {
 		}
 		// ------------------- end of container handling of SW nodes
 
-		// copy node allocation
+		// copier node allocation
 		for (InstanceSpecification smNode : AllocUtils.getNodes(smIS)) {
-			InstanceSpecification tmNode = copy.getCopy(smNode);
+			InstanceSpecification tmNode = copier.getCopy(smNode);
 			if (containerIS != null) {
 				// allocate container instead of executor.
 				AllocUtils.allocate(containerIS, tmNode);
@@ -293,7 +298,7 @@ public class MainModelTrafo {
 								if (RuleManagement.isRuleActive(rule)) {
 									if (nodeContainerTrafo == null) {
 										// at least one active rule => create container (or get previously instantiated))
-										nodeContainerTrafo = new ContainerTrafo(copy, tmCDP, tmIS);
+										nodeContainerTrafo = new ContainerTrafo(copier, tmCDP, tmIS);
 										nodeContainerTrafo.createHwContainer((Class) tmCS);
 										nodeContainerTrafo.applyRule(rule, smComponent, tmComponent);
 									}
@@ -307,7 +312,7 @@ public class MainModelTrafo {
 							if (smFCM_CDP != null) {
 								InstanceSpecification smMI = smFCM_CDP.getMainInstance();
 								Classifier smSystem = DepUtils.getClassifier(smMI);
-								Classifier tmSystem = copy.getCopy(smSystem);
+								Classifier tmSystem = copier.getCopy(smSystem);
 								InstanceSpecification tmMI = DepUtils.getInstanceForClassifier(tmCDP, tmSystem);
 								if (tmSystem instanceof Class) {
 									Property hwcPart =
@@ -344,13 +349,19 @@ public class MainModelTrafo {
 			}
 			if (StereotypeUtil.isApplied(smPartDF.getType(), InteractionComponent.class)) {
 				if (smPartDF instanceof Property) {
-					Property tmPart = ConnectorReification.reifyConnector(copy, tmComponent, (Property) smPartDF, tmIS);
+					Property tmPart = ConnectorReification.reifyConnector(copier, tmComponent, (Property) smPartDF, tmIS);
 					// update value specification (to the one just created)
 					InstanceSpecification tmPartIS = EcoreUtil.copy(DepUtils.getInstance(slot));
 					tmCDP.getPackagedElements().add(tmPartIS);
-					if (type instanceof Classifier) {
+					// instance specification for connector parts points to connector within package template
+					copier.putPair(DepUtils.getInstance(slot), tmPartIS);
+
+					Type newType = tmPart.getType();
+					if (newType instanceof Classifier) {
+						// update classifier reference, otherwise it would not point to
+						// bound type, but to original type in package template
 						if (tmPartIS.getClassifiers().size() > 0) {
-							tmPartIS.getClassifiers().set(0, (Classifier) type);
+							tmPartIS.getClassifiers().set(0, (Classifier) newType);
 						}
 					}
 					DepCreation.createSlot(tmIS, tmPartIS, tmPart);
@@ -373,7 +384,7 @@ public class MainModelTrafo {
 				// retrieve part in the target model (it has been created during
 				// the copyClassifier operation before)
 				// TODO: avoid cast (use StructuralFeature instead)
-				Property tmPart = (Property) copy.getCopy(smPartDF);
+				Property tmPart = (Property) copier.getCopy(smPartDF);
 
 				// check whether the instance specification has been modified
 				// (due to a container transformation)
@@ -385,17 +396,17 @@ public class MainModelTrafo {
 				DepCreation.createSlot(tmIS, tmPartIS, tmPart);
 			} else {
 				// assume primitive type, copy slot values
-				// don't use "copy" to avoid duplicate entries (since not all instance specification created
-				// before are correctly inserted into the map of "copy").
+				// don't use the copier to avoid duplicate entries (since not all instance specifications created
+				// before are correctly inserted into the map of the copier).
 				Slot tmSlot = EcoreUtil.copy(slot);
-				tmSlot.setDefiningFeature(copy.getCopy(slot.getDefiningFeature()));
+				tmSlot.setDefiningFeature(copier.getCopy(slot.getDefiningFeature()));
 				tmIS.getSlots().add(tmSlot);
 			}
 
 		}
 
 		// NamedElement socket = Utils.getQualifiedElement(smComponent.getModel(), "SocketRuntime::Socket");
-		// NamedElement socketCopy = copy.getCopy(socket);
+		// NamedElement socketCopy = copier.getCopy(socket);
 
 		// loop on connectors
 		// TODO: check, if true (no instance specification exists for these - unlike a connector which is explicitly specified via a part)
@@ -407,7 +418,7 @@ public class MainModelTrafo {
 					// found an Qompass connector, connector type is specified.
 					// => Reify the connector within the target component, i.e. create a new part and
 					// additional connections for it.
-					Property connectorPart = ConnectorReification.reifyConnector(copy, tmComponent,
+					Property connectorPart = ConnectorReification.reifyConnector(copier, tmComponent,
 							UMLTool.varName(smConnector), smConnector, tmIS);
 
 					if (connectorPart == null) {
@@ -415,7 +426,7 @@ public class MainModelTrafo {
 					}
 
 					// remove simple connector from composite in target model
-					Connector tmConnector = copy.getCopy(smConnector);
+					Connector tmConnector = copier.getCopy(smConnector);
 					tmConnector.destroy();
 
 					// Now create an instance specification for the reified connector
@@ -428,10 +439,10 @@ public class MainModelTrafo {
 					if (smConnectorIS != null) {
 						// use putPair instead of put only - see bug 426748, avoid that classifier attribute points
 						// to two classifiers (bound and unbound)
-						copy.putPair(smConnectorIS, tmReifiedConnectorIS);
+						copier.putPair(smConnectorIS, tmReifiedConnectorIS);
 						// problem: the defining feature of the slot points to the original connector which we don't
 						// want to copy (would have to be done in context of template binding)
-						TemplateInstantiation ti = new TemplateInstantiation(copy, ConnectorReification.binding);
+						TemplateInstantiation ti = new TemplateInstantiation(copier, ConnectorReification.binding);
 						for (Slot smSlot : smConnectorIS.getSlots()) {
 							ti.bindElement(smSlot);
 						}
@@ -444,21 +455,11 @@ public class MainModelTrafo {
 				}
 			}
 		}
-		/*
-		 * for(Property part : smComponent.getOwnedAttributes()) {
-		 * Type type = part.getType();
-		 * if(type != null) {
-		 * if(StereotypeUtil.isApplied(type, InteractionComponent.class)) {
-		 * ConnectorReification.reifyConnector(copy, tmComponent, part, tmIS, null);
-		 * }
-		 * }
-		 * }
-		 */
 
 		// needs to be called independently
 		// propagateNodeAllocation (cdp, compositeInstance);
 		AllocTransfo at = new AllocTransfo();
-		at.transformAllocs(copy, tmComponent);
+		at.transformAllocs(copier, tmComponent);
 
 		if (containerIS != null) {
 			// return containerIS
@@ -473,7 +474,7 @@ public class MainModelTrafo {
 	/**
 	 * Copier from source to target model
 	 */
-	protected LazyCopier copy;
+	protected LazyCopier copier;
 
 	/**
 	 * deployment plan within target model

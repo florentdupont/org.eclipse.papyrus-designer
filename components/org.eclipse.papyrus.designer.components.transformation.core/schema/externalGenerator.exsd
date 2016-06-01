@@ -6,7 +6,7 @@
          <meta.schema plugin="org.eclipse.papyrus.designer.components.transformation.core" id="externalGenerator" name="externalGenerator"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
+         An external generator (typically command line), for instance an IDL to C++ generator used in case of CORBA or DDS.
       </documentation>
    </annotation>
 

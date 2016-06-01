@@ -3,10 +3,10 @@
 <schema targetNamespace="org.eclipse.papyrus.designer.components.transformation.core" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="org.eclipse.papyrus.designer.components.transformation.core" id="language" name="languageSupport"/>
+         <meta.schema plugin="org.eclipse.papyrus.designer.components.transformation.core" id="customTrafo" name="customTrafoName"/>
       </appInfo>
       <documentation>
-         A customized component to OO transformation
+         A container transformation that is defined outside of the transformation core.
       </documentation>
    </annotation>
 
@@ -17,9 +17,9 @@
          </appInfo>
       </annotation>
       <complexType>
-         <choice minOccurs="0" maxOccurs="unbounded">
-            <element ref="client"/>
-         </choice>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="transformation"/>
+         </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
@@ -47,9 +47,9 @@
       </complexType>
    </element>
 
-   <element name="client">
+   <element name="transformation">
       <complexType>
-         <attribute name="language" type="string" use="required">
+         <attribute name="transformationID" type="string" use="required">
             <annotation>
                <documentation>
                   
@@ -62,7 +62,7 @@
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.papyrus.designer.components.transformation.core.ILangSupport"/>
+                  <meta.attribute kind="java" basedOn="org.eclipse.papyrus.designer.components.transformation.core.transformations.container.AbstractContainerTrafo:"/>
                </appInfo>
             </annotation>
          </attribute>
@@ -74,7 +74,7 @@
          <meta.section type="since"/>
       </appInfo>
       <documentation>
-         [Enter the first release in which this extension point appears.]
+         0.7.2
       </documentation>
    </annotation>
 

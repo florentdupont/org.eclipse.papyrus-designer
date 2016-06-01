@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -105,6 +106,8 @@ public class LazyCopier extends Copier {
 		SHALLOW
 	}
 
+	public static final EObject useSourceEObject = EcoreFactory.eINSTANCE.createEObject();
+	
 	/**
 	 *
 	 * @param source
@@ -231,7 +234,7 @@ public class LazyCopier extends Copier {
 	/**
 	 * Put a pair into the copy map. Unlike the standard put operation,
 	 * the target object is marked as full copy.
-	 * Just using the put operation lead to bug 422899 - [QDesigner] Regression in
+	 * Just using the put operation leads to bug 422899 - [QDesigner] Regression in
 	 * template instantiation
 	 *
 	 * @return
@@ -461,6 +464,9 @@ public class LazyCopier extends Copier {
 		for (PreCopyListener listener : preCopyListeners) {
 			EObject result = listener.preCopyEObject(this, sourceEObj);
 			if (result != sourceEObj) {
+				if (result == useSourceEObject) {
+					return sourceEObj;
+				}
 				return result;
 			}
 		}

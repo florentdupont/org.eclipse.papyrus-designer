@@ -21,7 +21,7 @@ import org.eclipse.uml2.uml.Classifier;
 
 
 /**
- * Support for multiple target languages via the Eclipse extension mechanism
+ * Support for calling an external generator (such as IDL to C++) via the Eclipse extension mechanism
  */
 public class ExternalGenerator {
 

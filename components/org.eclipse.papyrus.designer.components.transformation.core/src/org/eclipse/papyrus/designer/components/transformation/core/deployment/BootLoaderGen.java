@@ -102,7 +102,7 @@ public class BootLoaderGen {
 
 		m_bootLoader = copier.target.createOwnedClass(BOOTLOADER_NAME, false);
 		outputSizeof = false;
-		m_copy = copier;
+		m_copier = copier;
 		Class template = (Class) Utils.getQualifiedElement(copier.source, bootloaderQNAME);
 		if (template == null) {
 			throw new TransformationException(String.format(
@@ -259,7 +259,7 @@ public class BootLoaderGen {
 		// the method of the container and not the method of the executor (which owns the same port) maybe called.
 		// Currently, this check is based on the use of "executor" as reserved part name (validation checks that the
 		// user does not use this name for application components)
-		if (hasUnconnectedStartRoutine(m_copy, implementation, containerSlot)) {
+		if (hasUnconnectedStartRoutine(m_copier, implementation, containerSlot)) {
 			if (m_initCodeRun.equals(EMPTYSTR)) {
 				// call start's run method
 				// TODO: Need path that uses the right dereference operator ("->" or ".")
@@ -270,7 +270,7 @@ public class BootLoaderGen {
 						varName, m_initCodeRun));
 			}
 		}
-		if (hasUnconnectedLifeCycle(m_copy, implementation, containerSlot)) {
+		if (hasUnconnectedLifeCycle(m_copier, implementation, containerSlot)) {
 			// precedence is checked below (when code is actually produced)
 			// multiple varNames might share the same implementation. Put a list of variable names into the table
 			EList<String> varNameList = m_activation.get(implementation);
@@ -350,14 +350,14 @@ public class BootLoaderGen {
 	 * @Param a port that is checked for being connected
 	 * @return true, if connected
 	 */
-	private static boolean isConnected(LazyCopier copy, Slot containerSlot, Port port) {
+	private static boolean isConnected(LazyCopier copier, Slot containerSlot, Port port) {
 		if (containerSlot != null) {
 			StructuralFeature sf = containerSlot.getDefiningFeature();
 			if (sf instanceof Property) {
 				// instance still points to a part in the tmp-model (there are no
-				// instance specifications in the final model). Therefore, we use copy to
+				// instance specifications in the final model). Therefore, we use the copier to
 				// obtain the mapped instance.
-				Property part = (Property) copy.copy(sf);
+				Property part = (Property) copier.copy(sf);
 				Class composite = part.getClass_();
 				for (Connector connector : composite.getOwnedConnectors()) {
 					// must assure same connector end connects part & port
@@ -535,9 +535,9 @@ public class BootLoaderGen {
 	private boolean outputSizeof;
 
 	/**
-	 * copy variable (instances still point to non-copied classes)
+	 * copier variable (instances still point to non-copied classes)
 	 */
-	private LazyCopier m_copy;
+	private LazyCopier m_copier;
 
 	/**
 	 * Store a map with index values to manage configuration of arrays

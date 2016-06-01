@@ -40,8 +40,8 @@ public class AllocTransfo {
 
 	/**
 	 *
-	 * @param copy
-	 *            The copy class. Currently unused
+	 * @param copier
+	 *            The copier class. Currently unused
 	 * @param composite
 	 *            A composite. We analyze the allocations of the properties within this
 	 *            Composite. The composite must be an element of the target model that can be modified.
@@ -62,8 +62,8 @@ public class AllocTransfo {
 					// we need to get a cleaner solution for the main thread.
 					// destroy eventual connector and associated thread => thread as component with unconnected start thread
 					Connector conn = ConnectorUtil.getConnector(composite, attribute, thread);
-					// Connector targetConn = copy.getCopy(conn);
-					// Property targetThread = copy.getCopy(thread);
+					// Connector targetConn = copier.getCopy(conn);
+					// Property targetThread = copier.getCopy(thread);
 					if (conn != null) {
 						conn.destroy();
 					}

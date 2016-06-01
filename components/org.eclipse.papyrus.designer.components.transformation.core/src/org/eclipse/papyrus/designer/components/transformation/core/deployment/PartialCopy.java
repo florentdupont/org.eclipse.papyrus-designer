@@ -41,17 +41,15 @@ import org.eclipse.uml2.uml.Slot;
  *
  * The function will change assembly composites
  *
- * @author ansgar
- *
  */
 public class PartialCopy implements InstanceDeployer {
 
 	@Override
-	public void init(LazyCopier copy, BootLoaderGen bootloader,
+	public void init(LazyCopier copier, BootLoaderGen bootloader,
 			InstanceSpecification node) {
-		this.copy = copy;
+		this.copier = copier;
 		this.node = node; // only needed for debug output
-		// add copy listeners ---
+		// add copier listeners ---
 		// 1. only add required parts
 		// does nothing for the moment
 	}
@@ -62,10 +60,10 @@ public class PartialCopy implements InstanceDeployer {
 
 		// only make a partial copy of the system class (slotPath size 0) for the moment.
 		if (!(classifier instanceof Class) || slotPath.size() > 0) {
-			return copy.getCopy(is);
+			return copier.getCopy(is);
 		}
 		if (AllocUtils.getNodes(is).contains(node)) {
-			return copy.getCopy(is);
+			return copier.getCopy(is);
 		}
 
 		Class smCl = (Class) classifier;
@@ -74,13 +72,13 @@ public class PartialCopy implements InstanceDeployer {
 		for (Slot slot : is.getSlots()) {
 			copyPart(smCl, slot);
 		}
-		// since we copied some of its attributes, the copy class created a shallow copy of the class itself
-		InstanceSpecification tmIS = (InstanceSpecification) copy.get(is);
+		// since we copied some of its attributes, the copier class created a shallow copy of the class itself
+		InstanceSpecification tmIS = (InstanceSpecification) copier.get(is);
 		return tmIS;
 	}
 
 	/**
-	 * copy a part of a classifier, without being recursive [shouldn't that be in the generic deploy part?]
+	 * Copy a part of a classifier, without being recursive [shouldn't that be in the generic deploy part?]
 	 * This function is called, whenever a sub-instance is deployed
 	 * Brainstorming: add containing composite to deployInstance? (in this case, deployInstance could create the
 	 * part in the containing composite, if it does not exist yet)
@@ -100,7 +98,7 @@ public class PartialCopy implements InstanceDeployer {
 		InstanceSpecification instanceOrThread = DepUtils.getInstance(slot);
 		// instance may be null, if slot refers to a basic type, e.g. a string
 		if ((instanceOrThread == null) || AllocUtils.getNodes(instanceOrThread).contains(node)) {
-			copy.copy(slot);
+			copier.copy(slot);
 
 			// add connectors when possible, i.e. connectors that target the newly added part
 			for (Connector smConnector : smCl.getOwnedConnectors()) {
@@ -112,8 +110,8 @@ public class PartialCopy implements InstanceDeployer {
 					// TODO: take connections without port into account
 					Property otherPart = otherEnd.getPartWithPort();
 					// compare part names, since connector points to parts within the source model
-					if ((otherPart == null) || (copy.get(otherPart) != null)) {
-						copy.copy(smConnector);
+					if ((otherPart == null) || (copier.get(otherPart) != null)) {
+						copier.copy(smConnector);
 					}
 				}
 			}
@@ -122,5 +120,5 @@ public class PartialCopy implements InstanceDeployer {
 
 	private InstanceSpecification node;
 
-	private LazyCopier copy;
+	private LazyCopier copier;
 }

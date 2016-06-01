@@ -120,7 +120,7 @@ public class Deploy {
 		// copy implementation into node specific model
 		InstanceSpecification tmInstance = depInstance.deployInstance(instance, slotPath);
 		Classifier tmImplementation = DepUtils.getClassifier(tmInstance);
-		// Classifier tmImplementation = copy.getCopy(smImplementation);
+		// Classifier tmImplementation = copier.getCopy(smImplementation);
 
 		for (Slot slot : instance.getSlots()) {
 			InstanceSpecification containedInstance = DepUtils.getInstance(slot);

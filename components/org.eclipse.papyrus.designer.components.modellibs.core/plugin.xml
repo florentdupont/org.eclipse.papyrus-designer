@@ -159,4 +159,11 @@
 		<client class="org.eclipse.papyrus.designer.components.modellibs.core.xtend.CppUtils" templateID="CppUtils">
 		</client>
  </extension>
+ <extension
+       point="org.eclipse.papyrus.designer.components.transformation.core.customTrafo">
+    <transformation
+          class="org.eclipse.papyrus.designer.components.modellibs.core.statemachine.CompleteStatemachine"
+          transformationID="statemachine::rules::CompleteSM">
+    </transformation>
+ </extension>
 </plugin>
