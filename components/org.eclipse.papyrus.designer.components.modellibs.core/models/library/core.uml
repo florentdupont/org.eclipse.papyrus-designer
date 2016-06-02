@@ -1111,7 +1111,9 @@ for (;;) {
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_I19MANYGEd-CgJIavLpOxQ" name="pthread">
-      <packagedElement xmi:type="uml:Class" xmi:id="_ea234NYGEd-CgJIavLpOxQ" name="pthread"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ea234NYGEd-CgJIavLpOxQ" name="pthread_t"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_-vYZoCa0EeazPcQ6-9hBeQ" name="pthread_cond_t"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="__niwsCa0EeazPcQ6-9hBeQ" name="pthread_mutex_t"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_m7SIwOUYEd-P08Bciq_LqQ" name="perClass">
       <ownedTemplateSignature xmi:type="uml:TemplateSignature" xmi:id="_rNm5kOUYEd-P08Bciq_LqQ" parameter="_wfwIoOUYEd-P08Bciq_LqQ">
@@ -1316,7 +1318,7 @@ Be aware that the number of instantiated template packages will be considerably 
   <FCM:ConfigurationProperty xmi:id="_s0fGMMGJEd-Mveea1W_olA" base_Property="_rVfYoMGJEd-Mveea1W_olA"/>
   <FCM:InteractionComponent xmi:id="_8BUh8NdwEd-ZnqCk2P2ZKg" base_Class="_3itBkNdwEd-ZnqCk2P2ZKg"/>
   <FCM:Template xmi:id="_CTIeQNdxEd-ZnqCk2P2ZKg" base_Element="_3itBoddwEd-ZnqCk2P2ZKg" helper="_nLe_sHJDEeOMF7YEvnQt5g" kind="LoopOperations"/>
-  <C_Cpp:Typedef xmi:id="_68Aa4No9Ed-wvpj-p-V_QQ" definition="union {&#xA;&lt;%for (ownedOperations) {%>&#xA;struct Op_&lt;%name%> {&#xA;&lt;%for (ownedParameters) {%>&#xA;&lt;%cppType%> &lt;%name%>;&#xA;&lt;%}%>&#xA;} op_&lt;%name%>;&#xA;&lt;%}%>&#xA;};" base_primitivetype="_xOqL0No9Ed-wvpj-p-V_QQ"/>
+  <C_Cpp:Typedef xmi:id="_68Aa4No9Ed-wvpj-p-V_QQ" definition="!xtend CppParameterStorage" base_primitivetype="_xOqL0No9Ed-wvpj-p-V_QQ"/>
   <FCM:InteractionComponent xmi:id="_xaHRQDJKEeCAhMtIsY9HwA" base_Class="_pXzKcEJ1Ed-Ps4Bfh0j9LQ"/>
   <FCM:Port xmi:id="_MzPjkPNAEeCovO8AYZymZQ" base_Port="_MzO8gPNAEeCovO8AYZymZQ" kind="_wySlkFRxEd6GqrP6fkWBoQ" type="_omxU4PNAEeCovO8AYZymZQ"/>
   <FCM:Template xmi:id="_c_dkcPNJEeCovO8AYZymZQ" base_Element="_aGt1sPNJEeCovO8AYZymZQ" kind="LoopOperations"/>
@@ -1353,11 +1355,11 @@ Be aware that the number of instantiated template packages will be considerably 
   <C_Cpp:ExternLibrary xmi:id="_xVwkUNqCEeKrRY-H1kHnNA" base_package="_I19MANYGEd-CgJIavLpOxQ">
     <libs>pthread</libs>
     <libs>rt</libs>
+    <includes>pthread.h</includes>
   </C_Cpp:ExternLibrary>
   <FCM:ProgLanguage xmi:id="_5WrSINzEEeKPWMO32vUmzw" base_Class="_tZgVgNzEEeKPWMO32vUmzw"/>
   <FCM:ProgLanguage xmi:id="_74ZoANzEEeKPWMO32vUmzw" base_Class="_w2nVkNzEEeKPWMO32vUmzw"/>
   <FCM:ProgLanguage xmi:id="_9OaYsNzEEeKPWMO32vUmzw" base_Class="_0rU9UNzEEeKPWMO32vUmzw"/>
-  <C_Cpp:NoCodeGen xmi:id="_mCun4BCbEeO2r5QM2KXWbQ" base_element="_ea234NYGEd-CgJIavLpOxQ"/>
   <SW_Concurrency:SwSchedulableResource xmi:id="_42YPYBn3EeONpa5JgejICQ" base_Classifier="_SiY_AP-EEd6628OhKk_dpg" priorityElements="_rVfYoMGJEd-Mveea1W_olA"/>
   <C_Cpp:NoCodeGen xmi:id="_ilpvUBqnEeOfW_TxE-lJDw" base_element="_q56toNzEEeKPWMO32vUmzw"/>
   <FCM:DerivedElement xmi:id="_TJO30CxyEeOMQpc6Y-MAJw" base_Element="_TBScwCxyEeOMQpc6Y-MAJw">
