@@ -14,7 +14,7 @@
 
 package org.eclipse.papyrus.designer.components.modellibs.core;
 
-import org.eclipse.papyrus.uml.diagram.wizards.ModelCopyWizard;
+import org.eclipse.papyrus.uml.diagram.wizards.wizards.ModelCopyWizard;
 
 /**
  * Copy wizard for the HelloWorld example

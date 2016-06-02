@@ -1998,6 +1998,7 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 		initEEnum(containerRuleKindEEnum, ContainerRuleKind.class, "ContainerRuleKind"); //$NON-NLS-1$
 		addEEnumLiteral(containerRuleKindEEnum, ContainerRuleKind.COMPONENT_RULE);
 		addEEnumLiteral(containerRuleKindEEnum, ContainerRuleKind.LIGHT_WEIGHT_OO_RULE);
+		addEEnumLiteral(containerRuleKindEEnum, ContainerRuleKind.CUSTOM_TRANSFORMATION);
 
 		initEEnum(interceptionKindEEnum, InterceptionKind.class, "InterceptionKind"); //$NON-NLS-1$
 		addEEnumLiteral(interceptionKindEEnum, InterceptionKind.INTERCEPT_SOME);

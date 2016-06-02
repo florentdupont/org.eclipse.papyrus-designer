@@ -17,7 +17,6 @@
       <ownedComment xmi:type="uml:Comment" xmi:id="_cb-ncDemEeGPyrZ5I3hMlA" annotatedElement="_oqZNUDLaEd2qeKRLMdIx_A">
         <body>State-machine support is enabled with a container rule</body>
       </ownedComment>
-      <packagedElement xmi:type="uml:Package" xmi:id="_OGM88DLaEd2qeKRLMdIx_A" name="Server"/>
       <packagedElement xmi:type="uml:Package" xmi:id="_Tp4n8DLaEd2qeKRLMdIx_A" name="Interfaces">
         <packagedElement xmi:type="uml:Interface" xmi:id="_cn-H0DLbEd2qeKRLMdIx_A" name="ICompute">
           <ownedReception xmi:type="uml:Reception" xmi:id="_1U0U8McqEeSsAI2TZshUyg" name="add" signal="_ywk2kMcqEeSsAI2TZshUyg"/>

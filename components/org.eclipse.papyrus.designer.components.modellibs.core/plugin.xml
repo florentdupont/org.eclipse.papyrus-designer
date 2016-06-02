@@ -123,6 +123,15 @@
 			name="Papyrus Designer component-based producer/comsumer example">
 			<selection class="org.eclipse.core.resources.IResource"/>
 		</wizard>
+		<wizard
+			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.SimpleSMModelWizard"
+			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			id="org.eclipse.papyrus.designer.components.modellibs.core.new.SimpleSM"
+			name="Papyrus Designer component-based example using a simple state machine">
+			<selection class="org.eclipse.core.resources.IResource"/>
+		</wizard>
 	</extension>
 	<extension id="LoopOperations" point="org.eclipse.papyrus.designer.components.fcm.profile.fcmBindingHelper">
 		<client

@@ -148,6 +148,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ContainerRuleKind">
     <eLiterals name="ComponentRule"/>
     <eLiterals name="LightWeightOORule" value="1"/>
+    <eLiterals name="CustomTransformation" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TemplatePort" eSuperTypes="#//Port">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

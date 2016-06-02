@@ -39,6 +39,7 @@
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="FCM.ecore#//ContainerRuleKind">
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="FCM.ecore#//ContainerRuleKind/ComponentRule"/>
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="FCM.ecore#//ContainerRuleKind/LightWeightOORule"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="FCM.ecore#//ContainerRuleKind/CustomTransformation"/>
     </genEnums>
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="FCM.ecore#//InterceptionKind">
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="FCM.ecore#//InterceptionKind/InterceptSome"/>

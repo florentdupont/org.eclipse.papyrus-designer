@@ -227,7 +227,7 @@
     <styles xmi:type="style:PapyrusViewStyle" xmi:id="_0yX_oCgBEeapjr3l63b85A">
       <owner xmi:type="uml:Package" href="SimpleSM.uml#_LOqIEDLaEd2qeKRLMdIx_A"/>
     </styles>
-    <element xmi:type="uml:Package" href="SimpleSM.uml#_OGM88DLaEd2qeKRLMdIx_A"/>
+    <element xmi:type="uml:Package" href="SimpleSM.uml#_LOqIEDLaEd2qeKRLMdIx_A"/>
     <edges xmi:type="notation:Connector" xmi:id="_gMg50DemEeGPyrZ5I3hMlA" type="Comment_AnnotatedElementEdge" source="_ccPtMDemEeGPyrZ5I3hMlA" target="_c2tKsF37Ed-UvNEDwY5GNg" lineColor="0">
       <styles xmi:type="notation:FontStyle" xmi:id="_gMg50TemEeGPyrZ5I3hMlA" fontName="" fontHeight="10"/>
       <element xsi:nil="true"/>

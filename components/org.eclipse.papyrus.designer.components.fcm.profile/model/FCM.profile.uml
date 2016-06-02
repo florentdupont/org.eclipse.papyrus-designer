@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
   <uml:Profile xmi:id="_5mvT0MtjEd2H_o0jIC6qDQ" name="FCM" metaclassReference="_NYUA4MtkEd2H_o0jIC6qDQ _pb8DsMtkEd2H_o0jIC6qDQ _WPBJkMtpEd2H_o0jIC6qDQ _WSSgAMtpEd2H_o0jIC6qDQ _4Sf2AMtpEd2H_o0jIC6qDQ _IDbl4MtvEd2H_o0jIC6qDQ _ofc4YMuHEd2H_o0jIC6qDQ _asQCAC5SEd6q9cO948d5Fw _5OunYGV9Ed6b6erIXzmEEA _nKCJAGu2Ed647PfocwT3eg _wo2GgMewEd6zpahAtGCOkA _9HS28MnvEd6fKfvcq7rbxA _Y3dP0DdMEd-Qn7_dAqT11Q _Zc-ksJODEd-5qPBhYeIVtw _wTDjYKvTEd-i17GN-GaZ6g _kK724LTaEd-jOpA9YHRXqw _03w64NXnEd-CUqOXH3INsw _eAlkcCm_EeKgOdm6HirHfA _4r98wIR_EeO2oJGF2cvpFw">
     <ownedComment xmi:type="uml:Comment" xmi:id="_D0js0O69Ed2rSKyRUaSRjw">
       <body>The associations between PortKind and Operation simply denote the fact that we want to target something that encapsulates the definition of interface mapping rules (i.e. the rules that determine the interfaces that are provided/required on a port &#xD;
@@ -590,6 +590,7 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_FFvQcCm_EeKgOdm6HirHfA" name="ContainerRuleKind">
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GMSBwCm_EeKgOdm6HirHfA" name="ComponentRule"/>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_HsIq8Cm_EeKgOdm6HirHfA" name="LightWeightOORule"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_KIGfoCPnEeauR8esGjVxRA" name="CustomTransformation"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_gEFvkCq3EeKWMcuhL1C5sA" name="E_InterceptionRule_Operation" memberEnd="_gEFvkSq3EeKWMcuhL1C5sA _gEEhcCq3EeKWMcuhL1C5sA">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gEFvkSq3EeKWMcuhL1C5sA" name="extension_InterceptionRule" type="_JWyAMJDxEd-I9dVdNhZAGQ" aggregation="composite" association="_gEFvkCq3EeKWMcuhL1C5sA"/>
@@ -687,5 +688,4 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
   <Ecore:EPackage xmi:id="_bIrl8C27Ed6q9cO948d5Fw" base_Package="_5mvT0MtjEd2H_o0jIC6qDQ" packageName="FCM" nsPrefix="FCM" nsURI="http://www.eclipse.org/papyrus/FCM/1" prefix="FCM"/>
   <Ecore:EAttribute xmi:id="_yiNMoOSBEeCPMMwBhvVAnA" isTransient="true" isVolatile="true" isUnsettable="true" base_Property="_nkb3gOSBEeCPMMwBhvVAnA"/>
   <Ecore:EReference xmi:id="_ERitsOIqEeKl1vaXi7stuw" isTransient="true" isVolatile="true" isUnsettable="true" base_Property="_RgadAOHNEeKl1vaXi7stuw"/>
-  <ActionLanguage:TextualRepresentation xmi:id="_xnPwsPA4EeW7Q69mopU75Q" language="org.eclipse.papyrus.uml.textedit.property.xtext.UmlProperty"/>
 </xmi:XMI>

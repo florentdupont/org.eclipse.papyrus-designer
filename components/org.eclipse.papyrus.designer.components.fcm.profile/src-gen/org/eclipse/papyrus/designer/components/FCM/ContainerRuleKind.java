@@ -46,7 +46,15 @@ public enum ContainerRuleKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIGHT_WEIGHT_OO_RULE(1, "LightWeightOORule", "LightWeightOORule"); //$NON-NLS-1$ //$NON-NLS-2$
+	LIGHT_WEIGHT_OO_RULE(1, "LightWeightOORule", "LightWeightOORule"), /**
+	 * The '<em><b>Custom Transformation</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CUSTOM_TRANSFORMATION_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CUSTOM_TRANSFORMATION(2, "CustomTransformation", "CustomTransformation"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Component Rule</b></em>' literal value.
@@ -77,6 +85,21 @@ public enum ContainerRuleKind implements Enumerator {
 	public static final int LIGHT_WEIGHT_OO_RULE_VALUE = 1;
 
 	/**
+	 * The '<em><b>Custom Transformation</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Custom Transformation</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CUSTOM_TRANSFORMATION
+	 * @model name="CustomTransformation"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CUSTOM_TRANSFORMATION_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Container Rule Kind</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,6 +109,7 @@ public enum ContainerRuleKind implements Enumerator {
 			new ContainerRuleKind[] {
 			COMPONENT_RULE,
 			LIGHT_WEIGHT_OO_RULE,
+			CUSTOM_TRANSFORMATION,
 		};
 
 	/**
@@ -144,6 +168,7 @@ public enum ContainerRuleKind implements Enumerator {
 		switch (value) {
 			case COMPONENT_RULE_VALUE: return COMPONENT_RULE;
 			case LIGHT_WEIGHT_OO_RULE_VALUE: return LIGHT_WEIGHT_OO_RULE;
+			case CUSTOM_TRANSFORMATION_VALUE: return CUSTOM_TRANSFORMATION;
 		}
 		return null;
 	}
