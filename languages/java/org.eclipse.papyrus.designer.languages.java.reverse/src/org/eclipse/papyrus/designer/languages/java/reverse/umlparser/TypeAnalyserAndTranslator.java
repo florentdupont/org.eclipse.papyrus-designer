@@ -6,7 +6,7 @@ package org.eclipse.papyrus.designer.languages.java.reverse.umlparser;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type;
 
 /**
  * Allows to analyse an ast type, and to translate it according to recognized

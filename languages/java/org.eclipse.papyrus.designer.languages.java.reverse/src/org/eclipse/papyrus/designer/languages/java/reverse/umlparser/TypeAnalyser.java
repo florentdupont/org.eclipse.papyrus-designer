@@ -6,11 +6,11 @@ package org.eclipse.papyrus.designer.languages.java.reverse.umlparser;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.ClassOrInterfaceType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.PrimitiveType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.ReferenceType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.VoidType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.WildcardType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.ClassOrInterfaceType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.PrimitiveType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.ReferenceType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.VoidType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.WildcardType;
 
 
 /**
@@ -72,7 +72,7 @@ public class TypeAnalyser {
 	 * @param astType
 	 * @return
 	 */
-	public TypeData getTypeData(org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type astType) {
+	public TypeData getTypeData(org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type astType) {
 
 		TypeData res = createTypeData();
 
@@ -90,7 +90,7 @@ public class TypeAnalyser {
 				// Check for generic parameters
 				if (n.getTypeArgs() != null) {
 					data.genericData = new ArrayList<TypeData>();
-					for (org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type arg : n.getTypeArgs()) {
+					for (org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type arg : n.getTypeArgs()) {
 						TypeData argData = createTypeData();
 						arg.accept(this, argData);
 						data.genericData.add(argData);

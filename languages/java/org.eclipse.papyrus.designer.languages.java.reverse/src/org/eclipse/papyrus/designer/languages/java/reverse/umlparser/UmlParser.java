@@ -7,9 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.CompilationUnit;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.JavaParser;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.ParseException;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.CompilationUnit;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.JavaParser;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ParseException;
 
 /**
  * @author dumoulin

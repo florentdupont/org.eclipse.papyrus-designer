@@ -9,29 +9,28 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.CompilationUnit;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.ImportDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.Node;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.PackageDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.BodyDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.ClassOrInterfaceDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.EnumDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.FieldDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.JavadocComment;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.MethodDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.ModifierSet;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.Parameter;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.TypeDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.VariableDeclarator;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.expr.AnnotationExpr;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.expr.NameExpr;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.expr.QualifiedNameExpr;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.ClassOrInterfaceType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.PrimitiveType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.ReferenceType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.VoidType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.WildcardType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.visitor.VoidVisitorAdapter;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.CompilationUnit;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.ImportDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.Node;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.PackageDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.BodyDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.EnumDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.FieldDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.MethodDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.ModifierSet;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.Parameter;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.TypeDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.VariableDeclarator;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.expr.AnnotationExpr;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.expr.NameExpr;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.expr.QualifiedNameExpr;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.ClassOrInterfaceType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.PrimitiveType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.ReferenceType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.VoidType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.WildcardType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.visitor.VoidVisitorAdapter;
 import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.TypeAnalyserAndTranslator.TranslatedTypeData;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Class;
@@ -236,7 +235,7 @@ public class CompilationUnitAnalyser {
 	public void processCompilationUnit(CompilationUnit cu) {
 
 		// First, find the parent Package
-		currentCompilationUnitPackage = getCuPackage(cu.getPakage());
+		currentCompilationUnitPackage = getCuPackage(cu.getPackage());
 		;
 		classifierCatalog.setCurrentCompilationUnitPackage(currentCompilationUnitPackage);
 
@@ -462,7 +461,7 @@ public class CompilationUnitAnalyser {
 	 * @param n
 	 * @return
 	 */
-	private TranslatedTypeData processType(org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type astType) {
+	private TranslatedTypeData processType(org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type astType) {
 		TranslatedTypeData data = typeAnalyser.getTranslatedTypeData(astType);
 
 		return data;
@@ -509,7 +508,7 @@ public class CompilationUnitAnalyser {
 	 * @param astType
 	 * @return
 	 */
-	protected TypeData getAttributeType(org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type astType) {
+	protected TypeData getAttributeType(org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type astType) {
 
 		TypeData res = new TypeData();
 
@@ -527,7 +526,7 @@ public class CompilationUnitAnalyser {
 				// Check for generic parameters
 				if (n.getTypeArgs() != null) {
 					data.genericData = new ArrayList<TypeData>();
-					for (org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type arg : n.getTypeArgs()) {
+					for (org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type arg : n.getTypeArgs()) {
 						TypeData argData = new TypeData();
 						arg.accept(this, argData);
 						data.genericData.add(argData);
@@ -782,7 +781,8 @@ public class CompilationUnitAnalyser {
 		// Operation method = UmlUtils.getOperation(classifier, n.getName());
 		Operation method = getUmlOperation(classifier, n.getName(), signature);
 
-		processJavadoc(n.getJavaDoc(), method);
+		processJavadoc(n.getComment(), method);
+//		processJavadoc(n.getJavaDoc(), method);
 		processAnnotation(n.getAnnotations(), method);
 		processModifiers(n.getModifiers(), method);
 		TranslatedTypeData typeData = processType(n.getType());
@@ -927,7 +927,7 @@ public class CompilationUnitAnalyser {
 	 * @param javaDoc
 	 * @param method
 	 */
-	private void processJavadoc(JavadocComment javaDoc, Element umlElement) {
+	private void processJavadoc(org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.comments.Comment javaDoc, Element umlElement) {
 		if (javaDoc == null) {
 			return;
 		}
@@ -1083,7 +1083,8 @@ public class CompilationUnitAnalyser {
 		}
 
 		// Comments
-		processJavadoc(n.getJavaDoc(), processedClass);
+//		processJavadoc(n.getJavaDoc(), processedClass);
+		processJavadoc(n.getComment(), processedClass);
 
 		// Extends parameters
 		if (n.getExtends() != null) {

@@ -1,9 +1,12 @@
 Manifest-Version: 1.0
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.uml2.uml;visibility:=reexport
-Export-Package: org.eclipse.papyrus.designer.languages.java.reverse,
- org.eclipse.papyrus.designer.languages.java.reverse.ast,
+ org.eclipse.uml2.uml;visibility:=reexport,
+ org.junit,
+ org.eclipse.jdt.core;bundle-version="3.12.0"
+Export-Package: org.eclipse.papyrus.designer.languages.java.reverse.ast,
+ org.eclipse.papyrus.designer.languages.java.reverse.javaparser,
+ org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast,
  org.eclipse.papyrus.designer.languages.java.reverse.umlparser,
  org.eclipse.papyrus.designer.languages.java.reverse.utils
 Bundle-Vendor: %providerName

@@ -26,9 +26,9 @@ import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.CompilationUnit;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.JavaParser;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.ParseException;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.CompilationUnit;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.JavaParser;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ParseException;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.ReverseSelectedNodeVisitor.Parameters;
 import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.ClassifierCatalog;
 import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.CompilationUnitAnalyser;
@@ -142,7 +142,7 @@ public class ReverseSelectedNodeVisitor implements IProjectExplorerNodeVisitor {
 			}
 
 
-			CompilationUnit cu = JavaParser.parse(new StringReader(source));
+			CompilationUnit cu = JavaParser.parse(new StringReader(source),true);
 			javaAnalyser.processCompilationUnit(cu);
 			// Add the name to the reversed list
 			addReversedName(unit.findPrimaryType().getFullyQualifiedName('.'));

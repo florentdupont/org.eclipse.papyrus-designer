@@ -4,10 +4,11 @@
 package org.eclipse.papyrus.designer.languages.java.reverse.umlparser;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.CompilationUnit;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.JavaParser;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.ParseException;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.CompilationUnit;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.JavaParser;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ParseException;
 
 /**
  * @author dumoulin
@@ -22,7 +23,14 @@ public class CuPrinter {
 
 			if (args.length == 0) {
 				System.out.println("Java Parser Version 1.1:  Reading from standard input . . .");
-				cu = JavaParser.parse(System.in);
+				try {
+					cu = JavaParser.parse(new java.io.FileInputStream("F:/temp/papyrus-46-workspaces/payrus-designer-20160426/git/org.eclipse.papyrus-designer/languages/java/org.eclipse.papyrus.designer.languages.java.reverse/src/org/eclipse/papyrus/designer/languages/java/reverse/umlparser/CompilationUnitAnalyser.java") );
+					System.out.println(cu.toString());
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return;
+				}
 			} else if (args.length == 1) {
 				System.out.println("Java Parser Version 1.1:  Reading from file " + args[0] + " . . .");
 				try {
