@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.papyrus.designer.basic.feature"
+      id="org.eclipse.papyrus.designer.components.main.feature"
       label="%featureName"
       version="0.7.1.qualifier"
       provider-name="%providerName">
 
    <description>
-      The Papyrus Designer tool suite is a component based design methodology
-based
-on
+      A component based design methodology, part of Papyrus software designer (from which
+      it inherits support for generating code for several programming languages). It is based on
 - A profile derived from a flexible component model (FCM) with
 - extensible port definitions (kind)
 - extensible set of connector types and implementations

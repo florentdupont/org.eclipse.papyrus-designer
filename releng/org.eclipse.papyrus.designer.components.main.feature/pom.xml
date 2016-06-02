@@ -6,6 +6,6 @@
 		<artifactId>org.eclipse.papyrus.designer.releng</artifactId>
 		<version>0.7.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>org.eclipse.papyrus.designer.basic.feature</artifactId>
+	<artifactId>org.eclipse.papyrus.designer.components.main.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 </project>
