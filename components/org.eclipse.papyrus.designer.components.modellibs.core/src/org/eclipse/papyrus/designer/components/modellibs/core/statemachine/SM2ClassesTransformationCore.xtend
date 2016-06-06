@@ -44,6 +44,9 @@ import org.eclipse.uml2.uml.util.UMLUtil
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.eventID
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.SMCodeGeneratorConstants.*
+import org.eclipse.uml2.uml.Trigger
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
+import org.eclipse.uml2.uml.Behavior
 
 class SM2ClassesTransformationCore {
 	protected extension CDefinitions cdefs;
@@ -72,6 +75,7 @@ class SM2ClassesTransformationCore {
 	Enumeration eventIdEnum
 	public Type fptr
 	public PThreadTypes ptTypes
+	public Type threadStructType
 	
 	public List<TimeEvent> timeEvents = new ArrayList
 	List<ChangeEvent> changeEvents = new ArrayList
@@ -84,8 +88,12 @@ class SM2ClassesTransformationCore {
 	public PseudostateGenerator pseudostateGenerator
 	public static String ansiUri = "pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml"
 
+	public static String smLibraryUri = "platform:/resource/org.eclipse.papyrus.designer.codegen.statemachine/models/SmLibrary.uml"
+	public List<Behavior> doActivityList = new ArrayList
+	public Package smPack
 	private List<Region> regions = new ArrayList
 	public List<Transition> parallelTransitions = new ArrayList
+	public Map<State, List<TimeEvent>> states2TimeEvents = new HashMap
 
 	new(LazyCopier copier, Class smClass, StateMachine sm, Class tmClass) {
 		this.copier = copier
@@ -170,6 +178,16 @@ class SM2ClassesTransformationCore {
 			}
 		]
 		
+		states.forEach[
+			val triggers = new ArrayList<Trigger>
+			it.outgoings.forEach[
+				triggers.addAll(it.triggers)
+			]
+			val events = triggers.map[it.event]
+			val timeEvents = events.filter(TimeEvent).toList
+			states2TimeEvents.put(it, timeEvents)
+		]
+		
 		vertexes.filter(Pseudostate).forEach[
 			if (it.kind == PseudostateKind.JUNCTION_LITERAL) {
 				junctions.add(it)
@@ -220,10 +238,9 @@ class SM2ClassesTransformationCore {
 				«THREAD_STRUCTS»[i].id = i;
 				«THREAD_STRUCTS»[i].ptr = this;
 				«THREAD_STRUCTS»[i].func_type = «THREAD_FUNC_DOACTIVITY_TYPE»;
-				//pthread_create(&«THREADS»[i], NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &«THREAD_STRUCTS»[i]);
-				«FORK_NAME»(&«THREADS»[i], &«THREAD_STRUCTS»[i]);
 				«MUTEXES»[i] = PTHREAD_MUTEX_INITIALIZER;
 				«CONDITIONS»[i] = PTHREAD_COND_INITIALIZER;
+				«FORK_NAME»(&«THREADS»[i], NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &«THREAD_STRUCTS»[i]);
 			}
 		}
 		
@@ -236,15 +253,17 @@ class SM2ClassesTransformationCore {
 				«THREAD_STRUCTS_FOR_TIMEEVENT»[«TE_INDEX»(i)].id = i;
 				«THREAD_STRUCTS_FOR_TIMEEVENT»[«TE_INDEX»(i)].ptr = this;
 				«THREAD_STRUCTS_FOR_TIMEEVENT»[«TE_INDEX»(i)].func_type = «THREAD_FUNC_TIMEEVENT_TYPE»;
-				«FORK_NAME»(&«THREADS_TIME_EVENT»[«TE_INDEX»(i)], &«THREAD_STRUCTS_FOR_TIMEEVENT»[«TE_INDEX»(i)]);
 				«MUTEXES_TIME_EVENT»[«TE_INDEX»(i)] = PTHREAD_MUTEX_INITIALIZER;
 				«CONDITIONS_TIME_EVENT»[«TE_INDEX»(i)] = PTHREAD_COND_INITIALIZER;
+				«FORK_NAME»(&«THREADS_TIME_EVENT»[«TE_INDEX»(i)], NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &«THREAD_STRUCTS_FOR_TIMEEVENT»[«TE_INDEX»(i)]);
+				while(«FLAGS_TIME_EVENT»[«TE_INDEX»(i)]) {}
 			}
 		«ENDIF»
 		
 		«IF !orthogonalRegions.empty»
 			«FOR r:orthogonalRegions»
 				«REGION_TABLE»[«r.regionMacroId»] = &«superContext.name»::«r.regionMethodName»;
+				«REGION_TABLE_EXIT»[«r.regionMacroId»] = &«superContext.name»::«r.regionMethodExitName»;
 			«ENDFOR»
 		«ENDIF»
 		
@@ -287,6 +306,7 @@ class SM2ClassesTransformationCore {
 				opaque.languages.add(langID)
 			}
 			if (it.doActivity != null && it.doActivity instanceof OpaqueBehavior) {
+				doActivityList.add(it.doActivity)
 				var doActivity = superContext.createOwnedOperation(it.name + "_" + DO_ACTIVITY_NAME, null, null)
 				var callCompletionEvent = ''''''
 				if (!it.composite) {
@@ -309,7 +329,9 @@ class SM2ClassesTransformationCore {
 		concurrency.createThreadBasedParallelism
 		
 		appendIncludeHeader('''
-		#define CHECKPOINT if («SYSTEM_STATE_ATTR» == statemachine::EVENT_PROCESSING) {return;}''')
+		#define «THREAD_FUNC_STATE_MACHINE_TYPE» 6
+		#define CHECKPOINT if («SYSTEM_STATE_ATTR» == statemachine::EVENT_PROCESSING) {return;}
+		#define THREAD_CREATE(thThread, str) «FORK_NAME»(&thThread, NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &str);''')
 		
 		concurrency.createConcurrencyForTransitions
 	}
@@ -349,7 +371,6 @@ class SM2ClassesTransformationCore {
 		«IF parent.orthogonal»
 			//exiting concurrent state «parent.name»
 			«FOR r:parent.regions»
-				//«r.regionMethodExitName»();
 				«concurrency.generateForkCall(r, false, "0")»
 			«ENDFOR»
 			«FOR r:parent.regions»
@@ -362,9 +383,24 @@ class SM2ClassesTransformationCore {
 		«IF exitParent»
 			//signal to exit the doActivity of «parent.name»
 			«SET_FLAG»(«parent.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», false);
+			«parent.generateDeactivateTimeEvent»
 			//exit action of «parent.name»
 			«getFptrCall(pAttr, false, EXIT_NAME)»;
 		«ENDIF»'''
+	}
+	
+	public def generateActivateTimeEvent(State s) {
+		return '''
+		«FOR te:states2TimeEvents.get(s)»
+			«SET_FLAG»(«te.eventID», «THREAD_FUNC_TIMEEVENT_TYPE», true);
+		«ENDFOR»'''
+	}
+	
+	def generateDeactivateTimeEvent(State s) {
+		return '''
+		«FOR te:states2TimeEvents.get(s)»
+			«SET_FLAG»(«te.eventID», «THREAD_FUNC_TIMEEVENT_TYPE», false);
+		«ENDFOR»'''
 	}
 	
 	@Deprecated
@@ -1110,6 +1146,7 @@ class SM2ClassesTransformationCore {
 				}
 			}
 		}
+		var switchBody = ''''''
 		var body = ''''''
 		var macros = ''''''
 		//create macros for vertexes which are used to differentiate ways entering the region/state
@@ -1122,10 +1159,13 @@ class SM2ClassesTransformationCore {
 			#define «r.initialMacroName» (0)'''
 			body = '''
 			«body»
-			if («paramName» == «r.initialMacroName») {
+			case «r.initialMacroName»:
 				«TransformationUtil.getTransitionEffect(initialP.outgoings.head)»
 				«generateChangeState(initialState)»
 				«getFptrCall(pAttr, false, ENTRY_NAME)»;
+				//starting the counters for time events
+				«generateActivateTimeEvent(initialState)»
+				
 				//start activity of «initialState.name» by calling setFlag
 				«SET_FLAG»(«initialState.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», true);
 				«IF initialState.composite»
@@ -1145,8 +1185,7 @@ class SM2ClassesTransformationCore {
 					«ENDIF»
 				«ENDIF»
 				//TODO: set systemState to EVENT_CONSUMED
-				return;
-			}'''
+				break;'''
 		}
 		for(var i = 0; i < endVertexs.size; i++) {
 			macros = '''
@@ -1169,9 +1208,11 @@ class SM2ClassesTransformationCore {
 				var pAttr = '''«STATE_ARRAY_ATTRIBUTE»[«v.name.toUpperCase»_ID]'''
 				body = '''
 				«body»
-				if («paramName» == «v.vertexMacroName») {
+				case «v.vertexMacroName»:
 					«generateChangeState(v)»
 					«getFptrCall(pAttr, false, ENTRY_NAME)»;
+					//starting the counters for time events
+					«generateActivateTimeEvent(v)»
 					//start activity of «v.name» by calling setFlag
 					«SET_FLAG»(«v.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», true);
 					
@@ -1191,17 +1232,15 @@ class SM2ClassesTransformationCore {
 							«v.regions.head.regionMethodName»(«v.regions.head.initialMacroName»);
 						«ENDIF»
 					«ENDIF»
-					//TODO: set systemState to statemachine::EVENT_CONSUMED
-					return;
-				}'''
+					//TODO: set systemState to EVENT_CONSUMED
+					break;'''
 			} else {
 				body = '''
 				«body»
-				if («paramName» == «v.vertexMacroName») {
+				case «v.vertexMacroName»: 
 					«pseudostateGenerator.generatePseudo(v as Pseudostate)»
-					//TODO: set systemState to statemachine::EVENT_CONSUMED
-					return;
-				}'''
+					//TODO: set systemState to EVENT_CONSUMED
+					break;'''
 			}
 		}
 		if (r != topRegion) {
@@ -1210,13 +1249,17 @@ class SM2ClassesTransformationCore {
 				for(transitiveSubVertex:e.value) {
 					body = '''
 					«body»
-					if («paramName» == «transitiveSubVertex.vertexMacroName») {
+					case «transitiveSubVertex.vertexMacroName»:
 						«generateEnteringOnSubVertex(state, transitiveSubVertex)»
-					}'''
+						break;'''
 				}
 			}
 		}
-		superContext.createOpaqueBehavior(regionMethod, body)
+		switchBody = '''
+		switch(«paramName») {
+			«body»
+		}'''
+		superContext.createOpaqueBehavior(regionMethod, switchBody)
 	}
 	
 	def generateEnteringOnSubVertex(State parent, Vertex subVertex) {
@@ -1224,6 +1267,8 @@ class SM2ClassesTransformationCore {
 		return '''
 		«generateChangeState(parent)»
 		«getFptrCall(pAttr, false, ENTRY_NAME)»;
+		//starting the counters for time events
+		«generateActivateTimeEvent(parent)»
 		//start activity of «parent.name» by calling setFlag
 		«SET_FLAG»(«parent.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», true);
 		«IF parent.composite && parent != subVertex»
@@ -1278,6 +1323,7 @@ class SM2ClassesTransformationCore {
 		}
 		
 		//todo: save states for history
+		
 		var parent = r.state
 		var body = '''
 		//exiting region «r.name»
@@ -1286,7 +1332,6 @@ class SM2ClassesTransformationCore {
 			if («STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«regionIndex»] == «s.name.toUpperCase»_ID) {
 				«IF s.orthogonal»
 				«FOR subRegion:s.regions»
-					//«getRegionMethodExitName(subRegion)»();
 					«concurrency.generateForkCall(subRegion, false, "0")»
 				«ENDFOR»
 				«FOR subRegion:s.regions»
@@ -1300,8 +1345,17 @@ class SM2ClassesTransformationCore {
 		if («STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«regionIndex»] != «STATE_MAX») {
 			//signal to exit the doActivity of sub-state of «parent.name»
 			«SET_FLAG»(«STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[0], «THREAD_FUNC_DOACTIVITY_TYPE», false);
+			«FOR sub:r.subvertices.filter(State) SEPARATOR ' else '»
+				if («sub.name.toUpperCase»_ID == «STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«regionIndex»]) {
+					«sub.generateDeactivateTimeEvent»
+				}	
+			«ENDFOR»
 			//exit action of sub-state of «parent.name»
 			(this->*«STATE_ARRAY_ATTRIBUTE»[«STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[0]].«EXIT_NAME»)();
+			«IF TransformationUtil.isSavehistory(topRegion, r)»
+				//save history region «r.name» of state «parent.name»
+				«STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«PREVIOUS_STATES»[«regionIndex»] = «STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«regionIndex»];
+			«ENDIF»
 			//set active sub-state of «parent.name» to «STATE_MAX» meaning NULL
 			«STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«regionIndex»] = «STATE_MAX»;
 		}'''

@@ -12,16 +12,16 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.components.modellibs.core;
+package org.eclipse.papyrus.designer.components.modellibs.core.wizards;
 
 import org.eclipse.papyrus.uml.diagram.wizards.wizards.ModelCopyWizard;
 
 /**
  * Copy wizard for the ProducerConsumer example
  */
-public class SimpleSMModelWizard extends ModelCopyWizard {
+public class ABitComplexSMModelWizard extends ModelCopyWizard {
 
-	public SimpleSMModelWizard() {
-		super("SimpleSM"); //$NON-NLS-1$
+	public ABitComplexSMModelWizard() {
+		super("ABitComplexSM"); //$NON-NLS-1$
 	}
 }

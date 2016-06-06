@@ -74,7 +74,9 @@ class SMCodeGeneratorConstants {
 	public static String MUTEXES_TIME_EVENT = "timeEventMutexes"
 	public static String CONDITIONS = "conds"
 	public static String CONDITIONS_TIME_EVENT = "timeEventConds"
-	public static String STRUCT_FOR_THREAD = "StructForThread_t"
+	public static String STRUCT_FOR_THREAD_SHORTN = "StructForThread_t"
+	public static String STRUCT_FOR_THREAD = "statemachine::StructForThread_t"
+	
 	public static String THREAD_STRUCTS = "threadStructs"
 	public static String THREAD_STRUCTS_FOR_TIMEEVENT = "timeEventThreadStructs"
 	public static String THREAD_FUNC_WRAPPER = "thread_func_wrapper"
@@ -89,8 +91,8 @@ class SMCodeGeneratorConstants {
 	public static String DO_CALL_ACTIVITY = "doCallActivity"
 	public static String SET_FLAG = "setFlag"
 	public static String STATE_ID_ENUM = "StateIDEnum"
-	public static String FORK_NAME = "fork"
-	public static String JOIN_NAME = "join"
+	public static String FORK_NAME = "pthread_create"
+	public static String JOIN_NAME = "pthread_join"
 	public static String EVENT_ID = "EventId_t"
 	public static String THREAD_FUNC_TIMEEVENT_TYPE = "statemachine::TF_TIME_EVENT"
 	public static String THREAD_FUNC_CHANGEEVENT_TYPE = "statemachine::TF_CHANGE_EVENT"
@@ -101,4 +103,6 @@ class SMCodeGeneratorConstants {
 	
 	public static String TIME_EVENT_LISTEN_FUNCTION = "listenTimeEvent"
 	public static String SYSTEM_STATE_ATTR = "systemState"
+	public static String EVENT_DISPATCH = "dispatchEvent"
+	public static String THREAD_FUNC_STATE_MACHINE_TYPE = "TF_STATE_MACHINE_TYPE"
 }

@@ -12,16 +12,16 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.components.modellibs.core;
+package org.eclipse.papyrus.designer.components.modellibs.core.wizards;
 
 import org.eclipse.papyrus.uml.diagram.wizards.wizards.ModelCopyWizard;
 
 /**
- * Copy wizard for the HelloWorld example
+ * Copy wizard for the ProducerConsumer example
  */
-public class HelloWorldModelWizard extends ModelCopyWizard {
+public class ProducerConsumerModelWizard extends ModelCopyWizard {
 
-	public HelloWorldModelWizard() {
-		super("HelloWorld"); //$NON-NLS-1$
+	public ProducerConsumerModelWizard() {
+		super("ProducerConsumer"); //$NON-NLS-1$
 	}
 }

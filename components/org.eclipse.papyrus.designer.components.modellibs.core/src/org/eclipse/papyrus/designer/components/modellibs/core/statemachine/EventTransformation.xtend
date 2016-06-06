@@ -91,13 +91,19 @@ class EventTransformation {
 				«ENDFOR»
 			«ENDIF»
 		«ENDFOR»
-		«FOR root:rootSourceStates SEPARATOR ' else '»
-			if («core.hasSubstatesAcceptingEvent(root, sources)»«ACTIVE_ROOT_STATE_ID» == «root.name.toUpperCase»_ID) {
-				«FOR t:transitions.filter[it.source == root] SEPARATOR ' else '»
-					«generateTransitionCode(root, t)»
-				«ENDFOR»
+		«IF rootSourceStates.size > 0»
+			if («SYSTEM_STATE_ATTR» == statemachine::EVENT_PROCESSING) {
+				switch((int)«ACTIVE_ROOT_STATE_ID») {
+					«FOR root:rootSourceStates»
+						case «root.name.toUpperCase»_ID: 
+							«FOR t:transitions.filter[it.source == root] SEPARATOR ' else '»
+								«generateTransitionCode(root, t)»
+							«ENDFOR»
+							break;
+					«ENDFOR»
+				}
 			}
-		«ENDFOR»'''
+		«ENDIF»'''
 		core.createOpaqueBehavior(superContext, method, body)
 	}
 	

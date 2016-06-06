@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Alloc="http://www.eclipse.org/papyrus/Alloc/1" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:FCM="http://www.eclipse.org/papyrus/FCM/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:java="http://www.eclipse.org/papyrus/JAVA/1" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/Alloc/1 http://www.eclipse.org/papyrus/MARTE/1#//Alloc">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Alloc="http://www.eclipse.org/papyrus/Alloc/1" xmlns:FCM="http://www.eclipse.org/papyrus/FCM/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/Alloc/1 http://www.eclipse.org/papyrus/MARTE/1#//Alloc">
   <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="HelloWorld">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_O6TiITLUEd26WNosUASSSw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -62,7 +62,7 @@
       </ownedComment>
       <packagedElement xmi:type="uml:Node" xmi:id="_zY9vMDLiEd2RVeNawwNNzg" name="MonoNode"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_tZvNQDefEeGPyrZ5I3hMlA" name="Platform">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_4HAoQDefEeGPyrZ5I3hMlA" name="monoNode" visibility="public" type="_zY9vMDLiEd2RVeNawwNNzg" aggregation="composite">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_4HAoQDefEeGPyrZ5I3hMlA" name="javaNode" visibility="public" type="_zY9vMDLiEd2RVeNawwNNzg" aggregation="composite">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6WEg0DefEeGPyrZ5I3hMlA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6WFu8DefEeGPyrZ5I3hMlA" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_6WHkIDefEeGPyrZ5I3hMlA">
@@ -71,7 +71,7 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_YxI8IDegEeGPyrZ5I3hMlA" name="HWArchitecturePlatform">
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_GQ1ekKwHEeCQX8uv_p0Q4A" name="monoNode" classifier="_zY9vMDLiEd2RVeNawwNNzg"/>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_GQ1ekKwHEeCQX8uv_p0Q4A" name="javaNode" classifier="_zY9vMDLiEd2RVeNawwNNzg"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_234GEDLiEd2RVeNawwNNzg" name="deployment">
@@ -101,7 +101,7 @@
             </value>
           </slot>
         </packagedElement>
-        <packagedElement xmi:type="uml:Abstraction" xmi:id="_UPx34FWUEeKdxoQIVxFNNg" name="allocate mainInstance to monoNode" client="_ymErsFT2EeKvFeqt5Q_lqw" supplier="_GQ1ekKwHEeCQX8uv_p0Q4A"/>
+        <packagedElement xmi:type="uml:Abstraction" xmi:id="_UPx34FWUEeKdxoQIVxFNNg" name="allocate mainInstance to javaNode" client="_ymErsFT2EeKvFeqt5Q_lqw" supplier="_GQ1ekKwHEeCQX8uv_p0Q4A"/>
       </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_O6TiIjLUEd26WNosUASSSw">
@@ -109,12 +109,6 @@
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
-    </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_GcC0cAHtEd6HSdiss9GQ0A">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Gd1kMAHtEd6HSdiss9GQ0A" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
-      </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_z1TwgFW3Ed63BrxiKsw-0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z2GasFW3Ed63BrxiKsw-0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -140,14 +134,13 @@
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_ar8OsAPMEdyuUt-4qHuVvQ"/>
     </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_FW_50MPjEeS8C8OGY2onvA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FXKR4MPjEeS8C8OGY2onvA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/JAVA/1#/"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_skgX0Pt2EeWCnMkQqeR-Qg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_skiNAPt2EeWCnMkQqeR-Qg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
       </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_JAVA_PROFILES/java.profile.uml#_6TYLMN0yEd6P1qtlpBOZyg"/>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_11OtwPcaEd-KM6l7lmIPkw" body="#include &lt;iostream>&#xA;using namespace std;" base_class="_tyiqsc__Ed-TP80eVS-2Rg"/>
   <FCM:Target xmi:id="_LD_uICr7EeCfcI_SvPT4lw" base_Node="_zY9vMDLiEd2RVeNawwNNzg">
     <targetArch xmi:type="FCM:TargetArchitecture" href="pathmap://QML_CORE/core.uml#_FYOqwF0OEd-12d_h0i1xhQ"/>
     <usedOS xmi:type="FCM:OperatingSystem" href="pathmap://QML_CORE/core.uml#_1eULwF0NEd-12d_h0i1xhQ"/>
@@ -159,7 +152,6 @@
   <FCM:DeploymentPlan xmi:id="_ymC2gFT2EeKvFeqt5Q_lqw" mainInstance="_ymErsFT2EeKvFeqt5Q_lqw" base_Package="_yl9-AFT2EeKvFeqt5Q_lqw"/>
   <Alloc:Allocate xmi:id="_UP7B0FWUEeKdxoQIVxFNNg" base_Abstraction="_UPx34FWUEeKdxoQIVxFNNg"/>
   <FCM:CodeGenOptions xmi:id="_1uf4ENykEeKPWMO32vUmzw" base_Package="_LOqIEDLaEd2qeKRLMdIx_A">
-    <progLanguage xmi:type="FCM:ProgLanguage" href="pathmap://QML_CORE/core.uml#_5WrSINzEEeKPWMO32vUmzw"/>
+    <progLanguage xmi:type="FCM:ProgLanguage" href="pathmap://QML_CORE/core.uml#_9OaYsNzEEeKPWMO32vUmzw"/>
   </FCM:CodeGenOptions>
-  <java:JavaClass xmi:id="_VVXbAMPjEeS8C8OGY2onvA" base_Classifier="_tyiqsc__Ed-TP80eVS-2Rg"/>
 </xmi:XMI>

@@ -1,6 +1,7 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.xtend
 
 import org.eclipse.uml2.uml.Operation
+import org.eclipse.uml2.uml.Class
 import static extension org.eclipse.papyrus.designer.components.transformation.core.UMLTool.*
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.xtend.CppUtils.cppType
 import org.eclipse.uml2.uml.Parameter
@@ -47,5 +48,18 @@ class Marshalling {
 			«parameter.name» = varName_ASN;
 		}
 	'''	
-		
+
+	/**
+	 * Used in a union that contains a struct for each operation. This allows for
+	 * a parameter marshalling in which ... 
+	 */
+	def static cppParameterStorage(Class clazz) '''
+		«FOR operation : clazz.ownedOperations»
+			struct Op_«operation.name» {
+				«FOR parameter : operation.ownedParameters»
+					«parameter.type.cppType» «parameter.name»;
+				«ENDFOR»
+			} op_«operation.name»;
+		«ENDFOR»
+	'''
 }

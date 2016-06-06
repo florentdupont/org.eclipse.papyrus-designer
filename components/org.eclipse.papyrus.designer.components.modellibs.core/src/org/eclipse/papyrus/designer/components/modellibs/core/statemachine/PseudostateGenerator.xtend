@@ -120,12 +120,19 @@ class PseudostateGenerator {
 		var regionIndex = p.container.state.regions.indexOf(p.container)
 		var subCompositeStates = p.container.subvertices.filter(State).filter[!(it instanceof FinalState) && it.composite]
 		var parentId = p.container.state.name.toUpperCase + "_ID"
+		var subAtomics = p.container.subvertices.filter(State).filter[!(it instanceof FinalState) && !it.composite]
+		var atomicsWithTimeEvent = subAtomics.filter[core.states2TimeEvents.get(it) != null && !core.states2TimeEvents.get(it).empty]
 		var ret = '''
-		«STATE_ID_ENUM» «p.container.getDeepHistoryVariableName(p)»;
+		unsigned int «p.container.getDeepHistoryVariableName(p)»;
 		if («STATE_ARRAY_ATTRIBUTE»[«parentId»].«PREVIOUS_STATES»[«regionIndex»] != «STATE_MAX») {
 			//restore active sub-state of «p.container.state.name»
 			«p.container.getDeepHistoryVariableName(p)» = «STATE_ARRAY_ATTRIBUTE»[«parentId»].«PREVIOUS_STATES»[«regionIndex»];
 			(this->*«STATE_ARRAY_ATTRIBUTE»[«p.container.getDeepHistoryVariableName(p)»].«ENTRY_NAME»)();
+			«FOR a:atomicsWithTimeEvent SEPARATOR ' else '»
+				if («a.name.toUpperCase»_ID == «p.container.getDeepHistoryVariableName(p)») {
+					«core.generateActivateTimeEvent(a)»
+				}
+			«ENDFOR»
 			«SET_FLAG»(«p.container.getDeepHistoryVariableName(p)», «THREAD_FUNC_DOACTIVITY_TYPE», true);
 			«FOR comp:subCompositeStates SEPARATOR ' else '»
 				if («comp.name.toUpperCase»_ID == «p.container.getDeepHistoryVariableName(p)») {
@@ -144,11 +151,18 @@ class PseudostateGenerator {
 	}
 	
 	private def String generateRestoreString(State s, Pseudostate p) {
+		var subAtomics = p.container.subvertices.filter(State).filter[!(it instanceof FinalState) && !it.composite]
+		var atomicsWithTimeEvent = subAtomics.filter[core.states2TimeEvents.get(it) != null && !core.states2TimeEvents.get(it).empty]
 		var ret = '''
 		//restore active-stub state of «s.name»
 		«FOR r:s.regions»
-			«STATE_ID_ENUM» «r.getDeepHistoryVariableName(p)» = «STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«PREVIOUS_STATES»[«s.regions.indexOf(r)»];
+			unsigned int «r.getDeepHistoryVariableName(p)» = «STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«PREVIOUS_STATES»[«s.regions.indexOf(r)»];
 			(this->*«STATE_ARRAY_ATTRIBUTE»[«r.getDeepHistoryVariableName(p)»].«ENTRY_NAME»)();
+			«FOR a:atomicsWithTimeEvent SEPARATOR ' else '»
+				if («a.name.toUpperCase»_ID == «r.getDeepHistoryVariableName(p)») {
+					«core.generateActivateTimeEvent(a)»
+				}
+			«ENDFOR»
 			«SET_FLAG»(«r.getDeepHistoryVariableName(p)», «THREAD_FUNC_DOACTIVITY_TYPE», true);
 			«var subCompositeStates = r.subvertices.filter(State).filter[!(it instanceof FinalState) && it.composite]»
 			«FOR comp:subCompositeStates SEPARATOR ' else '»
@@ -170,8 +184,10 @@ class PseudostateGenerator {
 		var subCompositeStates = p.container.subvertices.filter(State).filter[!(it instanceof FinalState) && it.composite]
 		var pseudoInitial = TransformationUtil.firstPseudoState(p.container, PseudostateKind.INITIAL_LITERAL)
 		var parentId = p.container.state.name.toUpperCase + "_ID"
+		var subAtomics = p.container.subvertices.filter(State).filter[!(it instanceof FinalState) && !it.composite]
+		var atomicsWithTimeEvent = subAtomics.filter[core.states2TimeEvents.get(it) != null && !core.states2TimeEvents.get(it).empty]
 		var ret = '''
-		«STATE_ID_ENUM» loc_ActiveId;
+		unsigned int loc_ActiveId;
 		if («STATE_ARRAY_ATTRIBUTE»[«parentId»].«PREVIOUS_STATES»[«regionIndex»] != «STATE_MAX») {
 			loc_ActiveId = «STATE_ARRAY_ATTRIBUTE»[«parentId»].«PREVIOUS_STATES»[«regionIndex»];
 		} else {
@@ -191,6 +207,11 @@ class PseudostateGenerator {
 			}
 		«ENDFOR» «IF subCompositeStates.size > 0» else { «ENDIF»
 			(this->*«STATE_ARRAY_ATTRIBUTE»[loc_ActiveId].«ENTRY_NAME»)();
+			«FOR a:atomicsWithTimeEvent SEPARATOR ' else '»
+			if («a.name.toUpperCase»_ID == loc_ActiveId) {
+				«core.generateActivateTimeEvent(a)»
+			}
+			«ENDFOR»
 			«SET_FLAG»(loc_ActiveId, «THREAD_FUNC_DOACTIVITY_TYPE», true);
 		«IF subCompositeStates.size > 0»}«ENDIF»'''
 		return ret

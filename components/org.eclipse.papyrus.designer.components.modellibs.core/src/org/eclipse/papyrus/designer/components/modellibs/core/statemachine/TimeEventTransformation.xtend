@@ -23,7 +23,8 @@ class TimeEventTransformation {
 		if (core.timeEvents.empty) {
 			return
 		}
-		core.appendIncludeHeader('''#include "time.h"''')
+		core.appendIncludeHeader('''#include "time.h"
+		#include "sys/time.h"''')
 		var timeEventTable = superContext.createOwnedAttribute(TIME_EVENT_TABLE, core.fptr)
 		StereotypeUtil.apply(timeEventTable, Array)
 		UMLUtil.getStereotypeApplication(timeEventTable, Array).definition = '''[«core.timeEvents.size»]'''
@@ -44,7 +45,7 @@ class TimeEventTransformation {
 		StereotypeUtil.apply(timeEventMutexes, Array)
 		UMLUtil.getStereotypeApplication(timeEventMutexes, Array).definition = '''[«core.timeEvents.size»]'''
 		
-		var threadStructs = superContext.createOwnedAttribute(THREAD_STRUCTS_FOR_TIMEEVENT, core.concurrency.threadStructType)
+		var threadStructs = superContext.createOwnedAttribute(THREAD_STRUCTS_FOR_TIMEEVENT, core.threadStructType)
 		StereotypeUtil.apply(threadStructs, Array)
 		UMLUtil.getStereotypeApplication(threadStructs, Array).definition = '''[«core.timeEvents.size»]''' 
 		
@@ -53,27 +54,41 @@ class TimeEventTransformation {
 		timeEventOp.createOwnedParameter("id", core.intType)
 		timeEventOp.createOwnedParameter("duration", core.intType)
 		core.createOpaqueBehavior(superContext, timeEventOp, '''
-		«FLAGS_TIME_EVENT»[id] = false;
+		struct timeval tv;
+		struct timespec ts;
+		int timedWaitResult;
 		while(true) {
 			pthread_mutex_lock(&«MUTEXES_TIME_EVENT»[id]);
 			while(!«FLAGS_TIME_EVENT»[id]) {
 				pthread_cond_wait(&«CONDITIONS_TIME_EVENT»[id], &«MUTEXES_TIME_EVENT»[id]);
 			}
-			struct timespec req, rem;
-			if(duration > 999) {   
-		        req.tv_sec = (int)(duration / 1000);                            /* Must be Non-Negative */
-		        req.tv_nsec = (duration - ((long)req.tv_sec * 1000)) * 1000000; /* Must be in range of 0 to 999999999 */
-		   	} else {   
-		        req.tv_sec = 0;                         /* Must be Non-Negative */
-		        req.tv_nsec = duration * 1000000;    /* Must be in range of 0 to 999999999 */
-		  	}   
-		  	nanosleep(&req , &rem);
-			if («FLAGS_TIME_EVENT»[id]) {
-				//flag is not changed means that the state does not change, push time event to the queue
-			}
+			
+			gettimeofday(&tv, NULL);
+			ts.tv_sec = time(NULL) + duration / 1000;
+			ts.tv_nsec = tv.tv_usec * 1000 + 1000 * 1000 * (duration % 1000);
+			ts.tv_sec += ts.tv_nsec / (1000 * 1000 * 1000);
+			ts.tv_nsec %= (1000 * 1000 * 1000);
+			
+			timedWaitResult = pthread_cond_timedwait(&«CONDITIONS_TIME_EVENT»[id], &«MUTEXES_TIME_EVENT»[id], &ts);
+			
+		  	bool commitEvent = false;
+		  	if (timedWaitResult != 0) {
+		  		//timeout
+		  		commitEvent = true;
+		  	}
 			«FLAGS_TIME_EVENT»[id] = false;
 			pthread_cond_signal(&«CONDITIONS_TIME_EVENT»[id]);
 			pthread_mutex_unlock(&«MUTEXES_TIME_EVENT»[id]);
+			if (commitEvent) {
+				//the state does not change, push time event to the queue
+				switch(id) {
+					«FOR te:core.timeEvents»
+					case «TransformationUtil.eventID(te)»:
+						process«TransformationUtil.eventName(te)»();
+						break;
+					«ENDFOR»
+				}
+			}
 		}''')
 	}
 }

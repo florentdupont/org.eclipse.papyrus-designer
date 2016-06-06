@@ -15,6 +15,12 @@
 #define THREAD_FUNC_TIMEEVENT_TYPE 4
 #define THREAD_FUNC_TRANSITION_TYPE 5</body>
     </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_SbgnkCmKEeaQVs5zOA1E4Q" annotatedElement="_K7fvkCmGEeaQVs5zOA1E4Q">
+      <body>- id: index used to specify the corresponding function in a table
+- enter_mode: used for specifying how a region is entered
+- func_type: doActivity/enter region/exit region/time event/change event/ transition
+- duration: time (in milliseconds) which is used for time events</body>
+    </ownedComment>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_e8dN0OUUEd-P08Bciq_LqQ">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/core.uml#_O6TiIDLUEd26WNosUASSSw"/>
     </packageImport>
@@ -566,6 +572,76 @@ thread.connect_rRun(runAdapter.get_run());</body>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_sGQXkCdSEea6h5xPEh8iAg" name="TF_EXIT_REGION"/>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_uSWbsCdSEea6h5xPEh8iAg" name="TF_TRANSITION"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_K7fvkCmGEeaQVs5zOA1E4Q" name="StructForThread_t">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xTCrgCmBEeaQVs5zOA1E4Q" name="ptr" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_72zlMCmBEeaQVs5zOA1E4Q" name="id" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_G4fxACmCEeaQVs5zOA1E4Q" name="enter_mode" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_L_op8CmCEeaQVs5zOA1E4Q" name="func_type" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Vf104CmCEeaQVs5zOA1E4Q" name="duration" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Wj1rsCmGEeaQVs5zOA1E4Q" name="StructForThread_t" specification="_WjxaQCmGEeaQVs5zOA1E4Q" isReentrant="false">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jlLbECmGEeaQVs5zOA1E4Q" name="ptr">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jlwC0CmGEeaQVs5zOA1E4Q" name="id">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jmBIkCmGEeaQVs5zOA1E4Q" name="enter_mode">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jmJrcCmGEeaQVs5zOA1E4Q" name="func_type">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jmSOUCmGEeaQVs5zOA1E4Q" name="duration">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <language>C/C++</language>
+        <body>this->ptr = ptr;
+this->id = id;
+this->enter_mode = enter_mode;
+this->func_type = func_type;
+this->duration = duration;</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_WjxaQCmGEeaQVs5zOA1E4Q" name="StructForThread_t" method="_Wj1rsCmGEeaQVs5zOA1E4Q">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jkpPkCmGEeaQVs5zOA1E4Q" name="ptr">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jmUqkCmGEeaQVs5zOA1E4Q" annotatedElement="_jmUqkCmGEeaQVs5zOA1E4Q">
+            <body></body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jlu0sCmGEeaQVs5zOA1E4Q" name="id">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jmV4sCmGEeaQVs5zOA1E4Q" annotatedElement="_jmV4sCmGEeaQVs5zOA1E4Q">
+            <body></body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jl_6cCmGEeaQVs5zOA1E4Q" name="enter_mode">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jmXG0CmGEeaQVs5zOA1E4Q" annotatedElement="_jmXG0CmGEeaQVs5zOA1E4Q">
+            <body></body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jmIdUCmGEeaQVs5zOA1E4Q" name="func_type">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_jmXt4CmGEeaQVs5zOA1E4Q" annotatedElement="_jmXt4CmGEeaQVs5zOA1E4Q">
+            <body></body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jmRnQCmGEeaQVs5zOA1E4Q" name="duration">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_o_J6YCncEeaCe91Cee334w" name="StructForThread_t"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_e8kikOUUEd-P08Bciq_LqQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fAD7cOUUEd-P08Bciq_LqQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/FCM/1#/"/>
@@ -674,4 +750,9 @@ thread.connect_rRun(runAdapter.get_run());</body>
   </FCM:Template>
   <FCM:ContainerRule xmi:id="_7BlhkCPoEeauR8esGjVxRA" base_Class="_6-9EUCPoEeauR8esGjVxRA" kind="CustomTransformation"/>
   <C_Cpp:Include xmi:id="_xYvwMCfnEeaUspRU-Igu6g" header="// common definitions for statemachine&#xA;&#xA;#define TIME_EVENT_LOWER_BOUND (0)&#xA;#define CHANGE_EVENT_LOWER_BOUND (2)&#xA;#define TE_INDEX(id) (id - TIME_EVENT_LOWER_BOUND)&#xA;#define CHE_INDEX(id) (id - CHANGE_EVENT_LOWER_BOUND)&#xA;#define SMSERVER_REGION0_DEFAULT (0)&#xA;#define SMSERVER_REGION0 (0)&#xA;#include &quot;time.h&quot;&#xA;#include &quot;pthread.h&quot;&#xA;#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING) {return;}" base_package="_ago_QOUTEd-P08Bciq_LqQ"/>
+  <C_Cpp:Ptr xmi:id="_jlKM8CmGEeaQVs5zOA1E4Q" base_parameter="_jkpPkCmGEeaQVs5zOA1E4Q"/>
+  <C_Cpp:Ptr xmi:id="_jlj1kCmGEeaQVs5zOA1E4Q" base_parameter="_jlLbECmGEeaQVs5zOA1E4Q"/>
+  <C_Cpp:Ptr xmi:id="_5pwFgCmGEeaQVs5zOA1E4Q" base_property="_xTCrgCmBEeaQVs5zOA1E4Q"/>
+  <standard:Create xmi:id="_yoNcICnYEeal7_YJLGA6Kw" base_BehavioralFeature="_WjxaQCmGEeaQVs5zOA1E4Q"/>
+  <standard:Create xmi:id="_sWQZECncEeaCe91Cee334w" base_BehavioralFeature="_o_J6YCncEeaCe91Cee334w"/>
 </xmi:XMI>

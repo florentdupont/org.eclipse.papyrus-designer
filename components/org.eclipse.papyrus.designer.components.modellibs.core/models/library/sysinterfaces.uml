@@ -11,9 +11,6 @@ Currently not clear whether that should be done as part of the component to OO t
     <packageImport xmi:type="uml:PackageImport" xmi:id="_3gokYF_LEd6vU6EJjexEKQ">
       <importedPackage xmi:type="uml:Model" href="corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
     </packageImport>
-    <packageImport xmi:type="uml:PackageImport" xmi:id="_TUuxcPN-EeCovO8AYZymZQ">
-      <importedPackage xmi:type="uml:Model" href="pathmap://Papyrus_Alf_LIBRARIES/alflibrary.uml#_0bBI4Hy5EeCKy5kSqd4eVw"/>
-    </packageImport>
     <packagedElement xmi:type="uml:Interface" xmi:id="_Xb-y0AweEd6it_RkGhz_AA" name="ITick">
       <ownedOperation xmi:type="uml:Operation" xmi:id="_asFRoAweEd6it_RkGhz_AA" name="tick"/>
     </packagedElement>

@@ -107,7 +107,7 @@
 	<extension point="org.eclipse.ui.newWizards">
 		<wizard
 			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.HelloWorldModelWizard"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.wizards.HelloWorldModelWizard"
 			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
 			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
 			id="org.eclipse.papyrus.designer.components.modellibs.core.new.HelloWorld"
@@ -116,7 +116,7 @@
 		</wizard>
 		<wizard
 			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.ProducerConsumerModelWizard"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.wizards.ProducerConsumerModelWizard"
 			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
 			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
 			id="org.eclipse.papyrus.designer.components.modellibs.core.new.ProducerConsumer"
@@ -125,11 +125,20 @@
 		</wizard>
 		<wizard
 			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.SimpleSMModelWizard"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.wizards.SimpleSMModelWizard"
 			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
 			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
 			id="org.eclipse.papyrus.designer.components.modellibs.core.new.SimpleSM"
 			name="Papyrus Designer component-based example using a simple state machine">
+			<selection class="org.eclipse.core.resources.IResource"/>
+		</wizard>
+		<wizard
+			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.ABitComplexSMModelWizard"
+			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			id="org.eclipse.papyrus.designer.components.modellibs.core.new.ABitComplexSM"
+			name="Papyrus Designer component-based example using a bit more complex state machine">
 			<selection class="org.eclipse.core.resources.IResource"/>
 		</wizard>
 	</extension>

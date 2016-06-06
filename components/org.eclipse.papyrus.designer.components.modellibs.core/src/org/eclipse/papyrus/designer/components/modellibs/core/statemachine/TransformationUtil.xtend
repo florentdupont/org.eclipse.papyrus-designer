@@ -142,4 +142,23 @@ class TransformationUtil {
 	public def static eventID(Event event) {
 		event.eventName.toUpperCase + "_ID"
 	}
+	
+	def static isSavehistory(Region topRegion, Region r) {
+		if (r.subvertices.filter(Pseudostate).filter[it.kind == PseudostateKind.SHALLOW_HISTORY_LITERAL].size > 0) {
+			return true
+		}
+		
+		return topRegion.isSaveDeepHistory(r)
+	}
+	
+	def static boolean isSaveDeepHistory(Region topRegion, Region r) {
+		if (r.subvertices.filter(Pseudostate).filter[it.kind == PseudostateKind.DEEP_HISTORY_LITERAL].size > 0) {
+			return true
+		}
+		if (r != topRegion) {
+			var nextRegion = r.state.container
+			return topRegion.isSaveDeepHistory(nextRegion)
+		}		
+		return false
+	}
 }
