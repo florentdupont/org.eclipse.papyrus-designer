@@ -24,12 +24,18 @@ import java.net.URL;
 public class AbstractTest {
 
 	static public final String JavaParser_class = "org/eclipse/papyrus/designer/languages/java/reverse/javaparser/JavaParserTest";
+	static public final String JavaParser_classname = classname(JavaParser_class);
 	static public final String AbstractTest_class = "org/eclipse/papyrus/designer/languages/java/reverse/javaparser/AbstractTest";
-		
+	static public final String SimpleClass_class = "org/eclipse/papyrus/designer/languages/java/reverse/classesundertest/SimpleClass";	
+	static public final String SimpleClass_classname = classname(SimpleClass_class);
+	static public final String ClassWithImport_class = "org/eclipse/papyrus/designer/languages/java/reverse/classesundertest/ClassWithImports";	
+	static public final String ClassWithImport_classname = classname(ClassWithImport_class);
+	
 	static public final String SRC_FOLDER_NAME = "test";
 	static public final String JAVA_EXT = ".java";
 	static public final String PLUGIN_NAME = "org.eclipse.papyrus.designer.languages.java.reverse";
 	static public final String PLUGIN_PROTOCOL = "platform:/plugin/";
+	private static final String SEPARATOR = "/";
 	
 	/**
 	 * Constructor.
@@ -37,6 +43,14 @@ public class AbstractTest {
 	 */
 	public AbstractTest() {
 		super();
+	}
+
+	/**
+	 * @param javaparserClass
+	 * @return
+	 */
+	private static String classname(String qualifiedName) {
+		return qualifiedName.substring(qualifiedName.lastIndexOf(SEPARATOR)+1);
 	}
 
 	/**

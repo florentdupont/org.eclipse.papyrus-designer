@@ -58,6 +58,8 @@ public class JavaCodeReverseInJobHandler extends AbstractExecuteInJobHandler imp
 	 */
 	private ITreeSelection recordedSelection;
 
+	private int selectedParser = 0;
+
 	/**
 	 * @see org.eclipse.papyrus.designer.languages.java.reverse.ui.handlers.AbstractExecuteInJobHandler#getJobName()
 	 *
@@ -116,6 +118,7 @@ public class JavaCodeReverseInJobHandler extends AbstractExecuteInJobHandler imp
 		parameters.setSearchPaths( Arrays.asList(dialog.getSearchPath() ) );
 		parameters.setUmlRootPackage( modelRoot);
 		parameters.setPackageName( getPackageName(dialog) );
+		selectedParser = dialog.getSelectedParserIndex();
 		
 		// Create reverse command
 		ISelection selection = getCurrentSelection();
@@ -138,11 +141,22 @@ public class JavaCodeReverseInJobHandler extends AbstractExecuteInJobHandler imp
 	protected void doExecuteTransactionInJob(IProgressMonitor monitor) {
 		System.err.println("Transaction and job called !");
 		
+		switch( selectedParser  ) {
+		case 0 :
+		case 1 :
+			// JAvaParser
+			ReverseSelectedNodeVisitor visitor = new ReverseSelectedNodeVisitor(parameters);
+//			ProjectExplorerNodeWalker reverseWalker = new ProjectExplorerNodeWalker(visitor);
+			ProjectExplorerNodeWalkerWithIProgress reverseWalker = new ProjectExplorerNodeWalkerWithIProgress(visitor);
+			reverseWalker.visit(recordedSelection.toList(), monitor);
+			break;
+			
+		case 2 :
+			// JDT Parser
+			System.err.println("Use JDT parser (todo)");
+			return;
+		}
 		// Perform reverse
-		ReverseSelectedNodeVisitor visitor = new ReverseSelectedNodeVisitor(parameters);
-//		ProjectExplorerNodeWalker reverseWalker = new ProjectExplorerNodeWalker(visitor);
-		ProjectExplorerNodeWalkerWithIProgress reverseWalker = new ProjectExplorerNodeWalkerWithIProgress(visitor);
-		reverseWalker.visit(recordedSelection.toList(), monitor);
 
 	}
 

@@ -77,7 +77,7 @@ public class ImportedTypeCatalog {
 	 * Lookup the associated qualified name from the imports.
 	 *
 	 * @param name
-	 * @return
+	 * @return The qualified name, or null if there is no matching qualified name.
 	 */
 	private List<String> lookupQualifiedName(String name) {
 
@@ -88,7 +88,7 @@ public class ImportedTypeCatalog {
 	/**
 	 * Get the qualified name of the provided [qualifiedName].
 	 * If the provided name size is one, lookup for its full name.
-	 * Otherwise, return the imput.
+	 * Otherwise, return the input.
 	 *
 	 * @param typeQualifiedName
 	 * @return
@@ -140,6 +140,16 @@ public class ImportedTypeCatalog {
 		} else {
 			map.put(lastName, qualifiedName);
 		}
+	}
+
+	/**
+	 * Add an import that import all Element of a package (imports a.b.c.*;)
+	 *
+	 * @param qualifiedName
+	 */
+	public void addStarImport(List<String> qualifiedName) {
+
+		addPackageClasses(qualifiedName);
 	}
 
 	/**

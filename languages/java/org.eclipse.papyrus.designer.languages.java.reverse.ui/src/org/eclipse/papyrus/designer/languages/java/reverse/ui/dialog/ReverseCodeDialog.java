@@ -13,6 +13,8 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.Activator;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.preference.ReversePreference;
 import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.CreationPackageCatalog;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
@@ -29,16 +31,23 @@ public class ReverseCodeDialog extends InputDialog {
 	/** Internal dialog to show list of creation paths */
 	private InputListDialog creationPathsDialog;
 
+	/** Internal selector to select the parser */
+	private Combo parserSelectorCombo;
+	
 	/** Returned searchpaths */
 	private String[] searchPath;
 	/** creationPaths read by the list. One line pattern by element */
 	private String[] creationPaths;
 	/** splitted creationPaths. pattern lines are splitted in small path */
 	private List<String> splittedCreationPaths;
+	/** Names of available parsers */
+	private String[] availableParsers = new String[] {"Default Parser", "JavaParser", "JDT Parser"};
 
 	private String SEARCHPATHS_UID = ":searchpaths";
 	private String CREATIONPATHS_UID = ":creationpaths";
 	private static final String PROJECTNAME_UID = ":projectName";
+	private static final String SELECTEDPARSER_UID = ":selectedParserIndex";
+
 	
 	protected String MODEL_UID = "nomodeluid";
 
@@ -46,6 +55,11 @@ public class ReverseCodeDialog extends InputDialog {
 	 * then name of the selected project
 	 */
 	private String projectName;
+
+	/**
+	 * Returned value indicating the index of the selected parser.
+	 */
+	private int selectedParserIndex;
 	
 	private static String textMsg = "Default creation package.";
 	@SuppressWarnings("unused")
@@ -132,6 +146,14 @@ public class ReverseCodeDialog extends InputDialog {
 		listDialog.setTooltips(listTooltips);
 		creationPathsDialog = new InputListDialog(creationPathMsg, Arrays.asList(creationPaths));
 		creationPathsDialog.setTooltips(creationPathTooltips);
+		
+		// Selected parser
+		try {
+			selectedParserIndex = settings.getInt(getRootSettingKey() + SELECTEDPARSER_UID);
+		} catch (NumberFormatException e) {
+			// Use default parser
+			selectedParserIndex = 0;
+		}
 	}
 
 	/**
@@ -215,17 +237,33 @@ public class ReverseCodeDialog extends InputDialog {
 		return splittedCreationPaths;
 	}
 
+	/**
+	 * Get the index of the selected Parser. 
+	 * 
+	 * @return the index of the selected parser, or -1 if none is selected.
+	 */
+	public int getSelectedParserIndex() {
+		return selectedParserIndex;
+	}
 
 	/**
 	 * Create additional list of searchpaths.
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
+		
+		IDialogSettings settings = Activator.getDefault().getDialogSettings();
 		// create composite
 		Composite composite = (Composite) super.createDialogArea(parent);
 
 		listDialog.createDialogArea(composite);
 		creationPathsDialog.createDialogArea(composite);
+		
+		// Create dropdown allowing to choose the parser
+		parserSelectorCombo = new Combo (composite, SWT.READ_ONLY);
+		parserSelectorCombo.setItems(availableParsers);
+		parserSelectorCombo.select(selectedParserIndex);
+				
 		return composite;
 	}
 
@@ -255,14 +293,17 @@ public class ReverseCodeDialog extends InputDialog {
 			showError(e.getMessage());
 			return;
 		}
-
-
+		
+		// Get selected parser
+		selectedParserIndex = parserSelectorCombo.getSelectionIndex();
+ 
+		
 		// save values
 		IDialogSettings settings = Activator.getDefault().getDialogSettings();
 		settings.put(getRootSettingKey() + SEARCHPATHS_UID, searchPath);
 		settings.put(getRootSettingKey() + CREATIONPATHS_UID, creationPaths);
 		settings.put(getRootSettingKey() + PROJECTNAME_UID, getValue());
-
+		settings.put(getRootSettingKey() + SELECTEDPARSER_UID, selectedParserIndex);
 
 		super.okPressed();
 	}

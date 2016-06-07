@@ -7,6 +7,8 @@ Require-Bundle: org.eclipse.ui,
 Export-Package: org.eclipse.papyrus.designer.languages.java.reverse.ast,
  org.eclipse.papyrus.designer.languages.java.reverse.javaparser,
  org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast,
+ org.eclipse.papyrus.designer.languages.java.reverse.jdt,
+ org.eclipse.papyrus.designer.languages.java.reverse.jdtparser,
  org.eclipse.papyrus.designer.languages.java.reverse.umlparser,
  org.eclipse.papyrus.designer.languages.java.reverse.utils
 Bundle-Vendor: %providerName

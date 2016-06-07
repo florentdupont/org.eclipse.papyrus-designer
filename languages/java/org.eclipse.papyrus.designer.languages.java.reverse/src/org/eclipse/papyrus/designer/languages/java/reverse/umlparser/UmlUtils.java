@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -629,6 +630,23 @@ public class UmlUtils {
 	}
 
 	/**
+	 * Get the class in the specified {@link Namespace}. Create the class if not found.
+	 * 
+	 * @param enclosingParents
+	 *            The namespace where the class should be located.
+	 * @param name Name of the class to create
+	 * @return
+	 * @since 0.7.1
+	 */
+	public static Class getExactClass(Namespace enclosingParents, String name) {
+
+		EClass type = UMLPackage.eINSTANCE.getClass_();
+		Class result = (Class) getExactClassifier(enclosingParents, name, type);
+
+		return result;
+	}
+
+	/**
 	 * @param enclosingParents
 	 *            list of enclosing parent, from the most outerside to the most inner side.
 	 * @param name
@@ -637,6 +655,19 @@ public class UmlUtils {
 	public static Enumeration getEnumeration(List<Namespace> enclosingParents, String name) {
 		EClass type = UMLPackage.eINSTANCE.getEnumeration();
 		Enumeration result = (Enumeration) getClassifier(enclosingParents, name, type);
+
+		return result;
+	}
+
+	/**
+	 * @param enclosingParents
+	 *            list of enclosing parent, from the most outerside to the most inner side.
+	 * @param name
+	 * @return
+	 */
+	public static Enumeration getExactEnumeration(Namespace enclosingParents, String name) {
+		EClass type = UMLPackage.eINSTANCE.getEnumeration();
+		Enumeration result = (Enumeration) getExactClassifier(enclosingParents, name, type);
 
 		return result;
 	}
@@ -696,32 +727,89 @@ public class UmlUtils {
 				// Found, return it
 				return result;
 			}
+			}
+		
+			// Not found, create in the direct parent.
+
+			if (parent instanceof Package)
+			{
+				result = (Classifier) ((Package) parent).getOwnedType(name, false, type, true);
+
+			}
+			else if (parent instanceof Interface)
+			{
+				result = ((Interface) parent).createNestedClassifier(name, type);
+			}
+			else if (parent instanceof Class)
+			{
+				result = ((Class) parent).createNestedClassifier(name, type);
+			}
+			else
+			{
+				// Should never happen !
+				// The first namespace is always the package.
+				Package parentPackage = (Package) enclosingParents.get(0);
+				result = (Classifier) parentPackage.getOwnedType(name, false, type, true);
+			}
+			return result;
 		}
 
-		// Not found, create in the direct parent.
+		/**
+		 * Get or create a Classifier by its name. The type of the classifier can be Class or Interface
+		 * The classifier willbe located in the provided {@link Namespace}.
+		 *
+		 * If the classifier previously exists, check its type and change it according to the requested type.
+		 *
+		 * @param parent
+		 * @param name
+		 * @param type
+		 * @return
+		 */
+		private static Classifier getExactClassifier(Namespace parent, String name, EClass type) {
 
-		if (parent instanceof Package)
-		{
-			result = (Classifier) ((Package) parent).getOwnedType(name, false, type, true);
+			Namespace namespace = parent;
 
+			// Lookup for the exact type
+			Classifier result = (Classifier) namespace.getOwnedMember(name, false, type);
+			if (result != null) {
+				return result;
+			} 
+			else {
+				// Lookup for another type (generally class, because it is the default creation type)
+				result = (Classifier) namespace.getOwnedMember(name, false, UMLPackage.eINSTANCE.getClassifier());
+				if (result != null) {
+					// Correct the classifier type
+					result = (Classifier) transformInto(result, type);
+					return result;
+				}
+			}
+
+			// Not found, create in the direct parent.
+
+			if (parent instanceof Interface)
+			{
+				result = ((Interface) parent).createNestedClassifier(name, type);
+			}
+			else if (parent instanceof Class)
+			{
+				result = ((Class) parent).createNestedClassifier(name, type);
+			}
+			else if (parent instanceof Enumeration)
+			{
+				// UML Doesn't support nested type in Enumeration.
+				// We create the type in the enumeration's parent.
+				System.err.println("Nested classifier in Enumeration are not supported yet");
+				Namespace parentNamespace = parent.getNamespace();
+				result =  getExactClassifier(parentNamespace, name, type);
+//				result = (Classifier) createNestedClassifier((Enumeration)parent, name, type);
+			}
+			else /* if (parent instanceof Package) */
+			{
+				result = (Classifier) ((Package) parent).getOwnedType(name, false, type, true);
+
+			}
+			return result;
 		}
-		else if (parent instanceof Interface)
-		{
-			result = ((Interface) parent).createNestedClassifier(name, type);
-		}
-		else if (parent instanceof Class)
-		{
-			result = ((Class) parent).createNestedClassifier(name, type);
-		}
-		else
-		{
-			// Should never happen !
-			// The first namespace is always the package.
-			Package parentPackage = (Package) enclosingParents.get(0);
-			result = (Classifier) parentPackage.getOwnedType(name, false, type, true);
-		}
-		return result;
-	}
 
 	/**
 	 * Change the owner of the classifier
@@ -837,6 +925,17 @@ public class UmlUtils {
 	 */
 	public static Interface getInterface(List<Namespace> enclosingParents, String name) {
 		return (Interface) getClassifier(enclosingParents, name, UMLPackage.eINSTANCE.getInterface());
+	}
+
+	/**
+	 *
+	 * @param enclosingParents
+	 *            list of enclosing parent, from the most outerside to the most inner side.
+	 * @param name
+	 * @return
+	 */
+	public static Interface getExactInterface(Namespace enclosingParents, String name) {
+		return (Interface) getExactClassifier(enclosingParents, name, UMLPackage.eINSTANCE.getInterface());
 	}
 
 	/**

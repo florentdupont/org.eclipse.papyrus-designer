@@ -15,6 +15,7 @@ package org.eclipse.papyrus.designer.languages.java.reverse.jdtparser;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
@@ -28,6 +29,7 @@ import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.AbstractTypeDeclaration;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.ImportDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.AbstractTest;
 import org.junit.After;
@@ -62,7 +64,7 @@ public class JdtParserTest extends AbstractTest {
 	@Test
 	public void testParseInputStream() throws IOException {
 		
-			InputStream inputStream = getJavaFileInputStream(JavaParser_class);
+			InputStream inputStream = getJavaFileInputStream(SimpleClass_class);
 			Scanner scanner = new Scanner(inputStream,"UTF-8");
 			String str = scanner.useDelimiter("\\A").next();
 			scanner.close();
@@ -79,7 +81,8 @@ public class JdtParserTest extends AbstractTest {
 			// Get first type
 			AbstractTypeDeclaration type = types.get(0);
 			
-			assertEquals("Name is ok", type.getName().getIdentifier(), "JavaParserTest" );
+			assertEquals("Name is ok", type.getName().getIdentifier(), SimpleClass_classname );
+			assertEquals("Name is ok", type.getName().getFullyQualifiedName(), SimpleClass_classname );
 //			
 //			TypeDeclaration typeDecl = cu.getTypes().get(0);
 //			assertNotNull("comment found", typeDecl.getComment());
@@ -94,7 +97,7 @@ public class JdtParserTest extends AbstractTest {
 	 */
 	@Test
 	public void testParseVisitor() throws IOException {
-		InputStream inputStream = getJavaFileInputStream(JavaParser_class);
+		InputStream inputStream = getJavaFileInputStream(SimpleClass_class);
 		Scanner scanner = new Scanner(inputStream,"UTF-8");
 		String str = scanner.useDelimiter("\\A").next();
 		scanner.close();
@@ -112,5 +115,45 @@ public class JdtParserTest extends AbstractTest {
 		
 		cu.accept(visitor);
 	}
+
+	/**
+	 * Test method for {@link org.eclipse.papyrus.designer.languages.java.reverse.javaparser.JavaParser#parse(java.io.InputStream)}.
+	 * @throws IOException 
+	 * @throws ParseException 
+	 */
+	@Test
+	public void testImports() throws IOException {
+		
+			InputStream inputStream = getJavaFileInputStream(ClassWithImport_class);
+			Scanner scanner = new Scanner(inputStream,"UTF-8");
+			String str = scanner.useDelimiter("\\A").next();
+			scanner.close();
+			
+			ASTParser parser = ASTParser.newParser(AST.JLS8);
+			parser.setSource(str.toCharArray());
+			parser.setKind(ASTParser.K_COMPILATION_UNIT);
+	 
+			final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+			
+			assertNotNull("CU created", cu);
+						
+			// Test imports
+			assertNotNull("Import is ok", cu.imports());
+			assertTrue("Has imports", cu.imports().size() > 0 );
+
+			List<ImportDeclaration> imports = cu.imports();
+			boolean found = false;
+			for( ImportDeclaration decl : imports) {
+				System.err.println("import=" + decl.getName().getFullyQualifiedName());
+				if( "java.util.Date".equals( decl.getName().getFullyQualifiedName() ) ) {
+					found = true;
+					break;
+				}
+			}
+			assertTrue( "import found", found);
+
+			
+	}
+
 
 }

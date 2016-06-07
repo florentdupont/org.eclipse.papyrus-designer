@@ -33,6 +33,7 @@ import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.ProjectExplorerNodeWalkerWithIProgress;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.ReverseSelectedNodeVisitor;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.ReverseWithJDTParserVisitor;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.DndReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog.ReverseCodeDialog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.exception.StopExecutionException;
@@ -197,15 +198,42 @@ public class ReverseJobAndTransactionForDrop extends AbstractJobAndTransactionFo
 		
 		
 		// Perform reverse
-		ReverseSelectedNodeVisitor visitor = new ReverseSelectedNodeVisitor(rootPackage, getPackageName(dialog), searchPaths);
-		ProjectExplorerNodeWalkerWithIProgress reverseWalker = new ProjectExplorerNodeWalkerWithIProgress(visitor);
-		reverseWalker.visit(getRecordedSelection().toList(), monitor);
 
+		List<NamedElement> returnedReversedNamedElement = null;
+		// Do reverse according to selected parser
+		switch(dialog.getSelectedParserIndex() ) {
+		case 0 :
+		case 1 :
+		{
+			// JAvaParser
+			ReverseSelectedNodeVisitor visitor = new ReverseSelectedNodeVisitor(rootPackage, getPackageName(dialog), searchPaths);
+			ProjectExplorerNodeWalkerWithIProgress reverseWalker = new ProjectExplorerNodeWalkerWithIProgress(visitor);
+			reverseWalker.visit(getRecordedSelection().toList(), monitor);
+			
+			returnedReversedNamedElement = visitor.getReversedNamedElement();
+			break;
+		}
+		case 2 :
+		{
+			// JDT Parser
+			System.err.println("Use JDT parser (todo)");
+			
+			ReverseWithJDTParserVisitor jdtParserVisitor = new ReverseWithJDTParserVisitor(rootPackage, getPackageName(dialog), searchPaths);
+			ProjectExplorerNodeWalkerWithIProgress reverseWalker = new ProjectExplorerNodeWalkerWithIProgress(jdtParserVisitor);
+			reverseWalker.visit(getRecordedSelection().toList(), monitor);
+
+			returnedReversedNamedElement = jdtParserVisitor.getReversedNamedElement();
+
+		}
+		}
+		
 		// Draw reversed NamedElement in diagram
-		final List<NamedElement> returnedReversedNamedElement = visitor.getReversedNamedElement();
-		final DiagramNodeCreator nodeCreator = new DiagramNodeCreator(parentView, parentViewEditPart, firstNodeLocation);
-		nodeCreator.createNodesFor(progressMonitor, returnedReversedNamedElement);
-		// Should not run in the main UI, because the transaction will be lost.
+
+		if( returnedReversedNamedElement != null) {
+			final DiagramNodeCreator nodeCreator = new DiagramNodeCreator(parentView, parentViewEditPart, firstNodeLocation);
+			nodeCreator.createNodesFor(progressMonitor, returnedReversedNamedElement);
+			// Should not run in the main UI, because the transaction will be lost.
+		}
 
 	}
 
