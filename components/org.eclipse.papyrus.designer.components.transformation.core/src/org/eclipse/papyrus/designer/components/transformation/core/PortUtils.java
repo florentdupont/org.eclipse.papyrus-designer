@@ -247,8 +247,8 @@ public class PortUtils {
 	}
 
 	/**
-	 * Check whether two ports match, i.e. have the same kind but different conjugation (assembly)
-	 * or same (delegation)
+	 * Check whether two ports match, i.e. have the same type & kind but different conjugation (assembly)
+	 * or same type, kind and conjugation (delegation). The ports must have the FCM port stereotype.
 	 *
 	 * @param portA
 	 *            first port
@@ -259,11 +259,19 @@ public class PortUtils {
 	 * @return true, if ports match
 	 */
 	public static boolean matches(Port portA, Port portB, boolean isAssembly) {
+		org.eclipse.papyrus.designer.components.FCM.Port fcmPortA =
+				UMLUtil.getStereotypeApplication(portA, org.eclipse.papyrus.designer.components.FCM.Port.class);
+		org.eclipse.papyrus.designer.components.FCM.Port fcmPortB =
+				UMLUtil.getStereotypeApplication(portB, org.eclipse.papyrus.designer.components.FCM.Port.class);
+		if ((fcmPortA == null) || (fcmPortB == null)) {
+			return false;
+		}
+		boolean sameTypeAndKind = (fcmPortA.getType() == fcmPortB.getType()) && fcmPortA.getKind() == fcmPortB.getKind();
 		if (isAssembly) {
-			return ((portA.getType() == portB.getType()) && sameKinds(portA, portB) && (portA.isConjugated() != portB.isConjugated()));
+			return (sameTypeAndKind && portA.isConjugated() != portB.isConjugated());
 		} else {
 			// delegation
-			return ((portA.getType() == portB.getType()) && sameKinds(portA, portB) && (portA.isConjugated() == portB.isConjugated()));
+			return (sameTypeAndKind && portA.isConjugated() == portB.isConjugated());
 		}
 	}
 

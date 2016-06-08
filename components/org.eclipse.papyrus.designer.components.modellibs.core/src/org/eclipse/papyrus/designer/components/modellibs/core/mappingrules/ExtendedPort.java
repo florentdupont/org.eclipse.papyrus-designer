@@ -89,8 +89,8 @@ public class ExtendedPort implements IMappingRule {
 		 * try {
 		 * TemplateBinding binding =
 		 * TemplateUtils.fixedBinding(model, extendedPort, (Classifier)type);
-		 * Copy copy = new Copy(model, model, false);
-		 * TemplateInstantiation ti = new TemplateInstantiation(copy, binding);
+		 * Copy copier = new Copy(model, model, false);
+		 * TemplateInstantiation ti = new TemplateInstantiation(copier, binding);
 		 * // create a bound element of the extended port. Add bound class to derived interface class
 		 * Class boundClass = ti.bindNamedElement(extendedPort);
 		 * derivedInterface.getNearestPackage().getPackagedElements().add(boundClass);

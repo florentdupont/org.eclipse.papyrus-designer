@@ -15,15 +15,15 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.papyrus.designer.components.FCM.PortKind;
+import org.eclipse.papyrus.designer.components.FCM.util.ITemplateMappingRule;
+import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
 import org.eclipse.papyrus.designer.components.transformation.core.Utils;
 import org.eclipse.papyrus.designer.components.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.components.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FixTemplateSync;
-import org.eclipse.papyrus.designer.components.FCM.PortKind;
-import org.eclipse.papyrus.designer.components.FCM.util.ITemplateMappingRule;
-import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -71,7 +71,7 @@ public class TemplatePort implements ITemplateMappingRule {
 	public PortKind getBoundType(org.eclipse.papyrus.designer.components.FCM.Port p)
 	{
 		Port port = p.getBase_Port();
-		Type type = port.getType();
+		Type type = p.getType();
 		if (!(type instanceof Classifier)) {
 			return null;
 		}
@@ -111,7 +111,7 @@ public class TemplatePort implements ITemplateMappingRule {
 	@Override
 	public void updateBinding(org.eclipse.papyrus.designer.components.FCM.Port p) {
 		Port port = p.getBase_Port();
-		Type type = port.getType();
+		Type type = p.getType();
 		if (!(type instanceof Classifier)) {
 			return;
 		}
@@ -123,16 +123,17 @@ public class TemplatePort implements ITemplateMappingRule {
 			try {
 				TemplateBinding binding =
 						TemplateUtils.fixedBinding(model, extendedPort, (Classifier) type);
-				LazyCopier copy = new LazyCopier(model, model, false, true);
-				TemplateInstantiation ti = new TemplateInstantiation(copy, binding);
+				LazyCopier copier = new LazyCopier(model, model, false, true);
+				TemplateInstantiation ti = new TemplateInstantiation(copier, binding);
 				// remove listener synchronizing implementation, since it would add derived
 				// elements for the extended port itself (e.g. provided operations)
-				if (copy.postCopyListeners.contains(FixTemplateSync.getInstance())) {
-					copy.postCopyListeners.remove(FixTemplateSync.getInstance());
+				if (copier.postCopyListeners.contains(FixTemplateSync.getInstance())) {
+					copier.postCopyListeners.remove(FixTemplateSync.getInstance());
 				}
 
 				// create a bound element of the extended port. Add bound class to derived interface class
-				ti.bindElement(extendedPort);
+			Class tst = ti.bindElement(extendedPort);
+			System.err.println("tst: "+ tst.getQualifiedName()); //$NON-NLS-1$
 			} catch (TransformationException e) {
 				Activator.log.error("Could not create template binding", e);
 			}
