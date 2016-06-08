@@ -45,5 +45,20 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//Project/sourceFolder"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//Project/prefix"/>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//GeneratorHint">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//GeneratorHint/base_Element"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//GeneratorHint/language"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//GeneratorHint/generatorID"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//Language">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//Language/base_Class"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//NoCodeGen">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//NoCodeGen/base_Element"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

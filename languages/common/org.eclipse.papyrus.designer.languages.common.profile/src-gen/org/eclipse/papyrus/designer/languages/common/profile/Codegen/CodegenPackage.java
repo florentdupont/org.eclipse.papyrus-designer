@@ -131,6 +131,135 @@ public interface CodegenPackage extends EPackage {
 	int PROJECT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.GeneratorHintImpl <em>Generator Hint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.GeneratorHintImpl
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getGeneratorHint()
+	 * @generated
+	 */
+	int GENERATOR_HINT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Base Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_HINT__BASE_ELEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Language</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_HINT__LANGUAGE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Generator ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_HINT__GENERATOR_ID = 2;
+
+	/**
+	 * The number of structural features of the '<em>Generator Hint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_HINT_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Generator Hint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_HINT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.LanguageImpl <em>Language</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.LanguageImpl
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getLanguage()
+	 * @generated
+	 */
+	int LANGUAGE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LANGUAGE__BASE_CLASS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Language</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LANGUAGE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Language</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LANGUAGE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.NoCodeGenImpl <em>No Code Gen</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.NoCodeGenImpl
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getNoCodeGen()
+	 * @generated
+	 */
+	int NO_CODE_GEN = 3;
+
+	/**
+	 * The feature id for the '<em><b>Base Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NO_CODE_GEN__BASE_ELEMENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>No Code Gen</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NO_CODE_GEN_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>No Code Gen</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NO_CODE_GEN_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.GenerationModeKind <em>Generation Mode Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,7 +267,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getGenerationModeKind()
 	 * @generated
 	 */
-	int GENERATION_MODE_KIND = 1;
+	int GENERATION_MODE_KIND = 4;
 
 
 	/**
@@ -194,6 +323,91 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProject_Prefix();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint <em>Generator Hint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generator Hint</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint
+	 * @generated
+	 */
+	EClass getGeneratorHint();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint#getBase_Element <em>Base Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Element</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint#getBase_Element()
+	 * @see #getGeneratorHint()
+	 * @generated
+	 */
+	EReference getGeneratorHint_Base_Element();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Language</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint#getLanguage()
+	 * @see #getGeneratorHint()
+	 * @generated
+	 */
+	EReference getGeneratorHint_Language();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint#getGeneratorID <em>Generator ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generator ID</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint#getGeneratorID()
+	 * @see #getGeneratorHint()
+	 * @generated
+	 */
+	EAttribute getGeneratorHint_GeneratorID();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Language <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Language</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.Language
+	 * @generated
+	 */
+	EClass getLanguage();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Language#getBase_Class <em>Base Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Class</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.Language#getBase_Class()
+	 * @see #getLanguage()
+	 * @generated
+	 */
+	EReference getLanguage_Base_Class();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen <em>No Code Gen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>No Code Gen</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen
+	 * @generated
+	 */
+	EClass getNoCodeGen();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen#getBase_Element <em>Base Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Element</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen#getBase_Element()
+	 * @see #getNoCodeGen()
+	 * @generated
+	 */
+	EReference getNoCodeGen_Base_Element();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project#getGenerationMode <em>Generation Mode</em>}'.
@@ -280,6 +494,76 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROJECT__PREFIX = eINSTANCE.getProject_Prefix();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.GeneratorHintImpl <em>Generator Hint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.GeneratorHintImpl
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getGeneratorHint()
+		 * @generated
+		 */
+		EClass GENERATOR_HINT = eINSTANCE.getGeneratorHint();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERATOR_HINT__BASE_ELEMENT = eINSTANCE.getGeneratorHint_Base_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERATOR_HINT__LANGUAGE = eINSTANCE.getGeneratorHint_Language();
+
+		/**
+		 * The meta object literal for the '<em><b>Generator ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_HINT__GENERATOR_ID = eINSTANCE.getGeneratorHint_GeneratorID();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.LanguageImpl <em>Language</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.LanguageImpl
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getLanguage()
+		 * @generated
+		 */
+		EClass LANGUAGE = eINSTANCE.getLanguage();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LANGUAGE__BASE_CLASS = eINSTANCE.getLanguage_Base_Class();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.NoCodeGenImpl <em>No Code Gen</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.NoCodeGenImpl
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getNoCodeGen()
+		 * @generated
+		 */
+		EClass NO_CODE_GEN = eINSTANCE.getNoCodeGen();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NO_CODE_GEN__BASE_ELEMENT = eINSTANCE.getNoCodeGen_Base_Element();
 
 		/**
 		 * The meta object literal for the '<em><b>Generation Mode</b></em>' attribute feature.

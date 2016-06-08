@@ -11,6 +11,14 @@ import org.eclipse.uml2.uml.Model;
  * A representation of the model object '<em><b>Project</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Control how code is generated:
+ * - name of project to generate code into
+ * - target folder within that project (e.g. src-gen)
+ * - Batch vs. incremental
+ * - Prefix: namespace prefix of generated code (similar to prefix option in genmodel)
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -64,7 +72,7 @@ public interface Project extends EObject {
 	 * @return the value of the '<em>Project Name</em>' attribute.
 	 * @see #setProjectName(String)
 	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage#getProject_ProjectName()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getProjectName();
@@ -116,7 +124,7 @@ public interface Project extends EObject {
 	 * @return the value of the '<em>Prefix</em>' attribute.
 	 * @see #setPrefix(String)
 	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage#getProject_Prefix()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
 	 * @generated
 	 */
 	String getPrefix();

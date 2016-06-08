@@ -13,13 +13,9 @@ package org.eclipse.papyrus.designer.languages.java.codegen.transformation;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.jdt.core.IClasspathEntry;
-import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.ToolFactory;
 import org.eclipse.jdt.core.formatter.CodeFormatter;
 import org.eclipse.jface.text.BadLocationException;
@@ -31,6 +27,7 @@ import org.eclipse.papyrus.designer.languages.java.codegen.Activator;
 import org.eclipse.papyrus.designer.languages.java.codegen.Constants;
 import org.eclipse.papyrus.designer.languages.java.codegen.Messages;
 import org.eclipse.papyrus.designer.languages.java.codegen.preferences.JavaCodeGenUtils;
+import org.eclipse.papyrus.designer.languages.java.codegen.utils.LocateJavaProject;
 import org.eclipse.papyrus.designer.languages.java.codegen.xtend.JavaClassifierGenerator;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.ExternLibrary;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.External;
@@ -38,11 +35,6 @@ import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Import;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.ManualGeneration;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.NoCodeGen;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Template;
-import org.eclipse.papyrus.designer.languages.java.codegen.Activator;
-import org.eclipse.papyrus.designer.languages.java.codegen.Constants;
-import org.eclipse.papyrus.designer.languages.java.codegen.Messages;
-import org.eclipse.papyrus.designer.languages.java.codegen.preferences.JavaCodeGenUtils;
-import org.eclipse.papyrus.designer.languages.java.codegen.utils.LocateJavaProject;
 import org.eclipse.papyrus.infra.tools.file.IPFileSystemAccess;
 import org.eclipse.papyrus.infra.tools.file.ProjectBasedFileAccess;
 import org.eclipse.text.edits.MalformedTreeException;
@@ -63,6 +55,8 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  */
 public class JavaModelElementsCreator extends ModelElementsCreator {
 
+	private static final String JAVA = "Java"; //$NON-NLS-1$
+
 	private String sourceFolder;
 	
 	private String prefix;
@@ -74,14 +68,7 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 	 *            the project in which the generated code should be placed
 	 */
 	public JavaModelElementsCreator(IProject project, PackageableElement packageableElement) {
-		this(new ProjectBasedFileAccess(project), null);
-		sourceFolder = LocateJavaProject.getTargetSourceFolder(packageableElement, project);
-		prefix = LocateJavaProject.getTargetPrefix(packageableElement);
-		if (prefix != null) {
-			sourceFolder = sourceFolder + prefix.replaceAll("\\.", "/");
-		} else {
-			prefix = "";
-		}
+		this(project, null, packageableElement);
 	}
 
 	/**
@@ -94,12 +81,13 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 	 */
 	public JavaModelElementsCreator(IProject project, String commentHeader, PackageableElement packageableElement) {
 		this(new ProjectBasedFileAccess(project), commentHeader);
+		this.project = project;
 		sourceFolder = LocateJavaProject.getTargetSourceFolder(packageableElement, project);
 		prefix = LocateJavaProject.getTargetPrefix(packageableElement);
 		if (prefix != null) {
 			sourceFolder = sourceFolder + prefix.replaceAll("\\.", "/");
 		} else {
-			prefix = "";
+			prefix = ""; //$NON-NLS-1$
 		}
 	}
 
@@ -112,7 +100,7 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 	 *            commentHeader. If null, take from preferences
 	 */
 	public JavaModelElementsCreator(IPFileSystemAccess fileSystemAccess, String commentHeader) {
-		super(fileSystemAccess, new JavaLocationStrategy());
+		super(fileSystemAccess, new JavaLocationStrategy(), JAVA);
 		this.commentHeader = (commentHeader != null) ?
 				commentHeader :
 				JavaCodeGenUtils.getCommentHeader();
@@ -153,9 +141,8 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 	protected void generateClassifier(Classifier classifier, String prefix) {
 		// treat case of manual code generation
 		if (GenUtils.hasStereotype(classifier, ManualGeneration.class)) {
-			final ManualGeneration mg = UMLUtil.getStereotypeApplication(classifier, ManualGeneration.class);
 			final Import javaImport = UMLUtil.getStereotypeApplication(classifier, Import.class);
-			String includes = "";
+			String includes = ""; //$NON-NLS-1$
 			if (javaImport != null) {
 				includes = javaImport.getManualImports();
 			}

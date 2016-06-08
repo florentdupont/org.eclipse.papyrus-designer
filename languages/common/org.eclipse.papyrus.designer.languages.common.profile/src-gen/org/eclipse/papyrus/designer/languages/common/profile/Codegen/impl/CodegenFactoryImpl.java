@@ -58,6 +58,9 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CodegenPackage.PROJECT: return createProject();
+			case CodegenPackage.GENERATOR_HINT: return createGeneratorHint();
+			case CodegenPackage.LANGUAGE: return createLanguage();
+			case CodegenPackage.NO_CODE_GEN: return createNoCodeGen();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -101,6 +104,36 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public Project createProject() {
 		ProjectImpl project = new ProjectImpl();
 		return project;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeneratorHint createGeneratorHint() {
+		GeneratorHintImpl generatorHint = new GeneratorHintImpl();
+		return generatorHint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Language createLanguage() {
+		LanguageImpl language = new LanguageImpl();
+		return language;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NoCodeGen createNoCodeGen() {
+		NoCodeGenImpl noCodeGen = new NoCodeGenImpl();
+		return noCodeGen;
 	}
 
 	/**

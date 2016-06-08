@@ -72,6 +72,24 @@ public class CodegenSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CodegenPackage.GENERATOR_HINT: {
+				GeneratorHint generatorHint = (GeneratorHint)theEObject;
+				T result = caseGeneratorHint(generatorHint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.LANGUAGE: {
+				Language language = (Language)theEObject;
+				T result = caseLanguage(language);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodegenPackage.NO_CODE_GEN: {
+				NoCodeGen noCodeGen = (NoCodeGen)theEObject;
+				T result = caseNoCodeGen(noCodeGen);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -88,6 +106,51 @@ public class CodegenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProject(Project object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Hint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Hint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorHint(GeneratorHint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Language</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Language</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLanguage(Language object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>No Code Gen</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>No Code Gen</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNoCodeGen(NoCodeGen object) {
 		return null;
 	}
 

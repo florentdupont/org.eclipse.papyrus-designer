@@ -2,19 +2,47 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Codegen" nsURI="http://www.eclipse.org/papyrus/Codegen/1" nsPrefix="Codegen">
   <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Control how code is generated:&#xA;- name of project to generate code into&#xA;- target folder within that project (e.g. src-gen)&#xA;- Batch vs. incremental&#xA;- Prefix: namespace prefix of generated code (similar to prefix option in genmodel)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Model" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="generationMode" ordered="false"
         lowerBound="1" eType="#//GenerationModeKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectName" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceFolder" ordered="false"
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="GenerationModeKind">
     <eLiterals name="Batch"/>
     <eLiterals name="Incremental" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorHint">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Information about the generator that should be used."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Element" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="language" ordered="false"
+        lowerBound="1" eType="#//Language"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generatorID" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Language">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;p>Indicate programming language. The idea is that the GeneratorHint::language attribute is not an arbitrary string (which would be error prone), but can be selected from a list of available programming languages (i.e. a library with supported languages is required).&lt;/p>&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NoCodeGen">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Information that no code should be generated for this element."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Element" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
   </eClassifiers>
 </ecore:EPackage>

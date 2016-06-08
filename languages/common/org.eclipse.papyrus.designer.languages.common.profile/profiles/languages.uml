@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:Codegen="http://www.eclipse.org/papyrus/Codegen/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_IpNxsCjHEeafevO6kGeA7g" name="languages">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_KYEMQCjfEea6Erh9I-z_Vw" annotatedElement="_TVyVMCjfEea6Erh9I-z_Vw">
+      <body>Generation of C++ code (header and body) via IDL. This generator generates IDL first and then uses an ORB or DDS specific generator to create IDL</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Or5s4CjHEeafevO6kGeA7g" name="C++"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pDuwsCjREeayco6FJ_OtTQ" name="Java"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_tp6RoCjREeayco6FJ_OtTQ" name="C"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_weggMCjREeayco6FJ_OtTQ" name="IDL"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_zIGYoCjREeayco6FJ_OtTQ" name="Ada"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_TVyVMCjfEea6Erh9I-z_Vw" name="IDLC++"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_mb-rUCjREeayco6FJ_OtTQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mcH1QCjREeayco6FJ_OtTQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+  </uml:Model>
+  <Codegen:Language xmi:id="_nya50CjREeayco6FJ_OtTQ" base_Class="_Or5s4CjHEeafevO6kGeA7g"/>
+  <Codegen:Language xmi:id="_2Zt6YCjREeayco6FJ_OtTQ" base_Class="_pDuwsCjREeayco6FJ_OtTQ"/>
+  <Codegen:Language xmi:id="_3J0hoCjREeayco6FJ_OtTQ" base_Class="_weggMCjREeayco6FJ_OtTQ"/>
+  <Codegen:Language xmi:id="_38rh8CjREeayco6FJ_OtTQ" base_Class="_tp6RoCjREeayco6FJ_OtTQ"/>
+  <Codegen:Language xmi:id="_4oTR0CjREeayco6FJ_OtTQ" base_Class="_zIGYoCjREeayco6FJ_OtTQ"/>
+  <Codegen:Language xmi:id="_oExswCjfEea6Erh9I-z_Vw" base_Class="_TVyVMCjfEea6Erh9I-z_Vw"/>
+  <Codegen:NoCodeGen xmi:id="_7bixECvoEeawva6u7NPykw" base_Element="_IpNxsCjHEeafevO6kGeA7g"/>
+</xmi:XMI>

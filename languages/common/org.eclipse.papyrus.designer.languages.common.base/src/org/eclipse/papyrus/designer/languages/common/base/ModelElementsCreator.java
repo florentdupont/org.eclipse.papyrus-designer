@@ -11,13 +11,19 @@
 
 package org.eclipse.papyrus.designer.languages.common.base;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen;
 import org.eclipse.papyrus.infra.tools.file.IPFileSystemAccess;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 
 /**
@@ -25,10 +31,17 @@ import org.eclipse.uml2.uml.PackageableElement;
  */
 abstract public class ModelElementsCreator {
 
+	/**
+	 * optional reference to a project (is used in case of handling multiple code generators)
+	 */
+	protected IProject project;
+	
 	protected ILocationStrategy locStrategy;
 
 	protected IPFileSystemAccess fileSystemAccess;
 
+	protected String generatorLanguage;
+	
 	/**
 	 *
 	 * Constructor.
@@ -40,9 +53,10 @@ abstract public class ModelElementsCreator {
 	 * @param locStrategy
 	 *            a strategy that chooses suitable file names for generated code.
 	 */
-	public ModelElementsCreator(IPFileSystemAccess fileSystemAccess, ILocationStrategy locStrategy) {
+	public ModelElementsCreator(IPFileSystemAccess fileSystemAccess, ILocationStrategy locStrategy, String generatorLanguage) {
 		this.fileSystemAccess = fileSystemAccess;
 		this.locStrategy = locStrategy;
+		this.generatorLanguage = generatorLanguage;
 	}
 
 	/**
@@ -68,12 +82,16 @@ abstract public class ModelElementsCreator {
 	abstract protected void createPackageableElementFile(PackageableElement classifier, IProgressMonitor monitor);
 
 	/**
-	 * Return true, if no code should be generated for a certain element
+	 * Return true, if no code should be generated for a certain element. May be overloaded by
+	 * specific code generators, but they should delegate to this method (super.noCodeGen) in
+	 * case of a non language-specific behavior.
 	 *
 	 * @param element
 	 * @return
 	 */
-	abstract protected boolean noCodeGen(Element element);
+	protected boolean noCodeGen(Element element) {
+		return GenUtils.hasStereotype(element, NoCodeGen.class);
+	}
 
 
 	/**
@@ -94,12 +112,12 @@ abstract public class ModelElementsCreator {
 	 * Variant of main function: user may supply explicit container (also used by internal function to avoid
 	 * re-calculating the entry container for each element).
 	 *
-	 * @param packageContainer
-	 *            The container (directory), in which code should be created
+	 * @param element
+	 *            An element for which code should be created
 	 * @param monitor
 	 *            a progress monitor
-	 * @param element
-	 *            the element for which code should be generated
+	 * @param recursive
+	 *            if true, step into packages
 	 * @throws CoreException
 	 */
 	public void createPackageableElement(PackageableElement element, IProgressMonitor monitor, boolean recursive)
@@ -107,7 +125,18 @@ abstract public class ModelElementsCreator {
 		if (noCodeGen(element)) {
 			return;
 		}
-
+		GeneratorHint hint = UMLUtil.getStereotypeApplication(element, GeneratorHint.class);
+		if (hint != null) {
+			String language = hint.getLanguage().getBase_Class().getName();
+			if ((language != null) && (!language.equals(generatorLanguage))) {
+				// try to generate code with a new model elements creator for the requested language
+				ILangCodegen newGenerator = LanguageCodegen.getGenerator(language);
+				// generate code (use same target project. Determine project automatically, if null)
+				newGenerator.generateCode(project, element, monitor);
+				return;
+			}
+		}
+			
 		if (element instanceof Package) {
 			Package pkg = (Package) element;
 			if (monitor != null) {

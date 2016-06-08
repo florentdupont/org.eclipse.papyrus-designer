@@ -56,12 +56,14 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 
 
 /**
- * Main class of C++ code generator
+ * Main class of CPP++ code generator
  * 
  * @author Ansgar Radermacher (ansgar.radermacher@cea.fr)
  * @author Önder GÜRCAN (onder.gurcan@cea.fr)
  */
 public class CppModelElementsCreator extends ModelElementsCreator {
+
+	private static final String CPP = "CPP++"; //$NON-NLS-1$
 
 	/**
 	 * Constructor.
@@ -71,6 +73,7 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 	 */
 	public CppModelElementsCreator(IProject project) {
 		this(new ProjectBasedFileAccess(project), null);
+		this.project = project;
 	}
 
 	/**
@@ -83,6 +86,7 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 	 */
 	public CppModelElementsCreator(IProject project, String commentHeader) {
 		this(new ProjectBasedFileAccess(project), commentHeader);
+		this.project = project;
 	}
 
 	/**
@@ -94,7 +98,7 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 	 *            commentHeader. If null, take from preferences
 	 */
 	public CppModelElementsCreator(IPFileSystemAccess fileSystemAccess, String commentHeader) {
-		super(fileSystemAccess, new CppLocationStrategy());
+		super(fileSystemAccess, new CppLocationStrategy(), CPP);
 		this.commentHeader = (commentHeader != null) ?
 				commentHeader :
 				CppCodeGenUtils.getCommentHeader();
@@ -140,7 +144,7 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 			// TODO: not supported, but do nothing
 		}
 		else {
-			Activator.log.debug("C++ code generator: unsupported model element " + element); //$NON-NLS-1$
+			Activator.log.debug("CPP++ code generator: unsupported model element " + element); //$NON-NLS-1$
 		}
 	}
 
@@ -236,8 +240,11 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 	}
 
 	protected boolean noCodeGen(Element element) {
-		return GenUtils.hasStereotype(element, NoCodeGen.class) ||
+		if (GenUtils.hasStereotype(element, NoCodeGen.class) ||
 				GenUtils.hasStereotype(element, External.class) ||
-				GenUtils.hasStereotypeTree(element, ExternLibrary.class);
+				GenUtils.hasStereotypeTree(element, ExternLibrary.class)) {
+			return true;
+		}
+		return super.noCodeGen(element);
 	}
 }

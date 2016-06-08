@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenFactory;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GenerationModeKind;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Language;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project;
 
 import org.eclipse.uml2.types.TypesPackage;
@@ -32,6 +35,27 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass projectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass generatorHintEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass languageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass noCodeGenEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,6 +178,78 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGeneratorHint() {
+		return generatorHintEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGeneratorHint_Base_Element() {
+		return (EReference)generatorHintEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGeneratorHint_Language() {
+		return (EReference)generatorHintEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGeneratorHint_GeneratorID() {
+		return (EAttribute)generatorHintEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLanguage() {
+		return languageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLanguage_Base_Class() {
+		return (EReference)languageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNoCodeGen() {
+		return noCodeGenEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNoCodeGen_Base_Element() {
+		return (EReference)noCodeGenEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getProject_GenerationMode() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(1);
 	}
@@ -202,6 +298,17 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(projectEClass, PROJECT__SOURCE_FOLDER);
 		createEAttribute(projectEClass, PROJECT__PREFIX);
 
+		generatorHintEClass = createEClass(GENERATOR_HINT);
+		createEReference(generatorHintEClass, GENERATOR_HINT__BASE_ELEMENT);
+		createEReference(generatorHintEClass, GENERATOR_HINT__LANGUAGE);
+		createEAttribute(generatorHintEClass, GENERATOR_HINT__GENERATOR_ID);
+
+		languageEClass = createEClass(LANGUAGE);
+		createEReference(languageEClass, LANGUAGE__BASE_CLASS);
+
+		noCodeGenEClass = createEClass(NO_CODE_GEN);
+		createEReference(noCodeGenEClass, NO_CODE_GEN__BASE_ELEMENT);
+
 		// Create enums
 		generationModeKindEEnum = createEEnum(GENERATION_MODE_KIND);
 	}
@@ -243,9 +350,20 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProject_Base_Model(), theUMLPackage.getModel(), null, "base_Model", null, 1, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProject_GenerationMode(), this.getGenerationModeKind(), "generationMode", null, 1, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getProject_ProjectName(), theTypesPackage.getString(), "projectName", null, 1, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getProject_ProjectName(), theTypesPackage.getString(), "projectName", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProject_SourceFolder(), theTypesPackage.getString(), "sourceFolder", null, 1, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getProject_Prefix(), theTypesPackage.getString(), "prefix", null, 1, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getProject_Prefix(), theTypesPackage.getString(), "prefix", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(generatorHintEClass, GeneratorHint.class, "GeneratorHint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGeneratorHint_Base_Element(), theUMLPackage.getElement(), null, "base_Element", null, 1, 1, GeneratorHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getGeneratorHint_Language(), this.getLanguage(), null, "language", null, 1, 1, GeneratorHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getGeneratorHint_GeneratorID(), theTypesPackage.getString(), "generatorID", null, 0, 1, GeneratorHint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(languageEClass, Language.class, "Language", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLanguage_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(noCodeGenEClass, NoCodeGen.class, "NoCodeGen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNoCodeGen_Base_Element(), theUMLPackage.getElement(), null, "base_Element", null, 1, 1, NoCodeGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(generationModeKindEEnum, GenerationModeKind.class, "GenerationModeKind");

@@ -72,6 +72,18 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createProjectAdapter();
 			}
 			@Override
+			public Adapter caseGeneratorHint(GeneratorHint object) {
+				return createGeneratorHintAdapter();
+			}
+			@Override
+			public Adapter caseLanguage(Language object) {
+				return createLanguageAdapter();
+			}
+			@Override
+			public Adapter caseNoCodeGen(NoCodeGen object) {
+				return createNoCodeGenAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -102,6 +114,48 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint <em>Generator Hint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint
+	 * @generated
+	 */
+	public Adapter createGeneratorHintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Language <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.Language
+	 * @generated
+	 */
+	public Adapter createLanguageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen <em>No Code Gen</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen
+	 * @generated
+	 */
+	public Adapter createNoCodeGenAdapter() {
 		return null;
 	}
 

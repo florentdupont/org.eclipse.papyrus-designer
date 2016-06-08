@@ -3,13 +3,11 @@
 package org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GenerationModeKind;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project;
@@ -293,6 +291,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

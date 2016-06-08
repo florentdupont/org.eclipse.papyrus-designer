@@ -31,6 +31,33 @@ public interface CodegenFactory extends EFactory {
 	Project createProject();
 
 	/**
+	 * Returns a new object of class '<em>Generator Hint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generator Hint</em>'.
+	 * @generated
+	 */
+	GeneratorHint createGeneratorHint();
+
+	/**
+	 * Returns a new object of class '<em>Language</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Language</em>'.
+	 * @generated
+	 */
+	Language createLanguage();
+
+	/**
+	 * Returns a new object of class '<em>No Code Gen</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>No Code Gen</em>'.
+	 * @generated
+	 */
+	NoCodeGen createNoCodeGen();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
