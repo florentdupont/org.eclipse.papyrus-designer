@@ -53,8 +53,15 @@ public class CreationPackageCatalog {
 	 * Default package returned when no mapping is found.
 	 */
 	private Package defaultCreationPackage;
+	
+	/**
+	 * Default package returned when no mapping is found and type is external.
+	 */
+	private Package externalTypesCreationPackage;
 
 	private static String defaultCreationPath = "default";
+	
+	private static String externalCreationPath = "importedTypes";
 
 	/** The model root package. Used to create mapped packages */
 	private Package modelRootPackage;
@@ -116,6 +123,10 @@ public class CreationPackageCatalog {
 	public void setDefaultPackage(Package defaultPackage) {
 		this.defaultCreationPackage = defaultPackage;
 	}
+	
+	public Package getDefaultPackage() {
+		return defaultCreationPackage;
+	}
 
 	/**
 	 * Init the mappings
@@ -152,7 +163,7 @@ public class CreationPackageCatalog {
 	 *            The fully qualified name of the element to create.
 	 * @return The package where the element should be created, according to its qualified name. The
 	 */
-	public Package getCreationPackage(List<String> qualifiedName) {
+	public Package getCreationPackage(List<String> qualifiedName, List<String> qualifiedNamesInProjects) {
 		String qname = toFlatQualifiedName(qualifiedName);
 		for (CreationPattern p : creationPatterns) {
 			if (p.isFor(qname)) {
@@ -160,8 +171,25 @@ public class CreationPackageCatalog {
 			}
 		}
 
-		// not found
-		return defaultCreationPackage;
+		// Not found, check if it is an external type
+		boolean isExternal = true;
+		if (qualifiedNamesInProjects != null) {
+			for (String qualifiedNameInProjects : qualifiedNamesInProjects) {
+				if (qualifiedNameInProjects.startsWith(qname) || qualifiedNameInProjects.endsWith(qname)) { // startsWith and endsWith are necessary when this method is called to get a CU package
+					isExternal = false;
+					break;
+				}
+			}
+		}
+		
+		if (isExternal) {
+			if (externalTypesCreationPackage == null) {
+				externalTypesCreationPackage = UmlUtils.getPackage(modelRootPackage, externalCreationPath);
+			}
+			return externalTypesCreationPackage;
+		} else {
+			return defaultCreationPackage;
+		}
 	}
 
 
@@ -200,7 +228,7 @@ public class CreationPackageCatalog {
 	 * @param qualifiedName
 	 * @return
 	 */
-	private String toFlatQualifiedName(List<String> qualifiedName) {
+	public String toFlatQualifiedName(List<String> qualifiedName) {
 		if (qualifiedName.size() == 1) {
 			return qualifiedName.get(0);
 		}
@@ -358,7 +386,7 @@ public class CreationPackageCatalog {
 		public Package getPackage(List<String> proposedPath) {
 
 			// umlPackage = UmlUtils.getPackage(modelRootPackage, qualifiedName);
-			Package cachedPackage = UmlUtils.getModel(modelRootPackage, creationModelPathEntry.getCreationModelPath(proposedPath));
+			Package cachedPackage = UmlUtils.getPackage(modelRootPackage, creationModelPathEntry.getCreationModelPath(proposedPath));
 			return cachedPackage;
 		}
 	}

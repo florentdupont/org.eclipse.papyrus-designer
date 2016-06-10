@@ -40,24 +40,14 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  */
 public class Modifier {
 	public static String modArray(Element propertyOrParameter) {
-		// Array
-		Array javaArray = UMLUtil.getStereotypeApplication(propertyOrParameter, Array.class);
 		String array = ""; //$NON-NLS-1$
-		if (javaArray != null) {
-			// explicit array definition
-			array = (javaArray.getDefinition() != null && !javaArray.getDefinition().isEmpty()) ? javaArray.getDefinition() : "[]"; //$NON-NLS-1$
-		} else {
-			// calculate array from multiplicity definition
-			int multiplicity = 1;
-			if (propertyOrParameter instanceof MultiplicityElement) {
-				multiplicity = ((MultiplicityElement) propertyOrParameter).getUpper();
-			}
-			array = ""; //$NON-NLS-1$
-			if (multiplicity == -1) {
-				array = "[]"; //$NON-NLS-1$
-			} else if (multiplicity > 1) {
-				array = "[" + multiplicity + "]"; //$NON-NLS-1$ //$NON-NLS-2$
-			}
+		// calculate array from multiplicity definition
+		int multiplicity = 1;
+		if (propertyOrParameter instanceof MultiplicityElement) {
+			multiplicity = ((MultiplicityElement) propertyOrParameter).getUpper();
+		}
+		if (multiplicity == -1 || multiplicity > 1) {
+			array = "[]"; //$NON-NLS-1$
 		}
 		return array;
 	}

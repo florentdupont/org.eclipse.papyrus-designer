@@ -9,6 +9,23 @@ public class Messages extends NLS {
 	public static String ReverseCodeHandler_NoModelError_Message;
 
 	public static String ReverseCodeHandler_NoModelError_Title;
+
+	public static String ReverseCodeHandler_NoPapyrusEditor_Title;
+
+	public static String ReverseCodeHandler_NoPapyrusEditor_Message;
+
+	public static String DndReverseCodeHandler_CantDisplayResult_Title;
+
+	public static String DndReverseCodeHandler_CantDisplayResult_Message;
+
+	public static String DndReverseCodeHandler_CantFindService_Title;
+
+	public static String DndReverseCodeHandler_CantFindService_Message;
+
+	public static String ReverseCodeHandler_WrongSelectionType_Title;
+
+	public static String ReverseCodeHandler_WrongSelectionType_Message;
+
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

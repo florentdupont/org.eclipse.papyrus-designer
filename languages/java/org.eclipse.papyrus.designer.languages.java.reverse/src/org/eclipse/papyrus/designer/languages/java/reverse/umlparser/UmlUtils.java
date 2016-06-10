@@ -3,25 +3,31 @@
  */
 package org.eclipse.papyrus.designer.languages.java.reverse.umlparser;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.papyrus.designer.languages.java.reverse.Activator;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Dependency;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.InterfaceRealization;
+import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.PrimitiveType;
+import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Realization;
 import org.eclipse.uml2.uml.Type;
@@ -628,6 +634,20 @@ public class UmlUtils {
 	}
 
 	/**
+	 * @param enclosingParents
+	 *            list of enclosing parent, from the most outerside to the most inner side.
+	 * @param name
+	 * @return
+	 */
+	public static Enumeration getEnumeration(List<Namespace> enclosingParents, String name) {
+		EClass type = UMLPackage.eINSTANCE.getEnumeration();
+		Enumeration result = (Enumeration) getClassifier(enclosingParents, name, type);
+
+		return result;
+	}
+
+
+	/**
 	 * Get or create a Classifier by its name. The type of the classifier can be Class or Interface
 	 * Lookup is done in the provided namespaces, using the short name.
 	 * The classifier is expected to be in the directly enclosing parent, but lookup is done in all enclosing parents.
@@ -834,11 +854,14 @@ public class UmlUtils {
 	 */
 	public static Property createProperty(Classifier parent, Type type, String name, int arrayCount) {
 		Property p;
-		if (parent instanceof Class) {
+		if (parent instanceof Class ) {
 			p = createProperty((Class) parent, type, name, arrayCount);
 		} else if (parent instanceof Interface) {
 			p = createProperty((Interface) parent, type, name, arrayCount);
-		} else {
+		} else if (parent instanceof Enumeration) {
+			p = createProperty((Enumeration) parent, type, name, arrayCount);
+		}
+		else {
 			return null;
 		}
 
@@ -856,6 +879,19 @@ public class UmlUtils {
 	 * @return
 	 */
 	public static Property createProperty(Class parent, Type type, String name, int arrayCount) {
+		return parent.getOwnedAttribute(name, type, false, UMLPackage.eINSTANCE.getProperty(), true);
+	}
+
+	/**
+	 * Create a property for the Datatype (or Enumeration)
+	 *
+	 * @param parent
+	 * @param type
+	 * @param name
+	 * @param arrayCount
+	 * @return
+	 */
+	public static Property createProperty(DataType parent, Type type, String name, int arrayCount) {
 		return parent.getOwnedAttribute(name, type, false, UMLPackage.eINSTANCE.getProperty(), true);
 	}
 
@@ -993,6 +1029,16 @@ public class UmlUtils {
 		return (PrimitiveType) parent.getOwnedType(typeName, true, UMLPackage.eINSTANCE.getPrimitiveType(), true);
 
 	}
+	
+	/**
+	 * Get a primitive type from parent package assumed to be contained in an imported model.
+	 *
+	 * @param root
+	 * @param typeName
+	 */
+	public static PrimitiveType getImportedPrimitive(Package parent, String typeName) {
+		return (PrimitiveType) parent.getOwnedType(typeName, false, UMLPackage.eINSTANCE.getPrimitiveType(), false);
+	}
 
 	/**
 	 * Get the specified class from the specified parent.
@@ -1050,5 +1096,102 @@ public class UmlUtils {
 	}
 
 
+	public static Package importOrGetModel(Model model, String uri) {
+		if (model != null & uri != null) {
+			try {
+				Resource theResource = model.eResource().getResourceSet().getResource(URI.createURI(uri), true);
+				if (theResource != null) {
+					for (EObject content : theResource.getContents()) {
+						if (content instanceof Model) {
+							return (Package) content;
+						}
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+//			for (Resource resource : model.eResource().getResourceSet().getResources()) {
+//				if (resource.getURI().path().equals(uri)) {
+//					theResource = resource;
+//					break;
+//				}
+//			}
+			
+//			if (theResource == null) {
+//				theResource = model.eResource().getResourceSet().createResource(URI.createURI(uri));
+//				try {
+//					theResource.load(null);
+//					model.eResource().getResourceSet().getResource(URI.createURI(uri), true);
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
+			
+			
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Move elements whose qualified name starts with a provided string to the model root element and delete packages representing the qualified name
+	 * @param model
+	 * @param qualifiedName
+	 */
+	public static void trimModel(Model model, String qualifiedName) {
+		// TODO
+	}
+	
+	/**
+	 * Apply java and code generation profiles
+	 * 
+	 * @param model
+	 */
+	public static void applyCodeGenerationProfilesToModel(Model model) {
+		if (model != null) {
+			applyProfile(model, "pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml");
+			applyProfile(model, "pathmap://Codegen_PROFILES/Codegen.profile.uml");
+			applyProfile(model, "pathmap://UML_PROFILES/Standard.profile.uml");
+		}
+	}
+	
+	/**
+	 * Apply to a model a profile represented by a URI
+	 * 
+	 * @param model
+	 * @param uri
+	 * @return
+	 */
+	private static Profile applyProfile(Model model, String uri) {
+		Profile profile = null;
+		
+		try {
+			Resource resource = model.eResource().getResourceSet().getResource(URI.createURI(uri), false);
 
+			if (resource == null) {
+				resource = model.eResource().getResourceSet().createResource(URI.createURI(uri));
+				try {
+					resource.load(null);
+				} catch (IOException e) {
+					return null;
+				}
+			}
+			
+			for (EObject content : resource.getContents()) {
+				if (content instanceof Profile) {
+					profile = (Profile) content;
+					break;
+				}
+			}
+
+			if (profile != null && !model.isProfileApplied(profile)) {
+				model.applyProfile(profile);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return profile;
+	}
 }

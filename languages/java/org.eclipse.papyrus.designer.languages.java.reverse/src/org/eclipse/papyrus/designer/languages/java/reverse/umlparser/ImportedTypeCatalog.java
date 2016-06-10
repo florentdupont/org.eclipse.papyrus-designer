@@ -15,6 +15,8 @@ import java.util.Map;
  *
  */
 public class ImportedTypeCatalog {
+	
+	public static final String JAVA_LIBRARY_URI = "pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml";
 
 	private Map<String, List<String>> map = new HashMap<String, List<String>>();
 
@@ -26,11 +28,15 @@ public class ImportedTypeCatalog {
 			"Class", "java.lang.Class",
 			"Object", "java.lang.Object",
 			"Exception", "java.lang.Exception",
-			"Integer", "datatype.Integer",
-			"Boolean", "datatype.Boolean",
-			"Long", "datatype.Long",
-			"Char", "datatype.Char",
-			"Byte", "datatype.Byte",
+			"NullPointerException", "java.lang.NullPointerException",
+			"Integer", "primitivetype.Integer",
+			"Boolean", "primitivetype.Boolean",
+			"Long", "primitivetype.Long",
+			"Char", "primitivetype.Char",
+			"Byte", "primitivetype.Byte",
+			"Float", "primitivetype.Float",
+			"Double", "primitivetype.Double",
+			"Short", "primitivetype.Short",
 			"Runnable", "java.lang.Runnable",
 			"Throwable", "java.lang.Throwable",
 			"Thread", "java.lang.Thread",

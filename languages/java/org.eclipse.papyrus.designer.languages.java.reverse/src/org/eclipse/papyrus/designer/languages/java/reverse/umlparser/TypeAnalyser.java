@@ -6,11 +6,12 @@ package org.eclipse.papyrus.designer.languages.java.reverse.umlparser;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.ClassOrInterfaceType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.PrimitiveType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.ReferenceType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.VoidType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.WildcardType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.ClassOrInterfaceType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.PrimitiveType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.ReferenceType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.VoidType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.WildcardType;
+import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.TypeAnalyserAndTranslator.TranslatedTypeData;
 
 
 /**
@@ -72,7 +73,7 @@ public class TypeAnalyser {
 	 * @param astType
 	 * @return
 	 */
-	public TypeData getTypeData(org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type astType) {
+	public TypeData getTypeData(org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type astType) {
 
 		TypeData res = createTypeData();
 
@@ -90,7 +91,7 @@ public class TypeAnalyser {
 				// Check for generic parameters
 				if (n.getTypeArgs() != null) {
 					data.genericData = new ArrayList<TypeData>();
-					for (org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type arg : n.getTypeArgs()) {
+					for (org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type arg : n.getTypeArgs()) {
 						TypeData argData = createTypeData();
 						arg.accept(this, argData);
 						data.genericData.add(argData);
@@ -214,6 +215,41 @@ public class TypeAnalyser {
 
 		return typeName;
 	}
-
-
+	
+	public static String wrapperToPrimitive(TypeData data) {
+		List<String> qualifiedName = data.qualifiedName;
+		
+		if (qualifiedName != null && !qualifiedName.isEmpty()) {
+			String wrapper = qualifiedName.get(qualifiedName.size() - 1);
+			switch (wrapper) {
+			case "boolean":
+			case "Boolean":
+				return "boolean";
+			case "byte":
+			case "Byte":
+				return "byte";
+			case "char":
+			case "Char":
+				return "char";
+			case "double":
+			case "Double":
+				return "double";
+			case "float":
+			case "Float":
+				return "float";
+			case "integer":
+			case "int":
+			case "Integer":
+				return "int";
+			case "long":
+			case "Long":
+				return "long";
+			case "short":
+			case "Short":
+				return "short";
+			}
+		}
+		
+		return "";
+	}
 }

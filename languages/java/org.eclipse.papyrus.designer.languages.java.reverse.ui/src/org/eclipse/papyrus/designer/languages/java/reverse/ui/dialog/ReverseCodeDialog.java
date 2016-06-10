@@ -5,12 +5,14 @@ package org.eclipse.papyrus.designer.languages.java.reverse.ui.dialog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.CreationPackageCatalog;
 import org.eclipse.papyrus.designer.languages.java.reverse.ui.Activator;
+import org.eclipse.papyrus.designer.languages.java.reverse.ui.preference.ReversePreference;
+import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.CreationPackageCatalog;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
@@ -36,9 +38,15 @@ public class ReverseCodeDialog extends InputDialog {
 
 	private String SEARCHPATHS_UID = ":searchpaths";
 	private String CREATIONPATHS_UID = ":creationpaths";
-	private static String DEFAULT_PACKAGE_NAME_UID = ":defaultpackagename";
+	private static final String PROJECTNAME_UID = ":projectName";
+	
 	protected String MODEL_UID = "nomodeluid";
 
+	/**
+	 * then name of the selected project
+	 */
+	private String projectName;
+	
 	private static String textMsg = "Default creation package.";
 	@SuppressWarnings("unused")
 	private static String creationPackageTooltips = "The default creation package is used when no matching creation package are found.";
@@ -64,18 +72,21 @@ public class ReverseCodeDialog extends InputDialog {
 
 
 	/**
+	 * 
+	 * Constructor.
+	 *
 	 * @param parentShell
-	 * @param dialogTitle
-	 * @param dialogMessage
-	 * @param initialValue
-	 * @param validator
+	 * @param modelUid UID used to identify preferences storage. Must be linked to the model.
+	 * @param projectName
+	 * @param searchPathsInitialValues
 	 */
-	public ReverseCodeDialog(Shell parentShell, String modelUid, String initialValue, List<String> searchPathsInitialValues) {
-		super(parentShell, dialogTitle, textMsg, getInitialValue(modelUid, initialValue), null);
+	public ReverseCodeDialog(Shell parentShell, String modelUid, String projectName, List<String> searchPathsInitialValues) {
+		super(parentShell, dialogTitle, textMsg, getInitialValue(modelUid, projectName), null);
 		// TODO Auto-generated constructor stub
 		IDialogSettings settings = Activator.getDefault().getDialogSettings();
 
 		MODEL_UID = modelUid;
+		this.projectName = projectName;
 
 		// Look for generationPackageName if none is provided.
 		// if(initialValue == null)
@@ -84,20 +95,32 @@ public class ReverseCodeDialog extends InputDialog {
 		// getText().setText(generationPackageName);
 		//
 		// }
-		// Look for saved searchpaths if none is provided.
+		
+		// Find default values for search path and creation path
+		ReversePreference preference = new ReversePreference();
+		
 		if (searchPathsInitialValues == null) {
-			String[] savedSearchPath = settings.getArray(MODEL_UID + SEARCHPATHS_UID);
+			String[] savedSearchPath = settings.getArray( getRootSettingKey() + SEARCHPATHS_UID);
 			if (savedSearchPath != null) {
 				searchPathsInitialValues = Arrays.asList(savedSearchPath);
 			} else
 			{
-				searchPathsInitialValues = CreationPackageCatalog.getDefaultSearchPath();
+				searchPathsInitialValues = getDefaultSearchPath(preference);
 			}
 		}
 
 		// Look for saved creationPaths if none is provided.
 		if (creationPaths == null) {
-			String[] savedSearchPath = settings.getArray(MODEL_UID + CREATIONPATHS_UID);
+			String[] savedSearchPath = settings.getArray( getRootSettingKey() + CREATIONPATHS_UID);
+			if(savedSearchPath != null)
+				creationPaths = savedSearchPath;
+			else
+				creationPaths = getDefaultCreationPath(preference);
+			}
+
+		// Look for saved creationPaths if none is provided.
+		if(creationPaths == null ) {
+			String[] savedSearchPath = settings.getArray( getRootSettingKey() + CREATIONPATHS_UID);
 			if (savedSearchPath != null) {
 				creationPaths = savedSearchPath;
 			} else {
@@ -113,21 +136,55 @@ public class ReverseCodeDialog extends InputDialog {
 
 	/**
 	 *
-	 * @param modelUid
-	 * @param initialValue
-	 * @return
+	 * @return the root of the setting key
 	 */
-	private static String getInitialValue(String modelUid, String initialValue) {
+	private String getRootSettingKey() {
+		return MODEL_UID + projectName;
+	}
+
+	/**
+	 * 
+	 * @param preference
+	 *        the eclipse preferences
+	 * @return default values of SearchPath from eclipse preferences
+	 */
+	private List<String> getDefaultSearchPath(ReversePreference preference) {
+		String[] defaultSearchPath = preference.getSearchPath();
+		LinkedList<String> listSearchPath = new LinkedList<String>();
+		for(String path : defaultSearchPath) {
+			listSearchPath.add(path);
+		}
+		return listSearchPath;
+	}
+
+	/**
+	 * 
+	 * @param preference
+	 *        the eclipse preferences
+	 * @return default values of CreationPath from eclipse preferences
+	 */
+	private String[] getDefaultCreationPath(ReversePreference preference) {
+		String[] defaultCreationPath = preference.getCreationPath();
+		return defaultCreationPath;
+	}
+
+	/**
+	 * 
+	 * @param modelUid
+	 * @param projectName
+	 *        the name of the reversed project
+	 * @return initialValue contained into setting, or <code>projectName</code> if it doesn't exists
+	 */
+	private static String getInitialValue(String modelUid, String projectName) {
 		IDialogSettings settings = Activator.getDefault().getDialogSettings();
 
-		// Look for generationPackageName if none is provided.
-		if (initialValue == null) {
-			// String generationPackageName = settings.get(MODEL_UID + SEARCHPATH_UID);
-			String generationPackageName = settings.get(modelUid + DEFAULT_PACKAGE_NAME_UID);
+		// Look for generationPackageName
+		String generationPackageName = settings.get(modelUid + projectName + PROJECTNAME_UID);
+		if(generationPackageName != null) {
 			return generationPackageName;
 
 		}
-		return initialValue;
+		return projectName;
 	}
 
 	/**
@@ -202,9 +259,9 @@ public class ReverseCodeDialog extends InputDialog {
 
 		// save values
 		IDialogSettings settings = Activator.getDefault().getDialogSettings();
-		settings.put(MODEL_UID + SEARCHPATHS_UID, searchPath);
-		settings.put(MODEL_UID + CREATIONPATHS_UID, creationPaths);
-		settings.put(MODEL_UID + DEFAULT_PACKAGE_NAME_UID, getValue());
+		settings.put(getRootSettingKey() + SEARCHPATHS_UID, searchPath);
+		settings.put(getRootSettingKey() + CREATIONPATHS_UID, creationPaths);
+		settings.put(getRootSettingKey() + PROJECTNAME_UID, getValue());
 
 
 		super.okPressed();

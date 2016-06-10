@@ -7,9 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.CompilationUnit;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.JavaParser;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.ParseException;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.CompilationUnit;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.JavaParser;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ParseException;
 
 /**
  * @author dumoulin
@@ -123,12 +123,12 @@ public class UmlParser {
 				"javagen",
 				"javacc",
 		};
-		visitor = new CompilationUnitAnalyser(modelManager.getModel(), "javacc", null);
+		visitor = new CompilationUnitAnalyser(modelManager.getModel(), "javacc", null, null);
 		// parse all file using the visitor
 		parseResource(javaccDir);
 
 		// Second parsing with same model
-		visitor = new CompilationUnitAnalyser(modelManager.getModel(), "javagen", Arrays.asList(paths));
+		visitor = new CompilationUnitAnalyser(modelManager.getModel(), "javagen", Arrays.asList(paths), null);
 		// parse all file using the visitor
 		parseResource(javagenDir);
 

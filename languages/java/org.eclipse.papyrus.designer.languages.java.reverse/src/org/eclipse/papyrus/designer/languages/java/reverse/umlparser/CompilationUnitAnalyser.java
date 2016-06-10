@@ -9,44 +9,67 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.CompilationUnit;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.ImportDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.Node;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.PackageDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.BodyDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.ClassOrInterfaceDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.FieldDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.JavadocComment;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.MethodDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.ModifierSet;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.Parameter;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.TypeDeclaration;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.body.VariableDeclarator;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.expr.AnnotationExpr;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.expr.NameExpr;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.expr.QualifiedNameExpr;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.ClassOrInterfaceType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.PrimitiveType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.ReferenceType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.VoidType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.type.WildcardType;
-import org.eclipse.papyrus.designer.languages.java.reverse.ast.visitor.VoidVisitorAdapter;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.External;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Final;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Native;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.NoCodeGen;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.StaticClassifier;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Strictfp;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Synchronized;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Transient;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Variadic;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Volatile;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.CompilationUnit;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.ImportDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.Node;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.PackageDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.BodyDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.ConstructorDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.EnumConstantDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.EnumDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.FieldDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.MethodDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.ModifierSet;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.Parameter;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.TypeDeclaration;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.body.VariableDeclarator;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.expr.AnnotationExpr;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.expr.Expression;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.expr.NameExpr;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.expr.QualifiedNameExpr;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.stmt.BlockStmt;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.ClassOrInterfaceType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.PrimitiveType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.ReferenceType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.VoidType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.WildcardType;
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.visitor.VoidVisitorAdapter;
 import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.TypeAnalyserAndTranslator.TranslatedTypeData;
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
+import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.Comment;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Feature;
 import org.eclipse.uml2.uml.Interface;
+import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Namespace;
+import org.eclipse.uml2.uml.OpaqueBehavior;
+import org.eclipse.uml2.uml.OpaqueExpression;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.ParameterDirectionKind;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLPackage;
+import org.eclipse.uml2.uml.ValueSpecification;
 import org.eclipse.uml2.uml.VisibilityKind;
+import org.eclipse.uml2.uml.profile.standard.Create;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
  * A visitor filling the provided UML model
@@ -63,6 +86,8 @@ public class CompilationUnitAnalyser {
 
 	private List<String> generationPackageQualifiedName;
 
+	private Model rootModel;
+	
 	/**
 	 * Root package of the generation. All generated elements will be added to this package, or one of
 	 * its subpackages
@@ -104,6 +129,8 @@ public class CompilationUnitAnalyser {
 
 	private TypeAnalyserAndTranslator typeAnalyser;
 
+	private List<String> qualifiedNamesInProjects;
+	
 	/** Model where all element are created */
 
 	/**
@@ -111,26 +138,28 @@ public class CompilationUnitAnalyser {
 	 */
 	public CompilationUnitAnalyser(Resource model) {
 
-		this(model, DEFAULT_ROOT_PACKAGE_NAME, DEFAULT_GENERATION_PACKAGE_NAME, null);
+		this(model, DEFAULT_ROOT_PACKAGE_NAME, DEFAULT_GENERATION_PACKAGE_NAME, null, null);
 	}
 
 	/**
 	 *
 	 * Constructor.
 	 */
-	public CompilationUnitAnalyser(Resource model, String generatePackageName, List<String> searchPaths) {
+	public CompilationUnitAnalyser(Resource model, String generatePackageName, List<String> searchPaths, List<String> creationPaths) {
 
-		this(model, DEFAULT_ROOT_PACKAGE_NAME, generatePackageName, searchPaths);
+		this(model, DEFAULT_ROOT_PACKAGE_NAME, generatePackageName, searchPaths, creationPaths);
 	}
 
 	/**
 	 *
 	 * Constructor.
 	 */
-	public CompilationUnitAnalyser(Resource model, String modelRootPackageName, String generatePackageName, List<String> searchPaths) {
-
+	public CompilationUnitAnalyser(Resource model, String modelRootPackageName, String generatePackageName, List<String> searchPaths, List<String> creationPaths) {
+		if (model instanceof Model) {
+			rootModel = (Model) model;
+		}
 		Package modelRootPackage = UmlUtils.getPackage(model, dirToQualifiedName(modelRootPackageName));
-		initCompilationUnitAnalyser(modelRootPackage, generatePackageName, searchPaths);
+		initCompilationUnitAnalyser(modelRootPackage, generatePackageName, searchPaths, creationPaths, null);
 	}
 
 	/**
@@ -138,11 +167,24 @@ public class CompilationUnitAnalyser {
 	 * Constructor.
 	 * All provided paths and searchpaths are relative to the specified modelRootPackage.
 	 */
-	public CompilationUnitAnalyser(Package modelRootPackage, String generatePackageName, List<String> searchPaths) {
+	public CompilationUnitAnalyser(Package modelRootPackage, String generatePackageName, List<String> searchPaths, List<String> creationPaths, List<String> qualifiedNamesInProjects) {
+		if (modelRootPackage instanceof Model) {
+			rootModel = (Model) modelRootPackage;
+		}
+		initCompilationUnitAnalyser(modelRootPackage, generatePackageName, searchPaths, creationPaths, qualifiedNamesInProjects);
+	}
 
-		// this.model = model;
-
-		initCompilationUnitAnalyser(modelRootPackage, generatePackageName, searchPaths);
+	/**
+	 * The {@link ClassifierCatalog} can be used to get a UML::NamedElement by its qualified name.
+	 * 
+	 * @return the classifierCatalog
+	 */
+	public ClassifierCatalog getClassifierCatalog() {
+		return classifierCatalog;
+	}
+	
+	public Model getRootModel() {
+		return rootModel;
 	}
 
 	/**
@@ -152,7 +194,9 @@ public class CompilationUnitAnalyser {
 	 * @param generatePackageName
 	 * @param searchPaths
 	 */
-	private void initCompilationUnitAnalyser(Package modelRootPackage, String generatePackageName, List<String> searchPaths) {
+	private void initCompilationUnitAnalyser(Package modelRootPackage, String generatePackageName, List<String> searchPaths, List<String> creationPaths, List<String> qualifiedNamesInProjects) {
+		this.qualifiedNamesInProjects = qualifiedNamesInProjects;
+		
 		if (generatePackageName == null) {
 			generatePackageName = DEFAULT_GENERATION_PACKAGE_NAME;
 		}
@@ -165,6 +209,12 @@ public class CompilationUnitAnalyser {
 			searchPaths = new ArrayList<String>(searchPaths);
 		} else {
 			searchPaths = new ArrayList<String>();
+		}
+		
+		if (creationPaths != null) {
+			creationPaths = new ArrayList<String>(creationPaths);
+		} else {
+			creationPaths = new ArrayList<String>();
 		}
 
 		// Add generation package in search paths
@@ -179,7 +229,7 @@ public class CompilationUnitAnalyser {
 
 		classifierCatalog = new ClassifierCatalog(modelRootPackage, searchPaths);
 		importedTypes = new ImportedTypeCatalog();
-		creationPackageCatalog = new CreationPackageCatalog(modelRootPackage, defaultGenerationPackage, null);
+		creationPackageCatalog = new CreationPackageCatalog(modelRootPackage, defaultGenerationPackage, creationPaths);
 
 		typeAnalyser = new TypeAnalyserAndTranslator(importedTypes);
 	}
@@ -202,7 +252,7 @@ public class CompilationUnitAnalyser {
 	 * Create the root element in which all element will be created.
 	 */
 	private void createDefaultGenerationPackage(Resource model) {
-
+		// TODO to update (see below)
 		Package p = UmlUtils.getPackage(model, generationPackageQualifiedName);
 		defaultGenerationPackage = p;
 	}
@@ -212,9 +262,14 @@ public class CompilationUnitAnalyser {
 	 */
 	private void createDefaultGenerationPackage(Package rootModelElement) {
 
-		// Package p = UmlUtils.getPackage(rootModelElement, generationPackageQualifiedName);
-		Package p = UmlUtils.getModel(rootModelElement, generationPackageQualifiedName);
-		defaultGenerationPackage = p;
+		if (generationPackageQualifiedName.size() == 1 && generationPackageQualifiedName.get(0).isEmpty()) {
+			defaultGenerationPackage = rootModelElement;
+		} else {
+			// Package p = UmlUtils.getPackage(rootModelElement, generationPackageQualifiedName);
+			Package p = UmlUtils.getPackage(rootModelElement, generationPackageQualifiedName);
+			defaultGenerationPackage = p;
+		}
+		
 	}
 
 	/**
@@ -225,7 +280,7 @@ public class CompilationUnitAnalyser {
 	public void processCompilationUnit(CompilationUnit cu) {
 
 		// First, find the parent Package
-		currentCompilationUnitPackage = getCuPackage(cu.getPakage());
+		currentCompilationUnitPackage = getCuPackage(cu.getPackage());
 		;
 		classifierCatalog.setCurrentCompilationUnitPackage(currentCompilationUnitPackage);
 
@@ -270,10 +325,19 @@ public class CompilationUnitAnalyser {
 			public Classifier visit(ClassOrInterfaceDeclaration n, List<Namespace> enclosingParents) {
 				return processClassOrInterfaceDeclaration(n, enclosingParents);
 			}
+			
+			public Classifier visit(EnumDeclaration n, List<Namespace> enclosingParents) {
+				return processEnumDeclaration(n, enclosingParents);
+			};
 
 			// TODO Other kind of types
 		}.doSwitch(typeDecl, enclosingParents);
 
+		// Check result
+		// Bug : Classifier is null in case of Enumeration
+		if( classifier == null) {
+			return;
+		}
 		// Set Visibility
 		createModifiers(classifier, typeDecl.getModifiers());
 
@@ -282,6 +346,17 @@ public class CompilationUnitAnalyser {
 
 		// Explore members
 		if (typeDecl.getMembers() != null) {
+			if (typeDecl instanceof EnumDeclaration) {
+				for (EnumConstantDeclaration enumConstant : ((EnumDeclaration) typeDecl).getEntries()) {
+					new SwitchVisitor<Type>() {
+						@Override
+						public void visit(EnumConstantDeclaration n, Type classifier) {
+							processEnumConstant(n, classifier);
+						}
+					}.doSwitch(enumConstant, classifier);
+				}
+			}
+			
 			for (BodyDeclaration member : typeDecl.getMembers()) {
 				new SwitchVisitor<Type>() {
 
@@ -294,12 +369,14 @@ public class CompilationUnitAnalyser {
 					public void visit(MethodDeclaration n, Type classifier) {
 						processMethod(n, (Classifier) classifier);
 					}
+					
+					@Override
+					public void visit(ConstructorDeclaration n, Type classifier) {
+						processConstructor(n, (Classifier) classifier);
+					}
 
 					/**
 					 * Inner classes ?
-					 *
-					 * @param n
-					 * @param arg
 					 */
 					@Override
 					public void visit(ClassOrInterfaceDeclaration n, Type classifier) {
@@ -313,6 +390,18 @@ public class CompilationUnitAnalyser {
 						// processClassOrInterfaceDeclaration(n, parent)
 						super.visit(n, classifier);
 					}
+					
+					/**
+					 * Inner enums?
+					 */
+					@Override
+					public void visit(EnumDeclaration n, Type classifier) {
+						enclosingParents.add((Classifier) classifier);
+						processTypedeclaration(enclosingParents, n);
+						enclosingParents.remove(classifier);
+						super.visit(n, classifier);
+					}
+					
 					// TODO Other kind of members
 				}.doSwitch(member, classifier);
 			}
@@ -366,14 +455,14 @@ public class CompilationUnitAnalyser {
 			}
 
 			// Check where to create
-			if (importedTypes.isImportedType(qualifiedName)) {
-				// This is an imported type, create it in its dedicated model
+			if (importedTypes.isImportedType(qualifiedName) || qualifiedName.size() > 1) {
+				// This is an imported type or a type with full qualified name => create it in its dedicated model
 				// First get the package where to create it, according to its name
-				Package creationPackage = creationPackageCatalog.getCreationPackage(qualifiedName);
+				Package creationPackage = creationPackageCatalog.getCreationPackage(qualifiedName, qualifiedNamesInProjects);
 				// Now, create it.
 				foundClass = UmlUtils.getClassifier(creationPackage, qualifiedName, expectedType);
 			} else {
-				// The qualified name is relative to one of the enclosing namespace.
+				// If the qualified name is a short name, it might be relative to one of the enclosing namespace.
 				// Check if it exist, or create it.
 				foundClass = UmlUtils.getGuessedClassifier(enclosingNamespaces, qualifiedName, expectedType);
 			}
@@ -395,7 +484,66 @@ public class CompilationUnitAnalyser {
 			// foundClass = UmlUtils.getClassifier(creationPackage, qualifiedName, expectedType);
 			// }
 		}
+		
+		// Apply stereotypes if found class is an external type (not found in any selected project)
+		handleExternalType(qualifiedName, foundClass);
+		
 		return foundClass;
+	}
+	
+	private void handleExternalType(List<String> qualifiedName, Classifier foundClass) {
+		if (qualifiedName != null && foundClass != null) {
+			if (qualifiedName.size() > 1) {
+				String flatQualifiedName = creationPackageCatalog.toFlatQualifiedName(qualifiedName);
+				if (qualifiedNamesInProjects != null && !qualifiedNamesInProjects.contains(flatQualifiedName)) {
+					// Apply NoCodeGen on packages like java, osgi, etc...
+					/*Package creationPackage = creationPackageCatalog.getCreationPackage(qualifiedName, qualifiedNamesInProjects);
+					if (creationPackage != null) {
+						if (creationPackageCatalog.getDefaultPackage() instanceof Model && !creationPackageCatalog.getDefaultPackage().equals(creationPackage)) {
+							// Case of java, osgi, etc... packages that are created for types in packages following a specific pattern
+							if (UMLUtil.getStereotypeApplication(creationPackage, NoCodeGen.class) == null) {
+								StereotypeUtil.apply(creationPackage, NoCodeGen.class);
+							}
+						}
+					}*/
+					
+					// Apply External on found class
+					applyExternalStereotypes(foundClass, qualifiedName);
+				}
+			} else if (qualifiedName.size() == 1) {
+				if (!shortNameInQualifiedNamesOfProjects(qualifiedName)) {
+					// Apply External on found class
+					applyExternalStereotypes(foundClass, qualifiedName);
+				}
+			}
+			
+		}
+	}
+	
+	private boolean shortNameInQualifiedNamesOfProjects(List<String> qualifiedName) {
+		if (qualifiedNamesInProjects == null || qualifiedName == null) {
+			return false;
+		}
+		
+		String flatQualifiedName = creationPackageCatalog.toFlatQualifiedName(qualifiedName);
+		if (qualifiedName.size() > 0) {
+			for (String qualifiedNameInProjects : qualifiedNamesInProjects) {
+				if (qualifiedNameInProjects.endsWith(flatQualifiedName)) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	private void applyExternalStereotypes(Classifier foundClass, List<String> qualifiedName) {
+		External externalStereotype = UMLUtil.getStereotypeApplication(foundClass, External.class);
+		if (externalStereotype == null) {
+			StereotypeUtil.apply(foundClass, External.class);
+			externalStereotype = UMLUtil.getStereotypeApplication(foundClass, External.class);
+		}
+		externalStereotype.setName(creationPackageCatalog.toFlatQualifiedName(qualifiedName));
 	}
 
 	/**
@@ -434,6 +582,45 @@ public class CompilationUnitAnalyser {
 			}
 		}
 	}
+	
+	/**
+	 * Create all enum constants and add it to the parent.
+	 *
+	 * @param n
+	 * @param parent
+	 */
+	protected void processEnumConstant(EnumConstantDeclaration n, Type parent) {
+		if (parent instanceof Enumeration) {
+			EnumerationLiteral enumLiteral = (EnumerationLiteral) ((Enumeration) parent).getMember(n.getName(), false, UMLPackage.eINSTANCE.getEnumerationLiteral());
+			if (enumLiteral == null) {
+				enumLiteral = ((Enumeration) parent).createOwnedLiteral(n.getName());
+			}
+			
+			if (enumLiteral != null) {
+				if (n.getArgs() != null && n.getArgs().size() > 0) {
+					String arguments = "";
+					for (int i = 0; i < n.getArgs().size() - 1; i++) {
+						arguments += n.getArgs().get(i) + ", ";
+					}
+					arguments += n.getArgs().get(n.getArgs().size() - 1);
+
+					if (!arguments.isEmpty()) {
+						ValueSpecification specification = enumLiteral.getSpecification();
+						if (!(specification instanceof OpaqueExpression)) {
+							if (specification != null) {
+								enumLiteral.setSpecification(null);
+							}
+							specification = enumLiteral.createSpecification("specification", null, UMLPackage.eINSTANCE.getOpaqueExpression());
+						}
+						
+						OpaqueExpression opaqueExpression = (OpaqueExpression) specification;
+						addLanguageBody("JAVA", arguments, opaqueExpression.getLanguages(), opaqueExpression.getBodies());
+					}
+				}
+				
+			}
+		}
+	}
 
 	/**
 	 * Get the qualified name, and other info on type.
@@ -442,7 +629,7 @@ public class CompilationUnitAnalyser {
 	 * @param n
 	 * @return
 	 */
-	private TranslatedTypeData processType(org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type astType) {
+	private TranslatedTypeData processType(org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type astType) {
 		TranslatedTypeData data = typeAnalyser.getTranslatedTypeData(astType);
 
 		return data;
@@ -458,10 +645,20 @@ public class CompilationUnitAnalyser {
 		// Get the uml type
 		Type umlType = null;
 		if (data.isPrimitive) {
-			umlType = classifierCatalog.getClassifier(data.qualifiedName);
+			Package javaPrimitivesModel = UmlUtils.importOrGetModel(rootModel, ImportedTypeCatalog.JAVA_LIBRARY_URI);
+			String primitiveName = TypeAnalyser.wrapperToPrimitive(data);
+			if (primitiveName != null && !primitiveName.isEmpty()) {
+				umlType = UmlUtils.getImportedPrimitive(javaPrimitivesModel, primitiveName);
+			} else {
+				umlType = UmlUtils.getImportedPrimitive(javaPrimitivesModel, data.qualifiedName.get(data.qualifiedName.size() - 1));
+			}
+			
 			if (umlType == null) {
-				Package creationPackage = creationPackageCatalog.getCreationPackage(data.qualifiedName);
-				umlType = UmlUtils.getPrimitive(creationPackage, data.qualifiedName);
+				umlType = classifierCatalog.getClassifier(data.qualifiedName);
+				if (umlType == null) {
+					Package creationPackage = creationPackageCatalog.getCreationPackage(data.qualifiedName, qualifiedNamesInProjects);
+					umlType = UmlUtils.getPrimitive(creationPackage, data.qualifiedName);
+				}
 			}
 		} else if (data.isVoid || data.isWildcard) {
 			return null;
@@ -471,14 +668,54 @@ public class CompilationUnitAnalyser {
 			List<String> qualifiedName = data.getTranslatedQualifiedName();
 			boolean isInterface = false;
 			String shortName = qualifiedName.get(qualifiedName.size() - 1);
-
-			// Try to guess if it is an interface.
-			if (shortName.length() > 2 && shortName.startsWith("I") && Character.isUpperCase(shortName.charAt(1))) {
-				isInterface = true;
+			boolean isPrimitiveWrapper = false;
+			
+			switch (shortName) {
+			case "Boolean":
+			case "Byte":
+			case "Char":
+			case "Double":
+			case "Float":
+			case "Integer":
+			case "Long":
+			case "Short":
+				isPrimitiveWrapper = true;
+				break;
+			default:
+				isPrimitiveWrapper = false;
 			}
+			
+			if (isPrimitiveWrapper) {
+				List<String> potentialQualifiedName = importedTypes.getQualifiedName(shortName);
+				if (potentialQualifiedName != null
+						&& potentialQualifiedName.size() == qualifiedName.size()) {				
+					for (int i = 0; i < potentialQualifiedName.size(); i++) {
+						if (!potentialQualifiedName.get(i).equals(qualifiedName.get(i))) {
+							isPrimitiveWrapper = false;
+							break;
+						}
+					}
+					
+					if (isPrimitiveWrapper) {
+						Package javaPrimitivesModel = UmlUtils.importOrGetModel(rootModel, ImportedTypeCatalog.JAVA_LIBRARY_URI);
+						umlType = UmlUtils.getImportedPrimitive(javaPrimitivesModel, shortName);
+						if (umlType == null) {
+							isPrimitiveWrapper = false;
+						}
+					}
+				}
+			}
+			
+			
+			if (!isPrimitiveWrapper) {
+				// Try to guess if it is an interface.
+				if (shortName.length() > 2 && shortName.startsWith("I") && Character.isUpperCase(shortName.charAt(1))) {
+					isInterface = true;
+				}
 
-			// Get or create type.
-			umlType = getUmlClassifier(qualifiedName, isInterface);
+				// Get or create type.
+				umlType = getUmlClassifier(qualifiedName, isInterface);
+			}
 		}
 		return umlType;
 	}
@@ -489,7 +726,7 @@ public class CompilationUnitAnalyser {
 	 * @param astType
 	 * @return
 	 */
-	protected TypeData getAttributeType(org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type astType) {
+	protected TypeData getAttributeType(org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type astType) {
 
 		TypeData res = new TypeData();
 
@@ -507,7 +744,7 @@ public class CompilationUnitAnalyser {
 				// Check for generic parameters
 				if (n.getTypeArgs() != null) {
 					data.genericData = new ArrayList<TypeData>();
-					for (org.eclipse.papyrus.designer.languages.java.reverse.ast.type.Type arg : n.getTypeArgs()) {
+					for (org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.type.Type arg : n.getTypeArgs()) {
 						TypeData argData = new TypeData();
 						arg.accept(this, argData);
 						data.genericData.add(argData);
@@ -638,15 +875,31 @@ public class CompilationUnitAnalyser {
 	 * @param type
 	 */
 	protected void createAttribute(FieldDeclaration n, VariableDeclarator var, Classifier parent, Type type, TranslatedTypeData typeData) {
-
-		// get with no type, and then update type.
+		// Get with no type, and then update type.
 		Property property = UmlUtils.createProperty(parent, null, var.getId().getName(), var.getId().getArrayCount());
+		
+		// Type, javadoc, modifiers, upper/lower bounds
 		property.setType(type);
 		processJavadoc(n.getJavaDoc(), property);
 		processModifiers(n.getModifiers(), property);
 		if (typeData.isCollection()) {
 			property.setLower(typeData.getTranslatedLower());
 			property.setUpper(typeData.getTranslatedUpper());
+		}
+		
+		// Default value
+		Expression init = var.getInit();
+		if (init != null) {
+			ValueSpecification defaultValue = property.getDefaultValue();
+			if (!(defaultValue instanceof OpaqueExpression)) {
+				if (defaultValue != null) {
+					property.setDefaultValue(null);
+				}
+				defaultValue = property.createDefaultValue("defaultValue", null, UMLPackage.eINSTANCE.getOpaqueExpression());
+			}
+			
+			OpaqueExpression opaqueExpression = (OpaqueExpression) defaultValue;
+			addLanguageBody("JAVA", init.toString(), opaqueExpression.getLanguages(), opaqueExpression.getBodies());
 		}
 	}
 
@@ -660,6 +913,21 @@ public class CompilationUnitAnalyser {
 		if (ModifierSet.isAbstract(modifiers)) {
 			property.setIsAbstract(true);
 		}
+		if (ModifierSet.isNative(modifiers)) {
+			if (UMLUtil.getStereotypeApplication(property, Native.class) == null) {
+				StereotypeUtil.apply(property, Native.class);
+			}
+		}
+		if (ModifierSet.isStrictfp(modifiers)) {
+			if (UMLUtil.getStereotypeApplication(property, Strictfp.class) == null) {
+				StereotypeUtil.apply(property, Strictfp.class);
+			}
+		}
+		if (ModifierSet.isSynchronized(modifiers)) {
+			if (UMLUtil.getStereotypeApplication(property, Synchronized.class) == null) {
+				StereotypeUtil.apply(property, Synchronized.class);
+			}
+		}
 		processModifiers(modifiers, (Feature) property);
 	}
 
@@ -670,7 +938,7 @@ public class CompilationUnitAnalyser {
 	 * @param property
 	 */
 	private void processModifiers(int modifiers, Feature property) {
-		// TODO Auto-generated method stub
+		property.setVisibility(VisibilityKind.PRIVATE_LITERAL);
 		if (ModifierSet.isPrivate(modifiers)) {
 			property.setVisibility(VisibilityKind.PRIVATE_LITERAL);
 		}
@@ -686,21 +954,18 @@ public class CompilationUnitAnalyser {
 		if (ModifierSet.isFinal(modifiers)) {
 			property.setIsLeaf(true);
 		}
-		// if (ModifierSet.isNative(modifiers)) {
-		// printer.print("native ");
-		// }
-		// if (ModifierSet.isStrictfp(modifiers)) {
-		// printer.print("strictfp ");
-		// }
-		// if (ModifierSet.isSynchronized(modifiers)) {
-		// printer.print("synchronized ");
-		// }
-		// if (ModifierSet.isTransient(modifiers)) {
-		// property.set(true);
-		// }
-		// if (ModifierSet.isVolatile(modifiers)) {
-		// printer.print("volatile ");
-		// }
+		if (property instanceof Property) {
+			if (ModifierSet.isTransient(modifiers)) {
+				if (UMLUtil.getStereotypeApplication(property, Transient.class) == null) {
+					StereotypeUtil.apply(property, Transient.class);
+				}
+			}
+			if (ModifierSet.isVolatile(modifiers)) {
+				if (UMLUtil.getStereotypeApplication(property, Volatile.class) == null) {
+					StereotypeUtil.apply(property, Volatile.class);
+				}
+			}
+		}
 	}
 
 	/**
@@ -710,18 +975,33 @@ public class CompilationUnitAnalyser {
 	 * @param property
 	 */
 	private void processModifiers(int modifiers, org.eclipse.uml2.uml.Parameter property) {
-		// TODO Auto-generated method stub
-		if (ModifierSet.isPrivate(modifiers)) {
-			property.setVisibility(VisibilityKind.PRIVATE_LITERAL);
-		}
-		if (ModifierSet.isProtected(modifiers)) {
-			property.setVisibility(VisibilityKind.PROTECTED_LITERAL);
-		}
-		if (ModifierSet.isPublic(modifiers)) {
-			property.setVisibility(VisibilityKind.PUBLIC_LITERAL);
-		}
 		if (ModifierSet.isFinal(modifiers)) {
-			property.setDirection(ParameterDirectionKind.IN_LITERAL);
+			//property.setDirection(ParameterDirectionKind.IN_LITERAL);
+			if (UMLUtil.getStereotypeApplication(property, Final.class) == null) {
+				StereotypeUtil.apply(property, Final.class);
+			}
+		}
+	}
+	
+	private void addLanguageBody(String language, String body, List<String> languages, List<String> bodies) {
+		int i = -1;
+		
+		for (int j = 0; j < languages.size(); j++) {
+			if (languages.get(j).equalsIgnoreCase(language)) {
+				i = j;
+				break;
+			}
+		}
+		
+		if (i == -1) {
+			languages.add(language);
+			i = languages.indexOf(language);
+		}
+		
+		if (bodies.size() >= languages.size()) {
+			bodies.set(i, body);
+		} else {
+			bodies.add(body);
 		}
 	}
 
@@ -762,7 +1042,8 @@ public class CompilationUnitAnalyser {
 		// Operation method = UmlUtils.getOperation(classifier, n.getName());
 		Operation method = getUmlOperation(classifier, n.getName(), signature);
 
-		processJavadoc(n.getJavaDoc(), method);
+		processJavadoc(n.getComment(), method);
+//		processJavadoc(n.getJavaDoc(), method);
 		processAnnotation(n.getAnnotations(), method);
 		processModifiers(n.getModifiers(), method);
 		TranslatedTypeData typeData = processType(n.getType());
@@ -780,6 +1061,163 @@ public class CompilationUnitAnalyser {
 		if (n.getParameters() != null) {
 			for (Parameter param : n.getParameters()) {
 				processMethodParameter(param, method);
+			}
+		}
+		
+		// Thrown exceptions
+		if (n.getThrows() != null) {
+			for (ReferenceType thrown : n.getThrows()) {
+				TranslatedTypeData exceptionTypeData = processType(thrown);
+				Type exceptionUmlType = getUmlType(exceptionTypeData);
+				
+				if (exceptionUmlType != null && !method.getRaisedExceptions().contains(exceptionUmlType)) {
+					method.getRaisedExceptions().add(exceptionUmlType);
+				}
+			}
+		}
+		
+		// Body
+		BlockStmt bodyBlock = n.getBody();
+		if (bodyBlock != null) {
+			// TODO get comments in body block
+			String bodyString = bodyBlock.toString();
+			if (bodyString.length() > 1) {
+				bodyString = bodyString.substring(0, bodyString.length() - 1); // Remove trailing "}"
+				bodyString = bodyString.replaceFirst("\\{", ""); // Remove leading "{"
+			}
+			
+			boolean setBody = false;
+			
+			for (Behavior behavior : method.getMethods()) {
+				if (behavior instanceof OpaqueBehavior) {
+					OpaqueBehavior opaqueBehavior = (OpaqueBehavior) behavior;
+					if (opaqueBehavior.getBodies().size() >= opaqueBehavior.getLanguages().size()) {
+						for (int i = 0; i < opaqueBehavior.getLanguages().size(); i++) {
+							if (opaqueBehavior.getLanguages().get(i).equalsIgnoreCase("JAVA")) {
+								opaqueBehavior.getBodies().set(i, bodyString);
+								setBody = true;
+								break;
+							}
+						}
+					}
+				}
+				
+				if (setBody) {
+					break;
+				}
+			}
+			
+			if (!setBody) {
+				if (method.getOwner() instanceof BehavioredClassifier) {
+					BehavioredClassifier clazz = (BehavioredClassifier) method.getOwner();
+					OpaqueBehavior opaqueBehavior = (OpaqueBehavior) clazz.createOwnedBehavior(method.getName(), UMLPackage.eINSTANCE.getOpaqueBehavior());
+					opaqueBehavior.getLanguages().add("JAVA");
+					opaqueBehavior.getBodies().add(bodyString);
+					opaqueBehavior.setSpecification(method);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Process method to be added to the provided classifier.
+	 *
+	 * @param n
+	 * @param classifier
+	 */
+	protected void processConstructor(ConstructorDeclaration n, Classifier classifier) {
+
+		// Get parameters to have a signature
+		// Parameters
+		List<Type> signature = new ArrayList<Type>();
+
+		if (n.getParameters() != null) {
+			List<MethodParameterData> paramDatas = new ArrayList<MethodParameterData>();
+
+			for (Parameter param : n.getParameters()) {
+				MethodParameterData data = new MethodParameterData();
+				data.dataType = processType(param.getType());
+				data.umlType = getUmlType(data.dataType);
+				data.astParameter = param;
+				paramDatas.add(data);
+				signature.add(data.umlType);
+			}
+		}
+		
+		Operation method = getUmlOperation(classifier, n.getName(), signature);
+		
+		if (UMLUtil.getStereotypeApplication(method, Create.class) == null) {
+			StereotypeUtil.apply(method, Create.class);
+		}
+
+		processJavadoc(n.getComment(), method);
+		processAnnotation(n.getAnnotations(), method);
+		processModifiers(n.getModifiers(), method);
+		
+		// Parameters
+		if (n.getParameters() != null) {
+			for (Parameter param : n.getParameters()) {
+				processMethodParameter(param, method);
+			}
+		}
+		
+		// Thrown exceptions
+		if (n.getThrows() != null) {
+			for (NameExpr thrown : n.getThrows()) {
+				String thrownString = thrown.toString();
+				String[] tokens = thrownString.split("\\.");
+				List<String> qualifiedName = Arrays.asList(tokens);
+
+				if (qualifiedName.size() == 1) { // Search for imports of the compilation unit, and registered standard java lang types
+					qualifiedName = importedTypes.getQualifiedName(qualifiedName.get(0));
+				}
+
+				Classifier exceptionClass = getUmlClassifier(qualifiedName, false);
+				if (!method.getRaisedExceptions().contains(exceptionClass)) {
+					method.getRaisedExceptions().add(exceptionClass);
+				}
+			}
+		}
+		
+		// Body
+		BlockStmt bodyBlock = n.getBlock();
+		if (bodyBlock != null) {
+			// TODO get comments in body block
+			String bodyString = bodyBlock.toString();
+			if (bodyString.length() > 1) {
+				bodyString = bodyString.substring(0, bodyString.length() - 1); // Remove trailing "}"
+				bodyString = bodyString.replaceFirst("\\{", ""); // Remove leading "{"
+			}
+			
+			boolean setBody = false;
+			
+			for (Behavior behavior : method.getMethods()) {
+				if (behavior instanceof OpaqueBehavior) {
+					OpaqueBehavior opaqueBehavior = (OpaqueBehavior) behavior;
+					if (opaqueBehavior.getLanguages().size() == opaqueBehavior.getBodies().size()) {
+						for (int i = 0; i < opaqueBehavior.getLanguages().size(); i++) {
+							if (opaqueBehavior.getLanguages().get(i).equalsIgnoreCase("JAVA")) {
+								opaqueBehavior.getBodies().set(i, bodyString);
+								setBody = true;
+								break;
+							}
+						}
+					}
+				}
+				
+				if (setBody) {
+					break;
+				}
+			}
+			
+			if (!setBody) {
+				if (method.getOwner() instanceof BehavioredClassifier) {
+					BehavioredClassifier clazz = (BehavioredClassifier) method.getOwner();
+					OpaqueBehavior opaqueBehavior = (OpaqueBehavior) clazz.createOwnedBehavior(method.getName(), UMLPackage.eINSTANCE.getOpaqueBehavior());
+					opaqueBehavior.getLanguages().add("JAVA");
+					opaqueBehavior.getBodies().add(bodyString);
+					opaqueBehavior.setSpecification(method);
+				}
 			}
 		}
 	}
@@ -885,6 +1323,13 @@ public class CompilationUnitAnalyser {
 			umlParameter.setLower(typeData.getTranslatedLower());
 			umlParameter.setUpper(typeData.getTranslatedUpper());
 		}
+		
+		if (param.toString().contains("...")) {
+			if (UMLUtil.getStereotypeApplication(umlParameter, Variadic.class) == null) {
+				StereotypeUtil.apply(umlParameter, Variadic.class);
+			}
+		}
+		
 		processModifiers(param.getModifiers(), umlParameter);
 		processAnnotation(param.getAnnotations(), method);
 
@@ -907,8 +1352,9 @@ public class CompilationUnitAnalyser {
 	 * @param javaDoc
 	 * @param method
 	 */
-	private void processJavadoc(JavadocComment javaDoc, Element umlElement) {
-		if (javaDoc == null) {
+	private void processJavadoc(org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.comments.Comment javaDoc, Element umlElement) {
+		// TODO uncomment this
+		/*if (javaDoc == null) {
 			return;
 		}
 
@@ -922,7 +1368,7 @@ public class CompilationUnitAnalyser {
 		}
 
 		// Set the body
-		comment.setBody(javaDoc.getContent());
+		comment.setBody(javaDoc.getContent());*/
 	}
 
 	/**
@@ -941,6 +1387,23 @@ public class CompilationUnitAnalyser {
 	protected Class createClass(List<Namespace> enclosingParents, ClassOrInterfaceDeclaration n) {
 		System.out.println("getClass( " + n.getName() + " )");
 		return UmlUtils.getClass(enclosingParents, n.getName());
+	}
+
+	/**
+	 * Create an interface and return it.
+	 * The Classifier is created exactly in the directly enclosing namespace.
+	 * First, a lookup is done to check if it has been created elsewhere in the namespaces. If true, correct the location
+	 * and maybe the type.
+	 *
+	 * Only need to create the object and fill it with data available at this level.
+	 *
+	 * @param enclosingParents
+	 *            enclosing parent, Package included, in case of nested declaration.
+	 * @param n
+	 * @return
+	 */
+	protected Enumeration createEnumeration(List<Namespace> enclosingParents, EnumDeclaration n) {
+		return UmlUtils.getEnumeration(enclosingParents, n.getName());
 	}
 
 	/**
@@ -976,7 +1439,7 @@ public class CompilationUnitAnalyser {
 		// Get the name
 		List<String> qualifiedName = qualifiedNameParser.getPackageQualifiedName(packageDecl);
 		// Get the creation model
-		Package creationPackage = creationPackageCatalog.getCreationPackage(qualifiedName);
+		Package creationPackage = creationPackageCatalog.getCreationPackage(qualifiedName, qualifiedNamesInProjects);
 		// Get the current unit package (where the element are created)
 		Package p = UmlUtils.getPackage(creationPackage, qualifiedName);
 
@@ -1003,18 +1466,22 @@ public class CompilationUnitAnalyser {
 		if (ModifierSet.isAbstract(modifiers)) {
 			c.setIsAbstract(true);
 		}
-		// if (ModifierSet.isStatic(modifiers)) {
-		// c.get
-		// }
+		if (ModifierSet.isStatic(modifiers)) {
+			if (UMLUtil.getStereotypeApplication(c, StaticClassifier.class) == null) {
+				StereotypeUtil.apply(c, StaticClassifier.class);
+			}
+		}
 		if (ModifierSet.isFinal(modifiers)) {
 			c.setIsLeaf(true);
 		}
 		// if (ModifierSet.isNative(modifiers)) {
 		// printer.print("native ");
 		// }
-		// if (ModifierSet.isStrictfp(modifiers)) {
-		// printer.print("strictfp ");
-		// }
+		if (ModifierSet.isStrictfp(modifiers)) {
+			if (UMLUtil.getStereotypeApplication(c, Strictfp.class) == null) {
+				StereotypeUtil.apply(c, Strictfp.class);
+			}
+		}
 		// if (ModifierSet.isSynchronized(modifiers)) {
 		// printer.print("synchronized ");
 		// }
@@ -1046,7 +1513,8 @@ public class CompilationUnitAnalyser {
 		}
 
 		// Comments
-		processJavadoc(n.getJavaDoc(), processedClass);
+//		processJavadoc(n.getJavaDoc(), processedClass);
+		processJavadoc(n.getComment(), processedClass);
 
 		// Extends parameters
 		if (n.getExtends() != null) {
@@ -1084,7 +1552,23 @@ public class CompilationUnitAnalyser {
 		return processedClass;
 	}
 
+	/**
+	 * Process Class or Interface declaration (only the head of the class, not the members).
+	 *
+	 * @param n
+	 * @param parent
+	 * @return
+	 */
+	private Enumeration processEnumDeclaration(EnumDeclaration n, List<Namespace> enclosingParents) {
 
+		Enumeration processedClass = createEnumeration(enclosingParents, n);
+
+		// Comments
+		processJavadoc(n.getJavaDoc(), processedClass);
+
+		return processedClass;
+	}
+	
 	/**
 	 * Visitor used to create Package from a qualified names
 	 * Example : javagen.parser

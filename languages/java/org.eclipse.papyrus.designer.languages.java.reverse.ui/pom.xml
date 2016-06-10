@@ -4,9 +4,9 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.languages.java</artifactId>
-		<version>0.7.0-SNAPSHOT</version>
+		<version>0.7.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.reverse.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<description>This module contains the UI part of reversing of Java code</description>
+	<description>This module contains the UI of the Java code reverse feature</description>
 </project>
