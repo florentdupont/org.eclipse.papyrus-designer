@@ -13,63 +13,32 @@
 
 package org.eclipse.papyrus.designer.languages.java.reverse.classesundertest;
 
+import java.util.List;
 
 /**
- * A little comment in the class.
- * A second line in Javadoc
- * 
  * @author dumoulin
  *
  */
-public class SimpleClass {
+public class PropertiesWithGenerics<N, T> {
 
-	protected int x, y;
+	T propertyTypedByGeneric;
+	
+	T[] arrayTypedByGeneric;
+	
+	List<N> listWithGenericN;
+	
+	List<List<N>> listOfListOfGenericN;
+	
+	List<?> listOfUnknown;
+	
+	List<? extends String> listOfUnknownExtendingString;
 	
 	/**
 	 * Constructor.
 	 *
 	 */
-	public SimpleClass() {
+	public PropertiesWithGenerics() {
 		// TODO Auto-generated constructor stub
-	}
-
-	
-	/**
-	 * Constructor.
-	 *
-	 * @param x
-	 * @param y
-	 */
-	public SimpleClass(int x, int y) {
-		super();
-		this.x = x;
-		this.y = y;
-	}
-
-
-	/**
-	 * @return the x
-	 */
-	public int getX() {
-		return x;
-	}
-	/**
-	 * @param x the x to set
-	 */
-	public void setX(int x) {
-		this.x = x;
-	}
-	/**
-	 * @return the y
-	 */
-	public int getY() {
-		return y;
-	}
-	/**
-	 * @param y the y to set
-	 */
-	public void setY(int y) {
-		this.y = y;
 	}
 
 }

@@ -134,7 +134,7 @@ public class ClassifierCatalog {
 	 * Get the classifier by its qualified name.
 	 *
 	 * @param qualifiedName
-	 * @return
+	 * @return The requested Classifier, or null if not found.
 	 */
 	public Classifier getClassifier(List<String> qualifiedName) {
 		return lookupNamedElement(qualifiedName, null);
@@ -390,4 +390,5 @@ public class ClassifierCatalog {
 		}
 
 	}
+
 }

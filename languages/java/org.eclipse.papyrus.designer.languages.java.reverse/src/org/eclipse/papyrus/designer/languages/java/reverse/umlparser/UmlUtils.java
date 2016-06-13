@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -51,6 +50,10 @@ import org.eclipse.uml2.uml.UMLPackage;
  */
 public class UmlUtils {
 
+	
+	static final public EClass CLASS_TYPE = UMLPackage.eINSTANCE.getClass_();
+	static final public EClass INTERFACE_TYPE = UMLPackage.eINSTANCE.getInterface();
+	
 	private static final String WILDCARD = "*";
 
 	/**
@@ -562,6 +565,19 @@ public class UmlUtils {
 
 		parent = p;
 		String shortname = qualifiedName.get(qualifiedName.size() - 1);
+		return lookupClassifier(parent, shortname, expectedType);
+	}
+
+	/**
+	 * Lookup for the specified classifier by its shortname in the provided {@link Namespace}. Do not create the Classifier.
+	 * Return null if not found.
+	 * 
+	 * @param parent The {@link Namespace} that should contained the requested classisifer
+	 * @param shortname The shortname of the requested classifier.
+	 * @param expectedType The expected type of the classifier.
+	 * @return The requested classifier or null if not found.
+	 */
+	public static <R extends Classifier> R lookupClassifier(Namespace parent, String shortname, EClass expectedType) {
 		Classifier result;
 
 		if (parent instanceof Package)
@@ -632,42 +648,82 @@ public class UmlUtils {
 	/**
 	 * Get the class in the specified {@link Namespace}. Create the class if not found.
 	 * 
-	 * @param enclosingParents
+	 * @param parents
 	 *            The namespace where the class should be located.
-	 * @param name Name of the class to create
+	 * @param shortname Name of the class to create
 	 * @return
 	 * @since 0.7.1
 	 */
-	public static Class getExactClass(Namespace enclosingParents, String name) {
+	public static Class getExactClass(Namespace parents, String shortname) {
 
-		EClass type = UMLPackage.eINSTANCE.getClass_();
-		Class result = (Class) getExactClassifier(enclosingParents, name, type);
+		return getExactClassifier(parents, shortname, UMLPackage.eINSTANCE.getClass_());
+	}
 
-		return result;
+	/**
+	 * Create the class in the specified {@link Package}. 
+	 * 
+	 * @param parents
+	 *            The {@link Package} where the class should be created.
+	 * @param shortname Name of the class to create
+	 * @return The created Class
+	 * @since 0.7.1
+	 */
+	public static Class createClass(Package parents, String shortname) {
+
+		return parents.createOwnedClass(shortname, false);
+	}
+
+	/**
+	 * Lookup for the specified Class by its name in the provided Namespace.
+	 * 
+	 * @param The {@link Namespace} that should contained the requested classisifer
+	 * @param shortname
+	 * @return The requested Class, or null if not found.
+	 * @since 0.7.1
+	 */
+	public static Class lookupClass(Namespace parent, String name) {
+
+		return lookupClassifier(parent, name, UMLPackage.eINSTANCE.getClass_());
 	}
 
 	/**
 	 * @param enclosingParents
 	 *            list of enclosing parent, from the most outerside to the most inner side.
-	 * @param name
+	 * @param shortname
 	 * @return
 	 */
-	public static Enumeration getEnumeration(List<Namespace> enclosingParents, String name) {
+	public static Enumeration getEnumeration(List<Namespace> enclosingParents, String shortname) {
 		EClass type = UMLPackage.eINSTANCE.getEnumeration();
-		Enumeration result = (Enumeration) getClassifier(enclosingParents, name, type);
+		Enumeration result = (Enumeration) getClassifier(enclosingParents, shortname, type);
 
 		return result;
 	}
 
 	/**
-	 * @param enclosingParents
+	 * @param parents
 	 *            list of enclosing parent, from the most outerside to the most inner side.
-	 * @param name
+	 * @param shortname
 	 * @return
+	 * @since 0.7.1
 	 */
-	public static Enumeration getExactEnumeration(Namespace enclosingParents, String name) {
+	public static Enumeration getExactEnumeration(Namespace parents, String shortname) {
 		EClass type = UMLPackage.eINSTANCE.getEnumeration();
-		Enumeration result = (Enumeration) getExactClassifier(enclosingParents, name, type);
+		Enumeration result = (Enumeration) getExactClassifier(parents, shortname, type);
+
+		return result;
+	}
+
+	/**
+	 * Lookup for the specified Enumeration by its name in the provided Namespace.
+	 * 
+	 * @param parents
+	 *            The {@link Namespace} that should contained the requested classisifer
+	 * @param shortname
+	 * @return The requested Enumeration, or null if not found.
+	 */
+	public static Enumeration lookupEnumeration(Namespace parents, String shortname) {
+		EClass type = UMLPackage.eINSTANCE.getEnumeration();
+		Enumeration result = (Enumeration) lookupClassifier(parents, shortname, type);
 
 		return result;
 	}
@@ -756,7 +812,7 @@ public class UmlUtils {
 
 		/**
 		 * Get or create a Classifier by its name. The type of the classifier can be Class or Interface
-		 * The classifier willbe located in the provided {@link Namespace}.
+		 * The classifier will be located in the provided {@link Namespace}.
 		 *
 		 * If the classifier previously exists, check its type and change it according to the requested type.
 		 *
@@ -765,14 +821,15 @@ public class UmlUtils {
 		 * @param type
 		 * @return
 		 */
-		private static Classifier getExactClassifier(Namespace parent, String name, EClass type) {
+		@SuppressWarnings("unchecked")
+		private static <R extends Classifier> R getExactClassifier(Namespace parent, String name, EClass type) {
 
 			Namespace namespace = parent;
 
 			// Lookup for the exact type
 			Classifier result = (Classifier) namespace.getOwnedMember(name, false, type);
 			if (result != null) {
-				return result;
+				return (R) result;
 			} 
 			else {
 				// Lookup for another type (generally class, because it is the default creation type)
@@ -780,7 +837,7 @@ public class UmlUtils {
 				if (result != null) {
 					// Correct the classifier type
 					result = (Classifier) transformInto(result, type);
-					return result;
+					return (R) result;
 				}
 			}
 
@@ -808,7 +865,21 @@ public class UmlUtils {
 				result = (Classifier) ((Package) parent).getOwnedType(name, false, type, true);
 
 			}
-			return result;
+			return (R)result;
+		}
+
+		/**
+		 * Create the class in the specified {@link Package}. 
+		 * 
+		 * @param parents
+		 *            The {@link Package} where the class should be created.
+		 * @param shortname Name of the class to create
+		 * @return The created Class
+		 * @since 0.7.1
+		 */
+		public static Type createType(Package parents, String shortname, EClass type) {
+
+			return parents.createOwnedType(shortname, type);
 		}
 
 	/**
@@ -908,11 +979,11 @@ public class UmlUtils {
 	/**
 	 *
 	 * @param parent
-	 * @param name
+	 * @param shortname
 	 * @return
 	 */
-	public static Interface getInterface(Package parent, String name) {
-		Interface p = (Interface) parent.getOwnedType(name, false, UMLPackage.eINSTANCE.getInterface(), true);
+	public static Interface getInterface(Package parent, String shortname) {
+		Interface p = (Interface) parent.getOwnedType(shortname, false, UMLPackage.eINSTANCE.getInterface(), true);
 		return p;
 	}
 
@@ -920,22 +991,37 @@ public class UmlUtils {
 	 *
 	 * @param enclosingParents
 	 *            list of enclosing parent, from the most outerside to the most inner side.
-	 * @param name
+	 * @param shortname
 	 * @return
 	 */
-	public static Interface getInterface(List<Namespace> enclosingParents, String name) {
-		return (Interface) getClassifier(enclosingParents, name, UMLPackage.eINSTANCE.getInterface());
+	public static Interface getInterface(List<Namespace> enclosingParents, String shortname) {
+		return (Interface) getClassifier(enclosingParents, shortname, UMLPackage.eINSTANCE.getInterface());
 	}
 
 	/**
 	 *
 	 * @param enclosingParents
 	 *            list of enclosing parent, from the most outerside to the most inner side.
-	 * @param name
+	 * @param shortname
 	 * @return
 	 */
-	public static Interface getExactInterface(Namespace enclosingParents, String name) {
-		return (Interface) getExactClassifier(enclosingParents, name, UMLPackage.eINSTANCE.getInterface());
+	public static Interface getExactInterface(Namespace enclosingParents, String shortname) {
+		return (Interface) getExactClassifier(enclosingParents, shortname, UMLPackage.eINSTANCE.getInterface());
+	}
+
+	/**
+	 * Lookup for the specified {@link Interface} by its name in the provided Namespace.
+	 * 
+	 * @param parents
+	 *            The {@link Namespace} that should contained the requested classisifer
+	 * @param shortname
+	 * @return The requested Interface, or null if not found.
+	 * 
+	 * @since 0.7.1
+	 */
+	public static Interface lookupInterface(Namespace parent, String shortname) {
+		
+		return lookupClassifier(parent, shortname, UMLPackage.eINSTANCE.getInterface());
 	}
 
 	/**

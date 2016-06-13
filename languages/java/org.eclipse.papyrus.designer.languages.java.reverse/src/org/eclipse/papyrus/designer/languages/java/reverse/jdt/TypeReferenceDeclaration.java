@@ -11,60 +11,39 @@
  *   
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.languages.java.reverse.classesundertest;
+package org.eclipse.papyrus.designer.languages.java.reverse.jdt;
+
+import org.eclipse.jdt.core.dom.FieldDeclaration;
 
 /**
- * @author dumoulin
+ * Class carrying data about the Type of a Property, a Parameter,  ...
+ * 
+ * @author cedric dumoulin
  *
  */
-public class ClassWithNestedClass {
+public class TypeReferenceDeclaration {
 
+	public enum MultiplicityKind {
+		simple, array, collection;
+	}
+	
+	MultiplicityKind multiplicityKind = MultiplicityKind.simple;
+	
 	/**
 	 * Constructor.
 	 *
+	 * @param fieldDeclaration
 	 */
-	public ClassWithNestedClass() {
+	public TypeReferenceDeclaration(FieldDeclaration fieldDeclaration) {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * 
-	 * Class A1
-	 *
+	 * @return
 	 */
-	class A1 {
-		/**
-		 * 
-		 * Class A2
-		 *
-		 */
-		class A2 {
-			/**
-			 * Class A3
-			 *
-			 */
-			class A3 {
-				/** a */
-				ClassWithNestedClass a;
-				ClassWithNestedClassAndCrossReferences external;
-				
-				A1 a1;
-				A2 a2;
-				A22 a22;
-			}
-		}
-		
-		class A22 {
-			
-		}
+	public MultiplicityKind getMultiplicityKind() {
+		// TODO Auto-generated method stub
+		return multiplicityKind;
 	}
-}
 
-/**
- * 
- * Class A22
- *
- */
-abstract class A22 {
-	
 }

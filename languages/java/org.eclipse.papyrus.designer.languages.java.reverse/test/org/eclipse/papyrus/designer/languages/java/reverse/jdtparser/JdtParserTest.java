@@ -155,5 +155,37 @@ public class JdtParserTest extends AbstractTest {
 			
 	}
 
+	/**
+	 * Test method for {@link org.eclipse.papyrus.designer.languages.java.reverse.javaparser.JavaParser#parse(java.io.InputStream)}.
+	 * @throws IOException 
+	 * @throws ParseException 
+	 */
+	@Test
+	public void testTypeJavadoc() throws IOException {
+		
+			InputStream inputStream = getJavaFileInputStream(SimpleClass_class);
+			Scanner scanner = new Scanner(inputStream,"UTF-8");
+			String str = scanner.useDelimiter("\\A").next();
+			scanner.close();
+			
+			ASTParser parser = ASTParser.newParser(AST.JLS8);
+			parser.setSource(str.toCharArray());
+			parser.setKind(ASTParser.K_COMPILATION_UNIT);
+	 
+			final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+			
+			assertNotNull("CU created", cu);
+			
+			List<AbstractTypeDeclaration> types = (List<AbstractTypeDeclaration>)cu.types();
+			// Get first type
+			AbstractTypeDeclaration type = types.get(0);
+			
+			
+			assertNotNull("comment found", type.getJavadoc());
+//			assertNotNull("javadoc found", typeDecl.getJavaDoc());
+			System.err.println(type.getJavadoc());
+			
+	}
+
 
 }

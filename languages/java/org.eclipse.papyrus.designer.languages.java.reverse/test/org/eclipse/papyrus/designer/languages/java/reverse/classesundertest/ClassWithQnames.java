@@ -13,63 +13,21 @@
 
 package org.eclipse.papyrus.designer.languages.java.reverse.classesundertest;
 
-
 /**
- * A little comment in the class.
- * A second line in Javadoc
- * 
  * @author dumoulin
  *
  */
-public class SimpleClass {
+public class ClassWithQnames {
 
-	protected int x, y;
+	ClassWithQnames.A nameFromType;
+	org.eclipse.papyrus.designer.languages.java.reverse.classesundertest.SimpleClass fullyQualifiedName;
 	
-	/**
-	 * Constructor.
-	 *
-	 */
-	public SimpleClass() {
-		// TODO Auto-generated constructor stub
-	}
-
 	
-	/**
-	 * Constructor.
-	 *
-	 * @param x
-	 * @param y
-	 */
-	public SimpleClass(int x, int y) {
-		super();
-		this.x = x;
-		this.y = y;
+	class A {
+		
 	}
-
-
-	/**
-	 * @return the x
-	 */
-	public int getX() {
-		return x;
+	
+	class B {
+		
 	}
-	/**
-	 * @param x the x to set
-	 */
-	public void setX(int x) {
-		this.x = x;
-	}
-	/**
-	 * @return the y
-	 */
-	public int getY() {
-		return y;
-	}
-	/**
-	 * @param y the y to set
-	 */
-	public void setY(int y) {
-		this.y = y;
-	}
-
 }

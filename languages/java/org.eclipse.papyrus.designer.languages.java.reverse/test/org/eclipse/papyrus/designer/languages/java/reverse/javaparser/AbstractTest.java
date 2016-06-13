@@ -30,6 +30,21 @@ public class AbstractTest {
 	static public final String SimpleClass_classname = classname(SimpleClass_class);
 	static public final String ClassWithImport_class = "org/eclipse/papyrus/designer/languages/java/reverse/classesundertest/ClassWithImports";	
 	static public final String ClassWithImport_classname = classname(ClassWithImport_class);
+
+	static public final String ExtendsSimple_class = "org/eclipse/papyrus/designer/languages/java/reverse/classesundertest/ExtendsSimple";	
+	static public final String ExtendsSimple_classname = classname(ExtendsSimple_class);
+	
+	static public final String ExtendsGeneric_class = "org/eclipse/papyrus/designer/languages/java/reverse/classesundertest/ExtendsGeneric";	
+	static public final String ExtendsGeneric_classname = classname(ExtendsGeneric_class);
+	
+	static public final String ExtendsWithGeneric_class = "org/eclipse/papyrus/designer/languages/java/reverse/classesundertest/ExtendsWithGeneric";	
+	static public final String ExtendsWithGeneric_classname = classname(ExtendsWithGeneric_class);
+	
+	static public final String ClassWithTypes_class = "org/eclipse/papyrus/designer/languages/java/reverse/classesundertest/ClassWithTypes";	
+	static public final String ClassWithTypes_classname = classname(ClassWithTypes_class);
+	
+	static public final String ClassWithTypesQName_class = "org/eclipse/papyrus/designer/languages/java/reverse/classesundertest/ClassWithQnames";	
+	static public final String ClassWithTypesQName_class_classname = classname(ClassWithTypesQName_class);
 	
 	static public final String SRC_FOLDER_NAME = "test";
 	static public final String JAVA_EXT = ".java";

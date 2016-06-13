@@ -13,63 +13,29 @@
 
 package org.eclipse.papyrus.designer.languages.java.reverse.classesundertest;
 
+import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.*;
+import org.eclipse.papyrus.designer.languages.java.reverse.jdtparser.*;
 
 /**
- * A little comment in the class.
- * A second line in Javadoc
+ * Class to test '*' in imports.
+ * In version 0.7.2, the imported classes are recognized only if they are reversed prior of this class.
  * 
  * @author dumoulin
  *
  */
-public class SimpleClass {
+public class ImportsWithStar extends AbstractTest {
 
-	protected int x, y;
+	AbstractTest abstractTest;
+	JdtParserExtendsTest javaParserTest;
+	AbstractJdtParserTest abstractJdtParserTest;
+	
 	
 	/**
 	 * Constructor.
 	 *
 	 */
-	public SimpleClass() {
+	public ImportsWithStar() {
 		// TODO Auto-generated constructor stub
-	}
-
-	
-	/**
-	 * Constructor.
-	 *
-	 * @param x
-	 * @param y
-	 */
-	public SimpleClass(int x, int y) {
-		super();
-		this.x = x;
-		this.y = y;
-	}
-
-
-	/**
-	 * @return the x
-	 */
-	public int getX() {
-		return x;
-	}
-	/**
-	 * @param x the x to set
-	 */
-	public void setX(int x) {
-		this.x = x;
-	}
-	/**
-	 * @return the y
-	 */
-	public int getY() {
-		return y;
-	}
-	/**
-	 * @param y the y to set
-	 */
-	public void setY(int y) {
-		this.y = y;
 	}
 
 }

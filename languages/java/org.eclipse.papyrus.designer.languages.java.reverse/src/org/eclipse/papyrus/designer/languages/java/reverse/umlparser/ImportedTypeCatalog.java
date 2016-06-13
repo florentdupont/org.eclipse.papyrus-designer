@@ -3,6 +3,9 @@
  */
 package org.eclipse.papyrus.designer.languages.java.reverse.umlparser;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +21,9 @@ public class ImportedTypeCatalog {
 
 	private Map<String, List<String>> map = new HashMap<String, List<String>>();
 
+	/** List of imports ending with '*' */
+	private List<List<String>> startImports;
+	
 	/**
 	 * Default mapping to be set
 	 */
@@ -61,14 +67,14 @@ public class ImportedTypeCatalog {
 	 * Get the associated qualified name from the imports.
 	 * Return the translation or the name itself, as a qualifiedName.
 	 *
-	 * @param name
+	 * @param shortName
 	 * @return
 	 */
-	public List<String> getQualifiedName(String name) {
+	public List<String> getQualifiedName(String shortName) {
 
-		List<String> res = map.get(name);
+		List<String> res = map.get(shortName);
 		if (res == null) {
-			res = UmlUtils.toQualifiedName(name);
+			res = UmlUtils.toQualifiedName(shortName);
 		}
 		return res;
 	}
@@ -76,12 +82,12 @@ public class ImportedTypeCatalog {
 	/**
 	 * Lookup the associated qualified name from the imports.
 	 *
-	 * @param name
+	 * @param shortName
 	 * @return The qualified name, or null if there is no matching qualified name.
 	 */
-	private List<String> lookupQualifiedName(String name) {
+	private List<String> lookupQualifiedName(String shortName) {
 
-		List<String> res = map.get(name);
+		List<String> res = map.get(shortName);
 		return res;
 	}
 
@@ -136,7 +142,7 @@ public class ImportedTypeCatalog {
 		String lastName = qualifiedName.get(qualifiedName.size() - 1);
 		System.out.println("ImportedCatalog.add(" + qualifiedName + ")");
 		if ("*".equals(lastName)) {
-			addPackageClasses(qualifiedName);
+			addStarImport(qualifiedName.subList(0, qualifiedName.size() - 1));
 		} else {
 			map.put(lastName, qualifiedName);
 		}
@@ -149,20 +155,10 @@ public class ImportedTypeCatalog {
 	 */
 	public void addStarImport(List<String> qualifiedName) {
 
-		addPackageClasses(qualifiedName);
-	}
-
-	/**
-	 * Add all the class from the package.
-	 * Last name is '*'
-	 *
-	 * @param qualifiedName
-	 */
-	private void addPackageClasses(List<String> qualifiedName) {
-		// TODO Auto-generated method stub
-		// throw new UnsupportedOperationException("not yet implmeented");
-		System.err.println(this.getClass().getName()
-				+ ".addPackageClasses() - Not yet implemented - can't process import with 'p1.p2.*;'");
+		if( startImports == null) {
+			startImports = new ArrayList<List<String>>();
+		}
+		startImports.add(qualifiedName);
 	}
 
 	/**
@@ -172,6 +168,17 @@ public class ImportedTypeCatalog {
 		map.clear();
 		setDefaultMapping(defaultMappingNames);
 
+	}
+
+	/**
+	 * @return
+	 */
+	public List<List<String>> getStarImports() {
+		if( startImports !=null) {
+			return startImports;
+		}
+		// empty list
+		return Collections.emptyList();
 	}
 
 }
