@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_DtQEwDLdEd2_U4efLnjQIw" name="CORBA">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_Qm8QcGJWEeG3qIU2KF8MuA">
+      <body>Make sure that an include of a file that defines the CORBA types is done in case of C++. While the language mapping of IDL is standardized, the name of the file is not.</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_ZXcrcD0REd2lhaJErguyFA" name="Array">
+      <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_IaxxED3kEd2O2pi7NYtbsg" parameter="_KfvScD3kEd2O2pi7NYtbsg _ZngtYD3lEd2O2pi7NYtbsg _8xIjUEd5Ed2Q3Lt-_ZCAOw">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_KfvScD3kEd2O2pi7NYtbsg" parameteredElement="_UOqO0D3kEd2O2pi7NYtbsg">
+          <ownedParameteredElement xmi:type="uml:DataType" xmi:id="_UOqO0D3kEd2O2pi7NYtbsg" name="T" templateParameter="_KfvScD3kEd2O2pi7NYtbsg"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:TemplateParameter" xmi:id="_ZngtYD3lEd2O2pi7NYtbsg" parameteredElement="_cULvAD3lEd2O2pi7NYtbsg">
+          <ownedParameteredElement xmi:type="uml:LiteralInteger" xmi:id="_cULvAD3lEd2O2pi7NYtbsg" name="nbOfRows" templateParameter="_ZngtYD3lEd2O2pi7NYtbsg"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:TemplateParameter" xmi:id="_8xIjUEd5Ed2Q3Lt-_ZCAOw" parameteredElement="_J9OKIEd6Ed2Q3Lt-_ZCAOw">
+          <ownedParameteredElement xmi:type="uml:LiteralInteger" xmi:id="_J9OKIEd6Ed2Q3Lt-_ZCAOw" name="nbOfColons" templateParameter="_8xIjUEd5Ed2Q3Lt-_ZCAOw"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_fMhocD0REd2lhaJErguyFA" name="numberOfRows" visibility="public" type="_FxVBkB6LEd6Nj_33Eb_pxw" isUnique="false">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_-yHRsEd7Ed2Q3Lt-_ZCAOw" value="nbOfRows"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_fx0t4D0REd2lhaJErguyFA" name="numberOfColons" visibility="public" type="_FxVBkB6LEd6Nj_33Eb_pxw" isUnique="false">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_fNdNkEd6Ed2Q3Lt-_ZCAOw" value="nbOfColons"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_aGz1YD0dEd2lhaJErguyFA" name="elementType" visibility="public" type="_UOqO0D3kEd2O2pi7NYtbsg" isUnique="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WHQBkEd7Ed2Q3Lt-_ZCAOw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WHZLgEd7Ed2Q3Lt-_ZCAOw" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_WHjjkEd7Ed2Q3Lt-_ZCAOw">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="__XFfIB-UEd6nGq8wpI2tjg" name="Any"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Pf0dQB-VEd6nGq8wpI2tjg" name="wchar"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_CTLbgB6SEd6ITtm_FH3jRw" name="unsigned short"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Wx0C4B6SEd6ITtm_FH3jRw" name="unsigned long long"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-5FTMB6REd6ITtm_FH3jRw" name="unsigned long"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_9XvcQB6REd6ITtm_FH3jRw" name="short"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_IYEXcB-VEd6nGq8wpI2tjg" name="octet"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_7CL6IB6REd6ITtm_FH3jRw" name="long long"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_wzSnwB6SEd6ITtm_FH3jRw" name="long double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_FxVBkB6LEd6Nj_33Eb_pxw" name="long"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_wbw4kB6SEd6ITtm_FH3jRw" name="float"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_qgMSAB6SEd6ITtm_FH3jRw" name="double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_GPceEB-VEd6nGq8wpI2tjg" name="char"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Bv7l0B-VEd6nGq8wpI2tjg" name="boolean"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-jB3gCvJEeaYpOY-WMgw6g" name="string"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DtQEwjLdEd2_U4efLnjQIw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DtQEwzLdEd2_U4efLnjQIw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_JV5UgB6LEd6Nj_33Eb_pxw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JWB3YB6LEd6Nj_33Eb_pxw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:ModelLibrary xmi:id="_FrmAwDLdEd2_U4efLnjQIw" base_Package="_DtQEwDLdEd2_U4efLnjQIw"/>
+  <C_Cpp:ExternLibrary xmi:id="_JlrmcCvnEeaYpOY-WMgw6g" base_package="_DtQEwDLdEd2_U4efLnjQIw"/>
+</xmi:XMI>

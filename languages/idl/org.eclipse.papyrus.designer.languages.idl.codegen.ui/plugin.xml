@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.papyrus.designer.popup?after=codegen">
+         <command
+               commandId="org.eclipse.papyrus.designer.langauges.idl.codegen.ui.genIDL"
+               label="Generate IDL code"
+               style="push"
+               tooltip="Generate IDL code">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.papyrus.idl.codegen.ui.commands.category"
+            description="Generate IDL code"
+            id="org.eclipse.papyrus.designer.langauges.idl.codegen.ui.genIDL"
+            name="Generate IDL code">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.eclipse.papyrus.designer.langauges.idl.codegen.ui.genIDL"
+            class="org.eclipse.papyrus.designer.languages.idl.codegen.ui.handlers.GenerateCodeHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
+            class="org.eclipse.papyrus.designer.languages.idl.codegen.ui.preferences.CodegenPreferencePage"
+            id="org.eclipse.papyrus.designer.languages.idl.codegen.ui.preferences.CodeGenPreferencePage"
+            name="IDL code generation"/>
+   </extension>
+</plugin>

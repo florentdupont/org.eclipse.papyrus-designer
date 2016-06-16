@@ -15,6 +15,7 @@
 	<modules>
 		<module>common</module>
 		<module>cpp</module>
+		<module>idl</module>
 		<module>java</module>
 	</modules>
 </project>

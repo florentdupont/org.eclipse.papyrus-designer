@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension id="PDML_IDL" point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="pathmap://PDML_IDL/" target="platform:/plugin/org.eclipse.papyrus.designer.languages.idl.library/models/">
+      </mapping>
+   </extension>
+   <extension name="CORBA basic types" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+      <library description="Designer: CORBA basic types (long, wchar, ...)"
+      		iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+      		name="Designer model library: CORBA basic types"
+      		path="pathmap://PDML_IDL/corba.uml"
+      		provider="CEA LIST">
+      </library>
+   </extension>
+</plugin>
