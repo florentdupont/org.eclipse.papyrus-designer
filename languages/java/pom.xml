@@ -36,11 +36,11 @@
 		<module>
 			org.eclipse.papyrus.designer.languages.java.library.ui
 		</module>
-		<module>
+		<!--<module>
 			org.eclipse.papyrus.designer.languages.java.reverse
 		</module>
 		<module>
 			org.eclipse.papyrus.designer.languages.java.reverse.ui
-		</module>
+		</module>-->
 	</modules>
 </project>
