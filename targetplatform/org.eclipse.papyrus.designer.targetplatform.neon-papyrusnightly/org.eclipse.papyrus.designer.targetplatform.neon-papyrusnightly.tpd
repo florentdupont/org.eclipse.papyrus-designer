@@ -19,3 +19,6 @@ location "http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/neon/
  org.eclipse.papyrus.extra.marte.feature.feature.group lazy
 }
 
+location "https://hudson.eclipse.org/papyrus/job/Papyrus-Master-Developer/lastSuccessfulBuild/artifact/repository/" papyrus-neon-developper-nightly {
+ org.eclipse.papyrus.dev.feature.feature.group lazy
+}
