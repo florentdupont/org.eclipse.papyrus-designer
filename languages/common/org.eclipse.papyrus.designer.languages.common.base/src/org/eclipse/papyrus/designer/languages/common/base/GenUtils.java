@@ -37,7 +37,6 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Parameter;
 import org.eclipse.uml2.uml.ParameterDirectionKind;
 import org.eclipse.uml2.uml.ParameterableElement;
-import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.TemplateBinding;
 import org.eclipse.uml2.uml.TemplateParameter;
@@ -47,7 +46,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 
 
 /**
- * Some utilities: a set of static methods for Acceleo based code generation
+ * Some utilities: a set of static methods for code generation
  *
  * @author wassim, ansgar
  *
