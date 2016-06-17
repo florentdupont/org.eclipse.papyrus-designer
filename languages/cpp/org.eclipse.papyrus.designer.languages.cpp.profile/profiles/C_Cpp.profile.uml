@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
-  <uml:Profile xmi:id="_j9REUByGEduN1bTiWJ0lyw" name="C_Cpp" metaclassReference="_TRvswByHEduN1bTiWJ0lyw _gphJsByIEduN1bTiWJ0lyw _Gt0nQByJEduN1bTiWJ0lyw _GuFF8ByJEduN1bTiWJ0lyw _G0LmkByMEdu0tMSz-ceC5A _G0XMwByMEdu0tMSz-ceC5A _G0a3IByMEdu0tMSz-ceC5A _jBetUByNEdu0tMSz-ceC5A _jB15sByNEdu0tMSz-ceC5A _jB_qsByNEdu0tMSz-ceC5A _jCCuAByNEdu0tMSz-ceC5A _jCGYYByNEdu0tMSz-ceC5A _jCJbsByNEdu0tMSz-ceC5A _X7dJsDlPEd2mO4M0idYmag _OiGWgF5fEeKpvPHLdOdp2Q _41Sz8I1SEeKTUILNxKtfZw _CBeJwOPxEeKKu7vQg_d5Xw">
-    <ownedComment xmi:type="uml:Comment" xmi:id="_KaTwkNY9EeGH9LIP6-_nLw" annotatedElement="_19ZzgByHEduN1bTiWJ0lyw">
-      <body>&quot;declaration&quot; attribute should only be used, if more than one indirections of pointers (often &quot;**&quot;)</body>
-    </ownedComment>
-    <ownedComment xmi:type="uml:Comment" xmi:id="_Ew5PMP2IEeGbWP4cpLE0gg" annotatedElement="_RwTdQByJEduN1bTiWJ0lyw">
-      <body>An arbitrary string that is added to header and body file. Although primarily intended for manual include directives, it can be used for arbitrary definitions.
-&quot;preBody&quot; is added to a C++ body file before automatic include statements, &quot;body&quot; after</body>
-    </ownedComment>
-    <ownedComment xmi:type="uml:Comment" xmi:id="_GS8LQCYNEeKe9vxHwEdBmA" annotatedElement="_A3_lgCYNEeKe9vxHwEdBmA">
-      <body>Some toolkits require a quite particular way of use. For instance, LTTng requires the use of C (not C++) for the declaration of a trace provider and the header file is read several time with redefined macros. Therefore, the code generator supports a &quot;manual&quot; generation mode, in which primarily the contents of the CppInclude directive is written.</body>
-    </ownedComment>
-    <ownedComment xmi:type="uml:Comment" xmi:id="_w-x6sNTPEeKiLbHSN_MIRQ" annotatedElement="_PmXVQByJEduN1bTiWJ0lyw">
-      <body>Mark a package as External Library. If this package is used, the associated CDT project will be configured accordingly.</body>
+	<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+	  <uml:Profile xmi:id="_j9REUByGEduN1bTiWJ0lyw" name="C_Cpp" metaclassReference="_TRvswByHEduN1bTiWJ0lyw _gphJsByIEduN1bTiWJ0lyw _Gt0nQByJEduN1bTiWJ0lyw _GuFF8ByJEduN1bTiWJ0lyw _G0LmkByMEdu0tMSz-ceC5A _G0XMwByMEdu0tMSz-ceC5A _G0a3IByMEdu0tMSz-ceC5A _jBetUByNEdu0tMSz-ceC5A _jB15sByNEdu0tMSz-ceC5A _jB_qsByNEdu0tMSz-ceC5A _jCCuAByNEdu0tMSz-ceC5A _jCGYYByNEdu0tMSz-ceC5A _jCJbsByNEdu0tMSz-ceC5A _X7dJsDlPEd2mO4M0idYmag _OiGWgF5fEeKpvPHLdOdp2Q _41Sz8I1SEeKTUILNxKtfZw _CBeJwOPxEeKKu7vQg_d5Xw">
+		<ownedComment xmi:type="uml:Comment" xmi:id="_KaTwkNY9EeGH9LIP6-_nLw" annotatedElement="_19ZzgByHEduN1bTiWJ0lyw">
+		  <body>&quot;declaration&quot; attribute should only be used, if more than one indirections of pointers (often &quot;**&quot;)</body>
+		</ownedComment>
+		<ownedComment xmi:type="uml:Comment" xmi:id="_Ew5PMP2IEeGbWP4cpLE0gg" annotatedElement="_RwTdQByJEduN1bTiWJ0lyw">
+		  <body>An arbitrary string that is added to header and body file. Although primarily intended for manual include directives, it can be used for arbitrary definitions.
+	&quot;preBody&quot; is added to a C++ body file before automatic include statements, &quot;body&quot; after</body>
+		</ownedComment>
+		<ownedComment xmi:type="uml:Comment" xmi:id="_GS8LQCYNEeKe9vxHwEdBmA" annotatedElement="_A3_lgCYNEeKe9vxHwEdBmA">
+		  <body>Some toolkits require a quite particular way of use. For instance, LTTng requires the use of C (not C++) for the declaration of a trace provider and the header file is read several time with redefined macros. Therefore, the code generator supports a &quot;manual&quot; generation mode, in which primarily the contents of the CppInclude directive is written.</body>
+		</ownedComment>
+		<ownedComment xmi:type="uml:Comment" xmi:id="_w-x6sNTPEeKiLbHSN_MIRQ" annotatedElement="_PmXVQByJEduN1bTiWJ0lyw">
+			  <body>Mark a package as External Library. If this package is used, the associated CDT project will be configured accordingly. Prefix can indicate a common prefix on contained type, typically namespace qualifier</body>
     </ownedComment>
     <ownedComment xmi:type="uml:Comment" xmi:id="_LBAtgNTQEeKiLbHSN_MIRQ" annotatedElement="_IHjS8ByMEdu0tMSz-ceC5A">
       <body>No code generation should be done for this element. This also means that no include directive is generated, if the class is referenced.</body>
     </ownedComment>
     <ownedComment xmi:type="uml:Comment" xmi:id="_PJcigNTQEeKiLbHSN_MIRQ" annotatedElement="_u3zF8ByLEdu0tMSz-ceC5A">
-      <body>Indicates that this package shoudl be a root package, i.e. its contents should appear on top level folder during generation. Currently not used</body>
+      <body>&lt;p>Indicates that this package shoudl be a root package, i.e. its contents should appear on top level folder during generation. Currently not used&lt;/p>
+</body>
     </ownedComment>
     <ownedComment xmi:type="uml:Comment" xmi:id="_gLqSYGa2EeWN5dA9YwhK2A">
       <body>Declare a new type that is based on another type.
@@ -237,6 +238,11 @@ Can be used to define for instance primitive types (like int). Can also be used 
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_PlNt8NTPEeKiLbHSN_MIRQ">
           <value xsi:nil="true"/>
         </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5jlPkCNFEeapuPPQIKFVug" name="prefix">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CBwVwCNGEeapuPPQIKFVug"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CCofgCNGEeapuPPQIKFVug" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_RwTdQByJEduN1bTiWJ0lyw" name="Include">

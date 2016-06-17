@@ -42,7 +42,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternLibrary">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Mark a package as External Library. If this package is used, the associated CDT project will be configured accordingly."/>
+      <details key="documentation" value="Mark a package as External Library. If this package is used, the associated CDT project will be configured accordingly.. Prefix can indicate common prefix on contained type, typically namespace qualifier"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="includePaths" ordered="false"
         unique="false" upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
@@ -56,6 +56,8 @@
         eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="includes" ordered="false"
         upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NoCodeGen">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -66,7 +68,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CppRoot">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Indicates that this package shoudl be a root package, i.e. its contents should appear on top level folder during generation. Currently not used"/>
+      <details key="documentation" value="&lt;p>Indicates that this package shoudl be a root package, i.e. its contents should appear on top level folder during generation. Currently not used&lt;/p>&#xA;"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_package" ordered="false"
         unique="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
@@ -100,7 +102,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_property" ordered="false"
         unique="false" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="declaration" ordered="false"
-        unique="false" eType="ecore:EDataType types.ecore#//String"/>
+        unique="false" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="External">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
@@ -196,12 +198,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variadic">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_operation" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Operation">
-    </eStructuralFeatures>
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Operation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mutable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_property" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property">
-    </eStructuralFeatures>
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
   </eClassifiers>
 </ecore:EPackage>

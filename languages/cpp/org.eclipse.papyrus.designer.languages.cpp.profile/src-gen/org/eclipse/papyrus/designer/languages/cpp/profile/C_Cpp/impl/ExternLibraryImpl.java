@@ -39,6 +39,7 @@ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary;
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl.ExternLibraryImpl#getMacros <em>Macros</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl.ExternLibraryImpl#getLibs <em>Libs</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl.ExternLibraryImpl#getIncludes <em>Includes</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl.ExternLibraryImpl#getPrefix <em>Prefix</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +104,26 @@ public class ExternLibraryImpl extends MinimalEObjectImpl.Container implements E
 	 * @ordered
 	 */
 	protected EList<String> includes;
+
+	/**
+	 * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PREFIX_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected String prefix = PREFIX_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -233,6 +254,27 @@ public class ExternLibraryImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPrefix() {
+		return prefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrefix(String newPrefix) {
+		String oldPrefix = prefix;
+		prefix = newPrefix;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, C_CppPackage.EXTERN_LIBRARY__PREFIX, oldPrefix, prefix));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -249,6 +291,8 @@ public class ExternLibraryImpl extends MinimalEObjectImpl.Container implements E
 				return getLibs();
 			case C_CppPackage.EXTERN_LIBRARY__INCLUDES:
 				return getIncludes();
+			case C_CppPackage.EXTERN_LIBRARY__PREFIX:
+				return getPrefix();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -285,6 +329,9 @@ public class ExternLibraryImpl extends MinimalEObjectImpl.Container implements E
 				getIncludes().clear();
 				getIncludes().addAll((Collection<? extends String>)newValue);
 				return;
+			case C_CppPackage.EXTERN_LIBRARY__PREFIX:
+				setPrefix((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -315,6 +362,9 @@ public class ExternLibraryImpl extends MinimalEObjectImpl.Container implements E
 			case C_CppPackage.EXTERN_LIBRARY__INCLUDES:
 				getIncludes().clear();
 				return;
+			case C_CppPackage.EXTERN_LIBRARY__PREFIX:
+				setPrefix(PREFIX_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -339,6 +389,8 @@ public class ExternLibraryImpl extends MinimalEObjectImpl.Container implements E
 				return libs != null && !libs.isEmpty();
 			case C_CppPackage.EXTERN_LIBRARY__INCLUDES:
 				return includes != null && !includes.isEmpty();
+			case C_CppPackage.EXTERN_LIBRARY__PREFIX:
+				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -363,6 +415,8 @@ public class ExternLibraryImpl extends MinimalEObjectImpl.Container implements E
 		result.append(libs);
 		result.append(", includes: ");
 		result.append(includes);
+		result.append(", prefix: ");
+		result.append(prefix);
 		result.append(')');
 		return result.toString();
 	}

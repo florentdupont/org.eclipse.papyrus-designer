@@ -20,7 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Indicates that this package shoudl be a root package, i.e. its contents should appear on top level folder during generation. Currently not used
+ * <p>Indicates that this package shoudl be a root package, i.e. its contents should appear on top level folder during generation. Currently not used</p>
+ * 
  * <!-- end-model-doc -->
  *
  * <p>

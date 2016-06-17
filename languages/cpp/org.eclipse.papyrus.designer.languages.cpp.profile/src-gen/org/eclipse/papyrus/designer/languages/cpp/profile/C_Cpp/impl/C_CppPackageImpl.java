@@ -529,6 +529,15 @@ public class C_CppPackageImpl extends EPackageImpl implements C_CppPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getExternLibrary_Prefix() {
+		return (EAttribute)externLibraryEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EClass getNoCodeGen() {
 		return noCodeGenEClass;
@@ -1220,6 +1229,7 @@ public class C_CppPackageImpl extends EPackageImpl implements C_CppPackage {
 		createEAttribute(externLibraryEClass, EXTERN_LIBRARY__MACROS);
 		createEAttribute(externLibraryEClass, EXTERN_LIBRARY__LIBS);
 		createEAttribute(externLibraryEClass, EXTERN_LIBRARY__INCLUDES);
+		createEAttribute(externLibraryEClass, EXTERN_LIBRARY__PREFIX);
 
 		noCodeGenEClass = createEClass(NO_CODE_GEN);
 		createEReference(noCodeGenEClass, NO_CODE_GEN__BASE_ELEMENT);
@@ -1368,6 +1378,7 @@ public class C_CppPackageImpl extends EPackageImpl implements C_CppPackage {
 		initEAttribute(getExternLibrary_Macros(), theTypesPackage.getString(), "macros", null, 0, -1, ExternLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExternLibrary_Libs(), theTypesPackage.getString(), "libs", null, 0, -1, ExternLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExternLibrary_Includes(), theTypesPackage.getString(), "includes", null, 0, -1, ExternLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getExternLibrary_Prefix(), theTypesPackage.getString(), "prefix", null, 0, 1, ExternLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(noCodeGenEClass, NoCodeGen.class, "NoCodeGen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNoCodeGen_Base_element(), theUMLPackage.getElement(), null, "base_element", null, 1, 1, NoCodeGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

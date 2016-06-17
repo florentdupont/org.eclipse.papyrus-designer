@@ -80,6 +80,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute C_Cpp.ecore#//ExternLibrary/macros"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute C_Cpp.ecore#//ExternLibrary/libs"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute C_Cpp.ecore#//ExternLibrary/includes"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute C_Cpp.ecore#//ExternLibrary/prefix"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="C_Cpp.ecore#//NoCodeGen">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -111,6 +112,7 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference C_Cpp.ecore#//Ref/base_parameter"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference C_Cpp.ecore#//Ref/base_property"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute C_Cpp.ecore#//Ref/declaration"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="C_Cpp.ecore#//External">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute C_Cpp.ecore#//External/name"/>

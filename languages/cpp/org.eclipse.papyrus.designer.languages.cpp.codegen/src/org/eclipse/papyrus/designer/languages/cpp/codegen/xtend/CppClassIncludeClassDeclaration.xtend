@@ -25,6 +25,7 @@ import org.eclipse.uml2.uml.DataType
 import org.eclipse.uml2.uml.Enumeration
 import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.PrimitiveType
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary
 
 /**
  * @author Önder GÜRCAN (onder.gurcan@cea.fr)
@@ -48,11 +49,14 @@ class CppClassIncludeClassDeclaration {
 		for (cl : list) {
 			//var String str = null
 			if (cl != classifier && !GenUtils.hasStereotype(cl, NoCodeGen) || GenUtils.hasStereotype(cl, External)) {
-				if ((cl instanceof Enumeration || cl instanceof PrimitiveType) && !GenUtils.hasStereotype(cl, External)) {
+				if ((cl instanceof Enumeration || cl instanceof PrimitiveType) &&
+					!GenUtils.hasStereotype(cl, External) &&
+					!GenUtils.hasStereotypeTree(cl, ExternLibrary)) {
 					if (cl.owner instanceof Package && cl.owner != classifier.owner) {
-						/* Enum and Primitive must not be in same package as classifier since
-						we always enums and primitives are defined in the package header which
-						is always included in the classifier header */
+						/*
+						 * No additional include is required, if enum and primitive types are in
+						 * the same package. The latter is always included.
+						 */
 						var includePath = (cl.owner as Package).cppOwnerPackageIncludePath
 						if (!newList.contains(includePath)) newList.add(includePath)
 					} else {

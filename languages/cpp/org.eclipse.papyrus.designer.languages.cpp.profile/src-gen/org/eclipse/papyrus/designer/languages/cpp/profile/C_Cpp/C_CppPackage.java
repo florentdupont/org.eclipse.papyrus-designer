@@ -314,13 +314,22 @@ public interface C_CppPackage extends EPackage {
 	int EXTERN_LIBRARY__INCLUDES = 5;
 
 	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERN_LIBRARY__PREFIX = 6;
+
+	/**
 	 * The number of structural features of the '<em>Extern Library</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERN_LIBRARY_FEATURE_COUNT = 6;
+	int EXTERN_LIBRARY_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Extern Library</em>' class.
@@ -1547,6 +1556,17 @@ public interface C_CppPackage extends EPackage {
 	EAttribute getExternLibrary_Includes();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prefix</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary#getPrefix()
+	 * @see #getExternLibrary()
+	 * @generated
+	 */
+	EAttribute getExternLibrary_Prefix();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen <em>No Code Gen</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2434,6 +2454,14 @@ public interface C_CppPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EXTERN_LIBRARY__INCLUDES = eINSTANCE.getExternLibrary_Includes();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTERN_LIBRARY__PREFIX = eINSTANCE.getExternLibrary_Prefix();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.impl.NoCodeGenImpl <em>No Code Gen</em>}' class.

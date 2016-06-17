@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Mark a package as External Library. If this package is used, the associated CDT project will be configured accordingly.
+ * Mark a package as External Library. If this package is used, the associated CDT project will be configured accordingly.. Prefix can indicate common prefix on contained type, typically namespace qualifier
  * <!-- end-model-doc -->
  *
  * <p>
@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary#getMacros <em>Macros</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary#getLibs <em>Libs</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary#getIncludes <em>Includes</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary#getPrefix <em>Prefix</em>}</li>
  * </ul>
  *
  * @see org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.C_CppPackage#getExternLibrary()
@@ -140,5 +141,31 @@ public interface ExternLibrary extends EObject {
 	 * @generated
 	 */
 	EList<String> getIncludes();
+
+	/**
+	 * Returns the value of the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Prefix</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prefix</em>' attribute.
+	 * @see #setPrefix(String)
+	 * @see org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.C_CppPackage#getExternLibrary_Prefix()
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false"
+	 * @generated
+	 */
+	String getPrefix();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary#getPrefix <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prefix</em>' attribute.
+	 * @see #getPrefix()
+	 * @generated
+	 */
+	void setPrefix(String value);
 
 } // ExternLibrary
