@@ -11,6 +11,7 @@
 
 package org.eclipse.papyrus.designer.languages.cpp.codegen.utils;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +22,7 @@ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Visibility;
+import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.ClassifierTemplateParameter;
 import org.eclipse.uml2.uml.ConnectableElementTemplateParameter;
@@ -121,6 +123,41 @@ public class CppGenUtils {
 	}
 
 	/**
+	 * Specific handling of CORBA basic types. These have the property that the
+	 * type name itself differs from the declared primitive type (in the C++ mapping)
+	 * TODO: This should be handled by a modular extension defined in CORBA modules.
+	 *
+	 * @param type
+	 *            A primitive type
+	 * @return a new type name if for CORBA, null otherwise
+	 */
+	public static String transformCORBABaseTypes(PrimitiveType type) {
+		Object owner = type.getOwner();
+		String owningPkgName = ""; //$NON-NLS-1$
+		if (owner instanceof Package) {
+			owningPkgName = ((Package) owner).getName();
+		}
+		if (owningPkgName.equals("CORBA")) { //$NON-NLS-1$
+			String cppName = "CORBA::"; //$NON-NLS-1$
+			boolean nextUpper = true; // first char is upper
+			for (char ch : type.getName().toCharArray()) {
+				if (ch == ' ') { // after " " is upper
+					nextUpper = true;
+				} else {
+					if (nextUpper) {
+						cppName += Character.toUpperCase(ch);
+					} else {
+						cppName += ch;
+					}
+					nextUpper = false;
+				}
+			}
+			return cppName;
+		}
+		return null;
+	}
+
+	/**
 	 * Return a kind of qualifiedName, except if
 	 * - The named element has the stereotype External or NoCodeGen
 	 * - The named element is part of the ANSI C library
@@ -135,13 +172,35 @@ public class CppGenUtils {
 		}
 		Object owner = ne.getOwner();
 		String owningPkgName = ""; //$NON-NLS-1$
+
 		if (owner instanceof Package) {
 			owningPkgName = ((Package) owner).getName();
 		}
-		if (GenUtils.hasStereotype(ne, External.class) ||
-				GenUtils.hasStereotypeTree(ne, NoCodeGen.class) ||
-				GenUtils.hasStereotypeTree(ne, ExternLibrary.class)) {
+
+		if (ne instanceof PrimitiveType) {
+			// is a standard type
+			String cppType = transformCORBABaseTypes((PrimitiveType) ne);
+			if (cppType != null) {
+				return cppType;
+			}
+		}
+
+		if (GenUtils.hasStereotype(ne, External.class)) {
+			External external = UMLUtil.getStereotypeApplication(ne, External.class);
+			// external might define a name that differs from the UML name
+			if (external.getName() != null && external.getName().length() > 0) {
+				return external.getName();
+			} else {
+				return ne.getName();
+			}
+		}
+		else if (GenUtils.hasStereotypeTree(ne, NoCodeGen.class)) {
 			return ne.getName();
+		}
+		else if (GenUtils.hasStereotypeTree(ne, ExternLibrary.class)) {
+			ExternLibrary extLibrary = GenUtils.getApplicationTree(ne, ExternLibrary.class);
+			// handle potential prefix defined for all types within the external library
+			return GenUtils.maskNull(extLibrary.getPrefix()) + ne.getName();
 		}
 		else if (owningPkgName.equals(ANSI_C_LIB)) {
 			// always use the short name for types within the ANSI C library
@@ -269,7 +328,7 @@ public class CppGenUtils {
 		}
 		return openNS;
 	}
-	
+
 	/**
 	 * Return a C++ open-namespace definition for a named element, without spaces and line breaks
 	 *
@@ -311,7 +370,7 @@ public class CppGenUtils {
 		}
 		return closeNS;
 	}
-	
+
 	/**
 	 * Return a C++ close-namespace definition for a named element, without spaces and line breaks
 	 *
@@ -362,7 +421,7 @@ public class CppGenUtils {
 	public static void resetVisibility(VisibilityKind v) {
 		currVisibility = v;
 	}
-	
+
 	/**
 	 * Get the current visibility so we can restore it when generating nested classes
 	 */
@@ -395,5 +454,24 @@ public class CppGenUtils {
 
 		currVisibility = newVisibility;
 		return currVisibility.toString() + ":\n" + content; //$NON-NLS-1$
+	}
+
+	/**
+	 * @param element
+	 *            An element of the model
+	 * @return the source folder from the Project stereotype, that is eventually applied to the
+	 *         model root.
+	 */
+	public static String getSourceFolder(Element element) {
+		Package rootPkg = PackageUtil.getRootPackage(element);
+		if (rootPkg != null) {
+			org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project projectStereo =
+					UMLUtil.getStereotypeApplication(rootPkg, org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project.class);
+
+			if (projectStereo != null) {
+				return projectStereo.getSourceFolder() + File.pathSeparator;
+			}
+		}
+		return ""; //$NON-NLS-1$
 	}
 }

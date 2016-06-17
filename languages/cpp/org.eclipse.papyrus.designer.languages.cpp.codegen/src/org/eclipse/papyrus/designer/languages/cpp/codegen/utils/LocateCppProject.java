@@ -23,14 +23,14 @@ import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjec
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.Activator;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.preferences.CppCodeGenConstants;
+import org.eclipse.papyrus.designer.languages.cpp.codegen.transformation.CppModelElementsCreator;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 public class LocateCppProject {
-	public static final String LANGUAGE_NAME = "C++"; //$NON-NLS-1$
-
 	private static final boolean Headless = Boolean.getBoolean("papyrus.run-headless"); //$NON-NLS-1$
 
 	/**
@@ -53,8 +53,20 @@ public class LocateCppProject {
 
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 		String prefix = store != null ? store.getString(CppCodeGenConstants.P_PROJECT_PREFIX) : "bad preferences."; //$NON-NLS-1$
-		String projectName = prefix + rootPkg.getName();
+		
+		org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project projectStereo =
+				UMLUtil.getStereotypeApplication(rootPkg, org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project.class);
+		
+		String projectName;
+		if (projectStereo != null) {
+			projectName = projectStereo.getProjectName();
+		}
+		else {
+			projectName = prefix + rootPkg.getName();
+					
+		}
 		IProject modelProject = root.getProject(projectName);
+		
 		if (!modelProject.exists()) {
 			if (Headless)
 			{
@@ -70,7 +82,7 @@ public class LocateCppProject {
 						Messages.LocateCppProject_CreateTargetProjectTitle,
 						String.format(Messages.LocateCppProject_CreateTargetProjectDesc, projectName));
 				if (create) {
-					ILangProjectSupport langSupport = LanguageProjectSupport.getProjectSupport(LANGUAGE_NAME);
+					ILangProjectSupport langSupport = LanguageProjectSupport.getProjectSupport(CppModelElementsCreator.LANGUAGE_NAME);
 					if (langSupport != null) {
 						modelProject = langSupport.createProject(projectName);
 						langSupport.setSettings(modelProject, langSupport.initialConfigurationData());
@@ -115,7 +127,7 @@ public class LocateCppProject {
 		}
 		return modelProject;
 	}
-
+	
 	private static boolean openQuestion(final String title, final String message)
 	{
 		final boolean[] ret = new boolean[] { false };

@@ -27,6 +27,7 @@ import org.eclipse.papyrus.designer.languages.cpp.codegen.Activator;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.Constants;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.Messages;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.preferences.CppCodeGenUtils;
+import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.xtend.CppClassifierGenerator;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.xtend.CppPackageHeaderGenerator;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary;
@@ -56,15 +57,17 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 
 
 /**
- * Main class of CPP++ code generator
+ * Main class of C++ code generator
  * 
  * @author Ansgar Radermacher (ansgar.radermacher@cea.fr)
  * @author Önder GÜRCAN (onder.gurcan@cea.fr)
  */
 public class CppModelElementsCreator extends ModelElementsCreator {
 
-	private static final String CPP = "CPP++"; //$NON-NLS-1$
+	public static final String LANGUAGE_NAME = "C++"; //$NON-NLS-1$
 
+	protected String sourceFolder;
+	
 	/**
 	 * Constructor.
 	 * 
@@ -98,12 +101,13 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 	 *            commentHeader. If null, take from preferences
 	 */
 	public CppModelElementsCreator(IPFileSystemAccess fileSystemAccess, String commentHeader) {
-		super(fileSystemAccess, new CppLocationStrategy(), CPP);
+		super(fileSystemAccess, new CppLocationStrategy(), LANGUAGE_NAME);
 		this.commentHeader = (commentHeader != null) ?
 				commentHeader :
 				CppCodeGenUtils.getCommentHeader();
 		hppExt = CppCodeGenUtils.getHeaderSuffix();
 		cppExt = CppCodeGenUtils.getBodySuffix();
+		sourceFolder = null;
 	}
 
 	protected String hppExt;
@@ -124,6 +128,10 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 	 */
 	@Override
 	protected void createPackageableElementFile(PackageableElement element, IProgressMonitor monitor) {
+		if (sourceFolder == null) {
+			sourceFolder = CppGenUtils.getSourceFolder(element);
+		}
+
 		if (element instanceof Package) {
 			generatePkg((Package) element);
 		}
@@ -144,12 +152,12 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 			// TODO: not supported, but do nothing
 		}
 		else {
-			Activator.log.debug("CPP++ code generator: unsupported model element " + element); //$NON-NLS-1$
+			Activator.log.debug("C++ code generator: unsupported model element " + element); //$NON-NLS-1$
 		}
 	}
 
 	protected void generateClassifier(Classifier classifier) {
-
+			
 		// treat case of manual code generation
 		if (GenUtils.hasStereotype(classifier, ManualGeneration.class)) {
 			final ManualGeneration mg = UMLUtil.getStereotypeApplication(classifier, ManualGeneration.class);
@@ -205,7 +213,7 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 	}
 
 	protected void generateFile(String fileName, String content) {
-		fileSystemAccess.generateFile(fileName, format(content));
+		fileSystemAccess.generateFile(sourceFolder + fileName, format(content));
 	}
 
 	/**

@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.ui,
  com.google.guava;bundle-version="11.0.0",
  org.eclipse.xtext.xbase.lib,
  org.eclipse.uml2.uml.profile.standard;bundle-version="1.0.0",
- org.eclipse.papyrus.designer.languages.common.base;bundle-version="0.7.0"
+ org.eclipse.papyrus.designer.languages.common.base;bundle-version="0.7.0",
+ org.eclipse.papyrus.designer.languages.common.profile;bundle-version="0.7.1"
 Export-Package: org.eclipse.papyrus.designer.languages.cpp.codegen;uses:="org.eclipse.ui.plugin,org.osgi.framework,org.eclipse.uml2.uml",
  org.eclipse.papyrus.designer.languages.cpp.codegen.preferences;uses:="org.eclipse.jface.preference,org.eclipse.core.runtime.preferences",
  org.eclipse.papyrus.designer.languages.cpp.codegen.transformation;
