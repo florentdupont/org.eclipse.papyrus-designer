@@ -22,7 +22,7 @@
 		<module>org.eclipse.papyrus.designer.languages.cpp.library.ui</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.profile</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.profile.ui</module>
-		<!-- module>org.eclipse.papyrus.designer.languages.cpp.tests</module-->
+		<module>org.eclipse.papyrus.designer.languages.cpp.tests</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.reverse</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.reverse.ui</module>
 		<module>org.eclipse.papyrus.designer.languages.cpp.view</module>
