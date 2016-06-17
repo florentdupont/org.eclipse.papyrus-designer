@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Papyrus Neon M6" sequenceNumber="1464097194">
+<target name="Papyrus Neon M6" sequenceNumber="1466081132">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.platform.feature.group" version="4.6.0.v20160512-1000"/>
-      <unit id="org.eclipse.rcp.feature.group" version="4.6.0.v20160512-1000"/>
-      <unit id="org.eclipse.jdt.feature.group" version="3.12.0.v20160512-1000"/>
-      <unit id="org.eclipse.cdt.feature.group" version="9.0.0.201605162302"/>
+      <unit id="org.eclipse.platform.feature.group" version="4.6.0.v20160525-2000"/>
+      <unit id="org.eclipse.rcp.feature.group" version="4.6.0.v20160525-2000"/>
+      <unit id="org.eclipse.jdt.feature.group" version="3.12.0.v20160525-2000"/>
+      <unit id="org.eclipse.pde.feature.group" version="3.12.0.v20160525-2000"/>
+      <unit id="org.eclipse.cdt.feature.group" version="9.0.0.201605310053"/>
       <unit id="org.eclipse.equinox.p2.discovery.feature.feature.group" version="1.0.400.v20160504-1450"/>
-      <unit id="org.eclipse.equinox.executable.feature.group" version="3.6.300.v20160505-1249"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="3.6.300.v20160525-1303"/>
       <repository id="eclipse-neon" location="http://download.eclipse.org/releases/neon/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="2.0.0.201605181131"/>
-      <unit id="org.eclipse.papyrus.extra.marte.feature.feature.group" version="1.2.0.201605181133"/>
-      <repository id="eclipse-papyrus-neon" location="http://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/2.0/RC1/"/>
+      <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="2.0.0.201606080854"/>
+      <unit id="org.eclipse.papyrus.extra.marte.feature.feature.group" version="1.2.0.201606080903"/>
+      <repository id="eclipse-papyrus-neon" location="http://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/2.0/RC4/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.papyrus.dev.feature.feature.group" version="0.0.0"/>
+      <repository id="papyrus-neon-developper-nightly" location="https://hudson.eclipse.org/papyrus/job/Papyrus-Master-Developer/lastSuccessfulBuild/artifact/repository/"/>
     </location>
   </locations>
 </target>

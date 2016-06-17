@@ -1,9 +1,10 @@
-target "Papyrus Neon M6 Nightly" with source requirements
+target "Papyrus Neon Nightly" with source requirements
 
 location "http://download.eclipse.org/releases/neon/" eclipse-neon {
  org.eclipse.platform.feature.group lazy
  org.eclipse.rcp.feature.group lazy
  org.eclipse.jdt.feature.group lazy
+ org.eclipse.pde.feature.group lazy
  org.eclipse.cdt.feature.group lazy
  org.eclipse.equinox.p2.discovery.feature.feature.group lazy
  org.eclipse.equinox.executable.feature.group lazy

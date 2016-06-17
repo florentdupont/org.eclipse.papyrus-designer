@@ -1,16 +1,20 @@
-target "Papyrus Neon M6" with source requirements
+target "Papyrus Neon RC4" with source requirements
 
 location "http://download.eclipse.org/releases/neon/" eclipse-neon {
  org.eclipse.platform.feature.group
  org.eclipse.rcp.feature.group
  org.eclipse.jdt.feature.group
+ org.eclipse.pde.feature.group
  org.eclipse.cdt.feature.group
  org.eclipse.equinox.p2.discovery.feature.feature.group
  org.eclipse.equinox.executable.feature.group
 }
 
-location "http://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/2.0/RC1/" eclipse-papyrus-neon {
+location "http://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/2.0/RC4/" eclipse-papyrus-neon {
  org.eclipse.papyrus.sdk.feature.feature.group
  org.eclipse.papyrus.extra.marte.feature.feature.group
 }
 
+location "https://hudson.eclipse.org/papyrus/job/Papyrus-Master-Developer/lastSuccessfulBuild/artifact/repository/" papyrus-neon-developper-nightly {
+ org.eclipse.papyrus.dev.feature.feature.group lazy
+}
