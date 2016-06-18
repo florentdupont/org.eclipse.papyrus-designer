@@ -11,14 +11,22 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Package;
 
 /**
- * Instance of this class allows to lookup for a Classifier.
- * Lookup is done in the provided paths.
+ * A Classifier Catalog allows to lookup a {@link Classifier} by its 'java like' qualified name. 
+ * Lookup is done in the associated UML model. This UML model can be provided as a UML {@link Package} or as a EMF {@link Resource}
+ * containing some UML elements.
+ * Lookup is performed using some searchpaths. Role of searchpaths is similar to role of classpath in Java : they allow to 
+ * search the requested Classifier in several different UML {@link Model}s.
+ * 
+ * <br>
  * Classifier or Package are not created. An error is thrown when not found.
+ * <br>
+ * Since 0.7.2, lookup take into account nested {@link Classifier}. The qualified name can denote a nested classifier.
  *
- * @author dumoulin
+ * @author cedric dumoulin
  *
  * @TODO rename to ClasspathCatalog
  */
