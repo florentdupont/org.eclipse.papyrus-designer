@@ -11,14 +11,35 @@
  *   
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.languages.java.reverse.jdt;
+package org.eclipse.papyrus.designer.languages.java.reverse.exception;
 
 /**
- * A class used to help to get data needed for UML Attribute declaration.
- * 
  * @author cedric dumoulin
  *
  */
-public class AttributeDeclarationHelper {
+public class ImportNotFoundException extends NotFoundException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Constructor.
+	 *
+	 * @param name The name for which no import is found.
+	 */
+	public ImportNotFoundException(String name) {
+		super(name);
+	}
+
+	/**
+	 * @see java.lang.Throwable#getMessage()
+	 *
+	 * @return
+	 */
+	@Override
+	public String getMessage() {
+		return "No import found for '" + super.getMessage() + "'";
+	}
 }

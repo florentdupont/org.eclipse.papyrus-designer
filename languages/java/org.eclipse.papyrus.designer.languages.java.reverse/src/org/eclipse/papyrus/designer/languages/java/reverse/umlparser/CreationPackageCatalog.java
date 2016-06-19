@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.uml2.uml.Package;
 
 /**
@@ -633,6 +634,35 @@ public class CreationPackageCatalog {
 	public static List<String> getDefaultSearchPath() {
 		// TODO Auto-generated method stub
 		return extractCreationPaths(defaultPackageCreationPatterns);
+	}
+
+	/**
+	 * Guess the type of the Classifier according to its name.
+	 * Name starting with 'I', 'Interface' and so on are guessed as 'Interface'
+	 * <br>
+	 * Name ending by 'Enum' are guessed as 'Enumeration'.
+	 * <br>
+	 * All others name are considered as class.
+	 * 
+	 * @param qualifiedName
+	 * @return
+	 */
+	public EClass guessBestType(List<String> qualifiedName) {
+		
+		String shortName = qualifiedName.get(qualifiedName.size()-1);
+		
+		// Try to guess if it is an interface.
+		if (shortName.length() > 2 && shortName.startsWith("I") && Character.isUpperCase(shortName.charAt(1))) {
+			return UmlUtils.CLASSIFIER_TYPE;
+		}
+		else if ( shortName.startsWith("Interface")|| shortName.endsWith("Interface") ) {
+			return UmlUtils.CLASSIFIER_TYPE;
+		}
+		else if ( shortName.startsWith("Enum")|| shortName.endsWith("Enum") ) {
+			return UmlUtils.ENUM_TYPE;
+		}
+
+		return UmlUtils.CLASS_TYPE;
 	}
 
 

@@ -40,6 +40,7 @@ import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.CreationPac
 import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.ImportedTypeCatalog;
 import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.UmlUtils;
 import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.TypeAnalyserAndTranslator.TranslatedTypeData;
+import org.eclipse.papyrus.designer.languages.java.reverse.umlparser.TypeResolver;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -87,6 +88,11 @@ public class JdtCompilationUnitAnalyzer {
 	 * Catalog used to store the imports and to lookup for the qualified name of an element.
 	 */
 	private ImportedTypeCatalog importedTypes;
+	
+	/**
+	 * Type resolver used to find a uml::Classifier from its name declared in the java file.
+	 */
+	private TypeResolver typeResolver;
 
 
     /**
@@ -137,7 +143,7 @@ public class JdtCompilationUnitAnalyzer {
 		importedTypes = new ImportedTypeCatalog();
 		creationPackageCatalog = new CreationPackageCatalog(modelRootPackage, defaultGenerationPackage, null);
 
-//		typeAnalyser = new TypeAnalyserAndTranslator(importedTypes);
+		typeResolver = new TypeResolver(classifierCatalog, importedTypes, creationPackageCatalog);
 	}
 
 	/**
@@ -459,59 +465,59 @@ public class JdtCompilationUnitAnalyzer {
 		Type t = fieldDeclaration.getType();
 		
 		// walk on variable declarations.
+		PropertyDeclarationHelper helper = new PropertyDeclarationHelper(fieldDeclaration, typeResolver);
 		List<VariableDeclarationFragment> variables = fieldDeclaration.fragments();
-		AttributeDeclarationHelper helper;
-		for (VariableDeclarationFragment var : variables) {
-			processAttribute(classifier, data, var, umlType);
-//				createAttribute(n, var, (Classifier) parent, umlType, typeData);
-		}
-
-	}
-
-	/**
-	 * Create or update the attribute
-	 * @param classifier
-	 * @param data
-	 * @param var
-	 * @param umlType
-	 */
-	private void processAttribute(Classifier classifier, TypeReferenceDeclaration data, VariableDeclarationFragment var, Type umlType) {
-		// TODO Auto-generated method stub
-		switch( data.getMultiplicityKind()) {
-		case simple:
-			processSimpleAttribute(classifier, data, var, umlType);
-			break;
-		case collection:
-//			processCollectionAttribute(classifier, data, var, umlType);
-			break;
-		case array:
-//			processArrayAttribute(classifier, data, var, umlType);
-			break;
-		default:
-			break;
 		
+		for (VariableDeclarationFragment var : variables) {
+			helper.setVariableDeclaration(var);
+			updateProperty(classifier, helper, context);
 		}
+
 	}
 
 	/**
-	 * Process a simple(mono dimensional) attribut/property
-	 * @param classifier
-	 * @param data
-	 * @param var
-	 * @param umlType
+	 * Create or update the property.
+	 * 
+	 * @param classifier The classifier parent of the property.
+	 * @param helper The Property Helper containing data about the property.
+	 * @param context 
 	 */
-	private void processSimpleAttribute(Classifier parent, TypeReferenceDeclaration data, VariableDeclarationFragment var, Type umlType) {
-		// get with no type, and then update type.
-		Property property = UmlUtils.createProperty(parent, null, var.getName().getIdentifier(), 0);
-		property.setType(type);
-		processJavadoc(n.getJavaDoc(), property);
-		processModifiers(n.getModifiers(), property);
-		var.
-		if (typeData.isCollection()) {
-			property.setLower(typeData.getTranslatedLower());
-			property.setUpper(typeData.getTranslatedUpper());
+	private void updateProperty(Classifier classifier, PropertyDeclarationHelper helper, LocalContext context) {
+		if( helper.isSimpleProperty() ) {
+			updateSimpleProperty( classifier, helper, context);
+		} else if( helper.isArrayProperty() ) {
+			updateArrayProperty( classifier, helper, context);
 		}
+		
+
+		
 	}
+
+	/**
+	 * Update or create the property as a simple property.
+	 * 
+	 * @param classifier
+	 * @param helper
+	 * @param context
+	 */
+	private void updateSimpleProperty(Classifier parent, PropertyDeclarationHelper helper, LocalContext context) {
+		Property property = UmlUtils.createProperty(parent, helper.getPropertyType(context), helper.getPropertyName(), 0);
+		System.err.println("Property created :" + property);
+	}
+
+	/**
+	 * Update or create the property as an array property.
+	 * 
+	 * @param classifier
+	 * @param helper
+	 * @param context
+	 */
+	private void updateArrayProperty(Classifier parent, PropertyDeclarationHelper helper, LocalContext context) {
+		Property property = UmlUtils.createProperty(parent, helper.getPropertyType(context), helper.getPropertyName(), 0);
+		property.setLower(helper.getLower());
+		property.setUpper(helper.getUpper());
+	}
+
 
 	/**
 	 * Get the type data from the {@link FieldDeclaration}.
@@ -864,6 +870,67 @@ public class JdtCompilationUnitAnalyzer {
 	 * @return The corresponding Classifier. Should never return null.
 	 */
 	private Classifier getClassifierForType(Type requestedType, LocalContext context, EClass type) {
+
+		Classifier result;
+		
+		// First, extract the name of the requested type
+		String shortname = JdtAstUtils.getTypeShortname( requestedType );
+		
+		
+		
+		// Check if the shortname is declared in imports
+		List<String> qualifiedName = importedTypes.getQualifiedName(shortname);
+		if( qualifiedName.size() > 1) {
+			// Found in import, try to get corresponding Classifier, or create it
+			result =  classifierCatalog.getClassifier(qualifiedName);
+			if( result != null) {
+				return result;
+			}
+			
+			// Classifier not found : create it
+			Package creationPackage = creationPackageCatalog.getCreationPackage(qualifiedName);
+			result = UmlUtils.getClassifier(creationPackage, qualifiedName, type);
+			return result;
+		}
+		
+		// Check if a corresponding type can be found in context.
+		result = context.lookupClassifier(shortname, type);
+		if( result != null) {
+			return result;
+		}
+		
+		// check in '*' imports
+		// Only check if the requested classifier exist in UML model.
+		for( List<String> parentPackageQName : importedTypes.getStarImports() ) {
+			// Build a possible Fully qualified name
+			List<String> fullQName = new ArrayList<String>(parentPackageQName);
+			fullQName.add(shortname);
+			
+			result = classifierCatalog.getClassifier(fullQName);
+			if( result != null) {
+				return result;
+			}
+		}
+		
+		// Not found, create it in the current package
+		Package parentPackage = context.getCurrentPackage();
+		result = (Classifier) UmlUtils.createType(parentPackage, shortname, type);
+		return result;
+	}
+
+	/**
+	 * Get a {@link Classifier} in the UML model that correspond to the specified Type in the reversed class.
+	 * If the Classifier is not found in the UML model, create it 'a minima' (only the Classifier skeleton).
+	 * <br>
+	 * This method is called when a UML Classifier is requested for a type found in a type reference (property, parameters, extends, implements).
+	 * 
+	 * @param requestedType The type in java file for which a Classifier in java model is requested
+	 * @param context The actual context
+	 * @param type The type of classifier to create. One of {@link UmlUtils#CLASS_TYPE} or {@link UmlUtils#INTERFACE_TYPE}
+	 * 
+	 * @return The corresponding Classifier. Should never return null.
+	 */
+	private Classifier getClassifierForTypeOld(Type requestedType, LocalContext context, EClass type) {
 
 		Classifier result;
 		

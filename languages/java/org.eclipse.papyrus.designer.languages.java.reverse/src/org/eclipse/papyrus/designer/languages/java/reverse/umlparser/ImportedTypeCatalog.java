@@ -4,11 +4,13 @@
 package org.eclipse.papyrus.designer.languages.java.reverse.umlparser;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.eclipse.papyrus.designer.languages.java.reverse.exception.ImportNotFoundException;
+import org.eclipse.papyrus.designer.languages.java.reverse.exception.NotFoundException;
 
 /**
  * Catalog managing the imports names.
@@ -21,8 +23,8 @@ public class ImportedTypeCatalog {
 
 	private Map<String, List<String>> map = new HashMap<String, List<String>>();
 
-	/** List of imports ending with '*' */
-	private List<List<String>> startImports;
+	/** List of imports ending with '*'. This is a list of QName */
+	private List<List<String>> starImports;
 	
 	/**
 	 * Default mapping to be set
@@ -78,6 +80,24 @@ public class ImportedTypeCatalog {
 		}
 		return res;
 	}
+
+	/**
+	 * Get the qualified name of the import by its simple name (with no dot).
+	 * 
+	 * @param shortName the name of the searched import
+	 * @return The qualified name if exist. Throw an exception otherwise
+	 * 
+	 * @exception NotFoundException The name has no corresponding import.
+	 * @since 0.7.2
+	 */
+	public List<String> getImportQualifiedNameChecked(String shortName) throws ImportNotFoundException {
+		List<String> res = map.get(shortName);
+		if (res == null) {
+			throw new ImportNotFoundException(shortName);
+		}
+		return res;
+	}
+
 
 	/**
 	 * Lookup the associated qualified name from the imports.
@@ -155,10 +175,10 @@ public class ImportedTypeCatalog {
 	 */
 	public void addStarImport(List<String> qualifiedName) {
 
-		if( startImports == null) {
-			startImports = new ArrayList<List<String>>();
+		if( starImports == null) {
+			starImports = new ArrayList<List<String>>();
 		}
-		startImports.add(qualifiedName);
+		starImports.add(qualifiedName);
 	}
 
 	/**
@@ -174,8 +194,8 @@ public class ImportedTypeCatalog {
 	 * @return
 	 */
 	public List<List<String>> getStarImports() {
-		if( startImports !=null) {
-			return startImports;
+		if( starImports !=null) {
+			return starImports;
 		}
 		// empty list
 		return Collections.emptyList();
