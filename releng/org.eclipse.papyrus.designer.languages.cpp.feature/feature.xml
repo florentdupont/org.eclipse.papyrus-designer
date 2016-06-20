@@ -27,8 +27,8 @@ http://www.eclipse.org/legal/epl-v10.html
    </license>
 
    <requires>
-      <import feature="org.eclipse.cdt" version="8.4.0.201406031009"/>
-      <import feature="org.eclipse.papyrus.designer.languages.common.feature" version="0.7.0"/>
+      <import feature="org.eclipse.cdt"/>
+      <import feature="org.eclipse.papyrus.designer.languages.common.feature"/>
    </requires>
 
    <plugin
