@@ -25,7 +25,7 @@ Export-Package: org.eclipse.papyrus.designer.languages.java.codegen;uses:="org.e
 Bundle-Vendor: %providerName
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.1.qualifier
+Bundle-Version: 1.0.0
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.languages.java.codegen.Activator

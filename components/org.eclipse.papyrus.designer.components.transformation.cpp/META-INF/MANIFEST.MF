@@ -12,7 +12,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.uml.tools;bundle-version="1.2.0"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.1.qualifier
+Bundle-Version: 0.7.1
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
 Bundle-ManifestVersion: 2

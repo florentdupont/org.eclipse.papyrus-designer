@@ -5,9 +5,10 @@
 	<parent>
 		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
 		<groupId>org.eclipse.papyrus.designer</groupId>
-		<version>0.7.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.components</artifactId>
+	<version>0.7.1</version>
 	<packaging>pom</packaging>
 	<name>Designer Components</name>
 	<description>This module contains the different plugins relative to the component-based development within designer.</description>
@@ -24,4 +25,5 @@
 		<module>org.eclipse.papyrus.designer.components.modellibs.core</module>
 		<module>tracing</module>
 	</modules>
+
 </project>
