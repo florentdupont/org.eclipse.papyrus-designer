@@ -5,10 +5,9 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages</artifactId>
-	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<name>Designer Languages</name>
 	<description>This module contains the different plugins relative to different (programming) languages</description>

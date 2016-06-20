@@ -38,7 +38,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.papyrus.infra.ui;bundle-version="1.2.0"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.1
+Bundle-Version: 0.7.2.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.components.transformation.core.Activator

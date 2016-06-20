@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.infra.services.decoration;bundle-version="1.2.0"
 Bundle-Vendor: %pluginProvider
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.1
+Bundle-Version: 0.7.2.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.views.tracepoints.Activator
