@@ -12,7 +12,7 @@
 # $5: Whether to merge the site with an existing one: (y)es, (n)o
 # $6: Whether to generate drop files: (y)es, (n)o
 # $7: The release label used to label the drop files and (nested) update site, e.g. 3.10.0 or 3.10.1
-# $8: The eclipse target version, e.g. mars or neon
+# $8: The eclipse target version, e.g. neon
 # $9: Whether to generate rcp files: (y)es, (n)o
 # $10: Papyrus component 
 # $11: An optional release label suffix to be appended to drop files and (nested) update site name, e.g. M1, RC1 
@@ -20,7 +20,7 @@
 #The publish.sh script may be used to publish the build results (update site and drop files and rcp). The script may be called
 #without parameters and prompts for everything it requires for publishing an update site, or it may be 
 #invoked with respective command line parameters.
-if [ $# -eq 10 -o $# -eq 11  ];
+if [ $# -eq 12 -o $# -eq 13  ];
 then
 	jobName=${1}
 	echo "jobName: $jobName"
@@ -42,9 +42,13 @@ then
 	echo "rcpFiles: $rcpFiles"
 	component=${10}	
 	echo "component: $component"
-	if [ -n "${11}" ];
+	eclipseDir=${11}	
+	echo "eclipseDir: $eclipseDir"
+	eclipseVersion=${12}	
+	echo "eclipseVersion: $eclipseVersion"
+	if [ -n "${13}" ];
 	then
-		releaseLabelSuffix=${11}
+		releaseLabelSuffix=${13}
 		echo "releaseLabelSuffix: $releaseLabelSuffix"
 	fi
 else
@@ -207,8 +211,11 @@ cd $tmpDir
 # Download and prepare Eclipse SDK, which is needed to merge update site and postprocess repository 
 echo "Downloading eclipse to $PWD"
 
-cp /home/data/httpd/download.eclipse.org/eclipse/downloads/drops4/R-4.4.2-201502041700/eclipse-SDK-4.4.2-linux-gtk-x86_64.tar.gz .
-tar -xzf eclipse-SDK-4.4.2-linux-gtk-x86_64.tar.gz
+cp ${eclipseDir}/${eclipseVersion} .
+
+
+ls -la
+tar -xzf ${eclipseVersion}
 cd eclipse
 chmod 700 eclipse
 cd ..
@@ -222,13 +229,14 @@ echo "Installing WTP Releng tools"
 ./eclipse/eclipse -nosplash --launcher.suppressErrors -clean -debug -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/webtools/releng/repository/ -installIUs org.eclipse.wtp.releng.tools.feature.feature.group
 # Clean up
 echo "Cleaning up"
-rm eclipse-SDK-4.4.2-linux-gtk-x86_64.tar.gz
+rm ${eclipseVersion}
 
 # Generate drop files
 if [ "$dropFiles" = y ];
 	then
 	
 	# Prepare local update site (for drop files)
+	echo "Prepare local update site (for drop files)"
 	mkdir -p update-site
 	cp -R $localUpdateSite/* update-site/
 	echo "Copied $localUpdateSite to local directory update-site."
