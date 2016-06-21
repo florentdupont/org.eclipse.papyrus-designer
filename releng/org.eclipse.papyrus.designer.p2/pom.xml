@@ -39,10 +39,10 @@
 								<project.website>https://www.eclipse.org/papyrus/components/designer</project.website>
 								<project.issues>${project.issueManagement.url}</project.issues>
 								<eclipse.target>${eclipse.targetrelease}</eclipse.target>
-								<update.site.nightly>https://hudson.eclipse.org/papyrus/view/Designer/job/papyrus-designer-neon-papyrusnightly/ws/releng/org.eclipse.papyrus.designer.p2/target/repository/</update.site.nightly>
+								<update.site.nightly>https://hudson.eclipse.org/papyrus/view/Designer/job/papyrus-designer-neon/ws/releng/org.eclipse.papyrus.designer.p2/target/repository/</update.site.nightly>
 							</symbols>
 							<associateSites>
-								<site>https://hudson.eclipse.org/papyrus/view/Designer/job/papyrus-designer-website/ws/site-staging/index.html</site>
+								<site>http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/neon</site>
 							</associateSites>
 							<siteTemplateFolder>siteTemplate</siteTemplateFolder>
 							<p2StatsUrl>http://download.eclipse.org/stats</p2StatsUrl>
