@@ -420,13 +420,15 @@ public class CompilationUnitAnalyser {
 	 */
 	private void addImports(ImportedTypeCatalog importedTypes, List<ImportDeclaration> imports) {
 
-
 		for (ImportDeclaration decl : imports) {
 			List<String> qualifiedName = qualifiedNameParser.getImportQualifiedName(decl);
 			if (decl.isAsterisk()) {
-				qualifiedName.add("*");
+				// qualifiedName.add("*");
+				importedTypes.addStarImport(qualifiedName);
+			} 
+			else {
+				importedTypes.addImport(qualifiedName);
 			}
-			importedTypes.addImport(qualifiedName);
 		}
 
 	}

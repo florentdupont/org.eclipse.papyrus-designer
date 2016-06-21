@@ -55,7 +55,7 @@ public class JavaParserTest extends AbstractTest {
 	@Test
 	public void testParseInputStream() throws IOException, ParseException {
 		
-			InputStream inputStream = getJavaFileInputStream(JavaParser_class);
+			InputStream inputStream = getJavaFileInputStream(SimpleClass_class);
 			
 			CompilationUnit cu = JavaParser.parse(inputStream, null, true);
 			assertNotNull("CU created", cu);

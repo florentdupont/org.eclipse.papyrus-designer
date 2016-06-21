@@ -6,9 +6,14 @@
  */
 package org.eclipse.papyrus.designer.languages.java.reverse.umlparser;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.eclipse.papyrus.designer.languages.java.reverse.exception.ImportNotFoundException;
+import org.eclipse.papyrus.designer.languages.java.reverse.exception.NotFoundException;
 
 /**
  * Catalog managing the imports names.
@@ -23,6 +28,9 @@ public class ImportedTypeCatalog {
 
 	private Map<String, List<String>> map = new HashMap<String, List<String>>();
 
+	/** List of imports ending with '*'. This is a list of QName */
+	private List<List<String>> starImports;
+	
 	/**
 	 * Default mapping to be set
 	 */
@@ -70,34 +78,52 @@ public class ImportedTypeCatalog {
 	 * Get the associated qualified name from the imports.
 	 * Return the translation or the name itself, as a qualifiedName.
 	 *
-	 * @param name
+	 * @param shortName
 	 * @return
 	 */
-	public List<String> getQualifiedName(String name) {
+	public List<String> getQualifiedName(String shortName) {
 
-		List<String> res = map.get(name);
+		List<String> res = map.get(shortName);
 		if (res == null) {
-			res = UmlUtils.toQualifiedName(name);
+			res = UmlUtils.toQualifiedName(shortName);
 		}
 		return res;
 	}
 
 	/**
+	 * Get the qualified name of the import by its simple name (with no dot).
+	 * 
+	 * @param shortName the name of the searched import
+	 * @return The qualified name if exist. Throw an exception otherwise
+	 * 
+	 * @exception NotFoundException The name has no corresponding import.
+	 * @since 0.7.2
+	 */
+	public List<String> getImportQualifiedNameChecked(String shortName) throws ImportNotFoundException {
+		List<String> res = map.get(shortName);
+		if (res == null) {
+			throw new ImportNotFoundException(shortName);
+		}
+		return res;
+	}
+
+
+	/**
 	 * Lookup the associated qualified name from the imports.
 	 *
-	 * @param name
-	 * @return
+	 * @param shortName
+	 * @return The qualified name, or null if there is no matching qualified name.
 	 */
-	private List<String> lookupQualifiedName(String name) {
+	private List<String> lookupQualifiedName(String shortName) {
 
-		List<String> res = map.get(name);
+		List<String> res = map.get(shortName);
 		return res;
 	}
 
 	/**
 	 * Get the qualified name of the provided [qualifiedName].
 	 * If the provided name size is one, lookup for its full name.
-	 * Otherwise, return the imput.
+	 * Otherwise, return the input.
 	 *
 	 * @param typeQualifiedName
 	 * @return
@@ -145,23 +171,23 @@ public class ImportedTypeCatalog {
 		String lastName = qualifiedName.get(qualifiedName.size() - 1);
 		System.out.println("ImportedCatalog.add(" + qualifiedName + ")");
 		if ("*".equals(lastName)) {
-			addPackageClasses(qualifiedName);
+			addStarImport(qualifiedName.subList(0, qualifiedName.size() - 1));
 		} else {
 			map.put(lastName, qualifiedName);
 		}
 	}
 
 	/**
-	 * Add all the class from the package.
-	 * Last name is '*'
+	 * Add an import that import all Element of a package (imports a.b.c.*;)
 	 *
 	 * @param qualifiedName
 	 */
-	private void addPackageClasses(List<String> qualifiedName) {
-		// TODO Auto-generated method stub
-		// throw new UnsupportedOperationException("not yet implmeented");
-		System.err.println(this.getClass().getName()
-				+ ".addPackageClasses() - Not yet implemented - can't process import with 'p1.p2.*;'");
+	public void addStarImport(List<String> qualifiedName) {
+
+		if( starImports == null) {
+			starImports = new ArrayList<List<String>>();
+		}
+		starImports.add(qualifiedName);
 	}
 
 	/**
@@ -171,6 +197,17 @@ public class ImportedTypeCatalog {
 		map.clear();
 		setDefaultMapping(defaultMappingNames);
 
+	}
+
+	/**
+	 * @return
+	 */
+	public List<List<String>> getStarImports() {
+		if( starImports !=null) {
+			return starImports;
+		}
+		// empty list
+		return Collections.emptyList();
 	}
 
 }
