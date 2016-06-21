@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.designer.components.FCM.*;
 import org.eclipse.papyrus.designer.components.FCM.Assembly;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndex;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndexPerNode;
@@ -48,7 +47,6 @@ import org.eclipse.papyrus.designer.components.FCM.InterceptionRule;
 import org.eclipse.papyrus.designer.components.FCM.OperatingSystem;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
-import org.eclipse.papyrus.designer.components.FCM.ProgLanguage;
 import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
 import org.eclipse.papyrus.designer.components.FCM.Singleton;
 import org.eclipse.papyrus.designer.components.FCM.Target;
@@ -56,7 +54,6 @@ import org.eclipse.papyrus.designer.components.FCM.TargetArchitecture;
 import org.eclipse.papyrus.designer.components.FCM.Template;
 import org.eclipse.papyrus.designer.components.FCM.TemplatePort;
 import org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator;
-import org.eclipse.papyrus.designer.components.FCM.profile.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -141,10 +138,6 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCompToOOmapping(CompToOOmapping object) {
 				return createCompToOOmappingAdapter();
-			}
-			@Override
-			public Adapter caseProgLanguage(ProgLanguage object) {
-				return createProgLanguageAdapter();
 			}
 			@Override
 			public Adapter caseCodeGenOptions(CodeGenOptions object) {
@@ -381,20 +374,6 @@ public class FCMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompToOOmappingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.components.FCM.ProgLanguage <em>Prog Language</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.components.FCM.ProgLanguage
-	 * @generated
-	 */
-	public Adapter createProgLanguageAdapter() {
 		return null;
 	}
 

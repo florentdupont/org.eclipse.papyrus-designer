@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.papyrus.designer.components.FCM.CodeGenOptions;
 import org.eclipse.papyrus.designer.components.FCM.CompToOOmapping;
 import org.eclipse.papyrus.designer.components.FCM.FCMPackage;
-import org.eclipse.papyrus.designer.components.FCM.ProgLanguage;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +31,6 @@ import org.eclipse.papyrus.designer.components.FCM.ProgLanguage;
  * <ul>
  *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.CodeGenOptionsImpl#getBase_Package <em>Base Package</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.CodeGenOptionsImpl#getCompToOOmapping <em>Comp To OOmapping</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.components.FCM.impl.CodeGenOptionsImpl#getProgLanguage <em>Prog Language</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,16 +55,6 @@ public class CodeGenOptionsImpl extends EObjectImpl implements CodeGenOptions {
 	 * @ordered
 	 */
 	protected CompToOOmapping compToOOmapping;
-
-	/**
-	 * The cached value of the '{@link #getProgLanguage() <em>Prog Language</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProgLanguage()
-	 * @generated
-	 * @ordered
-	 */
-	protected ProgLanguage progLanguage;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,46 +161,6 @@ public class CodeGenOptionsImpl extends EObjectImpl implements CodeGenOptions {
 	 * @generated
 	 */
 	@Override
-	public ProgLanguage getProgLanguage() {
-		if (progLanguage != null && progLanguage.eIsProxy()) {
-			InternalEObject oldProgLanguage = (InternalEObject)progLanguage;
-			progLanguage = (ProgLanguage)eResolveProxy(oldProgLanguage);
-			if (progLanguage != oldProgLanguage) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FCMPackage.CODE_GEN_OPTIONS__PROG_LANGUAGE, oldProgLanguage, progLanguage));
-			}
-		}
-		return progLanguage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProgLanguage basicGetProgLanguage() {
-		return progLanguage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setProgLanguage(ProgLanguage newProgLanguage) {
-		ProgLanguage oldProgLanguage = progLanguage;
-		progLanguage = newProgLanguage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FCMPackage.CODE_GEN_OPTIONS__PROG_LANGUAGE, oldProgLanguage, progLanguage));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FCMPackage.CODE_GEN_OPTIONS__BASE_PACKAGE:
@@ -221,9 +169,6 @@ public class CodeGenOptionsImpl extends EObjectImpl implements CodeGenOptions {
 			case FCMPackage.CODE_GEN_OPTIONS__COMP_TO_OOMAPPING:
 				if (resolve) return getCompToOOmapping();
 				return basicGetCompToOOmapping();
-			case FCMPackage.CODE_GEN_OPTIONS__PROG_LANGUAGE:
-				if (resolve) return getProgLanguage();
-				return basicGetProgLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,9 +186,6 @@ public class CodeGenOptionsImpl extends EObjectImpl implements CodeGenOptions {
 				return;
 			case FCMPackage.CODE_GEN_OPTIONS__COMP_TO_OOMAPPING:
 				setCompToOOmapping((CompToOOmapping)newValue);
-				return;
-			case FCMPackage.CODE_GEN_OPTIONS__PROG_LANGUAGE:
-				setProgLanguage((ProgLanguage)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -263,9 +205,6 @@ public class CodeGenOptionsImpl extends EObjectImpl implements CodeGenOptions {
 			case FCMPackage.CODE_GEN_OPTIONS__COMP_TO_OOMAPPING:
 				setCompToOOmapping((CompToOOmapping)null);
 				return;
-			case FCMPackage.CODE_GEN_OPTIONS__PROG_LANGUAGE:
-				setProgLanguage((ProgLanguage)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -282,8 +221,6 @@ public class CodeGenOptionsImpl extends EObjectImpl implements CodeGenOptions {
 				return base_Package != null;
 			case FCMPackage.CODE_GEN_OPTIONS__COMP_TO_OOMAPPING:
 				return compToOOmapping != null;
-			case FCMPackage.CODE_GEN_OPTIONS__PROG_LANGUAGE:
-				return progLanguage != null;
 		}
 		return super.eIsSet(featureID);
 	}

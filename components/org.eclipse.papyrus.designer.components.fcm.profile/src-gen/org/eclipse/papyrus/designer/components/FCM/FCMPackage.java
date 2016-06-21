@@ -272,34 +272,6 @@ public interface FCMPackage extends EPackage {
 	int COMP_TO_OOMAPPING_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.components.FCM.impl.ProgLanguageImpl <em>Prog Language</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.components.FCM.impl.ProgLanguageImpl
-	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getProgLanguage()
-	 * @generated
-	 */
-	int PROG_LANGUAGE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Base Class</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROG_LANGUAGE__BASE_CLASS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Prog Language</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROG_LANGUAGE_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.components.FCM.impl.CodeGenOptionsImpl <em>Code Gen Options</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -307,7 +279,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getCodeGenOptions()
 	 * @generated
 	 */
-	int CODE_GEN_OPTIONS = 8;
+	int CODE_GEN_OPTIONS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Base Package</b></em>' reference.
@@ -328,22 +300,13 @@ public interface FCMPackage extends EPackage {
 	int CODE_GEN_OPTIONS__COMP_TO_OOMAPPING = 1;
 
 	/**
-	 * The feature id for the '<em><b>Prog Language</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE_GEN_OPTIONS__PROG_LANGUAGE = 2;
-
-	/**
 	 * The number of structural features of the '<em>Code Gen Options</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODE_GEN_OPTIONS_FEATURE_COUNT = 3;
+	int CODE_GEN_OPTIONS_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.components.FCM.impl.InteractionComponentImpl <em>Interaction Component</em>}' class.
@@ -353,7 +316,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getInteractionComponent()
 	 * @generated
 	 */
-	int INTERACTION_COMPONENT = 9;
+	int INTERACTION_COMPONENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>For Distribution</b></em>' attribute.
@@ -399,7 +362,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getSingleton()
 	 * @generated
 	 */
-	int SINGLETON = 10;
+	int SINGLETON = 9;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -427,7 +390,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getConfigurableElementInstance()
 	 * @generated
 	 */
-	int CONFIGURABLE_ELEMENT_INSTANCE = 12;
+	int CONFIGURABLE_ELEMENT_INSTANCE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' reference.
@@ -455,7 +418,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getConnector()
 	 * @generated
 	 */
-	int CONNECTOR = 11;
+	int CONNECTOR = 10;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' reference.
@@ -510,7 +473,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getUseInstanceConfigurator()
 	 * @generated
 	 */
-	int USE_INSTANCE_CONFIGURATOR = 13;
+	int USE_INSTANCE_CONFIGURATOR = 12;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -547,7 +510,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getInstanceConfigurator()
 	 * @generated
 	 */
-	int INSTANCE_CONFIGURATOR = 14;
+	int INSTANCE_CONFIGURATOR = 13;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -584,7 +547,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getRuleApplication()
 	 * @generated
 	 */
-	int RULE_APPLICATION = 15;
+	int RULE_APPLICATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -630,7 +593,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getContainerRule()
 	 * @generated
 	 */
-	int CONTAINER_RULE = 16;
+	int CONTAINER_RULE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -676,7 +639,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getConfigOption()
 	 * @generated
 	 */
-	int CONFIG_OPTION = 17;
+	int CONFIG_OPTION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -704,7 +667,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getPort()
 	 * @generated
 	 */
-	int PORT = 19;
+	int PORT = 18;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' reference.
@@ -759,7 +722,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getTemplatePort()
 	 * @generated
 	 */
-	int TEMPLATE_PORT = 18;
+	int TEMPLATE_PORT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' reference.
@@ -823,7 +786,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getPortKind()
 	 * @generated
 	 */
-	int PORT_KIND = 20;
+	int PORT_KIND = 19;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -878,7 +841,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getDeploymentPlan()
 	 * @generated
 	 */
-	int DEPLOYMENT_PLAN = 21;
+	int DEPLOYMENT_PLAN = 20;
 
 	/**
 	 * The feature id for the '<em><b>Main Instance</b></em>' reference.
@@ -924,7 +887,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getDerivedElement()
 	 * @generated
 	 */
-	int DERIVED_ELEMENT = 22;
+	int DERIVED_ELEMENT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Base Element</b></em>' reference.
@@ -961,7 +924,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getCompImplTemplate()
 	 * @generated
 	 */
-	int COMP_IMPL_TEMPLATE = 23;
+	int COMP_IMPL_TEMPLATE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Template Defs</b></em>' attribute.
@@ -998,7 +961,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getImplementationProperties()
 	 * @generated
 	 */
-	int IMPLEMENTATION_PROPERTIES = 24;
+	int IMPLEMENTATION_PROPERTIES = 23;
 
 	/**
 	 * The feature id for the '<em><b>Size RAM</b></em>' attribute.
@@ -1071,7 +1034,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getOperatingSystem()
 	 * @generated
 	 */
-	int OPERATING_SYSTEM = 25;
+	int OPERATING_SYSTEM = 24;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -1099,7 +1062,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getTargetArchitecture()
 	 * @generated
 	 */
-	int TARGET_ARCHITECTURE = 26;
+	int TARGET_ARCHITECTURE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -1127,7 +1090,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getConfiguration()
 	 * @generated
 	 */
-	int CONFIGURATION = 27;
+	int CONFIGURATION = 26;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -1173,7 +1136,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getInterceptionRule()
 	 * @generated
 	 */
-	int INTERCEPTION_RULE = 28;
+	int INTERCEPTION_RULE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Interception Kind</b></em>' attribute.
@@ -1228,7 +1191,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getTarget()
 	 * @generated
 	 */
-	int TARGET = 29;
+	int TARGET = 28;
 
 	/**
 	 * The feature id for the '<em><b>Target Arch</b></em>' reference.
@@ -1310,7 +1273,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getCompilerChain()
 	 * @generated
 	 */
-	int COMPILER_CHAIN = 30;
+	int COMPILER_CHAIN = 29;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -1338,7 +1301,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getFragment()
 	 * @generated
 	 */
-	int FRAGMENT = 31;
+	int FRAGMENT = 30;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -1366,7 +1329,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getCopyAttributeValue()
 	 * @generated
 	 */
-	int COPY_ATTRIBUTE_VALUE = 32;
+	int COPY_ATTRIBUTE_VALUE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1403,7 +1366,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getAutoIndex()
 	 * @generated
 	 */
-	int AUTO_INDEX = 33;
+	int AUTO_INDEX = 32;
 
 	/**
 	 * The feature id for the '<em><b>Base Property</b></em>' reference.
@@ -1431,7 +1394,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getAutoIndexPerNode()
 	 * @generated
 	 */
-	int AUTO_INDEX_PER_NODE = 34;
+	int AUTO_INDEX_PER_NODE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Base Property</b></em>' reference.
@@ -1459,7 +1422,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getInitPrecedence()
 	 * @generated
 	 */
-	int INIT_PRECEDENCE = 35;
+	int INIT_PRECEDENCE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Invoke After</b></em>' reference list.
@@ -1505,7 +1468,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getConnectorConfiguration()
 	 * @generated
 	 */
-	int CONNECTOR_CONFIGURATION = 36;
+	int CONNECTOR_CONFIGURATION = 35;
 
 	/**
 	 * The feature id for the '<em><b>Base Slot</b></em>' reference.
@@ -1542,7 +1505,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getBindTemplate()
 	 * @generated
 	 */
-	int BIND_TEMPLATE = 37;
+	int BIND_TEMPLATE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Actual</b></em>' reference list.
@@ -1579,7 +1542,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getContainerRuleKind()
 	 * @generated
 	 */
-	int CONTAINER_RULE_KIND = 38;
+	int CONTAINER_RULE_KIND = 37;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.components.FCM.InterceptionKind <em>Interception Kind</em>}' enum.
@@ -1589,7 +1552,7 @@ public interface FCMPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getInterceptionKind()
 	 * @generated
 	 */
-	int INTERCEPTION_KIND = 39;
+	int INTERCEPTION_KIND = 38;
 
 
 	/**
@@ -1751,27 +1714,6 @@ public interface FCMPackage extends EPackage {
 	EReference getCompToOOmapping_Base_Class();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.components.FCM.ProgLanguage <em>Prog Language</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Prog Language</em>'.
-	 * @see org.eclipse.papyrus.designer.components.FCM.ProgLanguage
-	 * @generated
-	 */
-	EClass getProgLanguage();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.components.FCM.ProgLanguage#getBase_Class <em>Base Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Base Class</em>'.
-	 * @see org.eclipse.papyrus.designer.components.FCM.ProgLanguage#getBase_Class()
-	 * @see #getProgLanguage()
-	 * @generated
-	 */
-	EReference getProgLanguage_Base_Class();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.components.FCM.CodeGenOptions <em>Code Gen Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1802,17 +1744,6 @@ public interface FCMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCodeGenOptions_CompToOOmapping();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.components.FCM.CodeGenOptions#getProgLanguage <em>Prog Language</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Prog Language</em>'.
-	 * @see org.eclipse.papyrus.designer.components.FCM.CodeGenOptions#getProgLanguage()
-	 * @see #getCodeGenOptions()
-	 * @generated
-	 */
-	EReference getCodeGenOptions_ProgLanguage();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.components.FCM.InteractionComponent <em>Interaction Component</em>}'.
@@ -3029,24 +2960,6 @@ public interface FCMPackage extends EPackage {
 		EReference COMP_TO_OOMAPPING__BASE_CLASS = eINSTANCE.getCompToOOmapping_Base_Class();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.components.FCM.impl.ProgLanguageImpl <em>Prog Language</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.papyrus.designer.components.FCM.impl.ProgLanguageImpl
-		 * @see org.eclipse.papyrus.designer.components.FCM.impl.FCMPackageImpl#getProgLanguage()
-		 * @generated
-		 */
-		EClass PROG_LANGUAGE = eINSTANCE.getProgLanguage();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROG_LANGUAGE__BASE_CLASS = eINSTANCE.getProgLanguage_Base_Class();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.components.FCM.impl.CodeGenOptionsImpl <em>Code Gen Options</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3071,14 +2984,6 @@ public interface FCMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CODE_GEN_OPTIONS__COMP_TO_OOMAPPING = eINSTANCE.getCodeGenOptions_CompToOOmapping();
-
-		/**
-		 * The meta object literal for the '<em><b>Prog Language</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CODE_GEN_OPTIONS__PROG_LANGUAGE = eINSTANCE.getCodeGenOptions_ProgLanguage();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.components.FCM.impl.InteractionComponentImpl <em>Interaction Component</em>}' class.

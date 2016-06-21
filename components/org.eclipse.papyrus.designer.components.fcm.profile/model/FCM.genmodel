@@ -78,17 +78,11 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference FCM.ecore#//CompToOOmapping/base_Class"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="FCM.ecore#//ProgLanguage">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference FCM.ecore#//ProgLanguage/base_Class"/>
-    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="FCM.ecore#//CodeGenOptions">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference FCM.ecore#//CodeGenOptions/base_Package"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference FCM.ecore#//CodeGenOptions/compToOOmapping"/>
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference FCM.ecore#//CodeGenOptions/progLanguage"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="FCM.ecore#//InteractionComponent">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute FCM.ecore#//InteractionComponent/forDistribution"/>

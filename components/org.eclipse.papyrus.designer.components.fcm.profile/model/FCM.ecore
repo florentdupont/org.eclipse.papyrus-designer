@@ -52,13 +52,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
         lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProgLanguage">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="We assume that a model library defines a set of supported programming languages as well as a set of provided component to mappings. We do not use a fixed enumeration defined in the profile to assure extensibility"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
-        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CodeGenOptions">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This information on a package tells the code generators which programming language and which component-to-OO mapping should be used"/>
@@ -67,8 +60,6 @@
         lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compToOOmapping" ordered="false"
         lowerBound="1" eType="#//CompToOOmapping"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="progLanguage" ordered="false"
-        lowerBound="1" eType="#//ProgLanguage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InteractionComponent">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

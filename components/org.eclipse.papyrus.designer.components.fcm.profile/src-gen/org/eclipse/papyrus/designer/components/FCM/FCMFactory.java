@@ -95,15 +95,6 @@ public interface FCMFactory extends EFactory {
 	CompToOOmapping createCompToOOmapping();
 
 	/**
-	 * Returns a new object of class '<em>Prog Language</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Prog Language</em>'.
-	 * @generated
-	 */
-	ProgLanguage createProgLanguage();
-
-	/**
 	 * Returns a new object of class '<em>Code Gen Options</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

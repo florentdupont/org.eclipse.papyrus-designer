@@ -15,7 +15,6 @@ package org.eclipse.papyrus.designer.components.FCM.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.papyrus.designer.components.FCM.*;
 import org.eclipse.papyrus.designer.components.FCM.Assembly;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndex;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndexPerNode;
@@ -47,7 +46,6 @@ import org.eclipse.papyrus.designer.components.FCM.InterceptionRule;
 import org.eclipse.papyrus.designer.components.FCM.OperatingSystem;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
-import org.eclipse.papyrus.designer.components.FCM.ProgLanguage;
 import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
 import org.eclipse.papyrus.designer.components.FCM.Singleton;
 import org.eclipse.papyrus.designer.components.FCM.Target;
@@ -55,7 +53,6 @@ import org.eclipse.papyrus.designer.components.FCM.TargetArchitecture;
 import org.eclipse.papyrus.designer.components.FCM.Template;
 import org.eclipse.papyrus.designer.components.FCM.TemplatePort;
 import org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator;
-import org.eclipse.papyrus.designer.components.FCM.profile.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -152,12 +149,6 @@ public class FCMSwitch<T> extends Switch<T> {
 			case FCMPackage.COMP_TO_OOMAPPING: {
 				CompToOOmapping compToOOmapping = (CompToOOmapping)theEObject;
 				T result = caseCompToOOmapping(compToOOmapping);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FCMPackage.PROG_LANGUAGE: {
-				ProgLanguage progLanguage = (ProgLanguage)theEObject;
-				T result = caseProgLanguage(progLanguage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -452,21 +443,6 @@ public class FCMSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCompToOOmapping(CompToOOmapping object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Prog Language</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Prog Language</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProgLanguage(ProgLanguage object) {
 		return null;
 	}
 

@@ -33,7 +33,7 @@ The system component is also an assembly</body>
     <ownedComment xmi:type="uml:Comment" xmi:id="_ikpf8NRtEeKiLbHSN_MIRQ" annotatedElement="_D8dRUNM-EeKflOoYwofqLA">
       <body>A composite that will get flattened during distribution. This means that it vanishes and its parts are added to the composite in which the flat composite is defined. A flat composite may not have assembly connections. It is primarily used by interaction components</body>
     </ownedComment>
-    <ownedComment xmi:type="uml:Comment" xmi:id="_EOljoNRxEeKiLbHSN_MIRQ" annotatedElement="_HjF2wNRwEeKiLbHSN_MIRQ __QLv8NRwEeKiLbHSN_MIRQ">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_EOljoNRxEeKiLbHSN_MIRQ" annotatedElement="_HjF2wNRwEeKiLbHSN_MIRQ">
       <body>We assume that a model library defines a set of supported programming languages as well as a set of provided component to mappings. We do not use a fixed enumeration defined in the profile to assure extensibility</body>
     </ownedComment>
     <ownedComment xmi:type="uml:Comment" xmi:id="_0NGpINTVEeKiLbHSN_MIRQ" annotatedElement="_C-GooNRwEeKiLbHSN_MIRQ">
@@ -619,10 +619,6 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mp59wNRwEeKiLbHSN_MIRQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mqyukNRwEeKiLbHSN_MIRQ" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_oTWn0NRwEeKiLbHSN_MIRQ" name="progLanguage" visibility="public" type="__QLv8NRwEeKiLbHSN_MIRQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p94P8NRwEeKiLbHSN_MIRQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p-DPENRwEeKiLbHSN_MIRQ" value="1"/>
-      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_HjF2wNRwEeKiLbHSN_MIRQ" name="CompToOOmapping">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_eiZrINRwEeKiLbHSN_MIRQ" name="base_Class" association="_eiejoNRwEeKiLbHSN_MIRQ">
@@ -634,14 +630,6 @@ For instance, we cound type a port with &quot;MyType&quot; and use an extended p
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_eiejoNRwEeKiLbHSN_MIRQ" name="E_CompToOOmapping_Class" memberEnd="_eiejodRwEeKiLbHSN_MIRQ _eiZrINRwEeKiLbHSN_MIRQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_eiejodRwEeKiLbHSN_MIRQ" name="extension_CompToOOmapping" type="_HjF2wNRwEeKiLbHSN_MIRQ" aggregation="composite" association="_eiejoNRwEeKiLbHSN_MIRQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="__QLv8NRwEeKiLbHSN_MIRQ" name="ProgLanguage">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_B--4gNRxEeKiLbHSN_MIRQ" name="base_Class" association="_B_Ci4NRxEeKiLbHSN_MIRQ">
-        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_B_Ci4NRxEeKiLbHSN_MIRQ" name="E_ProgLanguage_Class" memberEnd="_B_Ci4dRxEeKiLbHSN_MIRQ _B--4gNRxEeKiLbHSN_MIRQ">
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_B_Ci4dRxEeKiLbHSN_MIRQ" name="extension_ProgLanguage" type="__QLv8NRwEeKiLbHSN_MIRQ" aggregation="composite" association="_B_Ci4NRxEeKiLbHSN_MIRQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_iDiaINRxEeKiLbHSN_MIRQ" name="CompilerChain">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_jzVj0NRxEeKiLbHSN_MIRQ" name="base_Class" association="_jzYnINRxEeKiLbHSN_MIRQ">

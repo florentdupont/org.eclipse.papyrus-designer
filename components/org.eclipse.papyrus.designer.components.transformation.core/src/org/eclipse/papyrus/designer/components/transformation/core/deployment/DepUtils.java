@@ -16,6 +16,7 @@ import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
 import org.eclipse.papyrus.designer.components.FCM.Target;
 import org.eclipse.papyrus.designer.components.transformation.core.ElementFilter;
 import org.eclipse.papyrus.designer.components.transformation.core.Utils;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.common.util.UML2Util;
 import org.eclipse.uml2.uml.AggregationKind;
@@ -470,22 +471,23 @@ public class DepUtils {
 
 	/**
 	 * Determine which programming language should be generated for a classifier. The
-	 * stereotype CodeGenOptions (which could be on any owning package) is evaluated.
+	 * stereotype GeneratorHint (which could be on any owning package) is evaluated.
 	 *
-	 * @param pkg
-	 *            a classifier
+	 * @param element
+	 *            an element (typically a classifier or a package)
 	 * @return the programming language
 	 */
-	public static String getLanguageFromPackage(Package pkg) {
-		CodeGenOptions codeGenOpt = UMLUtil.getStereotypeApplication(pkg, CodeGenOptions.class);
-		if ((codeGenOpt != null) && (codeGenOpt.getProgLanguage() != null)) {
-			return codeGenOpt.getProgLanguage().getBase_Class().getName();
+	public static String getLanguageFromElement(Element element) {
+		GeneratorHint codeGenOpt = UMLUtil.getStereotypeApplication(element, GeneratorHint.class);
+		if ((codeGenOpt != null) && (codeGenOpt.getLanguage() != null)) {
+			return codeGenOpt.getLanguage().getBase_Class().getName();
 		}
-		else if (pkg.getOwner() instanceof Package) {
-			return getLanguageFromPackage((Package) pkg.getOwner());
+		else if (element.getOwner() instanceof Package) {
+			return getLanguageFromElement(element.getOwner());
 		}
 		else {
-			return null;
+			// Use C++ as default generation language
+			return "C++"; //$NON-NLS-1$;
 		}
 	}
 
@@ -496,10 +498,7 @@ public class DepUtils {
 	 */
 	public static String getTargetLanguage(InstanceSpecification mainInstance) {
 		Classifier cl = DepUtils.getClassifier(mainInstance);
-		String targetLanguage = DepUtils.getLanguageFromPackage(cl.getNearestPackage());
-		if (targetLanguage == null) {
-			targetLanguage = "C++"; //$NON-NLS-1$
-		}
+		String targetLanguage = DepUtils.getLanguageFromElement(cl);
 		return targetLanguage;
 	}
 	
@@ -513,11 +512,11 @@ public class DepUtils {
 	 */
 	public static String getOOTransformationFromPackage(Package pkg) {
 		CodeGenOptions codeGenOpt = UMLUtil.getStereotypeApplication(pkg, CodeGenOptions.class);
-		if ((codeGenOpt != null) && (codeGenOpt.getProgLanguage() != null)) {
+		if ((codeGenOpt != null) && (codeGenOpt.getCompToOOmapping() != null)) {
 			return codeGenOpt.getCompToOOmapping().getBase_Class().getName();
 		}
 		else if (pkg.getOwner() instanceof Package) {
-			return getLanguageFromPackage((Package) pkg.getOwner());
+			return getLanguageFromElement((Package) pkg.getOwner());
 		}
 		else {
 			return null;

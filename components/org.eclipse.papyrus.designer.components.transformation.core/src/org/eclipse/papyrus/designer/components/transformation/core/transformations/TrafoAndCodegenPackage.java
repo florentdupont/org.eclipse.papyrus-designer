@@ -27,10 +27,6 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRuleKind;
 import org.eclipse.papyrus.designer.components.FCM.util.FCMUtil;
@@ -45,6 +41,8 @@ import org.eclipse.papyrus.designer.components.transformation.core.extensions.Ab
 import org.eclipse.papyrus.designer.components.transformation.core.generate.GenerateCode;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.container.LWContainerTrafo;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterTemplate;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.uml2.uml.Class;
@@ -197,16 +195,11 @@ public class TrafoAndCodegenPackage {
 			String tmpPath = tmpMM.getPath(project, InstantiateDepPlan.TEMP_MODEL_FOLDER, tmpModel.getName() + InstantiateDepPlan.TEMP_MODEL_POSTFIX);
 			tmpMM.saveModel(tmpPath);
 
-			String targetLanguage = DepUtils.getLanguageFromPackage(selectedPkg);
-			if (targetLanguage == null) {
-				targetLanguage = "C++"; //$NON-NLS-1$
-			}
+			String targetLanguage = DepUtils.getLanguageFromElement(selectedPkg);
 			// genProject = project
 			ModelManagement genMM = tmpMM;
 			IProject genProject = project;
-			ILangProjectSupport projectSupport = LanguageProjectSupport.getProjectSupport(targetLanguage);
 			ILangCodegen codegen = LanguageCodegen.getGenerator(targetLanguage);
-
 			GenerateCode codeGen = new GenerateCode(genProject, codegen, genMM, monitor);
 			codeGen.generate(null, targetLanguage, false);
 

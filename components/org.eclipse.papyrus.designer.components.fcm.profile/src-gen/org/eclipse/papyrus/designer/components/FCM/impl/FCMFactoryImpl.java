@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.papyrus.designer.components.FCM.*;
 import org.eclipse.papyrus.designer.components.FCM.Assembly;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndex;
 import org.eclipse.papyrus.designer.components.FCM.AutoIndexPerNode;
@@ -52,7 +51,6 @@ import org.eclipse.papyrus.designer.components.FCM.InterceptionRule;
 import org.eclipse.papyrus.designer.components.FCM.OperatingSystem;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
-import org.eclipse.papyrus.designer.components.FCM.ProgLanguage;
 import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
 import org.eclipse.papyrus.designer.components.FCM.Singleton;
 import org.eclipse.papyrus.designer.components.FCM.Target;
@@ -60,7 +58,6 @@ import org.eclipse.papyrus.designer.components.FCM.TargetArchitecture;
 import org.eclipse.papyrus.designer.components.FCM.Template;
 import org.eclipse.papyrus.designer.components.FCM.TemplatePort;
 import org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator;
-import org.eclipse.papyrus.designer.components.FCM.profile.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -113,7 +110,6 @@ public class FCMFactoryImpl extends EFactoryImpl implements FCMFactory {
 			case FCMPackage.ASSEMBLY: return createAssembly();
 			case FCMPackage.FLATTEN: return createFlatten();
 			case FCMPackage.COMP_TO_OOMAPPING: return createCompToOOmapping();
-			case FCMPackage.PROG_LANGUAGE: return createProgLanguage();
 			case FCMPackage.CODE_GEN_OPTIONS: return createCodeGenOptions();
 			case FCMPackage.INTERACTION_COMPONENT: return createInteractionComponent();
 			case FCMPackage.SINGLETON: return createSingleton();
@@ -257,17 +253,6 @@ public class FCMFactoryImpl extends EFactoryImpl implements FCMFactory {
 	public CompToOOmapping createCompToOOmapping() {
 		CompToOOmappingImpl compToOOmapping = new CompToOOmappingImpl();
 		return compToOOmapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ProgLanguage createProgLanguage() {
-		ProgLanguageImpl progLanguage = new ProgLanguageImpl();
-		return progLanguage;
 	}
 
 	/**

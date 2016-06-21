@@ -52,7 +52,6 @@ import org.eclipse.papyrus.designer.components.FCM.InterceptionRule;
 import org.eclipse.papyrus.designer.components.FCM.OperatingSystem;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
-import org.eclipse.papyrus.designer.components.FCM.ProgLanguage;
 import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
 import org.eclipse.papyrus.designer.components.FCM.Singleton;
 import org.eclipse.papyrus.designer.components.FCM.Target;
@@ -118,13 +117,6 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 	 * @generated
 	 */
 	private EClass compToOOmappingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass progLanguageEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -568,26 +560,6 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getProgLanguage() {
-		return progLanguageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getProgLanguage_Base_Class() {
-		return (EReference)progLanguageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getCodeGenOptions() {
 		return codeGenOptionsEClass;
 	}
@@ -610,16 +582,6 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 	@Override
 	public EReference getCodeGenOptions_CompToOOmapping() {
 		return (EReference)codeGenOptionsEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getCodeGenOptions_ProgLanguage() {
-		return (EReference)codeGenOptionsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1661,13 +1623,9 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 		compToOOmappingEClass = createEClass(COMP_TO_OOMAPPING);
 		createEReference(compToOOmappingEClass, COMP_TO_OOMAPPING__BASE_CLASS);
 
-		progLanguageEClass = createEClass(PROG_LANGUAGE);
-		createEReference(progLanguageEClass, PROG_LANGUAGE__BASE_CLASS);
-
 		codeGenOptionsEClass = createEClass(CODE_GEN_OPTIONS);
 		createEReference(codeGenOptionsEClass, CODE_GEN_OPTIONS__BASE_PACKAGE);
 		createEReference(codeGenOptionsEClass, CODE_GEN_OPTIONS__COMP_TO_OOMAPPING);
-		createEReference(codeGenOptionsEClass, CODE_GEN_OPTIONS__PROG_LANGUAGE);
 
 		interactionComponentEClass = createEClass(INTERACTION_COMPONENT);
 		createEAttribute(interactionComponentEClass, INTERACTION_COMPONENT__FOR_DISTRIBUTION);
@@ -1860,13 +1818,9 @@ public class FCMPackageImpl extends EPackageImpl implements FCMPackage {
 		initEClass(compToOOmappingEClass, CompToOOmapping.class, "CompToOOmapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getCompToOOmapping_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, CompToOOmapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(progLanguageEClass, ProgLanguage.class, "ProgLanguage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getProgLanguage_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, ProgLanguage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-
 		initEClass(codeGenOptionsEClass, CodeGenOptions.class, "CodeGenOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getCodeGenOptions_Base_Package(), theUMLPackage.getPackage(), null, "base_Package", null, 1, 1, CodeGenOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 		initEReference(getCodeGenOptions_CompToOOmapping(), this.getCompToOOmapping(), null, "compToOOmapping", null, 1, 1, CodeGenOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
-		initEReference(getCodeGenOptions_ProgLanguage(), this.getProgLanguage(), null, "progLanguage", null, 1, 1, CodeGenOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(interactionComponentEClass, InteractionComponent.class, "InteractionComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getInteractionComponent_ForDistribution(), theTypesPackage.getBoolean(), "forDistribution", "false", 1, 1, InteractionComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
