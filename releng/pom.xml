@@ -17,6 +17,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		<module>org.eclipse.papyrus.designer.languages.cpp.feature</module>
 		<!-- java -->
 		<module>org.eclipse.papyrus.designer.languages.java.feature</module>
+		<!-- idl -->
+		<module>org.eclipse.papyrus.designer.languages.idl.feature</module>
 
 		<!-- components -->
 		<module>org.eclipse.papyrus.designer.components.main.feature</module>
