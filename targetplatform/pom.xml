@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.targetplatform</artifactId>
 	<packaging>pom</packaging>
@@ -36,5 +36,5 @@
 		</profile>
 	</profiles>
 
-<version>1.0.1-SNAPSHOT</version>
+<version>1.0.1</version>
 </project>

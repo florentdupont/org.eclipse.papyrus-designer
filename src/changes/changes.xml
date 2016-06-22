@@ -5,6 +5,11 @@
 		<title>Changes Report: Papyrus Designer</title>
 	</properties>
 	<body>
+		<release version="1.0.1" date="2016-06-22" description="GeryElephant">
+			<action dev="flf" type="add" issue="496416">
+				Correction of an installation problem due to fix version in feature list.
+			</action>
+		</release>
 		<release version="1.0.0" date="2016-06-20" description="Elephant">
 			<action dev="sli" type="add" issue="494932">
 				There is now a common profile for code generation with meta-info like project name, source folder, etc... This common profile thus lets the user customize where and how code is generated. The common profile is handled by both the Java and C++ generators.

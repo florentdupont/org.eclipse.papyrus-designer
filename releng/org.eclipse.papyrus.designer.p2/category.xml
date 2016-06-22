@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
 	<!-- Common support for programming languages -->
-	<feature id="org.eclipse.papyrus.designer.languages.common.feature" url="features/org.eclipse.papyrus.designer.languages.common.feature_1.0.1.qualifier.jar" version="1.0.1.qualifier">
+	<feature id="org.eclipse.papyrus.designer.languages.common.feature" url="features/org.eclipse.papyrus.designer.languages.common.feature_1.0.1.jar" version="1.0.1">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
 
 	<!--Core CPP-->
-	<feature id="org.eclipse.papyrus.designer.languages.cpp.feature" url="features/org.eclipse.papyrus.designer.languages.cpp.feature_1.0.1.qualifier.jar" version="1.0.1.qualifier">
+	<feature id="org.eclipse.papyrus.designer.languages.cpp.feature" url="features/org.eclipse.papyrus.designer.languages.cpp.feature_1.0.1.jar" version="1.0.1">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
 
 	<!--Java -->
-	<feature id="org.eclipse.papyrus.designer.languages.java.feature" url="features/org.eclipse.papyrus.designer.languages.java.profile.feature_1.0.1.qualifier.jar" version="1.0.1.qualifier">
+	<feature id="org.eclipse.papyrus.designer.languages.java.feature" url="features/org.eclipse.papyrus.designer.languages.java.profile.feature_1.0.1.jar" version="1.0.1">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
 

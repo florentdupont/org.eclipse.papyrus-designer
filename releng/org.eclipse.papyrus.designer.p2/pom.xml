@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.releng</artifactId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.p2</artifactId>
 	<packaging>eclipse-repository</packaging>
@@ -68,5 +68,5 @@
 	</build>
 	<name>org.eclipse.papyrus.designer.p2</name>
 	<description>This plugin defines the update site of Designer plugins and feature.</description>
-<version>1.0.1-SNAPSHOT</version>
+<version>1.0.1</version>
 </project>
