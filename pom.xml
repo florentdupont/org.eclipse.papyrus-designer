@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.papyrus.designer</groupId>
 	<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Designer</name>
 	<description>A Papyrus component for code generation and deployment</description>
@@ -391,7 +391,7 @@
 						<artifact>
 							<groupId>org.eclipse.papyrus.designer</groupId>
 							<artifactId>org.eclipse.papyrus.designer.targetplatform.${eclipse.targetrelease}</artifactId>
-							<version>1.0.1</version>
+							<version>1.0.2-SNAPSHOT</version>
 						</artifact>
 					</target>
 				</configuration>

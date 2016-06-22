@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Papyrus Reverse Cpp
 Bundle-SymbolicName: org.eclipse.papyrus.designer.languages.cpp.reverse
-Bundle-Version: 1.0.1
+Bundle-Version: 1.0.2.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.cdt.core,
  org.eclipse.cdt.ui;bundle-version="5.9.0",

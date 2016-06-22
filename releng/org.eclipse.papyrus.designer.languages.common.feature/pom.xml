@@ -4,10 +4,10 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.releng</artifactId>
-		<version>1.0.1</version>
+		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.common.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 
-<version>1.0.1</version>
+<version>1.0.2-SNAPSHOT</version>
 </project>
