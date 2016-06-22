@@ -7,6 +7,6 @@
 		<version>1.0.1</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.components.main.feature</artifactId>
-	<version>0.7.2-SNAPSHOT</version>
+	<version>0.7.2</version>
 	<packaging>eclipse-feature</packaging>
 </project>
