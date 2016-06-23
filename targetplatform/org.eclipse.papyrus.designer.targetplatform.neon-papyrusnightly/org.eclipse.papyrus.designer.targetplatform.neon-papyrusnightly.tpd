@@ -10,12 +10,12 @@ location "http://download.eclipse.org/releases/neon/" eclipse-neon {
  org.eclipse.equinox.executable.feature.group lazy
 }
 
-location "http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/neon/main/" eclipse-papyrus-nighlty-neon {
+location "http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/neon/main/" eclipse-neon-papyrus-nighlty {
  org.eclipse.papyrus.sdk.feature.feature.group lazy
 }
 
 
-location "http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/neon/extra/" eclipse-papyrus-extra-nighlty-neon {
+location "http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/neon/extra/" eclipse-neon-papyrus-extra-nighlty {
  org.eclipse.papyrus.extra.marte.feature.feature.group lazy
 }
 
