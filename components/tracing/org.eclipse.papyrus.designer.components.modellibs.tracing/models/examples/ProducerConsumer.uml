@@ -8,7 +8,7 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/core.uml#_O6TiIDLUEd26WNosUASSSw"/>
     </packageImport>
     <packageImport xmi:id="_rwBsMP7AEd6Zw96O-tCw7A">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
+      <importedPackage xmi:type="uml:Model" href="pathmap://PDML_IDL/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
     </packageImport>
     <packageImport xmi:id="_R8d6YP93Ed6628OhKk_dpg">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/fifo.uml#_ePwqkHLmEd6R5tffIPrlPg"/>
@@ -91,10 +91,10 @@ cout &lt;&lt; &quot;finished waiting&quot; &lt;&lt; endl;
       <packagedElement xmi:type="uml:Package" xmi:id="_Tp4n8DLaEd2qeKRLMdIx_A" name="interfaces">
         <packagedElement xmi:type="uml:DataType" xmi:id="_wFJ3IP91Ed6Jt8e-UqrRdQ" name="PubData">
           <ownedAttribute xmi:id="_yywF0P91Ed6Jt8e-UqrRdQ" name="y" isUnique="false" aggregation="composite">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
           </ownedAttribute>
           <ownedAttribute xmi:id="_zUgvEP91Ed6Jt8e-UqrRdQ" name="x" isUnique="false" aggregation="composite">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
           </ownedAttribute>
         </packagedElement>
       </packagedElement>
@@ -251,7 +251,7 @@ Use the context menu on a selected connector to specify the interaction componen
           <slot xmi:id="_zwUHQbF4EeC9yscvWqW-eg">
             <definingFeature xmi:type="uml:Property" href="pathmap://QML_CORE/fifo.uml#_XDRnoHUIEd6R5tffIPrlPg"/>
             <value xmi:type="uml:LiteralInteger" xmi:id="_zwUuULF4EeC9yscvWqW-eg" name="value for m_size" value="30">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             </value>
           </slot>
         </packagedElement>
@@ -285,7 +285,7 @@ Use the context menu on a selected connector to specify the interaction componen
               </ownedOperation>
               <ownedOperation xmi:id="_AbZwcLGSEeCfWNndpgPDWA" name="hasData">
                 <ownedParameter xmi:id="_Aba-kLGSEeCfWNndpgPDWA" name="ret" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_Bv7l0B-VEd6nGq8wpI2tjg"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_Bv7l0B-VEd6nGq8wpI2tjg"/>
                 </ownedParameter>
               </ownedOperation>
             </packagedElement>

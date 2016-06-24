@@ -58,11 +58,7 @@
       <mapping source="pathmap://QML_CORE/" target="platform:/plugin/org.eclipse.papyrus.designer.components.modellibs.core/models/library/">
       </mapping>
    </extension>
-   <extension name="CORBA basic types" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library description="Designer: CORBA basic types (long, wchar, ...)" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: CORBA basic types" path="pathmap://QML_CORE/corba.uml" provider="CEA LIST">
-      </library>
-   </extension>
-   <extension name="Designer core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+    <extension name="Designer core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
       <library description="Designer core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: basic" path="pathmap://QML_CORE/core.uml" provider="CEA LIST">
       </library>
    </extension>

@@ -8,7 +8,7 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/sysinterfaces.uml#_RodVAAweEd6it_RkGhz_AA"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_hWGaIF9CEd6vU6EJjexEKQ">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
+      <importedPackage xmi:type="uml:Model" href="pathmap://PDML_IDL/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_K9IBUP-FEd6628OhKk_dpg">
       <importedPackage xmi:type="uml:Model" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_DV8nkBv8EduZN5aJJITI5w"/>
@@ -913,7 +913,7 @@ pthread_setschedparam (pt, SCHED_RR, &amp;schedParam);
       <packagedElement xmi:type="uml:Dependency" xmi:id="_wCkVcNYGEd-CgJIavLpOxQ" name="ImplRequirement" client="_SiY_AP-EEd6628OhKk_dpg" supplier="_ea234NYGEd-CgJIavLpOxQ"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_WkkjoPNUEeCovO8AYZymZQ" name="CallEvent_">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YKtbAPNUEeCovO8AYZymZQ" name="operationID" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aDHHEPNUEeCovO8AYZymZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aDIVMPNUEeCovO8AYZymZQ" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_aDKxcPNUEeCovO8AYZymZQ">
@@ -928,7 +928,7 @@ pthread_setschedparam (pt, SCHED_RR, &amp;schedParam);
           </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_-_HCMBI0EeGU49ezpRnvLg" name="portID">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-_LToBI0EeGU49ezpRnvLg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-_L6sBI0EeGU49ezpRnvLg" value="1"/>
         </ownedAttribute>
@@ -956,7 +956,7 @@ pthread_setschedparam (pt, SCHED_RR, &amp;schedParam);
           </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="__a1A0PQXEeCovO8AYZymZQ" name="m_size" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A1N7MPQYEeCovO8AYZymZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A1OiQPQYEeCovO8AYZymZQ" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_A1QXcPQYEeCovO8AYZymZQ">
@@ -972,7 +972,7 @@ pthread_setschedparam (pt, SCHED_RR, &amp;schedParam);
           </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Ig_MUCSlEeG6GJ4vU06VYQ" name="ID_TIMEOUT" isStatic="true">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IjAlkCSlEeG6GJ4vU06VYQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IjCawCSlEeG6GJ4vU06VYQ" value="1"/>
           <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_SjUM4CSlEeG6GJ4vU06VYQ" name="" value="-1"/>
@@ -1008,7 +1008,7 @@ return events[0];</body>
         </ownedBehavior>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_tK0poPQWEeCovO8AYZymZQ0" name="readEvent" method="_9xRCAPQXEeCovO8AYZymZQ">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_HUTnoCVyEeGaL60JjVj19Q" name="timeout">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HUWq8CVyEeGaL60JjVj19Q" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HUXSACVyEeGaL60JjVj19Q" value="1"/>
           </ownedParameter>
@@ -1019,7 +1019,7 @@ return events[0];</body>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_FBMo4PQXEeCovO8AYZymZQ0" name="size" method="_5Sw2YPQXEeCovO8AYZymZQ">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_mKtAYPQXEeCovO8AYZymZQ" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mKvcoPQXEeCovO8AYZymZQ" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mKwqwPQXEeCovO8AYZymZQ" value="1"/>
           </ownedParameter>
@@ -1056,7 +1056,7 @@ return events[0];</body>
             <body>&lt;&lt;TextualRepresentation>>public abstract size () : BasicCalls::Long ;</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_RlkvcPQXEeCovO8AYZymZQ" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rll9kPQXEeCovO8AYZymZQ" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RlmkoPQXEeCovO8AYZymZQ" value="1"/>
           </ownedParameter>
@@ -1068,7 +1068,7 @@ return events[0];</body>
             <body>&lt;&lt;TextualRepresentation>>public abstract readEvent(in timeout : BasicCalls::Long) : BasicCalls::ContainerServices::Event ;</body>
           </ownedComment>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_PnwykPRREeCUGrV0Hl4JwQ" name="timeout">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PofyYPRREeCUGrV0Hl4JwQ" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pow4IPRREeCUGrV0Hl4JwQ" value="1"/>
           </ownedParameter>
@@ -1095,7 +1095,7 @@ return events[0];</body>
           </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_tmNeoCjbEeGFbebITJYb9g" name="periodLength" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tmmgMCjbEeGFbebITJYb9g" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tmnHQCjbEeGFbebITJYb9g" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_w262ACnOEeGxrprK9wB9iA">
@@ -1178,7 +1178,7 @@ for (;;) {
       </packagedElement>
       <packagedElement xmi:type="uml:DataType" xmi:id="_OU5asFaNEeKxltxu9uR4dg" name="ParamValues">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_RW82cFaNEeKxltxu9uR4dg" name="values" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_IYEXcB-VEd6nGq8wpI2tjg"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_IYEXcB-VEd6nGq8wpI2tjg"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TAmU0FaNEeKxltxu9uR4dg" value="200"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TAqmQFaNEeKxltxu9uR4dg" value="200"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_TCDGUFaNEeKxltxu9uR4dg">
@@ -1188,7 +1188,7 @@ for (;;) {
       </packagedElement>
       <packagedElement xmi:type="uml:DataType" xmi:id="_Y8dPQFaNEeKxltxu9uR4dg" name="QoS">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_fYeQcFaNEeKxltxu9uR4dg" name="deadline" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gFUvYFaNEeKxltxu9uR4dg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gFYZwFaNEeKxltxu9uR4dg" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_gFfHcFaNEeKxltxu9uR4dg">
@@ -1196,7 +1196,7 @@ for (;;) {
           </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_oUVYMFaNEeKxltxu9uR4dg" name="period" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rUQF8FaNEeKxltxu9uR4dg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rUSiMFaNEeKxltxu9uR4dg" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_rW6_cFaNEeKxltxu9uR4dg">
@@ -1204,7 +1204,7 @@ for (;;) {
           </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_xXGZMFaNEeKxltxu9uR4dg" name="readyTime" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yjbCYFaNEeKxltxu9uR4dg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yjcQgFaNEeKxltxu9uR4dg" value="1"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_yjeswFaNEeKxltxu9uR4dg">

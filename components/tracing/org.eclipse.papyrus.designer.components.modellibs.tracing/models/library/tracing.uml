@@ -11,7 +11,7 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/osal.uml#_ROTQYC-OEdySSa8YESkO2w"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_DRgF0D4NEeC-VMxjm_qUAg">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
+      <importedPackage xmi:type="uml:Model" href="pathmap://PDML_IDL/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
     </packageImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_g2IY8DKeEd-WprEKTCaiMA" name="traceInterceptor">
       <packageMerge xmi:type="uml:PackageMerge" xmi:id="_2RoSYKNfEeCdIOXlyrCmKQ">
@@ -40,7 +40,7 @@
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xUpmcF23Ed-12d_h0i1xhQ" value="1"/>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_mfNqoBavEeGq1uSGvh4rcQ" name="hasDeclaredFunctions" isStatic="true">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_Bv7l0B-VEd6nGq8wpI2tjg"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_Bv7l0B-VEd6nGq8wpI2tjg"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mfSjIBavEeGq1uSGvh4rcQ" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mfTKMBavEeGq1uSGvh4rcQ" value="1"/>
             <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_u-498Ba1EeGq1uSGvh4rcQ"/>
@@ -245,7 +245,7 @@ OTF_Writer_writeDefFunction (writer, streamNr, &lt;%enumSvcPrefix%>::id_&lt;%own
         <packagedElement xmi:type="uml:Class" xmi:id="_aoSDwKAdEeCF0uoVQbVQRg" name="OTFTrace_vc">
           <generalization xmi:type="uml:Generalization" xmi:id="_nQ6YMKAdEeCF0uoVQbVQRg" general="_aF1w4DKeEd-WprEKTCaiMA"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_EWKx4KD0EeCFDJJCA2W5wg" name="m_first">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_Bv7l0B-VEd6nGq8wpI2tjg"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_Bv7l0B-VEd6nGq8wpI2tjg"/>
           </ownedAttribute>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_4LoXcKAeEeCF0uoVQbVQRg" name="[name/]" specification="_k4TsoKAeEeCF0uoVQbVQRg">
             <language>C/C++</language>
@@ -430,7 +430,7 @@ if (doTrace) {
           <ownedAttribute xmi:type="uml:Property" xmi:id="_vYRuQDj1Ed-nsvkE2JvSTg" name="writer" isStatic="true" type="_W0t44Dj1Ed-nsvkE2JvSTg" isUnique="false" aggregation="shared"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_ZZ8mwDwLEd-CbfVdCYNz6Q" name="manager" isStatic="true" type="_LjsBkDwLEd-CbfVdCYNz6Q" isUnique="false" aggregation="shared"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_28RZED4NEeC-VMxjm_qUAg" name="streamNr" isStatic="true">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_cy5msJ6oEeCNsP1Kjt4f_w" name="sema" isStatic="true">
             <type xmi:type="uml:Class" href="pathmap://QML_CORE/osal.uml#_D8njME_gEdy2tpS719xBwQ"/>
@@ -534,7 +534,7 @@ return processID;</body>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_MR0d4ChjEeC5Ga5kAgjl0g" name="TraceInit" method="_W9k18ChjEeC5Ga5kAgjl0g"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_uegYAD4MEeC-VMxjm_qUAg" name="getProcessID" isStatic="true" method="_g2IBUD4NEeC-VMxjm_qUAg">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_1PmRUD4MEeC-VMxjm_qUAg" name="ret" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_VIPBEJ6oEeCNsP1Kjt4f_w" name="wait" isStatic="true" method="_KUVkMJ6pEeCNsP1Kjt4f_w"/>

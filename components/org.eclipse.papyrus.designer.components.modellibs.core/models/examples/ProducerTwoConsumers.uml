@@ -7,9 +7,6 @@
     <packageImport xmi:type="uml:PackageImport" xmi:id="_Bc1WIFW4Ed63BrxiKsw-0Q">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/core.uml#_O6TiIDLUEd26WNosUASSSw"/>
     </packageImport>
-    <packageImport xmi:type="uml:PackageImport" xmi:id="_rwBsMP7AEd6Zw96O-tCw7A">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
-    </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_R8d6YP93Ed6628OhKk_dpg">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/fifo.uml#_ePwqkHLmEd6R5tffIPrlPg"/>
     </packageImport>
@@ -96,10 +93,10 @@ cout &lt;&lt; &quot;finished waiting&quot; &lt;&lt; endl;
       <packagedElement xmi:type="uml:Package" xmi:id="_Tp4n8DLaEd2qeKRLMdIx_A" name="interfaces">
         <packagedElement xmi:type="uml:DataType" xmi:id="_wFJ3IP91Ed6Jt8e-UqrRdQ" name="PubData">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_yywF0P91Ed6Jt8e-UqrRdQ" name="y" isUnique="false" aggregation="composite">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_zUgvEP91Ed6Jt8e-UqrRdQ" name="x" isUnique="false" aggregation="composite">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
           </ownedAttribute>
         </packagedElement>
       </packagedElement>
@@ -362,7 +359,7 @@ for (int i = 0; i&lt;20; i++) {
           <slot xmi:type="uml:Slot" xmi:id="_z4x_kF73EeGerN33d-RdRg">
             <definingFeature xmi:type="uml:Property" href="pathmap://QML_CORE/fifo.uml#_XDRnoHUIEd6R5tffIPrlPg"/>
             <value xmi:type="uml:LiteralInteger" xmi:id="_z4x_kV73EeGerN33d-RdRg" name="value for m_size" value="30">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             </value>
           </slot>
         </packagedElement>
@@ -383,7 +380,7 @@ for (int i = 0; i&lt;20; i++) {
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_C3AUYF7iEeGEmrrwB1vhPg" name="hasData">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_C3A7cF7iEeGEmrrwB1vhPg" name="ret" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_Bv7l0B-VEd6nGq8wpI2tjg"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_Bv7l0B-VEd6nGq8wpI2tjg"/>
                 </ownedParameter>
               </ownedOperation>
             </packagedElement>

@@ -8,7 +8,7 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/core.uml#_O6TiIDLUEd26WNosUASSSw"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_rwBsMP7AEd6Zw96O-tCw7A">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
+      <importedPackage xmi:type="uml:Model" href="pathmap://PDML_IDL/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="__D5MwE2WEeGzNbfAXPgNLA">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_TRACE/tracing.uml#_H-ZqYDKeEd-WprEKTCaiMA"/>
@@ -20,17 +20,17 @@
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_YQqH0JYlEd6G9q9hwr11bw" name="derived realization of ICompute" client="_oqZNUDLaEd2qeKRLMdIx_A" supplier="_cn-H0DLbEd2qeKRLMdIx_A" contract="_cn-H0DLbEd2qeKRLMdIx_A"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ML-4AKI5Ed6FqJCjEUrkqQ" name="add" specification="_TbIjUJYlEd6G9q9hwr11bw">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_xOQMoC7NEeOY-cM3M1mqKw" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xOzmQC7NEeOY-cM3M1mqKw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xO_zgC7NEeOY-cM3M1mqKw" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_xPLZsC7NEeOY-cM3M1mqKw" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xPuzUC7NEeOY-cM3M1mqKw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xP6ZgC7NEeOY-cM3M1mqKw" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_xQF_sC7NEeOY-cM3M1mqKw" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xQvf8C7NEeOY-cM3M1mqKw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xQ7GIC7NEeOY-cM3M1mqKw" value="1"/>
             </ownedParameter>
@@ -40,17 +40,17 @@ return a+b;</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_I1R3YAcDEeGnrLqQ0OQeAg" name="mult" specification="_4ZEZwHecEd6r18stFZxmFQ">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_xRMy8C7NEeOY-cM3M1mqKw" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_qgMSAB6SEd6ITtm_FH3jRw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_qgMSAB6SEd6ITtm_FH3jRw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xRwzoC7NEeOY-cM3M1mqKw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xR8Z0C7NEeOY-cM3M1mqKw" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_xSInEC7NEeOY-cM3M1mqKw" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_wbw4kB6SEd6ITtm_FH3jRw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_wbw4kB6SEd6ITtm_FH3jRw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xStO0C7NEeOY-cM3M1mqKw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xS41AC7NEeOY-cM3M1mqKw" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_xTFCQC7NEeOY-cM3M1mqKw" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xTn00C7NEeOY-cM3M1mqKw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xT0CEC7NEeOY-cM3M1mqKw" value="1"/>
             </ownedParameter>
@@ -78,30 +78,30 @@ return a*b;</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_4ZEZwHecEd6r18stFZxmFQ" name="mult" method="_I1R3YAcDEeGnrLqQ0OQeAg">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_nvpKUDVdEeKoYLVLZgpRiw" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_qgMSAB6SEd6ITtm_FH3jRw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_qgMSAB6SEd6ITtm_FH3jRw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nvup4DVdEeKoYLVLZgpRiw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nvvQ8DVdEeKoYLVLZgpRiw" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_nvwfEDVdEeKoYLVLZgpRiw" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_wbw4kB6SEd6ITtm_FH3jRw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_wbw4kB6SEd6ITtm_FH3jRw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nvy7UDVdEeKoYLVLZgpRiw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nvziYDVdEeKoYLVLZgpRiw" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_nv1XkDVdEeKoYLVLZgpRiw" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nv3z0DVdEeKoYLVLZgpRiw" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nv4a4DVdEeKoYLVLZgpRiw" value="1"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_TbIjUJYlEd6G9q9hwr11bw" name="add" method="_ML-4AKI5Ed6FqJCjEUrkqQ">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_TbZCAJYlEd6G9q9hwr11bw" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_TbdTcJYlEd6G9q9hwr11bw" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_TbkoMJYlEd6G9q9hwr11bw" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_rrf74DVdEeKoYLVLZgpRiw" name="check">
@@ -113,7 +113,7 @@ return a*b;</body>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_9OJPEDVkEeKoYLVLZgpRiw" name="testOp">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_Br-FQDVlEeKoYLVLZgpRiw" name="testPar">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_6ERa0DW2EeKyT6LlKoWJIA" name="length">
@@ -131,34 +131,34 @@ return a*b;</body>
         <packagedElement xmi:type="uml:Interface" xmi:id="_cn-H0DLbEd2qeKRLMdIx_A" name="ICompute">
           <ownedOperation xmi:type="uml:Operation" xmi:id="_DGs6wDLgEd28fJKJJnUaeQ" name="add">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_DGs6wTLgEd28fJKJJnUaeQ" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6wzLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6wjLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_DGs6xTLgEd28fJKJJnUaeQ" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6xzLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6xjLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_DGs6yTLgEd28fJKJJnUaeQ" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6yzLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6yjLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_L8EY8DLgEd28fJKJJnUaeQ" name="mult" isAbstract="true">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_L8EY8TLgEd28fJKJJnUaeQ" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_qgMSAB6SEd6ITtm_FH3jRw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_qgMSAB6SEd6ITtm_FH3jRw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY8zLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY8jLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_L8EY9TLgEd28fJKJJnUaeQ" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_wbw4kB6SEd6ITtm_FH3jRw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_wbw4kB6SEd6ITtm_FH3jRw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY9zLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY9jLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_L8EY-TLgEd28fJKJJnUaeQ" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY-zLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY-jLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
@@ -174,7 +174,7 @@ return a*b;</body>
         </packagedElement>
         <packagedElement xmi:type="uml:DataType" xmi:id="_krMkcDW2EeKyT6LlKoWJIA" name="Point">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_m0WCQDW2EeKyT6LlKoWJIA" name="x" visibility="public">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pOAoUDW2EeKyT6LlKoWJIA" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pOB2cDW2EeKyT6LlKoWJIA" value="1"/>
             <defaultValue xmi:type="uml:LiteralString" xmi:id="_pOESsDW2EeKyT6LlKoWJIA">
@@ -182,7 +182,7 @@ return a*b;</body>
             </defaultValue>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_yJIJMDW2EeKyT6LlKoWJIA" name="y" visibility="public">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_-5FTMB6REd6ITtm_FH3jRw"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yd44QDW2EeKyT6LlKoWJIA" value="1"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yd6GYDW2EeKyT6LlKoWJIA" value="1"/>
             <defaultValue xmi:type="uml:LiteralString" xmi:id="_yd77kDW2EeKyT6LlKoWJIA">
@@ -233,7 +233,7 @@ for (int i=0; i&lt;20; i++) {
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_Qzp7gDclEeKAhIrFXfR8zQ" name="testOp" method="_yVALQDclEeKAhIrFXfR8zQ">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_rXu4UDc_EeKPle9CbXIcpQ" name="j">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_9XvcQB6REd6ITtm_FH3jRw"/>
             </ownedParameter>
           </ownedOperation>
         </packagedElement>

@@ -7,9 +7,6 @@
     <packageImport xmi:type="uml:PackageImport" xmi:id="_Bc1WIFW4Ed63BrxiKsw-0Q">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/core.uml#_O6TiIDLUEd26WNosUASSSw"/>
     </packageImport>
-    <packageImport xmi:type="uml:PackageImport" xmi:id="_rwBsMP7AEd6Zw96O-tCw7A">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
-    </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_R8d6YP93Ed6628OhKk_dpg">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/fifo.uml#_ePwqkHLmEd6R5tffIPrlPg"/>
     </packageImport>
@@ -109,10 +106,10 @@ cout &lt;&lt; &quot;finished waiting&quot; &lt;&lt; endl;
       <packagedElement xmi:type="uml:Package" xmi:id="_Tp4n8DLaEd2qeKRLMdIx_A" name="interfaces">
         <packagedElement xmi:type="uml:DataType" xmi:id="_wFJ3IP91Ed6Jt8e-UqrRdQ" name="PubData">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_yywF0P91Ed6Jt8e-UqrRdQ" name="y" isUnique="false" aggregation="composite">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
           </ownedAttribute>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_zUgvEP91Ed6Jt8e-UqrRdQ" name="x" isUnique="false" aggregation="composite">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
           </ownedAttribute>
         </packagedElement>
       </packagedElement>
@@ -263,6 +260,7 @@ Use the context menu on a selected connector to specify the interaction componen
         <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_xB5scDOFEeCldqx_51Yicg" name="mainInstance.con" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
         <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_xB7hoDOFEeCldqx_51Yicg" name="mainInstance.prod" classifier="_IfjoETLbEd2qeKRLMdIx_A"/>
         <packagedElement xmi:type="uml:Abstraction" xmi:id="_wqyJ4E0tEeG4IqgA7gSE6w" name="allocate to monoNode" client="_xB3QMDOFEeCldqx_51Yicg" supplier="_GQ1ekKwHEeCQX8uv_p0Q4A"/>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_LfjDsCz7Eea25uwDpRQuxg" name="Enumeration1"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_zwMLcLF4EeC9yscvWqW-eg" name="monoPull">
         <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_zwQc4bF4EeC9yscvWqW-eg" name="mainInstance" classifier="_bYJagDLiEd2RVeNawwNNzg">
@@ -284,7 +282,7 @@ Use the context menu on a selected connector to specify the interaction componen
           <slot xmi:type="uml:Slot" xmi:id="_zwUHQbF4EeC9yscvWqW-eg">
             <definingFeature xmi:type="uml:Property" href="pathmap://QML_CORE/fifo.uml#_XDRnoHUIEd6R5tffIPrlPg"/>
             <value xmi:type="uml:LiteralInteger" xmi:id="_zwUuULF4EeC9yscvWqW-eg" name="value for m_size" value="30">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PDML_IDL/corba.uml#_FxVBkB6LEd6Nj_33Eb_pxw"/>
             </value>
           </slot>
         </packagedElement>
@@ -305,48 +303,29 @@ Use the context menu on a selected connector to specify the interaction componen
         </packagedElement>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_lr9WwKwJEeCgusK7cm6qjQ" name="derivedInterfaces">
-      <packagedElement xmi:type="uml:Package" xmi:id="_lr_L8KwJEeCgusK7cm6qjQ" name="ProducerConsumer">
-        <packagedElement xmi:type="uml:Package" xmi:id="_-Kv-IBoaEeONpa5JgejICQ" name="components">
-          <packagedElement xmi:type="uml:Package" xmi:id="_-LBD4BoaEeONpa5JgejICQ" name="interfaces">
-            <packagedElement xmi:type="uml:Interface" xmi:id="_-LSwsBoaEeONpa5JgejICQ" name="D_PullConsumer_PubData">
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_-Lyf8BoaEeONpa5JgejICQ" name="pull">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-MGpABoaEeONpa5JgejICQ" name="ret" type="_wFJ3IP91Ed6Jt8e-UqrRdQ" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_-Md1YBoaEeONpa5JgejICQ" name="hasData">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-MqCoBoaEeONpa5JgejICQ" name="ret" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://QML_CORE/corba.uml#_Bv7l0B-VEd6nGq8wpI2tjg"/>
-                </ownedParameter>
-              </ownedOperation>
-            </packagedElement>
-            <packagedElement xmi:type="uml:Interface" xmi:id="_EdXskBo4EeONpa5JgejICQ" name="D_Push_PubData">
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_EeDpEBo4EeONpa5JgejICQ" name="push">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Eeef0Bo4EeONpa5JgejICQ" name="data" type="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
-              </ownedOperation>
-            </packagedElement>
-          </packagedElement>
-        </packagedElement>
-      </packagedElement>
-    </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_OF72YGkXEeWAzPO1wYNudw" name="derivedTypes">
       <packagedElement xmi:type="uml:Package" xmi:id="_OF8dcGkXEeWAzPO1wYNudw" name="ProducerConsumer">
         <packagedElement xmi:type="uml:Package" xmi:id="_OF9EgGkXEeWAzPO1wYNudw" name="components">
           <packagedElement xmi:type="uml:Package" xmi:id="_OF9EgWkXEeWAzPO1wYNudw" name="interfaces">
-            <packagedElement xmi:type="uml:Interface" xmi:id="_OGDyMGkXEeWAzPO1wYNudw" name="PullConsumer_PubData">
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_OGJ40GkXEeWAzPO1wYNudw" name="pull">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_OGLG8GkXEeWAzPO1wYNudw" name="ret" type="_wFJ3IP91Ed6Jt8e-UqrRdQ" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_OJF4EGkXEeWAzPO1wYNudw" name="hasData"/>
-            </packagedElement>
             <packagedElement xmi:type="uml:Interface" xmi:id="_QxsSAGkXEeWAzPO1wYNudw" name="Push_PubData">
               <ownedOperation xmi:type="uml:Operation" xmi:id="_Qxv8YGkXEeWAzPO1wYNudw" name="push">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_Qxv8YWkXEeWAzPO1wYNudw" name="data" type="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_Oue04GzMEeWdOZKmOtT48A" name="CPullConsumer_PubData"/>
-            <packagedElement xmi:type="uml:Usage" xmi:id="_OuhRIGzMEeWdOZKmOtT48A" client="_Oue04GzMEeWdOZKmOtT48A" supplier="_OGDyMGkXEeWAzPO1wYNudw"/>
             <packagedElement xmi:type="uml:Class" xmi:id="_gz0CkGzMEeWdOZKmOtT48A" name="CPush_PubData"/>
             <packagedElement xmi:type="uml:Usage" xmi:id="_gz3F4GzMEeWdOZKmOtT48A" client="_gz0CkGzMEeWdOZKmOtT48A" supplier="_QxsSAGkXEeWAzPO1wYNudw"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_vJkTUCz_Eea25uwDpRQuxg" name="PullConsumer_PubData">
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_vJrBACz_Eea25uwDpRQuxg" name="pull">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_vJroECz_Eea25uwDpRQuxg" name="ret" type="_wFJ3IP91Ed6Jt8e-UqrRdQ" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_vJs2MCz_Eea25uwDpRQuxg" name="hasData">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_vJtdQCz_Eea25uwDpRQuxg" name="ret" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+                </ownedParameter>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Usage" xmi:id="_vJokwCz_Eea25uwDpRQuxg" client="_Oue04GzMEeWdOZKmOtT48A" supplier="_vJkTUCz_Eea25uwDpRQuxg"/>
           </packagedElement>
         </packagedElement>
       </packagedElement>
@@ -426,12 +405,9 @@ Use the context menu on a selected connector to specify the interaction componen
   </FCM:Connector>
   <Alloc:Allocate xmi:id="_9fYdcBSqEeOUifYpcO0mcw" base_Abstraction="_9dY5YBSqEeOUifYpcO0mcw"/>
   <Alloc:Allocate xmi:id="__ACX4BSqEeOUifYpcO0mcw" base_Abstraction="_--_2EBSqEeOUifYpcO0mcw"/>
-  <FCM:DerivedElement xmi:id="_-LmSsBoaEeONpa5JgejICQ" base_Element="_-LSwsBoaEeONpa5JgejICQ" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
-  <FCM:DerivedElement xmi:id="_EdzKYBo4EeONpa5JgejICQ" base_Element="_EdXskBo4EeONpa5JgejICQ" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
   <FCM:DerivedElement xmi:id="_Ffh9YCxxEeOMQpc6Y-MAJw" base_Element="_FemwUCxxEeOMQpc6Y-MAJw">
     <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_ns4qsClUEeO4bs_nkcnKOg"/>
   </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_OGIDoGkXEeWAzPO1wYNudw" base_Element="_OGDyMGkXEeWAzPO1wYNudw" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
   <FCM:DerivedElement xmi:id="_QxvVUGkXEeWAzPO1wYNudw" base_Element="_QxsSAGkXEeWAzPO1wYNudw" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
   <FCM:DerivedElement xmi:id="_FM704GzGEeWdOZKmOtT48A" base_Element="_FMzSAGzGEeWdOZKmOtT48A" source="_Qxv8YGkXEeWAzPO1wYNudw"/>
   <FCM:DerivedElement xmi:id="_OugqEGzMEeWdOZKmOtT48A" base_Element="_Oue04GzMEeWdOZKmOtT48A" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
@@ -439,4 +415,5 @@ Use the context menu on a selected connector to specify the interaction componen
   <FCM:DerivedElement xmi:id="_NVHFsBbXEeasT4HdO7q9gg" base_Element="_NVBmIBbXEeasT4HdO7q9gg">
     <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_C9IK4JsqEd61Eo3nmu3JhQ"/>
   </FCM:DerivedElement>
+  <FCM:DerivedElement xmi:id="_vJn9sCz_Eea25uwDpRQuxg" base_Element="_vJkTUCz_Eea25uwDpRQuxg" source="_wFJ3IP91Ed6Jt8e-UqrRdQ"/>
 </xmi:XMI>

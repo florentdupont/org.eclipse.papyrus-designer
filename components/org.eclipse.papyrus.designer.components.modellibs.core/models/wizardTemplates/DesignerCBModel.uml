@@ -5,7 +5,7 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/core.uml#_O6TiIDLUEd26WNosUASSSw"/>
     </packageImport>
     <packageImport xmi:id="_0gF6ADehEeGPyrZ5I3hMlA">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
+      <importedPackage xmi:type="uml:Model" href="pathmap://PDML_IDL/corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
     </packageImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_FdsS8GnaEd-Ptdbbm65sVA" name="components"/>
     <packagedElement xmi:type="uml:Package" xmi:id="_JQvt0GnaEd-Ptdbbm65sVA" name="Platform">
