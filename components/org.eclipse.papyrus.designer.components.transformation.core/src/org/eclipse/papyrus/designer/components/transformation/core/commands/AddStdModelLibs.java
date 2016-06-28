@@ -29,22 +29,23 @@ import org.eclipse.uml2.uml.PackageImport;
 import org.eclipse.uml2.uml.UMLFactory;
 
 /**
- * This class adds the FCM profile, parts of the MARTE profile and required package imports to your model.
+ * This class adds "standard" model libraries for component-based development: the FCM profile, parts of the MARTE profile (allocation)
+ * and the associated package imports to your model.
  */
-public class AddQompassModelLibs extends AbstractEMFOperation {
+public class AddStdModelLibs extends AbstractEMFOperation {
 
-	public AddQompassModelLibs(Package pkg, TransactionalEditingDomain domain) {
+	public AddStdModelLibs(Package pkg, TransactionalEditingDomain domain) {
 		super(domain, CMD_LABEL);
 		selectedPkg = pkg;
 		availableImportPackages = null;
 		importList = null;
 	}
 
-	public static final String CMD_LABEL = "Add Qompass CORE libraries"; //$NON-NLS-1$
+	public static final String CMD_LABEL = "Add Designer CORE libraries"; //$NON-NLS-1$
 
-	public static final String EC3M_BASIC_CALLS_URI = "pathmap://QML_CORE/core.uml"; //$NON-NLS-1$
+	public static final String DESIGNER_BASIC_CALLS_URI = "pathmap://QML_CORE/core.uml"; //$NON-NLS-1$
 
-	public static final String EC3M_MARTE_CALLS_URI = "pathmap://QML_MARTE/marte.uml"; //$NON-NLS-1$
+	public static final String DESIGNER_MARTE_CALLS_URI = "pathmap://QML_MARTE/marte.uml"; //$NON-NLS-1$
 
 	protected EList<PackageImport> importList;
 
@@ -134,11 +135,11 @@ public class AddQompassModelLibs extends AbstractEMFOperation {
 		final ResourceSet resourceSet = selectedPkg.eResource().getResourceSet();
 		availableImportPackages = new BasicEList<PackageImport>();
 
-		PackageImport pi = getModelLibraryImportFromURI(URI.createURI(EC3M_BASIC_CALLS_URI), resourceSet);
+		PackageImport pi = getModelLibraryImportFromURI(URI.createURI(DESIGNER_BASIC_CALLS_URI), resourceSet);
 		if (pi != null) {
 			availableImportPackages.add(pi);
 		}
-		pi = getModelLibraryImportFromURI(URI.createURI(EC3M_MARTE_CALLS_URI), resourceSet);
+		pi = getModelLibraryImportFromURI(URI.createURI(DESIGNER_MARTE_CALLS_URI), resourceSet);
 		if (pi != null) {
 			availableImportPackages.add(pi);
 		}

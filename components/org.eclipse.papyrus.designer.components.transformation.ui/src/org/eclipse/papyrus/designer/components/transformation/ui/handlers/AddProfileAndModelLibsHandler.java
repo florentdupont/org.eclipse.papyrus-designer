@@ -19,7 +19,7 @@ import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.papyrus.designer.components.transformation.core.CommandSupport;
 import org.eclipse.papyrus.designer.components.transformation.core.commands.AddMarteAndFcmProfile;
-import org.eclipse.papyrus.designer.components.transformation.core.commands.AddQompassModelLibs;
+import org.eclipse.papyrus.designer.components.transformation.core.commands.AddStdModelLibs;
 import org.eclipse.papyrus.uml.diagram.common.handlers.CmdHandler;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.dialogs.ListSelectionDialog;
@@ -57,7 +57,7 @@ public class AddProfileAndModelLibsHandler extends CmdHandler {
 		AddMarteAndFcmProfile addProfiles = new AddMarteAndFcmProfile(selectedPkg,
 				AddMarteAndFcmProfile.APPLY_FCM | AddMarteAndFcmProfile.APPLY_ALLOC | AddMarteAndFcmProfile.APPLY_HLAM_GCM,
 				domain);
-		AddQompassModelLibs addModelLibs = new AddQompassModelLibs(selectedPkg, domain);
+		AddStdModelLibs addModelLibs = new AddStdModelLibs(selectedPkg, domain);
 
 		final ListSelectionDialog dialog = new ListSelectionDialog(Display.getDefault().getActiveShell(),
 				addModelLibs.getAvailableImportPackages().toArray(),
