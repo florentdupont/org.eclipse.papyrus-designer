@@ -13,4 +13,12 @@
       		provider="CEA LIST">
       </library>
    </extension>
+   <extension point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+		<profile
+			description="Simple IDL profile with Key stereotype (apply to attributes in IDL data types)"
+			iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			name="IDL Key"
+			path="pathmap://PDML_IDL/IDL.profile.uml"
+			provider="CEA LIST"/>
+	</extension>
 </plugin>
