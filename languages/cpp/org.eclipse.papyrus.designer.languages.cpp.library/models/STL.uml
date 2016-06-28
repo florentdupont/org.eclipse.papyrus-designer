@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_vc-DEDWoEea5ROkfuvcZmg" name="std">
+    <packagedElement xmi:type="uml:Class" xmi:id="_zb0eQDWoEea5ROkfuvcZmg" name="vector"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_0v5VQDWoEea5ROkfuvcZmg" name="string"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_55d3IDWoEea5ROkfuvcZmg" name="array"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_7txGUDWoEea5ROkfuvcZmg" name="stack"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_-2r_EDWoEea5ROkfuvcZmg" name="iterator"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_AQEM0DWpEea5ROkfuvcZmg" name="list"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BU3RsDWpEea5ROkfuvcZmg" name="map"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_MPH_0DWpEea5ROkfuvcZmg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MPLqMDWpEea5ROkfuvcZmg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:ExternLibrary xmi:id="_NJsxsDWpEea5ROkfuvcZmg" base_package="_vc-DEDWoEea5ROkfuvcZmg"/>
+  <C_Cpp:External xmi:id="_KEH0IDXmEea5ROkfuvcZmg" name="vector" base_Classifier="_zb0eQDWoEea5ROkfuvcZmg"/>
+  <C_Cpp:External xmi:id="_M6bS4DXmEea5ROkfuvcZmg" name="string" base_Classifier="_0v5VQDWoEea5ROkfuvcZmg"/>
+  <C_Cpp:External xmi:id="_QDD3wDXmEea5ROkfuvcZmg" name="array" base_Classifier="_55d3IDWoEea5ROkfuvcZmg"/>
+  <C_Cpp:External xmi:id="_SaEycDXmEea5ROkfuvcZmg" name="stack" base_Classifier="_7txGUDWoEea5ROkfuvcZmg"/>
+  <C_Cpp:External xmi:id="_VnGvIDXmEea5ROkfuvcZmg" name="iterator" base_Classifier="_-2r_EDWoEea5ROkfuvcZmg"/>
+  <C_Cpp:External xmi:id="_X1mnADXmEea5ROkfuvcZmg" name="list" base_Classifier="_AQEM0DWpEea5ROkfuvcZmg"/>
+  <C_Cpp:External xmi:id="_aFzIADXmEea5ROkfuvcZmg" name="map" base_Classifier="_BU3RsDWpEea5ROkfuvcZmg"/>
+</xmi:XMI>
