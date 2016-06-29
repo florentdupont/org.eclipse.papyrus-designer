@@ -352,6 +352,11 @@ public class MainModelTrafo {
 					Property tmPart = ConnectorReification.reifyConnector(copier, tmComponent, (Property) smPartDF, tmIS);
 					// update value specification (to the one just created)
 					InstanceSpecification tmPartIS = EcoreUtil.copy(DepUtils.getInstance(slot));
+					if (tmPartIS.getClassifiers().size() > 0) {
+						// replace classifier referenced from instance with type of reified connector
+						tmPartIS.getClassifiers().set(0, (Classifier) tmPart.getType());
+						TransformationUtil.updateDerivedInterfaces(tmPartIS);
+					}
 					tmCDP.getPackagedElements().add(tmPartIS);
 					// instance specification for connector parts points to connector within package template
 					copier.putPair(DepUtils.getInstance(slot), tmPartIS);
@@ -433,7 +438,8 @@ public class MainModelTrafo {
 					InstanceSpecification tmReifiedConnectorIS = DepCreation.createDepPlan(
 							tmCDP, (Class) connectorPart.getType(),
 							instName + "." + smConnector.getName(), false); //$NON-NLS-1$
-					
+					TransformationUtil.updateDerivedInterfaces(tmReifiedConnectorIS);
+
 					// copy slots from the source deployment plan that are related to connector configuration
 					InstanceSpecification smConnectorIS = DepUtils.getNamedSubInstance(smIS, smConnector.getName());
 					if (smConnectorIS != null) {

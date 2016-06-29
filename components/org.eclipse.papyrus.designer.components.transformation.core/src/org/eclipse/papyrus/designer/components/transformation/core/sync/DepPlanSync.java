@@ -17,7 +17,12 @@ package org.eclipse.papyrus.designer.components.transformation.core.sync;
 import java.util.Iterator;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.DeploymentPlan;
+import org.eclipse.papyrus.designer.components.FCM.DerivedElement;
+import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
+import org.eclipse.papyrus.designer.components.transformation.core.ElementFilter;
 import org.eclipse.papyrus.designer.components.transformation.core.Log;
 import org.eclipse.papyrus.designer.components.transformation.core.Utils;
 import org.eclipse.papyrus.designer.components.transformation.core.deployment.DepCreation;
@@ -26,6 +31,7 @@ import org.eclipse.papyrus.designer.components.transformation.core.deployment.De
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationRTException;
 import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Connector;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.InstanceValue;
@@ -110,6 +116,68 @@ public class DepPlanSync {
 				}
 			}
 		}
+		// connectors with associated interaction components might have configuration
+		// attributes. The problem is that there is no associated slot that could be used to identify these
+		for (Connector connector : implementation.getOwnedConnectors()) {
+			org.eclipse.papyrus.designer.components.FCM.Connector fcmConn = UMLUtil.getStereotypeApplication(connector, org.eclipse.papyrus.designer.components.FCM.Connector.class);
+			if (fcmConn != null) {
+				InstanceSpecification existingIC = findISforConn(depPlan, connector);
+				if (existingIC != null) {
+					// already exist, modify name
+					addCDP(depPlan, existingIC, canonicalName + "." + connector.getName()); //$NON-NLS-1$
+				} else {
+					String partName = canonicalName + "." + connector.getName(); //$NON-NLS-1$
+					InteractionComponent connectorComp = fcmConn.getIc();
+					if (connectorComp != null) {
+						Class cl = fcmConn.getIc().getBase_Class();
+						if (cl == null) {
+							// throw new TransformationException(Messages.DepCreation_FCMconnectorWithoutBaseClass);
+						}
+						// create sub-instance for connector. It is not possible to
+						// create a slot in the owning instance specification,
+						// since the connector cannot be referenced as a defining-feature
+						try {
+							DepCreation.createDepPlan(depPlan, cl, partName, true);
+						} catch (TransformationException e) {
+							Log.log(IStatus.ERROR, Log.DEPLOYMENT, e.getMessage());
+							throw new TransformationRTException(e.getMessage());
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * return a candidate for an interaction component. Since these instances have
+	 * no associated slot, the derivedElement hints to the original connector
+	 * (could still be problematic!)
+	 * 
+	 * @param cdp
+	 * @param cl
+	 * @return
+	 */
+	protected static InstanceSpecification findISforConn(Package cdp, final Connector conn) {
+		ElementFilter filter = new ElementFilter() {
+
+			@Override
+			public boolean acceptElement(Element element) {
+				if (element instanceof InstanceSpecification) {
+					InstanceSpecification is = (InstanceSpecification) element;
+					DerivedElement de = UMLUtil.getStereotypeApplication(is, DerivedElement.class);
+					if (de != null && de.getSource() == conn) {
+						return true;
+					}
+				}
+				return false;
+			}
+		};
+		EList<InstanceSpecification> iList = new BasicEList<InstanceSpecification>();
+		DepUtils.getAllInstances(cdp, iList, filter);
+		if (iList.size() > 0) {
+			return iList.get(0);
+		}
+		return null;
 	}
 
 	private static boolean hasSlot(InstanceSpecification instance, Property attribute) {

@@ -24,7 +24,6 @@ import org.eclipse.papyrus.designer.components.transformation.core.Utils;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationRTException;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
-import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Connector;
@@ -195,21 +194,13 @@ public class DepCreation {
 
 			if (pe == null) {
 				// instance specification for singleton does not exist yet => create
-
-				Classifier system = DepUtils.getClassifier(mainInstance);
-				Property singletonAttr = system.getAttribute(partName, typeOrImplem);
-				if ((singletonAttr == null) && system instanceof Class) {
-					singletonAttr = ((Class) system).createOwnedAttribute(partName, typeOrImplem);
-					singletonAttr.setAggregation(AggregationKind.COMPOSITE_LITERAL);
-				}
-
 				is = (InstanceSpecification) cdp.createPackagedElement(name, UMLPackage.eINSTANCE.getInstanceSpecification());
-				// create slot within main instance
-				createSlot(mainInstance, is, singletonAttr);
-			} else if (pe instanceof InstanceSpecification) {
+			}
+			else if (pe instanceof InstanceSpecification) {
 				// exists already, return it without recursing into its sub-specifications
 				return (InstanceSpecification) pe;
-			} else {
+			}
+			else {
 				// unlikely case that a packaged element with the name
 				// <singletonISname> exists already, but is not an instance specification
 				throw new TransformationException(String.format(

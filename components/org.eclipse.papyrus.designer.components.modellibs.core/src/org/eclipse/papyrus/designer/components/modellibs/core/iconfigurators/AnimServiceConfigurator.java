@@ -36,8 +36,7 @@ public class AnimServiceConfigurator implements IInstanceConfigurator {
 	public final static String eclipseAnimService = "Eclipse"; //$NON-NLS-1$
 
 	/**
-	 * Configure the instance of a CallEvent interceptor. The configuration parameter is the
-	 * index of the port which gets intercepted. It is obtained via an enumeration
+	 * Configure the instance of the animation service.
 	 *
 	 * @see org.eclipse.papyrus.designer.components.transformation.core.extensions.IInstanceConfigurator#configureInstance(org.eclipse.uml2.uml.InstanceSpecification, org.eclipse.uml2.uml.InstanceSpecification, org.eclipse.uml2.uml.Port)
 	 *
@@ -45,21 +44,23 @@ public class AnimServiceConfigurator implements IInstanceConfigurator {
 	 *            the instance that should be configured
 	 * @param componentPart
 	 *            the part representing this instance
-	 * @param context
-	 *            container context
+	 * @param parentInstance
+	 *            The instance specification for the parent (container). If null, no configuration is done (may indicates that the call is done from a lightweight container) 
 	 */
 	@Override
 	public void configureInstance(InstanceSpecification instance, Property componentPart, InstanceSpecification parentInstance)
 	{
-		EList<InstanceSpecification> nodes = AllocUtils.getAllNodesOrThreadsParent(parentInstance);
-		if (nodes.size() > 0) {
-			InstanceSpecification node = nodes.get(0);
-			// problem: instance specification is within intermediate model, thus incomplete.
-			// option: explicitly pre-create singletons (and allocate these?)
-			NamedElement animService = node.getNearestPackage().getMember(eclipseAnimService);
-			if (animService instanceof InstanceSpecification) {
-				AllocUtils.allocate(instance, (InstanceSpecification) animService);
-				return;
+		if (parentInstance != null) {
+			EList<InstanceSpecification> nodes = AllocUtils.getAllNodesOrThreadsParent(parentInstance);
+			if (nodes.size() > 0) {
+				InstanceSpecification node = nodes.get(0);
+				// problem: instance specification is within intermediate model, thus incomplete.
+				// option: explicitly pre-create singletons (and allocate these?)
+				NamedElement animService = node.getNearestPackage().getMember(eclipseAnimService);
+				if (animService instanceof InstanceSpecification) {
+					AllocUtils.allocate(instance, (InstanceSpecification) animService);
+					return;
+				}
 			}
 		}
 		// throw new TransformationRTException(String.format("Cannot find node <%s> in platform definition", eclipseAnimService));

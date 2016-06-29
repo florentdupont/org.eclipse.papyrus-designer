@@ -4,25 +4,10 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-// deactivated differential code generation for the moment.
-/*
- import org.eclipse.emf.compare.diff.metamodel.AttributeChange;
- import org.eclipse.emf.compare.diff.metamodel.DiffElement;
- import org.eclipse.emf.compare.diff.metamodel.DiffModel;
- import org.eclipse.emf.compare.diff.metamodel.DifferenceKind;
- import org.eclipse.emf.compare.diff.metamodel.ModelElementChangeLeftTarget;
- import org.eclipse.emf.compare.diff.metamodel.ModelElementChangeRightTarget;
- import org.eclipse.emf.compare.diff.service.DiffService;
- import org.eclipse.emf.compare.match.MatchOptions;
- import org.eclipse.emf.compare.match.metamodel.MatchModel;
- import org.eclipse.emf.compare.match.service.MatchService;
- import org.eclipse.emf.compare.util.ModelUtils;
- */
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
 import org.eclipse.papyrus.designer.components.transformation.core.Messages;
 import org.eclipse.papyrus.designer.components.transformation.core.ModelManagement;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -43,87 +28,28 @@ public class GenerateCode {
 	{
 		String path = genMM.getPath(genProject, "model", null); //$NON-NLS-1$
 		Package genModel = genMM.getModel();
-		EObject oldGenModel = null;
-		if (differential) {
-			/*
-			 * try {
-			 * oldGenModel = ModelUtils.load(URI.createURI(path), ModelManagement.getResourceSet());
-			 * } catch (IOException io) {
-			 * }
-			 */
-		}
+
 		genMM.saveModel(path);
 
 		monitor.worked(1);
-
 		if (genProject == null) {
 			return;
 		}
 
-		if (oldGenModel != null) {
-			// Matching model elements
-			/*
-			 * Map<String, Object> options = new HashMap<String, Object>();
-			 * options.put(MatchOptions.OPTION_IGNORE_XMI_ID, true);
-			 * monitor.setTaskName("generating " + targetLanguage + " code for node " + node.getName());
-			 * monitor.subTask("create difference model for node " + node.getName());
-			 * monitor.worked(1);
-			 * MatchModel match = MatchService.doMatch(genModel, oldGenModel, options);
-			 * // Computing differences
-			 * DiffModel diffModel = DiffService.doDiff(match, false);
-			 * deleteRemovedClasses(diffModel);
-			 *
-			 * Map<PackageableElement, Boolean> alreadyGenerated = new HashMap<PackageableElement, Boolean>();
-			 * monitor.subTask("generate code");
-			 *
-			 * for(DiffElement diff : diffModel.getDifferences()) {
-			 * if((diff.getKind() == DifferenceKind.ADDITION) ||
-			 * (diff.getKind() == DifferenceKind.CHANGE)) {
-			 * EObject modifiedEObj = null;
-			 * if(diff instanceof AttributeChange) {
-			 * modifiedEObj = ((AttributeChange)diff).getLeftElement();
-			 * }
-			 * else if(diff instanceof ModelElementChangeLeftTarget) {
-			 * modifiedEObj = ((ModelElementChangeLeftTarget)diff).getLeftElement();
-			 * }
-			 * if(modifiedEObj instanceof Element) {
-			 * PackageableElement modifiedPElement = getNearestClassifierOrPackage((Element)modifiedEObj);
-			 * Element modifiedElement = modifiedPElement;
-			 * // check whether code has already been generated for a parent
-			 * boolean found = false;
-			 * while(modifiedElement != null) {
-			 * modifiedElement = modifiedElement.getOwner();
-			 * if(alreadyGenerated.containsKey(modifiedElement)) {
-			 * found = true;
-			 * }
-			 * }
-			 * // TODO: re-create code for elements that depend on this one (e.g. if the modified element is a
-			 * // class and its name has changed, caller have to use a different name, even if the model reference
-			 * // has not changed.
-			 * if(!found) {
-			 * alreadyGenerated.put(modifiedPElement, true);
-			 * langSupport.generateCode(monitor, modifiedPElement);
-			 * }
-			 * }
-			 * }
-			 * }
-			 */
+		if (node == null) {
+			monitor.setTaskName(String.format(Messages.GenerateCode_GeneratingCode, targetLanguage));
 		}
 		else {
-			if (node == null) {
-				monitor.setTaskName(String.format(Messages.GenerateCode_GeneratingCode, targetLanguage));
-			}
-			else {
-				monitor.setTaskName(String.format(Messages.GenerateCode_GeneratingCodeForNode, targetLanguage, node.getName()));
-			}
-			IFolder folder = genProject.getFolder(genModel.getName());
-			try {
-				folder.delete(true, null);
-			} catch (CoreException e) {
-				throw new TransformationException(String.format(Messages.GenerateCode_CouldNotDeleteOldCode, e.getMessage()));
-			}
-			codegen.generateCode(genProject, genModel, monitor);
+			monitor.setTaskName(String.format(Messages.GenerateCode_GeneratingCodeForNode, targetLanguage, node.getName()));
 		}
+		IFolder folder = genProject.getFolder(genModel.getName());
+		try {
+			folder.delete(true, null);
+		} catch (CoreException e) {
+			throw new TransformationException(String.format(Messages.GenerateCode_CouldNotDeleteOldCode, e.getMessage()));
+		}
+		codegen.generateCode(genProject, genModel, monitor);
+
 		if (monitor.isCanceled()) {
 			return;
 		}

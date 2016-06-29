@@ -114,41 +114,32 @@ public class InstantiateDepPlan {
 
 	protected IProject genProject;
 
-	public void instantiate(Configuration configuration,
-			IProgressMonitor monitor, IProject project, int genOptions) {
+	public void instantiate(Configuration configuration, IProgressMonitor monitor, IProject project, int genOptions) {
 		this.configuration = configuration;
-		srcModelComponentDeploymentPlan = configuration
-				.getDeploymentPlan().getBase_Package();
+		srcModelComponentDeploymentPlan = configuration.getDeploymentPlan().getBase_Package();
 		//
 		if (srcModelComponentDeploymentPlan == null) {
-			String message = String
-					.format(Messages.InstantiateDepPlan_DepPlanStereotypeNotInitialized,
-							configuration.getBase_Class().getName());
-			displayError(Messages.InstantiateDepPlan_TransformationException,
-					message);
+			String message = String.format(Messages.InstantiateDepPlan_DepPlanStereotypeNotInitialized, configuration.getBase_Class().getName());
+			displayError(Messages.InstantiateDepPlan_TransformationException, message);
 		}
 
 		this.project = project;
 		if (project == null) {
-			String projectName = configuration.getBase_Class().eResource()
-					.getURI().toString();
-			this.project = ResourcesPlugin.getWorkspace().getRoot()
-					.getProject(projectName);
+			String projectName = configuration.getBase_Class().eResource().getURI().toString();
+			this.project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 		}
 		//
 		instantiate(monitor, genOptions);
 	}
 
-	public void instantiate(Package pkg, IProgressMonitor monitor,
-			IProject project, int genOptions) {
+	public void instantiate(Package pkg, IProgressMonitor monitor, IProject project, int genOptions) {
 		configuration = null;
 		srcModelComponentDeploymentPlan = pkg;
 		//
 		this.project = project;
 		if (project == null) {
 			String projectName = pkg.eResource().getURI().toString();
-			this.project = ResourcesPlugin.getWorkspace().getRoot()
-					.getProject(projectName);
+			this.project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 		}
 
 		//
@@ -177,17 +168,13 @@ public class InstantiateDepPlan {
 			initialize(monitor, genOptions);
 			executeTransformation();
 		} catch (final TransformationException e) {
-			printAndDisplayErrorMessage(e,
-					Messages.InstantiateDepPlan_TransformationException, false);
+			printAndDisplayErrorMessage(e, Messages.InstantiateDepPlan_TransformationException, false);
 		} catch (final Exception e) {
-			printAndDisplayErrorMessage(e,
-					Messages.InstantiateDepPlan_ErrorsDuringTransformation,
-					true);
+			printAndDisplayErrorMessage(e, Messages.InstantiateDepPlan_ErrorsDuringTransformation, true);
 		}
 	}
 
-	private void initialize(IProgressMonitor monitor, int genOptions)
-			throws TransformationException {
+	private void initialize(IProgressMonitor monitor, int genOptions) throws TransformationException {
 		this.monitor = monitor;
 		this.generationOptions = genOptions;
 		this.generateCode = (genOptions & GenerationOptions.MODEL_ONLY) == 0;
@@ -203,8 +190,7 @@ public class InstantiateDepPlan {
 		Model existingModel = srcModelComponentDeploymentPlan.getModel();
 		TransformationContext.sourceRoot = existingModel;
 
-		intermediateModelManagement = createTargetModel(existingModel,
-				existingModel.getName(), true);
+		intermediateModelManagement = createTargetModel(existingModel, existingModel.getName(), true);
 
 		// get the temporary model
 		Model intermediateModel = intermediateModelManagement.getModel();
@@ -221,14 +207,12 @@ public class InstantiateDepPlan {
 		monitor.subTask(Messages.InstantiateDepPlan_InfoExpandingConnectors);
 
 		// obtain the component deployment plan in target model
-		Package intermediateModelComponentDeploymentPlan = (Package) intermediateModelCopier
-				.shallowCopy(srcModelComponentDeploymentPlan);
+		Package intermediateModelComponentDeploymentPlan = (Package) intermediateModelCopier.shallowCopy(srcModelComponentDeploymentPlan);
 		intermediateModelCopier.createShallowContainer(srcModelComponentDeploymentPlan);
 
 		AbstractContainerTrafo.init();
 		InstanceConfigurator.onNodeModel = false;
-		MainModelTrafo mainModelTrafo = new MainModelTrafo(intermediateModelCopier,
-				intermediateModelComponentDeploymentPlan);
+		MainModelTrafo mainModelTrafo = new MainModelTrafo(intermediateModelCopier, intermediateModelComponentDeploymentPlan);
 
 		Map<InstanceSpecification, InstanceSpecification> instanceMap = new HashMap<InstanceSpecification, InstanceSpecification>();
 		for (PackageableElement pe : srcModelComponentDeploymentPlan.getPackagedElements()) {
@@ -247,8 +231,7 @@ public class InstantiateDepPlan {
 
 					TransformationUtil.applyInstanceConfigurators(newInstance);
 
-					FlattenInteractionComponents.getInstance().flattenAssembly(
-							newInstance, null);
+					FlattenInteractionComponents.getInstance().flattenAssembly(newInstance, null);
 					TransformationUtil.propagateAllocation(newInstance);
 					instanceMap.put(instance, newInstance);
 				}
@@ -259,8 +242,7 @@ public class InstantiateDepPlan {
 			deployOnNodes(instanceMap, existingModel, intermediateModel);
 		}
 
-		intermediateModelManagement.saveModel(project, TEMP_MODEL_FOLDER,
-				TEMP_MODEL_POSTFIX);
+		intermediateModelManagement.saveModel(project, TEMP_MODEL_FOLDER, TEMP_MODEL_POSTFIX);
 
 		// --------------------------------------------------------------------
 		checkProgressStatus();
@@ -269,9 +251,7 @@ public class InstantiateDepPlan {
 		intermediateModelManagement.dispose();
 	}
 
-	private void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> instanceMap,
-			Model existingModel, Model tmpModel)
-			throws TransformationException, InterruptedException {
+	private void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> instanceMap, Model existingModel, Model tmpModel) throws TransformationException, InterruptedException {
 
 		// not deploy on each node
 		DepCreation.initAutoValues(instanceMap.values());
@@ -285,17 +265,13 @@ public class InstantiateDepPlan {
 				deployNode(instanceMap, existingModel, tmpModel, nodes, nodeIndex, node);
 			}
 		} else {
-			throw new TransformationException(
-					Messages.InstantiateDepPlan_InfoNoneAllocated);
+			throw new TransformationException(Messages.InstantiateDepPlan_InfoNoneAllocated);
 		}
 	}
 
-	private void deployNode(Map<InstanceSpecification, InstanceSpecification> instanceMap,
-			Model existingModel, Model tmpModel,
-			EList<InstanceSpecification> nodes, int nodeIndex, InstanceSpecification node)
+	private void deployNode(Map<InstanceSpecification, InstanceSpecification> instanceMap, Model existingModel, Model tmpModel, EList<InstanceSpecification> nodes, int nodeIndex, InstanceSpecification node)
 			throws TransformationException, InterruptedException {
-		ModelManagement genModelManagement = createTargetModel(existingModel,
-				MapUtil.rootModelName, false);
+		ModelManagement genModelManagement = createTargetModel(existingModel, MapUtil.rootModelName, false);
 		Model generatedModel = genModelManagement.getModel();
 
 		// --------------------------------------------------------------------
@@ -314,29 +290,25 @@ public class InstantiateDepPlan {
 		targetCopier.preCopyListeners.add(FilterTemplateBinding.getInstance());
 		targetCopier.preCopyListeners.add(FilterPortKind.getInstance());
 
-		monitor.setTaskName(String.format(
-				Messages.InstantiateDepPlan_InfoDeployingForNode,
-				node.getName()));
+		monitor.setTaskName(String.format(Messages.InstantiateDepPlan_InfoDeployingForNode, node.getName()));
 
 		if (instanceMap.isEmpty()) {
 			return;
 		}
 		// get first language (restricted to single target language, acceptable?)
 		String targetLanguage = DepUtils.getTargetLanguage(instanceMap.keySet().iterator().next());
-		ILangProjectSupport projectSupport = configureLanguageSupport(targetLanguage,
-				existingModel, node);
+		ILangProjectSupport projectSupport = configureLanguageSupport(targetLanguage, existingModel, node);
 		if (projectSupport == null) {
 			return;
 		}
 
 		GatherConfigData gatherConfigData = new GatherConfigData(projectSupport);
-		Deploy deployment = new Deploy(targetCopier, gatherConfigData, node,
-				nodeIndex, nodes.size());
+		Deploy deployment = new Deploy(targetCopier, gatherConfigData, node, nodeIndex, nodes.size());
 
 		for (InstanceSpecification topLevelInstance : instanceMap.keySet()) {
 			InstanceSpecification newTopLevelInstance = instanceMap.get(topLevelInstance);
 			InstanceSpecification nodeRootIS = deployment.distributeToNode(newTopLevelInstance);
-			TransformationUtil.updateDerivedInterfaces(nodeRootIS);
+			// TransformationUtil.updateDerivedInterfaces(nodeRootIS);
 		}
 		deployment.finalize(targetLanguage);
 		if ((generationOptions & GenerationOptions.REWRITE_SETTINGS) != 0) {
@@ -359,8 +331,7 @@ public class InstantiateDepPlan {
 
 		if (generateCode) {
 			ILangCodegen codegen = LanguageCodegen.getGenerator(targetLanguage);
-			GenerateCode codeGenerator = new GenerateCode(genProject, codegen, genModelManagement,
-					monitor);
+			GenerateCode codeGenerator = new GenerateCode(genProject, codegen, genModelManagement, monitor);
 			boolean option = (generationOptions & GenerationOptions.ONLY_CHANGED) != 0;
 			codeGenerator.generate(node, targetLanguage, option);
 		}
@@ -376,9 +347,7 @@ public class InstantiateDepPlan {
 	 * @return null, if no language support is available or no project could be created.
 	 * @throws TransformationException
 	 */
-	private ILangProjectSupport configureLanguageSupport(
-			String targetLanguage, Model existingModel,
-			InstanceSpecification node) throws TransformationException {
+	private ILangProjectSupport configureLanguageSupport(String targetLanguage, Model existingModel, InstanceSpecification node) throws TransformationException {
 		ILangProjectSupport projectSupport = LanguageProjectSupport.getProjectSupport(targetLanguage);
 		AbstractSettings settings = projectSupport.initialConfigurationData();
 		if (settings != null) {
@@ -414,8 +383,7 @@ public class InstantiateDepPlan {
 	}
 
 	private void destroyDeploymentPlanFolder(Model generatedModel) {
-		PackageableElement deploymentPlanFolder = generatedModel
-				.getPackagedElement(DeployConstants.depPlanFolderHw);
+		PackageableElement deploymentPlanFolder = generatedModel.getPackagedElement(DeployConstants.depPlanFolderHw);
 		if (deploymentPlanFolder != null) {
 			deploymentPlanFolder.destroy();
 		}
@@ -430,11 +398,9 @@ public class InstantiateDepPlan {
 		// interfaces are put into a different package and the derivedInterfaces
 		// package in the original root becomes obsolete. Delete this obsolete
 		// package, if existing.
-		for (PackageableElement packagedElement : generatedModel
-				.getPackagedElements()) {
+		for (PackageableElement packagedElement : generatedModel.getPackagedElements()) {
 			if (packagedElement instanceof Package) {
-				NamedElement derivedInterfaces = ((Package) packagedElement)
-						.getPackagedElement("derivedInterfaces"); //$NON-NLS-1$
+				NamedElement derivedInterfaces = ((Package) packagedElement).getPackagedElement("derivedInterfaces"); //$NON-NLS-1$
 				if (derivedInterfaces instanceof Package) {
 					derivedInterfaces.destroy();
 				}
@@ -460,11 +426,13 @@ public class InstantiateDepPlan {
 			projectName += "_" + srcModelComponentDeploymentPlan.getName(); //$NON-NLS-1$
 		}
 		DeploymentPlan depPlan = UMLUtil.getStereotypeApplication(srcModelComponentDeploymentPlan, DeploymentPlan.class);
-		for (String mapping : depPlan.getProjectMappings()) {
-			if (mapping.startsWith(projectName)) {
-				int index = mapping.indexOf("="); //$NON-NLS-1$
-				if (index != -1) {
-					return mapping.substring(index+1);
+		if (depPlan != null) {
+			for (String mapping : depPlan.getProjectMappings()) {
+				if (mapping.startsWith(projectName)) {
+					int index = mapping.indexOf("="); //$NON-NLS-1$
+					if (index != -1) {
+						return mapping.substring(index + 1);
+					}
 				}
 			}
 		}
@@ -473,12 +441,14 @@ public class InstantiateDepPlan {
 
 	/**
 	 * 
-	 * @param canonicalProjectName the automatically calculated project name
-	 * @param userProjectName the project name choosen by the user
+	 * @param canonicalProjectName
+	 *            the automatically calculated project name
+	 * @param userProjectName
+	 *            the project name choosen by the user
 	 */
 	public void updateProjectMapping(final String canonicalProjectName, final String userProjectName) {
 		CommandSupport.exec(srcModelComponentDeploymentPlan, "Update project mapping", new Runnable() {
-			
+
 			@Override
 			public void run() {
 				DeploymentPlan depPlan = UMLUtil.getStereotypeApplication(srcModelComponentDeploymentPlan, DeploymentPlan.class);
@@ -489,14 +459,13 @@ public class InstantiateDepPlan {
 						return;
 					}
 				}
-				depPlan.getProjectMappings().add(mapName);				
+				depPlan.getProjectMappings().add(mapName);
 			}
 		});
-		
+
 	}
-	
-	private void initiateProgressMonitor(boolean generateCode,
-			EList<InstanceSpecification> nodes) {
+
+	private void initiateProgressMonitor(boolean generateCode, EList<InstanceSpecification> nodes) {
 		// -- calc # of steps for progress monitor
 		// 1 (tmpModel creation) + 1 (reification) + 1 (tmpModel save)
 		// 5x on each deployed node (see below)
@@ -506,8 +475,7 @@ public class InstantiateDepPlan {
 		if (generateCode) {
 			steps += nodes.size();
 		}
-		monitor.beginTask(Messages.InstantiateDepPlan_InfoGeneratingModel,
-				steps);
+		monitor.beginTask(Messages.InstantiateDepPlan_InfoGeneratingModel, steps);
 	}
 
 	private void checkProgressStatus() throws InterruptedException {
@@ -517,8 +485,7 @@ public class InstantiateDepPlan {
 		monitor.worked(1);
 	}
 
-	private void printAndDisplayErrorMessage(Exception e, final String title,
-			final boolean consultConsole) {
+	private void printAndDisplayErrorMessage(Exception e, final String title, final boolean consultConsole) {
 		String message = e.toString();
 		if (consultConsole) {
 			message = message + "\n\n" //$NON-NLS-1$
@@ -528,8 +495,7 @@ public class InstantiateDepPlan {
 		printAndDisplayErrorMessage(e, title, message, consultConsole);
 	}
 
-	private void printAndDisplayErrorMessage(Exception e, final String title,
-			final String message, final boolean consultConsole) {
+	private void printAndDisplayErrorMessage(Exception e, final String title, final String message, final boolean consultConsole) {
 		e.printStackTrace();
 		displayError(title, message);
 		Log.log(IStatus.ERROR, Log.DEPLOYMENT, "", e); //$NON-NLS-1$
@@ -552,8 +518,7 @@ public class InstantiateDepPlan {
 	 * @param existingModel
 	 * @return
 	 */
-	public ModelManagement createTargetModel(Model existingModel, String name,
-			boolean copyImports) throws TransformationException {
+	public ModelManagement createTargetModel(Model existingModel, String name, boolean copyImports) throws TransformationException {
 		ModelManagement mm = new ModelManagement();
 		Model newModel = mm.getModel();
 		newModel.setName(name);
@@ -562,43 +527,30 @@ public class InstantiateDepPlan {
 			// copy profile application
 			for (Profile profile : existingModel.getAppliedProfiles()) {
 				// reload profile in resource of new model
-				monitor.subTask(Messages.InstantiateDepPlan_InfoApplyProfile
-						+ profile.getQualifiedName());
+				monitor.subTask(Messages.InstantiateDepPlan_InfoApplyProfile + profile.getQualifiedName());
 
 				if (profile.eResource() == null) {
 					String profileName = profile.getQualifiedName();
 					if (profileName == null) {
 						if (profile instanceof MinimalEObjectImpl.Container) {
-							URI uri = ((MinimalEObjectImpl.Container) profile)
-									.eProxyURI();
+							URI uri = ((MinimalEObjectImpl.Container) profile).eProxyURI();
 							if (uri != null) {
-								throw new TransformationException(
-										String.format(
-												Messages.InstantiateDepPlan_CheckInputModelProfileNoRes,
-												uri));
+								throw new TransformationException(String.format(Messages.InstantiateDepPlan_CheckInputModelProfileNoRes, uri));
 							}
 						}
-						throw new TransformationException(
-								Messages.InstantiateDepPlan_CheckInputModelProfileNoResNoName);
+						throw new TransformationException(Messages.InstantiateDepPlan_CheckInputModelProfileNoResNoName);
 					}
-					throw new TransformationException(
-							String.format(
-									Messages.InstantiateDepPlan_CheckInputModelProfile3,
-									profileName));
+					throw new TransformationException(String.format(Messages.InstantiateDepPlan_CheckInputModelProfile3, profileName));
 				}
 
 				Resource profileResource = null;
 				try {
-					profileResource = ModelManagement.getResourceSet()
-							.getResource(profile.eResource().getURI(), true);
+					profileResource = ModelManagement.getResourceSet().getResource(profile.eResource().getURI(), true);
 				} catch (WrappedException e) {
 					// read 2nd time (some diagnostic errors are raised only
 					// once)
-					Log.log(IStatus.WARNING,
-							Log.DEPLOYMENT,
-							"Warning: exception in profile.eResource() " + e.getMessage()); //$NON-NLS-1$
-					profileResource = ModelManagement.getResourceSet()
-							.getResource(profile.eResource().getURI(), true);
+					Log.log(IStatus.WARNING, Log.DEPLOYMENT, "Warning: exception in profile.eResource() " + e.getMessage()); //$NON-NLS-1$
+					profileResource = ModelManagement.getResourceSet().getResource(profile.eResource().getURI(), true);
 				}
 				if (profileResource.getContents().size() == 0) {
 					throw new TransformationException(String.format("Cannot copy profile with URI %s. Check whether the URI corresponds to an existing location", profileResource.getURI()));
@@ -614,8 +566,7 @@ public class InstantiateDepPlan {
 					// would find (and copier profile
 					// applications in sub-folders
 					qname = qname.substring(qname.indexOf("::") + 2); //$NON-NLS-1$
-					newProfile = (Profile) Utils.getQualifiedElement(
-							newProfileTop, qname);
+					newProfile = (Profile) Utils.getQualifiedElement(newProfileTop, qname);
 				} else {
 					newProfile = newProfileTop;
 				}
@@ -623,9 +574,7 @@ public class InstantiateDepPlan {
 				newModel.applyProfile(newProfile);
 			}
 		} catch (IllegalArgumentException e) {
-			throw new TransformationException(
-					Messages.InstantiateDepPlan_IllegalArgumentDuringCopy
-							+ e.toString());
+			throw new TransformationException(Messages.InstantiateDepPlan_IllegalArgumentDuringCopy + e.toString());
 		}
 
 		// copier imports (and load resources associated - TODO: might not be
@@ -640,14 +589,12 @@ public class InstantiateDepPlan {
 		if (copyImports) {
 			for (Package importedPackage : existingModel.getImportedPackages()) {
 				if (importedPackage == null) {
-					throw new TransformationException(
-							Messages.InstantiateDepPlan_CheckInputImportPkg);
+					throw new TransformationException(Messages.InstantiateDepPlan_CheckInputImportPkg);
 				}
 				if (importedPackage.eResource() == null) {
 					String errorMsg = Messages.InstantiateDepPlan_CheckInputImportPkgNoRes;
 					if (importedPackage instanceof MinimalEObjectImpl.Container) {
-						URI uri = ((MinimalEObjectImpl.Container) importedPackage)
-								.eProxyURI();
+						URI uri = ((MinimalEObjectImpl.Container) importedPackage).eProxyURI();
 						if (uri != null) {
 							errorMsg += " - URI: " + uri.devicePath(); //$NON-NLS-1$
 						}
@@ -655,9 +602,7 @@ public class InstantiateDepPlan {
 					throw new TransformationException(errorMsg);
 				}
 				newModel.createPackageImport(importedPackage);
-				monitor.subTask(String.format(
-						Messages.InstantiateDepPlan_InfoImportPackage,
-						importedPackage.getName()));
+				monitor.subTask(String.format(Messages.InstantiateDepPlan_InfoImportPackage, importedPackage.getName()));
 
 				try {
 					importedPackage.eResource().load(null);
