@@ -134,8 +134,8 @@ class StaticCppToOO implements IOOTrafo {
 							// model (copyClassifier does not make a proper connector copy)
 							// TODO: this will NOT work for extended ports!
 							body += '''«part.nameRef»«PrefixConstants.getP_Prefix»«role.name»();'''
-						} else {
-
+						}
+						else {
 							// role is not a port: connector connects directly to a
 							// structural feature
 							// without passing via a port
@@ -384,8 +384,8 @@ class StaticCppToOO implements IOOTrafo {
 				var subPortName = ""
 				if(subPort != null) subPortName += "_" + subPort.name
 				val indexName = getIndexName(indexMap, receptaclePort, receptacleEnd)
-				val setter = '''«receptaclePart.nameRef»connect_«receptaclePort.name» «subPortName»'''
-				val getter = '''«facetPart.nameRef»get_«facetPort.name» «subPortName»()'''
+				val setter = '''«receptaclePart.nameRef»connect_«receptaclePort.name»«subPortName»'''
+				val getter = '''«facetPart.nameRef»get_«facetPort.name»«subPortName»()'''
 				return '''«setter»(«indexName»«getter»);''' + "\n"
 			}
 
