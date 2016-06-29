@@ -31,7 +31,7 @@ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.util.UMLUtil;
@@ -42,8 +42,10 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 public class C_CppProjectSupport implements ILangProjectSupport {
 
 	// TODO specific "root" is only required for component based code generation
-	private static final String ROOT = "root"; //$NON-NLS-1$
+	public static final String WS_PREFIX = "ws:"; //$NON-NLS-1$
 
+	public static final String ROOT = WS_PREFIX + "root"; //$NON-NLS-1$
+	
 	private static final String C = "c"; //$NON-NLS-1$
 
 	private static final String CPP = "cpp"; //$NON-NLS-1$
@@ -126,7 +128,13 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 				// copy string array into ICLanguageSetting array
 				ICLanguageSettingEntry[] icIncludePaths = new ICLanguageSettingEntry[settings.includePaths.size()];
 				for (int i = 0; i < settings.includePaths.size(); i++) {
-					icIncludePaths[i] = new CIncludePathEntry(settings.includePaths.get(i), ICSettingEntry.VALUE_WORKSPACE_PATH);
+					String path = settings.includePaths.get(i);
+					if (isWsRelPath(path)) {
+						icIncludePaths[i] = new CIncludePathEntry(removeWsPrefix(path), ICSettingEntry.VALUE_WORKSPACE_PATH);
+					}
+					else {
+						icIncludePaths[i] = new CIncludePathEntry(path, 0);			
+					}
 				}
 
 				// define name of used operating system from model (attribute of "Target" stereotype)
@@ -191,7 +199,7 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 		CDTSettings settings = new CDTSettings();
 		settings.includePaths = new UniqueEList<String>();
 		// include project directory (all paths are relative to it => ".")
-		settings.includePaths.add("."); //$NON-NLS-1$
+		settings.includePaths.add(WS_PREFIX + "."); //$NON-NLS-1$
 		// include also "root" (relative path)
 		settings.includePaths.add(ROOT);
 
@@ -202,20 +210,20 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 	}
 
 	@Override
-	public void gatherConfigData(Class implementation, AbstractSettings abstractSettings) {
+	public void gatherConfigData(Classifier implementation, AbstractSettings abstractSettings) {
 		CDTSettings settings = (CDTSettings) abstractSettings;
-		Element owner = implementation.getOwner();
+		Element owner = implementation.getNearestPackage();
 		while (owner instanceof Package) {
 			ExternLibrary cppLibrary = UMLUtil.getStereotypeApplication(owner, ExternLibrary.class);
 			if ((cppLibrary != null) && (settings != null)) {
-				settings.includePaths.addAll(cppLibrary.getIncludes());
+				settings.includePaths.addAll(cppLibrary.getIncludePaths());
 				for (String libPath : cppLibrary.getLibPaths()) {
-					if (libPath.startsWith("/")) {
-						// libPaths starting with a slash are relative to workspace location
+					if (isWsRelPath(libPath)) {
+						// libPaths starting with a slash (separator char) are relative to workspace location
 						// TODO: need to support absolute paths (host file system?) as well?
 						// (additional prefix. Eclipse standards?) Problem: workspace_loc is added
 						// automatically for absolute includePaths
-						settings.libPaths.add("${workspace_loc:" + libPath + "}");
+						settings.libPaths.add("${workspace_loc:" + removeWsPrefix(libPath) + "}");
 					} else {
 						// relative to project root, otherwise
 						settings.libPaths.add(libPath);
@@ -226,5 +234,17 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 			}
 			owner = owner.getOwner();
 		}
+	}
+	
+	public static String removeWsPrefix(String path) {
+		return path.substring(WS_PREFIX.length());
+	}
+
+	/**
+	 * @return true, if the path is a workspace relative path 
+	 */
+	public static boolean isWsRelPath(String path) {
+		return path.startsWith(WS_PREFIX);
+		
 	}
 }

@@ -25,6 +25,9 @@ import org.eclipse.papyrus.designer.languages.common.base.GenUtils
 import static extension org.eclipse.papyrus.designer.languages.idl.codegen.Utils.*
 
 class GenIDL2 {
+	
+	static final String KEY_STEREOTYPE = "IDLprofile::Key"
+	
 	public static def genIDL2 (Classifier cl) '''
 		«IDLCodeGenUtils.getCommentHeader»
 		«IF (cl instanceof Interface)»
@@ -74,6 +77,10 @@ class GenIDL2 {
 		#endif
 	'''
 
+	/**
+	 * Generate IDL2 from a datatype. It will respect the stereotype "Key" on one of the attributes
+	 * and produce an associated pragma. 
+	 */
 	public static def genIDL2dataType (DataType dataType) '''
 		«dataType.openNamespaceIDL»
 		
@@ -82,12 +89,8 @@ class GenIDL2 {
 				«attribute.type.name» «attribute.name»;
 			«ENDFOR»
 		};
-		«IF dataType.attributes.filter[it.isApplied('Key')].size() > 0»
-			#pragma keylist «dataType.name» {
-				«FOR attribute : dataType.attributes.filter[it.isApplied('Key')]»
-					«attribute.name» 
-				«ENDFOR»
-			}
+		«IF dataType.attributes.filter[it.isApplied(KEY_STEREOTYPE)].size() > 0»
+			#pragma keylist «dataType.name» «FOR attribute : dataType.attributes.filter[it.isApplied(KEY_STEREOTYPE)]»«attribute.name»«ENDFOR»
 		«ENDIF»
 		
 		«dataType.closeNamespaceIDL»

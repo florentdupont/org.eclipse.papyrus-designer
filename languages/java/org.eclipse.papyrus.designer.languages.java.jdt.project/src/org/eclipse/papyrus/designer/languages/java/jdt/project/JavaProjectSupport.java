@@ -8,7 +8,7 @@ import org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageOne;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Classifier;
 
 /**
  * Supports the creation and configuration of JDT projects
@@ -61,19 +61,14 @@ public class JavaProjectSupport implements ILangProjectSupport {
 
 	@Override
 	public void setSettings(IProject project, AbstractSettings settings) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public AbstractSettings initialConfigurationData() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void gatherConfigData(Class implementation, AbstractSettings settings) {
-		// TODO Auto-generated method stub
-		
+	public void gatherConfigData(Classifier implementation, AbstractSettings settings) {
 	}
 }

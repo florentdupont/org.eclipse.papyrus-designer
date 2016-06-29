@@ -15,11 +15,11 @@
 package org.eclipse.papyrus.designer.components.transformation.core.deployment;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
-import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
 import org.eclipse.papyrus.designer.components.transformation.core.listeners.PreCopyListener;
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier;
-import org.eclipse.uml2.uml.Class;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
+import org.eclipse.uml2.uml.Classifier;
 
 /**
  * Gather configuration data for a code generation project
@@ -44,8 +44,8 @@ public class GatherConfigData implements PreCopyListener {
 
 	@Override
 	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj) {
-		if (sourceEObj instanceof Class) {
-			projectSupport.gatherConfigData((Class) sourceEObj, settings);
+		if (sourceEObj instanceof Classifier) {
+			projectSupport.gatherConfigData((Classifier) sourceEObj, settings);
 		}
 		return sourceEObj;
 	}

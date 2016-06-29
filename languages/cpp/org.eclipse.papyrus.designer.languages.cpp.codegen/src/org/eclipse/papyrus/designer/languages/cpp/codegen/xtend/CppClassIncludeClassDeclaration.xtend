@@ -59,11 +59,14 @@ class CppClassIncludeClassDeclaration {
 						 */
 						var includePath = (cl.owner as Package).cppOwnerPackageIncludePath
 						if (!newList.contains(includePath)) newList.add(includePath)
-					} else {
-						//str = null
+					}
+					else {
+						// str = null
 					}
 				} else {
-					newList.addAll(CppClassIncludeDeclaration.cppClassIncludes(cl))
+					for (includePath : CppClassIncludeDeclaration.cppClassIncludes(cl)) {
+						if (!newList.contains(includePath)) newList.add(includePath)
+					}
 				}
 			} else {
 				//str = null

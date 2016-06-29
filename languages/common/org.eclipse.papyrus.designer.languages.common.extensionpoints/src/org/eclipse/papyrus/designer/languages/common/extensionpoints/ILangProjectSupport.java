@@ -12,7 +12,7 @@
 package org.eclipse.papyrus.designer.languages.common.extensionpoints;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Classifier;
 
 /**
  * Common interface to create projects for a specific programming language.
@@ -54,5 +54,5 @@ public interface ILangProjectSupport {
 	 * @param implementation
 	 *            a class copied to the target
 	 */
-	public void gatherConfigData(Class implementation, AbstractSettings settings);
+	public void gatherConfigData(Classifier implementation, AbstractSettings settings);
 }
