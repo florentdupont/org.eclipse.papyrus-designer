@@ -50,7 +50,7 @@ public class PullConsumer implements IMappingRule {
 
 	public static String RET_PAR_NAME = "ret"; //$NON-NLS-1$
 
-	public static String BOOL_QNAME = "corba::Boolean"; //$NON-NLS-1$
+	public static String BOOL_QNAME = "PrimitiveTypes::Boolean"; //$NON-NLS-1$
 
 	@Override
 	public boolean needsUpdate(Port p) {
@@ -132,6 +132,9 @@ public class PullConsumer implements IMappingRule {
 			Type booleanType = null;
 			if (element instanceof Type) {
 				booleanType = (Type) element;
+			}
+			else {
+				throw new RuntimeException(String.format("Cannot find type %s. Check whether the UML primitive types library has been imported.", BOOL_QNAME)); //$NON-NLS-1$
 			}
 
 			// check whether operation already exists. Create, if not
