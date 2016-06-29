@@ -9,17 +9,15 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.languages.idl.codegen.opensplice.transformation;
+package org.eclipse.papyrus.designer.languages.common.base;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-// import org.apache.maven.plugin.MojoExecutionException;
-// import org.apache.maven.plugin.logging.Log;
 /**
- * Generic processWrapper. Used by DDScompileIDL
+ * Generic wrapper for the execution of external commands (command line).
  */
 public class ProcessWrapper {
 
@@ -29,7 +27,7 @@ public class ProcessWrapper {
 	 * @param arguments
 	 *        command line to be passed to the process builder
 	 */
-	protected void process(List<String> arguments) // throws MojoExecutionException
+	public static void process(List<String> arguments) // throws MojoExecutionException
 	{
 		BufferedReader results = null, errors = null;
 		try {
@@ -40,14 +38,15 @@ public class ProcessWrapper {
 				results = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				String s;
 				boolean error = false;
+				String errorMsg = ""; //$NON-NLS-1$
 				while((s = results.readLine()) != null) {
-					// output may indicate an error, but this is not true in general
-					System.err.println("result:" + s);
+					// TODO: output may indicate an error, but this is not true in general
+					errorMsg += s;
 					error = true;
 				}
 				errors = new BufferedReader(new InputStreamReader(p.getErrorStream()));
 				while((s = errors.readLine()) != null) {
-					System.err.println("error:" + s);
+					errorMsg += s;
 					error = true;
 				}
 				try {
@@ -56,7 +55,7 @@ public class ProcessWrapper {
 					//do nothing
 				}
 				if(error) {
-					throw new RuntimeException("error during execution of command");
+					throw new RuntimeException(String.format("error during execution of external command: %s", errorMsg));
 				}
 			} catch (IOException exp) {
 				exp.printStackTrace();
@@ -72,7 +71,6 @@ public class ProcessWrapper {
 					errors.close();
 			} catch (IOException exp) {
 				//log.error(exp);
-				//throw new MojoExecutionException("");
 			}
 		}
 	}

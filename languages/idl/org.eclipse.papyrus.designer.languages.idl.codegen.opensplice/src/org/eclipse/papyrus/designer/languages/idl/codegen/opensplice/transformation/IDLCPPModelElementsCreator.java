@@ -20,6 +20,7 @@ import java.util.Map;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.papyrus.designer.languages.common.base.ProcessWrapper;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.Constants;
 import org.eclipse.papyrus.designer.languages.idl.codegen.opensplice.preferences.IDLCodeGenUtils;
 import org.eclipse.papyrus.designer.languages.idl.codegen.transformation.IDLModelElementsCreator;
@@ -115,10 +116,9 @@ public class IDLCPPModelElementsCreator extends IDLModelElementsCreator {
 				arguments.add("-I"); //$NON-NLS-1$
 				arguments.add(includeDir);
 			}
-
-			ProcessWrapper proc = new ProcessWrapper(/* getLog() */);
 			arguments.add(idlFileName);
-			proc.process(arguments);
+
+			ProcessWrapper.process(arguments);
 		}
 	}
 }
