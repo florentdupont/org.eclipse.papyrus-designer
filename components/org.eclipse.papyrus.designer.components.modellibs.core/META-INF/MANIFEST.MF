@@ -16,7 +16,9 @@ Require-Bundle: org.eclipse.ui,
  com.google.guava;bundle-version="11.0.0",
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.papyrus.designer.languages.cpp.reverse;bundle-version="0.7.0",
+ org.eclipse.papyrus.designer.languages.cpp.codegen;bundle-version="0.7.0"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.3.qualifier

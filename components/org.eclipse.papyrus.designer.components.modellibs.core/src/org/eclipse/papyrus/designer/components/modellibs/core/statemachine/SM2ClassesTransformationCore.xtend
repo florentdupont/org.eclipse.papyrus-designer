@@ -5,23 +5,19 @@ import java.util.HashMap
 import java.util.List
 import java.util.Map
 import java.util.Map.Entry
-import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.common.util.UniqueEList
-import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.papyrus.designer.components.FCM.DerivedElement
 import org.eclipse.papyrus.designer.components.transformation.core.OperationUtils
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
 import org.eclipse.papyrus.designer.components.vsl.ParseVSL
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Virtual
-import org.eclipse.papyrus.uml.tools.utils.PackageUtil
+import org.eclipse.papyrus.designer.languages.cpp.reverse.utils.RoundtripCppUtils
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.AnyReceiveEvent
-import org.eclipse.uml2.uml.Behavior
 import org.eclipse.uml2.uml.CallEvent
 import org.eclipse.uml2.uml.ChangeEvent
 import org.eclipse.uml2.uml.Class
@@ -29,10 +25,10 @@ import org.eclipse.uml2.uml.Enumeration
 import org.eclipse.uml2.uml.Event
 import org.eclipse.uml2.uml.FinalState
 import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.OpaqueExpression
 import org.eclipse.uml2.uml.Operation
-import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.Pseudostate
 import org.eclipse.uml2.uml.PseudostateKind
 import org.eclipse.uml2.uml.Region
@@ -41,18 +37,18 @@ import org.eclipse.uml2.uml.State
 import org.eclipse.uml2.uml.StateMachine
 import org.eclipse.uml2.uml.TimeEvent
 import org.eclipse.uml2.uml.Transition
-import org.eclipse.uml2.uml.Trigger
 import org.eclipse.uml2.uml.Type
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.Vertex
 import org.eclipse.uml2.uml.util.UMLUtil
-
-import static org.eclipse.papyrus.designer.components.modellibs.core.statemachine.SMCodeGeneratorConstants.*
-
+import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.eventID
-import org.eclipse.uml2.uml.Profile
-import org.eclipse.uml2.uml.Element
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen
+import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.SMCodeGeneratorConstants.*
+import org.eclipse.uml2.uml.Trigger
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
+import org.eclipse.uml2.uml.Behavior
+import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.*
+import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
 
 class SM2ClassesTransformationCore {
 	protected extension CDefinitions cdefs;
@@ -81,7 +77,6 @@ class SM2ClassesTransformationCore {
 	Enumeration eventIdEnum
 	public Type fptr
 	public PThreadTypes ptTypes
-	public Type threadStructType
 	
 	public List<TimeEvent> timeEvents = new ArrayList
 	List<ChangeEvent> changeEvents = new ArrayList
@@ -100,6 +95,7 @@ class SM2ClassesTransformationCore {
 	private List<Region> regions = new ArrayList
 	public List<Transition> parallelTransitions = new ArrayList
 	public Map<State, List<TimeEvent>> states2TimeEvents = new HashMap
+	private Type threadStructType
 
 	new(LazyCopier copier, Class smClass, StateMachine sm, Class tmClass) {
 		this.copier = copier
@@ -109,51 +105,38 @@ class SM2ClassesTransformationCore {
 		// perClassPackage = copier.target.createNestedPackage("PerClass_" + mContainerClass.name)
 		// perClassPackage = copier.target
 		this.sm = sm
-		
-		val ResourceSet resourceSet = targetPacket.eResource.resourceSet
-		boolType = getPrimitiveType("bool", resourceSet)
-		voidType = getPrimitiveType("void", resourceSet)
-		intType = getPrimitiveType("int", resourceSet)
-		charType = getPrimitiveType("char", resourceSet)
+		boolType = RoundtripCppUtils.getPrimitiveType("bool", targetPacket as Model)
+		voidType = RoundtripCppUtils.getPrimitiveType("void", targetPacket as Model)
+		intType = RoundtripCppUtils.getPrimitiveType("int", targetPacket as Model)
+		charType = RoundtripCppUtils.getPrimitiveType("char", targetPacket as Model)
 		ptTypes = new PThreadTypes(targetPacket as Model)
 		this.cdefs = new CDefinitions(superContext)
 	}
 	
-	def getPrimitiveType(String name, ResourceSet resourceSet) {
-		val Package ansiCLibrary = PackageUtil.loadPackage(URI.createURI("pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml"), resourceSet)
-		val Element element = ansiCLibrary.getPackagedElement(name)
-		if (element instanceof Type) {
-			return element
-		}
-		return null
+	def setSmPack(Package smPack) {
+		this.smPack = smPack
+	}
+	
+	def getThreadStructType() {
+		return threadStructType
+	}
+	
+	def setThreadStructType(Type threadStructType) {
+		this.threadStructType = threadStructType;
 	}
 	
 	def getTargetPacket() {
 		copier.target;
 	}
 	
-	def getExternalPackage(Package parentPack) {
-		if (parentPack.getNestedPackage("external") == null) {
-			var createdPack = parentPack.createNestedPackage("external")
-			StereotypeUtil.apply(createdPack, NoCodeGen)
-		}
-		return parentPack.getNestedPackage("external")
-	}
-	
 	// each state class has a super context and ancestor context
 	def transform() {
 		val targetPack = getTargetPacket;
 		// copier = new SM2ClassCopier(mContainerClass.model, targetPack, false, true, mContainerClass, superContext, sm)
-		val ResourceSet resourceSet = targetPack.eResource.resourceSet
-		
-		PackageUtil.loadPackage(URI.createURI("pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml"), resourceSet)
-		val Package profile = PackageUtil.loadPackage(URI.createURI("pathmap://UML_PROFILES/Standard.profile.uml"), resourceSet)
-		if (profile instanceof Profile) {
-			PackageUtil.applyProfile(targetPack, profile as Profile, true)
-		}
-		
+		RoundtripCppUtils.importOrgetAModel(targetPack as Model, ansiUri)
+		RoundtripCppUtils.applyProfile(targetPack as Model, RoundtripCppUtils.umlStandardProfileUri)
 		if (useThreadCpp11) {
-			var externalPackage = getExternalPackage(targetPack)
+			var externalPackage = RoundtripCppUtils.getOrcreateExternalPackage(targetPack, true)
 			threadCpp11 = externalPackage.createOwnedType("std::thread", UMLPackage.Literals.DATA_TYPE)
 			StereotypeUtil.apply(threadCpp11, External)
 		}
@@ -251,13 +234,13 @@ class SM2ClassesTransformationCore {
 		superContext.createOpaqueBehavior(ctor, '''
 		«SYSTEM_STATE_ATTR» = statemachine::IDLE;
 		«FOR s:states»
-			«IF s.entry != null»
+			«IF s.entry.isBehaviorExist»
 				«STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«ENTRY_NAME» = &«superContext.name»::«s.name + "_" + ENTRY_NAME»;
 			«ENDIF»
-			«IF s.exit != null»
+			«IF s.exit.isBehaviorExist»
 				«STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«EXIT_NAME» = &«superContext.name»::«s.name + "_" + EXIT_NAME»;
 			«ENDIF»
-			«IF s.doActivity != null»
+			«IF s.doActivity.isBehaviorExist»
 				«STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«DO_ACTIVITY_NAME» = &«superContext.name»::«s.name + "_" + DO_ACTIVITY_NAME»;
 			«ENDIF»		
 			«DO_ACTIVITY_TABLE»[«s.name.toUpperCase»_ID] =  «STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«DO_ACTIVITY_NAME»;
@@ -303,11 +286,17 @@ class SM2ClassesTransformationCore {
 				«PARALLEL_TRANSITION_TABLE»[«concurrency.parallelTransitionId(t)»] = &«superContext.name»::«concurrency.parallelTransitionMethodName(t)»;
 			«ENDFOR»
 		«ENDIF»
+		
+		dispatchStruct = «STRUCT_FOR_THREAD»(this, 0, 0, «THREAD_FUNC_STATE_MACHINE_TYPE», 0);
+		THREAD_CREATE(dispatchThread, dispatchStruct)
+		while(!dispatchFlag) {}
+		
 		//initialze root active state
 		//execute initial effect
 		«getRegionMethodName(topRegion)»(«topRegion.initialMacroName»);
 		''')
 		
+		superContext.createOwnedAttribute("dispatchFlag", boolType)
 		StereotypeUtil.apply(ctor, "StandardProfile::Create")
 		
 		eventMap.forEach[e, trans|
@@ -326,17 +315,17 @@ class SM2ClassesTransformationCore {
 		//create entry/exit/doactivity of each state
 		states.forEach[
 			stateIdEnum.createOwnedLiteral(it.name.toUpperCase + "_ID")
-			if (it.entry != null && it.entry instanceof OpaqueBehavior) {
+			if (it.entry.isBehaviorExist) {
 				var entry = superContext.createOwnedOperation(it.name + "_" + ENTRY_NAME, null, null)
 				var opaque = superContext.createOpaqueBehavior(entry, (it.entry as OpaqueBehavior).bodies.head)
 				opaque.languages.add(langID)
 			}
-			if (it.exit != null && it.exit instanceof OpaqueBehavior) {
+			if (it.exit.isBehaviorExist) {
 				var exit = superContext.createOwnedOperation(it.name + "_" + EXIT_NAME, null, null)
 				var opaque = superContext.createOpaqueBehavior(exit, (it.exit as OpaqueBehavior).bodies.head)
 				opaque.languages.add(langID)
 			}
-			if (it.doActivity != null && it.doActivity instanceof OpaqueBehavior) {
+			if (it.doActivity.isBehaviorExist) {
 				doActivityList.add(it.doActivity)
 				var doActivity = superContext.createOwnedOperation(it.name + "_" + DO_ACTIVITY_NAME, null, null)
 				var callCompletionEvent = ''''''
@@ -360,11 +349,54 @@ class SM2ClassesTransformationCore {
 		concurrency.createThreadBasedParallelism
 		
 		appendIncludeHeader('''
-		#define «THREAD_FUNC_STATE_MACHINE_TYPE» 6
 		#define CHECKPOINT if («SYSTEM_STATE_ATTR» == statemachine::EVENT_PROCESSING) {return;}
 		#define THREAD_CREATE(thThread, str) «FORK_NAME»(&thThread, NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &str);''')
 		
+		var eventClass = smPack.getOwnedType("Event_t")
+		var copiedType = copier.copy(eventClass) as Type	
+		var eventQueueClass = smPack.getOwnedType("EventPriorityQueue")
+		var copiedEventQueueType = copier.copy(eventQueueClass) as Type			
+		superContext.createOwnedAttribute(EVENT_QUEUE, copiedEventQueueType)	
+		StereotypeUtil.apply(superContext.createOwnedAttribute("currentEvent", copiedType), Ptr);
+		
+		
+		var eventDispatch = superContext.createOwnedOperation(EVENT_DISPATCH, null, null)					
+		superContext.createOpaqueBehavior(eventDispatch, '''
+		bool popDeferred = false;
+		while(true) {
+			//run-to-completion: need to have a mutex here
+			currentEvent = «EVENT_QUEUE».pop(popDeferred);
+			dispatchFlag = true;
+			if (currentEvent != NULL) {	
+				switch(currentEvent->eventID) {
+					«FOR e:eventMap.keySet»
+						case «e.eventID»:
+							«IF e instanceof SignalEvent»
+								«IF e.signal != null»
+									process«e.eventName»((«CppGenUtils.cppQualifiedName(copier.getCopy(e.signal))»)(*currentEvent->data));
+								«ELSE»
+									process«e.eventName»();
+								«ENDIF»
+							«ELSE»
+							process«e.eventName»();
+							«ENDIF»
+							break;
+					«ENDFOR»
+						case COMPLETIONEVENT_ID: 
+							processCompletionEvent();
+						break;
+				}
+				if («SYSTEM_STATE_ATTR» == statemachine::EVENT_DEFERRED) {
+					«EVENT_QUEUE».saveDeferred(*currentEvent);
+				}
+				popDeferred = («SYSTEM_STATE_ATTR» != statemachine::EVENT_DEFERRED);
+				«SYSTEM_STATE_ATTR» = statemachine::IDLE;
+			}			
+		}''') 
+		
 		concurrency.createConcurrencyForTransitions
+		superContext.createOwnedAttribute("dispatchThread", ptTypes.pthread)
+		superContext.createOwnedAttribute("dispatchStruct", concurrency.threadStructType)
 	}
 	
 	
@@ -396,6 +428,7 @@ class SM2ClassesTransformationCore {
 	}
 	
 	
+	
 	def String generateExitingSubStates(State parent, boolean exitParent) {
 		var pAttr = '''«STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID]'''
 		return '''
@@ -412,25 +445,29 @@ class SM2ClassesTransformationCore {
 		«ELSE»
 		«ENDIF»
 		«IF exitParent»
+			«IF parent.doActivity.isBehaviorExist»
 			//signal to exit the doActivity of «parent.name»
 			«SET_FLAG»(«parent.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», false);
+			«ENDIF»
 			«parent.generateDeactivateTimeEvent»
+			«IF parent.exit.isBehaviorExist»
 			//exit action of «parent.name»
 			«getFptrCall(pAttr, false, EXIT_NAME)»;
+			«ENDIF»
 		«ENDIF»'''
 	}
 	
 	public def generateActivateTimeEvent(State s) {
 		return '''
 		«FOR te:states2TimeEvents.get(s)»
-			«SET_FLAG»(«te.eventID», «THREAD_FUNC_TIMEEVENT_TYPE», true);
+			«SET_FLAG»(«TE_INDEX»(«te.eventID»), «THREAD_FUNC_TIMEEVENT_TYPE», true);
 		«ENDFOR»'''
 	}
 	
 	def generateDeactivateTimeEvent(State s) {
 		return '''
 		«FOR te:states2TimeEvents.get(s)»
-			«SET_FLAG»(«te.eventID», «THREAD_FUNC_TIMEEVENT_TYPE», false);
+			«SET_FLAG»(«TE_INDEX»(«te.eventID»), «THREAD_FUNC_TIMEEVENT_TYPE», false);
 		«ENDFOR»'''
 	}
 	
@@ -713,7 +750,7 @@ class SM2ClassesTransformationCore {
 		} else {
 			callCompletionEvent = '''
 			if («FOR r:composite.regions SEPARATOR ' && '»(«STATE_ARRAY_ATTRIBUTE»[«composite.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«composite.regions.indexOf(r)»] == «STATE_MAX»)«ENDFOR») {
-				process«COMPLETION_EVENT»();
+				«EVENT_QUEUE».push(statemachine::PRIORITY_1, NULL, COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, «composite.name.toUpperCase»_ID);
 			}'''
 		}
 		return callCompletionEvent
@@ -1193,12 +1230,17 @@ class SM2ClassesTransformationCore {
 			case «r.initialMacroName»:
 				«TransformationUtil.getTransitionEffect(initialP.outgoings.head)»
 				«generateChangeState(initialState)»
+				
+				«IF initialState.entry.isBehaviorExist»
 				«getFptrCall(pAttr, false, ENTRY_NAME)»;
 				//starting the counters for time events
+				«ENDIF»
 				«generateActivateTimeEvent(initialState)»
 				
+				«IF initialState.doActivity.isBehaviorExist || initialState.hasTriggerlessTransition»
 				//start activity of «initialState.name» by calling setFlag
 				«SET_FLAG»(«initialState.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», true);
+				«ENDIF»
 				«IF initialState.composite»
 					«IF initialState.orthogonal»
 					//TODO: fork region funtions
@@ -1241,12 +1283,15 @@ class SM2ClassesTransformationCore {
 				«body»
 				case «v.vertexMacroName»:
 					«generateChangeState(v)»
+					«IF v.entry.isBehaviorExist»
 					«getFptrCall(pAttr, false, ENTRY_NAME)»;
+					«ENDIF»
 					//starting the counters for time events
 					«generateActivateTimeEvent(v)»
+					«IF v.doActivity.isBehaviorExist || v.hasTriggerlessTransition»
 					//start activity of «v.name» by calling setFlag
 					«SET_FLAG»(«v.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», true);
-					
+					«ENDIF»
 					«IF v.composite»
 						«IF v.orthogonal»
 						//TODO: fork region funtions
@@ -1297,11 +1342,15 @@ class SM2ClassesTransformationCore {
 		var pAttr = '''«STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID]'''
 		return '''
 		«generateChangeState(parent)»
-		«getFptrCall(pAttr, false, ENTRY_NAME)»;
+		«IF parent.entry.isBehaviorExist»
+			«getFptrCall(pAttr, false, ENTRY_NAME)»;
+		«ENDIF»
 		//starting the counters for time events
 		«generateActivateTimeEvent(parent)»
-		//start activity of «parent.name» by calling setFlag
-		«SET_FLAG»(«parent.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», true);
+		«IF parent.doActivity.isBehaviorExist || parent.hasTriggerlessTransition»
+			//start activity of «parent.name» by calling setFlag
+			«SET_FLAG»(«parent.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», true);
+		«ENDIF»
 		«IF parent.composite && parent != subVertex»
 			«IF parent.orthogonal»
 				«var toJoinList = new ArrayList<Region>»
@@ -1320,6 +1369,14 @@ class SM2ClassesTransformationCore {
 							//«getRegionMethodName(r)»(«r.initialMacroName»);
 							«concurrency.generateForkCall(r, true, r.initialMacroName)»
 						«ENDIF»
+					«ELSEIF subVertex != null && subVertex.container == null»
+						«IF subVertex.eContainer == parent»
+							«var b = toJoinList.add(r)»
+							«concurrency.generateForkCall(r, true, subVertex.vertexMacroName)»
+						«ELSE»
+							«var b = toJoinList.add(r)»
+							«concurrency.generateForkCall(r, true, subVertex.vertexMacroName)»
+						«ENDIF»
 					«ELSE»
 						«IF TransformationUtil.findInitialState(r) != null»
 							«var b = toJoinList.add(r)»
@@ -1333,7 +1390,9 @@ class SM2ClassesTransformationCore {
 				«ENDFOR»
 			«ELSEIF parent.composite»
 				«IF subVertex != null»
-					«IF subVertex.container.state == parent»
+					«IF subVertex.container == null && subVertex.eContainer instanceof State»
+						«getRegionMethodName(parent.regions.head)»(«subVertex.vertexMacroName»);
+					«ELSEIF subVertex.container.state == parent»
 						«getRegionMethodName(parent.regions.head)»(«subVertex.vertexMacroName»);
 					«ELSE»
 						«var containingRegion = parent.regions.filter[it.allSubVertexes.contains(subVertex)].head»
@@ -1343,6 +1402,24 @@ class SM2ClassesTransformationCore {
 					«getRegionMethodName(parent.regions.head)»(«parent.regions.head.initialMacroName»);
 				«ENDIF»
 			«ELSE»
+			«ENDIF»
+		«ELSEIF parent.composite && parent == subVertex»
+			«IF parent.orthogonal»
+				«var toJoinList = new ArrayList<Region>»
+				«FOR r:parent.regions»
+					«IF TransformationUtil.findInitialState(r) != null»
+						«var b = toJoinList.add(r)»
+						//«getRegionMethodName(r)»(«r.initialMacroName»);
+						«concurrency.generateForkCall(r, true, r.initialMacroName)»
+					«ENDIF»
+				«ENDFOR»
+				«FOR r:toJoinList»
+					«concurrency.generateJoinCall(r, true)»
+				«ENDFOR»
+			«ELSE»
+				«IF TransformationUtil.findInitialState(parent.regions.head) != null»
+					«getRegionMethodName(parent.regions.head)»(«parent.regions.head.initialMacroName»);
+				«ENDIF»
 			«ENDIF»
 		«ENDIF»'''
 		

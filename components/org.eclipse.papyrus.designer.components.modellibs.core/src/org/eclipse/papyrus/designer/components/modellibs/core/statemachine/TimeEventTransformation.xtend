@@ -45,7 +45,7 @@ class TimeEventTransformation {
 		StereotypeUtil.apply(timeEventMutexes, Array)
 		UMLUtil.getStereotypeApplication(timeEventMutexes, Array).definition = '''[«core.timeEvents.size»]'''
 		
-		var threadStructs = superContext.createOwnedAttribute(THREAD_STRUCTS_FOR_TIMEEVENT, core.threadStructType)
+		var threadStructs = superContext.createOwnedAttribute(THREAD_STRUCTS_FOR_TIMEEVENT, core.concurrency.threadStructType)
 		StereotypeUtil.apply(threadStructs, Array)
 		UMLUtil.getStereotypeApplication(threadStructs, Array).definition = '''[«core.timeEvents.size»]''' 
 		
@@ -81,13 +81,7 @@ class TimeEventTransformation {
 			pthread_mutex_unlock(&«MUTEXES_TIME_EVENT»[id]);
 			if (commitEvent) {
 				//the state does not change, push time event to the queue
-				switch(id) {
-					«FOR te:core.timeEvents»
-					case «TransformationUtil.eventID(te)»:
-						process«TransformationUtil.eventName(te)»();
-						break;
-					«ENDFOR»
-				}
+				«EVENT_QUEUE».push(statemachine::PRIORITY_2, NULL, id, statemachine::TIME_EVENT, id);
 			}
 		}''')
 	}

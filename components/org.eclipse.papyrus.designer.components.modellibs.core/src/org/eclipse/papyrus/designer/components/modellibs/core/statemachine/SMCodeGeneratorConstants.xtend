@@ -74,9 +74,7 @@ class SMCodeGeneratorConstants {
 	public static String MUTEXES_TIME_EVENT = "timeEventMutexes"
 	public static String CONDITIONS = "conds"
 	public static String CONDITIONS_TIME_EVENT = "timeEventConds"
-	public static String STRUCT_FOR_THREAD_SHORTN = "StructForThread_t"
 	public static String STRUCT_FOR_THREAD = "statemachine::StructForThread_t"
-	
 	public static String THREAD_STRUCTS = "threadStructs"
 	public static String THREAD_STRUCTS_FOR_TIMEEVENT = "timeEventThreadStructs"
 	public static String THREAD_FUNC_WRAPPER = "thread_func_wrapper"
@@ -104,5 +102,6 @@ class SMCodeGeneratorConstants {
 	public static String TIME_EVENT_LISTEN_FUNCTION = "listenTimeEvent"
 	public static String SYSTEM_STATE_ATTR = "systemState"
 	public static String EVENT_DISPATCH = "dispatchEvent"
-	public static String THREAD_FUNC_STATE_MACHINE_TYPE = "TF_STATE_MACHINE_TYPE"
+	public static String THREAD_FUNC_STATE_MACHINE_TYPE = "statemachine::TF_STATE_MACHINE_TYPE"
+	public static String EVENT_QUEUE = "eventQueue"
 }

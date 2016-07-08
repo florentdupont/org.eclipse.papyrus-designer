@@ -1,26 +1,30 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.statemachine
 
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef
-import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
-import org.eclipse.uml2.uml.Class
-import org.eclipse.uml2.uml.Package
-import org.eclipse.uml2.uml.ParameterDirectionKind
-import org.eclipse.uml2.uml.Region
-import org.eclipse.uml2.uml.Transition
-import org.eclipse.uml2.uml.UMLPackage
-import org.eclipse.uml2.uml.util.UMLUtil
 
-import static org.eclipse.papyrus.designer.components.modellibs.core.statemachine.SMCodeGeneratorConstants.*
+import org.eclipse.uml2.uml.Type
+import org.eclipse.uml2.uml.UMLPackage
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
+import org.eclipse.uml2.uml.util.UMLUtil
+import org.eclipse.uml2.uml.ParameterDirectionKind
+import org.eclipse.uml2.uml.Transition
+import org.eclipse.uml2.uml.Region
+//import org.eclipse.papyrus.designer.languages.cpp.reverse.utils.RoundtripCppUtils
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
+import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.SMCodeGeneratorConstants.*
+import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.*
+import java.lang.instrument.ClassDefinition
 
 class ConcurrencyGenerator {
 	protected extension CDefinitions cdefs;
 	private SM2ClassesTransformationCore core
 	PThreadTypes ptTypes
-	Class superContext
-	Package targetPack
-	
+	public Type threadStructType
+	org.eclipse.uml2.uml.Class superContext
+	org.eclipse.uml2.uml.Package targetPack
+
 	new (SM2ClassesTransformationCore core) {
 		this.core = core
 		this.superContext = core.superContext
@@ -34,25 +38,43 @@ class ConcurrencyGenerator {
 		//1 wrapper for regions: WRAPPER_REGION: similar to DO_ACTIVITY_FOR_STATE
 		//1 wrapper for time event detection: WRAPPER_TIME_EVENT => run and wait as doActivity similar to DO_ACTIVITY_FOR_STATE
 		//1 wrapper for change event detection: WRAPPER_TIME_EVENT => run, check value difference, write event similar to DO_ACTIVITY_FOR_STATE
-		
+
 		core.appendIncludeHeader("#include \"time.h\"")
 		core.appendIncludeHeader("#include \"pthread.h\"")
-		
+
 		var threads = superContext.createOwnedAttribute(THREADS, ptTypes.pthread)
 		StereotypeUtil.apply(threads, Array)
 		UMLUtil.getStereotypeApplication(threads, Array).definition = '''[«STATE_MAX»]'''
-		
+
 		var flags = superContext.createOwnedAttribute(FLAGS_ACTIVITY, core.boolType)
 		StereotypeUtil.apply(flags, Array)
 		UMLUtil.getStereotypeApplication(flags, Array).definition = '''[«STATE_MAX»]'''
-		
+
 		var conds = superContext.createOwnedAttribute(CONDITIONS, ptTypes.pthreadCond)
 		StereotypeUtil.apply(conds, Array)
 		UMLUtil.getStereotypeApplication(conds, Array).definition = '''[«STATE_MAX»]'''
-		
+
 		var mutexes = superContext.createOwnedAttribute(MUTEXES, ptTypes.pthreadMutex)
 		StereotypeUtil.apply(mutexes, Array)
 		UMLUtil.getStereotypeApplication(mutexes, Array).definition = '''[«STATE_MAX»]'''
+
+		threadStructType = core.threadStructType
+		//threadStructType = superContext.createNestedClassifier(STRUCT_FOR_THREAD, UMLPackage.Literals.PRIMITIVE_TYPE)
+//		StereotypeUtil.apply(threadStructType, Typedef)
+//		UMLUtil.getStereotypeApplication(threadStructType, Typedef).definition = '''
+//		struct «STRUCT_FOR_THREAD» {
+//			void* ptr;
+//			int id; //id or index used to specify the corresponding function in a table
+//			char enter_mode; //used for specifying how a region is entered
+//			char func_type; // doActivity/enter region/exit region/time event/change event/ transition
+//			int duration; //in millisecond which is used for time events
+//			«STRUCT_FOR_THREAD»(«superContext.name»* ptr, int id, char enter_mode, char func_type, int duration): ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration){}
+//			«STRUCT_FOR_THREAD»(){}
+//		} '''
+
+		var threadStructs = superContext.createOwnedAttribute(THREAD_STRUCTS, threadStructType)
+		StereotypeUtil.apply(threadStructs, Array)
+		UMLUtil.getStereotypeApplication(threadStructs, Array).definition = '''[«STATE_MAX»]'''
 
 		var threadFuncWrapper = superContext.createOwnedOperation(THREAD_FUNC_WRAPPER, null, null)
 		threadFuncWrapper.isStatic = true
@@ -68,7 +90,7 @@ class ConcurrencyGenerator {
 			«IF core.doActivityList.size > 0»
 				case «THREAD_FUNC_DOACTIVITY_TYPE»:
 					ptr->«DO_CALL_ACTIVITY»(cptr->id);
-					break;	
+					break;
 			«ENDIF»
 			«IF core.timeEvents.size > 0»
 				case «THREAD_FUNC_TIMEEVENT_TYPE»:
@@ -89,21 +111,21 @@ class ConcurrencyGenerator {
 					break;
 			«ENDIF»
 				case «THREAD_FUNC_STATE_MACHINE_TYPE»:
-					//cptr->ptr->«EVENT_DISPATCH»();
+					ptr->«EVENT_DISPATCH»();
 					break;
 		}
 		return NULL;''')
-		
+
 		//function pointer
 		core.fptr = superContext.createNestedClassifier(FPT_POINTER_FOR_TABLE, UMLPackage.Literals.PRIMITIVE_TYPE)
 		StereotypeUtil.apply(core.fptr, Typedef)
 		UMLUtil.getStereotypeApplication(core.fptr, Typedef).definition = '''
 		void («superContext.name»::*typeName)()'''
-		
+
 		var doActivityTable = superContext.createOwnedAttribute(DO_ACTIVITY_TABLE, core.fptr)
 		StereotypeUtil.apply(doActivityTable, Array)
 		UMLUtil.getStereotypeApplication(doActivityTable, Array).definition = '''[«STATE_MAX»]'''
-		
+
 		var doCallActivity = superContext.createOwnedOperation(DO_CALL_ACTIVITY, null, null)
 		doCallActivity.createOwnedParameter("id", core.intType)
 		core.createOpaqueBehavior(superContext, doCallActivity, '''
@@ -121,13 +143,16 @@ class ConcurrencyGenerator {
 			}
 			pthread_cond_signal(&«CONDITIONS»[id]);
 			pthread_mutex_unlock(&«MUTEXES»[id]);
+			«IF core.states.filter[!it.composite && it.hasTriggerlessTransition].size > 0»
 			if (commitEvent) {
-				if(«FOR s:core.states.filter[!it.composite] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
-					processCompletionEvent();
+				if(«FOR s:core.states.filter[!it.composite && it.hasTriggerlessTransition] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
+					//processCompletionEvent();
+					«EVENT_QUEUE».push(statemachine::PRIORITY_1, NULL, COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, id);
 				}
 			}
+			«ENDIF»
 		}''')
-		
+
 		var setFlag = superContext.createOwnedOperation(SET_FLAG, null, null)
 		setFlag.createOwnedParameter("id", core.intType)
 		setFlag.createOwnedParameter("func_type", core.charType)
@@ -160,27 +185,30 @@ class ConcurrencyGenerator {
 					pthread_cond_signal(&«CONDITIONS»[id]);
 					pthread_mutex_unlock(&«MUTEXES»[id]);
 				} else {
+					«IF core.states.filter[!it.composite && it.hasTriggerlessTransition].size > 0»
 					//push completion event
 					if (value) {
-						if(«FOR s:core.states.filter[!it.composite] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
-							//processCompletionEvent();
+						if(«FOR s:core.states.filter[!it.composite && it.hasTriggerlessTransition] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
+							«EVENT_QUEUE».push(statemachine::PRIORITY_1, NULL, COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, id);
 						}
 					}
+					«ENDIF»
 				}
 				return;
 			«ELSE»
+				«IF core.states.filter[!it.composite && it.hasTriggerlessTransition].size > 0»
 				//push completion event
-				if (value) {
-					if(«FOR s:core.states.filter[!it.composite] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
-						//processCompletionEvent();
+					if (value) {
+						if(«FOR s:core.states.filter[!it.composite && it.hasTriggerlessTransition] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
+							«EVENT_QUEUE».push(statemachine::PRIORITY_1, NULL, COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, id);
+						}
+						return;
 					}
-					return;
-				} 
+				«ENDIF»
 			«ENDIF»
 		}
 		''')
-		
-		
+
 		//create utility fork and join for regions
 		//fork has two parameters: threadId and data (thread struct)
 //		var forkOp = superContext.createOwnedOperation(FORK_NAME, null, null)
@@ -190,7 +218,7 @@ class ConcurrencyGenerator {
 //		StereotypeUtil.apply(data, Ptr)
 //		core.createOpaqueBehavior(superContext, forkOp, '''
 //		pthread_create(tId, NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», data);''')
-//		
+//
 //		var joinOp = superContext.createOwnedOperation(JOIN_NAME, null, null)
 //		joinOp.createOwnedParameter("tId", pThreadType)
 //		core.createOpaqueBehavior(superContext, joinOp, '''
@@ -198,7 +226,7 @@ class ConcurrencyGenerator {
 		new TimeEventTransformation(core).createTimeEvents
 		createRegionParallel
 	}
-	
+
 	def createRegionParallel() {
 		if (core.orthogonalRegions.empty)
 			return
@@ -206,7 +234,7 @@ class ConcurrencyGenerator {
 		StereotypeUtil.apply(regionFptr, Typedef)
 		UMLUtil.getStereotypeApplication(regionFptr, Typedef).definition = '''
 		void («superContext.name»::*typeName)(char enter_mode)'''
-		
+
 		var regionTable = superContext.createOwnedAttribute(REGION_TABLE, regionFptr)
 		StereotypeUtil.apply(regionTable, Array)
 		UMLUtil.getStereotypeApplication(regionTable, Array).definition = '''[«core.orthogonalRegions.size»]'''
@@ -215,7 +243,7 @@ class ConcurrencyGenerator {
 		regionCallOp.createOwnedParameter("enter_mode", core.charType)
 		core.createOpaqueBehavior(superContext, regionCallOp, '''
 		(this->*«REGION_TABLE»[id])(enter_mode);''')
-		
+
 		var regionExitTable = superContext.createOwnedAttribute(REGION_TABLE_EXIT, core.fptr)
 		StereotypeUtil.apply(regionExitTable, Array)
 		UMLUtil.getStereotypeApplication(regionExitTable, Array).definition = '''[«core.orthogonalRegions.size»]'''
@@ -224,7 +252,7 @@ class ConcurrencyGenerator {
 		core.createOpaqueBehavior(superContext, regionCallExitOp, '''
 		(this->*«REGION_TABLE_EXIT»[id])();''')
 	}
-	
+
 	def createConcurrencyForTransitions() {
 		if (core.parallelTransitions.empty) {
 			return
@@ -236,24 +264,24 @@ class ConcurrencyGenerator {
 			core.createOpaqueBehavior(superContext, op, '''
 			«TransformationUtil.getTransitionEffect(core.parallelTransitions.get(i))»''')
 		}
-		
+
 		var transitionTable = superContext.createOwnedAttribute(PARALLEL_TRANSITION_TABLE, core.fptr)
 		StereotypeUtil.apply(transitionTable, Array)
 		UMLUtil.getStereotypeApplication(transitionTable, Array).definition = '''[«core.parallelTransitions.size»]'''
 		var transitionCallOp = superContext.createOwnedOperation("transitionCall", null, null)
 		transitionCallOp.createOwnedParameter("id", core.intType)
 		core.createOpaqueBehavior(superContext, transitionCallOp, '''
-		(this->*«PARALLEL_TRANSITION_TABLE»[id])();''')		
+		(this->*«PARALLEL_TRANSITION_TABLE»[id])();''')
 	}
-	
+
 	def parallelTransitionMethodName(Transition t) {
 		return '''paralleTransition«core.parallelTransitions.indexOf(t)»'''
 	}
-	
+
 	def parallelTransitionId(Transition t) {
 		return '''PARALLEL_TRANSITION_ID_«core.parallelTransitions.indexOf(t)»'''
 	}
-	
+
 	def generateForkCall(Region r, boolean isEnter, String enteringMode) {
 		var paramThreadName = '''«r.state.name»_«r.name»_enter_thread'''
 		var threadStructParam = '''«r.state.name»_«r.name»_enter_thread_struct'''
@@ -272,7 +300,7 @@ class ConcurrencyGenerator {
 			THREAD_CREATE(«paramThreadName», «threadStructParam»)'''
 		return ret
 	}
-	
+
 	def generateJoinCall(Region r, boolean isEnter) {
 		var paramThreadName = '''«r.state.name»_«r.name»_enter_thread'''
 		if (!isEnter) {

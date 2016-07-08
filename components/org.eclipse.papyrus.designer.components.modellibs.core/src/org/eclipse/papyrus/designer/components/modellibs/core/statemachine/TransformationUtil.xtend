@@ -15,6 +15,8 @@ import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.Transition
 import org.eclipse.uml2.uml.FinalState
 import org.eclipse.uml2.uml.Event
+import org.eclipse.uml2.uml.Behavior
+import org.eclipse.papyrus.designer.components.modellibs.core.xtend.CppUtils
 
 class TransformationUtil {
 
@@ -149,6 +151,20 @@ class TransformationUtil {
 		}
 		
 		return topRegion.isSaveDeepHistory(r)
+	}
+	
+	def static isBehaviorExist(Behavior b) {
+		var ret = false
+		if (b != null && b instanceof OpaqueBehavior) {
+			if (!(b as OpaqueBehavior).bodies.head.trim.empty) {
+				ret = true
+			}
+		}
+		return ret
+	}
+	
+	def static hasTriggerlessTransition(State s) {
+		return s.outgoings.filter[it.triggers.map[it.event].empty].size > 0
 	}
 	
 	def static boolean isSaveDeepHistory(Region topRegion, Region r) {
