@@ -1,14 +1,9 @@
 /**
- * Copyright CEA-LIST 2009
- * available under EPL 1.0 licence
- *
- * This file is part of the Qompass tool chain (www.ec3m.net)
- *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
- * $Id$
  */
-
 package org.eclipse.papyrus.designer.components.transformation.core.templates;
 
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException;
