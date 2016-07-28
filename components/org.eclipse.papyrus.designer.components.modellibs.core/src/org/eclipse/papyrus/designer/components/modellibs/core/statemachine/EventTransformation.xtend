@@ -1,9 +1,19 @@
+/**
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
 package org.eclipse.papyrus.designer.components.modellibs.core.statemachine
 
 import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
 import java.util.Map
+import org.eclipse.papyrus.designer.components.modellibs.core.xtend.BehaviorUtil
+import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.CallEvent
 import org.eclipse.uml2.uml.Class
 import org.eclipse.uml2.uml.Event
@@ -12,17 +22,15 @@ import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.Pseudostate
 import org.eclipse.uml2.uml.PseudostateKind
+import org.eclipse.uml2.uml.SignalEvent
 import org.eclipse.uml2.uml.State
 import org.eclipse.uml2.uml.Transition
 import org.eclipse.uml2.uml.TransitionKind
 import org.eclipse.uml2.uml.Vertex
+
+import static org.eclipse.papyrus.designer.components.modellibs.core.statemachine.SMCodeGeneratorConstants.*
+
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.eventName
-import org.eclipse.papyrus.designer.components.modellibs.core.xtend.BehaviorUtil
-import org.eclipse.uml2.uml.Behavior
-import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.SMCodeGeneratorConstants.*
-import org.eclipse.uml2.uml.SignalEvent
-import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref
 
 class EventTransformation {
 	protected extension CDefinitions cdefs;
@@ -85,7 +93,11 @@ class EventTransformation {
 		var notInSources = statesDeferredEvent.filter[!sources.contains(it)]
 		val notInConcurrentState = notInSources.filter[it.container.state == null || it.container.state.orthogonal].toList
 		var inConcurrentState = notInSources.filter[!notInConcurrentState.contains(it)]
+		var isCallEvent = core.callEvents.filter[it.eventName == eventName].size > 0
 		var body = '''
+		«IF isCallEvent»
+			«superContext.name.toUpperCase»_GET_CONTROL
+		«ENDIF»
 		«SYSTEM_STATE_ATTR» = statemachine::EVENT_PROCESSING;
 		«FOR s:arraySet»
 			«IF s.orthogonal»
@@ -151,10 +163,17 @@ class EventTransformation {
 							«ENDIF»
 							break;
 					«ENDFOR»
+					default:
+						//do nothing
+						break;
 				}
 			}
+		«ENDIF»
+		«IF isCallEvent»
+			«superContext.name.toUpperCase»_RELEASE_CONTROL
 		«ENDIF»'''
 		core.createOpaqueBehavior(superContext, method, body)
+		return method
 	}
 	
 	private def List<State> getActualStateList(List<State> l, List<Transition> trans) {
@@ -276,11 +295,14 @@ class EventTransformation {
 	private List<Pseudostate> joins = new ArrayList
 	
 	def createEventMethod(Event e, List<Transition> transitions) {
-		createEventMethod(e.eventName, transitions)
+		var evMethod= createEventMethod(e.eventName, transitions)
 		if (e instanceof CallEvent) {
 			var op = core.copier.getCopy((e as CallEvent).operation)
+			core.copyParameters(op, evMethod, false)
+			var params = evMethod.ownedParameters
 			var body = '''
-					this->process«e.eventName»();'''
+					this->process«e.eventName»(«FOR p:params SEPARATOR ', '»«p.name»«ENDFOR»);'''
+			
 			var String existingBody = null
 			if (op.methods.size > 0) {
 				val existingMethod = op.methods.get(0)
@@ -298,9 +320,11 @@ class EventTransformation {
 			var send = superContext.createOwnedOperation("send" + e.name, null, null)
 			if (e.signal != null) {
 				StereotypeUtil.apply(send.createOwnedParameter("sig", core.copier.getCopy(e.signal)), Ref)
+				StereotypeUtil.apply(evMethod.createOwnedParameter("sig", core.copier.getCopy(e.signal)), Ref)
+				
 			}
 			core.createOpaqueBehavior(superContext, send, '''
-			«EVENT_QUEUE».push(statemachine::PRIORITY_2, «IF e.signal != null»&sig«ELSE»NULL«ENDIF», «e.name.toUpperCase»_ID, statemachine::SIGNAL_EVENT, 0);''')
+			«EVENT_QUEUE».push(statemachine::PRIORITY_2, «IF e.signal != null»&sig«ELSE»NULL«ENDIF», «e.name.toUpperCase»_ID, statemachine::SIGNAL_EVENT, 0«IF e.signal != null», sizeof(«CppGenUtils.cppQualifiedName(core.copier.getCopy(e.signal))»)«ENDIF»);''')
 		}		
 	}
 	

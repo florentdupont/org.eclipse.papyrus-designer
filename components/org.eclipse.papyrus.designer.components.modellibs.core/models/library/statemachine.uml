@@ -621,7 +621,7 @@ thread.connect_rRun(runAdapter.get_run());</body>
         <defaultValue xmi:type="uml:InstanceValue" xmi:id="_MyJIUj0zEeaQfbTekb55bw" instance="_Mx4poj0zEeaQfbTekb55bw"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_MyJIUz0zEeaQfbTekb55bw" name="data">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_MyJIVD0zEeaQfbTekb55bw" name="eventID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
@@ -686,6 +686,9 @@ isLock = false;</body>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dWxYUz0zEeaQfbTekb55bw" name="push" specification="_dWx_Vj0zEeaQfbTekb55bw">
         <language>C++</language>
         <body>statemachine::Event_t* ret = NULL;&#xD;
+if (EVENT_DATA_SIZE &lt;= dataSize) {&#xD;
+	return;&#xD;
+}&#xD;
 pthread_mutex_lock(&amp;mutex);&#xD;
 while(isLock) {&#xD;
 	pthread_cond_wait(&amp;cond, &amp;mutex);&#xD;
@@ -694,7 +697,7 @@ if (compNumbers &lt; compSize &amp;&amp; eventType == statemachine::COMPLETION_E
 	ret = &amp;(this->completionEvents[compWritePos]);&#xD;
 	compNumbers++;&#xD;
 	ret->priority = priority;&#xD;
-	ret->data = data;&#xD;
+	memcpy(ret->data, data, dataSize);&#xD;
 	ret->eventID = eventID;&#xD;
 	ret->eventType = eventType;&#xD;
 	ret->associatedState = associatedState;&#xD;
@@ -703,7 +706,7 @@ if (compNumbers &lt; compSize &amp;&amp; eventType == statemachine::COMPLETION_E
 	ret = &amp;(this->data[writePos]);&#xD;
 	numberOfElements++;&#xD;
 	ret->priority = priority;&#xD;
-	ret->data = data;&#xD;
+	memcpy(ret->data, data, dataSize);&#xD;
 	ret->eventID = eventID;&#xD;
 	ret->eventType = eventType;&#xD;
 	ret->associatedState = associatedState;&#xD;
@@ -750,7 +753,7 @@ return ret;</body>
         <language>C++</language>
         <body>if (numberOfDeferreds &lt; defSize) {&#xD;
 	deferreds[writeDef].priority = defe.priority;&#xD;
-	deferreds[writeDef].data = defe.data;&#xD;
+	memcpy(&amp;deferreds[writeDef].data, &amp;defe.data, sizeof(defe.data));&#xD;
 	deferreds[writeDef].eventID = defe.eventID;&#xD;
 	deferreds[writeDef].eventType = defe.eventType;&#xD;
 	deferreds[writeDef].associatedState = defe.associatedState;&#xD;
@@ -758,10 +761,6 @@ return ret;</body>
 	writeDef = (writeDef + 1) % defSize;&#xD;
 }&#xD;
 </body>
-      </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_dWx_UT0zEeaQfbTekb55bw" name="push">
-        <language>C++</language>
-        <body></body>
       </ownedBehavior>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_dWx_Uj0zEeaQfbTekb55bw" name="pop" method="_dWxYVD0zEeaQfbTekb55bw">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_dWx_Uz0zEeaQfbTekb55bw" name="ret" type="_MyJIUD0zEeaQfbTekb55bw" direction="return"/>
@@ -781,6 +780,10 @@ return ret;</body>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_dWx_Wj0zEeaQfbTekb55bw" name="eventType" type="_MyIhQD0zEeaQfbTekb55bw"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_dWx_Wz0zEeaQfbTekb55bw" name="associatedState">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_LTZesByeEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_GU_bcEVGEeaqgqiOqzyU4w" name="dataSize">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_GU_bcUVGEeaqgqiOqzyU4w"/>
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_dWx_XD0zEeaQfbTekb55bw" name="EventPriorityQueue" method="_dWxYUj0zEeaQfbTekb55bw"/>
@@ -902,7 +905,7 @@ return ret;</body>
   <standard:Create xmi:id="__vb7sCkVEea0-deBroAIbQ" base_BehavioralFeature="_-pXrgCkVEea0-deBroAIbQ"/>
   <C_Cpp:Ptr xmi:id="_sjjgMCkWEea0-deBroAIbQ" base_parameter="_E56cgCkWEea0-deBroAIbQ"/>
   <C_Cpp:ConstInit xmi:id="_2YH4gCmNEeawvKuMccmf1A" initialisation="ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration)" base_operation="_ZmpmwCkVEea0-deBroAIbQ"/>
-  <C_Cpp:Include xmi:id="_t6V4QD0zEeaQfbTekb55bw" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;&#xD;&#xA;#define defSize (10)" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Include xmi:id="_t6V4QD0zEeaQfbTekb55bw" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;#include &quot;string.h&quot;&#xD;&#xA;&#xD;&#xA;#define defSize (10)" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
   <C_Cpp:Array xmi:id="_xlq6gD0zEeaQfbTekb55bw" definition="[10]" base_property="_dWxYQT0zEeaQfbTekb55bw"/>
   <C_Cpp:Array xmi:id="_1zeXsD0zEeaQfbTekb55bw" definition="[4]" base_property="_dWxYST0zEeaQfbTekb55bw"/>
   <C_Cpp:Array xmi:id="_7TbHUD01Eea36NnsImgkig" definition="[defSize]" base_property="_dWxYTj0zEeaQfbTekb55bw"/>
@@ -911,5 +914,6 @@ return ret;</body>
   <C_Cpp:Ref xmi:id="_QbV8QD02Eea36NnsImgkig" base_parameter="_dWx_Xz0zEeaQfbTekb55bw"/>
   <standard:Create xmi:id="_U58OgD02Eea36NnsImgkig" base_BehavioralFeature="_dWx_XD0zEeaQfbTekb55bw"/>
   <C_Cpp:ConstInit xmi:id="_W5ymYD02Eea36NnsImgkig" initialisation="size(10), numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0) " base_operation="_dWx_XD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_CMkegD04Eea9v7oLy3qjiw" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
-</xmi:XMI>
+  <C_Cpp:Array xmi:id="_7ltOQEVFEeaqgqiOqzyU4w" definition="[EVENT_DATA_SIZE]" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Include xmi:id="__tHIgEVFEeaqgqiOqzyU4w" header="#define EVENT_DATA_SIZE (50)" base_class="_MyJIUD0zEeaQfbTekb55bw" base_Classifier="_MyJIUD0zEeaQfbTekb55bw"/>
+</xmi:XMI> 

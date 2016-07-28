@@ -1,3 +1,9 @@
+/**
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
 package org.eclipse.papyrus.designer.components.modellibs.core.statemachine
 
 import java.util.ArrayList
@@ -6,18 +12,21 @@ import java.util.List
 import java.util.Map
 import java.util.Map.Entry
 import org.eclipse.emf.common.util.UniqueEList
-import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.papyrus.designer.components.FCM.DerivedElement
 import org.eclipse.papyrus.designer.components.transformation.core.OperationUtils
+import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
 import org.eclipse.papyrus.designer.components.vsl.ParseVSL
+import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Virtual
 import org.eclipse.papyrus.designer.languages.cpp.reverse.utils.RoundtripCppUtils
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.AnyReceiveEvent
+import org.eclipse.uml2.uml.Behavior
 import org.eclipse.uml2.uml.CallEvent
 import org.eclipse.uml2.uml.ChangeEvent
 import org.eclipse.uml2.uml.Class
@@ -25,10 +34,11 @@ import org.eclipse.uml2.uml.Enumeration
 import org.eclipse.uml2.uml.Event
 import org.eclipse.uml2.uml.FinalState
 import org.eclipse.uml2.uml.Model
-import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.OpaqueExpression
 import org.eclipse.uml2.uml.Operation
+import org.eclipse.uml2.uml.Package
+import org.eclipse.uml2.uml.ParameterDirectionKind
 import org.eclipse.uml2.uml.Pseudostate
 import org.eclipse.uml2.uml.PseudostateKind
 import org.eclipse.uml2.uml.Region
@@ -37,18 +47,16 @@ import org.eclipse.uml2.uml.State
 import org.eclipse.uml2.uml.StateMachine
 import org.eclipse.uml2.uml.TimeEvent
 import org.eclipse.uml2.uml.Transition
+import org.eclipse.uml2.uml.Trigger
 import org.eclipse.uml2.uml.Type
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.Vertex
 import org.eclipse.uml2.uml.util.UMLUtil
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
-import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.eventID
-import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.SMCodeGeneratorConstants.*
-import org.eclipse.uml2.uml.Trigger
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
-import org.eclipse.uml2.uml.Behavior
+
+import static org.eclipse.papyrus.designer.components.modellibs.core.statemachine.SMCodeGeneratorConstants.*
+
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.*
-import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
+import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.eventID
 
 class SM2ClassesTransformationCore {
 	protected extension CDefinitions cdefs;
@@ -79,8 +87,8 @@ class SM2ClassesTransformationCore {
 	public PThreadTypes ptTypes
 	
 	public List<TimeEvent> timeEvents = new ArrayList
-	List<ChangeEvent> changeEvents = new ArrayList
-	List<CallEvent> callEvents = new ArrayList
+	public List<ChangeEvent> changeEvents = new ArrayList
+	public List<CallEvent> callEvents = new ArrayList
 	List<SignalEvent> signalEvents = new ArrayList
 	List<AnyReceiveEvent> anyEvents = new ArrayList
 	List<Pseudostate> junctions = new ArrayList
@@ -229,9 +237,29 @@ class SM2ClassesTransformationCore {
 		
 		createRegionMethods
 				
-		//create constructor
-		var ctor = superContext.createOwnedOperation(superContext.name, null, null)
-		superContext.createOpaqueBehavior(ctor, '''
+		var sourceCtors = mContainerClass.ownedOperations.filter[StereotypeUtil.isApplied(it, "StandardProfile::Create") && it.name == mContainerClass.name]
+		var targetCtors = sourceCtors.map[copier.getCopy(it)]	
+		if (targetCtors.empty) {
+			//create constructor
+			var ctor = superContext.createOwnedOperation(superContext.name, null, null)
+			StereotypeUtil.apply(ctor, "StandardProfile::Create")
+			superContext.createOpaqueBehavior(ctor, '''startBehavior();''')
+		} else {
+			targetCtors.forEach[
+				var opaque = it.methods.head as OpaqueBehavior
+				if (opaque != null) {
+					var body = opaque.bodies.get(0)
+					superContext.createOpaqueBehavior(it, '''
+					«body»
+					startBehavior();''')
+				} else {
+					superContext.createOpaqueBehavior(it, '''startBehavior();''')
+				}
+			]
+		}	
+		
+		var startBehavior = superContext.createOwnedOperation("startBehavior", null, null)
+		superContext.createOpaqueBehavior(startBehavior, '''
 		«SYSTEM_STATE_ATTR» = statemachine::IDLE;
 		«FOR s:states»
 			«IF s.entry.isBehaviorExist»
@@ -287,9 +315,22 @@ class SM2ClassesTransformationCore {
 			«ENDFOR»
 		«ENDIF»
 		
+		«RUN_TO_COMPLETION_MUTEX» = PTHREAD_MUTEX_INITIALIZER;
+		«RUN_TO_COMPLETION_COND» = PTHREAD_COND_INITIALIZER;
+		
 		dispatchStruct = «STRUCT_FOR_THREAD»(this, 0, 0, «THREAD_FUNC_STATE_MACHINE_TYPE», 0);
 		THREAD_CREATE(dispatchThread, dispatchStruct)
 		while(!dispatchFlag) {}
+		
+		«IF changeEvents.size > 0»
+			// threads for changeEvent
+			for(int i = «CHANGE_EVENT_LOWER_BOUND»; i < «CHANGE_EVENT_LOWER_BOUND» + «changeEvents.size»; i++) {
+				«THREAD_STRUCTS_FOR_CHANGEEVENT»[«CHE_INDEX»(i)].id = i;
+				«THREAD_STRUCTS_FOR_CHANGEEVENT»[«CHE_INDEX»(i)].ptr = this;
+				«THREAD_STRUCTS_FOR_CHANGEEVENT»[«CHE_INDEX»(i)].func_type = «THREAD_FUNC_CHANGEEVENT_TYPE»;
+				«FORK_NAME»(&«THREADS_CHANGE_EVENT»[«CHE_INDEX»(i)], NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &«THREAD_STRUCTS_FOR_CHANGEEVENT»[«CHE_INDEX»(i)]);
+			}
+		«ENDIF»
 		
 		//initialze root active state
 		//execute initial effect
@@ -297,7 +338,7 @@ class SM2ClassesTransformationCore {
 		''')
 		
 		superContext.createOwnedAttribute("dispatchFlag", boolType)
-		StereotypeUtil.apply(ctor, "StandardProfile::Create")
+		
 		
 		eventMap.forEach[e, trans|
 			eventTransform.createEventMethod(e, trans)
@@ -350,7 +391,14 @@ class SM2ClassesTransformationCore {
 		
 		appendIncludeHeader('''
 		#define CHECKPOINT if («SYSTEM_STATE_ATTR» == statemachine::EVENT_PROCESSING) {return;}
-		#define THREAD_CREATE(thThread, str) «FORK_NAME»(&thThread, NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &str);''')
+		#define THREAD_CREATE(thThread, str) «FORK_NAME»(&thThread, NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &str);
+		#define «superContext.name.toUpperCase»_GET_CONTROL /*mutex synchronization to protect run-to-completion semantics*/ \
+				pthread_mutex_lock(&«RUN_TO_COMPLETION_MUTEX»); \
+				while («SYSTEM_STATE_ATTR» != statemachine::IDLE) {\
+					pthread_cond_wait(&«RUN_TO_COMPLETION_COND», &«RUN_TO_COMPLETION_MUTEX»);\
+				}
+		#define «superContext.name.toUpperCase»_RELEASE_CONTROL «SYSTEM_STATE_ATTR» = statemachine::IDLE; pthread_cond_signal(&«RUN_TO_COMPLETION_COND»); \
+						pthread_mutex_unlock(&«RUN_TO_COMPLETION_MUTEX»);''')
 		
 		var eventClass = smPack.getOwnedType("Event_t")
 		var copiedType = copier.copy(eventClass) as Type	
@@ -368,12 +416,15 @@ class SM2ClassesTransformationCore {
 			currentEvent = «EVENT_QUEUE».pop(popDeferred);
 			dispatchFlag = true;
 			if (currentEvent != NULL) {	
+				«superContext.name.toUpperCase»_GET_CONTROL
 				switch(currentEvent->eventID) {
-					«FOR e:eventMap.keySet»
+					«FOR e:eventMap.keySet.filter[!(it instanceof CallEvent)]»
 						case «e.eventID»:
 							«IF e instanceof SignalEvent»
 								«IF e.signal != null»
-									process«e.eventName»((«CppGenUtils.cppQualifiedName(copier.getCopy(e.signal))»)(*currentEvent->data));
+									«CppGenUtils.cppQualifiedName(copier.getCopy(e.signal))» sig;
+									memcpy(&sig, currentEvent->data, sizeof(«CppGenUtils.cppQualifiedName(copier.getCopy(e.signal))»));
+									process«e.eventName»(sig);
 								«ELSE»
 									process«e.eventName»();
 								«ENDIF»
@@ -391,12 +442,17 @@ class SM2ClassesTransformationCore {
 				}
 				popDeferred = («SYSTEM_STATE_ATTR» != statemachine::EVENT_DEFERRED);
 				«SYSTEM_STATE_ATTR» = statemachine::IDLE;
+				«superContext.name.toUpperCase»_RELEASE_CONTROL
 			}			
 		}''') 
 		
 		concurrency.createConcurrencyForTransitions
 		superContext.createOwnedAttribute("dispatchThread", ptTypes.pthread)
 		superContext.createOwnedAttribute("dispatchStruct", concurrency.threadStructType)
+		
+		superContext.createOwnedAttribute(RUN_TO_COMPLETION_MUTEX, ptTypes.pthreadMutex)
+		superContext.createOwnedAttribute(RUN_TO_COMPLETION_COND, ptTypes.pthreadCond)
+		createChangeEvents
 	}
 	
 	
@@ -415,8 +471,8 @@ class SM2ClassesTransformationCore {
 	
 	
 	private def createChangeEvents() {
-		var copier = new EcoreUtil.Copier
-		//copier.copy()
+		new ChangeEventTransformation(this).createChangeEvents
+		
 	}
 	
 	def String generateChangeState(State s) {
@@ -458,6 +514,9 @@ class SM2ClassesTransformationCore {
 	}
 	
 	public def generateActivateTimeEvent(State s) {
+		if (states2TimeEvents.get(s) == null) {
+			return ''''''
+		}
 		return '''
 		«FOR te:states2TimeEvents.get(s)»
 			«SET_FLAG»(«TE_INDEX»(«te.eventID»), «THREAD_FUNC_TIMEEVENT_TYPE», true);
@@ -465,6 +524,9 @@ class SM2ClassesTransformationCore {
 	}
 	
 	def generateDeactivateTimeEvent(State s) {
+		if (states2TimeEvents.get(s) == null) {
+			return ''''''
+		}
 		return '''
 		«FOR te:states2TimeEvents.get(s)»
 			«SET_FLAG»(«TE_INDEX»(«te.eventID»), «THREAD_FUNC_TIMEEVENT_TYPE», false);
@@ -1454,9 +1516,11 @@ class SM2ClassesTransformationCore {
 			//signal to exit the doActivity of sub-state of «parent.name»
 			«SET_FLAG»(«STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[0], «THREAD_FUNC_DOACTIVITY_TYPE», false);
 			«FOR sub:r.subvertices.filter(State) SEPARATOR ' else '»
+				«IF states2TimeEvents.get(sub) != null»
 				if («sub.name.toUpperCase»_ID == «STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«regionIndex»]) {
 					«sub.generateDeactivateTimeEvent»
-				}	
+				}
+				«ENDIF»	
 			«ENDFOR»
 			//exit action of sub-state of «parent.name»
 			(this->*«STATE_ARRAY_ATTRIBUTE»[«STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[0]].«EXIT_NAME»)();
@@ -1531,6 +1595,19 @@ class SM2ClassesTransformationCore {
 		derivedOp
 
 	}
+	
+	public def copyParameters(Operation source, Operation target, boolean isCopyReturn) {
+		var name = target.name
+		OperationUtils.syncOperation(source, target)
+		if (!isCopyReturn) {
+			var ret = target.ownedParameters.filter[it.direction == ParameterDirectionKind.RETURN_LITERAL]
+			target.ownedParameters.removeAll(ret)
+		}
+		for(stt:target.stereotypeApplications) {
+			StereotypeUtil.applyApp(target, stt.class)
+		}		
+		target.name = name
+	}
 
 	private def setVirtual(Operation op) {
 		StereotypeUtil.apply(op, Virtual)
@@ -1539,6 +1616,4 @@ class SM2ClassesTransformationCore {
 	def getGuard(Transition t) {
 		return (t.guard.specification as OpaqueExpression).bodies.head
 	}
-
-
 }

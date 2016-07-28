@@ -1,3 +1,9 @@
+/**
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
 package org.eclipse.papyrus.designer.components.modellibs.core.statemachine
 
 class SMCodeGeneratorConstants {
@@ -67,6 +73,7 @@ class SMCodeGeneratorConstants {
 	public static String COMPLETION_EVENT = "CompletionEvent"
 	public static String THREADS = "threads"
 	public static String THREADS_TIME_EVENT = "timeEventThreads"
+	public static String THREADS_CHANGE_EVENT = "changeEventThreads"
 	public static String FLAGS_ACTIVITY = "flags"
 	public static String FLAGS_TIME_EVENT = "timeEventFlags"
 	
@@ -77,6 +84,7 @@ class SMCodeGeneratorConstants {
 	public static String STRUCT_FOR_THREAD = "statemachine::StructForThread_t"
 	public static String THREAD_STRUCTS = "threadStructs"
 	public static String THREAD_STRUCTS_FOR_TIMEEVENT = "timeEventThreadStructs"
+	public static String THREAD_STRUCTS_FOR_CHANGEEVENT = "changeEventThreadStructs"
 	public static String THREAD_FUNC_WRAPPER = "thread_func_wrapper"
 	public static String FPT_POINTER_FOR_TABLE = "FptPointer"
 	public static String DO_ACTIVITY_TABLE = "doActivityTable"
@@ -100,8 +108,11 @@ class SMCodeGeneratorConstants {
 	public static String THREAD_FUNC_TRANSITION_TYPE = "statemachine::TF_TRANSITION"
 	
 	public static String TIME_EVENT_LISTEN_FUNCTION = "listenTimeEvent"
+	public static String CHANGE_EVENT_LISTEN_FUNCTION = "listenChangeEvent"
 	public static String SYSTEM_STATE_ATTR = "systemState"
 	public static String EVENT_DISPATCH = "dispatchEvent"
 	public static String THREAD_FUNC_STATE_MACHINE_TYPE = "statemachine::TF_STATE_MACHINE_TYPE"
 	public static String EVENT_QUEUE = "eventQueue"
+	public static String RUN_TO_COMPLETION_MUTEX = "runToCompletionMutex"
+	public static String RUN_TO_COMPLETION_COND = "runToCompletionCond"
 }

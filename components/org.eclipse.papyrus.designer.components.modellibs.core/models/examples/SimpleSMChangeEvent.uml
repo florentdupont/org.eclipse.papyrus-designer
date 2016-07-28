@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Alloc="http://www.eclipse.org/papyrus/Alloc/1" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:FCM="http://www.eclipse.org/papyrus/FCM/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/Alloc/1 http://www.eclipse.org/papyrus/MARTE/1#//Alloc">
-  <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="ABitComplexSMOrthogonalExample">
+  <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="SimpleSMChangeEventExample">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_O6TiITLUEd26WNosUASSSw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
@@ -20,34 +20,34 @@
           <ownedReception xmi:type="uml:Reception" xmi:id="_M-tXYMcrEeSsAI2TZshUyg" name="mult" signal="_z0nGcMcqEeSsAI2TZshUyg"/>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_DGs6wDLgEd28fJKJJnUaeQ" name="add">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_DGs6wTLgEd28fJKJJnUaeQ" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6wzLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6wjLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_DGs6xTLgEd28fJKJJnUaeQ" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6xzLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6xjLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_DGs6yTLgEd28fJKJJnUaeQ" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6yzLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6yjLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_L8EY8DLgEd28fJKJJnUaeQ" name="mult">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_L8EY8TLgEd28fJKJJnUaeQ" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY8zLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY8jLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_L8EY9TLgEd28fJKJJnUaeQ" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY9zLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY9jLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_L8EY-TLgEd28fJKJJnUaeQ" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
               <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY-zLgEd28fJKJJnUaeQ" value="1"/>
               <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY-jLgEd28fJKJJnUaeQ" value="1"/>
             </ownedParameter>
@@ -66,8 +66,11 @@
           <general xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_N6fa4JsrEd61Eo3nmu3JhQ"/>
         </generalization>
         <ownedAttribute xmi:type="uml:Port" xmi:id="_4KiE8DLbEd2qeKRLMdIx_A" name="p" type="_cn-H0DLbEd2qeKRLMdIx_A" aggregation="composite"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ya5_oCkFEeaWptp_P1JVYQ" name="x">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3gJRoEVGEeaqgqiOqzyU4w" name="which_rack">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_6uv7oEVGEeaqgqiOqzyU4w" name="is_misplace">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedAttribute>
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_YQqH0JYlEd6G9q9hwr11bw" name="derived realization of ICompute" client="_oqZNUDLaEd2qeKRLMdIx_A" supplier="_cn-H0DLbEd2qeKRLMdIx_A" contract="_cn-H0DLbEd2qeKRLMdIx_A"/>
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_VGnYgCgBEeapjr3l63b85A" name="derived realization of IStart" client="_oqZNUDLaEd2qeKRLMdIx_A">
@@ -75,40 +78,40 @@
           <contract xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
         </interfaceRealization>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qxjWINnmEd2_cstbO2Uzgg" name="mult" specification="_4ZEZwHecEd6r18stFZxmFQ">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqWHcC1REea25uwDpRQuxg" name="a">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqWHcS1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqWHci1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTqsokVIEeaqgqiOqzyU4w" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTrTsEVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTrTsUVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqWHcy1REea25uwDpRQuxg" name="b">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqWugC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqWugS1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTrTskVIEeaqgqiOqzyU4w" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTrTs0VIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTrTtEVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqWugi1REea25uwDpRQuxg" name="res" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqWugy1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqWuhC1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTr6wEVIEeaqgqiOqzyU4w" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTr6wUVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTr6wkVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
           <language>C/C++</language>
           <body>cout &lt;&lt; &quot;a=&quot; &lt;&lt; a &lt;&lt; &quot; b=&quot; &lt;&lt; b &lt;&lt; &quot; a*b=&quot; &lt;&lt; a*b &lt;&lt; endl;
 return a*b;</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ML-4AKI5Ed6FqJCjEUrkqQ" name="add" specification="_TbIjUJYlEd6G9q9hwr11bw">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqXVkC1REea25uwDpRQuxg" name="a">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqXVkS1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqXVki1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTr6w0VIEeaqgqiOqzyU4w" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTr6xEVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTr6xUVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqX8oC1REea25uwDpRQuxg" name="b">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqX8oS1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqX8oi1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTsh0EVIEeaqgqiOqzyU4w" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTsh0UVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTsh0kVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqX8oy1REea25uwDpRQuxg" name="res" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqX8pC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqYjsC1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTsh00VIEeaqgqiOqzyU4w" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTsh1EVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTsh1UVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
           <language>C/C++</language>
           <body>cout &lt;&lt; &quot;a=&quot; &lt;&lt; a &lt;&lt; &quot; b=&quot; &lt;&lt; b &lt;&lt; &quot; a+b=&quot; &lt;&lt; a+b &lt;&lt; endl;
@@ -142,130 +145,168 @@ std::cout &lt;&lt;&quot;From State1 to State0 \n&quot;;</body>
             <transition xmi:type="uml:Transition" xmi:id="_BO7j4CjnEeaJJusTB1aIbg" source="_owZYcCjmEeaJJusTB1aIbg" target="__9lQwCjmEeaJJusTB1aIbg">
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_F9mScCjnEeaJJusTB1aIbg">
                 <language>C++</language>
-                <body>x = 6;&#xD;
-std::cout &lt;&lt;&quot;From State 2 to Junction1\n&quot;;&#xD;
-</body>
+                <body>std::cout &lt;&lt;&quot;From State 2 to Junction1\n&quot;;</body>
               </effect>
               <trigger xmi:type="uml:Trigger" xmi:id="_GlK94CjpEeaJJusTB1aIbg" event="_-PMFcCaeEeG4fZdVXNtoOQ"/>
             </transition>
             <transition xmi:type="uml:Transition" xmi:id="_G1QTMCjnEeaJJusTB1aIbg" source="__9lQwCjmEeaJJusTB1aIbg" target="_53E_8OYXEeCBL_IbXY9ofw"/>
-            <transition xmi:type="uml:Transition" xmi:id="_HnKRQCjnEeaJJusTB1aIbg" guard="_KB4nQCjnEeaJJusTB1aIbg" source="__9lQwCjmEeaJJusTB1aIbg" target="_w-8yoCkEEeaWptp_P1JVYQ">
+            <transition xmi:type="uml:Transition" xmi:id="_HnKRQCjnEeaJJusTB1aIbg" guard="_KB4nQCjnEeaJJusTB1aIbg" source="__9lQwCjmEeaJJusTB1aIbg" target="_7_1cMOYXEeCBL_IbXY9ofw">
               <ownedRule xmi:type="uml:Constraint" xmi:id="_KB4nQCjnEeaJJusTB1aIbg">
                 <specification xmi:type="uml:OpaqueExpression" xmi:id="_KB4nQSjnEeaJJusTB1aIbg">
                   <language>C++</language>
-                  <body>x == 5</body>
+                  <body>true</body>
                 </specification>
               </ownedRule>
               <effect xmi:type="uml:OpaqueBehavior" xmi:id="_QlLVICjnEeaJJusTB1aIbg">
                 <language>C++</language>
-                <body>std::cout &lt;&lt; &quot;From Junction1 to Shallow history \n&quot;;</body>
+                <body>std::cout &lt;&lt; &quot;From Junction1 to State 1 \n&quot;;</body>
               </effect>
             </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_g3iPUEOAEeadCvQ7UGhFAA" source="_7_1cMOYXEeCBL_IbXY9ofw" target="_cyKVYEOAEeadCvQ7UGhFAA">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_SPGDsEVLEeaqgqiOqzyU4w">
+                <language>C++</language>
+                <body>std::cout &lt;&lt; &quot;goto prepare_conveyer&quot; &lt;&lt; std::endl;&#xD;
+which_rack = !which_rack;</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_cPppAEVTEeanJO83GGodwg" event="_ZedTwEVTEeanJO83GGodwg"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_mUQWsEOAEeadCvQ7UGhFAA" source="_cyKVYEOAEeadCvQ7UGhFAA" target="_jt7NoEOAEeadCvQ7UGhFAA">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_3Y2p8EVeEeaxaO4Kn-ck8A">
+                <language>C++</language>
+                <body>std::cout &lt;&lt; &quot;from conveyer to choice&quot; &lt;&lt; std::endl;</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_zEX9AEVeEeaxaO4Kn-ck8A" event="_ZedTwEVTEeanJO83GGodwg"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_qtXsAEOAEeadCvQ7UGhFAA" guard="_wCmrUEOAEeadCvQ7UGhFAA" source="_jt7NoEOAEeadCvQ7UGhFAA" target="_nhVN0EOAEeadCvQ7UGhFAA">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_wCmrUEOAEeadCvQ7UGhFAA">
+                <specification xmi:type="uml:OpaqueExpression" xmi:id="_wCmrUUOAEeadCvQ7UGhFAA">
+                  <language>C++</language>
+                  <body>which_rack==0</body>
+                </specification>
+              </ownedRule>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_0dpTQEOAEeadCvQ7UGhFAA" source="_jt7NoEOAEeadCvQ7UGhFAA" target="_xKx0UEOAEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_4tzg4EOAEeadCvQ7UGhFAA" source="_xKx0UEOAEeadCvQ7UGhFAA" target="_11G1cEOAEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_5E7AYEOAEeadCvQ7UGhFAA" source="_11G1cEOAEeadCvQ7UGhFAA" target="_3OJsAEOAEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_B0R9MEOBEeadCvQ7UGhFAA" source="_3OJsAEOAEeadCvQ7UGhFAA" target="_8N5jgEOAEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_Gm27YEOBEeadCvQ7UGhFAA" guard="_J2-oUEOBEeadCvQ7UGhFAA" source="_8N5jgEOAEeadCvQ7UGhFAA" target="_CzHkAEOBEeadCvQ7UGhFAA">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_J2-oUEOBEeadCvQ7UGhFAA">
+                <specification xmi:type="uml:OpaqueExpression" xmi:id="_J2-oUUOBEeadCvQ7UGhFAA">
+                  <language>C++</language>
+                  <body>is_misplace</body>
+                </specification>
+              </ownedRule>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_KWyJwEOBEeadCvQ7UGhFAA" source="_8N5jgEOAEeadCvQ7UGhFAA" target="_EtK14EOBEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_OBSsoEOBEeadCvQ7UGhFAA" source="_CzHkAEOBEeadCvQ7UGhFAA" target="_LPM_gEOBEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_Ovt44EOBEeadCvQ7UGhFAA" source="_EtK14EOBEeadCvQ7UGhFAA" target="_LPM_gEOBEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_P_HEMEOBEeadCvQ7UGhFAA" source="_LPM_gEOBEeadCvQ7UGhFAA" target="_PiyUkEOBEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_Q3bzUEOBEeadCvQ7UGhFAA" source="_nhVN0EOAEeadCvQ7UGhFAA" target="_PiyUkEOBEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_TwTBYEOCEeadCvQ7UGhFAA" guard="_X_xSgEOCEeadCvQ7UGhFAA" source="_7_1cMOYXEeCBL_IbXY9ofw" target="_S3gYMEOCEeadCvQ7UGhFAA">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_X_xSgEOCEeadCvQ7UGhFAA">
+                <specification xmi:type="uml:OpaqueExpression" xmi:id="_X_xSgUOCEeadCvQ7UGhFAA">
+                  <language>C++</language>
+                  <body>!is_misplace</body>
+                </specification>
+              </ownedRule>
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_O1EM0EVLEeaqgqiOqzyU4w">
+                <language>C++</language>
+                <body>std::cout &lt;&lt; &quot;goto fork&quot; &lt;&lt; std::endl;&#xD;
+std::cout &lt;&lt;&quot;signal value a = &quot; &lt;&lt; sig.a &lt;&lt; std::endl;</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_w09MAEVGEeaqgqiOqzyU4w" event="_wqLfYEVGEeaqgqiOqzyU4w"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_a-EPoEOCEeadCvQ7UGhFAA" source="_S3gYMEOCEeadCvQ7UGhFAA" target="_QUQYUEOCEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_bduAEEOCEeadCvQ7UGhFAA" source="_S3gYMEOCEeadCvQ7UGhFAA" target="_RobV8EOCEeadCvQ7UGhFAA"/>
+            <transition xmi:type="uml:Transition" xmi:id="_e5OdoEOCEeadCvQ7UGhFAA" source="_cbYiMEOCEeadCvQ7UGhFAA" target="_11G1cEOAEeadCvQ7UGhFAA"/>
             <subvertex xmi:type="uml:Pseudostate" xmi:id="_1UVNgOYXEeCBL_IbXY9ofw" name="Initial0"/>
             <subvertex xmi:type="uml:State" xmi:id="_53E_8OYXEeCBL_IbXY9ofw" name="State0"/>
-            <subvertex xmi:type="uml:State" xmi:id="_7_1cMOYXEeCBL_IbXY9ofw" name="State1"/>
-            <subvertex xmi:type="uml:State" xmi:id="_owZYcCjmEeaJJusTB1aIbg" name="State2">
-              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_hGRNQCkFEeaWptp_P1JVYQ">
+            <subvertex xmi:type="uml:State" xmi:id="_7_1cMOYXEeCBL_IbXY9ofw" name="State1">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_sU8_AEVbEeaxaO4Kn-ck8A">
                 <language>C++</language>
-                <body>x = 5;</body>
+                <body>which_rack = (!which_rack);&#xD;
+std::cout &lt;&lt;&quot;Changed rack&quot;;</body>
               </entry>
             </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_owZYcCjmEeaJJusTB1aIbg" name="State2"/>
             <subvertex xmi:type="uml:Pseudostate" xmi:id="__9lQwCjmEeaJJusTB1aIbg" name="Junction1" kind="junction"/>
-            <subvertex xmi:type="uml:State" xmi:id="_mxZZgCkEEeaWptp_P1JVYQ" name="State3">
-              <region xmi:type="uml:Region" xmi:id="_pXD0MCkEEeaWptp_P1JVYQ" name="Region1">
-                <transition xmi:type="uml:Transition" xmi:id="_zRtfcCkEEeaWptp_P1JVYQ" source="_w-8yoCkEEeaWptp_P1JVYQ" target="_pXM-ICkEEeaWptp_P1JVYQ">
-                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_7hUlMCkEEeaWptp_P1JVYQ">
-                    <language>C++</language>
-                    <body>std::cout &lt;&lt; &quot;From Shallow history  to State 4\n&quot;;</body>
-                  </effect>
+            <subvertex xmi:type="uml:State" xmi:id="_cyKVYEOAEeadCvQ7UGhFAA" name="Prepare_Conveyer"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_jt7NoEOAEeadCvQ7UGhFAA" name="check_rack" kind="choice"/>
+            <subvertex xmi:type="uml:State" xmi:id="_nhVN0EOAEeadCvQ7UGhFAA" name="empty_shelf"/>
+            <subvertex xmi:type="uml:State" xmi:id="_xKx0UEOAEeadCvQ7UGhFAA" name="not_empty_shelf"/>
+            <subvertex xmi:type="uml:State" xmi:id="_11G1cEOAEeadCvQ7UGhFAA" name="pick_chassis"/>
+            <subvertex xmi:type="uml:State" xmi:id="_3OJsAEOAEeadCvQ7UGhFAA" name="deliver_car"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_8N5jgEOAEeadCvQ7UGhFAA" name="mismatchChoice" kind="choice"/>
+            <subvertex xmi:type="uml:State" xmi:id="_CzHkAEOBEeadCvQ7UGhFAA" name="misplace"/>
+            <subvertex xmi:type="uml:State" xmi:id="_EtK14EOBEeadCvQ7UGhFAA" name="not_misplace"/>
+            <subvertex xmi:type="uml:State" xmi:id="_LPM_gEOBEeadCvQ7UGhFAA" name="rewind_conveyor"/>
+            <subvertex xmi:type="uml:FinalState" xmi:id="_PiyUkEOBEeadCvQ7UGhFAA" name="FinalState1"/>
+            <subvertex xmi:type="uml:State" xmi:id="_OZYAAEOCEeadCvQ7UGhFAA" name="State3">
+              <region xmi:type="uml:Region" xmi:id="_PWnrYkOCEeadCvQ7UGhFAA" name="Region1">
+                <transition xmi:type="uml:Transition" xmi:id="_dedIwEOCEeadCvQ7UGhFAA" source="_QUQYUEOCEeadCvQ7UGhFAA" target="_cbYiMEOCEeadCvQ7UGhFAA"/>
+                <transition xmi:type="uml:Transition" xmi:id="_74CVgFTJEeaUqofUUR_LDQ" source="_QUQYUEOCEeadCvQ7UGhFAA" target="_5xA-oFTJEeaUqofUUR_LDQ">
+                  <trigger xmi:type="uml:Trigger" xmi:id="_AmuSMFTKEeaUqofUUR_LDQ" event="_rHoJgOtoEeCjb9i0gG4phA"/>
                 </transition>
-                <transition xmi:type="uml:Transition" xmi:id="__pc4MCkEEeaWptp_P1JVYQ" source="_pXM-ICkEEeaWptp_P1JVYQ" target="_-AIxACkEEeaWptp_P1JVYQ">
-                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_Im4tQCkFEeaWptp_P1JVYQ">
-                    <language>C++</language>
-                    <body>std::cout &lt;&lt; &quot;From State 4 to State 5 \n&quot;;</body>
-                  </effect>
-                  <trigger xmi:type="uml:Trigger" xmi:id="_D0f8UCkFEeaWptp_P1JVYQ" event="_-PMFcCaeEeG4fZdVXNtoOQ"/>
-                </transition>
-                <transition xmi:type="uml:Transition" xmi:id="_JPEuoCkFEeaWptp_P1JVYQ" source="_-AIxACkEEeaWptp_P1JVYQ" target="_7_1cMOYXEeCBL_IbXY9ofw">
-                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_QHO5QCkFEeaWptp_P1JVYQ">
-                    <language>C++</language>
-                    <body>std::cout &lt;&lt; &quot;From State 5 to State 1 \n&quot;;</body>
-                  </effect>
-                  <trigger xmi:type="uml:Trigger" xmi:id="_NO0hsCkFEeaWptp_P1JVYQ" event="_-PMFcCaeEeG4fZdVXNtoOQ"/>
-                </transition>
-                <subvertex xmi:type="uml:State" xmi:id="_pXM-ICkEEeaWptp_P1JVYQ" name="State4"/>
-                <subvertex xmi:type="uml:Pseudostate" xmi:id="_w-8yoCkEEeaWptp_P1JVYQ" name="ShallowHistory1" kind="shallowHistory"/>
-                <subvertex xmi:type="uml:State" xmi:id="_-AIxACkEEeaWptp_P1JVYQ" name="State5"/>
+                <subvertex xmi:type="uml:State" xmi:id="_QUQYUEOCEeadCvQ7UGhFAA" name="State4"/>
+                <subvertex xmi:type="uml:FinalState" xmi:id="_5xA-oFTJEeaUqofUUR_LDQ" name="FinalState1"/>
               </region>
-              <region xmi:type="uml:Region" xmi:id="_0LTyMCkKEeaYyIUJlvqqqw" name="Region2">
-                <transition xmi:type="uml:Transition" xmi:id="_4wueICkKEeaYyIUJlvqqqw" source="_3vbZMCkKEeaYyIUJlvqqqw" target="_00q4QCkKEeaYyIUJlvqqqw">
-                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_83I54CkKEeaYyIUJlvqqqw">
-                    <language>C++</language>
-                    <body>std::cout &lt;&lt;&quot;Initial to state 6\n&quot;;</body>
-                  </effect>
+              <region xmi:type="uml:Region" xmi:id="_P1Z5IEOCEeadCvQ7UGhFAA" name="Region2">
+                <transition xmi:type="uml:Transition" xmi:id="_eAXjAEOCEeadCvQ7UGhFAA" source="_RobV8EOCEeadCvQ7UGhFAA" target="_cbYiMEOCEeadCvQ7UGhFAA"/>
+                <transition xmi:type="uml:Transition" xmi:id="_7VlvwFTJEeaUqofUUR_LDQ" source="_RobV8EOCEeadCvQ7UGhFAA" target="_67iRAFTJEeaUqofUUR_LDQ">
+                  <trigger xmi:type="uml:Trigger" xmi:id="__FB18FTJEeaUqofUUR_LDQ" event="_rHoJgOtoEeCjb9i0gG4phA"/>
                 </transition>
-                <transition xmi:type="uml:Transition" xmi:id="_98L2YCkKEeaYyIUJlvqqqw" source="_00q4QCkKEeaYyIUJlvqqqw" target="_2KfbsCkKEeaYyIUJlvqqqw">
-                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_iNXwgCkLEeaYyIUJlvqqqw">
-                    <language>C++</language>
-                    <body>std::cout&lt;&lt;&quot;From state6 to state7\n&quot;;</body>
-                  </effect>
-                  <trigger xmi:type="uml:Trigger" xmi:id="_IiaOMCkLEeaYyIUJlvqqqw" event="_ay7_QCkLEeaYyIUJlvqqqw"/>
-                </transition>
-                <transition xmi:type="uml:Transition" xmi:id="_MOEnoCkLEeaYyIUJlvqqqw" source="_2KfbsCkKEeaYyIUJlvqqqw" target="_00q4QCkKEeaYyIUJlvqqqw">
-                  <trigger xmi:type="uml:Trigger" xmi:id="_bCRbwCkLEeaYyIUJlvqqqw" event="_ay7_QCkLEeaYyIUJlvqqqw"/>
-                </transition>
-                <subvertex xmi:type="uml:State" xmi:id="_00q4QCkKEeaYyIUJlvqqqw" name="State6">
-                  <entry xmi:type="uml:OpaqueBehavior" xmi:id="_mZyGkCkLEeaYyIUJlvqqqw">
-                    <language>C++</language>
-                    <body>std::cout&lt;&lt;&quot;Entering state6\n&quot;;</body>
-                  </entry>
-                </subvertex>
-                <subvertex xmi:type="uml:State" xmi:id="_2KfbsCkKEeaYyIUJlvqqqw" name="State7"/>
-                <subvertex xmi:type="uml:Pseudostate" xmi:id="_3vbZMCkKEeaYyIUJlvqqqw" name="Initial1"/>
+                <subvertex xmi:type="uml:State" xmi:id="_RobV8EOCEeadCvQ7UGhFAA" name="State5"/>
+                <subvertex xmi:type="uml:FinalState" xmi:id="_67iRAFTJEeaUqofUUR_LDQ" name="FinalState1"/>
               </region>
             </subvertex>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_S3gYMEOCEeadCvQ7UGhFAA" name="Fork1" kind="fork"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_cbYiMEOCEeadCvQ7UGhFAA" name="Join1" kind="join"/>
           </region>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YNCW4CgBEeapjr3l63b85A" name="run" specification="_VGsRACgBEeapjr3l63b85A">
           <language>C/C++</language>
-          <body>cout &lt;&lt; &quot;call add (2, 3);&quot; &lt;&lt; endl;
-cout &lt;&lt; &quot;result: &quot; &lt;&lt; add (2, 3) &lt;&lt; endl;
-cout &lt;&lt; &quot;sleeping for 15 seconds (statemachine remains active);&quot; &lt;&lt; endl;
-sleep(15);
+          <body>cout &lt;&lt; &quot;call add (2, 3);&quot; &lt;&lt; endl;&#xD;
+cout &lt;&lt; &quot;result: &quot; &lt;&lt; add (2, 3) &lt;&lt; endl;&#xD;
+cout &lt;&lt; &quot;sleeping for 15 seconds (statemachine remains active);&quot; &lt;&lt; endl;&#xD;
+#ifdef WIN32&#xD;
+Sleep(15000);&#xD;
+#else&#xD;
+sleep(15);&#xD;
+#endif&#xD;
 </body>
         </ownedBehavior>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_4ZEZwHecEd6r18stFZxmFQ" name="mult" method="_qxjWINnmEd2_cstbO2Uzgg">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqR2AC1REea25uwDpRQuxg" name="a">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqSdEC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqTEIC1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTo3cEVIEeaqgqiOqzyU4w" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTo3cUVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTpegEVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqTEIS1REea25uwDpRQuxg" name="b">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqTrMC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqTrMS1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTpegUVIEeaqgqiOqzyU4w" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTpegkVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTpeg0VIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqTrMi1REea25uwDpRQuxg" name="res" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqU5UC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqU5US1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_mTqFkEVIEeaqgqiOqzyU4w" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mTqsoEVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTqsoUVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_TbIjUJYlEd6G9q9hwr11bw" name="add" method="_ML-4AKI5Ed6FqJCjEUrkqQ">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqMWcC1REea25uwDpRQuxg" name="a">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqM9gC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqNkkC1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_kl6KUEVIEeaqgqiOqzyU4w" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kl6xYEVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kl6xYUVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqNkkS1REea25uwDpRQuxg" name="b">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqOLoC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqOLoS1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_kl6xYkVIEeaqgqiOqzyU4w" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kl6xY0VIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kl6xZEVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uqOLoi1REea25uwDpRQuxg" name="res" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqPZwC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqPZwS1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_kl6xZUVIEeaqgqiOqzyU4w" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kl7YcEVIEeaqgqiOqzyU4w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kl7YcUVIEeaqgqiOqzyU4w" value="1"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_VGsRACgBEeapjr3l63b85A" name="run" method="_YNCW4CgBEeapjr3l63b85A"/>
@@ -296,14 +337,18 @@ sleep(15);
             </expr>
           </when>
         </packagedElement>
-        <packagedElement xmi:type="uml:TimeEvent" xmi:id="_ay7_QCkLEeaYyIUJlvqqqw" name="TE-{value=1, unit=s}" isRelative="true">
-          <when xmi:type="uml:TimeExpression" xmi:id="_ay7_QSkLEeaYyIUJlvqqqw">
-            <expr xmi:type="uml:OpaqueExpression" xmi:id="_ay7_QikLEeaYyIUJlvqqqw">
-              <language>Natural language</language>
-              <body>{value=1, unit=s}</body>
-            </expr>
-          </when>
+        <packagedElement xmi:type="uml:SignalEvent" xmi:id="_wqLfYEVGEeaqgqiOqzyU4w" name="SigEv" signal="_wBfuwEVGEeaqgqiOqzyU4w"/>
+        <packagedElement xmi:type="uml:ChangeEvent" xmi:id="_ZedTwEVTEeanJO83GGodwg" name="CHE_Event">
+          <changeExpression xmi:type="uml:OpaqueExpression" xmi:id="_ZedTwUVTEeanJO83GGodwg">
+            <language>C++</language>
+            <body>which_rack</body>
+          </changeExpression>
         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Signal" xmi:id="_wBfuwEVGEeaqgqiOqzyU4w" name="Sig">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wBfuwUVGEeaqgqiOqzyU4w" name="a">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedAttribute>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_v3fMgDLiEd2RVeNawwNNzg" name="platform">
@@ -441,7 +486,7 @@ sleep(15);
     <targetArch xmi:type="FCM:TargetArchitecture" href="pathmap://QML_CORE/core.uml#_FYOqwF0OEd-12d_h0i1xhQ"/>
     <usedOS xmi:type="FCM:OperatingSystem" href="pathmap://QML_CORE/core.uml#_1eULwF0NEd-12d_h0i1xhQ"/>
   </FCM:Target>
-  <C_Cpp:Include xmi:id="_EaeJMNp0EeKd1ax3yaXM9w" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
+  <C_Cpp:Include xmi:id="_EaeJMNp0EeKd1ax3yaXM9w" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" header="#ifdef WIN32&#xD;&#xA;#include &quot;windows.h&quot;&#xD;&#xA;#endif" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
   <FCM:DeploymentPlan xmi:id="_QQlt4HltEeOh_8tymvdOOg" mainInstance="_QQm8AHltEeOh_8tymvdOOg" base_Package="_QQiDgHltEeOh_8tymvdOOg"/>
   <Alloc:Allocate xmi:id="_StSkQCQdEeabuaUFyev1pw" base_Abstraction="_StNrwCQdEeabuaUFyev1pw"/>
   <FCM:DerivedElement xmi:id="_VGxwkCgBEeapjr3l63b85A" base_Element="_VGsRACgBEeapjr3l63b85A">
