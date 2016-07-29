@@ -1,13 +1,8 @@
-/**
+/********
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- */
-/*******************************************************************************
- * All rights reserved. This program and the accompanying materials
- * are property of the CEA, their use is subject to specific agreement
- * with the CEA.
  *
  * Contributors:
  *    CEA LIST - initial API and implementation
