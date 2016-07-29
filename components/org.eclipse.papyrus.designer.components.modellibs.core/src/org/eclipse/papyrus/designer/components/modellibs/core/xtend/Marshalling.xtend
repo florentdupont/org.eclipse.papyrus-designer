@@ -2,7 +2,7 @@ package org.eclipse.papyrus.designer.components.modellibs.core.xtend
 
 import org.eclipse.uml2.uml.Operation
 import org.eclipse.uml2.uml.Class
-import static extension org.eclipse.papyrus.designer.components.transformation.core.UMLTool.*
+import static extension org.eclipse.papyrus.designer.transformation.core.UMLTool.*
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.xtend.CppUtils.cppType
 import org.eclipse.uml2.uml.Parameter
 

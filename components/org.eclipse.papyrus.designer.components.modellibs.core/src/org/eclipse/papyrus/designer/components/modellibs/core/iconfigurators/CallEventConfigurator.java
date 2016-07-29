@@ -14,8 +14,8 @@
 
 package org.eclipse.papyrus.designer.components.modellibs.core.iconfigurators;
 
-import org.eclipse.papyrus.designer.components.transformation.core.deployment.DepPlanUtils;
-import org.eclipse.papyrus.designer.components.transformation.core.extensions.IInstanceConfigurator;
+import org.eclipse.papyrus.designer.transformation.core.deployment.DepPlanUtils;
+import org.eclipse.papyrus.designer.transformation.core.extensions.IInstanceConfigurator;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Property;
 

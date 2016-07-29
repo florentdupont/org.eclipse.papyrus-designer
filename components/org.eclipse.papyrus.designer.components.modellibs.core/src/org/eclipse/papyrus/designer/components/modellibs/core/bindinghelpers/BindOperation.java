@@ -1,13 +1,13 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.bindinghelpers;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.designer.components.transformation.core.listeners.PreCopyListener;
-import org.eclipse.papyrus.designer.components.transformation.core.templates.BindingUtils;
-import org.eclipse.papyrus.designer.components.transformation.core.templates.TemplateUtils;
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException;
 import org.eclipse.papyrus.designer.components.FCM.util.IBindingHelper;
 import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
+import org.eclipse.papyrus.designer.transformation.core.listeners.PreCopyListener;
+import org.eclipse.papyrus.designer.transformation.core.templates.BindingUtils;
+import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
+import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationException;
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;

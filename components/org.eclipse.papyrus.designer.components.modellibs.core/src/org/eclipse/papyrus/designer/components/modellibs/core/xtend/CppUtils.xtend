@@ -1,12 +1,12 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.xtend
 
-import org.eclipse.papyrus.designer.components.transformation.core.UMLTool
+import org.eclipse.papyrus.designer.transformation.core.UMLTool
 import org.eclipse.uml2.uml.NamedElement
 import org.eclipse.uml2.uml.Operation
 import org.eclipse.uml2.uml.Parameter
 import org.eclipse.uml2.uml.ParameterDirectionKind
 import org.eclipse.uml2.uml.Type
-import org.eclipse.papyrus.designer.components.transformation.core.extensions.IXtend
+import org.eclipse.papyrus.designer.transformation.core.extensions.IXtend
 
 class CppUtils implements IXtend {
 

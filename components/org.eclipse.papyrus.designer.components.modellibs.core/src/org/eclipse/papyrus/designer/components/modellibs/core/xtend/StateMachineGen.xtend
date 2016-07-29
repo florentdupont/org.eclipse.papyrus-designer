@@ -4,14 +4,6 @@ import org.eclipse.emf.common.util.BasicEList
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
-import org.eclipse.papyrus.designer.components.FCM.DerivedElement
-import org.eclipse.papyrus.designer.components.transformation.core.StUtils
-import org.eclipse.papyrus.designer.components.transformation.core.Utils
-import org.eclipse.papyrus.designer.components.transformation.core.UMLTool
-import org.eclipse.papyrus.designer.components.transformation.core.extensions.IXtend
-import org.eclipse.papyrus.designer.components.transformation.core.sync.InterfaceSync
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationContext
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.Behavior
 import org.eclipse.uml2.uml.BehavioredClassifier
@@ -34,16 +26,17 @@ import org.eclipse.uml2.uml.ValueSpecification
 import org.eclipse.uml2.uml.Vertex
 import org.eclipse.uml2.uml.util.UMLUtil
 
-import static org.eclipse.papyrus.designer.components.transformation.core.EnumService.*
+import static org.eclipse.papyrus.designer.transformation.core.EnumService.*
 import static org.eclipse.papyrus.designer.components.vsl.ParseVSL.*
 
-import static extension org.eclipse.papyrus.designer.components.transformation.core.UMLTool.*
+import static extension org.eclipse.papyrus.designer.transformation.core.UMLTool.*
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.xtend.BehaviorUtil.*
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.xtend.CppUtils.cppCall
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.xtend.StateMachineUtil.*
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil
 import org.eclipse.papyrus.designer.components.modellibs.core.Activator
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.filters.FilterStateMachines
+import org.eclipse.papyrus.designer.components.core.transformations.filters.FilterStateMachines
+import org.eclipse.papyrus.designer.transformation.core.extensions.IXtend
 
 class StateMachineGen implements IXtend {
 

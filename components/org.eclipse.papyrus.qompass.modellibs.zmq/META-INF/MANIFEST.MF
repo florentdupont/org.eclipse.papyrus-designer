@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Zmq
+Bundle-SymbolicName: org.eclipse.papyrus.designer.components.modellibs.zmq;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.papyrus.qompass.modellibrary.zmq.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.papyrus.uml.extensionpoints;bundle-version="1.2.0",
+ org.eclipse.papyrus.designer.components.transformation.core;bundle-version="1.2.0",
+ org.eclipse.uml2.uml;bundle-version="5.0.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.papyrus.designer.components.modellibs.core;bundle-version="1.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+

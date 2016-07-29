@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.util.IMappingRule;
 import org.eclipse.papyrus.designer.components.FCM.util.MapUtil;
-import org.eclipse.papyrus.designer.components.transformation.core.Log;
+import org.eclipse.papyrus.designer.transformation.core.Log;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Interface;

@@ -10,8 +10,8 @@ import org.eclipse.emf.common.util.UniqueEList
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.papyrus.designer.components.FCM.DerivedElement
-import org.eclipse.papyrus.designer.components.transformation.core.OperationUtils
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
+import org.eclipse.papyrus.designer.transformation.core.OperationUtils
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
 import org.eclipse.papyrus.designer.components.vsl.ParseVSL
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External

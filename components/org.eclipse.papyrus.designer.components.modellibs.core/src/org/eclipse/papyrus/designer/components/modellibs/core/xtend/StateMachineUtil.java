@@ -4,10 +4,10 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.components.transformation.core.UMLTool;
-import org.eclipse.papyrus.designer.components.transformation.core.Utils;
-import org.eclipse.papyrus.designer.components.transformation.core.templates.TemplateUtils;
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationContext;
+import org.eclipse.papyrus.designer.transformation.core.UMLTool;
+import org.eclipse.papyrus.designer.transformation.core.Utils;
+import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
+import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;

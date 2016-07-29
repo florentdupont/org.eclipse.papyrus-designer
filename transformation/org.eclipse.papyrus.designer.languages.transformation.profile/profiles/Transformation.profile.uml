@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Profile xmi:id="_fPDsIBa-EearhdjjJ6cVzQ" name="Transformation" metaclassReference="_WWO_YBbAEearhdjjJ6cVzQ _LQB30CXmEea8zMl4rVTOhQ _bIj1ICi3EeaXvZJsTlfH8A _KjtPoEN6Eea4W-lfO7m_3g">
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_WWO_YBbAEearhdjjJ6cVzQ" alias="Model">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Model"/>
+    </elementImport>
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_LQB30CXmEea8zMl4rVTOhQ" alias="Element">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Element"/>
+    </elementImport>
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_bIj1ICi3EeaXvZJsTlfH8A" alias="Class">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </elementImport>
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_KjtPoEN6Eea4W-lfO7m_3g" alias="Property">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+    </elementImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_fTx0EBa-EearhdjjJ6cVzQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_g-p3ID3yEeajPtol9OalIw" name="ApplyTransformation">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_nV0NgD3yEeajPtol9OalIw" name="base_Class" association="_nVSCAD3yEeajPtol9OalIw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vNRR8D3yEeajPtol9OalIw" name="trafo" visibility="public" type="_w_XhsD3yEeajPtol9OalIw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_hyCb4D3yEeajPtol9OalIw" name="M2MTrafoKind">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_oKJ0gD3yEeajPtol9OalIw" name="base_Class" association="_oKImYD3yEeajPtol9OalIw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_nVSCAD3yEeajPtol9OalIw" name="E_ApplyTransformation_Class1" memberEnd="_nVzmcD3yEeajPtol9OalIw _nV0NgD3yEeajPtol9OalIw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_nVzmcD3yEeajPtol9OalIw" name="extension_ApplyTransformation" type="_g-p3ID3yEeajPtol9OalIw" aggregation="composite" association="_nVSCAD3yEeajPtol9OalIw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_oKImYD3yEeajPtol9OalIw" name="E_M2MTrafoKind_Class1" memberEnd="_oKJNcD3yEeajPtol9OalIw _oKJ0gD3yEeajPtol9OalIw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_oKJNcD3yEeajPtol9OalIw" name="extension_M2MTrafoKind" type="_hyCb4D3yEeajPtol9OalIw" aggregation="composite" association="_oKImYD3yEeajPtol9OalIw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_w_XhsD3yEeajPtol9OalIw" name="M2MTrafo">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_78sx8D3yEeajPtol9OalIw" name="base_Class" association="_78sK4D3yEeajPtol9OalIw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Kmh-kD3yEeajPtol9OalIw" name="trafoKind" visibility="public" type="_hyCb4D3yEeajPtol9OalIw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_78sK4D3yEeajPtol9OalIw" name="E_M2MTrafo_Class1" memberEnd="_78sK4T3yEeajPtol9OalIw _78sx8D3yEeajPtol9OalIw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_78sK4T3yEeajPtol9OalIw" name="extension_M2MTrafo" type="_w_XhsD3yEeajPtol9OalIw" aggregation="composite" association="_78sK4D3yEeajPtol9OalIw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_tlAxcEFlEeaVWaGMtmQuJw" name="M2MTrafoChain">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zeqFYEFlEeaVWaGMtmQuJw" name="base_Class" association="_zej-wEFlEeaVWaGMtmQuJw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_zej-wEFlEeaVWaGMtmQuJw" name="E_M2MTrafoChain_Class1" memberEnd="_zepeUEFlEeaVWaGMtmQuJw _zeqFYEFlEeaVWaGMtmQuJw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_zepeUEFlEeaVWaGMtmQuJw" name="extension_M2MTrafoChain" type="_tlAxcEFlEeaVWaGMtmQuJw" aggregation="composite" association="_zej-wEFlEeaVWaGMtmQuJw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_Mba_MEN6Eea4W-lfO7m_3g" name="ConfigurationProperty">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_P3YvwUN6Eea4W-lfO7m_3g" name="base_Property" association="_P3WTgEN6Eea4W-lfO7m_3g">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_P3WTgEN6Eea4W-lfO7m_3g" name="E_ConfigurationProperty_Property1" memberEnd="_P3YvwEN6Eea4W-lfO7m_3g _P3YvwUN6Eea4W-lfO7m_3g">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_P3YvwEN6Eea4W-lfO7m_3g" name="extension_ConfigurationProperty" type="_Mba_MEN6Eea4W-lfO7m_3g" aggregation="composite" association="_P3WTgEN6Eea4W-lfO7m_3g"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_PggVQEOEEea4W-lfO7m_3g" name="AutoIndex">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VTIbMUOEEea4W-lfO7m_3g" name="base_Property" association="_VTH0IEOEEea4W-lfO7m_3g">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_QsaHsEOEEea4W-lfO7m_3g" name="AutoIndexPerNode">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WEN54EOEEea4W-lfO7m_3g" name="base_Property" association="_WEMrwEOEEea4W-lfO7m_3g">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_SjT-8EOEEea4W-lfO7m_3g" name="CopyAttributeValue">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Wss2MEOEEea4W-lfO7m_3g" name="base_Property" association="_WssPIEOEEea4W-lfO7m_3g">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8AtfQEOEEea4W-lfO7m_3g" name="source" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_VTH0IEOEEea4W-lfO7m_3g" name="E_AutoIndex_Property1" memberEnd="_VTIbMEOEEea4W-lfO7m_3g _VTIbMUOEEea4W-lfO7m_3g">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_VTIbMEOEEea4W-lfO7m_3g" name="extension_AutoIndex" type="_PggVQEOEEea4W-lfO7m_3g" aggregation="composite" association="_VTH0IEOEEea4W-lfO7m_3g"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_WEMrwEOEEea4W-lfO7m_3g" name="E_AutoIndexPerNode_Property1" memberEnd="_WENS0EOEEea4W-lfO7m_3g _WEN54EOEEea4W-lfO7m_3g">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_WENS0EOEEea4W-lfO7m_3g" name="extension_AutoIndexPerNode" type="_QsaHsEOEEea4W-lfO7m_3g" aggregation="composite" association="_WEMrwEOEEea4W-lfO7m_3g"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_WssPIEOEEea4W-lfO7m_3g" name="E_CopyAttributeValue_Property1" memberEnd="_WssPIUOEEea4W-lfO7m_3g _Wss2MEOEEea4W-lfO7m_3g">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_WssPIUOEEea4W-lfO7m_3g" name="extension_CopyAttributeValue" type="_SjT-8EOEEea4W-lfO7m_3g" aggregation="composite" association="_WssPIEOEEea4W-lfO7m_3g"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_iwtlMEOFEea4W-lfO7m_3g" name="DerivedElement">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_kLW-QEOFEea4W-lfO7m_3g" name="base_Element" association="_kLVwIEOFEea4W-lfO7m_3g">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Element"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_oKo3QEOFEea4W-lfO7m_3g" name="source" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Element"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_kLVwIEOFEea4W-lfO7m_3g" name="E_DerivedElement_Element1" memberEnd="_kLWXMEOFEea4W-lfO7m_3g _kLW-QEOFEea4W-lfO7m_3g">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_kLWXMEOFEea4W-lfO7m_3g" name="extension_DerivedElement" type="_iwtlMEOFEea4W-lfO7m_3g" aggregation="composite" association="_kLVwIEOFEea4W-lfO7m_3g"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_QvyJsBa_EearhdjjJ6cVzQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Qv1NABa_EearhdjjJ6cVzQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Profile>
+  <Ecore:EPackage xmi:id="_RPiAwBa_EearhdjjJ6cVzQ" base_Package="_fPDsIBa-EearhdjjJ6cVzQ" packageName="Transformation" nsPrefix="Transformation" nsURI="http://www.eclipse.org/papyrus/Transformation/1" prefix="Transformation"/>
+</xmi:XMI>

@@ -69,7 +69,7 @@ public class XtendTemplateBinding {
 			}
 		} catch (SecurityException | IllegalAccessException
 				| IllegalArgumentException | InvocationTargetException | NullPointerException e) {
-			throw new TransformationException(e.getMessage());
+			throw new RuntimeException(e);
 		}
 	}
 	

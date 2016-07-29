@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_YhImUD30EeajPtol9OalIw" name="trafoKinds">
+  <packagedElement xmi:type="uml:Class" xmi:id="_jzFbsD30EeajPtol9OalIw" name="MergeTransformaiton"/>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_eNCZMD30EeajPtol9OalIw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_eNDAQD30EeajPtol9OalIw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+  </profileApplication>
+</uml:Model>

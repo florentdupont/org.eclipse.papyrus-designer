@@ -1,9 +1,9 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.statemachine;
 
 import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
-import org.eclipse.papyrus.designer.components.transformation.core.extensions.AbstractContainerTrafo;
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array;
+import org.eclipse.papyrus.designer.transformation.core.extensions.AbstractContainerTrafo;
+import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationException;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.InstanceSpecification;

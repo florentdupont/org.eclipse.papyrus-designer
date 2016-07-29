@@ -31,7 +31,7 @@ import org.eclipse.uml2.uml.Stereotype
 import org.eclipse.uml2.uml.Type
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.xtend.UMLChain.chain
 import java.util.List
-import org.eclipse.papyrus.designer.components.transformation.core.EnumService
+import org.eclipse.papyrus.designer.transformation.core.EnumService
 
 /**
  * This class contains the transformation from flat UML-RT state machines to the

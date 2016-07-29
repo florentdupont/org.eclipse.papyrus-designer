@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Transformation.profile -->
+      <package
+            uri="http://www.eclipse.org/papyrus/Transformation/1"
+            class="org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage"
+            genModel="profiles/Transformation.profile.genmodel"/>
+   </extension>
+
+</plugin>

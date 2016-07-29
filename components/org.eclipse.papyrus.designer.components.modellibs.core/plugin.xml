@@ -92,11 +92,11 @@
 			notation_file="models/wizardTemplates/DesignerCBSimple.notation">
 		</template>
 	</extension>
-	<extension point="org.eclipse.papyrus.designer.components.transformation.core.instanceConfig">
+	<extension point="org.eclipse.papyrus.designer.transformation.core.instanceConfig">
 		<client class="org.eclipse.papyrus.designer.components.modellibs.core.iconfigurators.CallEventConfigurator" configuratorID="CallEventConfigurator">
 		</client>
 	</extension>
-	<extension point="org.eclipse.papyrus.designer.components.transformation.core.instanceConfig">
+	<extension point="org.eclipse.papyrus.designer.transformation.core.instanceConfig">
 		<client class="org.eclipse.papyrus.designer.components.modellibs.core.iconfigurators.AnimServiceConfigurator" configuratorID="AnimServiceConfigurator">
 		</client>
 	</extension>
