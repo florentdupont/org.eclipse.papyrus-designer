@@ -27,12 +27,12 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.papyrus.designer.transformation.core.ConfigUtils;
-import org.eclipse.papyrus.designer.transformation.core.Description;
-import org.eclipse.papyrus.designer.transformation.core.ElementFilter;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepCreation;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepPlanUtils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepUtils;
+import org.eclipse.papyrus.designer.deployment.tools.ConfigUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
+import org.eclipse.papyrus.designer.deployment.tools.DepPlanUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
+import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtil;
 import org.eclipse.papyrus.designer.transformation.core.sync.DepPlanSync;
 import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
@@ -499,7 +499,7 @@ public class ConfigureInstanceDialog extends SelectionStatusDialog {
 		});
 		
 		fDescriptionLabel = new Label(instanceConfigurationGroup, SWT.NONE);
-		fDescriptionLabel.setText("Description:");
+		fDescriptionLabel.setText("DescriptionUtil:");
 		fDescriptionLabel.setLayoutData(span2);
 
 		span2 = new GridData();
@@ -529,7 +529,7 @@ public class ConfigureInstanceDialog extends SelectionStatusDialog {
 			return;
 		}
 		setEnabled(true);
-		fDescription.setText(Description.getDescription(attribute, "not available"));
+		fDescription.setText(DescriptionUtil.getDescription(attribute, "not available"));
 		fValueLabel.setText(getValueLabel(attribute));
 		boolean isEnum = m_currentAttribute.getType() instanceof Enumeration;
 		fValue.setVisible(!isEnum);

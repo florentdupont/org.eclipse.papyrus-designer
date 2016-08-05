@@ -15,7 +15,6 @@
 package org.eclipse.papyrus.designer.transformation.core.transformations.filters;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
 import org.eclipse.papyrus.designer.transformation.core.listeners.PostCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.sync.CompImplSync;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
@@ -41,7 +40,7 @@ public class FixTemplateSync implements PostCopyListener {
 	public void postCopyEObject(LazyCopier copier, EObject targetEObj) {
 		// if (copier.get(sourceEObj) isWithinTemplate)
 		if (!(targetEObj instanceof Behavior)) {
-			if ((targetEObj instanceof Class) && Utils.isCompImpl((Class) targetEObj)) {
+			if ((targetEObj instanceof Class) && !((Class) targetEObj).isAbstract()) {
 				Class implementation = (Class) targetEObj;
 				CompImplSync.updatePorts(implementation);
 				CompImplSync.syncRealizations(implementation);

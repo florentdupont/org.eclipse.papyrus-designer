@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.papyrus.designer.components.FCM.FCMPackage;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
-import org.eclipse.papyrus.designer.components.FCM.util.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Image;
 import org.eclipse.uml2.uml.Interface;

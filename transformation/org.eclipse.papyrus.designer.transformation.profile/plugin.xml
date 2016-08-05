@@ -6,7 +6,29 @@
       <package
             uri="http://www.eclipse.org/papyrus/Transformation/1"
             class="org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage"
-            genModel="profiles/Transformation.profile.genmodel"/>
+            genModel="model/Transformation.profile.genmodel"/>
    </extension>
-
+  
+  <extension point="org.eclipse.emf.ecore.uri_mapping">
+		<mapping
+			source="pathmap://TRAFO_PROFILE/"
+			target="platform:/plugin/org.eclipse.papyrus.designer.transformation.profile/model/"/>
+	</extension>
+  
+   	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.eclipse.org/papyrus/Transformation/1"
+			location="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+	</extension>
+	
+   
+	<extension point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+		<profile
+			description="M2M transformation profile"
+			iconpath="icons/m2m.gif"
+			name="M2M trafo"
+			path="pathmap://TRAFO_PROFILE/Transformation.profile.uml"
+			provider="CEA LIST"/>
+	</extension>
+   
 </plugin>

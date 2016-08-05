@@ -18,14 +18,13 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.papyrus.designer.transformation.core.CommandSupport;
-import org.eclipse.papyrus.designer.transformation.core.RunnableWithResult;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepCreation;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepPlanUtils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DeployConstants;
+import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
+import org.eclipse.papyrus.designer.deployment.tools.DepPlanUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DeployConstants;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.RunnableWithResult;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.sync.DepPlanSync;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationException;
 import org.eclipse.papyrus.designer.transformation.ui.Messages;
 import org.eclipse.papyrus.uml.diagram.common.handlers.CmdHandler;
 import org.eclipse.swt.widgets.Display;
@@ -45,7 +44,7 @@ public class CreateDepPlanHandler extends CmdHandler {
 	@Override
 	public boolean isEnabled() {
 		updateSelectedEObject();
-		if ((selectedEObject instanceof Class) && Utils.isCompImpl((Class) selectedEObject)) {
+		if ((selectedEObject instanceof Class) && !((Class) selectedEObject).isAbstract()) {
 			return true;
 		}
 		return false;

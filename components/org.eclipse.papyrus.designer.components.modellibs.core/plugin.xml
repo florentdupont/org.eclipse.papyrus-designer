@@ -50,29 +50,17 @@
       <client class="org.eclipse.papyrus.designer.components.modellibs.core.mappingrules.AMIpoll" portKindName="AMIpoll">
       </client>
    </extension>
-   <extension point="org.eclipse.papyrus.designer.components.fcm.profile.fcmEmbeddingRule">
-      <client class="org.eclipse.papyrus.designer.components.modellibs.core.embeddingrules.AccordCall" portKindName="AccordCall">
-      </client>
-   </extension>
    <extension id="QML_CORE" point="org.eclipse.emf.ecore.uri_mapping">
-      <mapping source="pathmap://QML_CORE/" target="platform:/plugin/org.eclipse.papyrus.designer.components.modellibs.core/models/library/">
+      <mapping source="pathmap://QML_C_CORE/" target="platform:/plugin/org.eclipse.papyrus.designer.components.modellibs.core/models/library/">
       </mapping>
    </extension>
     <extension name="Designer core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library description="Designer core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: basic" path="pathmap://QML_CORE/core.uml" provider="CEA LIST">
+      <library description="Designer core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: basic" path="pathmap://QML_C_CORE/core.uml" provider="CEA LIST">
       </library>
    </extension>
    <extension name="FIFO" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: FIFO" path="pathmap://QML_CORE/fifo.uml" provider="CEA LIST">
+      <library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: FIFO" path="pathmap://QML_C_CORE/fifo.uml" provider="CEA LIST">
       </library>
-	</extension>
-	<extension name="OS-AL" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: OS abstraction layer (OS-AL)" path="pathmap://QML_CORE/osal.uml" provider="CEA LIST">
-		</library>
-	</extension>
-	<extension name="StateMachine" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: State-machines" path="pathmap://QML_CORE/statemachine.uml" provider="CEA LIST">
-		</library>
 	</extension>
 	<extension point="org.eclipse.papyrus.uml.diagram.wizards.templates">
 		<template
@@ -91,14 +79,6 @@
 			di_file="models/wizardTemplates/DesignerCBSimple.di"
 			notation_file="models/wizardTemplates/DesignerCBSimple.notation">
 		</template>
-	</extension>
-	<extension point="org.eclipse.papyrus.designer.transformation.core.instanceConfig">
-		<client class="org.eclipse.papyrus.designer.components.modellibs.core.iconfigurators.CallEventConfigurator" configuratorID="CallEventConfigurator">
-		</client>
-	</extension>
-	<extension point="org.eclipse.papyrus.designer.transformation.core.instanceConfig">
-		<client class="org.eclipse.papyrus.designer.components.modellibs.core.iconfigurators.AnimServiceConfigurator" configuratorID="AnimServiceConfigurator">
-		</client>
 	</extension>
 	<extension point="org.eclipse.ui.newWizards">
 		<wizard
@@ -138,46 +118,9 @@
 			<selection class="org.eclipse.core.resources.IResource"/>
 		</wizard>
 	</extension>
-	<extension id="LoopOperations" point="org.eclipse.papyrus.designer.components.fcm.profile.fcmBindingHelper">
-		<client
-			bindingHelperName="LoopOperations"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.bindinghelpers.LoopOperations">
-		</client>
-	</extension>
-	<extension id="BindOperation" point="org.eclipse.papyrus.designer.components.fcm.profile.fcmBindingHelper">
-		<client
-			bindingHelperName="BindOperation"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.bindinghelpers.BindOperation">
-		</client>
-	</extension>
-	<extension
-  			id="BindCppIncludeToFirstActual"
-			point="org.eclipse.papyrus.designer.components.fcm.profile.fcmBindingHelper">
-		<client
-			bindingHelperName="BindCppIncludeToFirstActual"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.bindinghelpers.BindCppIncludeToFirstActual">
-		</client>
-	</extension>
 	<extension
 			point="org.eclipse.help.toc">
 		<toc file="help/modellibs-core-examples.xml"/>
 		<toc file="help/modellibs-core-library.xml"/>
 	</extension>
-	<extension
-			point="org.eclipse.papyrus.designer.components.transformation.core.xtendGenerator">
-		<client class="org.eclipse.papyrus.designer.components.modellibs.core.xtend.StateMachineGen" templateID="StateMachineGen">
-		</client>
-	</extension>
-	<extension
-			point="org.eclipse.papyrus.designer.components.transformation.core.xtendGenerator">
-		<client class="org.eclipse.papyrus.designer.components.modellibs.core.xtend.CppUtils" templateID="CppUtils">
-		</client>
- </extension>
- <extension
-       point="org.eclipse.papyrus.designer.components.transformation.core.customTrafo">
-    <transformation
-          class="org.eclipse.papyrus.designer.components.modellibs.core.statemachine.CompleteStatemachine"
-          transformationID="statemachine::rules::CompleteSM">
-    </transformation>
- </extension>
 </plugin>

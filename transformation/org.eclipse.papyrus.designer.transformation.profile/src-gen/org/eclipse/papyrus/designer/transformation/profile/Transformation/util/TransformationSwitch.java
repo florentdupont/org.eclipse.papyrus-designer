@@ -90,30 +90,6 @@ public class TransformationSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TransformationPackage.CONFIGURATION_PROPERTY: {
-				ConfigurationProperty configurationProperty = (ConfigurationProperty)theEObject;
-				T result = caseConfigurationProperty(configurationProperty);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TransformationPackage.AUTO_INDEX: {
-				AutoIndex autoIndex = (AutoIndex)theEObject;
-				T result = caseAutoIndex(autoIndex);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TransformationPackage.AUTO_INDEX_PER_NODE: {
-				AutoIndexPerNode autoIndexPerNode = (AutoIndexPerNode)theEObject;
-				T result = caseAutoIndexPerNode(autoIndexPerNode);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TransformationPackage.COPY_ATTRIBUTE_VALUE: {
-				CopyAttributeValue copyAttributeValue = (CopyAttributeValue)theEObject;
-				T result = caseCopyAttributeValue(copyAttributeValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TransformationPackage.DERIVED_ELEMENT: {
 				DerivedElement derivedElement = (DerivedElement)theEObject;
 				T result = caseDerivedElement(derivedElement);
@@ -181,66 +157,6 @@ public class TransformationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseM2MTrafoChain(M2MTrafoChain object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Configuration Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Configuration Property</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConfigurationProperty(ConfigurationProperty object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Auto Index</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Auto Index</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAutoIndex(AutoIndex object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Auto Index Per Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Auto Index Per Node</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAutoIndexPerNode(AutoIndexPerNode object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Copy Attribute Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Copy Attribute Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCopyAttributeValue(CopyAttributeValue object) {
 		return null;
 	}
 

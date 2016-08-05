@@ -75,7 +75,7 @@ public interface TransformationPackage extends EPackage {
 	int APPLY_TRANSFORMATION__BASE_CLASS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Trafo</b></em>' reference.
+	 * The feature id for the '<em><b>Trafo</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -121,13 +121,13 @@ public interface TransformationPackage extends EPackage {
 	int M2M_TRAFO__BASE_CLASS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Trafo Kind</b></em>' reference.
+	 * The feature id for the '<em><b>Kind</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int M2M_TRAFO__TRAFO_KIND = 1;
+	int M2M_TRAFO__KIND = 1;
 
 	/**
 	 * The number of structural features of the '<em>M2M Trafo</em>' class.
@@ -221,166 +221,6 @@ public interface TransformationPackage extends EPackage {
 	 */
 	int M2M_TRAFO_CHAIN_OPERATION_COUNT = 0;
 
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.ConfigurationPropertyImpl <em>Configuration Property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.ConfigurationPropertyImpl
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getConfigurationProperty()
-	 * @generated
-	 */
-	int CONFIGURATION_PROPERTY = 4;
-
-	/**
-	 * The feature id for the '<em><b>Base Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_PROPERTY__BASE_PROPERTY = 0;
-
-	/**
-	 * The number of structural features of the '<em>Configuration Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_PROPERTY_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Configuration Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_PROPERTY_OPERATION_COUNT = 0;
-
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.AutoIndexImpl <em>Auto Index</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.AutoIndexImpl
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getAutoIndex()
-	 * @generated
-	 */
-	int AUTO_INDEX = 5;
-
-	/**
-	 * The feature id for the '<em><b>Base Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTO_INDEX__BASE_PROPERTY = 0;
-
-	/**
-	 * The number of structural features of the '<em>Auto Index</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTO_INDEX_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Auto Index</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTO_INDEX_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.AutoIndexPerNodeImpl <em>Auto Index Per Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.AutoIndexPerNodeImpl
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getAutoIndexPerNode()
-	 * @generated
-	 */
-	int AUTO_INDEX_PER_NODE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Base Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTO_INDEX_PER_NODE__BASE_PROPERTY = 0;
-
-	/**
-	 * The number of structural features of the '<em>Auto Index Per Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTO_INDEX_PER_NODE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Auto Index Per Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUTO_INDEX_PER_NODE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.CopyAttributeValueImpl <em>Copy Attribute Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.CopyAttributeValueImpl
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getCopyAttributeValue()
-	 * @generated
-	 */
-	int COPY_ATTRIBUTE_VALUE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Base Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COPY_ATTRIBUTE_VALUE__BASE_PROPERTY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COPY_ATTRIBUTE_VALUE__SOURCE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Copy Attribute Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COPY_ATTRIBUTE_VALUE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Copy Attribute Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COPY_ATTRIBUTE_VALUE_OPERATION_COUNT = 0;
-
-
 	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.DerivedElementImpl <em>Derived Element</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -389,7 +229,7 @@ public interface TransformationPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getDerivedElement()
 	 * @generated
 	 */
-	int DERIVED_ELEMENT = 8;
+	int DERIVED_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Base Element</b></em>' reference.
@@ -450,10 +290,10 @@ public interface TransformationPackage extends EPackage {
 	EReference getApplyTransformation_Base_Class();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation#getTrafo <em>Trafo</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation#getTrafo <em>Trafo</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Trafo</em>'.
+	 * @return the meta object for the reference list '<em>Trafo</em>'.
 	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation#getTrafo()
 	 * @see #getApplyTransformation()
 	 * @generated
@@ -482,15 +322,15 @@ public interface TransformationPackage extends EPackage {
 	EReference getM2MTrafo_Base_Class();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getTrafoKind <em>Trafo Kind</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getKind <em>Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Trafo Kind</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getTrafoKind()
+	 * @return the meta object for the reference '<em>Kind</em>'.
+	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getKind()
 	 * @see #getM2MTrafo()
 	 * @generated
 	 */
-	EReference getM2MTrafo_TrafoKind();
+	EReference getM2MTrafo_Kind();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoKind <em>M2M Trafo Kind</em>}'.
@@ -533,101 +373,6 @@ public interface TransformationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getM2MTrafoChain_Base_Class();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.ConfigurationProperty <em>Configuration Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Configuration Property</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.ConfigurationProperty
-	 * @generated
-	 */
-	EClass getConfigurationProperty();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.ConfigurationProperty#getBase_Property <em>Base Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Base Property</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.ConfigurationProperty#getBase_Property()
-	 * @see #getConfigurationProperty()
-	 * @generated
-	 */
-	EReference getConfigurationProperty_Base_Property();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndex <em>Auto Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Auto Index</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndex
-	 * @generated
-	 */
-	EClass getAutoIndex();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndex#getBase_Property <em>Base Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Base Property</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndex#getBase_Property()
-	 * @see #getAutoIndex()
-	 * @generated
-	 */
-	EReference getAutoIndex_Base_Property();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndexPerNode <em>Auto Index Per Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Auto Index Per Node</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndexPerNode
-	 * @generated
-	 */
-	EClass getAutoIndexPerNode();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndexPerNode#getBase_Property <em>Base Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Base Property</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndexPerNode#getBase_Property()
-	 * @see #getAutoIndexPerNode()
-	 * @generated
-	 */
-	EReference getAutoIndexPerNode_Base_Property();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.CopyAttributeValue <em>Copy Attribute Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Copy Attribute Value</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.CopyAttributeValue
-	 * @generated
-	 */
-	EClass getCopyAttributeValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.CopyAttributeValue#getBase_Property <em>Base Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Base Property</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.CopyAttributeValue#getBase_Property()
-	 * @see #getCopyAttributeValue()
-	 * @generated
-	 */
-	EReference getCopyAttributeValue_Base_Property();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.CopyAttributeValue#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.CopyAttributeValue#getSource()
-	 * @see #getCopyAttributeValue()
-	 * @generated
-	 */
-	EReference getCopyAttributeValue_Source();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement <em>Derived Element</em>}'.
@@ -703,7 +448,7 @@ public interface TransformationPackage extends EPackage {
 		EReference APPLY_TRANSFORMATION__BASE_CLASS = eINSTANCE.getApplyTransformation_Base_Class();
 
 		/**
-		 * The meta object literal for the '<em><b>Trafo</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Trafo</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -729,12 +474,12 @@ public interface TransformationPackage extends EPackage {
 		EReference M2M_TRAFO__BASE_CLASS = eINSTANCE.getM2MTrafo_Base_Class();
 
 		/**
-		 * The meta object literal for the '<em><b>Trafo Kind</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Kind</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference M2M_TRAFO__TRAFO_KIND = eINSTANCE.getM2MTrafo_TrafoKind();
+		EReference M2M_TRAFO__KIND = eINSTANCE.getM2MTrafo_Kind();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.M2MTrafoKindImpl <em>M2M Trafo Kind</em>}' class.
@@ -771,86 +516,6 @@ public interface TransformationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference M2M_TRAFO_CHAIN__BASE_CLASS = eINSTANCE.getM2MTrafoChain_Base_Class();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.ConfigurationPropertyImpl <em>Configuration Property</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.ConfigurationPropertyImpl
-		 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getConfigurationProperty()
-		 * @generated
-		 */
-		EClass CONFIGURATION_PROPERTY = eINSTANCE.getConfigurationProperty();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Property</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONFIGURATION_PROPERTY__BASE_PROPERTY = eINSTANCE.getConfigurationProperty_Base_Property();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.AutoIndexImpl <em>Auto Index</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.AutoIndexImpl
-		 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getAutoIndex()
-		 * @generated
-		 */
-		EClass AUTO_INDEX = eINSTANCE.getAutoIndex();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Property</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AUTO_INDEX__BASE_PROPERTY = eINSTANCE.getAutoIndex_Base_Property();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.AutoIndexPerNodeImpl <em>Auto Index Per Node</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.AutoIndexPerNodeImpl
-		 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getAutoIndexPerNode()
-		 * @generated
-		 */
-		EClass AUTO_INDEX_PER_NODE = eINSTANCE.getAutoIndexPerNode();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Property</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AUTO_INDEX_PER_NODE__BASE_PROPERTY = eINSTANCE.getAutoIndexPerNode_Base_Property();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.CopyAttributeValueImpl <em>Copy Attribute Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.CopyAttributeValueImpl
-		 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getCopyAttributeValue()
-		 * @generated
-		 */
-		EClass COPY_ATTRIBUTE_VALUE = eINSTANCE.getCopyAttributeValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Property</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COPY_ATTRIBUTE_VALUE__BASE_PROPERTY = eINSTANCE.getCopyAttributeValue_Base_Property();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COPY_ATTRIBUTE_VALUE__SOURCE = eINSTANCE.getCopyAttributeValue_Source();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.DerivedElementImpl <em>Derived Element</em>}' class.

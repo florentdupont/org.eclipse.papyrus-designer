@@ -16,23 +16,18 @@ package org.eclipse.papyrus.designer.transformation.core.templates;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ConstInit;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
-import org.eclipse.papyrus.designer.transformation.core.PortUtils;
-import org.eclipse.papyrus.designer.transformation.core.StUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationException;
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ConstInit;
-import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.OpaqueBehavior;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Parameter;
-import org.eclipse.uml2.uml.Port;
-import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
 public class BindingUtils {
@@ -56,7 +51,7 @@ public class BindingUtils {
 					Parameter newParam = EcoreUtil.copy(parameter); // copy parameter via EcoreUtil
 					newParam.setType(copier.getCopy(parameter.getType()));
 					newOperation.getOwnedParameters().add(newParam);
-					StUtils.copyStereotypes(parameter, newParam); // copy stereotypes of the parameter
+					StUtil.copyStereotypes(parameter, newParam); // copy stereotypes of the parameter
 				}
 			}
 			TransformationContext.classifier = newOperation.getClass_();
@@ -120,31 +115,5 @@ public class BindingUtils {
 			String newInit = TextTemplateBinding.bind(init, actual);
 			cppConstInit.setInitialisation(newInit);
 		}
-	}
-
-	/**
-	 * @param actual
-	 *            the actual template parameter
-	 * @param boundClass
-	 *            the bound class
-	 * @param provides
-	 *            true, if the provided interface should be returned
-	 * @return the provided or required interface of a port (of the passed
-	 *         boundClass) that is typed with the the actual.
-	 */
-	public static Interface getInterfaceFromPortTypedWithActual(Type actual, Class boundClass, boolean provided) {
-		for (Port port : PortUtils.getAllPorts(boundClass)) {
-			Interface provOrReqIntf;
-			if (provided) {
-				provOrReqIntf = PortUtils.getProvided(port);
-			} else {
-				provOrReqIntf = PortUtils.getRequired(port);
-			}
-
-			if ((port.getType() == actual) && (provOrReqIntf != null)) {
-				return provOrReqIntf;
-			}
-		}
-		return null;
 	}
 }

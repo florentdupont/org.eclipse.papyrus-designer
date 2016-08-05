@@ -15,14 +15,14 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.m2m.qvt.oml.util.Utils;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
-import org.eclipse.papyrus.designer.components.FCM.util.ITemplateMappingRule;
+import org.eclipse.papyrus.designer.components.FCM.profile.ITemplateMappingRule;
 import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FixTemplateSync;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Class;
@@ -132,8 +132,8 @@ public class TemplatePort implements ITemplateMappingRule {
 				}
 
 				// create a bound element of the extended port. Add bound class to derived interface class
-			Class tst = ti.bindElement(extendedPort);
-			System.err.println("tst: "+ tst.getQualifiedName()); //$NON-NLS-1$
+				Class tst = ti.bindElement(extendedPort);
+				System.err.println("tst: "+ tst.getQualifiedName()); //$NON-NLS-1$
 			} catch (TransformationException e) {
 				Activator.log.error("Could not create template binding", e);
 			}

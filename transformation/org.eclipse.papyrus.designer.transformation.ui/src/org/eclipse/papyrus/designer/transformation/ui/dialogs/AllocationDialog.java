@@ -21,12 +21,12 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.emf.workspace.AbstractEMFOperation;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.papyrus.MARTE.MARTE_DesignModel.SRM.SW_Concurrency.SwSchedulableResource;
-import org.eclipse.papyrus.designer.transformation.core.CommandSupport;
-import org.eclipse.papyrus.designer.transformation.core.ElementFilter;
+import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.designer.transformation.core.commands.AddMarteAndFcmProfile;
-import org.eclipse.papyrus.designer.transformation.core.deployment.AllocUtils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.BootLoaderGen;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepUtils;
+import org.eclipse.papyrus.designer.transformation.core.transformations.BootLoaderGen;
 import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -55,6 +55,8 @@ import org.eclipse.uml2.uml.Package;
  */
 public class AllocationDialog extends SelectionStatusDialog {
 
+	protected Package m_cdp;
+
 	private Tree fTree;
 
 	private Label fLabel;
@@ -67,10 +69,11 @@ public class AllocationDialog extends SelectionStatusDialog {
 
 	public AllocationDialog(Shell parent, Package cdp) {
 		super(parent);
+		m_cdp = cdp;
 		nodeOrThreadList = new BasicEList<InstanceSpecification>();
 		nodeOrThreadList.add(null); // dummy entry for no allocation
 		DepUtils.getAllInstances(cdp.getModel(), nodeOrThreadList, new ElementFilter() {
-
+			
 			@Override
 			public boolean acceptElement(Element element) {
 				if (element instanceof InstanceSpecification) {
@@ -127,7 +130,9 @@ public class AllocationDialog extends SelectionStatusDialog {
 		implicitAlloc.setText("implicit allocation");
 		implicitAlloc.setWidth(150);
 
-		fillTree(fTree, null, m_cdp.getMainInstance());
+		for (InstanceSpecification is : DepUtils.getTopLevelInstances(m_cdp)) {
+			fillTree(fTree, null, is);
+		}
 
 		// Turn drawing back on!
 		fTree.setRedraw(true);

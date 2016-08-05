@@ -1,11 +1,9 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.papyrus.designer.transformation.core,
  org.eclipse.papyrus.designer.transformation.core.commands,
- org.eclipse.papyrus.designer.transformation.core.deployment,
  org.eclipse.papyrus.designer.transformation.core.extensions,
  org.eclipse.papyrus.designer.transformation.core.generate,
  org.eclipse.papyrus.designer.transformation.core.listeners,
- org.eclipse.papyrus.designer.transformation.core.preferences,
  org.eclipse.papyrus.designer.transformation.core.sync,
  org.eclipse.papyrus.designer.transformation.core.templates,
  org.eclipse.papyrus.designer.transformation.core.transformations,
@@ -34,7 +32,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.uml2.uml.profile.standard;bundle-version="1.0.100",
  org.eclipse.papyrus.infra.ui;bundle-version="1.2.0",
  org.eclipse.papyrus.designer.languages.common.profile;bundle-version="0.7.1",
- org.eclipse.papyrus.designer.transformation.profile;bundle-version="0.7.3"
+ org.eclipse.papyrus.designer.transformation.profile;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.deployment.profile;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.deployment.tools;bundle-version="0.7.3"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.3.qualifier

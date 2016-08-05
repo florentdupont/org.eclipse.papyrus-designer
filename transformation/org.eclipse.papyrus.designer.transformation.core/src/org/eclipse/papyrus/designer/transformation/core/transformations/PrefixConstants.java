@@ -15,19 +15,21 @@
 package org.eclipse.papyrus.designer.transformation.core.transformations;
 
 /**
- * A set of constants used for the CIF. In particular prefixes for the operations
- * to access the implementation of a provided interface and connect a required interface
- *
+ * A set of constants used for the CIF (a term from CORBA component model). In particular
+ * prefixes for the operations to access the implementation of a provided interface and
+ * connect a required interface
  */
 public class PrefixConstants {
 
-	public static String getP_Prefix = "get_"; //$NON-NLS-1$
+	public static String getP_Prefix;
 
-	public static String getConnQ_Prefix = ""; //$NON-NLS-1$
+	public static String getConnQ_Prefix;
 
-	public static String connectQ_Prefix = "connect_"; //$NON-NLS-1$
+	public static String connectQ_Prefix;
 
-	public static String attributePrefix = ""; //$NON-NLS-1$
+	public static String attributePrefix;
+
+	public static String createConnections;
 
 	enum CIFvariant {
 		UML, CCM
@@ -53,5 +55,6 @@ public class PrefixConstants {
 			connectQ_Prefix = "connect_"; //$NON-NLS-1$
 			attributePrefix = "m_"; //$NON-NLS-1$
 		}
+		createConnections = "createConnections"; //$NON-NLS-1$
 	}
 };

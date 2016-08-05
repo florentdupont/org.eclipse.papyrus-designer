@@ -5,34 +5,6 @@
          point="org.eclipse.ui.commands">
       <command
             categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.CreateDepPlanHandler"
-            description="Create deployment plan"
-            id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.CreateDepPlanCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.CreatePlatformHandler"
-            description="Create platform definition"
-            id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.CreatePlatformCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.InstantiateDepPlanHandler"
-            description="Generate deployment models and code from plan"
-            id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.InstantiateDepPlanCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.SyncHandler"
-            description="Synchronize derived elements"
-            id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.SyncCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
             defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.SelectConnectorHandler"
             description="Choose connector type and implementation"
             id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.SelectionConnectorCmd"
@@ -43,13 +15,6 @@
             defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.SelectContainerHandler"
             description="Choose container properties"
             id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.SelectionContainerCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.ConfigureInstanceHandler"
-            description="Configure instance"
-            id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.ConfigureInstanceCmd"
             name="dummy">
       </command>
       <command
@@ -66,75 +31,12 @@
             id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.AddProfileAndModelLibsCmd"
             name="dummy">
       </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.AllocateHandler"
-            description="Allocate to node"
-            id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.AllocateCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.TrafoAndCodegenHandler"
-            description="dummy"
-            id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.TrafoAndCodegenCmd"
-            name="dummy">
-      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
 	<menuContribution
 		allPopups="false"
 		locationURI="popup:org.eclipse.papyrus.designer.popup?after=designer">
-		<command
-               commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.CreateDepPlanCmd"
-               icon="icons/depPlan.gif"   
-               
-               id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.CreateDepPlanMenu"
-               label="Create deployment plan"
-               mnemonic="d"
-               mode="FORCE_TEXT"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
-               commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.CreatePlatformCmd"
-               icon="icons/depPlan.gif"
-               id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.CreatePlatformMenu"
-               label="Create platform definition"
-               mnemonic="d"
-               mode="FORCE_TEXT"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
-               commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.SyncCmd"
-               icon="icons/sync.gif"
-               id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.SyncMenu"
-               label="Synchronize derived elements"
-               mnemonic="s"
-               mode="FORCE_TEXT"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
-               commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.InstantiateDepPlanCmd"
-               icon="icons/deploy.gif"
-               id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.CreateDepPlanMenu"
-               label="Generate deployment models and code from plan"
-               mnemonic="g"
-               mode="FORCE_TEXT"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
           <command
                commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.SelectionConnectorCmd"
                icon="icons/selConnector.gif"
@@ -159,17 +61,6 @@
             </visibleWhen>
          </command>
          <command
-               commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.ConfigureInstanceCmd"
-               icon="icons/selContainer.gif"
-               id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.ConfigureInstanceMenu"
-               label="Configure instance properties"
-               mode="FORCE_TEXT"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
                commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.ConfigurePortsCmd"
                icon="icons/selContainer.gif"
                id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.ConfigurePortsMenu"
@@ -185,27 +76,6 @@
                id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.AddProfileAndModelLibsMenu"
                label="Add profiles and model libraries"
                mnemonic="P"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
-               commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.AllocateCmd"
-               icon="icons/allocation.gif"
-               id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.AllocateMenu"
-               label="Allocate to node"
-               mnemonic="A"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
-               commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.TrafoAndCodegenCmd"
-               icon="icons/deploy.gif"
-               id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.TrafoAndCodegenCmd"
-               label="Execute transformation and generate code (w/o deployment)"
                style="push">
             <visibleWhen
                   checkEnabled="true">

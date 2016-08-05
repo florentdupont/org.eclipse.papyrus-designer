@@ -16,20 +16,17 @@ package org.eclipse.papyrus.designer.transformation.core.sync;
 
 import java.util.Iterator;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.components.FCM.DeploymentPlan;
-import org.eclipse.papyrus.designer.components.FCM.DerivedElement;
-import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
-import org.eclipse.papyrus.designer.transformation.core.ElementFilter;
-import org.eclipse.papyrus.designer.transformation.core.Log;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepCreation;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepPlanUtils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepUtils;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationRTException;
+import org.eclipse.papyrus.designer.deployment.tools.Activator;
+import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
+import org.eclipse.papyrus.designer.deployment.tools.DepPlanUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Connector;
 import org.eclipse.uml2.uml.Element;
@@ -76,16 +73,9 @@ public class DepPlanSync {
 	 */
 	public static void syncDepPlan(Package depPlan) {
 		removeUnusedSlots(depPlan);
-		// EList<InstanceSpecification> list = new BasicEList<InstanceSpecification>();
-		DeploymentPlan cdp = UMLUtil.getStereotypeApplication(depPlan, DeploymentPlan.class);
-		if (cdp == null) {
-			return;
+		for (InstanceSpecification is : DepUtils.getTopLevelInstances(depPlan)) {
+			addCDP(depPlan, is, is.getName());
 		}
-		InstanceSpecification mainInstance = cdp.getMainInstance();
-		addCDP(depPlan, mainInstance, mainInstance.getName());
-		// now add elements that are not in the plan - although they should
-		// avoid to replicate code already in dep-creation. => createDepPlan(top)
-		// strategy: create new dep-plan and compare?
 	}
 
 	private static void addCDP(Package depPlan, InstanceSpecification instance, String canonicalName)
@@ -101,7 +91,7 @@ public class DepPlanSync {
 				addCDP(depPlan, subInstance, canonicalName + "." + slot.getDefiningFeature().getName()); //$NON-NLS-1$
 			}
 		}
-		for (Property attribute : Utils.getParts(implementation)) {
+		for (Property attribute : ElementUtil.getParts(implementation)) {
 			Type type = attribute.getType();
 			if (type instanceof Class) {
 				if (!hasSlot(instance, attribute)) {
@@ -110,42 +100,13 @@ public class DepPlanSync {
 								DepCreation.createDepPlan(depPlan, (Class) type, instance.getName() + "." + attribute.getName(), true); //$NON-NLS-1$
 						DepPlanUtils.createSlot(depPlan, instance, partIS, attribute);
 					} catch (TransformationException e) {
-						Log.log(IStatus.ERROR, Log.DEPLOYMENT, e.getMessage());
+						Activator.log.error(e);
 						throw new TransformationRTException(e.getMessage());
 					}
 				}
 			}
 		}
-		// connectors with associated interaction components might have configuration
-		// attributes. The problem is that there is no associated slot that could be used to identify these
-		for (Connector connector : implementation.getOwnedConnectors()) {
-			org.eclipse.papyrus.designer.components.FCM.Connector fcmConn = UMLUtil.getStereotypeApplication(connector, org.eclipse.papyrus.designer.components.FCM.Connector.class);
-			if (fcmConn != null) {
-				InstanceSpecification existingIC = findISforConn(depPlan, connector);
-				if (existingIC != null) {
-					// already exist, modify name
-					addCDP(depPlan, existingIC, canonicalName + "." + connector.getName()); //$NON-NLS-1$
-				} else {
-					String partName = canonicalName + "." + connector.getName(); //$NON-NLS-1$
-					InteractionComponent connectorComp = fcmConn.getIc();
-					if (connectorComp != null) {
-						Class cl = fcmConn.getIc().getBase_Class();
-						if (cl == null) {
-							// throw new TransformationException(Messages.DepCreation_FCMconnectorWithoutBaseClass);
-						}
-						// create sub-instance for connector. It is not possible to
-						// create a slot in the owning instance specification,
-						// since the connector cannot be referenced as a defining-feature
-						try {
-							DepCreation.createDepPlan(depPlan, cl, partName, true);
-						} catch (TransformationException e) {
-							Log.log(IStatus.ERROR, Log.DEPLOYMENT, e.getMessage());
-							throw new TransformationRTException(e.getMessage());
-						}
-					}
-				}
-			}
-		}
+		// TODO: handle interaction components (extension point?)
 	}
 
 	/**

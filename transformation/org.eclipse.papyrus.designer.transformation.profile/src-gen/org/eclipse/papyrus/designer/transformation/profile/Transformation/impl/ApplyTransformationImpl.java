@@ -2,14 +2,17 @@
  */
 package org.eclipse.papyrus.designer.transformation.profile.Transformation.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage;
@@ -40,14 +43,14 @@ public class ApplyTransformationImpl extends MinimalEObjectImpl.Container implem
 	protected org.eclipse.uml2.uml.Class base_Class;
 
 	/**
-	 * The cached value of the '{@link #getTrafo() <em>Trafo</em>}' reference.
+	 * The cached value of the '{@link #getTrafo() <em>Trafo</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTrafo()
 	 * @generated
 	 * @ordered
 	 */
-	protected M2MTrafo trafo;
+	protected EList<M2MTrafo> trafo;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,37 +114,11 @@ public class ApplyTransformationImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public M2MTrafo getTrafo() {
-		if (trafo != null && trafo.eIsProxy()) {
-			InternalEObject oldTrafo = (InternalEObject)trafo;
-			trafo = (M2MTrafo)eResolveProxy(oldTrafo);
-			if (trafo != oldTrafo) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TransformationPackage.APPLY_TRANSFORMATION__TRAFO, oldTrafo, trafo));
-			}
+	public EList<M2MTrafo> getTrafo() {
+		if (trafo == null) {
+			trafo = new EObjectResolvingEList<M2MTrafo>(M2MTrafo.class, this, TransformationPackage.APPLY_TRANSFORMATION__TRAFO);
 		}
 		return trafo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public M2MTrafo basicGetTrafo() {
-		return trafo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTrafo(M2MTrafo newTrafo) {
-		M2MTrafo oldTrafo = trafo;
-		trafo = newTrafo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransformationPackage.APPLY_TRANSFORMATION__TRAFO, oldTrafo, trafo));
 	}
 
 	/**
@@ -156,8 +133,7 @@ public class ApplyTransformationImpl extends MinimalEObjectImpl.Container implem
 				if (resolve) return getBase_Class();
 				return basicGetBase_Class();
 			case TransformationPackage.APPLY_TRANSFORMATION__TRAFO:
-				if (resolve) return getTrafo();
-				return basicGetTrafo();
+				return getTrafo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,6 +143,7 @@ public class ApplyTransformationImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -174,7 +151,8 @@ public class ApplyTransformationImpl extends MinimalEObjectImpl.Container implem
 				setBase_Class((org.eclipse.uml2.uml.Class)newValue);
 				return;
 			case TransformationPackage.APPLY_TRANSFORMATION__TRAFO:
-				setTrafo((M2MTrafo)newValue);
+				getTrafo().clear();
+				getTrafo().addAll((Collection<? extends M2MTrafo>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,7 +170,7 @@ public class ApplyTransformationImpl extends MinimalEObjectImpl.Container implem
 				setBase_Class((org.eclipse.uml2.uml.Class)null);
 				return;
 			case TransformationPackage.APPLY_TRANSFORMATION__TRAFO:
-				setTrafo((M2MTrafo)null);
+				getTrafo().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -209,7 +187,7 @@ public class ApplyTransformationImpl extends MinimalEObjectImpl.Container implem
 			case TransformationPackage.APPLY_TRANSFORMATION__BASE_CLASS:
 				return base_Class != null;
 			case TransformationPackage.APPLY_TRANSFORMATION__TRAFO:
-				return trafo != null;
+				return trafo != null && !trafo.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

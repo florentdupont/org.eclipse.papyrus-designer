@@ -14,12 +14,11 @@
 
 package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.Port;
-import org.eclipse.papyrus.designer.components.FCM.util.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.util.MapUtil;
-import org.eclipse.papyrus.designer.transformation.core.Log;
+import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
+import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Operation;
@@ -75,7 +74,7 @@ public class PushConsumer implements IMappingRule {
 
 	@Override
 	public Type calcDerivedType(Port p, boolean update) {
-		Log.log(IStatus.INFO, Log.CALC_PORTKIND,
+		Activator.log.info(
 				p.getKind().getBase_Class().getName() + " => GetProvided on " + p.getBase_Port().getName());
 		Type type = p.getType();
 

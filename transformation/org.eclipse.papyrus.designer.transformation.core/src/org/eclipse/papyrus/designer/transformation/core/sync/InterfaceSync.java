@@ -16,8 +16,8 @@ package org.eclipse.papyrus.designer.transformation.core.sync;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.transformation.core.OperationUtils;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
+import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -72,8 +72,8 @@ public class InterfaceSync {
 				}
 				if (existingOperation == null) {
 					intf.getOwnedOperations().add(newOperation);
-				} else if (!OperationUtils.isSameOperation(existingOperation, newOperation)) {
-					OperationUtils.syncOperation(newOperation, existingOperation);
+				} else if (!OperationUtil.isSameOperation(existingOperation, newOperation)) {
+					OperationUtil.syncOperation(newOperation, existingOperation);
 				}
 				DerivedElement de = StereotypeUtil.applyApp(newOperation, DerivedElement.class);
 				if (de != null) {
@@ -104,7 +104,7 @@ public class InterfaceSync {
 
 	public static void syncGenericSignalReceptionSupport(Interface intf) {
 
-		NamedElement genericReceptionNE = Utils.getQualifiedElement(PackageUtil.getRootPackage(intf), SIGNAL_RECEPTION_QN);
+		NamedElement genericReceptionNE = ElementUtil.getQualifiedElement(PackageUtil.getRootPackage(intf), SIGNAL_RECEPTION_QN);
 		if (genericReceptionNE instanceof Interface) {
 			Interface genericReceptionIntf = (Interface) genericReceptionNE;
 			if (intf.getOwnedReceptions().size() > 0) {

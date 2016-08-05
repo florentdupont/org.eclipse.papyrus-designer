@@ -15,11 +15,10 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
-import org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.UseInstanceConfigurator;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepUtils;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Property;
@@ -54,24 +53,6 @@ public class InstanceConfigurator {
 	}
 
 	/**
-	 * Configure an instance. The configurator is selected by means of a stereotype on the passed container rule.
-	 *
-	 * @see org.eclipse.papyrus.designer.transformation.core.extensions.IInstanceConfigurator
-	 * @param rule
-	 *            the applied container rule
-	 * @param instance
-	 *            the specification of instance that should be configured
-	 * @param componentPart
-	 *            the part representing the instance (before container expansion)
-	 * @param port
-	 *            a port within the context of container
-	 */
-	public static void configureInstance(ContainerRule rule, InstanceSpecification instance, Property componentPart, InstanceSpecification parentInstance) {
-		UseInstanceConfigurator useInstanceConfigurator = UMLUtil.getStereotypeApplication(rule.getBase_Class(), UseInstanceConfigurator.class);
-		configureInstance(useInstanceConfigurator, instance, componentPart, parentInstance);
-	}
-
-	/**
 	 * Configure an instance with a given configurator
 	 *
 	 * @param useInstanceConfigurator
@@ -81,7 +62,8 @@ public class InstanceConfigurator {
 	 */
 	public static void configureInstance(UseInstanceConfigurator useInstanceConfigurator, InstanceSpecification instance, Property componentPart, InstanceSpecification parentInstance) {
 		if (useInstanceConfigurator != null) {
-			org.eclipse.papyrus.designer.components.FCM.InstanceConfigurator instanceConfigurator = useInstanceConfigurator.getConfigurator();
+			org.eclipse.papyrus.designer.deployment.profile.Deployment.InstanceConfigurator instanceConfigurator =
+					useInstanceConfigurator.getConfigurator();
 			if (instanceConfigurator.isOnNodeModel() == onNodeModel) {
 				if (instanceConfigurator != null) {
 					String id = instanceConfigurator.getBase_Class().getName();

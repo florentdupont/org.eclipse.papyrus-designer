@@ -20,7 +20,7 @@ import java.util.Collections;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.InterceptionRule;
-import org.eclipse.papyrus.designer.components.transformation.core.Utils;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
 import org.eclipse.papyrus.uml.profile.ui.dialogs.AlphabeticalViewerSorter;
 import org.eclipse.papyrus.uml.profile.ui.dialogs.ChooseSetAssistedDialog;
 import org.eclipse.papyrus.uml.profile.ui.dialogs.IChooseDialog;
@@ -74,7 +74,7 @@ public class ChoosePorts extends ChooseSetAssistedDialog implements IChooseDialo
 					possibleElementList.addElement(current);
 				}
 			}
-			for (Feature current : Utils.getAllElementsOfType(component, Feature.class)) {
+			for (Feature current : ElementUtil.getAllElementsOfType(component, Feature.class)) {
 				if (!selectedElementList.contains(current)) {
 					possibleElementList.addElement(current);
 				}
@@ -83,7 +83,7 @@ public class ChoosePorts extends ChooseSetAssistedDialog implements IChooseDialo
 			// global rule with intercept some policy
 			// choose all ports vs. ports of "standard components"
 			Package top = PackageUtil.getRootPackage(rule.getBase_Property());
-			for (Feature current : Utils.getAllElementsOfType(top, Feature.class)) {
+			for (Feature current : ElementUtil.getAllElementsOfType(top, Feature.class)) {
 				if (!selectedElementList.contains(current)) {
 					possibleElementList.addElement(current);
 				}

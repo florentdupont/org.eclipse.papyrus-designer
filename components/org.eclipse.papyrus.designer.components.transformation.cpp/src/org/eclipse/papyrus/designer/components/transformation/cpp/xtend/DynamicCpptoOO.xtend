@@ -13,17 +13,11 @@
  *****************************************************************************/
 package org.eclipse.papyrus.designer.components.transformation.cpp.xtend
 
-import org.eclipse.papyrus.designer.components.transformation.core.extensions.IOOTrafo
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
+import org.eclipse.papyrus.designer.components.transformation.extensions.IOOTrafo
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
 import org.eclipse.uml2.uml.Class
 import org.eclipse.uml2.uml.Property
 import org.eclipse.uml2.uml.Port
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException
-import org.eclipse.papyrus.designer.components.transformation.core.PortInfo
-import org.eclipse.papyrus.designer.components.transformation.core.PortUtils
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.PrefixConstants
-import org.eclipse.papyrus.designer.components.transformation.core.Utils
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.CompTypeTrafos
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.AggregationKind
 import org.eclipse.uml2.uml.UMLPackage
@@ -40,6 +34,9 @@ import org.eclipse.papyrus.designer.components.transformation.cpp.Messages
 import org.eclipse.papyrus.designer.components.transformation.cpp.Constants
 import static extension org.eclipse.papyrus.designer.components.transformation.cpp.xtend.CppUtils.nameRef;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil
+import org.eclipse.papyrus.designer.components.transformation.PortUtils
+import org.eclipse.papyrus.designer.transformation.core.transformations.PrefixConstants
+import org.eclipse.papyrus.designer.components.transformation.PortInfo
 
 /**
  * This class realizes the dynamic variant of the OO-transformation 

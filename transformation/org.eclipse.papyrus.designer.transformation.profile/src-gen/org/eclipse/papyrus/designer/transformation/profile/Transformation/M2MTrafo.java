@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getTrafoKind <em>Trafo Kind</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getKind <em>Kind</em>}</li>
  * </ul>
  *
  * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage#getM2MTrafo()
@@ -49,29 +49,29 @@ public interface M2MTrafo extends EObject {
 	void setBase_Class(org.eclipse.uml2.uml.Class value);
 
 	/**
-	 * Returns the value of the '<em><b>Trafo Kind</b></em>' reference.
+	 * Returns the value of the '<em><b>Kind</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Trafo Kind</em>' reference isn't clear,
+	 * If the meaning of the '<em>Kind</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trafo Kind</em>' reference.
-	 * @see #setTrafoKind(M2MTrafoKind)
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage#getM2MTrafo_TrafoKind()
-	 * @model required="true" ordered="false"
+	 * @return the value of the '<em>Kind</em>' reference.
+	 * @see #setKind(M2MTrafoKind)
+	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage#getM2MTrafo_Kind()
+	 * @model ordered="false"
 	 * @generated
 	 */
-	M2MTrafoKind getTrafoKind();
+	M2MTrafoKind getKind();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getTrafoKind <em>Trafo Kind</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getKind <em>Kind</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trafo Kind</em>' reference.
-	 * @see #getTrafoKind()
+	 * @param value the new value of the '<em>Kind</em>' reference.
+	 * @see #getKind()
 	 * @generated
 	 */
-	void setTrafoKind(M2MTrafoKind value);
+	void setKind(M2MTrafoKind value);
 
 } // M2MTrafo

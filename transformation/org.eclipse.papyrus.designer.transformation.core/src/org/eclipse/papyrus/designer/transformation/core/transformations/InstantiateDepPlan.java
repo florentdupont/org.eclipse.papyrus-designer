@@ -21,42 +21,39 @@ import java.util.Map;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.papyrus.designer.components.FCM.DeploymentPlan;
-import org.eclipse.papyrus.designer.components.FCM.OperatingSystem;
-import org.eclipse.papyrus.designer.components.FCM.Target;
-import org.eclipse.papyrus.designer.components.FCM.util.MapUtil;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.OperatingSystem;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
+import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DeployConstants;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
-import org.eclipse.papyrus.designer.transformation.core.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
+import org.eclipse.papyrus.designer.transformation.base.utils.ProjectManagement;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.EnumService;
-import org.eclipse.papyrus.designer.transformation.core.Log;
+import org.eclipse.papyrus.designer.transformation.core.GatherConfigData;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
-import org.eclipse.papyrus.designer.transformation.core.ModelManagement;
-import org.eclipse.papyrus.designer.transformation.core.ProjectManagement;
-import org.eclipse.papyrus.designer.transformation.core.StUtils;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.AllocUtils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepCreation;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepUtils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.Deploy;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DeployConstants;
-import org.eclipse.papyrus.designer.transformation.core.deployment.GatherConfigData;
-import org.eclipse.papyrus.designer.transformation.core.extensions.AbstractContainerTrafo;
 import org.eclipse.papyrus.designer.transformation.core.extensions.InstanceConfigurator;
 import org.eclipse.papyrus.designer.transformation.core.generate.GenerateCode;
 import org.eclipse.papyrus.designer.transformation.core.generate.GenerationOptions;
+import org.eclipse.papyrus.designer.transformation.core.transformations.deployment.Deploy;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterStateMachines;
-import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterTemplate;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterTemplateBinding;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -175,7 +172,7 @@ public class InstantiateDepPlan {
 		// create a lazy copier towards the intermediate model
 		LazyCopier intermediateModelCopier = new LazyCopier(existingModel, intermediateModel, false, true);
 		// add pre-copy and post-copy listeners to the copier
-		intermediateModelCopier.preCopyListeners.add(FilterTemplate.getInstance());
+		// intermediateModelCopier.preCopyListeners.add(FilterTemplate.getInstance());
 
 		// 1b: reify the connectors "into" the new model
 		monitor.subTask(Messages.InstantiateDepPlan_InfoExpandingConnectors);
@@ -184,9 +181,7 @@ public class InstantiateDepPlan {
 		Package intermediateModelComponentDeploymentPlan = (Package) intermediateModelCopier.shallowCopy(srcModelComponentDeploymentPlan);
 		intermediateModelCopier.createShallowContainer(srcModelComponentDeploymentPlan);
 
-		AbstractContainerTrafo.init();
 		InstanceConfigurator.onNodeModel = false;
-		MainModelTrafo mainModelTrafo = new MainModelTrafo(intermediateModelCopier, intermediateModelComponentDeploymentPlan);
 
 		Map<InstanceSpecification, InstanceSpecification> instanceMap = new HashMap<InstanceSpecification, InstanceSpecification>();
 		for (PackageableElement pe : srcModelComponentDeploymentPlan.getPackagedElements()) {
@@ -196,8 +191,9 @@ public class InstantiateDepPlan {
 				// is added, since interaction components might have configuration parameters that appear in the
 				// deployment plan. Since the container transformation is not executed at this moment, the interaction is
 				// not represented by a part yet.
-				if (DepUtils.isTopLevelInstance(instance) && !Utils.isInteractionComponent(DepUtils.getClassifier(instance))) {
-					InstanceSpecification newInstance = mainModelTrafo.transformInstance(instance, null);
+				if (DepUtils.isTopLevelInstance(instance)) {
+					//InstanceSpecification newInstance = mainModelTrafo.transformInstance(instance, null);
+					InstanceSpecification newInstance = intermediateModelCopier.getCopy(instance);
 
 					// --------------------------------------------------------------------
 					checkProgressStatus();
@@ -211,7 +207,8 @@ public class InstantiateDepPlan {
 				}
 			}
 		}
-
+		new ExecuteTransformation(intermediateModelCopier).executeTransformation(intermediateModel);
+		
 		if (!generateCACOnly) {
 			deployOnNodes(instanceMap, existingModel, intermediateModel);
 		}
@@ -245,7 +242,7 @@ public class InstantiateDepPlan {
 
 	private void deployNode(Map<InstanceSpecification, InstanceSpecification> instanceMap, Model existingModel, Model tmpModel, EList<InstanceSpecification> nodes, int nodeIndex, InstanceSpecification node)
 			throws TransformationException, InterruptedException {
-		ModelManagement genModelManagement = createTargetModel(existingModel, MapUtil.rootModelName, false);
+		ModelManagement genModelManagement = createTargetModel(existingModel, "root", false);
 		Model generatedModel = genModelManagement.getModel();
 
 		// --------------------------------------------------------------------
@@ -292,8 +289,6 @@ public class InstantiateDepPlan {
 		// --------------------------------------------------------------------
 
 		removeDerivedInterfacesInRoot(generatedModel);
-
-		ExecuteOOTrafo.transform(targetCopier, deployment.getBootloader(), generatedModel);
 
 		// --------------------------------------------------------------------
 		checkProgressStatus();
@@ -392,11 +387,7 @@ public class InstantiateDepPlan {
 	 */
 	public String getProjectName(Model model, InstanceSpecification node) {
 		String projectName = model.getName() + "_" + node.getName(); //$NON-NLS-1$
-		if (configuration != null) {
-			projectName += "_" + configuration.getBase_Class().getName(); //$NON-NLS-1$
-		} else {
-			projectName += "_" + srcModelComponentDeploymentPlan.getName(); //$NON-NLS-1$
-		}
+		projectName += "_" + srcModelComponentDeploymentPlan.getName(); //$NON-NLS-1$
 		DeploymentPlan depPlan = UMLUtil.getStereotypeApplication(srcModelComponentDeploymentPlan, DeploymentPlan.class);
 		if (depPlan != null) {
 			for (String mapping : depPlan.getProjectMappings()) {
@@ -470,7 +461,7 @@ public class InstantiateDepPlan {
 	private void printAndDisplayErrorMessage(Exception e, final String title, final String message, final boolean consultConsole) {
 		e.printStackTrace();
 		displayError(title, message);
-		Log.log(IStatus.ERROR, Log.DEPLOYMENT, "", e); //$NON-NLS-1$
+		Activator.log.error(e);
 	}
 
 	private void displayError(final String title, final String message) {
@@ -521,7 +512,7 @@ public class InstantiateDepPlan {
 				} catch (WrappedException e) {
 					// read 2nd time (some diagnostic errors are raised only
 					// once)
-					Log.log(IStatus.WARNING, Log.DEPLOYMENT, "Warning: exception in profile.eResource() " + e.getMessage()); //$NON-NLS-1$
+					Activator.log.warn("Warning: exception in profile.eResource() " + e.getMessage()); //$NON-NLS-1$
 					profileResource = ModelManagement.getResourceSet().getResource(profile.eResource().getURI(), true);
 				}
 				if (profileResource.getContents().size() == 0) {
@@ -538,7 +529,7 @@ public class InstantiateDepPlan {
 					// would find (and copier profile
 					// applications in sub-folders
 					qname = qname.substring(qname.indexOf("::") + 2); //$NON-NLS-1$
-					newProfile = (Profile) Utils.getQualifiedElement(newProfileTop, qname);
+					newProfile = (Profile) ElementUtil.getQualifiedElement(newProfileTop, qname);
 				} else {
 					newProfile = newProfileTop;
 				}
@@ -582,11 +573,9 @@ public class InstantiateDepPlan {
 				} catch (IOException e) {
 					throw new TransformationException(e.getMessage());
 				}
-
 			}
 		}
-
-		StUtils.copyStereotypes(existingModel, newModel);
+		StUtil.copyStereotypes(existingModel, newModel);
 
 		return mm;
 	}

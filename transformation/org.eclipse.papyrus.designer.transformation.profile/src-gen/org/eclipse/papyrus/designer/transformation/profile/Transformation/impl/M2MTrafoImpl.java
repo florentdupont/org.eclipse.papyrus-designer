@@ -23,7 +23,7 @@ import org.eclipse.papyrus.designer.transformation.profile.Transformation.Transf
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.M2MTrafoImpl#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.M2MTrafoImpl#getTrafoKind <em>Trafo Kind</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.M2MTrafoImpl#getKind <em>Kind</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,14 +40,14 @@ public class M2MTrafoImpl extends MinimalEObjectImpl.Container implements M2MTra
 	protected org.eclipse.uml2.uml.Class base_Class;
 
 	/**
-	 * The cached value of the '{@link #getTrafoKind() <em>Trafo Kind</em>}' reference.
+	 * The cached value of the '{@link #getKind() <em>Kind</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTrafoKind()
+	 * @see #getKind()
 	 * @generated
 	 * @ordered
 	 */
-	protected M2MTrafoKind trafoKind;
+	protected M2MTrafoKind kind;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,16 +111,16 @@ public class M2MTrafoImpl extends MinimalEObjectImpl.Container implements M2MTra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public M2MTrafoKind getTrafoKind() {
-		if (trafoKind != null && trafoKind.eIsProxy()) {
-			InternalEObject oldTrafoKind = (InternalEObject)trafoKind;
-			trafoKind = (M2MTrafoKind)eResolveProxy(oldTrafoKind);
-			if (trafoKind != oldTrafoKind) {
+	public M2MTrafoKind getKind() {
+		if (kind != null && kind.eIsProxy()) {
+			InternalEObject oldKind = (InternalEObject)kind;
+			kind = (M2MTrafoKind)eResolveProxy(oldKind);
+			if (kind != oldKind) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TransformationPackage.M2M_TRAFO__TRAFO_KIND, oldTrafoKind, trafoKind));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TransformationPackage.M2M_TRAFO__KIND, oldKind, kind));
 			}
 		}
-		return trafoKind;
+		return kind;
 	}
 
 	/**
@@ -128,8 +128,8 @@ public class M2MTrafoImpl extends MinimalEObjectImpl.Container implements M2MTra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public M2MTrafoKind basicGetTrafoKind() {
-		return trafoKind;
+	public M2MTrafoKind basicGetKind() {
+		return kind;
 	}
 
 	/**
@@ -137,11 +137,11 @@ public class M2MTrafoImpl extends MinimalEObjectImpl.Container implements M2MTra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTrafoKind(M2MTrafoKind newTrafoKind) {
-		M2MTrafoKind oldTrafoKind = trafoKind;
-		trafoKind = newTrafoKind;
+	public void setKind(M2MTrafoKind newKind) {
+		M2MTrafoKind oldKind = kind;
+		kind = newKind;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TransformationPackage.M2M_TRAFO__TRAFO_KIND, oldTrafoKind, trafoKind));
+			eNotify(new ENotificationImpl(this, Notification.SET, TransformationPackage.M2M_TRAFO__KIND, oldKind, kind));
 	}
 
 	/**
@@ -155,9 +155,9 @@ public class M2MTrafoImpl extends MinimalEObjectImpl.Container implements M2MTra
 			case TransformationPackage.M2M_TRAFO__BASE_CLASS:
 				if (resolve) return getBase_Class();
 				return basicGetBase_Class();
-			case TransformationPackage.M2M_TRAFO__TRAFO_KIND:
-				if (resolve) return getTrafoKind();
-				return basicGetTrafoKind();
+			case TransformationPackage.M2M_TRAFO__KIND:
+				if (resolve) return getKind();
+				return basicGetKind();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,8 +173,8 @@ public class M2MTrafoImpl extends MinimalEObjectImpl.Container implements M2MTra
 			case TransformationPackage.M2M_TRAFO__BASE_CLASS:
 				setBase_Class((org.eclipse.uml2.uml.Class)newValue);
 				return;
-			case TransformationPackage.M2M_TRAFO__TRAFO_KIND:
-				setTrafoKind((M2MTrafoKind)newValue);
+			case TransformationPackage.M2M_TRAFO__KIND:
+				setKind((M2MTrafoKind)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,8 +191,8 @@ public class M2MTrafoImpl extends MinimalEObjectImpl.Container implements M2MTra
 			case TransformationPackage.M2M_TRAFO__BASE_CLASS:
 				setBase_Class((org.eclipse.uml2.uml.Class)null);
 				return;
-			case TransformationPackage.M2M_TRAFO__TRAFO_KIND:
-				setTrafoKind((M2MTrafoKind)null);
+			case TransformationPackage.M2M_TRAFO__KIND:
+				setKind((M2MTrafoKind)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -208,8 +208,8 @@ public class M2MTrafoImpl extends MinimalEObjectImpl.Container implements M2MTra
 		switch (featureID) {
 			case TransformationPackage.M2M_TRAFO__BASE_CLASS:
 				return base_Class != null;
-			case TransformationPackage.M2M_TRAFO__TRAFO_KIND:
-				return trafoKind != null;
+			case TransformationPackage.M2M_TRAFO__KIND:
+				return kind != null;
 		}
 		return super.eIsSet(featureID);
 	}

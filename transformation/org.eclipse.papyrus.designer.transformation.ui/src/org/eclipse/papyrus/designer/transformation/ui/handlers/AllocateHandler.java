@@ -14,9 +14,9 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.papyrus.designer.transformation.core.CommandSupport;
-import org.eclipse.papyrus.designer.transformation.core.RunnableWithResult;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.RunnableWithResult;
 import org.eclipse.papyrus.designer.transformation.ui.dialogs.AllocationDialog;
 import org.eclipse.papyrus.uml.diagram.common.handlers.CmdHandler;
 import org.eclipse.swt.widgets.Display;
@@ -54,7 +54,7 @@ public class AllocateHandler extends CmdHandler {
 		final Shell shell = Display.getDefault().getActiveShell();
 
 		// org.eclipse.papyrus.designer.components.vsl.ParseVSL.test();
-		if (DepUtils.getMainInstance(cdp) == null) {
+		if (DepUtils.getTopLevelInstances(cdp).isEmpty()) {
 			MessageDialog.openInformation(shell, "Error",
 					"Deployment plan has no main instance (check stereotype attribute mainInstance)");
 			return null;
@@ -67,7 +67,7 @@ public class AllocateHandler extends CmdHandler {
 		// container dialog: either extension, rule or interceptor
 		// howto select? which? (and howto add/remove?) - Std - dialog is good?
 		CommandSupport.exec("Instance allocation", event, new RunnableWithResult() {
-
+			
 			@Override
 			public CommandResult run() {
 				AllocationDialog allocDialog =

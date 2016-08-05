@@ -16,7 +16,6 @@ package org.eclipse.papyrus.designer.components.transformation.ui.dialogs;
 
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.papyrus.designer.components.transformation.core.Description;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Class;
 

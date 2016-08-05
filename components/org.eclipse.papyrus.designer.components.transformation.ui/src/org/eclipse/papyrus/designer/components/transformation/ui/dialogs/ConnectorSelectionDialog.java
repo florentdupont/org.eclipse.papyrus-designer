@@ -22,13 +22,11 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.jface.dialogs.IDialogConstants;
-import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
-import org.eclipse.papyrus.designer.components.transformation.core.Description;
-import org.eclipse.papyrus.designer.components.transformation.core.Log;
-import org.eclipse.papyrus.designer.components.transformation.core.Utils;
 import org.eclipse.papyrus.designer.components.transformation.core.templates.ConnectorBinding;
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
+import org.eclipse.papyrus.uml.tools.utils.ElementUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -155,7 +153,7 @@ public class ConnectorSelectionDialog extends AbstractElementListSelectionDialog
 			Class componentCompBase = componentComp.getBase_Class();
 			if (!componentCompBase.isAbstract()) {
 				// get first superclass that is a component type
-				Class componentTypeBase = Utils.componentType(componentCompBase);
+				Class componentTypeBase = ElementUtil.componentType(componentCompBase);
 				componentComp = UMLUtil.getStereotypeApplication(componentTypeBase, InteractionComponent.class);
 			} else {
 				// fLower.setEnabled (false);

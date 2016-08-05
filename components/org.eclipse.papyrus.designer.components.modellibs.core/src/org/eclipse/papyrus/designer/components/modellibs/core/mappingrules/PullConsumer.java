@@ -14,13 +14,12 @@
 
 package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.Port;
-import org.eclipse.papyrus.designer.components.FCM.util.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.util.MapUtil;
-import org.eclipse.papyrus.designer.transformation.core.Log;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
+import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
+import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.DataType;
@@ -97,7 +96,7 @@ public class PullConsumer implements IMappingRule {
 		if (owner instanceof NamedElement) {
 			ownerStr = " of class " + ((NamedElement) owner).getQualifiedName(); //$NON-NLS-1$
 		}
-		Log.log(IStatus.INFO, Log.CALC_PORTKIND,
+		Activator.log.info(
 				p.getKind().getBase_Class().getName() + " => GetRequired on " + umlPort.getName() + ownerStr);
 		Type type = p.getType();
 
@@ -128,7 +127,7 @@ public class PullConsumer implements IMappingRule {
 				}
 			}
 			Package model = PackageUtil.getRootPackage(umlPort);
-			Element element = Utils.getQualifiedElement(model, BOOL_QNAME);
+			Element element = ElementUtil.getQualifiedElement(model, BOOL_QNAME);
 			Type booleanType = null;
 			if (element instanceof Type) {
 				booleanType = (Type) element;

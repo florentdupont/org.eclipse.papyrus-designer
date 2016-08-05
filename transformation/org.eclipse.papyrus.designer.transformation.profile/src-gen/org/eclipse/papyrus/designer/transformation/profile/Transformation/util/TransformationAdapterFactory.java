@@ -84,22 +84,6 @@ public class TransformationAdapterFactory extends AdapterFactoryImpl {
 				return createM2MTrafoChainAdapter();
 			}
 			@Override
-			public Adapter caseConfigurationProperty(ConfigurationProperty object) {
-				return createConfigurationPropertyAdapter();
-			}
-			@Override
-			public Adapter caseAutoIndex(AutoIndex object) {
-				return createAutoIndexAdapter();
-			}
-			@Override
-			public Adapter caseAutoIndexPerNode(AutoIndexPerNode object) {
-				return createAutoIndexPerNodeAdapter();
-			}
-			@Override
-			public Adapter caseCopyAttributeValue(CopyAttributeValue object) {
-				return createCopyAttributeValueAdapter();
-			}
-			@Override
 			public Adapter caseDerivedElement(DerivedElement object) {
 				return createDerivedElementAdapter();
 			}
@@ -176,62 +160,6 @@ public class TransformationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createM2MTrafoChainAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.ConfigurationProperty <em>Configuration Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.ConfigurationProperty
-	 * @generated
-	 */
-	public Adapter createConfigurationPropertyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndex <em>Auto Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndex
-	 * @generated
-	 */
-	public Adapter createAutoIndexAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndexPerNode <em>Auto Index Per Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndexPerNode
-	 * @generated
-	 */
-	public Adapter createAutoIndexPerNodeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.CopyAttributeValue <em>Copy Attribute Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.CopyAttributeValue
-	 * @generated
-	 */
-	public Adapter createCopyAttributeValueAdapter() {
 		return null;
 	}
 

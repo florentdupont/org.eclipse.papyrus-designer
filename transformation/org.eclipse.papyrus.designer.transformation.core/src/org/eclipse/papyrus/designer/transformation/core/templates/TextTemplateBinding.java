@@ -11,7 +11,7 @@
 
 package org.eclipse.papyrus.designer.transformation.core.templates;
 
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationException;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.NamedElement;
 

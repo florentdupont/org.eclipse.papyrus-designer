@@ -15,6 +15,7 @@ import org.eclipse.papyrus.designer.components.FCM.Connector;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
 import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
+import org.eclipse.papyrus.designer.components.FCM.profile.IEmbeddingRule;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.CollaborationUse;
 import org.eclipse.uml2.uml.ConnectableElement;

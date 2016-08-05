@@ -13,17 +13,14 @@
  *****************************************************************************/
 package org.eclipse.papyrus.designer.components.transformation.cpp.xtend
 
-import org.eclipse.papyrus.designer.components.transformation.core.extensions.IOOTrafo
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
+import org.eclipse.papyrus.designer.components.transformation.extensions.IOOTrafo
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
 import org.eclipse.uml2.uml.Class
 import org.eclipse.uml2.uml.Property
 import org.eclipse.uml2.uml.Port
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException
-import org.eclipse.papyrus.designer.components.transformation.core.PortInfo
-import org.eclipse.papyrus.designer.components.transformation.core.PortUtils
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.PrefixConstants
-import org.eclipse.papyrus.designer.components.transformation.core.Utils
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.CompTypeTrafos
+import org.eclipse.papyrus.designer.components.transformation.PortInfo
+import org.eclipse.papyrus.designer.components.transformation.transformations.PrefixConstants
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.AggregationKind
 import org.eclipse.uml2.uml.UMLPackage
@@ -41,6 +38,7 @@ import org.eclipse.papyrus.designer.components.transformation.cpp.Messages
 import org.eclipse.papyrus.designer.components.transformation.cpp.Constants
 import static extension org.eclipse.papyrus.designer.components.transformation.cpp.xtend.CppUtils.nameRef;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil
+import org.eclipse.papyrus.designer.components.transformation.PortUtils
 
 /**
  * This class realizes the transformation from component-based to object-oriented
@@ -201,7 +199,7 @@ class CppPortMapping implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						val eLong = Utils.getQualifiedElement(PackageUtil.getRootPackage(implementation),
+						val eLong = ElementUtil.getQualifiedElement(PackageUtil.getRootPackage(implementation),
 							CompTypeTrafos.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
 						if (eLong instanceof Type) {
 							op.createOwnedParameter("index", eLong as Type) 
@@ -248,7 +246,7 @@ class CppPortMapping implements IOOTrafo {
 					} else {
 						// no delegation - create attribute for port
 						val attributeName = PrefixConstants.attributePrefix + portInfo.name
-						if (!Utils.hasNonPortOwnedAttribute(implementation, attributeName)) {
+						if (!ElementUtil.hasNonPortOwnedAttribute(implementation, attributeName)) {
 							val attr = implementation.createOwnedAttribute(attributeName, requiredIntf)
 							LazyCopier.copyMultElemModifiers(portInfo.port, attr)
 
@@ -318,9 +316,9 @@ class CppPortMapping implements IOOTrafo {
 				val end1 = connector.ends.get(0)
 				val end2 = connector.ends.get(1)
 				var cmd = '''// realization of connector <«connector.name»>\n'''
-				if ((end1.role instanceof Port) && PortUtils.isExtendedPort(end1.role as Port)) {
+				if ((end1.role instanceof Port) && PortElementUtil.isExtendedPort(end1.role as Port)) {
 					val port = end1.role as Port
-					val EList<PortInfo> subPorts = PortUtils.flattenExtendedPort(port)
+					val EList<PortInfo> subPorts = PortElementUtil.flattenExtendedPort(port)
 					for (PortInfo subPort : subPorts) {
 						cmd += '''  // realization of connection for sub-port «subPort.port.name»\n'''
 						cmd += connectPorts(indexMap, connector, end1, end2, subPort.port)
@@ -391,7 +389,7 @@ class CppPortMapping implements IOOTrafo {
 
 			// only the receptacle end is of type port.
 			val Port receptaclePort = receptacleEnd.role as Port
-			if (PortUtils.getRequired(receptaclePort) != null) {
+			if (PortElementUtil.getRequired(receptaclePort) != null) {
 				val facetPart = facetEnd.role as Property
 				val receptaclePart = facetEnd.partWithPort
 
@@ -404,7 +402,7 @@ class CppPortMapping implements IOOTrafo {
 
 			// only the facet end is of type port. Unsupported combination
 			val facetPort = facetEnd.role as Port
-			if (PortUtils.getProvided(facetPort) != null) {
+			if (PortElementUtil.getProvided(facetPort) != null) {
 				val facetPart = facetEnd.partWithPort
 				val receptaclePart = facetEnd.role as Property
 
@@ -495,7 +493,7 @@ class CppPortMapping implements IOOTrafo {
 	 * @return
 	 */
 	static def instantiateViaBootloader(Class implementation) {
-		return implementation.isAbstract() || Utils.isAssembly(implementation)
+		return implementation.isAbstract() || ElementUtil.isAssembly(implementation)
 	}
 
 	/**
@@ -537,7 +535,7 @@ class CppPortMapping implements IOOTrafo {
 	 */
 	override transformParts(Class compositeImplementation) {
 
-		for (Property attribute : Utils.getParts(compositeImplementation)) {
+		for (Property attribute : ElementUtil.getParts(compositeImplementation)) {
 			val type = attribute.type
 			if (type instanceof Class) {
 				val cl = type as Class

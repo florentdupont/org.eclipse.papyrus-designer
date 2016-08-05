@@ -60,10 +60,6 @@ public class TransformationFactoryImpl extends EFactoryImpl implements Transform
 			case TransformationPackage.M2M_TRAFO: return createM2MTrafo();
 			case TransformationPackage.M2M_TRAFO_KIND: return createM2MTrafoKind();
 			case TransformationPackage.M2M_TRAFO_CHAIN: return createM2MTrafoChain();
-			case TransformationPackage.CONFIGURATION_PROPERTY: return createConfigurationProperty();
-			case TransformationPackage.AUTO_INDEX: return createAutoIndex();
-			case TransformationPackage.AUTO_INDEX_PER_NODE: return createAutoIndexPerNode();
-			case TransformationPackage.COPY_ATTRIBUTE_VALUE: return createCopyAttributeValue();
 			case TransformationPackage.DERIVED_ELEMENT: return createDerivedElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -108,46 +104,6 @@ public class TransformationFactoryImpl extends EFactoryImpl implements Transform
 	public M2MTrafoChain createM2MTrafoChain() {
 		M2MTrafoChainImpl m2MTrafoChain = new M2MTrafoChainImpl();
 		return m2MTrafoChain;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConfigurationProperty createConfigurationProperty() {
-		ConfigurationPropertyImpl configurationProperty = new ConfigurationPropertyImpl();
-		return configurationProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AutoIndex createAutoIndex() {
-		AutoIndexImpl autoIndex = new AutoIndexImpl();
-		return autoIndex;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AutoIndexPerNode createAutoIndexPerNode() {
-		AutoIndexPerNodeImpl autoIndexPerNode = new AutoIndexPerNodeImpl();
-		return autoIndexPerNode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CopyAttributeValue createCopyAttributeValue() {
-		CopyAttributeValueImpl copyAttributeValue = new CopyAttributeValueImpl();
-		return copyAttributeValue;
 	}
 
 	/**

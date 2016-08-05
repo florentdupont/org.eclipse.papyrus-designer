@@ -13,6 +13,7 @@ Bundle-Activator: org.eclipse.papyrus.designer.transformation.profile.Activator
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.eclipse.papyrus.designer.transformation.profile;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclipse.papyrus.designer.transformation.profile.Transformation,
+Export-Package: org.eclipse.papyrus.designer.transformation.profile,
+ org.eclipse.papyrus.designer.transformation.profile.Transformation,
  org.eclipse.papyrus.designer.transformation.profile.Transformation.impl,
  org.eclipse.papyrus.designer.transformation.profile.Transformation.util

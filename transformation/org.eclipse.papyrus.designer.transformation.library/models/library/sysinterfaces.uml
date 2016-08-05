@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_RodVAAweEd6it_RkGhz_AA" name="sysinterfaces">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_vgQpcMc3EeSsAI2TZshUyg" annotatedElement="_Jsce8Mc3EeSsAI2TZshUyg">
+      <body>Support for Signal Reception. Interfaces that have at least one signal reception should also inherit from this interface in order to allow for signal reception.
+Currently not clear whether that should be done as part of the component to OO transformation or within the application model on user demand.</body>
+    </ownedComment>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_RodVAQweEd6it_RkGhz_AA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_3gokYF_LEd6vU6EJjexEKQ">
+      <importedPackage xmi:type="uml:Model" href="corba.uml#_DtQEwDLdEd2_U4efLnjQIw"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_Xb-y0AweEd6it_RkGhz_AA" name="ITick">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_asFRoAweEd6it_RkGhz_AA" name="tick"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_7TuzoCUUEd6YR-YzyVnLng" name="Dispatch">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="__aGzICUUEd6YR-YzyVnLng" name="dispatch" isAbstract="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_y4XwwC3vEd6OqY3qskOtLQ" name="buffer">
+          <type xmi:type="uml:PrimitiveType" href="corba.uml#_IYEXcB-VEd6nGq8wpI2tjg"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_BHFPQJsqEd61Eo3nmu3JhQ" name="IRunnable">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_C9IK4JsqEd61Eo3nmu3JhQ" name="run"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_PTWzwCS-Ed-A_I32T0fkaA" name="IStart">
+      <generalization xmi:type="uml:Generalization" xmi:id="_XpdjECS-Ed-A_I32T0fkaA" general="_BHFPQJsqEd61Eo3nmu3JhQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_T3li0Dz6Ed-v9PxuTj6Elw" name="ILifeCycle">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_WHyq4Dz6Ed-v9PxuTj6Elw" name="activate" isAbstract="true"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_W7YrADz6Ed-v9PxuTj6Elw" name="deactivate" isAbstract="true"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ns4qsClUEeO4bs_nkcnKOg" name="configuration_complete"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_rWJlYFVsEd-K97FBeYjNGA" name="CppCompilationReq"/>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_xLfoIFVsEd-K97FBeYjNGA" name="CppCompilationReq">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zNjmgFVsEd-K97FBeYjNGA" name="include" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2NQR0FVsEd-K97FBeYjNGA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2NRf8FVsEd-K97FBeYjNGA" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_2NSHAFVsEd-K97FBeYjNGA">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zbKksFVsEd-K97FBeYjNGA" name="libPaths" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5Y8xwFVsEd-K97FBeYjNGA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5ZGiwFVsEd-K97FBeYjNGA" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_5ZPFoFVsEd-K97FBeYjNGA">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_5uSIkFVsEd-K97FBeYjNGA" name="libs" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7rCJIFVsEd-K97FBeYjNGA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7rOWYFVsEd-K97FBeYjNGA" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_7rZVgFVsEd-K97FBeYjNGA">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_omxU4PNAEeCovO8AYZymZQ" name="PoolControl">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2-9icPNAEeCovO8AYZymZQ" name="addEvent" visibility="public">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_7lclYPNAEeCovO8AYZymZQ">
+          <body>&lt;&lt;TextualRepresentation>>public addEvent () { }</body>
+        </ownedComment>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_Jsce8Mc3EeSsAI2TZshUyg" name="SignalReception">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_RNz-oMc3EeSsAI2TZshUyg" name="handleSignal">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_cmMzMMc3EeSsAI2TZshUyg" name="signal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_RodVAgweEd6it_RkGhz_AA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RodVAwweEd6it_RkGhz_AA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_-PJq0F_LEd6vU6EJjexEKQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-PN8QF_LEd6vU6EJjexEKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:Ptr xmi:id="__cCUsF_LEd6vU6EJjexEKQ" base_parameter="_y4XwwC3vEd6OqY3qskOtLQ"/>
+  <C_Cpp:Ptr xmi:id="_r1DjAMc3EeSsAI2TZshUyg" base_parameter="_cmMzMMc3EeSsAI2TZshUyg"/>
+</xmi:XMI>

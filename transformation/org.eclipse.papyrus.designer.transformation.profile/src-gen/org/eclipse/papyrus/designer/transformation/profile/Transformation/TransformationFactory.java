@@ -58,42 +58,6 @@ public interface TransformationFactory extends EFactory {
 	M2MTrafoChain createM2MTrafoChain();
 
 	/**
-	 * Returns a new object of class '<em>Configuration Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Configuration Property</em>'.
-	 * @generated
-	 */
-	ConfigurationProperty createConfigurationProperty();
-
-	/**
-	 * Returns a new object of class '<em>Auto Index</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Auto Index</em>'.
-	 * @generated
-	 */
-	AutoIndex createAutoIndex();
-
-	/**
-	 * Returns a new object of class '<em>Auto Index Per Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Auto Index Per Node</em>'.
-	 * @generated
-	 */
-	AutoIndexPerNode createAutoIndexPerNode();
-
-	/**
-	 * Returns a new object of class '<em>Copy Attribute Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Copy Attribute Value</em>'.
-	 * @generated
-	 */
-	CopyAttributeValue createCopyAttributeValue();
-
-	/**
 	 * Returns a new object of class '<em>Derived Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

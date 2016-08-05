@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Transformation" nsURI="http://www.eclipse.org/papyrus/Transformation/1"
+    nsPrefix="Transformation">
+  <eClassifiers xsi:type="ecore:EClass" name="ApplyTransformation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trafo" ordered="false"
+        upperBound="-1" eType="#//M2MTrafo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="M2MTrafo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kind" ordered="false" eType="#//M2MTrafoKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="M2MTrafoKind">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="M2MTrafoChain">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DerivedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Element" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
+  </eClassifiers>
+</ecore:EPackage>

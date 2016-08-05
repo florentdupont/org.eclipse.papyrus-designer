@@ -7,6 +7,9 @@ public class Activator implements BundleActivator {
 
 	private static BundleContext context;
 
+	// The plug-in ID
+	public static final String PLUGIN_ID = "org.eclipse.papyrus.designer.transformation.profile"; //$NON-NLS-1$
+		
 	static BundleContext getContext() {
 		return context;
 	}

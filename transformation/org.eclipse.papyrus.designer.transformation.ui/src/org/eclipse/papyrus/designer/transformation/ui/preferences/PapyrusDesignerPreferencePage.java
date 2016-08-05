@@ -16,8 +16,8 @@ package org.eclipse.papyrus.designer.transformation.ui.preferences;
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
+import org.eclipse.papyrus.designer.transformation.base.preferences.PapyrusDesignerPreferenceConstants;
 import org.eclipse.papyrus.designer.transformation.core.Activator;
-import org.eclipse.papyrus.designer.transformation.core.preferences.PapyrusDesignerPreferenceConstants;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 

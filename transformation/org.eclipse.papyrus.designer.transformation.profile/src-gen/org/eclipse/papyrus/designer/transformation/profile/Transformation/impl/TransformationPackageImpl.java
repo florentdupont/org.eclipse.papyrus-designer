@@ -9,10 +9,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation;
-import org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndex;
-import org.eclipse.papyrus.designer.transformation.profile.Transformation.AutoIndexPerNode;
-import org.eclipse.papyrus.designer.transformation.profile.Transformation.ConfigurationProperty;
-import org.eclipse.papyrus.designer.transformation.profile.Transformation.CopyAttributeValue;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
@@ -56,34 +52,6 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 	 * @generated
 	 */
 	private EClass m2MTrafoChainEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass configurationPropertyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass autoIndexEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass autoIndexPerNodeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass copyAttributeValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -206,7 +174,7 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getM2MTrafo_TrafoKind() {
+	public EReference getM2MTrafo_Kind() {
 		return (EReference)m2MTrafoEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -244,87 +212,6 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 	 */
 	public EReference getM2MTrafoChain_Base_Class() {
 		return (EReference)m2MTrafoChainEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getConfigurationProperty() {
-		return configurationPropertyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConfigurationProperty_Base_Property() {
-		return (EReference)configurationPropertyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAutoIndex() {
-		return autoIndexEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAutoIndex_Base_Property() {
-		return (EReference)autoIndexEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAutoIndexPerNode() {
-		return autoIndexPerNodeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAutoIndexPerNode_Base_Property() {
-		return (EReference)autoIndexPerNodeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCopyAttributeValue() {
-		return copyAttributeValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCopyAttributeValue_Base_Property() {
-		return (EReference)copyAttributeValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCopyAttributeValue_Source() {
-		return (EReference)copyAttributeValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -388,26 +275,13 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 
 		m2MTrafoEClass = createEClass(M2M_TRAFO);
 		createEReference(m2MTrafoEClass, M2M_TRAFO__BASE_CLASS);
-		createEReference(m2MTrafoEClass, M2M_TRAFO__TRAFO_KIND);
+		createEReference(m2MTrafoEClass, M2M_TRAFO__KIND);
 
 		m2MTrafoKindEClass = createEClass(M2M_TRAFO_KIND);
 		createEReference(m2MTrafoKindEClass, M2M_TRAFO_KIND__BASE_CLASS);
 
 		m2MTrafoChainEClass = createEClass(M2M_TRAFO_CHAIN);
 		createEReference(m2MTrafoChainEClass, M2M_TRAFO_CHAIN__BASE_CLASS);
-
-		configurationPropertyEClass = createEClass(CONFIGURATION_PROPERTY);
-		createEReference(configurationPropertyEClass, CONFIGURATION_PROPERTY__BASE_PROPERTY);
-
-		autoIndexEClass = createEClass(AUTO_INDEX);
-		createEReference(autoIndexEClass, AUTO_INDEX__BASE_PROPERTY);
-
-		autoIndexPerNodeEClass = createEClass(AUTO_INDEX_PER_NODE);
-		createEReference(autoIndexPerNodeEClass, AUTO_INDEX_PER_NODE__BASE_PROPERTY);
-
-		copyAttributeValueEClass = createEClass(COPY_ATTRIBUTE_VALUE);
-		createEReference(copyAttributeValueEClass, COPY_ATTRIBUTE_VALUE__BASE_PROPERTY);
-		createEReference(copyAttributeValueEClass, COPY_ATTRIBUTE_VALUE__SOURCE);
 
 		derivedElementEClass = createEClass(DERIVED_ELEMENT);
 		createEReference(derivedElementEClass, DERIVED_ELEMENT__BASE_ELEMENT);
@@ -449,30 +323,17 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 		// Initialize classes, features, and operations; add parameters
 		initEClass(applyTransformationEClass, ApplyTransformation.class, "ApplyTransformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplyTransformation_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, ApplyTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getApplyTransformation_Trafo(), this.getM2MTrafo(), null, "trafo", null, 1, 1, ApplyTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getApplyTransformation_Trafo(), this.getM2MTrafo(), null, "trafo", null, 0, -1, ApplyTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(m2MTrafoEClass, M2MTrafo.class, "M2MTrafo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getM2MTrafo_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, M2MTrafo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getM2MTrafo_TrafoKind(), this.getM2MTrafoKind(), null, "trafoKind", null, 1, 1, M2MTrafo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getM2MTrafo_Kind(), this.getM2MTrafoKind(), null, "kind", null, 0, 1, M2MTrafo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(m2MTrafoKindEClass, M2MTrafoKind.class, "M2MTrafoKind", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getM2MTrafoKind_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, M2MTrafoKind.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(m2MTrafoChainEClass, M2MTrafoChain.class, "M2MTrafoChain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getM2MTrafoChain_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, M2MTrafoChain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(configurationPropertyEClass, ConfigurationProperty.class, "ConfigurationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConfigurationProperty_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, ConfigurationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(autoIndexEClass, AutoIndex.class, "AutoIndex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAutoIndex_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, AutoIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(autoIndexPerNodeEClass, AutoIndexPerNode.class, "AutoIndexPerNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAutoIndexPerNode_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, AutoIndexPerNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(copyAttributeValueEClass, CopyAttributeValue.class, "CopyAttributeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCopyAttributeValue_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, CopyAttributeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCopyAttributeValue_Source(), theUMLPackage.getProperty(), null, "source", null, 1, 1, CopyAttributeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(derivedElementEClass, DerivedElement.class, "DerivedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDerivedElement_Base_Element(), theUMLPackage.getElement(), null, "base_Element", null, 1, 1, DerivedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

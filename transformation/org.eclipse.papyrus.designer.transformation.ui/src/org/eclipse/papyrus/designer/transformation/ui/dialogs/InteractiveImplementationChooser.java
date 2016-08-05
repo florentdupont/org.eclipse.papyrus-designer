@@ -17,7 +17,7 @@ package org.eclipse.papyrus.designer.transformation.ui.dialogs;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.papyrus.designer.transformation.core.deployment.ImplementationChooser;
+import org.eclipse.papyrus.designer.deployment.tools.ImplementationChooser;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.uml2.uml.Class;

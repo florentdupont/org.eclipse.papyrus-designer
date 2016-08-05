@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.papyrus.designer.components.FCM.FCMPackage;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
 import org.eclipse.papyrus.designer.components.FCM.TemplatePort;
-import org.eclipse.papyrus.designer.components.FCM.util.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
 
 /**
  * <!-- begin-user-doc -->

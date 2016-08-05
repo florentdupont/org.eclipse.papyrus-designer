@@ -16,31 +16,20 @@ package org.eclipse.papyrus.designer.transformation.core.templates;
 
 import java.util.Iterator;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.transformation.core.CreationUtils;
-import org.eclipse.papyrus.designer.transformation.core.Log;
+import org.eclipse.papyrus.designer.deployment.tools.Activator;
+import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
-import org.eclipse.papyrus.designer.transformation.core.PortUtils;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationException;
-import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.ConnectableElement;
-import org.eclipse.uml2.uml.Connector;
-import org.eclipse.uml2.uml.ConnectorEnd;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.EncapsulatedClassifier;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageMerge;
 import org.eclipse.uml2.uml.ParameterableElement;
-import org.eclipse.uml2.uml.Port;
-import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.TemplateBinding;
 import org.eclipse.uml2.uml.TemplateParameter;
 import org.eclipse.uml2.uml.TemplateParameterSubstitution;
@@ -134,9 +123,6 @@ public class TemplateUtils {
 		TemplateSignature signature = getSignature(template);
 		if (signature == null) {
 			// not a template, retain original name
-			Log.log(IStatus.INFO, Log.TEMPLATE_BINDING, String.format(
-					Messages.TemplateUtils_NoTemplateSignature, (template instanceof NamedElement ?
-							((NamedElement) template).getName() : "undef"))); //$NON-NLS-1$
 			return null;
 		}
 
@@ -160,14 +146,14 @@ public class TemplateUtils {
 		// composite can be found (avoid modifying an imported model).
 		// todo: root model as an additional parameter?
 		Namespace owner = (Namespace) pkgTemplate.getOwner();
-		owner = CreationUtils.getAndCreate(model, owner.allNamespaces());
+		owner = CreationUtil.getAndCreate(model, owner.allNamespaces());
 
 		Package boundPackage = (Package) owner.getMember(name);
 		if (boundPackage == null) {
 			// class does not exist yet, needs to be created.
 			boundPackage = ((Package) owner).createNestedPackage(name);
 
-			Log.log(IStatus.INFO, Log.TEMPLATE_BINDING, String.format(
+			Activator.log.info(String.format(
 					Messages.TemplateUtils_InfoCreateBoundPackage, name, owner.getName()));
 		}
 
@@ -252,7 +238,7 @@ public class TemplateUtils {
 		for (TemplateParameterSubstitution substitution : binding.getParameterSubstitutions()) {
 			ParameterableElement pe = substitution.getFormal().getParameteredElement();
 			if (pe == formal) {
-				Log.log(IStatus.INFO, Log.TEMPLATE_INSTANTIATION, String.format(
+				Activator.log.info(String.format(
 						Messages.TemplateUtils_InfoGetActualFrom, pe));
 				return (Classifier) substitution.getActual();
 			}
@@ -263,7 +249,7 @@ public class TemplateUtils {
 	public static Classifier getActualFromBinding(TemplateBinding binding, String formalName) {
 		for (TemplateParameterSubstitution substitution : binding.getParameterSubstitutions()) {
 			ParameterableElement pe = substitution.getFormal().getParameteredElement();
-			Log.log(IStatus.INFO, Log.TEMPLATE_INSTANTIATION, String.format(
+			Activator.log.info(String.format(
 					Messages.TemplateUtils_InfoGetActualFrom, pe));
 			if ((pe instanceof NamedElement)
 					&& ((NamedElement) pe).getName().equals(formalName)) {
@@ -283,7 +269,7 @@ public class TemplateUtils {
 	public static Classifier getFirstActualFromBinding(TemplateBinding binding) {
 		for (TemplateParameterSubstitution substitution : binding.getParameterSubstitutions()) {
 			ParameterableElement pe = substitution.getFormal().getParameteredElement();
-			Log.log(IStatus.INFO, Log.TEMPLATE_INSTANTIATION, String.format(
+			Activator.log.info(String.format(
 					Messages.TemplateUtils_InfoGetActualFrom, pe));
 			return (Classifier) substitution.getActual();
 		}
@@ -330,66 +316,5 @@ public class TemplateUtils {
 			ns = (Namespace) ns.getOwner();
 		}
 		return null;
-	}
-
-	/**
-	 * Re-target connectors after a part has changed its type from template to an instantiation
-	 * of this template. In this case, the roles of the connector ends still reference the port
-	 * of the template instead of the bound template binding.
-	 * The new roles are assigned based on an equal name, assuming that template instantiation
-	 * does not change the name of the ports.
-	 *
-	 * @param composite
-	 *            a composite containing connectors
-	 * @param part
-	 *            a part within the composite whose type has changed.
-	 */
-	public static void retargetConnectors(StructuredClassifier composite, Property part) {
-		Type partType = part.getType();
-		if (partType instanceof EncapsulatedClassifier) {
-			EncapsulatedClassifier partTypeEC = (EncapsulatedClassifier) partType;
-			for (Connector connector : composite.getOwnedConnectors()) {
-				if (ConnectorUtil.connectsPart(connector, part)) {
-					// the connector end targets a port of a part or the composite (in case of delegation)
-					ConnectorEnd connEnd = ConnectorUtil.connEndForPart(connector, part);
-					// redirect role, if pointing to port
-					if (connEnd.getRole() instanceof Port) {
-						Port connectedTemplatePort = (Port) connEnd.getRole();
-						Port connectedBoundPort = (Port) Utils.getNamedElementFromList(
-								PortUtils.getAllPorts(partTypeEC), connectedTemplatePort.getName());
-						connEnd.setRole(connectedBoundPort);
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 * Re-target connectors after an unknown number of parts have changed their type from template
-	 * to an instantiation of this template. In this case, the roles of the connector ends still
-	 * reference the port of the template instead of the bound template binding.
-	 * The new roles are assigned based on an equal name, assuming that template instantiation
-	 * does not change the name of the ports.
-	 *
-	 * @param composite
-	 *            a composite containing connectors
-	 */
-	public static void retargetConnectors(StructuredClassifier composite) {
-		for (Connector connector : composite.getOwnedConnectors()) {
-			// the connector end targets a port of a part or the composite (in case of delegation)
-			for (ConnectorEnd connEnd : connector.getEnds()) {
-				Property part = connEnd.getPartWithPort();
-				if ((part != null) && (part.getType() instanceof EncapsulatedClassifier)) {
-					EncapsulatedClassifier partTypeEC = (EncapsulatedClassifier) part.getType();
-					ConnectableElement role = connEnd.getRole();
-					EList<Port> ports = PortUtils.getAllPorts(partTypeEC);
-					if ((role instanceof Port) && !ports.contains(role)) {
-						// role is not in list of ports
-						Port connectedBoundPort = (Port) Utils.getNamedElementFromList(ports, role.getName());
-						connEnd.setRole(connectedBoundPort);
-					}
-				}
-			}
-		}
 	}
 }

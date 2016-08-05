@@ -15,7 +15,7 @@ package org.eclipse.papyrus.designer.transformation.ui.preferences;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.papyrus.designer.transformation.core.preferences.PapyrusDesignerPreferenceConstants;
+import org.eclipse.papyrus.designer.transformation.base.preferences.PapyrusDesignerPreferenceConstants;
 
 /**
  * Class used to initialize default preference values.

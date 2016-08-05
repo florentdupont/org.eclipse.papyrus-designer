@@ -16,16 +16,13 @@ package org.eclipse.papyrus.designer.transformation.core.templates;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.papyrus.designer.components.FCM.BindingHelper;
-import org.eclipse.papyrus.designer.components.FCM.Template;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyStatus;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterSignatures;
-import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterTemplate;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
@@ -36,7 +33,6 @@ import org.eclipse.uml2.uml.TemplateParameter;
 import org.eclipse.uml2.uml.TemplateParameterSubstitution;
 import org.eclipse.uml2.uml.TemplateSignature;
 import org.eclipse.uml2.uml.TemplateableElement;
-import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
  * This class encapsulates functions around template instantiation.
@@ -161,7 +157,7 @@ public class TemplateInstantiation {
 				EObject sourceSubElement = null;
 				if(targetSubElem instanceof NamedElement) {
 					String targetName = ((NamedElement) targetSubElem).getName();
-					sourceSubElement = Utils.getNamedElementFromList(source.eContents(), targetName);
+					sourceSubElement = ElementUtil.getNamedElementFromList(source.eContents(), targetName);
 				}
 				if (sourceSubElement == null) {
 					// no source element found, try to find via XML URI (copier synchronizes on demand)
@@ -212,20 +208,7 @@ public class TemplateInstantiation {
 		}
 		Package boundPackage = (Package)binding.getBoundElement();
 		EList<Namespace> path = TemplateUtils.relativePathWithMerge(namedElement, packageTemplate);
-		Template template = UMLUtil.getStereotypeApplication(namedElement, Template.class);
-		BindingHelper helper = (template != null) ? template.getHelper() : null;
-		/*
-		 * if((templateKind == TemplateKind.ACCUMULATE) || (templateKind == TemplateKind.LATE_EVALUATION)) {
-		 * // TODO: not very clean yet
-		 * path = TemplateUtils.relativePathWithMerge(namedElement, copier.source);
-		 * if(path == null) {
-		 * // element is imported
-		 * path = namedElement.allNamespaces();
-		 * }
-		 * boundPackage = copier.target; // CreationUtils.getAndCreate
-		 * // (sat.target, "accumulate");
-		 * }
-		 */
+
 		if(path != null) {
 			// register owning package template (template can be defined in
 			// multiple packages)
@@ -273,9 +256,7 @@ public class TemplateInstantiation {
 		 * }
 		 */
 		if(existingMember == null) {
-			FilterTemplate.getInstance().setActive(false);
 			T copiedElement = copier.getCopy(namedElement);
-			FilterTemplate.getInstance().setActive(true);
 			copier.setPackageTemplate(null, null);
 			return copiedElement;
 		}

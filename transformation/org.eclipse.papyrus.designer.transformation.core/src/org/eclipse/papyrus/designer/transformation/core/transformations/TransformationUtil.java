@@ -1,15 +1,11 @@
 package org.eclipse.papyrus.designer.transformation.core.transformations;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
-import org.eclipse.papyrus.designer.transformation.core.Log;
-import org.eclipse.papyrus.designer.transformation.core.deployment.AllocUtils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepUtils;
+import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.extensions.InstanceConfigurator;
-import org.eclipse.papyrus.designer.transformation.core.sync.CompImplSync;
-import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Slot;
@@ -41,7 +37,7 @@ public class TransformationUtil {
 			if (subInstance != null) {
 				if (DepUtils.isShared(slot)) {
 					for (InstanceSpecification node : nodesCopy) {
-						Log.log(IStatus.INFO, Log.DEPLOYMENT, String.format("Propagate node allocation: %s to %s", subInstance.getName(), node.getName())); //$NON-NLS-1$
+						Activator.log.info(String.format("Propagate node allocation: %s to %s", subInstance.getName(), node.getName())); //$NON-NLS-1$
 						AllocUtils.allocate(subInstance, node);
 					}
 				}
@@ -51,31 +47,4 @@ public class TransformationUtil {
 			}
 		}
 	}
-
-	/**
-	 * Update derived interfaces of ports. This is required, since the Copier does not follow references
-	 * that are referenced via a derived attribute. Derived attributes are used for provided and required
-	 * interfaces in the stereotype attributes of an FCM port. Thus, required (derived) interfaces would be
-	 * unavailable in the copy, if not explicitly updated.
-	 * However, the provided interface is not concerned as it appears in an "implements" relation. If the
-	 * port is connected, the used interface of one port is the provided interface of the port counter part.
-	 * Thus, the explicit update done by this function is not needed in most cases.
-	 *
-	 * see also FixTemplateSync (remove the latter?)
-	 */
-	public static void updateDerivedInterfaces(InstanceSpecification instance) {
-		Classifier cl = DepUtils.getClassifier(instance);
-		if (cl instanceof Class) {
-			Class implementation = (Class) cl;
-			CompImplSync.updatePorts(implementation);
-			CompImplSync.syncRealizations(implementation);
-		}
-		for (Slot slot : instance.getSlots()) {
-			InstanceSpecification subInstance = DepUtils.getInstance(slot);
-			if (!DepUtils.isShared(slot) && (subInstance != null)) {
-				updateDerivedInterfaces(subInstance);
-			}
-		}
-	}
-
 }

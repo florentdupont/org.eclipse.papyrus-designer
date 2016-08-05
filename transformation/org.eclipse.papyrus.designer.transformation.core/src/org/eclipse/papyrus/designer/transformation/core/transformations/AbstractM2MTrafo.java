@@ -1,5 +1,6 @@
 package org.eclipse.papyrus.designer.transformation.core.transformations;
 
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -18,7 +19,7 @@ public abstract class AbstractM2MTrafo {
 	 *            a class in the target model (i.e. the result of the M2M transformation application)
 	 * @throws TransformationException
 	 */
-	public abstract void applyM2M(M2MTrafo smContainerRule, Classifier smClass)
+	public abstract void applyM2M(M2MTrafo trafo, Classifier smClass)
 			throws TransformationException;
 
 	/**

@@ -18,8 +18,9 @@ import java.util.Iterator;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.components.FCM.DerivedElement;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.NamedElement;

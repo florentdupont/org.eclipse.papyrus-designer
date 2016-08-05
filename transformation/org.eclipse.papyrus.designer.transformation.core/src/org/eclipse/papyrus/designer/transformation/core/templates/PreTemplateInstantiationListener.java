@@ -15,14 +15,12 @@
 package org.eclipse.papyrus.designer.transformation.core.templates;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.designer.components.FCM.BindingHelper;
-import org.eclipse.papyrus.designer.components.FCM.Template;
-import org.eclipse.papyrus.designer.transformation.core.extensions.BindingHelperExt;
+import org.eclipse.papyrus.designer.transformation.core.extensions.M2MTrafoExt;
 import org.eclipse.papyrus.designer.transformation.core.listeners.PreCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.uml2.uml.BehavioralFeature;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.OpaqueBehavior;
 import org.eclipse.uml2.uml.TemplateBinding;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
@@ -53,39 +51,24 @@ public class PreTemplateInstantiationListener implements PreCopyListener {
 	private static PreTemplateInstantiationListener preTemplateInstantiationListener;
 
 	@Override
-	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj) {
+	public EObject preCopyEObject(LazyCopier copier, EObject sourceEObj) {
 		if (treatTemplate) {
 			return sourceEObj;
 		}
 		treatTemplate = true;
-		EObject targetEObj = checkEObject(copy, sourceEObj);
+		EObject targetEObj = checkEObject(copier, sourceEObj);
 		treatTemplate = false;
 		return targetEObj;
 	}
 
-	protected EObject checkEObject(LazyCopier copy, EObject sourceEObj) {
-
-		// Specific treatment of OpaqueBehaviors: Template instantiations are typically managed
-		// by the associated operation which instantiates operation and behavior. In this case, the
-		// behavior should not be instantiated.
-		if (sourceEObj instanceof OpaqueBehavior) {
-			OpaqueBehavior behavior = (OpaqueBehavior) sourceEObj;
-			BehavioralFeature bf = behavior.getSpecification();
-			if (bf != null) {
-				Template template = UMLUtil.getStereotypeApplication(bf, Template.class);
-				if (template != null) {
-					return null;
-				}
-			}
-		}
+	protected EObject checkEObject(LazyCopier copier, EObject sourceEObj) {
 
 		if (sourceEObj instanceof Element) {
-
-			Template template = UMLUtil.getStereotypeApplication((Element) sourceEObj, Template.class);
-			if ((template != null)) {
-				BindingHelper helper = template.getHelper();
-				if (helper != null) {
-					return BindingHelperExt.applyPreHelper(helper, copy, binding, sourceEObj);
+			ApplyTransformation applyTrafo =
+					UMLUtil.getStereotypeApplication((Element) sourceEObj, ApplyTransformation.class);
+			if (applyTrafo != null) {
+				for (M2MTrafo trafo : applyTrafo.getTrafo()) { 
+					M2MTrafoExt.applyPostHelper(trafo, copier, binding, sourceEObj);
 				}
 			}
 		}

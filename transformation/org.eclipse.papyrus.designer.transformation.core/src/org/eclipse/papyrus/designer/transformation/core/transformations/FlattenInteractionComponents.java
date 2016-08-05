@@ -19,9 +19,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepPlanUtils;
-import org.eclipse.papyrus.designer.transformation.core.deployment.DepUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepPlanUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -33,7 +32,6 @@ import org.eclipse.uml2.uml.Port;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Slot;
 import org.eclipse.uml2.uml.StructuralFeature;
-import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
  * Deploy instances in a flat way, i.e. only deploy leaves. "Normal" composites
@@ -85,6 +83,7 @@ public class FlattenInteractionComponents {
 	public void flattenAssembly(InstanceSpecification instance, Slot slot)
 	{
 		Classifier cl = DepUtils.getClassifier(instance);
+		/*
 		if ((cl instanceof Class) && (slot != null)) {
 			InteractionComponent ic = UMLUtil.getStereotypeApplication(cl, InteractionComponent.class);
 			if ((ic != null) && ic.isForDistribution()) {
@@ -93,6 +92,7 @@ public class FlattenInteractionComponents {
 				flattenAssembly((Class) cl, instance, containingInstance, containingSlot);
 			}
 		}
+		*/
 		// loop over sub-instances and apply flatten recursively.
 		// create a copy of the slots, since the recursive flatten call might modify
 		// the number of slots

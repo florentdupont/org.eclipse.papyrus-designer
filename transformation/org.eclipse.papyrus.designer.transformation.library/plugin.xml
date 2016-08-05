@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension id="QML_CORE" point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping source="pathmap://QML_CORE/" target="platform:/plugin/org.eclipse.papyrus.designer.transformation.modellibs.core/models/library/">
+      </mapping>
+   </extension>
+    <extension name="Designer core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+      <library description="Designer core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: basic" path="pathmap://QML_CORE/core.uml" provider="CEA LIST">
+      </library>
+   </extension>
+   <extension name="FIFO" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+      <library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: FIFO" path="pathmap://QML_CORE/fifo.uml" provider="CEA LIST">
+      </library>
+	</extension>
+	<extension name="OS-AL" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: OS abstraction layer (OS-AL)" path="pathmap://QML_CORE/osal.uml" provider="CEA LIST">
+		</library>
+	</extension>
+	<extension name="StateMachine" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: State-machines" path="pathmap://QML_CORE/statemachine.uml" provider="CEA LIST">
+		</library>
+	</extension>
+	<extension point="org.eclipse.papyrus.uml.diagram.wizards.templates">
+		<template
+			id="org.eclipse.papyrus.designer.components.transformation.modelibs.core.wizardTemplates.DesignerCBForMARTE"
+			language="uml"
+			name="Papyrus Designer for MARTE (component based)"
+			file="models/wizardTemplates/DesignerCBModel.uml"
+			di_file="models/wizardTemplates/DesignerCBModel.di"
+			notation_file="models/wizardTemplates/DesignerCBModel.notation">
+		</template>
+		<template
+			id="org.eclipse.papyrus.designer.components.transformation.modelibs.core.wizardTemplates.DesignerCBSimple"
+			language="uml"
+			name="Designer without MARTE (component based)"
+			file="models/wizardTemplates/DesignerCBSimple.uml"
+			di_file="models/wizardTemplates/DesignerCBSimple.di"
+			notation_file="models/wizardTemplates/DesignerCBSimple.notation">
+		</template>
+	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.core.instanceConfig">
+		<client class="org.eclipse.papyrus.designer.transformation.library.iconfigurators.CallEventConfigurator" configuratorID="CallEventConfigurator">
+		</client>
+	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.core.instanceConfig">
+		<client class="org.eclipse.papyrus.designer.transformation.library.iconfigurators.AnimServiceConfigurator" configuratorID="AnimServiceConfigurator">
+		</client>
+	</extension>
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard
+			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.wizards.HelloWorldModelWizard"
+			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			id="org.eclipse.papyrus.designer.components.modellibs.core.new.HelloWorld"
+			name="Papyrus Designer component-based hello world example">
+			<selection class="org.eclipse.core.resources.IResource"/>
+		</wizard>
+		<wizard
+			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.wizards.ProducerConsumerModelWizard"
+			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			id="org.eclipse.papyrus.designer.components.modellibs.core.new.ProducerConsumer"
+			name="Papyrus Designer component-based producer/comsumer example">
+			<selection class="org.eclipse.core.resources.IResource"/>
+		</wizard>
+		<wizard
+			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.wizards.SimpleSMModelWizard"
+			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			id="org.eclipse.papyrus.designer.components.modellibs.core.new.SimpleSM"
+			name="Papyrus Designer component-based example using a simple state machine">
+			<selection class="org.eclipse.core.resources.IResource"/>
+		</wizard>
+		<wizard
+			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.ABitComplexSMModelWizard"
+			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			id="org.eclipse.papyrus.designer.components.modellibs.core.new.ABitComplexSM"
+			name="Papyrus Designer component-based example using a bit more complex state machine">
+			<selection class="org.eclipse.core.resources.IResource"/>
+		</wizard>
+	</extension>
+	<extension id="LoopOperations" point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
+		<transformation
+			transformationID="core::bindingHelpers::LoopOperations"
+			class="org.eclipse.papyrus.designer.transformation.library.bindinghelpers.LoopOperations">
+		</transformation>
+	</extension>
+	<extension id="BindOperation" point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
+		<transformation
+			transformationID="core::bindingHelpers::BindOperation"
+			class="org.eclipse.papyrus.designer.transformation.library.bindinghelpers.BindOperation">
+		</transformation>
+	</extension>
+	<extension id="BindCppIncludeToFirstActual" point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
+		<transformation
+			transformationID="core::bindingHelpers::BindCppIncludeToFirstActual"
+			class="org.eclipse.papyrus.designer.transformation.library.bindinghelpers.BindCppIncludeToFirstActual">
+		</transformation>
+	</extension>
+	<extension
+       point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
+    <transformation
+          class="org.eclipse.papyrus.designer.transformation.library.statemachine.CompleteStatemachine"
+          transformationID="statemachine::rules::CompleteSM">
+    </transformation>
+ </extension>
+	<extension
+			point="org.eclipse.help.toc">
+		<toc file="help/modellibs-core-examples.xml"/>
+		<toc file="help/modellibs-core-library.xml"/>
+	</extension>
+	<extension
+			point="org.eclipse.papyrus.designer.transformation.core.xtendGenerator">
+		<client class="org.eclipse.papyrus.designer.transformation.library.xtend.CppUtils" templateID="CppUtils">
+		</client>
+ </extension>
+ 
+</plugin>

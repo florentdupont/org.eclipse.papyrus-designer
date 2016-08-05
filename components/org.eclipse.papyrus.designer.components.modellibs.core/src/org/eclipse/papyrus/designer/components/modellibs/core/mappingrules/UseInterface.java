@@ -15,8 +15,8 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
 import org.eclipse.papyrus.designer.components.FCM.Port;
-import org.eclipse.papyrus.designer.components.FCM.util.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.util.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
+import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Type;
@@ -29,6 +29,7 @@ public class UseInterface implements IMappingRule
 		Type type = p.getType();
 		if (type instanceof Interface) {
 			Class useType = MapUtil.getDerivedClass(p, "Use_", update); //$NON-NLS-1$
+			// markNoCodeGen(useType);
 			MapUtil.addUsage(useType, (Interface) type);
 			return useType;
 		}

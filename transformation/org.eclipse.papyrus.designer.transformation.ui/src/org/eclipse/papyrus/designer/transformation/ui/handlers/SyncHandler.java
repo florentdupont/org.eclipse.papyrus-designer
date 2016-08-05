@@ -18,13 +18,11 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.papyrus.designer.transformation.core.CommandSupport;
-import org.eclipse.papyrus.designer.transformation.core.RunnableWithResult;
-import org.eclipse.papyrus.designer.transformation.core.Utils;
-import org.eclipse.papyrus.designer.transformation.core.sync.CompImplSync;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.RunnableWithResult;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
 import org.eclipse.papyrus.designer.transformation.core.sync.DepPlanSync;
 import org.eclipse.papyrus.designer.transformation.core.sync.InterfaceSync;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationRTException;
 import org.eclipse.papyrus.uml.diagram.common.handlers.CmdHandler;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -54,9 +52,7 @@ public class SyncHandler extends CmdHandler {
 			return true;
 		}
 		if (selectedEObject instanceof Class) {
-			if (Utils.isComponent((Class) selectedEObject)) {
-				return true;
-			}
+			return true;
 		}
 		else if (selectedEObject instanceof Package) {
 			return true;
@@ -85,42 +81,7 @@ public class SyncHandler extends CmdHandler {
 			});
 		}
 		
-		else if (selectedEObject instanceof Class) {
-			final Class selectedClass = (Class) selectedEObject;
-			if (Utils.isCompImpl(selectedClass)) {
-				CommandSupport.exec("Synchronize component via implementation", event, new RunnableWithResult() {
-
-					@Override
-					public CommandResult run() {
-						CompImplSync.updatePorts(selectedClass);
-						try {
-							CompImplSync.syncRealizations(selectedClass);
-						}
-						catch (TransformationRTException e) {
-							MessageDialog.openWarning(Display.getDefault().getActiveShell(), "Problems during synchronization", e.getMessage());
-							return CommandResult.newErrorCommandResult(e.getMessage());
-						}
-
-						// CompImplSync.syncContextOps (selectedClass, true);
-						CompImplSync.interfaceModifications(selectedClass, null);
-						return CommandResult.newOKCommandResult();
-					}
-				});
-			} else if (Utils.isCompType(selectedClass)) {
-				CommandSupport.exec("Synchronize component via type", event, new Runnable() {
-
-					@Override
-					public void run() {
-						if (!CompImplSync.syncViaType(selectedClass, false)) {
-							MessageDialog.openWarning(Display.getDefault().getActiveShell(), "Warning: ineffective command",
-									"Synchronization applied on a component type (abstract class) will synchronize all implementations, i.e. non-abstract classes inheriting from it. However, the selected type has no implementations");
-						}
-						// CompImplSync.syncContextOps (selectedClass, true);
-					}
-				});
-			}
-		}
-		else if (selectedEObject instanceof Package) {
+		if (selectedEObject instanceof Package) {
 			final Package selectedPkg = (Package) selectedEObject;
 			CommandSupport.exec("Synchronize deployment plan", event, new RunnableWithResult() {
 

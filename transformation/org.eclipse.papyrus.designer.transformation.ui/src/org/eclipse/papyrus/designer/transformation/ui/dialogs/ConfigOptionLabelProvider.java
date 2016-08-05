@@ -16,7 +16,7 @@ package org.eclipse.papyrus.designer.transformation.ui.dialogs;
 
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.papyrus.designer.transformation.core.Description;
+import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtil;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.uml2.uml.Class;
 
@@ -37,7 +37,7 @@ public class ConfigOptionLabelProvider extends LabelProvider implements ITableLa
 		if (columnIndex == 0) {
 			return getText(element);
 		} else if (columnIndex == 1) {
-			return Description.getDescription((Class) element);
+			return DescriptionUtil.getDescription((Class) element);
 		}
 		return null;
 	}
