@@ -14,15 +14,21 @@
 
 package org.eclipse.papyrus.designer.deployment.tools;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.uml2.uml.Class;
+
 /**
- * A collection of numerical CORBA type names. Used to determine whether a
- * numerical value specification (LiteralInteger) should be used during deployment
- * plan creation. 
+ * Choose a component implementation for a given component type
  */
-public class CORBAtypeNames {
-	public static final String Octet = "corba::octet"; //$NON-NLS-1$
-	public static final String Long = "corba::long"; //$NON-NLS-1$
-	public static final String UnsignedLong = "corba::unsigned long"; //$NON-NLS-1$
-	public static final String Short = "corba::short"; //$NON-NLS-1$
-	public static final String UnsignedShort = "corba::unsigned short"; //$NON-NLS-1$
-}
+public interface ImplementationChooser {
+	/**
+	 * Choose a component implementation from a list of available implementations
+	 *
+	 * @param componentType
+	 *            a (abstract) component
+	 * @param implList
+	 *            a list of available component implementations
+	 * @return the chosen implementation.
+	 */
+	public Class chooseImplementation(Class componentType, EList<Class> implList);
+};

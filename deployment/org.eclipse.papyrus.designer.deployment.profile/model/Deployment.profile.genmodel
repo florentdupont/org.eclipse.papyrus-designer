@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    modelDirectory="/org.eclipse.papyrus.designer.deployment.profile/src-gen"
+    editDirectory="/org.eclipse.papyrus.designer.deployment.profile.edit/src" editorDirectory="/org.eclipse.papyrus.designer.deployment.profile.editor/src"
+    modelPluginID="org.eclipse.papyrus.designer.deployment.profile" modelName="Deployment"
+    modelPluginClass="" editPluginClass="org.eclipse.papyrus.designer.deployment.profile.Codegen.provider.DeploymentEditPlugin"
+    editorPluginClass="org.eclipse.papyrus.designer.deployment.profile.Codegen.presentation.DeploymentEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="org.eclipse.papyrus.designer.deployment.profile.Deployment.tests.DeploymentAllTests"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="org.eclipse.papyrus.designer.deployment.profile.edit" editorPluginID="org.eclipse.papyrus.designer.deployment.profile.editor"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.uml2.types/model/Types.genmodel#//types ../../org.eclipse.uml2.uml/model/UML.genmodel#//uml"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="VALIDATION_DELEGATES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>Deployment.profile.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Deployment" basePackage="org.eclipse.papyrus.designer.deployment.profile"
+      disposableProviderFactory="true" ecorePackage="Deployment.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//ConfigurationProperty">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//ConfigurationProperty/base_Property"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//AutoIndex">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//AutoIndex/base_Property"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//AutoIndexPerNode">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//AutoIndexPerNode/base_Property"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//CopyAttributeValue">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//CopyAttributeValue/base_Property"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//CopyAttributeValue/source"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//InitPrecedence">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//InitPrecedence/base_Class"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//InitPrecedence/invokeBefore"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//InitPrecedence/invokeAfter"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//Target">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//Target/base_Class"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//Target/usedOS"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//Target/availRAM"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//Target/availROM"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//OperatingSystem">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//OperatingSystem/base_Class"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//ImplementationProperties">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//ImplementationProperties/base_Class"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//ImplementationProperties/sizeRam"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//ImplementationProperties/sizeROM"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//ImplementationProperties/supportedOS"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//ImplementationProperties/arch"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//TargetArchitecture">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//TargetArchitecture/base_Class"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//DeploymentPlan">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//DeploymentPlan/base_Package"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//DeploymentPlan/projectMappings"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//Singleton">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//Singleton/base_Class"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//InstanceConfigurator">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//InstanceConfigurator/base_Class"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//InstanceConfigurator/onNodeModel"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//UseInstanceConfigurator">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//UseInstanceConfigurator/base_Class"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//UseInstanceConfigurator/configurator"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.eclipse.papyrus.designer</groupId>
+		<artifactId>org.eclipse.papyrus.designer.languages.common</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>org.eclipse.papyrus.designer.deployment.profile</artifactId>
+	<packaging>eclipse-plugin</packaging>
+	<description>This module contains a profile for code generation</description>
+</project>

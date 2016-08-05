@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Deployment.profile -->
+      <package
+            uri="http://www.eclipse.org/papyrus/Deployment/1"
+            class="org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPackage"
+            genModel="model/Deployment.profile.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.uri_mapping">
+		<mapping
+			source="pathmap://DEP_PROFILE/"
+			target="platform:/plugin/org.eclipse.papyrus.designer.deployment.profile/model/"/>
+	</extension>
+   
+    <extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.eclipse.org/papyrus/Deployment/1"
+			location="pathmap://DEP_PROFILE/Deployment.profile.uml#_gPDsIBa-EearhdjjJ6cVzQ"/>
+	</extension>
+	
+	<extension point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+		<profile
+			description="Deployment profile"
+			iconpath="icons/deployment.gif"
+			name="Deployment profile"
+			path="pathmap://DEP_PROFILE/Deployment.profile.uml"
+			provider="CEA LIST"/>
+	</extension>
+</plugin>
