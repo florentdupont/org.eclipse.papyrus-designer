@@ -319,7 +319,7 @@ class SM2ClassesTransformationCore {
 		«RUN_TO_COMPLETION_COND» = PTHREAD_COND_INITIALIZER;
 		
 		dispatchStruct = «STRUCT_FOR_THREAD»(this, 0, 0, «THREAD_FUNC_STATE_MACHINE_TYPE», 0);
-		THREAD_CREATE(dispatchThread, dispatchStruct)
+		«superContext.name»_THREAD_CREATE(dispatchThread, dispatchStruct)
 		while(!dispatchFlag) {}
 		
 		«IF changeEvents.size > 0»
@@ -391,7 +391,7 @@ class SM2ClassesTransformationCore {
 		
 		appendIncludeHeader('''
 		#define CHECKPOINT if («SYSTEM_STATE_ATTR» == statemachine::EVENT_PROCESSING) {return;}
-		#define THREAD_CREATE(thThread, str) «FORK_NAME»(&thThread, NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &str);
+		#define «superContext.name»_THREAD_CREATE(thThread, str) «FORK_NAME»(&thThread, NULL, &«superContext.name»::«THREAD_FUNC_WRAPPER», &str);
 		#define «superContext.name.toUpperCase»_GET_CONTROL /*mutex synchronization to protect run-to-completion semantics*/ \
 				pthread_mutex_lock(&«RUN_TO_COMPLETION_MUTEX»); \
 				while («SYSTEM_STATE_ATTR» != statemachine::IDLE) {\
@@ -401,30 +401,30 @@ class SM2ClassesTransformationCore {
 						pthread_mutex_unlock(&«RUN_TO_COMPLETION_MUTEX»);''')
 		
 		var eventClass = smPack.getOwnedType("Event_t")
-		var copiedType = copier.copy(eventClass) as Type	
+		var copiedType = copier.copy(eventClass) as Type
 		var eventQueueClass = smPack.getOwnedType("EventPriorityQueue")
-		var copiedEventQueueType = copier.copy(eventQueueClass) as Type			
-		superContext.createOwnedAttribute(EVENT_QUEUE, copiedEventQueueType)	
+		var copiedEventQueueType = copier.copy(eventQueueClass) as Type
+		superContext.createOwnedAttribute(EVENT_QUEUE, copiedEventQueueType)
 		StereotypeUtil.apply(superContext.createOwnedAttribute("currentEvent", copiedType), Ptr);
 		
 		
-		var eventDispatch = superContext.createOwnedOperation(EVENT_DISPATCH, null, null)					
+		var eventDispatch = superContext.createOwnedOperation(EVENT_DISPATCH, null, null)
 		superContext.createOpaqueBehavior(eventDispatch, '''
 		bool popDeferred = false;
 		while(true) {
 			//run-to-completion: need to have a mutex here
 			currentEvent = «EVENT_QUEUE».pop(popDeferred);
 			dispatchFlag = true;
-			if (currentEvent != NULL) {	
+			if (currentEvent != NULL) {
 				«superContext.name.toUpperCase»_GET_CONTROL
 				switch(currentEvent->eventID) {
 					«FOR e:eventMap.keySet.filter[!(it instanceof CallEvent)]»
 						case «e.eventID»:
 							«IF e instanceof SignalEvent»
 								«IF e.signal != null»
-									«CppGenUtils.cppQualifiedName(copier.getCopy(e.signal))» sig;
-									memcpy(&sig, currentEvent->data, sizeof(«CppGenUtils.cppQualifiedName(copier.getCopy(e.signal))»));
-									process«e.eventName»(sig);
+									«CppGenUtils.cppQualifiedName(copier.getCopy(e.signal))» sig_«e.eventID»;
+									memcpy(&sig_«e.eventID», currentEvent->data, sizeof(«CppGenUtils.cppQualifiedName(copier.getCopy(e.signal))»));
+									process«e.eventName»(sig_«e.eventID»);
 								«ELSE»
 									process«e.eventName»();
 								«ENDIF»
@@ -443,8 +443,8 @@ class SM2ClassesTransformationCore {
 				popDeferred = («SYSTEM_STATE_ATTR» != statemachine::EVENT_DEFERRED);
 				«SYSTEM_STATE_ATTR» = statemachine::IDLE;
 				«superContext.name.toUpperCase»_RELEASE_CONTROL
-			}			
-		}''') 
+			}
+		}''')
 		
 		concurrency.createConcurrencyForTransitions
 		superContext.createOwnedAttribute("dispatchThread", ptTypes.pthread)
@@ -466,13 +466,12 @@ class SM2ClassesTransformationCore {
 		«header»
 		«appended»'''
 		UMLUtil.getStereotypeApplication(superContext, Include).header = header
-	}	
+	}
 	
 	
 	
 	private def createChangeEvents() {
 		new ChangeEventTransformation(this).createChangeEvents
-		
 	}
 	
 	def String generateChangeState(State s) {
@@ -547,8 +546,8 @@ class SM2ClassesTransformationCore {
 			if («STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«parent.regions.indexOf(r)»] != NULL) {
 				«FOR sub:r.subvertices.filter(State).filter[!(it instanceof FinalState)] SEPARATOR ' else '»
 				if («STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«parent.regions.indexOf(r)»] == &«STATE_ARRAY_ATTRIBUTE»[«sub.name.toUpperCase»_ID]) {
-					«SET_FLAG»(«sub.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», false);	
-				}	
+					«SET_FLAG»(«sub.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», false);
+				}
 				«ENDFOR»
 				«getFptrCall(STATE_ARRAY_ATTRIBUTE+"["+parent.name.toUpperCase+"_ID]."+ACTIVE_SUB_STATES+"["+parent.regions.indexOf(r)+"]", true, EXIT_NAME)»;
 			}
@@ -563,8 +562,8 @@ class SM2ClassesTransformationCore {
 			if («STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[0] != NULL) {
 				«FOR sub:parent.regions.head.subvertices.filter(State).filter[!(it instanceof FinalState)] SEPARATOR ' else '»
 				if («STATE_ARRAY_ATTRIBUTE»[«parent.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[0] == &«STATE_ARRAY_ATTRIBUTE»[«sub.name.toUpperCase»_ID]) {
-					«SET_FLAG»(«sub.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», false);	
-				}	
+					«SET_FLAG»(«sub.name.toUpperCase»_ID, «THREAD_FUNC_DOACTIVITY_TYPE», false);
+				}
 				«ENDFOR»
 				«getFptrCall(STATE_ARRAY_ATTRIBUTE+"["+parent.name.toUpperCase+"_ID]."+ACTIVE_SUB_STATES+"[0]", true, EXIT_NAME)»;
 			}
@@ -1605,7 +1604,7 @@ class SM2ClassesTransformationCore {
 		}
 		for(stt:target.stereotypeApplications) {
 			StereotypeUtil.applyApp(target, stt.class)
-		}		
+		}
 		target.name = name
 	}
 
