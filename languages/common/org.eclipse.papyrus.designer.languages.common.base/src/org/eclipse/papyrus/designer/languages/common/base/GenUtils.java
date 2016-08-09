@@ -801,6 +801,13 @@ public class GenUtils {
 				}
 			}
 		}
+		
+		for (Element owned : current.getOwnedElements()) {
+			if (owned instanceof Classifier) {
+				classifiers.addAll(getDirectTypesViaDependencies((Classifier) owned));
+			}
+		}
+		
 		return classifiers;
 	}
 
