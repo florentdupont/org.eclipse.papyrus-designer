@@ -12,6 +12,15 @@
 			<action dev="sli" type="add" issue="499228">
 				Java state-based incremental code generation
 			</action>
+			<action dev="sli" type="add" issue="496485">
+				IDL generation from interfaces, datatypes and classes (components)
+			</action>
+			<action dev="sli" type="fix" issue="497394">
+				Fix state-machine generation for pseudo states
+			</action>
+			<action dev="sli" type="add" issue="496934">
+				Provide model library for a subset of the C++ standard template library
+			</action>
 		</release>
 		<release version="1.0.1" date="2016-06-22" description="GeryElephant">
 			<action dev="flf" type="add" issue="496416">
