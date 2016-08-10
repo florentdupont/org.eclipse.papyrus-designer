@@ -53,6 +53,7 @@ import org.eclipse.papyrus.designer.transformation.core.extensions.InstanceConfi
 import org.eclipse.papyrus.designer.transformation.core.generate.GenerateCode;
 import org.eclipse.papyrus.designer.transformation.core.generate.GenerationOptions;
 import org.eclipse.papyrus.designer.transformation.core.transformations.deployment.Deploy;
+import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterStateMachines;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterTemplateBinding;
 import org.eclipse.swt.widgets.Display;
@@ -258,6 +259,7 @@ public class InstantiateDepPlan {
 		// can it be realized with a copier filter ?
 		targetCopier.preCopyListeners.add(FilterStateMachines.getInstance());
 		targetCopier.preCopyListeners.add(FilterTemplateBinding.getInstance());
+		targetCopier.preCopyListeners.add(FilterM2MTrafo.getInstance());
 
 		monitor.setTaskName(String.format(Messages.InstantiateDepPlan_InfoDeployingForNode, node.getName()));
 

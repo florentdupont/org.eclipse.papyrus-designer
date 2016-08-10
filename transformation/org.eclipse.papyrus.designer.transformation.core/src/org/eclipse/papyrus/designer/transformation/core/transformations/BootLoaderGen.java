@@ -251,8 +251,10 @@ public class BootLoaderGen {
 
 		// implementation contains get_start operation => has start port
 		// which is called automatically
-		String get_start = PrefixConstants.getP_Prefix + "start"; //$NON-NLS-1$
-
+		//String get_start = PrefixConstants.getP_Prefix + "start"; //$NON-NLS-1$
+		// TODO
+		String get_start = "get_start";
+		
 		// Need to check whether implementation is an executor which is encapsulated in a container. In this case, only
 		// the method of the container and not the method of the executor (which owns the same port) maybe called.
 		// Currently, this check is based on the use of "executor" as reserved part name (validation checks that the
@@ -289,7 +291,9 @@ public class BootLoaderGen {
 		}
 
 		if (bCreateConn) {
-			m_initCodeCConnections += varName + "." + PrefixConstants.createConnections +"();\n"; //$NON-NLS-1$ //$NON-NLS-2$
+			// TODO
+			//m_initCodeCConnections += varName + "." + PrefixConstants.createConnections +"();\n"; //$NON-NLS-1$ //$NON-NLS-2$
+			m_initCodeCConnections += varName + ".createConnections();\n"; //$NON-NLS-1$
 		}
 		return implemPart;
 	}
@@ -455,7 +459,9 @@ public class BootLoaderGen {
 			}
 		};
 		Class[] activationKeys = m_activation.keySet().toArray(new Class[0]);
-		String get_lc = PrefixConstants.getP_Prefix + "lc"; //$NON-NLS-1$
+		// String get_lc = PrefixConstants.getP_Prefix + "lc"; //$NON-NLS-1$
+		// TODO
+		String get_lc = "get_lc"; //$NON-NLS-1$
 		if (activationKeys.length > 0) {
 			Arrays.sort(activationKeys, comparator);
 			code += "// activation code\n"; //$NON-NLS-1$

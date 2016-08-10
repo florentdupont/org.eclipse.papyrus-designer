@@ -13,16 +13,13 @@
  *****************************************************************************/
 package org.eclipse.papyrus.designer.components.transformation.java.xtend
 
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
 import org.eclipse.uml2.uml.Class
 import org.eclipse.uml2.uml.Property
 import org.eclipse.uml2.uml.Port
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.TransformationException
-import org.eclipse.papyrus.designer.components.transformation.core.PortInfo
-import org.eclipse.papyrus.designer.components.transformation.core.PortUtils
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.PrefixConstants
-import org.eclipse.papyrus.designer.components.transformation.core.Utils
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.CompTypeTrafos
+import org.eclipse.papyrus.designer.components.transformation.PortInfo
+import org.eclipse.papyrus.designer.components.transformation.PortUtils
+import org.eclipse.papyrus.designer.components.transformation.transformations.PrefixConstants
 import org.eclipse.uml2.uml.AggregationKind
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.OpaqueBehavior
@@ -35,8 +32,13 @@ import org.eclipse.uml2.uml.Connector
 import org.eclipse.emf.common.util.EList
 import org.eclipse.uml2.uml.StructuralFeature
 import org.eclipse.papyrus.designer.components.transformation.java.Messages
-import org.eclipse.papyrus.designer.components.transformation.core.extensions.IOOTrafo
+import org.eclipse.papyrus.designer.components.transformation.extensions.IOOTrafo
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil
+import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtil
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
+import org.eclipse.papyrus.designer.components.FCM.Assembly
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil
 
 /**
  * This class realizes the transformation from component-based to object-oriented
@@ -209,14 +211,14 @@ class JavaToOO implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						val eLong = Utils.getQualifiedElement(PackageUtil.getRootPackage(implementation),
-							CompTypeTrafos.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
+						val eLong = ElementUtil.getQualifiedElement(PackageUtil.getRootPackage(implementation),
+							PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
 						if (eLong instanceof Type) {
 							op.createOwnedParameter("index", eLong as Type) 
 						} else {
 							throw new RuntimeException(
 								String.format(Messages.CompImplTrafos_CannotFindType,
-									CompTypeTrafos.INDEX_TYPE_FOR_MULTI_RECEPTACLE))
+									PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE))
 						}
 					}
 					val refParam = op.createOwnedParameter("ref", requiredIntf) 
@@ -255,9 +257,10 @@ class JavaToOO implements IOOTrafo {
 					} else {
 						// no delegation - create attribute for port
 						val attributeName = PrefixConstants.attributePrefix + portInfo.name
-						if (!Utils.hasNonPortOwnedAttribute(implementation, attributeName)) {
-							val attr = implementation.createOwnedAttribute(attributeName, requiredIntf)
-							LazyCopier.copyMultElemModifiers(portInfo.port, attr)
+						var attr = implementation.getOwnedAttribute(attributeName, null)
+						if (attr == null || attr instanceof Port) {
+							attr = implementation.createOwnedAttribute(attributeName, requiredIntf)
+							CopyUtil.copyMultElemModifiers(portInfo.port, attr)
 
 							// is shared (should store a reference)
 							attr.setAggregation(AggregationKind.SHARED_LITERAL)
@@ -501,7 +504,7 @@ class JavaToOO implements IOOTrafo {
 	 * @return
 	 */
 	static def instantiateViaBootloader(Class implementation) {
-		return implementation.isAbstract() || Utils.isAssembly(implementation)
+		return implementation.isAbstract() || StereotypeUtil.isApplied(implementation, Assembly)
 	}
 
 	/**

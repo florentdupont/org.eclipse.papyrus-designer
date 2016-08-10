@@ -34,6 +34,8 @@ import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
 import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtil;
 import org.eclipse.papyrus.designer.transformation.core.sync.DepPlanSync;
+import org.eclipse.papyrus.designer.transformation.ui.provider.AttributeLabelProvider;
+import org.eclipse.papyrus.designer.transformation.ui.provider.InstanceLabelProvider;
 import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.swt.SWT;

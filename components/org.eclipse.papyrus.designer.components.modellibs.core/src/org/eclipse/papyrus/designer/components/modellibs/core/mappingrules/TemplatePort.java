@@ -15,15 +15,14 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.m2m.qvt.oml.util.Utils;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
 import org.eclipse.papyrus.designer.components.FCM.profile.ITemplateMappingRule;
 import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
+import org.eclipse.papyrus.designer.components.transformation.component.filters.FixTemplateSync;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FixTemplateSync;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -88,8 +87,7 @@ public class TemplatePort implements ITemplateMappingRule {
 			Package model = PackageUtil.getRootPackage(port);
 			Package pkg = model.getNestedPackage(name);
 			if (pkg == null) {
-				model = Utils.getFirstLevel(port); // try whether package template exists here
-				// required for target model with additional "root" folder
+				model = PackageUtil.getRootPackage(port); // try whether package template exists here
 				pkg = model.getNestedPackage(name);
 			}
 			if (pkg != null) {
@@ -160,8 +158,7 @@ public class TemplatePort implements ITemplateMappingRule {
 			Package model = PackageUtil.getRootPackage(port);
 			Package pkg = model.getNestedPackage(name);
 			if (pkg == null) {
-				model = Utils.getFirstLevel(port); // try whether package template exists here
-				// required for target model with additional "root" folder
+				model = PackageUtil.getRootPackage(port); // try whether package template exists here
 				pkg = model.getNestedPackage(name);
 			}
 			if (pkg != null) {

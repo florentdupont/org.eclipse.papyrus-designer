@@ -15,7 +15,6 @@ import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint;
 import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
 import org.eclipse.papyrus.designer.transformation.base.preferences.PapyrusDesignerPreferenceConstants;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.common.util.UML2Util;
 import org.eclipse.uml2.uml.AggregationKind;
@@ -561,8 +560,7 @@ public class DepUtils {
 	 * inner parts
 	 */
 	public static boolean isComposite(Class implementation) {
-		return ElementUtil.isCompImpl(implementation)
-				&& (getParts(implementation).size() > 0);
+		return (getParts(implementation).size() > 0);
 	}
 
 	/**

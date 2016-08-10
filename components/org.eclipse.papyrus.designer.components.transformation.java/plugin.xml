@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.papyrus.designer.components.transformation.core.ooTransformation">
+         point="org.eclipse.papyrus.designer.components.transformation.ooTransformation">
       <client
             class="org.eclipse.papyrus.designer.components.transformation.java.xtend.JavaToOO"
             ooTrafoID="org.eclipse.papyrus.designer.components.transformation.java.Java">

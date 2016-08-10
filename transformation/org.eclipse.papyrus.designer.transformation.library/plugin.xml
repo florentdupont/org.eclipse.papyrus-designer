@@ -2,7 +2,7 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension id="QML_CORE" point="org.eclipse.emf.ecore.uri_mapping">
-      <mapping source="pathmap://QML_CORE/" target="platform:/plugin/org.eclipse.papyrus.designer.transformation.modellibs.core/models/library/">
+      <mapping source="pathmap://QML_CORE/" target="platform:/plugin/org.eclipse.papyrus.designer.transformation.library/models/library/">
       </mapping>
    </extension>
     <extension name="Designer core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
@@ -88,19 +88,19 @@
 	<extension id="LoopOperations" point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
 		<transformation
 			transformationID="core::bindingHelpers::LoopOperations"
-			class="org.eclipse.papyrus.designer.transformation.library.bindinghelpers.LoopOperations">
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.LoopOperations">
 		</transformation>
 	</extension>
 	<extension id="BindOperation" point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
 		<transformation
 			transformationID="core::bindingHelpers::BindOperation"
-			class="org.eclipse.papyrus.designer.transformation.library.bindinghelpers.BindOperation">
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.BindOperation">
 		</transformation>
 	</extension>
 	<extension id="BindCppIncludeToFirstActual" point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
 		<transformation
 			transformationID="core::bindingHelpers::BindCppIncludeToFirstActual"
-			class="org.eclipse.papyrus.designer.transformation.library.bindinghelpers.BindCppIncludeToFirstActual">
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.BindCppIncludeToFirstActual">
 		</transformation>
 	</extension>
 	<extension

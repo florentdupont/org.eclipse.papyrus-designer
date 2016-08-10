@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
   <uml:Profile xmi:id="_fPDsIBa-EearhdjjJ6cVzQ" name="Transformation" metaclassReference="_WWO_YBbAEearhdjjJ6cVzQ _LQB30CXmEea8zMl4rVTOhQ _bIj1ICi3EeaXvZJsTlfH8A _KjtPoEN6Eea4W-lfO7m_3g">
+    <ownedComment xmi:type="uml:Comment" xmi:id="__1b5QF4LEea4bLzKfwAjjA" annotatedElement="_w_XhsD3yEeajPtol9OalIw">
+      <body>Represents a M2M transformation. Such a M2M is directly associated with a Java implementation (via an extension point) or optionally references a common implementation for a set of M2M transformations. In this case, the optional implementation attribute points to such an implementation. The latter is used for generic transformations such as the connector reification that read this additional informaiton.</body>
+    </ownedComment>
     <elementImport xmi:type="uml:ElementImport" xmi:id="_WWO_YBbAEearhdjjJ6cVzQ" alias="Model">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Model"/>
     </elementImport>

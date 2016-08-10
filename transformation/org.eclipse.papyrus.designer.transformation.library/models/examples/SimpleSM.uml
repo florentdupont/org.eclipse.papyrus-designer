@@ -236,11 +236,15 @@ sleep(15);
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_v3fMgDLiEd2RVeNawwNNzg" name="platform">
-      <packagedElement xmi:type="uml:Node" xmi:id="_zY9vMDLiEd2RVeNawwNNzg" name="MonoNode">
-        <generalization xmi:type="uml:Generalization" xmi:id="_A39CYHDaEeORJcfdyIEeTg">
-          <general xmi:type="uml:Class" href="pathmap://QML_DISTRIBUTION/SocketRuntime.uml#_4ozmImnHEeOtZICylR5Azw"/>
-        </generalization>
+      <packagedElement xmi:type="uml:Package" xmi:id="_rbwXsF15Eea4bLzKfwAjjA" name="HWArchitectureMonolithicPlatform">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_rb2eUF15Eea4bLzKfwAjjA" classifier="_M1a_8MniEeCMCo5Ox2CNmg">
+          <slot xmi:type="uml:Slot" xmi:id="_rb6vwF15Eea4bLzKfwAjjA" definingFeature="_QgKzYMniEeCMCo5Ox2CNmg">
+            <value xmi:type="uml:InstanceValue" xmi:id="_rb794F15Eea4bLzKfwAjjA" instance="_rb46kF15Eea4bLzKfwAjjA"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_rb46kF15Eea4bLzKfwAjjA" name="monoNode" classifier="_zY9vMDLiEd2RVeNawwNNzg"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Node" xmi:id="_zY9vMDLiEd2RVeNawwNNzg" name="MonoNode"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_M1a_8MniEeCMCo5Ox2CNmg" name="HWArchitectureMonolithic">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_QgKzYMniEeCMCo5Ox2CNmg" name="monoNode" visibility="public" type="_zY9vMDLiEd2RVeNawwNNzg" aggregation="composite">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XijRAMniEeCMCo5Ox2CNmg" value="1"/>
@@ -249,74 +253,6 @@ sleep(15);
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_Ndc2cGGIEeO2F4QRMDSOXg" name="Eclipse" type="_GUl9YGGIEeO2F4QRMDSOXg" aggregation="composite"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_GUl9YGGIEeO2F4QRMDSOXg" name="EclipseServer">
-        <generalization xmi:type="uml:Generalization" xmi:id="_Bpd-4HDaEeORJcfdyIEeTg">
-          <general xmi:type="uml:Class" href="pathmap://QML_DISTRIBUTION/SocketRuntime.uml#_4ozmImnHEeOtZICylR5Azw"/>
-        </generalization>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_ZDrmkHDaEeORJcfdyIEeTg" name="HWArchitectureMonolithicPlatform">
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ZDrmkXDaEeORJcfdyIEeTg" classifier="_M1a_8MniEeCMCo5Ox2CNmg">
-          <slot xmi:type="uml:Slot" xmi:id="_ZDsNoXDaEeORJcfdyIEeTg" definingFeature="_QgKzYMniEeCMCo5Ox2CNmg">
-            <value xmi:type="uml:InstanceValue" xmi:id="_ZDs0sHDaEeORJcfdyIEeTg" instance="_ZDsNoHDaEeORJcfdyIEeTg"/>
-          </slot>
-          <slot xmi:type="uml:Slot" xmi:id="_ZDtbwHDaEeORJcfdyIEeTg" definingFeature="_Ndc2cGGIEeO2F4QRMDSOXg">
-            <value xmi:type="uml:InstanceValue" xmi:id="_ZDuC0HDaEeORJcfdyIEeTg" instance="_ZDs0sXDaEeORJcfdyIEeTg"/>
-          </slot>
-        </packagedElement>
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ZDsNoHDaEeORJcfdyIEeTg" name="monoNode" classifier="_zY9vMDLiEd2RVeNawwNNzg">
-          <slot xmi:type="uml:Slot" xmi:id="_fg9zEHDaEeORJcfdyIEeTg">
-            <definingFeature xmi:type="uml:Property" href="pathmap://QML_DISTRIBUTION/SocketRuntime.uml#_4ozmJWnHEeOtZICylR5Azw"/>
-            <value xmi:type="uml:LiteralString" xmi:id="_fg-aIHDaEeORJcfdyIEeTg" name="value for IPaddress" value="127.0.0.1">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </value>
-          </slot>
-          <slot xmi:type="uml:Slot" xmi:id="_hDbrYHDaEeORJcfdyIEeTg">
-            <definingFeature xmi:type="uml:Property" href="pathmap://QML_DISTRIBUTION/SocketRuntime.uml#_4ozmJmnHEeOtZICylR5Azw"/>
-            <value xmi:type="uml:LiteralInteger" xmi:id="_hDcScHDaEeORJcfdyIEeTg" name="value for portNumber" value="12345">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-            </value>
-          </slot>
-        </packagedElement>
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ZDs0sXDaEeORJcfdyIEeTg" name="Eclipse" classifier="_GUl9YGGIEeO2F4QRMDSOXg">
-          <slot xmi:type="uml:Slot" xmi:id="_oXzQ4HDaEeORJcfdyIEeTg">
-            <definingFeature xmi:type="uml:Property" href="pathmap://QML_DISTRIBUTION/SocketRuntime.uml#_4ozmJWnHEeOtZICylR5Azw"/>
-            <value xmi:type="uml:LiteralString" xmi:id="_oXz38HDaEeORJcfdyIEeTg" name="value for IPaddress" value="127.0.0.1">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-            </value>
-          </slot>
-          <slot xmi:type="uml:Slot" xmi:id="_plcIsHDaEeORJcfdyIEeTg">
-            <definingFeature xmi:type="uml:Property" href="pathmap://QML_DISTRIBUTION/SocketRuntime.uml#_4ozmJmnHEeOtZICylR5Azw"/>
-            <value xmi:type="uml:LiteralInteger" xmi:id="_plcvwHDaEeORJcfdyIEeTg" name="value for portNumber" value="12346">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-            </value>
-          </slot>
-        </packagedElement>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_NaSPIHltEeOh_8tymvdOOg" name="System_implPlatform">
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NaS2MHltEeOh_8tymvdOOg" classifier="_bYJagDLiEd2RVeNawwNNzg">
-          <slot xmi:type="uml:Slot" xmi:id="_NaTdQXltEeOh_8tymvdOOg" definingFeature="_gV1cgDLiEd2RVeNawwNNzg">
-            <value xmi:type="uml:InstanceValue" xmi:id="_NaUEUHltEeOh_8tymvdOOg" instance="_NaTdQHltEeOh_8tymvdOOg"/>
-          </slot>
-          <slot xmi:type="uml:Slot" xmi:id="_NaVScHltEeOh_8tymvdOOg">
-            <value xmi:type="uml:InstanceValue" xmi:id="_NaV5gHltEeOh_8tymvdOOg" instance="_NaUrYHltEeOh_8tymvdOOg"/>
-          </slot>
-          <slot xmi:type="uml:Slot" xmi:id="_NaXHoHltEeOh_8tymvdOOg">
-            <value xmi:type="uml:InstanceValue" xmi:id="_NaXHoXltEeOh_8tymvdOOg" instance="_NaWgkHltEeOh_8tymvdOOg"/>
-          </slot>
-          <slot xmi:type="uml:Slot" xmi:id="_NaXusXltEeOh_8tymvdOOg">
-            <value xmi:type="uml:InstanceValue" xmi:id="_NaYVwHltEeOh_8tymvdOOg" instance="_NaXusHltEeOh_8tymvdOOg"/>
-          </slot>
-        </packagedElement>
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NaTdQHltEeOh_8tymvdOOg" name="server" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NaUrYHltEeOh_8tymvdOOg" name="client"/>
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NaWgkHltEeOh_8tymvdOOg" name="singleton_localanimservice">
-          <classifier xmi:type="uml:Class" href="pathmap://QML_CORE/statemachine.uml#_xELAwF81EeGbQoflzrdx0g"/>
-        </packagedElement>
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NaXusHltEeOh_8tymvdOOg" name="singleton_remoteanimservice">
-          <classifier xmi:type="uml:Class" href="pathmap://QML_CORE/statemachine.uml#_B0gFAHg_EeOejZqJpKQeww"/>
-        </packagedElement>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_234GEDLiEd2RVeNawwNNzg" name="deployment">
@@ -327,7 +263,7 @@ sleep(15);
           </slot>
         </packagedElement>
         <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_QQr0gHltEeOh_8tymvdOOg" name="mainInstance.simpleSM" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
-        <packagedElement xmi:type="uml:Abstraction" xmi:id="_StNrwCQdEeabuaUFyev1pw" name="allocate mainInstance to monoNode" client="_QQm8AHltEeOh_8tymvdOOg" supplier="_ZDsNoHDaEeORJcfdyIEeTg"/>
+        <packagedElement xmi:type="uml:Abstraction" xmi:id="_tWAd4F15Eea4bLzKfwAjjA" name="allocate mainInstance to monoNode" client="_QQm8AHltEeOh_8tymvdOOg" supplier="_rb46kF15Eea4bLzKfwAjjA"/>
       </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_O6TiIjLUEd26WNosUASSSw">
@@ -362,9 +298,9 @@ sleep(15);
     </profileApplication>
   </uml:Model>
   <C_Cpp:Include xmi:id="_EaeJMNp0EeKd1ax3yaXM9w" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
-  <Alloc:Allocate xmi:id="_StSkQCQdEeabuaUFyev1pw" base_Abstraction="_StNrwCQdEeabuaUFyev1pw"/>
   <Transformation:ApplyTransformation xmi:id="_bov2QFl5EeagP584YGQRWg" base_Class="_oqZNUDLaEd2qeKRLMdIx_A">
     <trafo xmi:type="Transformation:M2MTrafo" href="pathmap://QML_CORE/statemachine.uml#_9Bh1UFl4EeagP584YGQRWg"/>
   </Transformation:ApplyTransformation>
   <Deployment:DeploymentPlan xmi:id="_3Rk-AFl6EeaMOsb_YMu4Rg" base_Package="_QQiDgHltEeOh_8tymvdOOg"/>
+  <Alloc:Allocate xmi:id="_tWIZsF15Eea4bLzKfwAjjA" base_Abstraction="_tWAd4F15Eea4bLzKfwAjjA"/>
 </xmi:XMI>

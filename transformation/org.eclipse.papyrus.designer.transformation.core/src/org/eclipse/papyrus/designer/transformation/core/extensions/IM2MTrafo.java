@@ -13,6 +13,7 @@
 
 package org.eclipse.papyrus.designer.transformation.core.extensions;
 
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.uml2.uml.Element;
@@ -22,5 +23,5 @@ import org.eclipse.uml2.uml.Element;
  */
 public interface IM2MTrafo extends IEmptyM2MTrafo {
 
-	public void transformElement(LazyCopier copier, M2MTrafo trafo, Element element);
+	public void transformElement(LazyCopier copier, M2MTrafo trafo, Element element) throws TransformationException;
 }

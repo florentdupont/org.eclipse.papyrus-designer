@@ -1,16 +1,15 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.papyrus.designer.components.transformation,
  org.eclipse.papyrus.designer.components.transformation.commands,
+ org.eclipse.papyrus.designer.components.transformation.component,
+ org.eclipse.papyrus.designer.components.transformation.component.filters,
  org.eclipse.papyrus.designer.components.transformation.connector,
  org.eclipse.papyrus.designer.components.transformation.container,
  org.eclipse.papyrus.designer.components.transformation.deployment,
  org.eclipse.papyrus.designer.components.transformation.extensions,
  org.eclipse.papyrus.designer.components.transformation.listeners,
- org.eclipse.papyrus.designer.components.transformation.preferences,
  org.eclipse.papyrus.designer.components.transformation.sync,
- org.eclipse.papyrus.designer.components.transformation.templates,
- org.eclipse.papyrus.designer.components.transformation.transformations,
- org.eclipse.papyrus.designer.components.transformation.transformations.filters
+ org.eclipse.papyrus.designer.components.transformation.templates
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.uml2.uml,
@@ -38,7 +37,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.papyrus.designer.languages.common.profile;bundle-version="0.7.1",
  org.eclipse.papyrus.designer.transformation.core;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
- org.eclipse.papyrus.designer.deployment.tools;bundle-version="0.7.3"
+ org.eclipse.papyrus.designer.deployment.tools;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.transformation.profile;bundle-version="0.7.3"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.3.qualifier

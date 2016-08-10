@@ -17,16 +17,18 @@ package org.eclipse.papyrus.designer.components.transformation.ui.dialogs;
 
 import java.util.Arrays;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.papyrus.commands.Activator;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
-import org.eclipse.papyrus.designer.components.transformation.core.templates.ConnectorBinding;
+import org.eclipse.papyrus.designer.components.transformation.templates.ConnectorBinding;
+import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.designer.transformation.ui.provider.QNameLabelProvider;
 import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
-import org.eclipse.papyrus.uml.tools.utils.ElementUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -188,7 +190,7 @@ public class ConnectorSelectionDialog extends AbstractElementListSelectionDialog
 				Object[] selected = fLower.getSelection();
 				if ((selected.length > 0) && (selected[0] instanceof NamedElement)) {
 					NamedElement selectedNE = (NamedElement) selected[0];
-					m_description.setText(Description.getDescription(selectedNE));
+					m_description.setText(DescriptionUtil.getDescription(selectedNE));
 				}
 				else {
 					m_description.setText("");
@@ -326,7 +328,7 @@ public class ConnectorSelectionDialog extends AbstractElementListSelectionDialog
 					getAllConnectors((Package) el, selectedConnector, connectorList);
 				}
 			} else if (el instanceof Class) {
-				if (StereotypeUtil.isApplied(el, InteractionComponent.class) && Utils.isCompType((Class) el)) {
+				if (StereotypeUtil.isApplied(el, InteractionComponent.class) && ((Class) el).isAbstract()) {
 
 					if (selectedConnector == null) {
 						connectorList.add((Class) el);
@@ -335,7 +337,7 @@ public class ConnectorSelectionDialog extends AbstractElementListSelectionDialog
 							Element owner = selectedConnector.getOwner();
 							if (owner instanceof Class) {
 								Class composite = (Class) owner;
-								Log.log(IStatus.INFO, Log.DIALOGS, "ConnectorSelectionDialog.getAllConnectors: try to bind connector " + //$NON-NLS-1$
+								Activator.log.info("ConnectorSelectionDialog.getAllConnectors: try to bind connector " + //$NON-NLS-1$
 										((Class) el).getQualifiedName());
 								ConnectorBinding.obtainBinding(composite, selectedConnector, (Class) el, false);
 								connectorList.add((Class) el);

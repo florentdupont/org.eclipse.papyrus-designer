@@ -152,6 +152,11 @@
     <element xmi:type="uml:Stereotype" href="Transformation.profile.uml#_iwtlMEOFEea4W-lfO7m_3g"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iwuzUUOFEea4W-lfO7m_3g" x="80" y="440" width="161" height="61"/>
   </children>
+  <children xmi:type="notation:Shape" xmi:id="__1oGgF4LEea4bLzKfwAjjA" type="Comment_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="__1rw4F4LEea4bLzKfwAjjA" type="Comment_BodyLabel"/>
+    <element xmi:type="uml:Comment" href="Transformation.profile.uml#__1b5QF4LEea4bLzKfwAjjA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__1oGgV4LEea4bLzKfwAjjA" x="520" y="340" width="301" height="221"/>
+  </children>
   <styles xmi:type="notation:StringValueStyle" xmi:id="_Cur4kT3yEeajPtol9OalIw" name="diagram_compatibility_version" stringValue="1.2.0"/>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_Cur4kj3yEeajPtol9OalIw"/>
   <styles xmi:type="style:PapyrusViewStyle" xmi:id="_Cur4kz3yEeajPtol9OalIw">
@@ -212,5 +217,12 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kLqgQkOFEea4W-lfO7m_3g" points="[160, 440, -643984, -643984]$[160, 381, -643984, -643984]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kMLdoEOFEea4W-lfO7m_3g" id="(0.4968944099378882,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kMMEsEOFEea4W-lfO7m_3g" id="(0.4968944099378882,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_BnGEIF4MEea4bLzKfwAjjA" type="Comment_AnnotatedElementEdge" source="__1oGgF4LEea4bLzKfwAjjA" target="_w_ZW4D3yEeajPtol9OalIw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_BnGEIV4MEea4bLzKfwAjjA"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BnGEIl4MEea4bLzKfwAjjA" points="[680, 340, -643984, -643984]$[660, 221, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BntvMF4MEea4bLzKfwAjjA" id="(0.53156146179402,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BntvMV4MEea4bLzKfwAjjA" id="(0.7960199004975125,1.0)"/>
   </edges>
 </notation:Diagram>

@@ -16,13 +16,13 @@ import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
 import org.eclipse.papyrus.designer.components.FCM.CopyAttributeValue;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
 import org.eclipse.papyrus.designer.components.FCM.util.FCMUtil;
-import org.eclipse.papyrus.designer.components.transformation.CORBAtypeNames;
-import org.eclipse.papyrus.designer.components.transformation.ConfigUtils;
-import org.eclipse.papyrus.designer.components.transformation.Log;
 import org.eclipse.papyrus.designer.components.transformation.Messages;
-import org.eclipse.papyrus.designer.components.transformation.Utils;
-import org.eclipse.papyrus.designer.components.transformation.transformations.TransformationException;
-import org.eclipse.papyrus.designer.components.transformation.transformations.TransformationRTException;
+import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
+import org.eclipse.papyrus.designer.deployment.tools.CORBAtypeNames;
+import org.eclipse.papyrus.designer.deployment.tools.ConfigUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DeployConstants;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -183,7 +183,7 @@ public class DepCreation {
 
 		InstanceSpecification is;
 		// treat singleton
-		if (Utils.isSingleton(typeOrImplem)) {
+		if (DepUtils.isSingleton(typeOrImplem)) {
 			// is a singleton - exactly one instance exists
 			InstanceSpecification mainInstance = DepUtils.getMainInstance(cdp);
 

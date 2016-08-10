@@ -21,6 +21,7 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.emf.workspace.AbstractEMFOperation;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.papyrus.MARTE.MARTE_DesignModel.SRM.SW_Concurrency.SwSchedulableResource;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
@@ -79,7 +80,7 @@ public class AllocationDialog extends SelectionStatusDialog {
 				if (element instanceof InstanceSpecification) {
 					InstanceSpecification instance = (InstanceSpecification) element;
 					if (instance.getName() == null) {
-						// donn't allocate to root element (detectable via the empty name)
+						// don't allocate to root element (detectable via the empty name)
 						return false;
 					}
 					Classifier cl = DepUtils.getClassifier(instance);
@@ -89,7 +90,11 @@ public class AllocationDialog extends SelectionStatusDialog {
 							// list, even if within a deployment plan.
 							return true;
 						}
-						// Todo: how to identify elements of a platform (instead of a deployment plan?)  
+	                   if (StereotypeUtil.isApplied(instance.getNearestPackage(), DeploymentPlan.class)) {
+                            // instance is part of a deployment plan => don't add to list.
+                            return false;
+                        }
+                        return true;
 					}
 				}
 				return false;

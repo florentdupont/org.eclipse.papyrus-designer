@@ -83,19 +83,4 @@
          </command>
 	</menuContribution>
 	</extension>
-	<extension
-         point="org.eclipse.ui.preferencePages">
-      <page
-            category="org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory"
-            class="org.eclipse.papyrus.designer.components.transformation.ui.preferences.PapyrusDesignerPreferencePage"
-            id="org.eclipse.papyrus.designer.components.transformation.ui.preferences.PapyrusDesignerPreferencePage_ID"
-            name="Papyrus designer preferences">
-      </page>
-    </extension>
-    <extension
-         point="org.eclipse.core.runtime.preferences">
-      <initializer
-            class="org.eclipse.papyrus.designer.components.transformation.ui.preferences.PapyrusDesignerPreferenceInitializer">
-      </initializer>
-    </extension>
 </plugin>

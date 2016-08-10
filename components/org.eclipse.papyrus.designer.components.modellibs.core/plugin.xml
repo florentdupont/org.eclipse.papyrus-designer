@@ -55,7 +55,7 @@
       </mapping>
    </extension>
     <extension name="Designer core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library description="Designer core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: basic" path="pathmap://QML_C_CORE/core.uml" provider="CEA LIST">
+      <library description="Designer component core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: port kinds and interactions" path="pathmap://QML_C_CORE/core.uml" provider="CEA LIST">
       </library>
    </extension>
    <extension name="FIFO" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">

@@ -11,7 +11,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.designer.languages.cpp.profile;bundle-version="0.7.0",
  org.eclipse.papyrus.uml.tools;bundle-version="1.2.0",
  org.eclipse.papyrus.designer.transformation.core;bundle-version="0.7.3",
- org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3"
+ org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.components.fcm.profile;bundle-version="0.7.3"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.3.qualifier

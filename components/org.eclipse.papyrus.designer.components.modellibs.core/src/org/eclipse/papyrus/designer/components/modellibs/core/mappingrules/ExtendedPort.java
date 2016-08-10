@@ -16,7 +16,7 @@ package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
 import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
-import org.eclipse.papyrus.designer.components.transformation.core.PortUtils;
+import org.eclipse.papyrus.designer.components.transformation.PortUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;

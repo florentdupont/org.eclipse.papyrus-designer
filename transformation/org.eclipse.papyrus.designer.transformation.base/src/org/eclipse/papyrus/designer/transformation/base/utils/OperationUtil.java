@@ -18,6 +18,8 @@ import java.util.Iterator;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Interface;
@@ -63,6 +65,24 @@ public class OperationUtil {
 		return isSameOperation(op1, op2, true);
 	}
 
+	/**
+	 * Check whether a certain stereotype is applied to an arbitrary operation of a classifier.
+	 * This is for instance useful to verify whether a class has a constructor or destructor
+	 * 
+	 * @param cl
+	 *            A classifier to verify
+	 * @param stereotype
+	 *            The stereotype that may be applied to one of its operations
+	 * @return true, if the passed stereotype is applied to one of the operations
+	 */
+	public static boolean isOperationStereotypeApplied(Classifier cl, java.lang.Class<? extends EObject> stereotype) {
+		for (Operation op : cl.getOperations()) {
+			if (StereotypeUtil.isApplied(op, stereotype)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * Returns true, if two operations are identical with optional name check.
@@ -116,8 +136,7 @@ public class OperationUtil {
 					if (par2Type.getName() != null) {
 						return false;
 					}
-				}
-				else if (!par1Type.getName().equals(par2Type.getName())) {
+				} else if (!par1Type.getName().equals(par2Type.getName())) {
 					return false;
 				}
 			} else if (par1Type != par2Type) {
@@ -125,8 +144,7 @@ public class OperationUtil {
 				// return false, if they are different, i.e. not both null
 				return false;
 			}
-			if ((parameter1.getUpper() != parameter2.getUpper()) ||
-					(parameter1.getLower() != parameter2.getLower())) {
+			if ((parameter1.getUpper() != parameter2.getUpper()) || (parameter1.getLower() != parameter2.getLower())) {
 				return false;
 			}
 			if (parameter1.getStereotypeApplications().size() != parameter2.getStereotypeApplications().size()) {
@@ -170,8 +188,7 @@ public class OperationUtil {
 			targetOp.getOwnedParameters().clear();
 			for (Parameter parameter : sourceOp.getOwnedParameters()) {
 				Type type = parameter.getType();
-				Parameter newParameter =
-						targetOp.createOwnedParameter(parameter.getLabel(), type);
+				Parameter newParameter = targetOp.createOwnedParameter(parameter.getLabel(), type);
 				newParameter.setDirection(parameter.getDirection());
 				CopyUtil.copyMultElemModifiers(parameter, newParameter);
 				StUtil.copyStereotypes(parameter, newParameter);
@@ -190,14 +207,11 @@ public class OperationUtil {
 	 * @param paramTypes
 	 * @return
 	 */
-	public static Operation createOwnedOperation(Classifier cl, String name,
-			EList<String> paramNames, EList<Type> paramTypes, Type retType) {
+	public static Operation createOwnedOperation(Classifier cl, String name, EList<String> paramNames, EList<Type> paramTypes, Type retType) {
 		if (cl instanceof Class) {
-			return ((Class) cl).createOwnedOperation(name, paramNames,
-					paramTypes, retType);
+			return ((Class) cl).createOwnedOperation(name, paramNames, paramTypes, retType);
 		} else if (cl instanceof Interface) {
-			return ((Interface) cl).createOwnedOperation(name, paramNames,
-					paramTypes, retType);
+			return ((Interface) cl).createOwnedOperation(name, paramNames, paramTypes, retType);
 		} else {
 			return null;
 		}
@@ -210,8 +224,7 @@ public class OperationUtil {
 	public static EList<Parameter> parametersInInout(Operation operation) {
 		EList<Parameter> list = new BasicEList<Parameter>();
 		for (Parameter parameter : operation.getOwnedParameters()) {
-			if ((parameter.getDirection().getValue() == ParameterDirectionKind.IN) ||
-					(parameter.getDirection().getValue() == ParameterDirectionKind.INOUT)) {
+			if ((parameter.getDirection().getValue() == ParameterDirectionKind.IN) || (parameter.getDirection().getValue() == ParameterDirectionKind.INOUT)) {
 				list.add(parameter);
 			}
 		}
@@ -219,7 +232,8 @@ public class OperationUtil {
 	}
 
 	/**
-	 * @param operation an operation
+	 * @param operation
+	 *            an operation
 	 * @return all non-return parameters of the passed operation
 	 */
 	public static EList<Parameter> parametersNonRet(Operation operation) {
@@ -233,15 +247,14 @@ public class OperationUtil {
 	}
 
 	/**
-	 * @param operation an operation
+	 * @param operation
+	 *            an operation
 	 * @return all out, inout and return parameters of the passed operation
 	 */
 	public static EList<Parameter> parametersOutInout(Operation operation) {
 		EList<Parameter> list = new BasicEList<Parameter>();
 		for (Parameter parameter : operation.getOwnedParameters()) {
-			if ((parameter.getDirection().getValue() == ParameterDirectionKind.OUT) ||
-					(parameter.getDirection().getValue() == ParameterDirectionKind.RETURN) ||
-					(parameter.getDirection().getValue() == ParameterDirectionKind.INOUT)) {
+			if ((parameter.getDirection().getValue() == ParameterDirectionKind.OUT) || (parameter.getDirection().getValue() == ParameterDirectionKind.RETURN) || (parameter.getDirection().getValue() == ParameterDirectionKind.INOUT)) {
 				list.add(parameter);
 			}
 		}
@@ -254,7 +267,8 @@ public class OperationUtil {
 	 * marshalling operations (which need to assign a value to the return parameter, which
 	 * is sometimes not initialized)
 	 *
-	 * @param parameter a UML parameter
+	 * @param parameter
+	 *            a UML parameter
 	 * @return the parameter name or retValue in case of a return parameter
 	 */
 	public static String paramName(Parameter parameter) {

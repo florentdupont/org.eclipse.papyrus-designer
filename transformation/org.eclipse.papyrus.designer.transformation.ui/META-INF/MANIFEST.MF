@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
-Export-Package: org.eclipse.papyrus.designer.transformation.ui.handlers
+Export-Package: org.eclipse.papyrus.designer.transformation.ui.handlers,
+ org.eclipse.papyrus.designer.transformation.ui.provider
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
@@ -24,7 +25,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.infra.ui.emf;bundle-version="1.2.0",
  org.eclipse.papyrus.designer.transformation.profile;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
- org.eclipse.papyrus.designer.deployment.tools;bundle-version="0.7.3"
+ org.eclipse.papyrus.designer.deployment.tools;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.deployment.profile;bundle-version="0.7.3"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.3.qualifier

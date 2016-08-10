@@ -30,8 +30,9 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
-import org.eclipse.papyrus.designer.components.transformation.core.PortUtils;
+import org.eclipse.papyrus.designer.components.transformation.PortUtils;
 import org.eclipse.papyrus.designer.components.transformation.ui.Messages;
+import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtil;
 import org.eclipse.papyrus.infra.widgets.editors.TreeSelectorDialog;
 import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
 import org.eclipse.papyrus.uml.tools.providers.ServiceEditFilteredContentProvider;
@@ -341,7 +342,7 @@ public class ConfigurePortDialog extends SelectionStatusDialog {
 				int index = portKindList.indexOf(kind) + 1;
 				fKindCombo.select(index);
 			}
-			fDescription.setText(Description.getDescription(kind.getBase_Class(), Messages.ConfigurePortDialog_NotAvail));
+			fDescription.setText(DescriptionUtil.getDescription(kind.getBase_Class(), Messages.ConfigurePortDialog_NotAvail));
 			Interface providedI = PortUtils.getProvided(port);
 			Interface requiredI = PortUtils.getRequired(port);
 			fProvided.setText(providedI != null ? providedI.getQualifiedName() : Messages.ConfigurePortDialog_None);

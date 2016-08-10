@@ -24,20 +24,23 @@ import org.eclipse.papyrus.designer.components.transformation.templates.Connecto
 import org.eclipse.papyrus.designer.components.transformation.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.designer.transformation.core.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.infra.core.Activator;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.ConnectableElement;
 import org.eclipse.uml2.uml.Connector;
 import org.eclipse.uml2.uml.ConnectorEnd;
+import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Port;
 import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.Slot;
 import org.eclipse.uml2.uml.TemplateBinding;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
@@ -46,7 +49,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  * a UML connector with an interaction component. Reification is primarily
  * done on the level of a composite class, the
  */
-public class ConnectorReification {
+public class ConnectorReification implements IM2MTrafo {
 
 	/**
 	 * Find a port that would match a connection
@@ -58,8 +61,7 @@ public class ConnectorReification {
 	 * @return the first port (of all ports owned or inherited by the type) that
 	 *         is compatible with the passed otherPort.
 	 */
-	public static Port getConnectorPort(EncapsulatedClassifier connectorType,
-			Port otherPort, boolean isAssembly) {
+	public static Port getConnectorPort(EncapsulatedClassifier connectorType, Port otherPort, boolean isAssembly) {
 		EList<Port> ports = PortUtils.getAllPorts(connectorType);
 		// try to find matching port
 		for (Port port : ports) {
@@ -67,8 +69,7 @@ public class ConnectorReification {
 				return port;
 			}
 		}
-		throw new RuntimeException(String.format(Messages.ConnectorReification_CannotFindMatchingPort,
-				connectorType.getName(), otherPort.getQualifiedName()));
+		throw new RuntimeException(String.format(Messages.ConnectorReification_CannotFindMatchingPort, connectorType.getName(), otherPort.getQualifiedName()));
 	}
 
 	/**
@@ -88,9 +89,7 @@ public class ConnectorReification {
 	 *         connector
 	 * @throws TransformationException
 	 */
-	public static Property reifyConnector(LazyCopier copier, Class tmComponent,
-			Property smConnectorPart, InstanceSpecification tmIS)
-					throws TransformationException {
+	public static Property reifyConnector(LazyCopier copier, Class tmComponent, Property smConnectorPart, InstanceSpecification tmIS) throws TransformationException {
 
 		if (!(smConnectorPart.getType() instanceof Class)) {
 			// can not happen since caller checks whether type is stereotyped as ConnectorComp
@@ -99,11 +98,9 @@ public class ConnectorReification {
 			return null;
 		}
 		// choose an implementation
-		Class connectorImplemTemplate = DepUtils.chooseImplementation(
-				(Class) smConnectorPart.getType(), AllocUtils.getAllNodes(tmIS), null);
+		Class connectorImplemTemplate = DepUtils.chooseImplementation((Class) smConnectorPart.getType(), AllocUtils.getAllNodes(tmIS), null);
 
-		TemplateBinding binding = ConnectorBinding.obtainBinding(tmComponent,
-				smConnectorPart, connectorImplemTemplate, true);
+		TemplateBinding binding = ConnectorBinding.obtainBinding(tmComponent, smConnectorPart, connectorImplemTemplate, true);
 		Class connectorImplem;
 
 		if (binding != null) {
@@ -128,8 +125,6 @@ public class ConnectorReification {
 	 *            The coper from source to target mode
 	 * @param tmComponent
 	 *            containing composite in target target
-	 * @param name
-	 *            name of the connector
 	 * @param smConnector
 	 *            connector element within the source model
 	 * @param tmIS
@@ -139,11 +134,10 @@ public class ConnectorReification {
 	 * @return the created part within tmComponent
 	 * @throws TransformationException
 	 */
-	public static Property reifyConnector(LazyCopier copier, Class tmComponent,
-			String name, Connector smConnector, InstanceSpecification tmIS)
-					throws TransformationException {
+	public static Property reifyConnector(LazyCopier copier, Class tmComponent, Connector smConnector, InstanceSpecification tmIS) throws TransformationException {
 
 		org.eclipse.papyrus.designer.components.FCM.Connector fcmConn = UMLUtil.getStereotypeApplication(smConnector, org.eclipse.papyrus.designer.components.FCM.Connector.class);
+		String name = ElementUtil.varName(smConnector);
 
 		InteractionComponent connType = fcmConn.getIc();
 		if (connType == null) {
@@ -154,8 +148,7 @@ public class ConnectorReification {
 		Class connectorImplemTemplate = DepUtils.chooseImplementation(connType.getBase_Class(), AllocUtils.getAllNodes(tmIS), null);
 
 		// ---- obtain binding & instantiate template type ...
-		binding = ConnectorBinding.obtainBinding(tmComponent,
-				smConnector, connectorImplemTemplate, true);
+		binding = ConnectorBinding.obtainBinding(tmComponent, smConnector, connectorImplemTemplate, true);
 		Class connectorImplem;
 
 		if (binding != null) {
@@ -173,8 +166,7 @@ public class ConnectorReification {
 		}
 
 		if (connectorImplem == null) {
-			throw new TransformationException(
-					String.format(Messages.ConnectorReification_CouldNotBind, connectorImplemTemplate.getName()));
+			throw new TransformationException(String.format(Messages.ConnectorReification_CouldNotBind, connectorImplemTemplate.getName()));
 		}
 
 		Property tmConnectorPart = tmComponent.createOwnedAttribute(name, connectorImplemTemplate);
@@ -182,8 +174,7 @@ public class ConnectorReification {
 		CopyUtil.copyID(smConnector, tmConnectorPart, "p"); //$NON-NLS-1$
 		tmConnectorPart.setIsComposite(true);
 
-		Activator.log.info(String.format(Messages.ConnectorReification_InfoAddConnectorPart,
-						connectorImplemTemplate.getName(), connectorImplem.getName()));
+		Activator.log.info(String.format(Messages.ConnectorReification_InfoAddConnectorPart, connectorImplemTemplate.getName(), connectorImplem.getName()));
 
 		// now create (simple) connections towards the new part
 		int i = 0;
@@ -212,8 +203,7 @@ public class ConnectorReification {
 			if (tmRole instanceof Port) {
 				tmEnd2.setRole(getConnectorPort(connectorImplem, (Port) tmRole, (tmPartWithPort != null)));
 			} else {
-				throw new TransformationException(
-						Messages.ConnectorReification_RequiresUseOfPorts);
+				throw new TransformationException(Messages.ConnectorReification_RequiresUseOfPorts);
 			}
 		}
 
@@ -225,7 +215,7 @@ public class ConnectorReification {
 	}
 
 	public static TemplateBinding binding;
-	
+
 	/**
 	 * Simple helper function
 	 *
@@ -235,8 +225,7 @@ public class ConnectorReification {
 	 *         connection, i.e. the end that is not connected with the part
 	 *         passed as parameter.
 	 */
-	public static ConnectorEnd oppositeConnEnd(Connector connection,
-			ConnectorEnd myEnd) {
+	public static ConnectorEnd oppositeConnEnd(Connector connection, ConnectorEnd myEnd) {
 		// look for the other end (connectedEnd != myEnd)
 		for (ConnectorEnd end : connection.getEnds()) {
 			if (end != myEnd) {
@@ -273,8 +262,7 @@ public class ConnectorReification {
 			}
 		}
 
-		for (Port port : PortUtils.getAllPorts((Class) reifiedConnector
-				.getType())) {
+		for (Port port : PortUtils.getAllPorts((Class) reifiedConnector.getType())) {
 			// check, if port is unconnected.
 			boolean connected = false;
 			// check whether a port of the reified connector is not yet
@@ -291,8 +279,7 @@ public class ConnectorReification {
 				// the port is connected, i.e. we do not want to connect the port to
 				// potentially set of ports (todo: restriction always useful?)
 				for (Connector connector : connSubset) {
-					ConnectorEnd connEnd = ConnectorUtil.connEndNotPart(
-							connector, reifiedConnector);
+					ConnectorEnd connEnd = ConnectorUtil.connEndNotPart(connector, reifiedConnector);
 					Property otherPart = connEnd.getPartWithPort();
 					// this is a part which is connected with the reified
 					// connector check whether one of its ports is compatible with the
@@ -302,10 +289,7 @@ public class ConnectorReification {
 					}
 
 					for (Port otherPort : PortUtils.getAllPorts((EncapsulatedClassifier) otherPart.getType())) {
-						Activator.log.info(String.format(
-								Messages.ConnectorReification_InfoPortTypes,
-								otherPort.getType().getQualifiedName(),
-								port.getType().getQualifiedName()));
+						Activator.log.info(String.format(Messages.ConnectorReification_InfoPortTypes, otherPort.getType().getQualifiedName(), port.getType().getQualifiedName()));
 						if (otherPort.getType() == port.getType()) {
 							Connector newConnector = composite.createOwnedConnector("connector - container of " //$NON-NLS-1$
 									+ otherPart.getName());
@@ -325,66 +309,28 @@ public class ConnectorReification {
 				}
 				if (!connected) {
 					if (port.getType() == null) {
-						Activator.log.debug(
-								String.format(Messages.ConnectorReification_CouldNotConnectPort, port.getName()));
+						Activator.log.debug(String.format(Messages.ConnectorReification_CouldNotConnectPort, port.getName()));
 					} else {
-						Activator.log.debug(
-								String.format(Messages.ConnectorReification_CouldNotConnectPortOfType, port.getName(), port.getType().getName()));
+						Activator.log.debug(String.format(Messages.ConnectorReification_CouldNotConnectPortOfType, port.getName(), port.getType().getName()));
 					}
 				}
 			}
 		}
 	}
 
-	/**
-	 * Propagate node allocation into a reified connector (identified via its part)
-	 *
-	 * The allocation algorithm works as follows.
-	 * - get a connector (simple) originating from the passed part
-	 * - get the opposite end of this simple connector and identify the connected part
-	 * (other part, e.g. a part typed with an application component)
-	 * - obtain the nodes to which this other part is allocated:
-	 * - in case of a composite, connections are followed up to a monolithic component
-	 * - propagate the node allocation into the connector (propagation will finally
-	 * allocate leafs within a (composite) connector.
-	 *
-	 * @param composite
-	 *            the composite class (e.g. system) in which a connector is reified
-	 * @param compositeIS
-	 *            the associated instance specification
-	 * @param partSlot
-	 *            the slot associated with the part for which nodes are
-	 *            allocated.
-	 */
-	public static void propagateNodeAllocation(Class composite,
-			InstanceSpecification compositeIS, Slot partSlot) {
-		Property part = (Property) partSlot.getDefiningFeature();
+	@Override
+	public void transformElement(LazyCopier copier, M2MTrafo trafo, Element element) throws TransformationException {
+		if (element instanceof Connector) {
+			Connector connector = (Connector) element;
+			Class tmComponent = (Class) connector.getOwner();
 
-		// loop over connectors of composite that originate from passed part.
-		for (Connector connector : composite.getOwnedConnectors()) {
-			ConnectorEnd myEnd = ConnectorUtil.connEndForPart(connector, part);
-			if (myEnd == null) {
-				// the connector does not connect this part
-				continue;
-			}
-			ConnectorEnd otherEnd = ConnectorUtil.connEndNotPart(connector,
-					part);
+			reifyConnector(copier, tmComponent, connector, null);
+		}
+		else if (element instanceof Property) {
+			Property connectorPart = (Property) element;
+			Class tmComponent = (Class) connectorPart.getOwner();
 
-			Property otherPart = otherEnd.getPartWithPort();
-			Port otherPort = (Port) otherEnd.getRole();
-			// Property myPart = myEnd.getPartWithPort();
-			Port myPort = (Port) myEnd.getRole();
-
-			// find instance that is associated with other part.
-			for (Slot slot : compositeIS.getSlots()) {
-				if (slot.getDefiningFeature() == otherPart) {
-					InstanceSpecification containedInstance = DepUtils.getInstance(slot);
-					EList<InstanceSpecification> nodes = AllocUtils.getAllNodesForPort(containedInstance, otherPort);
-					AllocUtils.propagateNodesViaPort(
-							DepUtils.getInstance(partSlot), myPort, nodes);
-					break;
-				}
-			}
+			reifyConnector(copier, tmComponent, connectorPart, null);
 		}
 	}
 }

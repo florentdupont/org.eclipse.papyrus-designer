@@ -33,8 +33,8 @@ public class ExecuteTransformationChain {
 
 	public void execute(EList<AbstractM2MTrafo> chain) {
 		for (AbstractM2MTrafo m2mTrafo : chain) {
-			ExecuteTransformation execTrafo = new ExecuteTransformation(m2mTrafo);
-			execTrafo.executeTransformation(sourceModel);
+			// ExecuteTransformation execTrafo = new ExecuteTransformation(m2mTrafo);
+			// execTrafo.executeTransformation(sourceModel);
 		}
 	}
 	

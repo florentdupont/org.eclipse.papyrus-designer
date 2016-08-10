@@ -25,6 +25,8 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
 import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
+import org.eclipse.papyrus.designer.components.transformation.component.ContainerUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtil;
 import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -160,7 +162,7 @@ public class ContainerDialog extends SelectionStatusDialog {
 		gRuleSelGroup.setLayout(new GridLayout(1, false));
 		gRuleSelGroup.setLayoutData(groupGridData);
 
-		EList<ContainerRule> globalRuleList = Utils.getAllRules(m_model);
+		EList<ContainerRule> globalRuleList = ContainerUtil.getAllRules(m_model);
 		// Table table = new Table(gRuleSelGroup, SWT.CHECK);
 		fRules = CheckboxTableViewer.newCheckList(gRuleSelGroup, SWT.BORDER);
 		// fRules = new CheckboxTableViewer(table);
@@ -233,7 +235,7 @@ public class ContainerDialog extends SelectionStatusDialog {
 	 */
 	protected void selectRule(ContainerRule rule) {
 		m_currentRule = rule;
-		fDescription.setText(Description.getDescription(rule.getBase_Class()));
+		fDescription.setText(DescriptionUtil.getDescription(rule.getBase_Class()));
 	}
 
 	/**

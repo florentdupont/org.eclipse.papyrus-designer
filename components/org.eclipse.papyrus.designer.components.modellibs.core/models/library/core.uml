@@ -16,6 +16,9 @@
     <packageImport xmi:type="uml:PackageImport" xmi:id="_mXnzUPQdEeCIC-7tA9lfzA">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/osal.uml#_ROTQYC-OEdySSa8YESkO2w"/>
     </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_kbclIF4SEea4bLzKfwAjjA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/core.uml#_O6TiIDLUEd26WNosUASSSw"/>
+    </packageImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_TFq8cOy6Ed2UrumbR9YAVg" name="composites">
       <packagedElement xmi:type="uml:Class" xmi:id="_1RehUAGpEd6eR-dxi5su4Q" name="BootLoader">
         <ownedComment xmi:type="uml:Comment" xmi:id="_JMwYwMGJEd-Mveea1W_olA">
@@ -1160,11 +1163,6 @@ Be aware that the number of instantiated template packages will be considerably 
       <packagedElement xmi:type="uml:Class" xmi:id="_4H-ZoHkgEeOCpqruXGWNPw" name="BindOperation"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_g8oe8LsMEeO0n5elMxN1LQ" name="BindCppIncludeToFirstActual"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_B_a2UKLvEeSBiP8ZTcBQrQ" name="OOtransformations">
-      <packagedElement xmi:type="uml:Class" xmi:id="_mgbVIKLvEeSBiP8ZTcBQrQ" name="StaticCpp"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_nRnhgKLvEeSBiP8ZTcBQrQ" name="DynamicCpp"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_pu1x4KLvEeSBiP8ZTcBQrQ" name="StaticJava"/>
-    </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_QOy9MDUKEeWa95xDrmW0sg" name="derivedTypes">
       <packagedElement xmi:type="uml:Package" xmi:id="_QO5q4DUKEeWa95xDrmW0sg" name="core">
         <packagedElement xmi:type="uml:Package" xmi:id="_QO6R8DUKEeWa95xDrmW0sg" name="methodCall">
@@ -1186,6 +1184,23 @@ Be aware that the number of instantiated template packages will be considerably 
           <supplier xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
         </packagedElement>
       </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_B_a2UKLvEeSBiP8ZTcBQrQ" name="OOtransformations">
+        <packagedElement xmi:type="uml:Class" xmi:id="_mgbVIKLvEeSBiP8ZTcBQrQ" name="StaticCpp"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_nRnhgKLvEeSBiP8ZTcBQrQ" name="DynamicCpp"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_pu1x4KLvEeSBiP8ZTcBQrQ" name="StaticJava"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_8clfYF4REea4bLzKfwAjjA" name="transformations">
+      <packagedElement xmi:type="uml:Class" xmi:id="_bnyXIF4SEea4bLzKfwAjjA" name="ComponentChain">
+        <generalization xmi:type="uml:Generalization" xmi:id="_w3UP8F4SEea4bLzKfwAjjA">
+          <general xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_Ck0eYF4REea4bLzKfwAjjA"/>
+        </generalization>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_3uzFIF4SEea4bLzKfwAjjA" name="oOTransformations" type="_2RvRQF4SEea4bLzKfwAjjA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_70pgMF4SEea4bLzKfwAjjA" name="connector" type="_5r5rAF4SEea4bLzKfwAjjA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_2RvRQF4SEea4bLzKfwAjjA" name="OOTransformations"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_5r5rAF4SEea4bLzKfwAjjA" name="Connector"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_7Q2PkF4SEea4bLzKfwAjjA" name="Class1"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_O6TiIjLUEd26WNosUASSSw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O6TiIzLUEd26WNosUASSSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -1242,7 +1257,7 @@ Be aware that the number of instantiated template packages will be considerably 
   <C_Cpp:Ptr xmi:id="_Aw8hMP-FEd6628OhKk_dpg" base_parameter="_1TXqoP-EEd6628OhKk_dpg"/>
   <C_Cpp:Ptr xmi:id="_NjCToP-FEd6628OhKk_dpg" base_parameter="_BywjgP-FEd6628OhKk_dpg"/>
   <FCM:InteractionComponent xmi:id="_5hzVkARIEd--t-uhRn9OBA" base_Class="_cxVEsK-iEd6DndT7kDY1-A"/>
-  <FCM:ContainerRule xmi:id="_3Jq5MARLEd-OidZzGKCpzg" base_Class="_14WtMARJEd--t-uhRn9OBA" portSet="__SL-kNtxEd6nqsBVkgJEEA" interceptor="_u9ykQARIEd--t-uhRn9OBA" interceptorImpl="_u9ykQARIEd--t-uhRn9OBA"/>
+  <FCM:ContainerRule xmi:id="_3Jq5MARLEd-OidZzGKCpzg" base_Class="_14WtMARJEd--t-uhRn9OBA"/>
   <C_Cpp:Include xmi:id="_Q7TVYBJcEd-QgZm_R1AKbA" body="#include &lt;pthread.h>" base_class="_SiY_AP-EEd6628OhKk_dpg"/>
   <FCM:InteractionComponent xmi:id="_efp4QClzEd-eoo60eNyGlg" base_Class="_Whe8EClYEd-eoo60eNyGlg"/>
   <FCM:Port xmi:id="_N0to8Cu4Ed-uZPFNCty7PQ" base_Port="_N0tB4Cu4Ed-uZPFNCty7PQ" kind="_9Fif4FRxEd6GqrP6fkWBoQ" type="_fxfe8Cu1Ed-uZPFNCty7PQ"/>
@@ -1250,8 +1265,8 @@ Be aware that the number of instantiated template packages will be considerably 
   <C_Cpp:Ptr xmi:id="_G6PMUCvHEd-uZPFNCty7PQ" base_parameter="_Dn-xYCvHEd-uZPFNCty7PQ"/>
   <C_Cpp:Ptr xmi:id="_NPp2QCvHEd-uZPFNCty7PQ" base_parameter="_IdnDkCvHEd-uZPFNCty7PQ"/>
   <C_Cpp:Const xmi:id="_dtZbECvHEd-uZPFNCty7PQ" base_property="_Xq00oCvHEd-uZPFNCty7PQ"/>
-  <FCM:Template xmi:id="_iOmWwDNZEd-0bO2vHbUkEA" base_Element="_KOvHsPiREd2UhpY2Y3WUyg" helper="_nLe_sHJDEeOMF7YEvnQt5g" kind="LoopOperations" templateParam="_ZzlzMPfBEd2TbIfwytOyPA"/>
-  <FCM:Template xmi:id="_qcrLcDNZEd-0bO2vHbUkEA" base_Element="__y0hwJ08Ed6l5bTPBsl00Q" helper="_nLe_sHJDEeOMF7YEvnQt5g" kind="LoopOperations" formalParam="_ZzlzMPfBEd2TbIfwytOyPA" templateParam="_ZzlzMPfBEd2TbIfwytOyPA"/>
+  <FCM:Template xmi:id="_iOmWwDNZEd-0bO2vHbUkEA" base_Element="_KOvHsPiREd2UhpY2Y3WUyg" helper="_nLe_sHJDEeOMF7YEvnQt5g"/>
+  <FCM:Template xmi:id="_qcrLcDNZEd-0bO2vHbUkEA" base_Element="__y0hwJ08Ed6l5bTPBsl00Q" helper="_nLe_sHJDEeOMF7YEvnQt5g"/>
   <FCM:DerivedElement xmi:id="_JqAFUD16Ed-Bk-AHd6yyoA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
@@ -1311,25 +1326,25 @@ Be aware that the number of instantiated template packages will be considerably 
   <FCM:ConfigOption xmi:id="_tA2KcH7eEd-FNNgSS03RxQ" base_Class="_3myD0H7dEd-FNNgSS03RxQ"/>
   <FCM:ConfigOption xmi:id="_t2ziEH7eEd-FNNgSS03RxQ" base_Class="_29YhgH7dEd-FNNgSS03RxQ"/>
   <FCM:ConfigOption xmi:id="_u6LqoH7eEd-FNNgSS03RxQ" base_Class="_7JeHcH7dEd-FNNgSS03RxQ"/>
-  <FCM:Template xmi:id="_3IqLUKE1Ed-r8p-5QgO3cg" base_Element="_pXzxjkJ1Ed-Ps4Bfh0j9LQ" helper="_nLe_sHJDEeOMF7YEvnQt5g" kind="LoopOperations"/>
-  <FCM:Template xmi:id="_9u11IKE1Ed-r8p-5QgO3cg" base_Element="_2bwsEClzEd-eoo60eNyGlg" helper="_nLe_sHJDEeOMF7YEvnQt5g" kind="LoopOperations"/>
+  <FCM:Template xmi:id="_3IqLUKE1Ed-r8p-5QgO3cg" base_Element="_pXzxjkJ1Ed-Ps4Bfh0j9LQ" helper="_nLe_sHJDEeOMF7YEvnQt5g"/>
+  <FCM:Template xmi:id="_9u11IKE1Ed-r8p-5QgO3cg" base_Element="_2bwsEClzEd-eoo60eNyGlg" helper="_nLe_sHJDEeOMF7YEvnQt5g"/>
   <FCM:PortKind xmi:id="_H5-aQLqOEd-SedGzMDDkww" base_Class="_AQZZwLqOEd-SedGzMDDkww"/>
   <FCM:PortKind xmi:id="_KtgR0LqOEd-SedGzMDDkww" base_Class="__nMrwLqNEd-SedGzMDDkww"/>
   <FCM:ConfigurationProperty xmi:id="_s0fGMMGJEd-Mveea1W_olA" base_Property="_rVfYoMGJEd-Mveea1W_olA"/>
   <FCM:InteractionComponent xmi:id="_8BUh8NdwEd-ZnqCk2P2ZKg" base_Class="_3itBkNdwEd-ZnqCk2P2ZKg"/>
-  <FCM:Template xmi:id="_CTIeQNdxEd-ZnqCk2P2ZKg" base_Element="_3itBoddwEd-ZnqCk2P2ZKg" helper="_nLe_sHJDEeOMF7YEvnQt5g" kind="LoopOperations"/>
+  <FCM:Template xmi:id="_CTIeQNdxEd-ZnqCk2P2ZKg" base_Element="_3itBoddwEd-ZnqCk2P2ZKg" helper="_nLe_sHJDEeOMF7YEvnQt5g"/>
   <C_Cpp:Typedef xmi:id="_68Aa4No9Ed-wvpj-p-V_QQ" definition="!xtend CppParameterStorage" base_primitivetype="_xOqL0No9Ed-wvpj-p-V_QQ"/>
   <FCM:InteractionComponent xmi:id="_xaHRQDJKEeCAhMtIsY9HwA" base_Class="_pXzKcEJ1Ed-Ps4Bfh0j9LQ"/>
   <FCM:Port xmi:id="_MzPjkPNAEeCovO8AYZymZQ" base_Port="_MzO8gPNAEeCovO8AYZymZQ" kind="_wySlkFRxEd6GqrP6fkWBoQ" type="_omxU4PNAEeCovO8AYZymZQ"/>
-  <FCM:Template xmi:id="_c_dkcPNJEeCovO8AYZymZQ" base_Element="_aGt1sPNJEeCovO8AYZymZQ" kind="LoopOperations"/>
+  <FCM:Template xmi:id="_c_dkcPNJEeCovO8AYZymZQ" base_Element="_aGt1sPNJEeCovO8AYZymZQ"/>
   <FCM:ImplementationProperties xmi:id="_WIe68PQMEeCovO8AYZymZQ" base_Class="__uJRYPNGEeCovO8AYZymZQ"/>
-  <FCM:ContainerRule xmi:id="_F1wZsPQUEeCovO8AYZymZQ" base_Class="__4GvgPQTEeCovO8AYZymZQ" extensionKind="Aggregation" extension="_WhKAAPQUEeCovO8AYZymZQ"/>
+  <FCM:ContainerRule xmi:id="_F1wZsPQUEeCovO8AYZymZQ" base_Class="__4GvgPQTEeCovO8AYZymZQ"/>
   <FCM:DerivedElement xmi:id="_mKpWAPQXEeCovO8AYZymZQ" base_Element="_tK0poPQWEeCovO8AYZymZQ0" source="_tK0poPQWEeCovO8AYZymZQ"/>
   <FCM:DerivedElement xmi:id="_mK0VIPQXEeCovO8AYZymZQ" base_Element="_FBMo4PQXEeCovO8AYZymZQ0" source="_FBMo4PQXEeCovO8AYZymZQ"/>
   <FCM:DerivedElement xmi:id="_mK7C0PQXEeCovO8AYZymZQ" base_Element="_f1HmEPQREeCovO8AYZymZQ0" source="_f1HmEPQREeCovO8AYZymZQ"/>
   <standard:Create xmi:id="_o4VNAPRTEeCUGrV0Hl4JwQ" base_BehavioralFeature="_lrF08PRTEeCUGrV0Hl4JwQ"/>
-  <FCM:InterceptionRule xmi:id="_qlcF8AJzEeG0Lb1KYG16fA" interceptionSet="__SLXgNtxEd6nqsBVkgJEEA" base_Property="_mvN04PTWEeCn1-FCrfecFg" portSet="__SL-kNtxEd6nqsBVkgJEEA"/>
-  <FCM:Template xmi:id="_QUZxoCQeEeGj_4swHBbKwg" base_Element="_QQPDUSQeEeGj_4swHBbKwg" kind="LoopPorts"/>
+  <FCM:InterceptionRule xmi:id="_qlcF8AJzEeG0Lb1KYG16fA" interceptionSet="__SLXgNtxEd6nqsBVkgJEEA" base_Property="_mvN04PTWEeCn1-FCrfecFg"/>
+  <FCM:Template xmi:id="_QUZxoCQeEeGj_4swHBbKwg" base_Element="_QQPDUSQeEeGj_4swHBbKwg"/>
   <C_Cpp:Const xmi:id="_MGjk0CSlEeG6GJ4vU06VYQ" base_property="_Ig_MUCSlEeG6GJ4vU06VYQ"/>
   <C_Cpp:Include xmi:id="_Yx49gCaeEeG4fZdVXNtoOQ" body="#include &lt;errno.h>" base_class="_JRmo0PNAEeCovO8AYZymZQ"/>
   <FCM:InteractionComponent xmi:id="_OXit8CfwEeG6iME5Q8XPKw" base_Class="_5J9coCXQEeGX6PuSE-DJlQ"/>
@@ -1348,7 +1363,7 @@ Be aware that the number of instantiated template packages will be considerably 
   <FCM:Port xmi:id="_Zd6hAENxEeGoAtSeIK7WLg" base_Port="_Zd558ENxEeGoAtSeIK7WLg" kind="_qOK0cFR1Ed6GqrP6fkWBoQ" type="_WkkjoPNUEeCovO8AYZymZQ"/>
   <FCM:Port xmi:id="_i6QeoEN8EeGfhclnRyNzoA" base_Port="_i5SOQEN8EeGfhclnRyNzoA" kind="_qOK0cFR1Ed6GqrP6fkWBoQ" type="_WkkjoPNUEeCovO8AYZymZQ"/>
   <FCM:Port xmi:id="_0KaqgF7pEeGEmrrwB1vhPg" base_Port="_0KY1UF7pEeGEmrrwB1vhPg" kind="_wySlkFRxEd6GqrP6fkWBoQ" type="_ZzlzMPfBEd2TbIfwytOyPA"/>
-  <FCM:Template xmi:id="_GNBM8F7tEeGEmrrwB1vhPg" base_Element="_ChD4kF7tEeGEmrrwB1vhPg" helper="_nLe_sHJDEeOMF7YEvnQt5g" kind="LoopOperations"/>
+  <FCM:Template xmi:id="_GNBM8F7tEeGEmrrwB1vhPg" base_Element="_ChD4kF7tEeGEmrrwB1vhPg" helper="_nLe_sHJDEeOMF7YEvnQt5g"/>
   <FCM:InteractionComponent xmi:id="_UBcmIF7tEeGEmrrwB1vhPg" base_Class="_Mo2kwF7pEeGEmrrwB1vhPg"/>
   <FCM:InteractionComponent xmi:id="_Z3Zs4F7tEeGEmrrwB1vhPg" base_Class="_TLShkF7qEeGEmrrwB1vhPg"/>
   <FCM:PortKind xmi:id="_SrCqQC8qEeKx7OxAiA06uw" base_Class="_GjnlcC8qEeKx7OxAiA06uw"/>
@@ -1357,9 +1372,6 @@ Be aware that the number of instantiated template packages will be considerably 
     <libs>rt</libs>
     <includes>pthread.h</includes>
   </C_Cpp:ExternLibrary>
-  <FCM:ProgLanguage xmi:id="_5WrSINzEEeKPWMO32vUmzw" base_Class="_tZgVgNzEEeKPWMO32vUmzw"/>
-  <FCM:ProgLanguage xmi:id="_74ZoANzEEeKPWMO32vUmzw" base_Class="_w2nVkNzEEeKPWMO32vUmzw"/>
-  <FCM:ProgLanguage xmi:id="_9OaYsNzEEeKPWMO32vUmzw" base_Class="_0rU9UNzEEeKPWMO32vUmzw"/>
   <SW_Concurrency:SwSchedulableResource xmi:id="_42YPYBn3EeONpa5JgejICQ" base_Classifier="_SiY_AP-EEd6628OhKk_dpg" priorityElements="_rVfYoMGJEd-Mveea1W_olA"/>
   <C_Cpp:NoCodeGen xmi:id="_ilpvUBqnEeOfW_TxE-lJDw" base_element="_q56toNzEEeKPWMO32vUmzw"/>
   <FCM:DerivedElement xmi:id="_TJO30CxyEeOMQpc6Y-MAJw" base_Element="_TBScwCxyEeOMQpc6Y-MAJw">
