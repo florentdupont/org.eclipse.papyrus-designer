@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.components</groupId>
 		<artifactId>org.eclipse.papyrus.components.parent</artifactId>
-		<version>0.0.12</version>
+		<version>0.0.16</version>
 	</parent>
 	
 	<groupId>org.eclipse.papyrus.designer</groupId>
@@ -29,6 +29,7 @@
 	<properties>		
 		<component.shortname>designer</component.shortname>
 		<component.hudson.tabname>Designer</component.hudson.tabname>
+		<component.fullartifactId>org.eclipse.papyrus.designer</component.fullartifactId>
 		<component.bugzilla.name>Designer</component.bugzilla.name>
 		<component.package.rootname>org.eclipse.papyrus.designer</component.package.rootname>
 		<component.rcp.name>org.eclipse.papyrus.designer.rcp</component.rcp.name>
