@@ -11,7 +11,9 @@ import java.util.HashMap
 import java.util.List
 import java.util.Map
 import java.util.Map.Entry
+import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.common.util.UniqueEList
+import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.papyrus.designer.components.FCM.DerivedElement
 import org.eclipse.papyrus.designer.components.transformation.core.OperationUtils
 import org.eclipse.papyrus.designer.components.transformation.core.transformations.LazyCopier
@@ -23,7 +25,7 @@ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Virtual
-import org.eclipse.papyrus.designer.languages.cpp.reverse.utils.RoundtripCppUtils
+import org.eclipse.papyrus.uml.tools.utils.PackageUtil
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.AnyReceiveEvent
 import org.eclipse.uml2.uml.Behavior
@@ -57,6 +59,9 @@ import static org.eclipse.papyrus.designer.components.modellibs.core.statemachin
 
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.*
 import static extension org.eclipse.papyrus.designer.components.modellibs.core.statemachine.TransformationUtil.eventID
+import org.eclipse.uml2.uml.Profile
+import org.eclipse.uml2.uml.Element
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen
 
 class SM2ClassesTransformationCore {
 	protected extension CDefinitions cdefs;
@@ -113,10 +118,12 @@ class SM2ClassesTransformationCore {
 		// perClassPackage = copier.target.createNestedPackage("PerClass_" + mContainerClass.name)
 		// perClassPackage = copier.target
 		this.sm = sm
-		boolType = RoundtripCppUtils.getPrimitiveType("bool", targetPacket as Model)
-		voidType = RoundtripCppUtils.getPrimitiveType("void", targetPacket as Model)
-		intType = RoundtripCppUtils.getPrimitiveType("int", targetPacket as Model)
-		charType = RoundtripCppUtils.getPrimitiveType("char", targetPacket as Model)
+		
+		val ResourceSet resourceSet = targetPacket.eResource.resourceSet
+		boolType = getPrimitiveType("bool", resourceSet)
+		voidType = getPrimitiveType("void", resourceSet)
+		intType = getPrimitiveType("int", resourceSet)
+		charType = getPrimitiveType("char", resourceSet)
 		ptTypes = new PThreadTypes(targetPacket as Model)
 		this.cdefs = new CDefinitions(superContext)
 	}
@@ -132,19 +139,42 @@ class SM2ClassesTransformationCore {
 	def setThreadStructType(Type threadStructType) {
 		this.threadStructType = threadStructType;
 	}
+
+	def getPrimitiveType(String name, ResourceSet resourceSet) {
+		val Package ansiCLibrary = PackageUtil.loadPackage(URI.createURI("pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml"), resourceSet)
+		val Element element = ansiCLibrary.getPackagedElement(name)
+		if (element instanceof Type) {
+			return element
+		}
+		return null
+	}
 	
 	def getTargetPacket() {
 		copier.target;
+	}
+	
+	def getExternalPackage(Package parentPack) {
+		if (parentPack.getNestedPackage("external") == null) {
+			var createdPack = parentPack.createNestedPackage("external")
+			StereotypeUtil.apply(createdPack, NoCodeGen)
+		}
+		return parentPack.getNestedPackage("external")
 	}
 	
 	// each state class has a super context and ancestor context
 	def transform() {
 		val targetPack = getTargetPacket;
 		// copier = new SM2ClassCopier(mContainerClass.model, targetPack, false, true, mContainerClass, superContext, sm)
-		RoundtripCppUtils.importOrgetAModel(targetPack as Model, ansiUri)
-		RoundtripCppUtils.applyProfile(targetPack as Model, RoundtripCppUtils.umlStandardProfileUri)
+		val ResourceSet resourceSet = targetPack.eResource.resourceSet
+		
+		PackageUtil.loadPackage(URI.createURI("pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml"), resourceSet)
+		val Package profile = PackageUtil.loadPackage(URI.createURI("pathmap://UML_PROFILES/Standard.profile.uml"), resourceSet)
+		if (profile instanceof Profile) {
+			PackageUtil.applyProfile(targetPack, profile as Profile, true)
+		}
+		
 		if (useThreadCpp11) {
-			var externalPackage = RoundtripCppUtils.getOrcreateExternalPackage(targetPack, true)
+			var externalPackage = getExternalPackage(targetPack)
 			threadCpp11 = externalPackage.createOwnedType("std::thread", UMLPackage.Literals.DATA_TYPE)
 			StereotypeUtil.apply(threadCpp11, External)
 		}
