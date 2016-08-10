@@ -801,6 +801,13 @@ public class GenUtils {
 				}
 			}
 		}
+		
+		for (Element owned : current.getOwnedElements()) {
+			if (owned instanceof Classifier) {
+				classifiers.addAll(getDirectTypesViaDependencies((Classifier) owned));
+			}
+		}
+		
 		return classifiers;
 	}
 
@@ -1353,6 +1360,16 @@ public class GenUtils {
 		}
 		return str;
 	}
+
+	public static void checkProxy(EObject element) {
+		if (element.eIsProxy()) {
+			String msg = "Referenced element is a proxy";
+			if (element instanceof InternalEObject) {
+				msg += " " + ((InternalEObject) element).eProxyURI();
+			}
+			throw new RuntimeException(msg);
+		}
+    }
 
 	/**
 	 * Return the relative path of ne2 as seen from ne1
