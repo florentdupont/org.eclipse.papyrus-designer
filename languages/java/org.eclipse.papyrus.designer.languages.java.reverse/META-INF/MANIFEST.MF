@@ -16,7 +16,7 @@ Export-Package: org.eclipse.papyrus.designer.languages.java.reverse.ast,
  org.eclipse.papyrus.designer.languages.java.reverse.utils
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 1.0.2.qualifier
+Bundle-Version: 1.0.2
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.languages.java.reverse.Activator

@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.designer.languages.cpp.codegen;bundle-version="0.7.0"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.3.qualifier
+Bundle-Version: 0.7.3
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.components.modellibs.core.Activator

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
+		<version>1.0.2</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages</artifactId>
 	<packaging>pom</packaging>
@@ -14,6 +14,7 @@
 
 	<modules>
 		<module>common</module>
+		<!-- module>c</module-->
 		<module>cpp</module>
 		<module>idl</module>
 		<module>java</module>
