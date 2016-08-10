@@ -37,6 +37,9 @@ import org.eclipse.papyrus.designer.components.transformation.deployment.DepCrea
 import org.eclipse.papyrus.designer.components.transformation.deployment.DepUtils;
 import org.eclipse.papyrus.designer.components.transformation.extensions.AbstractContainerTrafo;
 import org.eclipse.papyrus.designer.components.transformation.templates.TemplateUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
@@ -124,11 +127,11 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 		if (isSingleton) {
 			StereotypeUtil.apply(tmContainerImpl, Singleton.class);
 		}
-		LazyCopier.copyID(tmComponent, tmContainerImpl, containerPostfix);
+		CopyUtils.copyID(tmComponent, tmContainerImpl, containerPostfix);
 
 		// add part and slot corresponding to component;
 		executorPart = tmContainerImpl.createOwnedAttribute(executorPartName, tmComponent);
-		LazyCopier.copyID(tmComponent, executorPart, "e"); //$NON-NLS-1$
+		CopyUtils.copyID(tmComponent, executorPart, "e"); //$NON-NLS-1$
 
 		executorPart.setIsComposite(true);
 
@@ -145,7 +148,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 
 				// create delegation for application port
 				Connector containerDelegation = tmContainerImpl.createOwnedConnector("delegation " + port.getName()); //$NON-NLS-1$
-				LazyCopier.copyID(tmContainerImpl, containerDelegation);
+				CopyUtils.copyID(tmContainerImpl, containerDelegation);
 				ConnectorEnd end1 = containerDelegation.createEnd();
 				end1.setRole(newPort);
 				ConnectorEnd end2 = containerDelegation.createEnd();
@@ -178,7 +181,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 	public void createHwContainer(Class tmComponent) throws TransformationException {
 		Package tmPkgOwner = (Package) tmComponent.getOwner();
 		tmContainerImpl = tmPkgOwner.createOwnedClass(tmComponent.getName() + hwContainerPostfix, false);
-		LazyCopier.copyID(tmComponent, tmContainerImpl, hwContainerPostfix);
+		CopyUtils.copyID(tmComponent, tmContainerImpl, hwContainerPostfix);
 
 		// register created container
 		containers.put(tmComponent, this);
@@ -265,7 +268,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 			slotCopy.setDefiningFeature(slot.getDefiningFeature());
 			// copy values (use CopyTo.copyTo(slot, containerIS) instead?)
 			for (ValueSpecification value : slot.getValues()) {
-				LazyCopier.copyValue(value, slotCopy);
+				CopyUtils.copyValue(value, slotCopy);
 			}
 		}
 		return containerIS;
@@ -377,7 +380,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 				org.eclipse.papyrus.designer.components.FCM.Connector fcmConn = StUtils.getConnector(connector);
 				if (fcmConn != null) {
 					ConnectorReification.reifyConnector(copier, tmContainerImpl,
-							UMLTool.varName(connector), connector, executorIS);
+							ElementUtils.varName(connector), connector, executorIS);
 				}
 				else {
 					copier.remove(connector);
@@ -548,7 +551,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 			// suitable template signature as for instance in methodCall_comp
 			TransformationContext.instance = executorIS;
 			TransformationContext.port = port;
-			connectorPart = ConnectorReification.reifyConnector(copier, tmContainerImpl, UMLTool.varName(interceptionConnector), interceptionConnector, executorIS);
+			connectorPart = ConnectorReification.reifyConnector(copier, tmContainerImpl, ElementUtils.varName(interceptionConnector), interceptionConnector, executorIS);
 			connectorParts.add(connectorPart);
 			TransformationContext.port = null;
 			portInfo.put(connectorPart, port);
@@ -587,7 +590,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 				// => move it to first matching instance specification
 				for (InstanceSpecification is : DepUtils.getContainedInstances(containerIS)) {
 					Classifier containedCl = DepUtils.getClassifier(is);
-					if (Utils.getNamedElementFromList(containedCl.getAllAttributes(), featureName) != null) {
+					if (ElementUtils.getNamedElementFromList(containedCl.getAllAttributes(), featureName) != null) {
 						if (executorIS != is) {
 							// remove slot first from iterator, as addition below removes it from the list (slots are owned)
 							slotIt.remove();
@@ -609,7 +612,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 	public void createConnectorForAssociations() {
 		// TODO: keep list of added parts, only re-check those!
 
-		for (Property part : Utils.getParts(tmContainerImpl)) {
+		for (Property part : ElementUtils.getParts(tmContainerImpl)) {
 			if (part.getType() == null) {
 				continue;
 			}
@@ -624,7 +627,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 						// examining
 						// thus, it might belong to another part of the
 						// composite
-						for (Property checkPart : Utils.getParts(tmContainerImpl)) {
+						for (Property checkPart : ElementUtils.getParts(tmContainerImpl)) {
 							if (type == checkPart.getType()) {
 								// found an association between two parts of the
 								// container => create connection,

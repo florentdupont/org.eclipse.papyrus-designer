@@ -23,8 +23,8 @@ import org.eclipse.papyrus.designer.components.transformation.deployment.DepUtil
 import org.eclipse.papyrus.designer.components.transformation.templates.ConnectorBinding;
 import org.eclipse.papyrus.designer.components.transformation.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtil;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
@@ -137,7 +137,7 @@ public class ConnectorReification implements IM2MTrafo {
 	public static Property reifyConnector(LazyCopier copier, Class tmComponent, Connector smConnector, InstanceSpecification tmIS) throws TransformationException {
 
 		org.eclipse.papyrus.designer.components.FCM.Connector fcmConn = UMLUtil.getStereotypeApplication(smConnector, org.eclipse.papyrus.designer.components.FCM.Connector.class);
-		String name = ElementUtil.varName(smConnector);
+		String name = ElementUtils.varName(smConnector);
 
 		InteractionComponent connType = fcmConn.getIc();
 		if (connType == null) {
@@ -171,7 +171,7 @@ public class ConnectorReification implements IM2MTrafo {
 
 		Property tmConnectorPart = tmComponent.createOwnedAttribute(name, connectorImplemTemplate);
 		// copy id, but prefix it with "p" (for part)
-		CopyUtil.copyID(smConnector, tmConnectorPart, "p"); //$NON-NLS-1$
+		CopyUtils.copyID(smConnector, tmConnectorPart, "p"); //$NON-NLS-1$
 		tmConnectorPart.setIsComposite(true);
 
 		Activator.log.info(String.format(Messages.ConnectorReification_InfoAddConnectorPart, connectorImplemTemplate.getName(), connectorImplem.getName()));
@@ -181,7 +181,7 @@ public class ConnectorReification implements IM2MTrafo {
 		for (ConnectorEnd smEnd : smConnector.getEnds()) {
 			Connector tmConnector = tmComponent.createOwnedConnector("c " //$NON-NLS-1$
 					+ name + " " + String.valueOf(i)); //$NON-NLS-1$
-			CopyUtil.copyID(smConnector, tmConnector);
+			CopyUtils.copyID(smConnector, tmConnector);
 			i++;
 			// the new connector connects the existing end with an end of the
 			// reified connector (the newly created property.)

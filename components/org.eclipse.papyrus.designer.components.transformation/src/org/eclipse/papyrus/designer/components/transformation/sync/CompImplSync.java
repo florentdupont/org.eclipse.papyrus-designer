@@ -26,7 +26,7 @@ import org.eclipse.papyrus.designer.components.transformation.PortInfo;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants;
 import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
-import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils;
 import org.eclipse.papyrus.designer.transformation.core.sync.SyncBehaviorParameters;
 import org.eclipse.papyrus.designer.transformation.core.transformations.UpdateUtils;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
@@ -375,15 +375,15 @@ public class CompImplSync {
 					// Would indicate normally that there is no suitable owned operation.
 					// However: stereotype values may not be available during model load, check
 					// whether there is an identical operation, before copying one.
-					copiedOperation = OperationUtil.getSameOperation(operation, implementation);
+					copiedOperation = OperationUtils.getSameOperation(operation, implementation);
 					if (copiedOperation == null) {
 						copiedOperation = implementation.createOwnedOperation(operation.getName(), null, null);
-						OperationUtil.syncOperation(operation, copiedOperation);
+						OperationUtils.syncOperation(operation, copiedOperation);
 						copiedOperation.setIsAbstract(false);
 					}
 					UpdateUtils.setSource(copiedOperation, operation);
-				} else if (!OperationUtil.isSameOperation(operation, copiedOperation)) {
-					OperationUtil.syncOperation(operation, copiedOperation);
+				} else if (!OperationUtils.isSameOperation(operation, copiedOperation)) {
+					OperationUtils.syncOperation(operation, copiedOperation);
 					copiedOperation.setIsAbstract(false);
 				}
 			}

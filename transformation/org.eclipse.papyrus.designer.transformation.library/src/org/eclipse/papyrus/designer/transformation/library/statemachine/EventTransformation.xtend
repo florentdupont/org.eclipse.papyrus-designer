@@ -1,9 +1,27 @@
-package org.eclipse.papyrus.designer.transformation.library.statemachine
+/*****************************************************************************
+ * Copyright (c) 2016 CEA LIST.
+ *
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *  Van Cam Pham        <VanCam.PHAM@cea.fr>
+ *
+ *****************************************************************************/
+ 
+ package org.eclipse.papyrus.designer.transformation.library.statemachine
 
 import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
 import java.util.Map
+import org.eclipse.papyrus.designer.transformation.library.xtend.BehaviorUtil
+import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.CallEvent
 import org.eclipse.uml2.uml.Class
 import org.eclipse.uml2.uml.Event
@@ -12,6 +30,7 @@ import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.Pseudostate
 import org.eclipse.uml2.uml.PseudostateKind
+import org.eclipse.uml2.uml.SignalEvent
 import org.eclipse.uml2.uml.State
 import org.eclipse.uml2.uml.Transition
 import org.eclipse.uml2.uml.TransitionKind
@@ -19,6 +38,7 @@ import org.eclipse.uml2.uml.Vertex
 import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.TransformationUtil.eventName
 import org.eclipse.papyrus.designer.transformation.library.xtend.BehaviorUtil
 import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
+
 
 class EventTransformation {
 	protected extension CDefinitions cdefs;
@@ -30,9 +50,27 @@ class EventTransformation {
 		this.superContext = core.superContext
 		this.targetPack = core.targetPacket
 	}
+	
+	def List<Event> getDeferredEvents(State s) {
+		s.deferrableTriggers.map[it.event].toList
+	}
+	
+	def completionEventCheck(String eventName, String stateId) {
+		if (eventName == "CompletionEvent") {
+			return ''' && (currentEvent->associatedState == «stateId»)'''
+		}
+		return ''''''
+	}
+	
 	def createEventMethod(String eventName, List<Transition> transitions) {
 		var method = superContext.createOwnedOperation("process" + eventName, null, null)
-		var sources = transitions.map[it.source].filter(State).toList
+		val tempSources = transitions.map[it.source].filter(State).toList;
+		val sources = new ArrayList<State>
+		tempSources.forEach[
+			if (!sources.contains(it)) {
+				sources.add(it)
+			}
+		]
 		
 		val Map<State, List<State>> map = new HashMap
 		for(source:sources) {
@@ -59,51 +97,91 @@ class EventTransformation {
 		
 		var rootSourceStates = core.getRootStates(sources)
 		val passeds = new ArrayList<Transition>
+		var statesDeferredEvent = core.states.filter[it.deferredEvents.filter[it.name == eventName].size > 0]
+		var notInSources = statesDeferredEvent.filter[!sources.contains(it)]
+		val notInConcurrentState = notInSources.filter[it.container.state == null || it.container.state.orthogonal].toList
+		var inConcurrentState = notInSources.filter[!notInConcurrentState.contains(it)]
+		var isCallEvent = core.callEvents.filter[it.eventName == eventName].size > 0
 		var body = '''
+		«IF isCallEvent»
+			«superContext.name.toUpperCase»_GET_CONTROL
+		«ENDIF»
 		«SYSTEM_STATE_ATTR» = statemachine::EVENT_PROCESSING;
 		«FOR s:arraySet»
 			«IF s.orthogonal»
 				«FOR sub:map.get(s).getActualStateList(transitions)»
 					«IF transitions.filter[it.source == sub].filter[!passeds.contains(it)].size > 0»
-					if («core.hasSubstatesAcceptingEvent(sub, sources)»«STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«core.getRegionNumber(sub)»] == «sub.name.toUpperCase»_ID) {
-						«FOR t:transitions.filter[it.source == sub].filter[!passeds.contains(it)]»
-							«generateTransitionCode(sub, t)»
-						«ENDFOR»
-					}
+					«IF eventName == "CompletionEvent" && transitions.filter[it.source == sub && (it.target instanceof Pseudostate) && (it.target as Pseudostate).kind == PseudostateKind.JOIN_LITERAL].size > 0»
+						«var trans = transitions.filter[it.source == sub && (it.target instanceof Pseudostate) && (it.target as Pseudostate).kind == PseudostateKind.JOIN_LITERAL]»
+						«var join = trans.filter[!joins.contains(it.target)].map[it.target].head»
+						«var sourcesOfJoin = join.incomings.map[it.source]»
+						if («FOR src:sourcesOfJoin SEPARATOR ' || '»(currentEvent->associatedState == «src.name.toUpperCase»_ID)«ENDFOR») {
+							«FOR t:transitions.filter[it.source == sub].filter[!passeds.contains(it)]»
+								«var b = passeds.add(t)»
+								«generateTransitionCode(sub, t)»
+							«ENDFOR»
+						}
+					«ELSE»					
+						if («core.hasSubstatesAcceptingEvent(sub, sources)»«STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«core.getRegionNumber(sub)»] == «sub.name.toUpperCase»_ID«completionEventCheck(eventName, sub.name.toUpperCase + "_ID")») {
+							«IF sub.deferredEvents.filter[it.name == eventName].size > 0»
+								«SYSTEM_STATE_ATTR» = statemachine::EVENT_DEFERRED;
+							«ELSE»
+							«FOR t:transitions.filter[it.source == sub].filter[!passeds.contains(it)]»
+								«var b = passeds.add(t)»
+								«generateTransitionCode(sub, t)»
+							«ENDFOR»
+							«ENDIF»
+						}
+					«ENDIF»
 					«ENDIF»
 				«ENDFOR»
 			«ELSE»
 				«FOR sub:map.get(s) SEPARATOR ' else '»
-					if («core.hasSubstatesAcceptingEvent(sub, sources)»«STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[0] == «sub.name.toUpperCase»_ID) {
+				if («core.hasSubstatesAcceptingEvent(sub, sources)»«STATE_ARRAY_ATTRIBUTE»[«s.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[0] == «sub.name.toUpperCase»_ID«completionEventCheck(eventName, sub.name.toUpperCase + "_ID")») {
+					«IF sub.deferredEvents.filter[it.name == eventName].size > 0»
+						«SYSTEM_STATE_ATTR» = statemachine::EVENT_DEFERRED;
+					«ELSE»
 						«var hasGuards = transitions.filter[it.source == sub && it.guard != null]»
 						«FOR t:transitions.filter[it.source == sub && it.guard != null] SEPARATOR ' else '»
-							«generateTransitionCode(sub, t)»
+						«generateTransitionCode(sub, t)»
 						«ENDFOR»
 						«IF hasGuards.empty» 
 							«generateTransitionCode(sub, transitions.filter[it.source == sub && it.guard == null].head)»
 						«ELSEIF transitions.filter[it.source == sub && it.guard == null].head != null»
-						else {
-							«generateTransitionCode(sub, transitions.filter[it.source == sub && it.guard == null].head)»
-						}
+							else {
+								«generateTransitionCode(sub, transitions.filter[it.source == sub && it.guard == null].head)»
+							}
 						«ENDIF»
-					}
+					«ENDIF»
+				}
 				«ENDFOR»
 			«ENDIF»
 		«ENDFOR»
 		«IF rootSourceStates.size > 0»
-			if («SYSTEM_STATE_ATTR» == statemachine::EVENT_PROCESSING) {
-				switch((int)«ACTIVE_ROOT_STATE_ID») {
+			if («SYSTEM_STATE_ATTR» == statemachine::EVENT_PROCESSING«completionEventCheck(eventName, ACTIVE_ROOT_STATE_ID)») {
+				switch(«ACTIVE_ROOT_STATE_ID») {
 					«FOR root:rootSourceStates»
 						case «root.name.toUpperCase»_ID: 
+							«IF root.deferredEvents.filter[it.name == eventName].size > 0»
+								«SYSTEM_STATE_ATTR» = statemachine::EVENT_DEFERRED;
+							«ELSE»
 							«FOR t:transitions.filter[it.source == root] SEPARATOR ' else '»
 								«generateTransitionCode(root, t)»
 							«ENDFOR»
+							«ENDIF»
 							break;
 					«ENDFOR»
+					default:
+						//do nothing
+						break;
 				}
 			}
+		«ENDIF»
+		«IF isCallEvent»
+			«superContext.name.toUpperCase»_RELEASE_CONTROL
 		«ENDIF»'''
 		core.createOpaqueBehavior(superContext, method, body)
+		return method
 	}
 	
 	private def List<State> getActualStateList(List<State> l, List<Transition> trans) {
@@ -138,7 +216,7 @@ class EventTransformation {
 				} else {
 					callCompletionEvent = '''
 					if («FOR r:composite.regions SEPARATOR ' && '»(«STATE_ARRAY_ATTRIBUTE»[«composite.name.toUpperCase»_ID].«ACTIVE_SUB_STATES»[«composite.regions.indexOf(r)»] == «STATE_MAX»)«ENDFOR») {
-						process«COMPLETION_EVENT»();
+						«EVENT_QUEUE».push(statemachine::PRIORITY_1, NULL, COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, «composite.name.toUpperCase»_ID);
 					}'''
 				}
 			}
@@ -197,21 +275,17 @@ class EventTransformation {
 			
 			ret = '''
 				//from «t.source.name» to «t.target.name»
-				«IF hasGuard» if («core.getGuard(t)») {
-				«ENDIF»
+				if («IF hasGuard»«core.getGuard(t)»«ELSE»true«ENDIF») {
 				«ret»
 				«SYSTEM_STATE_ATTR» = statemachine::EVENT_CONSUMED;
-				«IF hasGuard»}
-				«ENDIF»'''
+				}'''
 		} else {
 			ret = '''
 				//from «t.source.name» to «t.target.name»
-				«IF hasGuard» if («core.getGuard(t)») {
-				«ENDIF»
+				if («IF hasGuard»«core.getGuard(t)»«ELSE»true«ENDIF») {
 				«generateTransitionGraphCode(s, t)»
 				«SYSTEM_STATE_ATTR» = statemachine::EVENT_CONSUMED;
-				«IF hasGuard»}
-				«ENDIF»'''
+				}'''
 		}
 		
 		return ret
@@ -229,11 +303,14 @@ class EventTransformation {
 	private List<Pseudostate> joins = new ArrayList
 	
 	def createEventMethod(Event e, List<Transition> transitions) {
-		createEventMethod(e.eventName, transitions)
+		var evMethod= createEventMethod(e.eventName, transitions)
 		if (e instanceof CallEvent) {
 			var op = core.copier.getCopy((e as CallEvent).operation)
+			core.copyParameters(op, evMethod, false)
+			var params = evMethod.ownedParameters
 			var body = '''
-					this->process«e.eventName»();'''
+					this->process«e.eventName»(«FOR p:params SEPARATOR ', '»«p.name»«ENDFOR»);'''
+			
 			var String existingBody = null
 			if (op.methods.size > 0) {
 				val existingMethod = op.methods.get(0)
@@ -247,7 +324,16 @@ class EventTransformation {
 				body += "\n// original method code\n" + existingBody;
 			}
 			core.createOpaqueBehavior(superContext, op, body)
-		}	
+		} else if (e instanceof SignalEvent) {
+			var send = superContext.createOwnedOperation("send" + e.name, null, null)
+			if (e.signal != null) {
+				StereotypeUtil.apply(send.createOwnedParameter("sig", core.copier.getCopy(e.signal)), Ref)
+				StereotypeUtil.apply(evMethod.createOwnedParameter("sig", core.copier.getCopy(e.signal)), Ref)
+				
+			}
+			core.createOpaqueBehavior(superContext, send, '''
+			«EVENT_QUEUE».push(statemachine::PRIORITY_2, «IF e.signal != null»&sig«ELSE»NULL«ENDIF», «e.name.toUpperCase»_ID, statemachine::SIGNAL_EVENT, 0«IF e.signal != null», sizeof(«CppGenUtils.cppQualifiedName(core.copier.getCopy(e.signal))»)«ENDIF»);''')
+		}		
 	}
 	
 	def String generateTransitionGraphCode(State s, Transition t) {
@@ -284,8 +370,8 @@ class EventTransformation {
 		«ENDIF»
 		«IF join != null»
 			//TODO: concurrency
-			«FOR out:join.outgoings»
-				«TransformationUtil.getTransitionEffect(out)»
+			«FOR in:join.incomings»
+				«TransformationUtil.getTransitionEffect(in)»
 			«ENDFOR»
 		«ELSE»
 			«TransformationUtil.getTransitionEffect(t)»

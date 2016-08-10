@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Alloc="http://www.eclipse.org/papyrus/Alloc/1" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:FCM="http://www.eclipse.org/papyrus/FCM/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/Alloc/1 http://www.eclipse.org/papyrus/MARTE/1#//Alloc">
-  <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="ABitComplexSMOrthogonal">
+  <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="ABitComplexSMOrthogonalExample">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_O6TiITLUEd26WNosUASSSw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>

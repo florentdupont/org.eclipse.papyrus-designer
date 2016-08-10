@@ -1,11 +1,7 @@
-/*******************************************************************import java.util.HashMap;
-import java.util.Map;
-
-import org.eclipse.papyrus.designer.components.fcm.profile.ContainerRule;
-import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.InstanceSpecification;
-import org.eclipse.uml2.uml.Package;
-s distribution, and is available at
+/********
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:

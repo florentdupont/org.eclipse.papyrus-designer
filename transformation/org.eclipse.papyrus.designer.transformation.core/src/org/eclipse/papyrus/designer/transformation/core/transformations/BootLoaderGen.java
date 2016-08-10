@@ -27,8 +27,8 @@ import org.eclipse.papyrus.designer.deployment.profile.Deployment.InitPrecedence
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
-import org.eclipse.papyrus.designer.transformation.base.utils.StUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
@@ -101,20 +101,20 @@ public class BootLoaderGen {
 		m_bootLoader = copier.target.createOwnedClass(BOOTLOADER_NAME, false);
 		outputSizeof = false;
 		m_copier = copier;
-		Class template = (Class) ElementUtil.getQualifiedElement(copier.source, bootloaderQNAME);
+		Class template = (Class) ElementUtils.getQualifiedElement(copier.source, bootloaderQNAME);
 		if (template == null) {
 			throw new TransformationException(String.format(
 					Messages.BootLoaderGen_CannotRetrieveTemplate, bootloaderQNAME));
 		}
 		// TODO: currently, only stereotypes are copied from template
-		StUtil.copyStereotypes(template, m_bootLoader);
+		StUtils.copyStereotypes(template, m_bootLoader);
 
 
 		// TODO: commented code below already fixed?
 		/*
 		 * Problem: defaultValue not taken into account by code generator
 		 * => use global variables via cppInclude instead (see below: "bodyStr = ...")
-		 * NamedElement corba_long = ElementUtil.getQualifiedElement (owner, "CORBA::Long");
+		 * NamedElement corba_long = ElementUtils.getQualifiedElement (owner, "CORBA::Long");
 		 * if (corba_long instanceof Type) {
 		 * Property nodeNumber =
 		 * m_bootLoader.createOwnedAttribute ("nodeNumber", (Type) corba_long);
@@ -180,7 +180,7 @@ public class BootLoaderGen {
 						// Therefore, configuration and initial calls use
 						// - the path, if instantiated by the composite
 						// - the variable name, if done by the bootloader
-						path = ElementUtil.varName(path); // use variable name instead.
+						path = ElementUtils.varName(path); // use variable name instead.
 					}
 					path += "." + pathElement.getDefiningFeature().getName(); //$NON-NLS-1$
 					previousInstantiatedByBL = instantiateViaBootloader(pathElement.getDefiningFeature());
@@ -188,7 +188,7 @@ public class BootLoaderGen {
 			}
 			if (previousInstantiatedByBL && !accessName) {
 				// name of the variable for this expression instantiated by the bootloader
-				path = ElementUtil.varName(path);
+				path = ElementUtils.varName(path);
 			}
 			return path;
 		}
@@ -330,7 +330,7 @@ public class BootLoaderGen {
 	 */
 	public static boolean hasUnconnectedLifeCycle(LazyCopier copy, Class implementation, Slot containerSlot) {
 		if (implementation != null) {
-			Element lcPortElem = ElementUtil.getNamedElementFromList(implementation.getAllAttributes(), "lc"); //$NON-NLS-1$
+			Element lcPortElem = ElementUtils.getNamedElementFromList(implementation.getAllAttributes(), "lc"); //$NON-NLS-1$
 			if (lcPortElem instanceof Port) {
 				Port lcPort = (Port) lcPortElem;
 				// check, if port typed with ILifeCycle interface
@@ -428,18 +428,18 @@ public class BootLoaderGen {
 				if (precedenceC1 != null) {
 					// need to use named comparison instead of precedenceC1.getInvokeAfter ().contains (clazz2)
 					// since class referenced by stereotype attribute still points to element in source model
-					if (ElementUtil.getNamedElementFromList(precedenceC1.getInvokeAfter(), clazz2.getName()) != null) {
+					if (ElementUtils.getNamedElementFromList(precedenceC1.getInvokeAfter(), clazz2.getName()) != null) {
 						return 1;
 					}
-					else if (ElementUtil.getNamedElementFromList(precedenceC1.getInvokeBefore(), clazz2.getName()) != null) {
+					else if (ElementUtils.getNamedElementFromList(precedenceC1.getInvokeBefore(), clazz2.getName()) != null) {
 						return -1;
 					}
 				}
 				else if (precedenceC2 != null) {
-					if (ElementUtil.getNamedElementFromList(precedenceC2.getInvokeAfter(), clazz1.getName()) != null) {
+					if (ElementUtils.getNamedElementFromList(precedenceC2.getInvokeAfter(), clazz1.getName()) != null) {
 						return -1;
 					}
-					else if (ElementUtil.getNamedElementFromList(precedenceC2.getInvokeBefore(), clazz1.getName()) != null) {
+					else if (ElementUtils.getNamedElementFromList(precedenceC2.getInvokeBefore(), clazz1.getName()) != null) {
 						return 1;
 					}
 				}

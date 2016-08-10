@@ -21,8 +21,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.transformation.Activator;
 import org.eclipse.papyrus.designer.components.transformation.Messages;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtil;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
@@ -159,7 +159,7 @@ public class TemplateUtils {
 		// composite can be found (avoid modifying an imported model).
 		// todo: root model as an additional parameter?
 		Namespace owner = (Namespace) pkgTemplate.getOwner();
-		owner = CreationUtil.getAndCreate(model, owner.allNamespaces());
+		owner = CreationUtils.getAndCreate(model, owner.allNamespaces());
 
 		Package boundPackage = (Package) owner.getMember(name);
 		if (boundPackage == null) {
@@ -354,7 +354,7 @@ public class TemplateUtils {
 					// redirect role, if pointing to port
 					if (connEnd.getRole() instanceof Port) {
 						Port connectedTemplatePort = (Port) connEnd.getRole();
-						Port connectedBoundPort = (Port) ElementUtil.getNamedElementFromList(
+						Port connectedBoundPort = (Port) ElementUtils.getNamedElementFromList(
 								PortUtils.getAllPorts(partTypeEC), connectedTemplatePort.getName());
 						connEnd.setRole(connectedBoundPort);
 					}
@@ -384,7 +384,7 @@ public class TemplateUtils {
 					EList<Port> ports = PortUtils.getAllPorts(partTypeEC);
 					if ((role instanceof Port) && !ports.contains(role)) {
 						// role is not in list of ports
-						Port connectedBoundPort = (Port) ElementUtil.getNamedElementFromList(ports, role.getName());
+						Port connectedBoundPort = (Port) ElementUtils.getNamedElementFromList(ports, role.getName());
 						connEnd.setRole(connectedBoundPort);
 					}
 				}

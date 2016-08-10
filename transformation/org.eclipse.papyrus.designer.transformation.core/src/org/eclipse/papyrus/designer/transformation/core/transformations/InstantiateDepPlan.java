@@ -40,10 +40,10 @@ import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjec
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
 import org.eclipse.papyrus.designer.transformation.base.utils.ProjectManagement;
-import org.eclipse.papyrus.designer.transformation.base.utils.StUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.EnumService;
@@ -531,7 +531,7 @@ public class InstantiateDepPlan {
 					// would find (and copier profile
 					// applications in sub-folders
 					qname = qname.substring(qname.indexOf("::") + 2); //$NON-NLS-1$
-					newProfile = (Profile) ElementUtil.getQualifiedElement(newProfileTop, qname);
+					newProfile = (Profile) ElementUtils.getQualifiedElement(newProfileTop, qname);
 				} else {
 					newProfile = newProfileTop;
 				}
@@ -577,7 +577,7 @@ public class InstantiateDepPlan {
 				}
 			}
 		}
-		StUtil.copyStereotypes(existingModel, newModel);
+		StUtils.copyStereotypes(existingModel, newModel);
 
 		return mm;
 	}

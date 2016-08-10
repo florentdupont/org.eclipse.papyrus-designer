@@ -29,7 +29,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Slot;
 import org.eclipse.uml2.uml.ValueSpecification;
 
-public class CopyUtil {
+public class CopyUtils {
 	/**
 	 * Copy the (XML) ID from the source to the destination model element. This
 	 * is useful, if you want to create a diagram for (parts of) the generated

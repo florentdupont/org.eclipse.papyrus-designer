@@ -1,4 +1,18 @@
-package org.eclipse.papyrus.designer.transformation.library.statemachine
+/*****************************************************************************
+ * Copyright (c) 2016 CEA LIST.
+ *
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *  Van Cam Pham        <VanCam.PHAM@cea.fr>
+ *
+ *****************************************************************************/
+ 
+ package org.eclipse.papyrus.designer.transformation.library.statemachine
 
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
@@ -9,15 +23,18 @@ import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.ParameterDirectionKind
 import org.eclipse.uml2.uml.Region
 import org.eclipse.uml2.uml.Transition
+import org.eclipse.uml2.uml.Type
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.util.UMLUtil
 
 import static org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
+import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.TransformationUtil.*
 
 class ConcurrencyGenerator {
 	protected extension CDefinitions cdefs;
 	private SM2ClassesTransformationCore core
 	PThreadTypes ptTypes
+	public Type threadStructType
 	Class superContext
 	Package targetPack
 	
@@ -53,7 +70,25 @@ class ConcurrencyGenerator {
 		var mutexes = superContext.createOwnedAttribute(MUTEXES, ptTypes.pthreadMutex)
 		StereotypeUtil.apply(mutexes, Array)
 		UMLUtil.getStereotypeApplication(mutexes, Array).definition = '''[«STATE_MAX»]'''
-
+		
+		threadStructType = core.threadStructType
+		//threadStructType = superContext.createNestedClassifier(STRUCT_FOR_THREAD, UMLPackage.Literals.PRIMITIVE_TYPE)
+//		StereotypeUtil.apply(threadStructType, Typedef)
+//		UMLUtil.getStereotypeApplication(threadStructType, Typedef).definition = '''
+//		struct «STRUCT_FOR_THREAD» {
+//			void* ptr;
+//			int id; //id or index used to specify the corresponding function in a table
+//			char enter_mode; //used for specifying how a region is entered
+//			char func_type; // doActivity/enter region/exit region/time event/change event/ transition
+//			int duration; //in millisecond which is used for time events
+//			«STRUCT_FOR_THREAD»(«superContext.name»* ptr, int id, char enter_mode, char func_type, int duration): ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration){}
+//			«STRUCT_FOR_THREAD»(){}
+//		} '''
+		
+		var threadStructs = superContext.createOwnedAttribute(THREAD_STRUCTS, threadStructType)
+		StereotypeUtil.apply(threadStructs, Array)
+		UMLUtil.getStereotypeApplication(threadStructs, Array).definition = '''[«STATE_MAX»]''' 
+		
 		var threadFuncWrapper = superContext.createOwnedOperation(THREAD_FUNC_WRAPPER, null, null)
 		threadFuncWrapper.isStatic = true
 		var inParam = threadFuncWrapper.createOwnedParameter("data", core.voidType)
@@ -88,8 +123,13 @@ class ConcurrencyGenerator {
 					ptr->transitionCall(cptr->id);
 					break;
 			«ENDIF»
+			«IF core.changeEvents.size > 0»
+				case «THREAD_FUNC_CHANGEEVENT_TYPE»:
+					ptr->«CHANGE_EVENT_LISTEN_FUNCTION»(cptr->id);
+					break;
+			«ENDIF»
 				case «THREAD_FUNC_STATE_MACHINE_TYPE»:
-					//cptr->ptr->«EVENT_DISPATCH»();
+					ptr->«EVENT_DISPATCH»();
 					break;
 		}
 		return NULL;''')
@@ -121,11 +161,14 @@ class ConcurrencyGenerator {
 			}
 			pthread_cond_signal(&«CONDITIONS»[id]);
 			pthread_mutex_unlock(&«MUTEXES»[id]);
+			«IF core.states.filter[!it.composite && it.hasTriggerlessTransition].size > 0»
 			if (commitEvent) {
-				if(«FOR s:core.states.filter[!it.composite] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
-					processCompletionEvent();
+				if(«FOR s:core.states.filter[!it.composite && it.hasTriggerlessTransition] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
+					//processCompletionEvent();
+					«EVENT_QUEUE».push(statemachine::PRIORITY_1, NULL, COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, id);
 				}
 			}
+			«ENDIF»
 		}''')
 		
 		var setFlag = superContext.createOwnedOperation(SET_FLAG, null, null)
@@ -160,22 +203,26 @@ class ConcurrencyGenerator {
 					pthread_cond_signal(&«CONDITIONS»[id]);
 					pthread_mutex_unlock(&«MUTEXES»[id]);
 				} else {
+					«IF core.states.filter[!it.composite && it.hasTriggerlessTransition].size > 0»
 					//push completion event
 					if (value) {
-						if(«FOR s:core.states.filter[!it.composite] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
-							//processCompletionEvent();
+						if(«FOR s:core.states.filter[!it.composite && it.hasTriggerlessTransition] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
+							«EVENT_QUEUE».push(statemachine::PRIORITY_1, NULL, COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, id);
 						}
 					}
+					«ENDIF»
 				}
 				return;
 			«ELSE»
+				«IF core.states.filter[!it.composite && it.hasTriggerlessTransition].size > 0»
 				//push completion event
-				if (value) {
-					if(«FOR s:core.states.filter[!it.composite] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
-						//processCompletionEvent();
-					}
-					return;
-				} 
+					if (value) {
+						if(«FOR s:core.states.filter[!it.composite && it.hasTriggerlessTransition] SEPARATOR ' || '»id == «s.name.toUpperCase»_ID«ENDFOR») {
+							«EVENT_QUEUE».push(statemachine::PRIORITY_1, NULL, COMPLETIONEVENT_ID, statemachine::COMPLETION_EVENT, id);
+						}
+						return;
+					} 
+				«ENDIF» 
 			«ENDIF»
 		}
 		''')
@@ -280,4 +327,5 @@ class ConcurrencyGenerator {
 		}
 		return '''«JOIN_NAME»(«paramThreadName», NULL);'''
 	}
+	
 }

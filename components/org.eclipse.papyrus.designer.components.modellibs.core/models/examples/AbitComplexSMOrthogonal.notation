@@ -843,7 +843,7 @@
                 <layoutConstraint xmi:type="notation:Bounds" xmi:id="_myTYdCkEEeaWptp_P1JVYQ" y="20" width="396" height="256"/>
               </children>
               <element xmi:type="uml:State" href="AbitComplexSMOrthogonal.uml#_mxZZgCkEEeaWptp_P1JVYQ"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mySKUSkEEeaWptp_P1JVYQ" x="535" y="259" width="396" height="276"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mySKUSkEEeaWptp_P1JVYQ" x="514" y="262" width="396" height="276"/>
             </children>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0MCIxeYXEeCBL_IbXY9ofw"/>
           </children>
@@ -1034,7 +1034,7 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_zVGKoCkEEeaWptp_P1JVYQ"/>
       <element xmi:type="uml:Transition" href="AbitComplexSMOrthogonal.uml#_zRtfcCkEEeaWptp_P1JVYQ"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zVGKoSkEEeaWptp_P1JVYQ" points="[629, 368, -643984, -643984]$[750, 374, -643984, -643984]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zVGKoSkEEeaWptp_P1JVYQ" points="[608, 371, -643984, -643984]$[729, 377, -643984, -643984]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zWNk8CkEEeaWptp_P1JVYQ" id="(0.9216981132075432,0.6566037735849051)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zWNk8SkEEeaWptp_P1JVYQ" id="(0.0,0.4318181818181818)"/>
     </edges>
@@ -1050,7 +1050,7 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="__p2g0SkEEeaWptp_P1JVYQ"/>
       <element xmi:type="uml:Transition" href="AbitComplexSMOrthogonal.uml#__pc4MCkEEeaWptp_P1JVYQ"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__p2g0ikEEeaWptp_P1JVYQ" points="[754, 397, -643984, -643984]$[668, 428, -643984, -643984]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__p2g0ikEEeaWptp_P1JVYQ" points="[733, 400, -643984, -643984]$[647, 431, -643984, -643984]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__q6QwCkEEeaWptp_P1JVYQ" id="(0.1,0.9545454545454546)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__q630CkEEeaWptp_P1JVYQ" id="(1.0,0.3409090909090909)"/>
     </edges>
@@ -1082,7 +1082,7 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_4zdpESkKEeaYyIUJlvqqqw"/>
       <element xmi:type="uml:Transition" href="AbitComplexSMOrthogonal.uml#_4wueICkKEeaYyIUJlvqqqw"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4zdpEikKEeaYyIUJlvqqqw" points="[605, 500, -643984, -643984]$[649, 527, -643984, -643984]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4zdpEikKEeaYyIUJlvqqqw" points="[584, 503, -643984, -643984]$[628, 530, -643984, -643984]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_40sYICkKEeaYyIUJlvqqqw" id="(0.7353932584269671,0.8646067415730357)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_40s_MCkKEeaYyIUJlvqqqw" id="(0.0,0.38636363636363635)"/>
     </edges>
@@ -1101,7 +1101,7 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_99EAISkKEeaYyIUJlvqqqw"/>
       <element xmi:type="uml:Transition" href="AbitComplexSMOrthogonal.uml#_98L2YCkKEeaYyIUJlvqqqw"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_99EAIikKEeaYyIUJlvqqqw" points="[689, 534, -643984, -643984]$[763, 534, -643984, -643984]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_99EAIikKEeaYyIUJlvqqqw" points="[668, 537, -643984, -643984]$[742, 537, -643984, -643984]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9-UkYCkKEeaYyIUJlvqqqw" id="(1.0,0.5454545454545454)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9-UkYSkKEeaYyIUJlvqqqw" id="(0.0,0.5454545454545454)"/>
     </edges>
@@ -1120,7 +1120,7 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_MOsSsSkLEeaYyIUJlvqqqw"/>
       <element xmi:type="uml:Transition" href="AbitComplexSMOrthogonal.uml#_MOEnoCkLEeaYyIUJlvqqqw"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MOsSsikLEeaYyIUJlvqqqw" points="[888, 513, -643984, -643984]$[689, 519, -643984, -643984]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MOsSsikLEeaYyIUJlvqqqw" points="[867, 516, -643984, -643984]$[668, 522, -643984, -643984]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MQH2ECkLEeaYyIUJlvqqqw" id="(0.025,0.11363636363636363)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MQH2ESkLEeaYyIUJlvqqqw" id="(1.0,0.20454545454545456)"/>
     </edges>

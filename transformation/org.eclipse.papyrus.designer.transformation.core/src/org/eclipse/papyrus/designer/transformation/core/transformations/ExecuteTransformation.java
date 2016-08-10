@@ -2,6 +2,7 @@ package org.eclipse.papyrus.designer.transformation.core.transformations;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.extensions.IEmptyM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.extensions.M2MTrafoExt;
@@ -17,7 +18,7 @@ public class ExecuteTransformation {
 		this.copier = copier;
 	}
 	
-	public void executeTransformation(Package pkg) {
+	public void executeTransformation(Package pkg) throws TransformationException {
 		EList<PackageableElement> elements = new BasicEList<PackageableElement>();
 		elements.addAll(pkg.getPackagedElements());
 		for (PackageableElement pe : elements) {

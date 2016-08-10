@@ -4,7 +4,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.uml2.common.util.UML2Util;
 import org.eclipse.uml2.uml.Class;
@@ -85,7 +85,7 @@ public class AllocTransfo {
 					ce1.setPartWithPort(attribute);
 					// TODO: should really use start port instead...
 					// ce1.setRole(AllocUtils.getStartPort(component));
-					NamedElement ne = ElementUtil.getNamedElementFromList(component.getAllAttributes(), RUN);
+					NamedElement ne = ElementUtils.getNamedElementFromList(component.getAllAttributes(), RUN);
 					if (ne instanceof Property) {
 						ce1.setRole((Property) ne);
 					}

@@ -19,7 +19,7 @@ import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.Package;
 
-public class CreationUtil {
+public class CreationUtils {
 
 	/**
 	 * This function returns a Package reference that corresponds to a qualified name.
@@ -52,9 +52,9 @@ public class CreationUtil {
 			if (pkg == null) {
 				// package does not exist => create it.
 				pkg = root.createNestedPackage(ns.getName());
-				CopyUtil.copyID(ns, pkg);
+				CopyUtils.copyID(ns, pkg);
 				// copy stereotype to create package
-				StUtil.copyStereotypes(ns, pkg);
+				StUtils.copyStereotypes(ns, pkg);
 			}
 			if (!(pkg instanceof Package)) {
 				break;

@@ -37,9 +37,9 @@ import org.eclipse.papyrus.uml.tools.utils.PackageUtil
 import org.eclipse.papyrus.designer.components.transformation.PortUtils
 import org.eclipse.papyrus.designer.components.transformation.transformations.PrefixConstants
 import org.eclipse.papyrus.designer.components.transformation.PortInfo
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil
-import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtil
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
+import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 
 /**
  * This class realizes the dynamic variant of the OO-transformation 
@@ -191,7 +191,7 @@ class DynamicCppToOO implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						val eLong = ElementUtil.getQualifiedElement(PackageUtil.getRootPackage(implementation),
+						val eLong = ElementUtils.getQualifiedElement(PackageUtil.getRootPackage(implementation),
 							PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
 						if (eLong instanceof Type) {
 							op.createOwnedParameter("index", eLong as Type) 
@@ -241,7 +241,7 @@ class DynamicCppToOO implements IOOTrafo {
 						var attr = implementation.getOwnedAttribute(attributeName, null)
 						if (attr == null || attr instanceof Port) {
 							attr = implementation.createOwnedAttribute(attributeName, requiredIntf)
-							CopyUtil.copyMultElemModifiers(portInfo.port, attr)
+							CopyUtils.copyMultElemModifiers(portInfo.port, attr)
 
 							// is shared (should store a reference)
 							attr.setAggregation(AggregationKind.SHARED_LITERAL)
@@ -479,7 +479,7 @@ class DynamicCppToOO implements IOOTrafo {
 		}
 */	
 		var String initPartsBody = ""
-		for (Property attribute : ElementUtil.getParts(compositeImplementation)) {
+		for (Property attribute : ElementUtils.getParts(compositeImplementation)) {
 			val type = attribute.type;
 			if (type instanceof Class) {
 				initPartsBody += initPartBody(attribute);
@@ -487,7 +487,7 @@ class DynamicCppToOO implements IOOTrafo {
 			}
 		}
 		
-		val partManager = ElementUtil.getQualifiedElement(PackageUtil.getRootPackage(compositeImplementation), PART_MANAGER);
+		val partManager = ElementUtils.getQualifiedElement(PackageUtil.getRootPackage(compositeImplementation), PART_MANAGER);
 		if (partManager instanceof Type) {
 			compositeImplementation.createOwnedAttribute(PARTS, partManager as Type);
 		}

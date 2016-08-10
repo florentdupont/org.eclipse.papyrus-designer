@@ -26,7 +26,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
 import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
 import org.eclipse.papyrus.designer.components.transformation.component.ContainerUtil;
-import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtils;
 import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -235,7 +235,7 @@ public class ContainerDialog extends SelectionStatusDialog {
 	 */
 	protected void selectRule(ContainerRule rule) {
 		m_currentRule = rule;
-		fDescription.setText(DescriptionUtil.getDescription(rule.getBase_Class()));
+		fDescription.setText(DescriptionUtils.getDescription(rule.getBase_Class()));
 	}
 
 	/**

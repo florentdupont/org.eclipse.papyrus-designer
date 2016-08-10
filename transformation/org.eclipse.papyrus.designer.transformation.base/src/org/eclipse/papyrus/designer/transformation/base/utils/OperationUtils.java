@@ -29,7 +29,7 @@ import org.eclipse.uml2.uml.ParameterDirectionKind;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.Type;
 
-public class OperationUtil {
+public class OperationUtils {
 
 	/**
 	 * Search an identical operation within a class.
@@ -180,7 +180,7 @@ public class OperationUtil {
 	 */
 	public static void syncOperation(Operation sourceOp, Operation targetOp) {
 		if (targetOp != null) {
-			CopyUtil.copyFeatureModifiers(sourceOp, targetOp);
+			CopyUtils.copyFeatureModifiers(sourceOp, targetOp);
 			// ordered and unique are derived from ret-parameter
 			targetOp.setIsQuery(sourceOp.isQuery());
 			targetOp.setIsAbstract(sourceOp.isAbstract());
@@ -190,11 +190,11 @@ public class OperationUtil {
 				Type type = parameter.getType();
 				Parameter newParameter = targetOp.createOwnedParameter(parameter.getLabel(), type);
 				newParameter.setDirection(parameter.getDirection());
-				CopyUtil.copyMultElemModifiers(parameter, newParameter);
-				StUtil.copyStereotypes(parameter, newParameter);
+				CopyUtils.copyMultElemModifiers(parameter, newParameter);
+				StUtils.copyStereotypes(parameter, newParameter);
 			}
 		}
-		StUtil.copyStereotypes(sourceOp, targetOp);
+		StUtils.copyStereotypes(sourceOp, targetOp);
 	}
 
 	/**

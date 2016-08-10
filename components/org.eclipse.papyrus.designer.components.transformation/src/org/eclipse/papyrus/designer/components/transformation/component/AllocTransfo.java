@@ -1,10 +1,16 @@
+/**
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
 package org.eclipse.papyrus.designer.components.transformation.component;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.uml2.common.util.UML2Util;
@@ -86,7 +92,7 @@ public class AllocTransfo {
 					ce1.setPartWithPort(attribute);
 					// TODO: should really use start port instead...
 					// ce1.setRole(AllocUtils.getStartPort(component));
-					NamedElement ne = ElementUtil.getNamedElementFromList(component.getAllAttributes(), RUN);
+					NamedElement ne = ElementUtils.getNamedElementFromList(component.getAllAttributes(), RUN);
 					if (ne instanceof Property) {
 						ce1.setRole((Property) ne);
 					}

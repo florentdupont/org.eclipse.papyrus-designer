@@ -1,3 +1,11 @@
+/**
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+  */
 /*
  * Copyright (C) 2007-2010 Júlio Vilmar Gesser.
  * Copyright (C) 2011, 2013-2015 The JavaParser Team.
@@ -18,7 +26,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  */
- 
+
 package org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast;
 
 import org.eclipse.papyrus.designer.languages.java.reverse.javaparser.ast.expr.NameExpr;

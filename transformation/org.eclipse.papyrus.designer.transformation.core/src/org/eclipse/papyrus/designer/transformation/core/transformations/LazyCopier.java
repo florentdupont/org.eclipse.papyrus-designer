@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
 import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.listeners.PostCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.listeners.PreCopyListener;
@@ -130,7 +130,7 @@ public class LazyCopier extends Copier {
 		}
 		this.copyID = copyID;
 		if (copyID) {
-			CopyUtil.copyID(source, target);
+			CopyUtils.copyID(source, target);
 		}
 	};
 
@@ -484,7 +484,7 @@ public class LazyCopier extends Copier {
 			put(sourceEObj, targetEObj);
 			setStatus(targetEObj, CopyStatus.INPROGRESS);
 			if (copyID) {
-				CopyUtil.copyID(sourceEObj, targetEObj);
+				CopyUtils.copyID(sourceEObj, targetEObj);
 			}
 			// creates a shallow copy of the container. This container will update containment references (such as packagedElement)
 			// and thus update links
@@ -535,7 +535,7 @@ public class LazyCopier extends Copier {
 			}
 		}
 		copyProxyURI(sourceEObj, targetEObj);
-		CopyUtil.copyID(sourceEObj, targetEObj);
+		CopyUtils.copyID(sourceEObj, targetEObj);
 		copyStereotypes(sourceEObj);
 		setStatus(targetEObj, CopyStatus.FULL);
 
@@ -699,7 +699,7 @@ public class LazyCopier extends Copier {
 				//
 				shallowCopy(owner);
 				if (lastSource != null) {
-					// StUtil.copyStereotypes(this, (Element)lastSource, (Element)copy);
+					// StUtils.copyStereotypes(this, (Element)lastSource, (Element)copy);
 				}
 				return;
 				// break;
@@ -745,7 +745,7 @@ public class LazyCopier extends Copier {
 			put(sourceEObj, targetEObj);
 			setStatus(targetEObj, CopyStatus.SHALLOW);
 			if (copyID) {
-				CopyUtil.copyID(sourceEObj, targetEObj);
+				CopyUtils.copyID(sourceEObj, targetEObj);
 			}
 			first = true;
 		}

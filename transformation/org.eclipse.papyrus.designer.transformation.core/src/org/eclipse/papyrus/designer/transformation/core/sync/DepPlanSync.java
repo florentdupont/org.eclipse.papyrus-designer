@@ -23,7 +23,7 @@ import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
 import org.eclipse.papyrus.designer.deployment.tools.DepPlanUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement;
@@ -91,7 +91,7 @@ public class DepPlanSync {
 				addCDP(depPlan, subInstance, canonicalName + "." + slot.getDefiningFeature().getName()); //$NON-NLS-1$
 			}
 		}
-		for (Property attribute : ElementUtil.getParts(implementation)) {
+		for (Property attribute : ElementUtils.getParts(implementation)) {
 			Type type = attribute.getType();
 			if (type instanceof Class) {
 				if (!hasSlot(instance, attribute)) {

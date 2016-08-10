@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Namespace;
 
-public class FileUtil {
+public class FileUtils {
 
 	public static String decodeID(String encodedURI) {
 		String result = ""; //$NON-NLS-1$

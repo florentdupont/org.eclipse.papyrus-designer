@@ -34,11 +34,11 @@ import org.eclipse.uml2.uml.StructuralFeature
 import org.eclipse.papyrus.designer.components.transformation.java.Messages
 import org.eclipse.papyrus.designer.components.transformation.extensions.IOOTrafo
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil
-import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtil
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.papyrus.designer.components.FCM.Assembly
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil
+import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 
 /**
  * This class realizes the transformation from component-based to object-oriented
@@ -211,7 +211,7 @@ class JavaToOO implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						val eLong = ElementUtil.getQualifiedElement(PackageUtil.getRootPackage(implementation),
+						val eLong = ElementUtils.getQualifiedElement(PackageUtil.getRootPackage(implementation),
 							PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
 						if (eLong instanceof Type) {
 							op.createOwnedParameter("index", eLong as Type) 
@@ -260,7 +260,7 @@ class JavaToOO implements IOOTrafo {
 						var attr = implementation.getOwnedAttribute(attributeName, null)
 						if (attr == null || attr instanceof Port) {
 							attr = implementation.createOwnedAttribute(attributeName, requiredIntf)
-							CopyUtil.copyMultElemModifiers(portInfo.port, attr)
+							CopyUtils.copyMultElemModifiers(portInfo.port, attr)
 
 							// is shared (should store a reference)
 							attr.setAggregation(AggregationKind.SHARED_LITERAL)

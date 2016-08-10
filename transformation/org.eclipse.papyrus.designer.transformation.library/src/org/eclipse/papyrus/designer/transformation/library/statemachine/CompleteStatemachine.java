@@ -1,3 +1,17 @@
+/*****************************************************************************
+ * Copyright (c) 2016 CEA LIST.
+ *
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *  Ansgar Radermacher  ansgar.radermacher@cea.fr
+ *
+ *****************************************************************************/
+
 package org.eclipse.papyrus.designer.transformation.library.statemachine;
 
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array;
@@ -35,7 +49,7 @@ public class CompleteStatemachine implements IM2MTrafo {
 			Array array = StereotypeUtil.applyApp(threadStruct, Array.class);
 			array.setDefinition("[" + SMCodeGeneratorConstants.STATE_MAX + "]"); //$NON-NLS-1$ //$NON-NLS-2$
 			tmClass.createDependency(threadFuncEnum);
-			trafoCore.threadStructType = (Type) stateStruct;
+			// trafoCore.threadStructType = (Type) stateStruct;
 			trafoCore.transform();
 			}
 		}

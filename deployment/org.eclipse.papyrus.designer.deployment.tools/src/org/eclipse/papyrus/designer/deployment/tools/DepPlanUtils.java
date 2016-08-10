@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
@@ -52,7 +52,7 @@ public class DepPlanUtils {
 	 * @return package in which deployment plans are stored
 	 */
 	public static Package getDepPlanRoot(Element element) {
-		return ElementUtil.getRoot(element, DeployConstants.depPlanFolder);
+		return ElementUtils.getRoot(element, DeployConstants.depPlanFolder);
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class DepPlanUtils {
 		// choose implementation automatically: get the first one that implements the passed type
 		// (problem: further tree expansion might depend on chosen implementation)
 		// get reference to component model, then search all classes contained in it.
-		Package compModel = ElementUtil.getRoot(componentType, DeployConstants.COMPONENT_MODEL);
+		Package compModel = ElementUtils.getRoot(componentType, DeployConstants.COMPONENT_MODEL);
 		Iterator<Element> elements = compModel.allOwnedElements().iterator();
 		while (elements.hasNext()) {
 			Element element = elements.next();
@@ -185,7 +185,7 @@ public class DepPlanUtils {
 	 */
 	public static void configureProperty(InstanceSpecification instance, String propertyName, String value) {
 		Classifier extension = DepUtils.getClassifier(instance);
-		Property attribute = (Property) ElementUtil.getNamedElementFromList(extension.getAllAttributes(), propertyName);
+		Property attribute = (Property) ElementUtils.getNamedElementFromList(extension.getAllAttributes(), propertyName);
 		if (attribute == null) {
 			throw new RuntimeException(String.format(Messages.DepPlanUtils_CannotFindAttribute, propertyName, extension.getName()));
 		}
@@ -247,7 +247,7 @@ public class DepPlanUtils {
 	 */
 	public static void configureProperty(InstanceSpecification instance, String propertyName, int value) {
 		Classifier extension = DepUtils.getClassifier(instance);
-		Property attribute = (Property) ElementUtil.getNamedElementFromList(extension.getAllAttributes(), propertyName);
+		Property attribute = (Property) ElementUtils.getNamedElementFromList(extension.getAllAttributes(), propertyName);
 		if (attribute == null) {
 			throw new RuntimeException(String.format(Messages.DepPlanUtils_CannotFindAttribute, propertyName, extension.getName()));
 		}
@@ -316,7 +316,7 @@ public class DepPlanUtils {
 	 */
 	public static void configureEnumProperty(InstanceSpecification instance, String propertyName, String literalName) {
 		Classifier extension = DepUtils.getClassifier(instance);
-		Property attribute = (Property) ElementUtil.getNamedElementFromList(extension.getAllAttributes(), propertyName);
+		Property attribute = (Property) ElementUtils.getNamedElementFromList(extension.getAllAttributes(), propertyName);
 		if (attribute == null) {
 			throw new RuntimeException(String.format(Messages.DepPlanUtils_CannotFindAttribute, propertyName, extension.getName()));
 		}

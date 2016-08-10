@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.papyrus.designer.components.transformation.Messages;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ConstInit;
-import org.eclipse.papyrus.designer.transformation.base.utils.StUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.templates.TextTemplateBinding;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
@@ -57,7 +57,7 @@ public class BindingUtils {
 					Parameter newParam = EcoreUtil.copy(parameter); // copy parameter via EcoreUtil
 					newParam.setType(copier.getCopy(parameter.getType()));
 					newOperation.getOwnedParameters().add(newParam);
-					StUtil.copyStereotypes(parameter, newParam); // copy stereotypes of the parameter
+					StUtils.copyStereotypes(parameter, newParam); // copy stereotypes of the parameter
 				}
 			}
 			TransformationContext.classifier = newOperation.getClass_();

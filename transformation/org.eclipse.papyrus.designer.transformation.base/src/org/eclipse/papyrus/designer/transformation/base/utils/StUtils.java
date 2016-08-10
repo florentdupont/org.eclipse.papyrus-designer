@@ -27,7 +27,7 @@ import org.eclipse.uml2.uml.Stereotype;
  * @author ansgar
  *
  */
-public class StUtil {
+public class StUtils {
 
 	/**
 	 * Copy the stereotype application from a source to a destination element. The

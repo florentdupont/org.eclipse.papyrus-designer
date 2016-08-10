@@ -18,8 +18,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtil;
-import org.eclipse.papyrus.designer.transformation.base.utils.StUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.extensions.InstanceConfigurator;
@@ -65,8 +65,8 @@ public class MergeClass implements IM2MTrafo {
 			tmClass.getClientDependencies().add(dependencyCopy);
 		}
 
-		boolean hasConstructor = OperationUtil.isOperationStereotypeApplied(tmClass, Create.class);
-		boolean hasDestructor = OperationUtil.isOperationStereotypeApplied(tmClass, Destroy.class);
+		boolean hasConstructor = OperationUtils.isOperationStereotypeApplied(tmClass, Create.class);
+		boolean hasDestructor = OperationUtils.isOperationStereotypeApplied(tmClass, Destroy.class);
 
 		// register relation to facilitate attribute copy
 		copier.setPackageTemplate(mergeTemplateClass, tmClass);
@@ -109,7 +109,7 @@ public class MergeClass implements IM2MTrafo {
 				throw new TransformationException(String.format(Messages.MergeClass_CannotApply0, ruleName));
 			}
 			Property newPart = EcoreUtil.copy(part);
-			StUtil.copyStereotypes(part, newPart);
+			StUtils.copyStereotypes(part, newPart);
 			tmClass.getOwnedAttributes().add(newPart);
 		}
 	}

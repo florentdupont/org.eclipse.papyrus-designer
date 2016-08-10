@@ -22,7 +22,7 @@ import org.eclipse.papyrus.designer.deployment.tools.DeployConstants;
 import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.uml.diagram.common.handlers.CmdHandler;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -60,7 +60,7 @@ public class CreatePlatformHandler extends CmdHandler {
 					@Override
 					public void run() {
 						// execute with transaction support
-						platform = ElementUtil.getRoot(selectedComposite, DeployConstants.depPlanFolderHw);
+						platform = ElementUtils.getRoot(selectedComposite, DeployConstants.depPlanFolderHw);
 					}
 				});
 

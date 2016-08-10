@@ -1,4 +1,18 @@
-package org.eclipse.papyrus.designer.transformation.library.statemachine
+/*****************************************************************************
+ * Copyright (c) 2016 CEA LIST.
+ *
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *  Van Cam Pham        <VanCam.PHAM@cea.fr>
+ *
+ *****************************************************************************/
+ 
+ package org.eclipse.papyrus.designer.transformation.library.statemachine
 
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.util.UMLUtil
@@ -45,7 +59,7 @@ class TimeEventTransformation {
 		StereotypeUtil.apply(timeEventMutexes, Array)
 		UMLUtil.getStereotypeApplication(timeEventMutexes, Array).definition = '''[«core.timeEvents.size»]'''
 		
-		var threadStructs = superContext.createOwnedAttribute(THREAD_STRUCTS_FOR_TIMEEVENT, core.threadStructType)
+		var threadStructs = superContext.createOwnedAttribute(THREAD_STRUCTS_FOR_TIMEEVENT, core.concurrency.threadStructType)
 		StereotypeUtil.apply(threadStructs, Array)
 		UMLUtil.getStereotypeApplication(threadStructs, Array).definition = '''[«core.timeEvents.size»]''' 
 		
@@ -81,13 +95,7 @@ class TimeEventTransformation {
 			pthread_mutex_unlock(&«MUTEXES_TIME_EVENT»[id]);
 			if (commitEvent) {
 				//the state does not change, push time event to the queue
-				switch(id) {
-					«FOR te:core.timeEvents»
-					case «TransformationUtil.eventID(te)»:
-						process«TransformationUtil.eventName(te)»();
-						break;
-					«ENDFOR»
-				}
+				«EVENT_QUEUE».push(statemachine::PRIORITY_2, NULL, id, statemachine::TIME_EVENT, id);
 			}
 		}''')
 	}

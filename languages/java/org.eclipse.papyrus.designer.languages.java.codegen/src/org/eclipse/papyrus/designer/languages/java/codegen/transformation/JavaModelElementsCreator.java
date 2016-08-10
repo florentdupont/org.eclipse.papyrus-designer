@@ -28,6 +28,8 @@ import org.eclipse.papyrus.designer.languages.java.codegen.Constants;
 import org.eclipse.papyrus.designer.languages.java.codegen.Messages;
 import org.eclipse.papyrus.designer.languages.java.codegen.preferences.JavaCodeGenUtils;
 import org.eclipse.papyrus.designer.languages.java.codegen.utils.LocateJavaProject;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GenerationModeKind;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project;
 import org.eclipse.papyrus.designer.languages.java.codegen.xtend.JavaClassifierGenerator;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.ExternLibrary;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.External;
@@ -35,6 +37,7 @@ import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Import;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.ManualGeneration;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.NoCodeGen;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Template;
+import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.papyrus.infra.tools.file.IPFileSystemAccess;
 import org.eclipse.papyrus.infra.tools.file.ProjectBasedFileAccess;
 import org.eclipse.text.edits.MalformedTreeException;
@@ -42,6 +45,7 @@ import org.eclipse.text.edits.TextEdit;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Relationship;
@@ -54,10 +58,16 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  * Main class of Java code generator
  */
 public class JavaModelElementsCreator extends ModelElementsCreator {
+	
+	public static final String TMP_SOURCE_FOLDER = "tmp-codegen";
 
 	private static final String JAVA = "Java"; //$NON-NLS-1$
 
-	private String sourceFolder;
+	private String generationFolder;
+	
+	private String sourceFolder; // For incremental code generation
+	
+	private String targetFolder; // For incremental code generation
 	
 	private String prefix;
 	
@@ -82,10 +92,27 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 	public JavaModelElementsCreator(IProject project, String commentHeader, PackageableElement packageableElement) {
 		this(new ProjectBasedFileAccess(project), commentHeader);
 		this.project = project;
-		sourceFolder = LocateJavaProject.getTargetSourceFolder(packageableElement, project);
+		init(project, packageableElement);
+	}
+	
+	private void init(IProject project, PackageableElement packageableElement) {
+		generationFolder = LocateJavaProject.getTargetSourceFolder(packageableElement, project);
+		targetFolder = new String(generationFolder);
+		
+		Package rootPkg = PackageUtil.getRootPackage(packageableElement);
+		if (GenUtils.hasStereotype(rootPkg, Project.class)) {
+			GenerationModeKind mode = UMLUtil.getStereotypeApplication(rootPkg, Project.class).getGenerationMode();
+			
+			if (mode.getValue() == GenerationModeKind.INCREMENTAL_VALUE && project.getFolder(generationFolder).exists()) {
+				generationFolder = TMP_SOURCE_FOLDER + "_" + System.currentTimeMillis() + "/";
+			}
+		}
+		
+		sourceFolder = new String(generationFolder);
+		
 		prefix = LocateJavaProject.getTargetPrefix(packageableElement);
 		if (prefix != null) {
-			sourceFolder = sourceFolder + prefix.replaceAll("\\.", "/");
+			generationFolder = generationFolder + prefix.replaceAll("\\.", "/");
 		} else {
 			prefix = ""; //$NON-NLS-1$
 		}
@@ -149,14 +176,14 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 			final String fileContentH = commentHeader + includes;
 
 			// Generate file
-			final String fileNameH = sourceFolder + locStrategy.getFileName(classifier) + Constants.DOT + javaExt;
+			final String fileNameH = generationFolder + locStrategy.getFileName(classifier) + Constants.DOT + javaExt;
 			generateFile(fileNameH, fileContentH);
 		} else if ((!noCodeGen(classifier)) && (!GenUtils.hasStereotype(classifier, Template.class)) &&
 				(!(classifier instanceof Association))) {
 			// Only generate when no NoCodeGen stereotype is applied to the class
 			
 			// Generate file
-			final String classHeaderFileName = sourceFolder + locStrategy.getFileName(classifier) + Constants.DOT + javaExt;
+			final String classHeaderFileName = generationFolder + locStrategy.getFileName(classifier) + Constants.DOT + javaExt;
 			generateFile(classHeaderFileName, commentHeader + JavaClassifierGenerator.generateClassCode(classifier, prefix));
 		}
 	}
@@ -200,5 +227,13 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 		return GenUtils.hasStereotype(element, NoCodeGen.class) ||
 				GenUtils.hasStereotype(element, External.class) ||
 				GenUtils.hasStereotypeTree(element, ExternLibrary.class);
+	}
+
+	public String getSourceFolder() {
+		return sourceFolder;
+	}
+
+	public String getTargetFolder() {
+		return targetFolder;
 	}
 }

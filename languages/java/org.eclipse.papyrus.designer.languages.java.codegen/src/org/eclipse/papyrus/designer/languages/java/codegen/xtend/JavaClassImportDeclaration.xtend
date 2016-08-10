@@ -36,7 +36,7 @@ class JavaClassImportDeclaration {
 		if (GenUtils.hasStereotypeTree(ne, ExternLibrary)) {
 			result = GenUtils.getApplicationTree(ne, ExternLibrary).imports
 		} else {
-			result.add(org.eclipse.papyrus.designer.languages.java.codegen.xtend.JavaClassImportDeclaration.importName(ne, ns))
+			result.add(JavaClassImportDeclaration.importName(ne, ns))
 		}
 		return result
 	}

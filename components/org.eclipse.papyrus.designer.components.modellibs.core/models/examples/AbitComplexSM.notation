@@ -378,7 +378,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TOVRZXltEeOh_8tymvdOOg"/>
       </children>
       <element xmi:type="uml:Package" href="AbitComplexSM.uml#_QQiDgHltEeOh_8tymvdOOg"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TOVRYXltEeOh_8tymvdOOg" x="40" y="40" width="221" height="101"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TOVRYXltEeOh_8tymvdOOg" x="149" y="152" width="221" height="101"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_X47Q4GkLEeWakucY9QdE0g" type="StereotypeComment">
       <styles xmi:type="notation:TitleStyle" xmi:id="_X47Q4WkLEeWakucY9QdE0g" showTitle="true"/>

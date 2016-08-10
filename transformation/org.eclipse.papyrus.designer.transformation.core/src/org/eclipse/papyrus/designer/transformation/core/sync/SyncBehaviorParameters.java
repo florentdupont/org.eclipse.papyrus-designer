@@ -14,8 +14,8 @@
 
 package org.eclipse.papyrus.designer.transformation.core.sync;
 
-import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtil;
-import org.eclipse.papyrus.designer.transformation.base.utils.StUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.BehavioralFeature;
 import org.eclipse.uml2.uml.Parameter;
@@ -36,8 +36,8 @@ public class SyncBehaviorParameters {
 			for (Parameter parameter : bf.getOwnedParameters()) {
 				Parameter newParameter = method.createOwnedParameter(parameter.getName(), parameter.getType());
 				newParameter.setDirection(parameter.getDirection());
-				CopyUtil.copyMultElemModifiers(parameter, newParameter);
-				StUtil.copyStereotypes(parameter, newParameter);
+				CopyUtils.copyMultElemModifiers(parameter, newParameter);
+				StUtils.copyStereotypes(parameter, newParameter);
 			}
 		}
 	}

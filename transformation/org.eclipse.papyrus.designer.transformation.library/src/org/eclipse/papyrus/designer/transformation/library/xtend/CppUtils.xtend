@@ -6,9 +6,9 @@ import org.eclipse.uml2.uml.Parameter
 import org.eclipse.uml2.uml.ParameterDirectionKind
 import org.eclipse.uml2.uml.Type
 import org.eclipse.papyrus.designer.transformation.core.extensions.IXtend
-import static extension org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil.usedNamespaces
-import static extension org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil.dereferenceTypedef
-import static extension org.eclipse.papyrus.designer.transformation.base.utils.OperationUtil.parametersNonRet
+import static extension org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils.parametersNonRet
+import static extension org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils.usedNamespaces
+import static extension org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils.dereferenceTypedef
 
 class CppUtils implements IXtend {
 

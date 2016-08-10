@@ -19,7 +19,7 @@ import java.util.Iterator;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.deployment.tools.Activator;
-import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
@@ -146,7 +146,7 @@ public class TemplateUtils {
 		// composite can be found (avoid modifying an imported model).
 		// todo: root model as an additional parameter?
 		Namespace owner = (Namespace) pkgTemplate.getOwner();
-		owner = CreationUtil.getAndCreate(model, owner.allNamespaces());
+		owner = CreationUtils.getAndCreate(model, owner.allNamespaces());
 
 		Package boundPackage = (Package) owner.getMember(name);
 		if (boundPackage == null) {

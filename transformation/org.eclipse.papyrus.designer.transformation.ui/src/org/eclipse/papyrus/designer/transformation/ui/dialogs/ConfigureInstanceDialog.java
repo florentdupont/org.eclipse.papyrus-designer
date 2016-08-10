@@ -32,7 +32,7 @@ import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
 import org.eclipse.papyrus.designer.deployment.tools.DepPlanUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
-import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtils;
 import org.eclipse.papyrus.designer.transformation.core.sync.DepPlanSync;
 import org.eclipse.papyrus.designer.transformation.ui.provider.AttributeLabelProvider;
 import org.eclipse.papyrus.designer.transformation.ui.provider.InstanceLabelProvider;
@@ -501,7 +501,7 @@ public class ConfigureInstanceDialog extends SelectionStatusDialog {
 		});
 		
 		fDescriptionLabel = new Label(instanceConfigurationGroup, SWT.NONE);
-		fDescriptionLabel.setText("DescriptionUtil:");
+		fDescriptionLabel.setText("DescriptionUtils:");
 		fDescriptionLabel.setLayoutData(span2);
 
 		span2 = new GridData();
@@ -531,7 +531,7 @@ public class ConfigureInstanceDialog extends SelectionStatusDialog {
 			return;
 		}
 		setEnabled(true);
-		fDescription.setText(DescriptionUtil.getDescription(attribute, "not available"));
+		fDescription.setText(DescriptionUtils.getDescription(attribute, "not available"));
 		fValueLabel.setText(getValueLabel(attribute));
 		boolean isEnum = m_currentAttribute.getType() instanceof Enumeration;
 		fValue.setVisible(!isEnum);

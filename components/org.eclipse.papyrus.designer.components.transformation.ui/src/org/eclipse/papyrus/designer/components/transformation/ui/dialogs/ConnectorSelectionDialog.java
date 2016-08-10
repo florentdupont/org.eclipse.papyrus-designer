@@ -24,8 +24,8 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.papyrus.commands.Activator;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
 import org.eclipse.papyrus.designer.components.transformation.templates.ConnectorBinding;
-import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtil;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.ui.provider.QNameLabelProvider;
 import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
@@ -155,7 +155,7 @@ public class ConnectorSelectionDialog extends AbstractElementListSelectionDialog
 			Class componentCompBase = componentComp.getBase_Class();
 			if (!componentCompBase.isAbstract()) {
 				// get first superclass that is a component type
-				Class componentTypeBase = ElementUtil.componentType(componentCompBase);
+				Class componentTypeBase = ElementUtils.componentType(componentCompBase);
 				componentComp = UMLUtil.getStereotypeApplication(componentTypeBase, InteractionComponent.class);
 			} else {
 				// fLower.setEnabled (false);
@@ -190,7 +190,7 @@ public class ConnectorSelectionDialog extends AbstractElementListSelectionDialog
 				Object[] selected = fLower.getSelection();
 				if ((selected.length > 0) && (selected[0] instanceof NamedElement)) {
 					NamedElement selectedNE = (NamedElement) selected[0];
-					m_description.setText(DescriptionUtil.getDescription(selectedNE));
+					m_description.setText(DescriptionUtils.getDescription(selectedNE));
 				}
 				else {
 					m_description.setText("");

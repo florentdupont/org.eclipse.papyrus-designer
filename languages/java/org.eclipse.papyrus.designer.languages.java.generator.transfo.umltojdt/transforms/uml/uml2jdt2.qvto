@@ -15,7 +15,6 @@
  *****************************************************************************/ 
 
 import stereotypeUtil;
-import Strings;
 
 /* Model type declarations
 */
@@ -1167,7 +1166,7 @@ mapping TypeMarker::typeMarkerToPackageFragment() : JDTPackageFragment {
 				log("**********************"+pack.elementName, pack.elementName.indexOf(elementName));			
 				if (pack.elementName.indexOf(elementName) != -1) then {
 					pack.generated := false;
-					log("************************ elementName passé à ", generated);	
+					log("************************ elementName passï¿½ ï¿½ ", generated);	
 				} endif;
 			};
 		} endif;

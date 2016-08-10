@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.StUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.extensions.InstanceConfigurator;
@@ -134,7 +134,7 @@ public class AddMethodInterceptors implements IM2MTrafo {
 		// create copy of operation
 		Operation copiedOperation = EcoreUtil.copy(operation);
 		tmClass.getOwnedOperations().add(copiedOperation);
-		StUtil.copyStereotypes(operation, copiedOperation);
+		StUtils.copyStereotypes(operation, copiedOperation);
 
 		copiedOperation.setName(origOpPrefix + operation.getName());
 
@@ -255,7 +255,7 @@ public class AddMethodInterceptors implements IM2MTrafo {
 			}
 			if (part instanceof Port) {
 				Port newPort = tmClass.createOwnedPort(part.getName(), part.getType());
-				StUtil.copyStereotypes(part, newPort);
+				StUtils.copyStereotypes(part, newPort);
 			}
 			else if (type instanceof Class) {
 				Class extOrInterceptor = (Class) type;

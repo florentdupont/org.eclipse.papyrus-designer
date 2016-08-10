@@ -17,7 +17,7 @@ package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
 import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Interface;
@@ -115,12 +115,12 @@ public class ExtendedPort implements IMappingRule {
 					Operation derivedOperation = derivedInterface.getOperation(name, null, null);
 					if (derivedOperation == null) {
 						derivedOperation = derivedInterface.createOwnedOperation(name, null, null);
-						OperationUtil.syncOperation(op, derivedOperation);
+						OperationUtils.syncOperation(op, derivedOperation);
 						derivedOperation.setName(name);
 					}
 					else {
-						if (!OperationUtil.isSameOperation(derivedOperation, op, false)) {
-							OperationUtil.syncOperation(op, derivedOperation);
+						if (!OperationUtils.isSameOperation(derivedOperation, op, false)) {
+							OperationUtils.syncOperation(op, derivedOperation);
 							derivedOperation.setName(name);
 						}
 					}

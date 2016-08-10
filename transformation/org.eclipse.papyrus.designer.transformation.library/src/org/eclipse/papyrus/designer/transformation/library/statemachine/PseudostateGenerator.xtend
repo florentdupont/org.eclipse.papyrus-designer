@@ -1,5 +1,18 @@
-package org.eclipse.papyrus.designer.transformation.library.statemachine
-
+/*****************************************************************************
+ * Copyright (c) 2016 CEA LIST.
+ *
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *  Van Cam Pham        <VanCam.PHAM@cea.fr>
+ *
+ *****************************************************************************/
+ 
+ package org.eclipse.papyrus.designer.transformation.library.statemachine
 
 import org.eclipse.uml2.uml.Pseudostate
 import org.eclipse.uml2.uml.PseudostateKind
@@ -10,6 +23,7 @@ import org.eclipse.uml2.uml.State
 import org.eclipse.uml2.uml.FinalState
 import org.eclipse.uml2.uml.Region
 import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
+import java.util.List
 
 class PseudostateGenerator {
 	protected extension CDefinitions cdefs;
@@ -54,7 +68,7 @@ class PseudostateGenerator {
 			}
 			
 			case PseudostateKind.EXIT_POINT_LITERAL: {
-				ret = p.generateJunction
+				ret = p.generateExitPoint
 			}
 			case INITIAL_LITERAL: {
 			}
@@ -229,15 +243,28 @@ class PseudostateGenerator {
 		return ret
 	}
 	
+	def intersect(List<Vertex> l1, List<Vertex> l2) {
+		return l1.filter[l2.contains(it)].toList
+	}
+	
 	def String generateEntryPoint(Pseudostate p) {
 		var ret = '''
 		'''	
+		val targets = p.outgoings.map[it.target].toList
+		val enteredRegions = (p.eContainer as State).regions.filter[
+			core.allSubVertexes(it).toList.intersect(targets).size > 0
+		].toList
+		var defaultRegions = (p.eContainer as State).regions.filter[!enteredRegions.contains(it)]
 		ret = '''
-		«IF p.outgoings.empty»
-			«core.getRegionMethodName(p.container)»(«core.getInitialMacroName(p.container)»);
-		«ELSE»
-			«generateBetweenVertex(p, p.outgoings.head.target as Pseudostate, p.outgoings.head)»
-		«ENDIF»'''		
+			«FOR out:p.outgoings»
+				«TransformationUtil.getTransitionEffect(out)»
+			«ENDFOR»
+			«FOR r:defaultRegions.filter[TransformationUtil.findInitialState(it) != null]»
+				«core.getRegionMethodName(r)»(«core.getInitialMacroName(r)»);
+			«ENDFOR»
+			«FOR r:enteredRegions»
+				«core.getRegionMethodName(r)»(«core.getVertexMacroName(targets.filter[r.allNamespaces.contains(it)].head)»);
+			«ENDFOR»'''		
 		return ret
 	}
 	

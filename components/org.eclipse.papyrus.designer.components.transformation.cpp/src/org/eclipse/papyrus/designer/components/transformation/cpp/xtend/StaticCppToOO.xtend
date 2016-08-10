@@ -36,11 +36,11 @@ import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopi
 import org.eclipse.papyrus.designer.components.transformation.PortInfo
 import org.eclipse.papyrus.designer.components.transformation.PortUtils
 import org.eclipse.papyrus.designer.components.transformation.transformations.PrefixConstants
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil
 import org.eclipse.uml2.uml.Port
-import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtil
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
 import org.eclipse.papyrus.designer.components.FCM.Assembly
+import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 
 /**
  * This class realizes the transformation from component-based to object-oriented
@@ -201,7 +201,7 @@ class StaticCppToOO implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						var eLong = ElementUtil.getQualifiedElement(copier.source,
+						var eLong = ElementUtils.getQualifiedElement(copier.source,
 							PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
 						if (eLong != null) {
 							eLong = copier.getCopy(eLong);
@@ -254,7 +254,7 @@ class StaticCppToOO implements IOOTrafo {
 						var attr = implementation.getOwnedAttribute(attributeName, null)
 						if (attr == null || attr instanceof Port) {
 							attr = implementation.createOwnedAttribute(attributeName, requiredIntf)
-							CopyUtil.copyMultElemModifiers(portInfo.port, attr)
+							CopyUtils.copyMultElemModifiers(portInfo.port, attr)
 
 							// is shared (should store a reference)
 							attr.setAggregation(AggregationKind.SHARED_LITERAL)
@@ -538,7 +538,7 @@ class StaticCppToOO implements IOOTrafo {
 	 */
 	override transformParts(Class compositeImplementation) {
 
-		for (Property attribute : ElementUtil.getParts(compositeImplementation)) {
+		for (Property attribute : ElementUtils.getParts(compositeImplementation)) {
 			val type = attribute.type
 			if (type instanceof Class) {
 				val cl = type as Class

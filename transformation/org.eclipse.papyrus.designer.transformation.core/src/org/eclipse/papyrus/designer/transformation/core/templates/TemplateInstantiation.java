@@ -16,7 +16,7 @@ package org.eclipse.papyrus.designer.transformation.core.templates;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
@@ -157,7 +157,7 @@ public class TemplateInstantiation {
 				EObject sourceSubElement = null;
 				if(targetSubElem instanceof NamedElement) {
 					String targetName = ((NamedElement) targetSubElem).getName();
-					sourceSubElement = ElementUtil.getNamedElementFromList(source.eContents(), targetName);
+					sourceSubElement = ElementUtils.getNamedElementFromList(source.eContents(), targetName);
 				}
 				if (sourceSubElement == null) {
 					// no source element found, try to find via XML URI (copier synchronizes on demand)

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.CppInit;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
@@ -72,7 +72,7 @@ public class EnumService {
 	}
 
 	public static String quoteLiteral(Element dummy, String enumName, String literal) {
-		return ElementUtil.quoteString(literal(enumName, literal));
+		return ElementUtils.quoteString(literal(enumName, literal));
 	}
 
 	/**

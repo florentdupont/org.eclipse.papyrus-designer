@@ -1,4 +1,18 @@
-package org.eclipse.papyrus.designer.transformation.library.statemachine
+/*****************************************************************************
+ * Copyright (c) 2016 CEA LIST.
+ *
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *  Van Cam Pham        <VanCam.PHAM@cea.fr>
+ *
+ *****************************************************************************/
+ 
+ package org.eclipse.papyrus.designer.transformation.library.statemachine
 
 import java.util.Map
 import org.eclipse.uml2.uml.StateMachine
@@ -15,6 +29,7 @@ import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.Transition
 import org.eclipse.uml2.uml.FinalState
 import org.eclipse.uml2.uml.Event
+import org.eclipse.uml2.uml.Behavior
 
 class TransformationUtil {
 
@@ -149,6 +164,20 @@ class TransformationUtil {
 		}
 		
 		return topRegion.isSaveDeepHistory(r)
+	}
+	
+	def static isBehaviorExist(Behavior b) {
+		var ret = false
+		if (b != null && b instanceof OpaqueBehavior) {
+			if (!(b as OpaqueBehavior).bodies.head.trim.empty) {
+				ret = true
+			}
+		}
+		return ret
+	}
+	
+	def static hasTriggerlessTransition(State s) {
+		return s.outgoings.filter[it.triggers.map[it.event].empty].size > 0
 	}
 	
 	def static boolean isSaveDeepHistory(Region topRegion, Region r) {

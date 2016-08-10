@@ -2,9 +2,9 @@ package org.eclipse.papyrus.designer.transformation.library.xtend
 
 import org.eclipse.uml2.uml.Operation
 import org.eclipse.uml2.uml.Class
-import static extension org.eclipse.papyrus.designer.transformation.base.utils.OperationUtil.*
 import static extension org.eclipse.papyrus.designer.transformation.library.xtend.CppUtils.cppType
 import org.eclipse.uml2.uml.Parameter
+import static extension org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils.*
 
 class Marshalling {
 	def static marshall(Operation operation) '''

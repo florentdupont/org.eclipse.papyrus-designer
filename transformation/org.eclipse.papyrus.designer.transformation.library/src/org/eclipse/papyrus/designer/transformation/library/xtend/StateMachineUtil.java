@@ -1,10 +1,16 @@
+/**
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
 package org.eclipse.papyrus.designer.transformation.library.xtend;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
@@ -236,7 +242,7 @@ public class StateMachineUtil {
 	public static void declareDependencyToOperationIDs(Package pkg) {
 		PackageableElement type = pkg.getPackagedElement("OperationIDs"); //$NON-NLS-1$
 		if (type instanceof Type) {
-			ElementUtil.declareDependency(TransformationContext.classifier, (Type) type);
+			ElementUtils.declareDependency(TransformationContext.classifier, (Type) type);
 		}
 	}
 
@@ -249,9 +255,9 @@ public class StateMachineUtil {
 	 * @return
 	 */
 	public static void declareDependencyToSignalIDs(Package pkg) {
-		NamedElement type = ElementUtil.getQualifiedElement(pkg, "globalenums::" + SIGNAL_ENUM); //$NON-NLS-1$
+		NamedElement type = ElementUtils.getQualifiedElement(pkg, "globalenums::" + SIGNAL_ENUM); //$NON-NLS-1$
 		if (type instanceof Type) {
-			ElementUtil.declareDependency(TransformationContext.classifier, (Type) type);
+			ElementUtils.declareDependency(TransformationContext.classifier, (Type) type);
 		}
 	}
 	

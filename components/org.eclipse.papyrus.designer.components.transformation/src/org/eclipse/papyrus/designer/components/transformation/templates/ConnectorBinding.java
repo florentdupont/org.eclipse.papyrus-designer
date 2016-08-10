@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.transformation.Activator;
 import org.eclipse.papyrus.designer.components.transformation.Messages;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
@@ -412,7 +412,7 @@ public class ConnectorBinding {
 		}
 
 		Namespace owner = (Namespace) pkgTemplate.getOwner();
-		owner = CreationUtil.getAndCreate(composite.getModel(), owner.allNamespaces());
+		owner = CreationUtils.getAndCreate(composite.getModel(), owner.allNamespaces());
 
 		Package boundPackage = (Package) owner.getMember(name);
 		if (boundPackage == null) {

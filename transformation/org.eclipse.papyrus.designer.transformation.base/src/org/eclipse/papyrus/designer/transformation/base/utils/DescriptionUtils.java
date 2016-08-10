@@ -21,7 +21,7 @@ import org.eclipse.uml2.uml.Element;
 /**
  * Set of static operations to retrieve the comment for an element
  */
-public class DescriptionUtil {
+public class DescriptionUtils {
 
 	/**
 	 * Return a description of an element. By default search comments that are

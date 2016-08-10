@@ -53,7 +53,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 /**
  * A set of utility functions around elements
  */
-public class ElementUtil {
+public class ElementUtils {
 
 	/**
 	 * Retrieve an element from a list of named elements via its name
