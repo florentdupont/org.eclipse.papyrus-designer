@@ -26,7 +26,7 @@
 			<id>neon-papyrusnightly</id>
 			<activation>
 				<property>
-					<name>eclipse.release</name>
+					<name>eclipse.targetrelease</name>
 					<value>neon-papyrusnightly</value>
 				</property>
 			</activation>
@@ -35,6 +35,4 @@
 			</modules>
 		</profile>
 	</profiles>
-
-<version>1.0.2-SNAPSHOT</version>
 </project>
