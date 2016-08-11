@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
 	<!-- Common support for programming languages -->
-	<feature id="org.eclipse.papyrus.designer.languages.common.feature" url="features/org.eclipse.papyrus.designer.languages.common.feature_1.0.3.jar" version="1.0.3">
+	<feature id="org.eclipse.papyrus.designer.languages.common.feature" url="features/org.eclipse.papyrus.designer.languages.common.feature_1.0.4.qualifier.jar" version="1.0.4.qualifier">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
 
 	<!--Core CPP-->
-	<feature id="org.eclipse.papyrus.designer.languages.cpp.feature" url="features/org.eclipse.papyrus.designer.languages.cpp.feature_1.0.3.jar" version="1.0.3">
+	<feature id="org.eclipse.papyrus.designer.languages.cpp.feature" url="features/org.eclipse.papyrus.designer.languages.cpp.feature_1.0.4.qualifier.jar" version="1.0.4.qualifier">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
 
 	<!--Java -->
-	<feature id="org.eclipse.papyrus.designer.languages.java.feature" url="features/org.eclipse.papyrus.designer.languages.java.profile.feature_1.0.3.jar" version="1.0.3">
+	<feature id="org.eclipse.papyrus.designer.languages.java.feature" url="features/org.eclipse.papyrus.designer.languages.java.profile.feature_1.0.4.qualifier.jar" version="1.0.4.qualifier">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
 	
 	<!-- IDL feature -->
-	<feature id="org.eclipse.papyrus.designer.languages.idl.feature" url="features/org.eclipse.papyrus.designer.languages.idl.feature_1.0.3.jar" version="1.0.3">
+	<feature id="org.eclipse.papyrus.designer.languages.idl.feature" url="features/org.eclipse.papyrus.designer.languages.idl.feature_1.0.4.qualifier.jar" version="1.0.4.qualifier">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
 
 	<!--Main feature for component based engineering -->
-	<feature id="org.eclipse.papyrus.designer.components.main.feature" url="features/org.eclipse.papyrus.designer.components.main.feature_0.7.4.jar" version="0.7.4">
+	<feature id="org.eclipse.papyrus.designer.components.main.feature" url="features/org.eclipse.papyrus.designer.components.main.feature_0.7.5.qualifier.jar" version="0.7.5.qualifier">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
 
 	<!-- Additional modellibraries for tracing (for components) -->
-	<feature id="org.eclipse.papyrus.designer.components.tracing.feature" url="features/org.eclipse.papyrus.designer.components.tracing.feature_0.7.4.jar" version="0.7.4">
+	<feature id="org.eclipse.papyrus.designer.components.tracing.feature" url="features/org.eclipse.papyrus.designer.components.tracing.feature_0.7.5.qualifier.jar" version="0.7.5.qualifier">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
 	

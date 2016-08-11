@@ -11,7 +11,7 @@
 	
 	<groupId>org.eclipse.papyrus.designer</groupId>
 	<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Designer</name>
 	<description>A Papyrus component for code generation and deployment</description>
@@ -35,7 +35,7 @@
 		<component.rcp.name>org.eclipse.papyrus.designer.rcp</component.rcp.name>
 		<component.apibaseline.url>http://download.eclipse.org/modeling/mdt/papyrus/components/designer/</component.apibaseline.url>
 		<eclipse.targetrelease>neon</eclipse.targetrelease>
-		<target.version>1.0.3</target.version>
+		<target.version>1.0.4-SNAPSHOT</target.version>
 	</properties>
 
 	<!-- <mailingLists>

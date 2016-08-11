@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.papyrus.designer.components.main.feature"
       label="%featureName"
-      version="0.7.4"
+      version="0.7.5.qualifier"
       provider-name="%providerName">
 
    <description>
@@ -38,7 +38,7 @@ http://www.eclipse.org/legal/epl-v10.html
    <requires>
       <import feature="org.eclipse.papyrus.designer.languages.common.feature"/>
       <import feature="org.eclipse.papyrus.designer.languages.cpp.feature"/>
-      <import feature="org.eclipse.papyrus.designer.languages.java.feature"/>    
+      <import feature="org.eclipse.papyrus.designer.languages.java.feature"/>
    </requires>
 
    <plugin

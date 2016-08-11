@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.languages.java</artifactId>
-		<version>1.0.3</version>
+		<version>1.0.4-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java.reverse</artifactId>
 	<packaging>eclipse-plugin</packaging>

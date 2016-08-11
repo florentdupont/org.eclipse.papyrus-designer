@@ -9,7 +9,7 @@ Export-Package: org.eclipse.papyrus.designer.languages.common.profile.Codegen,
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
-Bundle-Version: 1.0.3
+Bundle-Version: 1.0.4.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.languages.common.profile.Activator

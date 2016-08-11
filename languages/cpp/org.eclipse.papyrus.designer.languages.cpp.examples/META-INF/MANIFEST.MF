@@ -4,7 +4,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.uml.diagram.wizards;bundle-version="1.2.0"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 1.0.3
+Bundle-Version: 1.0.4.qualifier
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
 Bundle-ManifestVersion: 2

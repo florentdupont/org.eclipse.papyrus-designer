@@ -4,9 +4,9 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.releng</artifactId>
-		<version>1.0.3</version>
+		<version>1.0.4-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.components.main.feature</artifactId>
-	<version>0.7.4</version>
+	<version>0.7.5-SNAPSHOT</version>
 	<packaging>eclipse-feature</packaging>
 </project>
