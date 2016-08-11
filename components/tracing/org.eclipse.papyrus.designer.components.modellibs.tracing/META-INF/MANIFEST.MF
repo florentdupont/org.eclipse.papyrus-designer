@@ -1,17 +1,17 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.papyrus.designer.components.modellibs.tracing,
  org.eclipse.papyrus.designer.components.modellibs.tracing.xtend
-Require-Bundle: org.eclipse.papyrus.designer.components.fcm.profile;bundle-version="0.7.0",
- org.eclipse.papyrus.designer.components.modellibs.core;bundle-version="0.7.0",
+Require-Bundle: org.eclipse.papyrus.designer.components.fcm.profile;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.components.modellibs.core;bundle-version="0.7.4",
  org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.papyrus.designer.components.transformation.core;bundle-version="0.7.0",
- org.eclipse.papyrus.infra.services.tracepoints;bundle-version="0.7.0",
+ org.eclipse.papyrus.designer.components.transformation.core;bundle-version="0.7.4",
+ org.eclipse.papyrus.infra.services.tracepoints;bundle-version="0.7.4",
  org.eclipse.papyrus.infra.core;bundle-version="1.2.0",
  org.eclipse.emf.workspace;bundle-version="1.5.0",
  org.eclipse.uml2.uml;bundle-version="4.0.0",
  org.eclipse.papyrus.uml.tools.utils;bundle-version="1.2.0",
- org.eclipse.papyrus.designer.components.transformation.ui;bundle-version="0.7.0",
+ org.eclipse.papyrus.designer.components.transformation.ui;bundle-version="0.7.4",
  org.eclipse.papyrus.uml.diagram.wizards;bundle-version="1.2.0",
  com.google.guava;bundle-version="11.0.0",
  org.eclipse.xtext.xbase.lib,
@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.papyrus.designer.components.fcm.profile;bundle-versi
  org.eclipse.papyrus.infra.ui;bundle-version="1.2.0"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.3
+Bundle-Version: 0.7.4
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.components.modellibs.tracing.Activator

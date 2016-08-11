@@ -7,7 +7,7 @@ Export-Package: org.eclipse.papyrus.languages.designer.common.texteditor.model,
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
-Bundle-Version: 1.0.2
+Bundle-Version: 1.0.3
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-ManifestVersion: 2

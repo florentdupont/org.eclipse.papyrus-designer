@@ -11,7 +11,7 @@
 	
 	<groupId>org.eclipse.papyrus.designer</groupId>
 	<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>pom</packaging>
 	<name>Designer</name>
 	<description>A Papyrus component for code generation and deployment</description>
@@ -35,25 +35,19 @@
 		<component.rcp.name>org.eclipse.papyrus.designer.rcp</component.rcp.name>
 		<component.apibaseline.url>http://download.eclipse.org/modeling/mdt/papyrus/components/designer/</component.apibaseline.url>
 		<eclipse.targetrelease>neon</eclipse.targetrelease>
-		<target.version>1.0.2</target.version>
+		<target.version>1.0.3</target.version>
 	</properties>
 
-	<!-- mailingLists> <mailingList> <name>Papyrus Designer users Mailing List</name> 
-		<post>papyrus-designer-users@eclipse.org</post> <subscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</subscribe> 
-		<unsubscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</unsubscribe> 
-		<archive>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</archive> 
-		</mailingList> </mailingLists -->
-
-	<mailingLists>
+	<!-- <mailingLists>
 		<mailingList>
-			<name>Papyrus SysML users Mailing List</name>
-			<post>papyrus-sysml-users@eclipse.org</post>
-			<subscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-sysml-users/</subscribe>
-			<unsubscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-sysml-users/</unsubscribe>
-			<archive>https://dev.eclipse.org/mailman/listinfo/papyrus-sysml-users/</archive>
+			<name>Papyrus Designer users Mailing List</name> 
+			<post>papyrus-designer-users@eclipse.org</post>
+			<subscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</subscribe> 
+			<unsubscribe>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</unsubscribe> 
+			<archive>https://dev.eclipse.org/mailman/listinfo/papyrus-designer-users/</archive> 
 		</mailingList>
-	</mailingLists>
-
+	</mailingLists>  -->
+	
 	<ciManagement>
 		<system>Hudson</system>
 		<url>https://hudson.eclipse.org/papyrus/view/${component.hudson.tabname}/</url>
@@ -68,7 +62,7 @@
 			<name>Ansgar RADERMACHER</name>
 			<organization>CEA Tech LIST</organization>
 			<organizationUrl>http://www-list.cea.fr/</organizationUrl>
-			<id>aradermacher</id>
+			<id>ar</id>
 		</developer>
 		<developer>
 			<name>Shuai LI</name>

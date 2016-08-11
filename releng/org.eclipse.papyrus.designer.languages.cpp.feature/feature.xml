@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.papyrus.designer.languages.cpp.feature"
       label="%featureName"
-      version="1.0.2"
+      version="1.0.3"
       provider-name="%providerName">
 
    <description url="http://www.example.com/description">
@@ -96,6 +96,20 @@ http://www.eclipse.org/legal/epl-v10.html
 
    <plugin
          id="org.eclipse.papyrus.designer.languages.cpp.examples"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+   
+   <plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.reverse"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+	
+	<plugin
+         id="org.eclipse.papyrus.designer.languages.cpp.reverse.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

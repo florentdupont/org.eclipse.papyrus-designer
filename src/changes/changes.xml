@@ -5,6 +5,11 @@
 		<title>Changes Report: Papyrus Designer</title>
 	</properties>
 	<body>
+		<release version="1.0.3" date="2016-08-11" description="SpottedJaguar">
+			<action dev="sli" type="fix" issue="499549">
+				Fix missing java.reverse, cpp.reverse, idl features. Fix duplicate components.main.feature category during installation.
+			</action>
+		</release>
 		<release version="1.0.2" date="2016-08-10" description="Jaguar">
 			<action dev="sli" type="add" issue="496481">
 				Reverse java feature
