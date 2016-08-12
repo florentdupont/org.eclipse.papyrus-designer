@@ -15,22 +15,12 @@
 	<modules>
 		<module>org.eclipse.papyrus.designer.languages.java.codegen</module>
 		<module>org.eclipse.papyrus.designer.languages.java.codegen.ui</module>
-		<!-- module>org.eclipse.papyrus.designer.languages.java.generator.jdtsynchronizer</module>
-		<module>org.eclipse.papyrus.designer.languages.java.generator.metamodel.jdt</module>
-		<module>org.eclipse.papyrus.designer.languages.java.generator.metamodel.jdt.edit</module>
-		<module>org.eclipse.papyrus.designer.languages.java.generator.metamodel.jdt.editor</module>
-		<module>org.eclipse.papyrus.designer.languages.java.generator.transfo.umltojdt</module>
-		<module>org.eclipse.papyrus.designer.languages.java.generator.ui</module-->
 		<module>org.eclipse.papyrus.designer.languages.java.jdt.project</module>
 		<module>org.eclipse.papyrus.designer.languages.java.library</module>
 		<module>org.eclipse.papyrus.designer.languages.java.library.ui</module>
 		<module>org.eclipse.papyrus.designer.languages.java.profile</module>
-		<!-- module>org.eclipse.papyrus.designer.languages.java.profile.edit</module>
-		<module>org.eclipse.papyrus.designer.languages.java.profile.editor</module-->
 		<module>org.eclipse.papyrus.designer.languages.java.profile.ui</module>
 		<module>org.eclipse.papyrus.designer.languages.java.reverse</module>
 		<module>org.eclipse.papyrus.designer.languages.java.reverse.ui</module>
-		<!-- module>org.eclipse.papyrus.designer.languages.java.template</module>
-		<module>org.eclipse.papyrus.designer.languages.java-updatesite</module-->
 	</modules>
 </project>
