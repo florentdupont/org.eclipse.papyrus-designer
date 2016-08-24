@@ -242,7 +242,7 @@ public class StateMachineUtil {
 	public static void declareDependencyToOperationIDs(Package pkg) {
 		PackageableElement type = pkg.getPackagedElement("OperationIDs"); //$NON-NLS-1$
 		if (type instanceof Type) {
-			ElementUtils.declareDependency(TransformationContext.classifier, (Type) type);
+			ElementUtils.declareDependency(TransformationContext.current.classifier, (Type) type);
 		}
 	}
 
@@ -257,7 +257,7 @@ public class StateMachineUtil {
 	public static void declareDependencyToSignalIDs(Package pkg) {
 		NamedElement type = ElementUtils.getQualifiedElement(pkg, "globalenums::" + SIGNAL_ENUM); //$NON-NLS-1$
 		if (type instanceof Type) {
-			ElementUtils.declareDependency(TransformationContext.classifier, (Type) type);
+			ElementUtils.declareDependency(TransformationContext.current.classifier, (Type) type);
 		}
 	}
 	

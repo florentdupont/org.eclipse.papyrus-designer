@@ -25,14 +25,14 @@ import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.extensions.IM2MTrafo;
-import org.eclipse.papyrus.designer.transformation.core.extensions.InstanceConfigurator;
+import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.templates.TextTemplateBinding;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyStatus;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
+import org.eclipse.papyrus.designer.transformation.extensions.InstanceConfigurator;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -61,7 +61,7 @@ import org.eclipse.uml2.uml.profile.standard.Destroy;
  * (2) some methods in the template intercept all operations of the other. This is required for instance for the state machine.
  * => TODO: separate merge & interception
  */
-public class AddMethodInterceptors implements IM2MTrafo {
+public class AddMethodInterceptors implements IM2MTrafoElem {
 
 	private static final String XTEND_CPP_UTILS_CPP_CALL = "!xtend CppUtils.cppCall"; //$NON-NLS-1$
 
@@ -232,7 +232,6 @@ public class AddMethodInterceptors implements IM2MTrafo {
 				if (StereotypeUtil.isApplied(templateOperation, ApplyTransformation.class)) {
 					String opBody = getBody(templateOperation);
 					// operation is not an interceptor, assume binding with class itself
-					TransformationContext.classifier = tmClass;
 					opBody = TextTemplateBinding.bind(opBody, tmClass, null);
 					setBody(newOperation, opBody);
 				}
@@ -452,7 +451,7 @@ public class AddMethodInterceptors implements IM2MTrafo {
 	}
 
 	@Override
-	public void transformElement(org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier copier, M2MTrafo trafo, Element element) throws org.eclipse.papyrus.designer.transformation.base.utils.TransformationException {
+	public void transformElement(M2MTrafo trafo, Element element) throws org.eclipse.papyrus.designer.transformation.base.utils.TransformationException {
 		// TODO Auto-generated method stub
 		
 	}

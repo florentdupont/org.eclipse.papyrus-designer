@@ -16,13 +16,13 @@ package org.eclipse.papyrus.designer.transformation.library.transformations;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.papyrus.designer.deployment.tools.ConfigUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.extensions.IM2MTrafo;
-import org.eclipse.papyrus.designer.transformation.core.extensions.InstanceConfigurator;
+import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyStatus;
 import org.eclipse.papyrus.designer.transformation.library.Messages;
@@ -45,7 +45,7 @@ import org.eclipse.uml2.uml.profile.standard.Destroy;
 /**
  * A model-2-model transformation that merges a class with another.
  */
-public class MergeClass implements IM2MTrafo {
+public class MergeClass implements IM2MTrafoElem {
 
 	LazyCopier copier;
 
@@ -186,7 +186,7 @@ public class MergeClass implements IM2MTrafo {
 					InstanceSpecification containerExtIS = DepCreation.createDepPlan(tmCDP, (Class) typeFromTemplate, mergedInstance.getName() + "." + //$NON-NLS-1$
 							part.getName(), false);
 					// configure extension (TODO required, since instance configurators will be called anyway later?)
-					InstanceConfigurator.configureInstance(containerExtIS, part, null);
+					ConfigUtils.configureInstance(containerExtIS, part, null);
 					DepCreation.createSlot(mergedInstance, containerExtIS, part);
 				}
 			}
@@ -194,11 +194,10 @@ public class MergeClass implements IM2MTrafo {
 	}
 
 	@Override
-	public void transformElement(LazyCopier copier, M2MTrafo trafo, Element element) throws org.eclipse.papyrus.designer.transformation.base.utils.TransformationException {
+	public void transformElement(M2MTrafo trafo, Element element) throws org.eclipse.papyrus.designer.transformation.base.utils.TransformationException {
 		// TODO Auto-generated method stub
 		if (element instanceof Class) {
 			Class tmClass = (Class) element;
-			this.copier = copier;
 			mergeClass(trafo.getBase_Class(), tmClass);
 		}
 		else if (element instanceof InstanceSpecification) {

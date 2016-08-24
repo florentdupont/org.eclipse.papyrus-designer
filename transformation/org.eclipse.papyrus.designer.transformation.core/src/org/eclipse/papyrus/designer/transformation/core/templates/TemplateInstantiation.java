@@ -20,8 +20,8 @@ import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyStatus;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyStatus;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterSignatures;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.NamedElement;
@@ -46,21 +46,7 @@ import org.eclipse.uml2.uml.TemplateableElement;
  */
 public class TemplateInstantiation {
 
-	public TemplateInstantiation(LazyCopier copy, TemplateBinding binding) throws TransformationException {
-		this(copy, binding, null);
-	}
-
-	/**
-	 *
-	 * @param copier_
-	 *        copier
-	 * @param binding
-	 *        UML template binding
-	 * @param args
-	 *        currently unused
-	 * @throws TransformationException
-	 */
-	public TemplateInstantiation(final LazyCopier copier_, final TemplateBinding binding, Object args[]) throws TransformationException {
+	public TemplateInstantiation(TemplateBinding binding) throws TransformationException {
 		if(binding == null) {
 			// user should never see this exception
 			throw new TransformationException("Passed binding is null"); //$NON-NLS-1$
@@ -70,20 +56,12 @@ public class TemplateInstantiation {
 			throw new TransformationException("Passed template binding does not have a signature"); //$NON-NLS-1$
 		}
 		packageTemplate = (Package)signature.getOwner();
-		/*
-		 * copier = (Copy)copy_.clone();
-		 * // make copy of copy listeners (clone alone does not duplicate contained lists)
-		 * copier.preCopyListeners = new BasicEList<CopyListener>();
-		 * copier.preCopyListeners.addAll(copy_.preCopyListeners);
-		 * copier.postCopyListeners = new BasicEList<CopyListener>();
-		 * copier.postCopyListeners.addAll(copy_.postCopyListeners);
-		 */
-		copier = copier_;
+	
 		Package boundPackage = (Package)binding.getBoundElement();
-		// set template instantiation parameter. Used by Acceleo templates to get relation between
+		// set template instantiation parameter. Used by xtend templates to get relation between
 		// formal and actual parameters
-		TransformationContext.setTemplateInstantiation(this);
-		TransformationContext.copier = copier;
+		context = new InstantiationContext(this);
+		copier = TransformationContext.current.copier;
 		copier.setPackageTemplate(packageTemplate, boundPackage);
 		// some parameters of the package template may not be owned. Thus, an additional package
 		// template is involved in the instantiation
@@ -175,7 +153,7 @@ public class TemplateInstantiation {
 
 	public TemplateBinding binding;
 
-	public LazyCopier copier;
+	protected LazyCopier copier;
 
 	protected TemplateSignature signature;
 
@@ -228,7 +206,7 @@ public class TemplateInstantiation {
 				TemplateSignature signatureOfNE = TemplateUtils.getSignature((TemplateableElement)namedElement);
 				if((signatureOfNE != null) && (signature != signatureOfNE)) {
 					TemplateBinding subBinding = TemplateUtils.getSubBinding(copier.target, (TemplateableElement)namedElement, binding);
-					TemplateInstantiation ti = new TemplateInstantiation(copier, subBinding);
+					TemplateInstantiation ti = new TemplateInstantiation(subBinding);
 					Element ret = ti.bindElement(namedElement);
 					return (T)ret;
 				}
@@ -262,4 +240,6 @@ public class TemplateInstantiation {
 		}
 		return (T)existingMember;
 	}
+	
+	public static InstantiationContext context;
 }

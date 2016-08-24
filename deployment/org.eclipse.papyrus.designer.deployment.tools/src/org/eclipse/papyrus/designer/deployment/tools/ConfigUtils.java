@@ -17,11 +17,13 @@ package org.eclipse.papyrus.designer.deployment.tools;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.ConfigurationProperty;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.UseInstanceConfigurator;
+import org.eclipse.papyrus.designer.transformation.extensions.InstanceConfigurator;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Port;
+import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 public class ConfigUtils {
 
@@ -36,11 +38,6 @@ public class ConfigUtils {
 		EList<Property> list = new BasicEList<Property>();
 
 		for (Property part : component.getAllAttributes()) {
-			if (part instanceof Port) {
-				continue;
-			}
-			Element owner = part.getOwner();
-
 			if (DepUtils.allAttributesAreConfigAttributs()) {
 				// return all attributes
 				list.add(part);
@@ -51,6 +48,24 @@ public class ConfigUtils {
 			}
 		}
 		return list;
+	}
+
+	/**
+	 * Configure an instance. The configurator is selected by means of a stereotype on the classifier of
+	 * the passed instance.
+	 *
+	 * @see org.eclipse.papyrus.designer.transformation.extensions.IInstanceConfigurator
+	 * @param instance
+	 *            the specification of instance that should be configured
+	 * @param componentPart
+	 *            the part representing the instance (before container expansion)
+	 * @param port
+	 *            a port within the context of container
+	 */
+	public static void configureInstance(InstanceSpecification instance, Property componentPart, InstanceSpecification parentInstance) {
+		Classifier component = DepUtils.getClassifier(instance);
+		UseInstanceConfigurator useInstanceConfigurator = UMLUtil.getStereotypeApplication(component, UseInstanceConfigurator.class);
+		InstanceConfigurator.configureInstance(useInstanceConfigurator, instance, componentPart, parentInstance);
 	}
 	
 	/**

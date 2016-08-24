@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.papyrus.MARTE.MARTE_DesignModel.SRM.SW_Concurrency.SwSchedulableResource;
 import org.eclipse.papyrus.MARTE.MARTE_Foundations.Alloc.Allocate;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Abstraction;
@@ -340,7 +340,7 @@ public class AllocUtils {
 	 * @return The start port or null
 	 */
 	public static Port getStartPort(Class component) {
-		Element startPortElem = ElementUtil.getNamedElementFromList(component.getAllAttributes(), startPortName);
+		Element startPortElem = ElementUtils.getNamedElementFromList(component.getAllAttributes(), startPortName);
 		if (startPortElem instanceof Port) {
 			Port startPort = (Port) startPortElem;
 			if (startPort.getType().getName().equals(startPortType)) {

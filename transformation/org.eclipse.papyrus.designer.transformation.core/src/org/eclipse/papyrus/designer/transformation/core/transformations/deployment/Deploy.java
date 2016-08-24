@@ -17,13 +17,15 @@ package org.eclipse.papyrus.designer.transformation.core.transformations.deploym
 import java.util.Stack;
 
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
+import org.eclipse.papyrus.designer.deployment.tools.ConfigUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.GatherConfigData;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
-import org.eclipse.papyrus.designer.transformation.core.extensions.InstanceConfigurator;
-import org.eclipse.papyrus.designer.transformation.core.transformations.BootLoaderGen;
+import org.eclipse.papyrus.designer.transformation.core.transformations.InstanceDeployer;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
+import org.eclipse.papyrus.designer.transformation.core.transformations.PartialCopier;
+import org.eclipse.papyrus.designer.transformation.library.transformations.BootLoaderGen;
+import org.eclipse.papyrus.designer.transformation.library.transformations.GatherConfigData;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -62,7 +64,7 @@ public class Deploy {
 		this.node = node;
 
 		// change to flat copy eventually later (not yet working)
-		depInstance = new PartialCopy();
+		depInstance = new PartialCopier();
 
 		depInstance.init(copier, bootLoaderGen, node);
 
@@ -143,7 +145,7 @@ public class Deploy {
 							// TODO: instances are not copied to node model. Thus, the instances here are the same as in the
 							// configuration on the intermediate model.
 							// TODO: MIX of bootloaderGeneration and splitting.
-							InstanceConfigurator.configureInstance(containedInstance, (Property) sf, tmInstance);
+							ConfigUtils.configureInstance(containedInstance, (Property) sf, tmInstance);
 						}
 						// distribute subInstance
 						distributeToNode(allocAll, slotPath, containedInstance);

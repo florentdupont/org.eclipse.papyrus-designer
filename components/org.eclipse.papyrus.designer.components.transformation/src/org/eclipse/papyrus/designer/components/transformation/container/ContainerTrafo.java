@@ -43,7 +43,6 @@ import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -468,8 +467,8 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 
 		// Copy.copyID(tmComponent, extensionPart, "a");
 		extensionPart.setAggregation(smExtensionPart.getAggregation());
-		LazyCopier.copyMultElemModifiers(smExtensionPart, extensionPart);
-		LazyCopier.copyFeatureModifiers(smExtensionPart, extensionPart);
+		CopyUtils.copyMultElemModifiers(smExtensionPart, extensionPart);
+		CopyUtils.copyFeatureModifiers(smExtensionPart, extensionPart);
 
 		return extensionPart;
 	}
@@ -506,7 +505,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 			}
 			else if (extKind == InterceptionKind.INTERCEPT_SOME) {
 				// comparison based on name, since in different models
-				match = (Utils.getNamedElementFromList(featureList, port.getName()) != null);
+				match = (ElementUtils.getNamedElementFromList(featureList, port.getName()) != null);
 			}
 			else if (extKind == InterceptionKind.INTERCEPT_MATCHING) {
 				EList<Port> interceptorPorts = PortUtils.getAllPorts(smContainerConnImpl);
@@ -549,11 +548,11 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 
 			// pass target component and port to interceptor (not clean, define
 			// suitable template signature as for instance in methodCall_comp
-			TransformationContext.instance = executorIS;
-			TransformationContext.port = port;
+			ContainerTrafo.instance = executorIS;
+			ContainerTrafo.port = port;
 			connectorPart = ConnectorReification.reifyConnector(copier, tmContainerImpl, ElementUtils.varName(interceptionConnector), interceptionConnector, executorIS);
 			connectorParts.add(connectorPart);
-			TransformationContext.port = null;
+			ContainerTrafo.port = null;
 			portInfo.put(connectorPart, port);
 			// delete intermediate connector (has been replaced by two
 			// connections to the reified connector)
@@ -766,4 +765,8 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 	 * configurators that configure the container instance.
 	 */
 	protected Map<Property, Port> portInfo;
+	
+	public static InstanceSpecification instance;
+	
+	public static Port port;
 }

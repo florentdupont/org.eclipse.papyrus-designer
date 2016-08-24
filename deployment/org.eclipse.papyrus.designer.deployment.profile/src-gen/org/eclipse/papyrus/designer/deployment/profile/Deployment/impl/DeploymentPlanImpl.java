@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPackage;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +27,7 @@ import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan
  * <ul>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl#getBase_Package <em>Base Package</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl#getProjectMappings <em>Project Mappings</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl#getChain <em>Chain</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,6 +52,16 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<String> projectMappings;
+
+	/**
+	 * The cached value of the '{@link #getChain() <em>Chain</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChain()
+	 * @generated
+	 * @ordered
+	 */
+	protected M2MTrafoChain chain;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,6 +137,44 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public M2MTrafoChain getChain() {
+		if (chain != null && chain.eIsProxy()) {
+			InternalEObject oldChain = (InternalEObject)chain;
+			chain = (M2MTrafoChain)eResolveProxy(oldChain);
+			if (chain != oldChain) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DeploymentPackage.DEPLOYMENT_PLAN__CHAIN, oldChain, chain));
+			}
+		}
+		return chain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public M2MTrafoChain basicGetChain() {
+		return chain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setChain(M2MTrafoChain newChain) {
+		M2MTrafoChain oldChain = chain;
+		chain = newChain;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DeploymentPackage.DEPLOYMENT_PLAN__CHAIN, oldChain, chain));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -133,6 +183,9 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 				return basicGetBase_Package();
 			case DeploymentPackage.DEPLOYMENT_PLAN__PROJECT_MAPPINGS:
 				return getProjectMappings();
+			case DeploymentPackage.DEPLOYMENT_PLAN__CHAIN:
+				if (resolve) return getChain();
+				return basicGetChain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,6 +206,9 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 				getProjectMappings().clear();
 				getProjectMappings().addAll((Collection<? extends String>)newValue);
 				return;
+			case DeploymentPackage.DEPLOYMENT_PLAN__CHAIN:
+				setChain((M2MTrafoChain)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -171,6 +227,9 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 			case DeploymentPackage.DEPLOYMENT_PLAN__PROJECT_MAPPINGS:
 				getProjectMappings().clear();
 				return;
+			case DeploymentPackage.DEPLOYMENT_PLAN__CHAIN:
+				setChain((M2MTrafoChain)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -187,6 +246,8 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 				return base_Package != null;
 			case DeploymentPackage.DEPLOYMENT_PLAN__PROJECT_MAPPINGS:
 				return projectMappings != null && !projectMappings.isEmpty();
+			case DeploymentPackage.DEPLOYMENT_PLAN__CHAIN:
+				return chain != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -17,12 +17,13 @@ package org.eclipse.papyrus.designer.transformation.library.transformations.bind
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.extensions.IEmptyM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.listeners.PostCopyListener;
+import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.templates.TextTemplateBinding;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
+import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.TemplateBinding;
 import org.eclipse.uml2.uml.util.UMLUtil;
@@ -36,7 +37,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  * Note: this function is C++ specific, but many parts of the model library are C++ specific as well
  *
  */
-public class BindCppIncludeToFirstActual implements PostCopyListener, IEmptyM2MTrafo {
+public class BindCppIncludeToFirstActual implements PostCopyListener, IM2MTrafo {
 
 	@Override
 	public void postCopyEObject(LazyCopier copier, EObject targetEObj) {
@@ -45,11 +46,11 @@ public class BindCppIncludeToFirstActual implements PostCopyListener, IEmptyM2MT
 
 			Classifier targetCl = (Classifier) targetEObj;
 			try {
-				TemplateBinding binding = TransformationContext.getBinding();
+				TemplateBinding binding = TemplateInstantiation.context.getBinding();
 				Classifier actual = TemplateUtils.getFirstActualFromBinding(binding);
 				Include cppInclude = UMLUtil.getStereotypeApplication(targetCl, Include.class);
 				if ((actual != null) && (cppInclude != null)) {
-					TransformationContext.classifier = targetCl;
+					TransformationContext.current.classifier = targetCl;
 					String newBody = TextTemplateBinding.bind(cppInclude.getBody(), actual, null);
 					String newPreBody = TextTemplateBinding.bind(cppInclude.getPreBody(), actual, null);
 					String newHeader = TextTemplateBinding.bind(cppInclude.getHeader(), actual, null);

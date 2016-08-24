@@ -25,6 +25,7 @@ import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.TargetArchitecture;
 
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.UseInstanceConfigurator;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage;
 import org.eclipse.uml2.types.TypesPackage;
 
 import org.eclipse.uml2.uml.UMLPackage;
@@ -174,7 +175,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		isInited = true;
 
 		// Initialize simple dependencies
-		UMLPackage.eINSTANCE.eClass();
+		TransformationPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDeploymentPackage.createPackageContents();
@@ -475,6 +476,15 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDeploymentPlan_Chain() {
+		return (EReference)deploymentPlanEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSingleton() {
 		return singletonEClass;
 	}
@@ -610,6 +620,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		deploymentPlanEClass = createEClass(DEPLOYMENT_PLAN);
 		createEReference(deploymentPlanEClass, DEPLOYMENT_PLAN__BASE_PACKAGE);
 		createEAttribute(deploymentPlanEClass, DEPLOYMENT_PLAN__PROJECT_MAPPINGS);
+		createEReference(deploymentPlanEClass, DEPLOYMENT_PLAN__CHAIN);
 
 		singletonEClass = createEClass(SINGLETON);
 		createEReference(singletonEClass, SINGLETON__BASE_CLASS);
@@ -649,6 +660,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		// Obtain other dependent packages
 		UMLPackage theUMLPackage = (UMLPackage)EPackage.Registry.INSTANCE.getEPackage(UMLPackage.eNS_URI);
 		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+		TransformationPackage theTransformationPackage = (TransformationPackage)EPackage.Registry.INSTANCE.getEPackage(TransformationPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -697,6 +709,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		initEClass(deploymentPlanEClass, DeploymentPlan.class, "DeploymentPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDeploymentPlan_Base_Package(), theUMLPackage.getPackage(), null, "base_Package", null, 1, 1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getDeploymentPlan_ProjectMappings(), theTypesPackage.getString(), "projectMappings", null, 0, -1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDeploymentPlan_Chain(), theTransformationPackage.getM2MTrafoChain(), null, "chain", null, 0, 1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(singletonEClass, Singleton.class, "Singleton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleton_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, Singleton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

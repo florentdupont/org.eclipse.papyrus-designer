@@ -39,11 +39,11 @@
 			notation_file="models/wizardTemplates/DesignerCBSimple.notation">
 		</template>
 	</extension>
-	<extension point="org.eclipse.papyrus.designer.transformation.core.instanceConfig">
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.instanceConfig">
 		<client class="org.eclipse.papyrus.designer.transformation.library.iconfigurators.CallEventConfigurator" configuratorID="CallEventConfigurator">
 		</client>
 	</extension>
-	<extension point="org.eclipse.papyrus.designer.transformation.core.instanceConfig">
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.instanceConfig">
 		<client class="org.eclipse.papyrus.designer.transformation.library.iconfigurators.AnimServiceConfigurator" configuratorID="AnimServiceConfigurator">
 		</client>
 	</extension>
@@ -85,38 +85,75 @@
 			<selection class="org.eclipse.core.resources.IResource"/>
 		</wizard>
 	</extension>
-	<extension id="LoopOperations" point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
 			transformationID="core::bindingHelpers::LoopOperations"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.LoopOperations">
 		</transformation>
 	</extension>
-	<extension id="BindOperation" point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
 			transformationID="core::bindingHelpers::BindOperation"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.BindOperation">
 		</transformation>
 	</extension>
-	<extension id="BindCppIncludeToFirstActual" point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
 			transformationID="core::bindingHelpers::BindCppIncludeToFirstActual"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.BindCppIncludeToFirstActual">
 		</transformation>
 	</extension>
-	<extension
-       point="org.eclipse.papyrus.designer.transformation.core.m2mTrafo">
-    <transformation
-          class="org.eclipse.papyrus.designer.transformation.library.statemachine.CompleteStatemachine"
-          transformationID="statemachine::rules::CompleteSM">
-    </transformation>
- </extension>
+
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="core::m2mtransformations::M2MFromStereotype"
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.M2MFromStereotype">
+		</transformation>
+	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="core::m2mtransformations::DeployToNodes"
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.DeployToNodes">
+		</transformation>
+	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="core::m2mtransformations::MergeClass"
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.MergeClass">
+		</transformation>
+	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="core::m2mtransformations::BootLoaderGen"
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.BootLoaderGen">
+		</transformation>
+	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="core::m2mtransformations::GenerateCode"
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.GenerateCode">
+		</transformation>
+	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="core::m2mtransformations::ConfigureProject"
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.ConfigureProject">
+		</transformation>
+	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="statemachine::rules::CompleteSM"
+			class="org.eclipse.papyrus.designer.transformation.library.statemachine.CompleteStatemachine">
+		</transformation>
+	</extension>
+	
 	<extension
 			point="org.eclipse.help.toc">
 		<toc file="help/modellibs-core-examples.xml"/>
 		<toc file="help/modellibs-core-library.xml"/>
 	</extension>
 	<extension
-			point="org.eclipse.papyrus.designer.transformation.core.xtendGenerator">
+			point="org.eclipse.papyrus.designer.transformation.extensions.xtendGenerator">
 		<client class="org.eclipse.papyrus.designer.transformation.library.xtend.CppUtils" templateID="CppUtils">
 		</client>
  </extension>

@@ -1,6 +1,5 @@
 /*****************************************************************************
- * Copyright (c) 2013 CEA LIST.
- *
+ * Copyright (c) 2016 CEA LIST.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -8,7 +7,6 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *  Initial developer : Christophe JOUVRAY from CEA LIST
  *  Ansgar Radermacher  ansgar.radermacher@cea.fr
  *
  *****************************************************************************/
@@ -16,37 +14,17 @@
 package org.eclipse.papyrus.designer.transformation.core.transformations;
 
 
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.uml2.uml.Package;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 
 /**
- * This class executes the main model transformation. It traverses the
- * instances of a deployment plan in a recursive way and executes
- * connector reification and container expansion.
+ * This class executes a complete transformation chain. It executes the transformation in
+ * the order specified in the transformation chain.
  */
 public class ExecuteTransformationChain {
 
-	public ExecuteTransformationChain(LazyCopier copier, Package sourceModel) {
-		this.copier = copier;
-		this.sourceModel = sourceModel;
+	public static void apply(M2MTrafoChain chain) throws TransformationException {
+		ExecuteTransformation.apply(
+				chain.getBase_Class().getAllAttributes().iterator());
 	}
-
-	public void execute(EList<AbstractM2MTrafo> chain) {
-		for (AbstractM2MTrafo m2mTrafo : chain) {
-			// ExecuteTransformation execTrafo = new ExecuteTransformation(m2mTrafo);
-			// execTrafo.executeTransformation(sourceModel);
-		}
-	}
-	
-	/**
-	 * Copier from source to target model
-	 */
-	protected LazyCopier copier;
-
-	/**
-	 * deployment plan within target model
-	 */
-	//protected Package tmCDP;
-	
-	protected Package sourceModel;
 }

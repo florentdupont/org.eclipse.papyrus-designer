@@ -10,102 +10,33 @@
     <packageImport xmi:type="uml:PackageImport" xmi:id="_YvEs8OusEeCTfOY57pgE3w">
       <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/statemachine.uml#_ago_QOUTEd-P08Bciq_LqQ"/>
     </packageImport>
-    <packagedElement xmi:type="uml:Package" xmi:id="_LOqIEDLaEd2qeKRLMdIx_A" name="components">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_cb-ncDemEeGPyrZ5I3hMlA" annotatedElement="_oqZNUDLaEd2qeKRLMdIx_A">
-        <body>State-machine support is enabled with a container rule</body>
-      </ownedComment>
-      <packagedElement xmi:type="uml:Package" xmi:id="_Tp4n8DLaEd2qeKRLMdIx_A" name="Interfaces">
-        <packagedElement xmi:type="uml:Interface" xmi:id="_cn-H0DLbEd2qeKRLMdIx_A" name="ICompute">
-          <ownedReception xmi:type="uml:Reception" xmi:id="_1U0U8McqEeSsAI2TZshUyg" name="add" signal="_ywk2kMcqEeSsAI2TZshUyg"/>
-          <ownedReception xmi:type="uml:Reception" xmi:id="_M-tXYMcrEeSsAI2TZshUyg" name="mult" signal="_z0nGcMcqEeSsAI2TZshUyg"/>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_DGs6wDLgEd28fJKJJnUaeQ" name="add">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_DGs6wTLgEd28fJKJJnUaeQ" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6wzLgEd28fJKJJnUaeQ" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6wjLgEd28fJKJJnUaeQ" value="1"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_DGs6xTLgEd28fJKJJnUaeQ" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6xzLgEd28fJKJJnUaeQ" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6xjLgEd28fJKJJnUaeQ" value="1"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_DGs6yTLgEd28fJKJJnUaeQ" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6yzLgEd28fJKJJnUaeQ" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6yjLgEd28fJKJJnUaeQ" value="1"/>
-            </ownedParameter>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_L8EY8DLgEd28fJKJJnUaeQ" name="mult">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_L8EY8TLgEd28fJKJJnUaeQ" name="a">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY8zLgEd28fJKJJnUaeQ" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY8jLgEd28fJKJJnUaeQ" value="1"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_L8EY9TLgEd28fJKJJnUaeQ" name="b">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY9zLgEd28fJKJJnUaeQ" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY9jLgEd28fJKJJnUaeQ" value="1"/>
-            </ownedParameter>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_L8EY-TLgEd28fJKJJnUaeQ" name="res" direction="return">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY-zLgEd28fJKJJnUaeQ" value="1"/>
-              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY-jLgEd28fJKJJnUaeQ" value="1"/>
-            </ownedParameter>
-          </ownedOperation>
-        </packagedElement>
-        <packagedElement xmi:type="uml:Signal" xmi:id="_ywk2kMcqEeSsAI2TZshUyg" name="Add"/>
-        <packagedElement xmi:type="uml:Signal" xmi:id="_z0nGcMcqEeSsAI2TZshUyg" name="Mult"/>
-      </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_LOqIEDLaEd2qeKRLMdIx_A" name="classes">
       <packagedElement xmi:type="uml:Package" xmi:id="_XLQjUDLiEd2RVeNawwNNzg" name="System">
         <packagedElement xmi:type="uml:Class" xmi:id="_bYJagDLiEd2RVeNawwNNzg" name="System_impl">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_gV1cgDLiEd2RVeNawwNNzg" name="simpleSM" type="_oqZNUDLaEd2qeKRLMdIx_A" isUnique="false" aggregation="composite"/>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oqZNUDLaEd2qeKRLMdIx_A" name="SimpleSM" classifierBehavior="_y7KWsOYXEeCBL_IbXY9ofw">
-        <generalization xmi:type="uml:Generalization" xmi:id="_LuEUwCgBEeapjr3l63b85A">
-          <general xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_N6fa4JsrEd61Eo3nmu3JhQ"/>
-        </generalization>
-        <ownedAttribute xmi:type="uml:Port" xmi:id="_4KiE8DLbEd2qeKRLMdIx_A" name="p" type="_cn-H0DLbEd2qeKRLMdIx_A" aggregation="composite"/>
-        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_YQqH0JYlEd6G9q9hwr11bw" name="derived realization of ICompute" client="_oqZNUDLaEd2qeKRLMdIx_A" supplier="_cn-H0DLbEd2qeKRLMdIx_A" contract="_cn-H0DLbEd2qeKRLMdIx_A"/>
-        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_VGnYgCgBEeapjr3l63b85A" name="derived realization of IStart" client="_oqZNUDLaEd2qeKRLMdIx_A">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_cb-ncDemEeGPyrZ5I3hMlA" annotatedElement="_oqZNUDLaEd2qeKRLMdIx_A">
+          <body>State-machine support is enabled with a container rule</body>
+        </ownedComment>
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_VGnYgCgBEeapjr3l63b85A" name="realization of IStart" client="_oqZNUDLaEd2qeKRLMdIx_A">
           <supplier xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
           <contract xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
         </interfaceRealization>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qxjWINnmEd2_cstbO2Uzgg" name="mult" specification="_4ZEZwHecEd6r18stFZxmFQ">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gtz88C1REea25uwDpRQuxg" name="a">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gtz88S1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gt0kAC1REea25uwDpRQuxg" value="1"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gt0kAS1REea25uwDpRQuxg" name="b">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gt0kAi1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gt0kAy1REea25uwDpRQuxg" value="1"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gt0kBC1REea25uwDpRQuxg" name="res" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gt1LEC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gt1LES1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_YURmYGkzEearUflqhq5Pgw" name="res" direction="return">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YUTbkGkzEearUflqhq5Pgw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YUUCoGkzEearUflqhq5Pgw" value="1"/>
           </ownedParameter>
           <language>C/C++</language>
           <body>cout &lt;&lt; &quot;a=&quot; &lt;&lt; a &lt;&lt; &quot; b=&quot; &lt;&lt; b &lt;&lt; &quot; a*b=&quot; &lt;&lt; a*b &lt;&lt; endl;
 return a*b;</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ML-4AKI5Ed6FqJCjEUrkqQ" name="add" specification="_TbIjUJYlEd6G9q9hwr11bw">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gt1yIC1REea25uwDpRQuxg" name="a">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gt1yIS1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gt2ZMC1REea25uwDpRQuxg" value="1"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gt2ZMS1REea25uwDpRQuxg" name="b">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gt3AQC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gt3AQS1REea25uwDpRQuxg" value="1"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gt3AQi1REea25uwDpRQuxg" name="res" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gt3nUC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gt3nUS1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_YUV30GkzEearUflqhq5Pgw" name="res" direction="return">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YUXF8GkzEearUflqhq5Pgw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YUYUEGkzEearUflqhq5Pgw" value="1"/>
           </ownedParameter>
           <language>C/C++</language>
           <body>cout &lt;&lt; &quot;a=&quot; &lt;&lt; a &lt;&lt; &quot; b=&quot; &lt;&lt; b &lt;&lt; &quot; a+b=&quot; &lt;&lt; a+b &lt;&lt; endl;
@@ -172,37 +103,29 @@ sleep(15);
 </body>
         </ownedBehavior>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_4ZEZwHecEd6r18stFZxmFQ" name="mult" method="_qxjWINnmEd2_cstbO2Uzgg">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GtvrgC1REea25uwDpRQuxg" name="a">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GtwSkC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gtw5oC1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_fHa4sGk0EearUflqhq5Pgw" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gtw5oS1REea25uwDpRQuxg" name="b">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GtxgsC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GtxgsS1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_gA9v0Gk0EearUflqhq5Pgw" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GtyHwC1REea25uwDpRQuxg" name="res" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gtyu0C1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gtyu0S1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_YUC84GkzEearUflqhq5Pgw" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YUELAGkzEearUflqhq5Pgw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YUEyEGkzEearUflqhq5Pgw" value="1"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_TbIjUJYlEd6G9q9hwr11bw" name="add" method="_ML-4AKI5Ed6FqJCjEUrkqQ">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gtpk4C1REea25uwDpRQuxg" name="a">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GtqL8C1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GtqzAC1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_guLbIGk0EearUflqhq5Pgw" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GtqzAS1REea25uwDpRQuxg" name="b">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GtraEC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GtraES1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_hTr78Gk0EearUflqhq5Pgw" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GtraEi1REea25uwDpRQuxg" name="res" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GtsoMC1REea25uwDpRQuxg" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GtsoMS1REea25uwDpRQuxg" value="1"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_YN7GwGkzEearUflqhq5Pgw" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YOFe0GkzEearUflqhq5Pgw" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YOGs8GkzEearUflqhq5Pgw" value="1"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_VGsRACgBEeapjr3l63b85A" name="run" method="_YNCW4CgBEeapjr3l63b85A"/>
@@ -299,7 +222,7 @@ sleep(15);
   </uml:Model>
   <C_Cpp:Include xmi:id="_EaeJMNp0EeKd1ax3yaXM9w" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
   <Transformation:ApplyTransformation xmi:id="_bov2QFl5EeagP584YGQRWg" base_Class="_oqZNUDLaEd2qeKRLMdIx_A">
-    <trafo xmi:type="Transformation:M2MTrafo" href="pathmap://QML_CORE/statemachine.uml#_9Bh1UFl4EeagP584YGQRWg"/>
+    <trafo xmi:type="Transformation:M2MTrafo" href="pathmap://QML_CORE/statemachine.uml#_BQqewGoNEea1-rBQVLBwEw"/>
   </Transformation:ApplyTransformation>
   <Deployment:DeploymentPlan xmi:id="_3Rk-AFl6EeaMOsb_YMu4Rg" base_Package="_QQiDgHltEeOh_8tymvdOOg"/>
   <Alloc:Allocate xmi:id="_tWIZsF15Eea4bLzKfwAjjA" base_Abstraction="_tWAd4F15Eea4bLzKfwAjjA"/>

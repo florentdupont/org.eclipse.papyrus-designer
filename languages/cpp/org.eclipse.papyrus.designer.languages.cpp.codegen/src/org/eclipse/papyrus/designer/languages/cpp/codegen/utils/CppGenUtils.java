@@ -231,6 +231,10 @@ public class CppGenUtils {
 				qName = ns.getName() + "::" + qName; //$NON-NLS-1$
 			}
 		}
+		if (qName == null) {
+			GenUtils.checkProxy(ne);
+			return "undefined";
+		}
 		if (qName.contains("::")) { //$NON-NLS-1$
 			// is a qualified name => make path absolute
 			return "::" + qName; //$NON-NLS-1$
@@ -238,7 +242,6 @@ public class CppGenUtils {
 			return qName;
 		}
 	}
-
 
 	/**
 	 * Returns the string that is used within a C++ template declaration, e.g. the "Class XY" in template<class XY>.

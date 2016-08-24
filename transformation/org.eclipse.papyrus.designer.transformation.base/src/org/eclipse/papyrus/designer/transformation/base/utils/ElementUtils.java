@@ -169,7 +169,7 @@ public class ElementUtils {
 			// has been copied into the model,
 			// i.e. qualifiedName is prefixed by model name
 			namedElement = getQualifiedElement(root, qualifiedName,
-					root.getName() + "::" + qualifiedName); //$NON-NLS-1$
+					qualifiedName); //$NON-NLS-1$
 		}
 		return namedElement;
 	}

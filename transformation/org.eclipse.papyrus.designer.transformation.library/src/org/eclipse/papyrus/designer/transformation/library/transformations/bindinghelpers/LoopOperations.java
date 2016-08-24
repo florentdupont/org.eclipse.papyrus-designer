@@ -18,13 +18,13 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.extensions.IEmptyM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.listeners.PreCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.templates.BindingUtils;
+import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.templates.TextTemplateBinding;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
+import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.library.Activator;
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.Classifier;
@@ -41,7 +41,7 @@ import org.eclipse.uml2.uml.Type;
  * (typically an interface)
  *
  */
-public class LoopOperations implements IEmptyM2MTrafo, PreCopyListener {
+public class LoopOperations implements IM2MTrafo, PreCopyListener {
 
 	@Override
 	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj) {
@@ -49,7 +49,7 @@ public class LoopOperations implements IEmptyM2MTrafo, PreCopyListener {
 		if (sourceEObj instanceof Operation) {
 			Operation operation = (Operation) sourceEObj;
 
-			TemplateBinding binding = TransformationContext.getBinding();
+			TemplateBinding binding = TemplateInstantiation.context.getBinding();
 			Classifier actual = TemplateUtils.getFirstActualFromBinding(binding);
 
 			if (!(actual instanceof Interface)) {
@@ -99,7 +99,7 @@ public class LoopOperations implements IEmptyM2MTrafo, PreCopyListener {
 		}
 		else if (sourceEObj instanceof EnumerationLiteral) {
 			EnumerationLiteral literal = (EnumerationLiteral) sourceEObj;
-			TemplateBinding binding = TransformationContext.getBinding();
+			TemplateBinding binding = TemplateInstantiation.context.getBinding();
 			Classifier actual = TemplateUtils.getFirstActualFromBinding(binding);
 			// Type passedActual = getPassedActual(template, actual, boundClass);
 			Type passedActual = actual;

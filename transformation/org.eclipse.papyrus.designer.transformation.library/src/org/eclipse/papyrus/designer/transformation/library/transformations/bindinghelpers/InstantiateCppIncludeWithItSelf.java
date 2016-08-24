@@ -17,11 +17,11 @@ package org.eclipse.papyrus.designer.transformation.library.transformations.bind
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.extensions.IEmptyM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.listeners.PostCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.templates.TextTemplateBinding;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
+import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
@@ -36,7 +36,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  *
  */
 @Deprecated
-public class InstantiateCppIncludeWithItSelf implements PostCopyListener, IEmptyM2MTrafo {
+public class InstantiateCppIncludeWithItSelf implements PostCopyListener, IM2MTrafo {
 
 	@Override
 	public void postCopyEObject(LazyCopier copy, EObject targetEObj) {
@@ -47,7 +47,7 @@ public class InstantiateCppIncludeWithItSelf implements PostCopyListener, IEmpty
 			// apply, in case of pass-classifier
 			try {
 				Include cppInclude = UMLUtil.getStereotypeApplication(targetCl, Include.class);
-				TransformationContext.classifier = targetCl;
+				TransformationContext.current.classifier = targetCl;
 				String newBody = TextTemplateBinding.bind(cppInclude.getBody(), targetCl, null);
 				String newPreBody = TextTemplateBinding.bind(cppInclude.getPreBody(), targetCl, null);
 				String newHeader = TextTemplateBinding.bind(cppInclude.getHeader(), targetCl, null);

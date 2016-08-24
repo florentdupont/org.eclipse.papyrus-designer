@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
   <uml:Profile xmi:id="_gPDsIBa-EearhdjjJ6cVzQ" name="Deployment" metaclassReference="_WWO_YBbAEearhdjjJ6cVzQ _LQB30CXmEea8zMl4rVTOhQ _bIj1ICi3EeaXvZJsTlfH8A _KjtPoEN6Eea4W-lfO7m_3g _jxqeAFiQEeanCpyPTMVlnA">
     <elementImport xmi:type="uml:ElementImport" xmi:id="_WWO_YBbAEearhdjjJ6cVzQ" alias="Model">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Model"/>
@@ -18,6 +18,9 @@
     </elementImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_fTx0EBa-EearhdjjJ6cVzQ">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_cDsTEF-eEea4vqMyw9JI5Q">
+      <importedPackage xmi:type="uml:Profile" href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
     </packageImport>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_Mba_MEN6Eea4W-lfO7m_3g" name="ConfigurationProperty">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_P3YvwUN6Eea4W-lfO7m_3g" name="base_Property" association="_P3WTgEN6Eea4W-lfO7m_3g">
@@ -131,6 +134,11 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WPkGsFlbEeanCpyPTMVlnA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WPmi8FlbEeanCpyPTMVlnA" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_nv40cF-eEea4vqMyw9JI5Q" name="chain" visibility="public">
+        <type xmi:type="uml:Stereotype" href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_tlAxcEFlEeaVWaGMtmQuJw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t0GZoF-eEea4vqMyw9JI5Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t0Jc8F-eEea4vqMyw9JI5Q" value="1"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_ofrFQFiQEeanCpyPTMVlnA" name="E_DeploymentPlan_Package1" memberEnd="_ofrsUFiQEeanCpyPTMVlnA _ofsTYFiQEeanCpyPTMVlnA">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_ofrsUFiQEeanCpyPTMVlnA" name="extension_DeploymentPlan" type="_lxr1AFiQEeanCpyPTMVlnA" aggregation="composite" association="_ofrFQFiQEeanCpyPTMVlnA"/>
@@ -177,5 +185,4 @@
     </profileApplication>
   </uml:Profile>
   <Ecore:EPackage xmi:id="_RPiAwBa_EearhdjjJ6cVzQ" base_Package="_gPDsIBa-EearhdjjJ6cVzQ" packageName="Deployment" nsPrefix="Deployment" nsURI="http://www.eclipse.org/papyrus/Deployment/1" prefix="Deployment"/>
-  <ActionLanguage:TextualRepresentation xmi:id="_9hXEoFi3EeanCpyPTMVlnA" language="org.eclipse.papyrus.uml.textedit.property.xtext.UmlProperty"/>
 </xmi:XMI>

@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.Classifier;
@@ -1002,7 +1003,7 @@ public class GenUtils {
 	 * @return
 	 */
 	public static String getNestedOperationFarthestClassifierOwnerNamespace(Operation op) {
-		StringBuffer buffer = new StringBuffer("");
+		StringBuffer buffer = new StringBuffer(""); //$NON-NLS-1$
 		if (op != null && op.getOwner() instanceof Classifier) {
 			getFarthestOwnerNamespace(op.getOwner(), buffer);
 		}
@@ -1016,7 +1017,7 @@ public class GenUtils {
 	 * @return
 	 */
 	public static String getNestedBehaviorFarthestClassifierOwnerNamespace(OpaqueBehavior behavior) {
-		StringBuffer buffer = new StringBuffer("");
+		StringBuffer buffer = new StringBuffer(""); //$NON-NLS-1$
 		if (behavior != null && behavior.getOwner() instanceof Classifier) {
 			getFarthestOwnerNamespace(behavior.getOwner(), buffer);
 		}
@@ -1037,7 +1038,7 @@ public class GenUtils {
 		if (element.getOwner() instanceof Package) {
 			result.insert(0, ((Classifier) element).getName());
 		} else {
-			result.insert(0, "::" + ((Classifier) element).getName());
+			result.insert(0, "::" + ((Classifier) element).getName()); //$NON-NLS-1$
 			getFarthestOwnerNamespace(element.getOwner(), result);
 		}
 	}
@@ -1363,9 +1364,9 @@ public class GenUtils {
 
 	public static void checkProxy(EObject element) {
 		if (element.eIsProxy()) {
-			String msg = "Referenced element is a proxy";
+			String msg = Messages.GenUtils_ElementIsProxy;
 			if (element instanceof InternalEObject) {
-				msg += " " + ((InternalEObject) element).eProxyURI();
+				msg += " " + ((InternalEObject) element).eProxyURI(); //$NON-NLS-1$
 			}
 			throw new RuntimeException(msg);
 		}

@@ -104,19 +104,6 @@ pthread_setschedparam (pt, SCHED_RR, &amp;schedParam);
         <ownedOperation xmi:type="uml:Operation" xmi:id="_TBScwCxyEeOMQpc6Y-MAJw" name="configuration_complete" method="_-9Gu0H2KEeWV7cfiwPN21w"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_wCkVcNYGEd-CgJIavLpOxQ" name="ImplRequirement" client="_SiY_AP-EEd6628OhKk_dpg" supplier="_ea234NYGEd-CgJIavLpOxQ"/>
-      <packagedElement xmi:type="uml:Package" xmi:id="_Ky7kwF4QEea4bLzKfwAjjA" name="m2mtransformations">
-        <packagedElement xmi:type="uml:Class" xmi:id="_Ck0eYF4REea4bLzKfwAjjA" name="Standard">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_kKwTMF4REea4bLzKfwAjjA" name="deployToNodes" type="_eELWgF4REea4bLzKfwAjjA"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_rJqmEF4REea4bLzKfwAjjA" name="manualTransformations" type="_ofuIUF4REea4bLzKfwAjjA"/>
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_uYn1YF4REea4bLzKfwAjjA" name="bootloaderCreation" type="_s7jacF4REea4bLzKfwAjjA"/>
-        </packagedElement>
-        <packagedElement xmi:type="uml:Class" xmi:id="_atMMkF4REea4bLzKfwAjjA" name="Tracing">
-          <generalization xmi:type="uml:Generalization" xmi:id="_chwhgF4REea4bLzKfwAjjA" general="_Ck0eYF4REea4bLzKfwAjjA"/>
-        </packagedElement>
-        <packagedElement xmi:type="uml:Class" xmi:id="_eELWgF4REea4bLzKfwAjjA" name="DeployToNodes"/>
-        <packagedElement xmi:type="uml:Class" xmi:id="_ofuIUF4REea4bLzKfwAjjA" name="ManualTransformations"/>
-        <packagedElement xmi:type="uml:Class" xmi:id="_s7jacF4REea4bLzKfwAjjA" name="BootloaderCreation"/>
-      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_xtlE8ARAEd--t-uhRn9OBA" name="dataTypes">
       <packagedElement xmi:type="uml:Class" xmi:id="_WkkjoPNUEeCovO8AYZymZQ" name="CallEvent_">
@@ -494,6 +481,23 @@ for (;;) {
       <packagedElement xmi:type="uml:Class" xmi:id="_-vYZoCa0EeazPcQ6-9hBeQ" name="pthread_cond_t"/>
       <packagedElement xmi:type="uml:Class" xmi:id="__niwsCa0EeazPcQ6-9hBeQ" name="pthread_mutex_t"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Ky7kwF4QEea4bLzKfwAjjA" name="m2mtransformations">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Ck0eYF4REea4bLzKfwAjjA" name="Standard">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_rJqmEF4REea4bLzKfwAjjA" name="manualTransformations" type="_ofuIUF4REea4bLzKfwAjjA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_kKwTMF4REea4bLzKfwAjjA" name="deployToNodes" type="_eELWgF4REea4bLzKfwAjjA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_uYn1YF4REea4bLzKfwAjjA" name="bootloaderCreation" type="_s7jacF4REea4bLzKfwAjjA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_bTGMEGnwEead2IFRwKRBMw" name="generateCode" type="_KVyWYGnwEead2IFRwKRBMw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yhiuAGoDEeaDvKuEhyP_8g" name="configureProject" type="_sCpX8GoDEeaDvKuEhyP_8g"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_atMMkF4REea4bLzKfwAjjA" name="Tracing">
+        <generalization xmi:type="uml:Generalization" xmi:id="_chwhgF4REea4bLzKfwAjjA" general="_Ck0eYF4REea4bLzKfwAjjA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_eELWgF4REea4bLzKfwAjjA" name="DeployToNodes"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ofuIUF4REea4bLzKfwAjjA" name="M2MFromStereotype"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_s7jacF4REea4bLzKfwAjjA" name="BootLoaderGen"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_KVyWYGnwEead2IFRwKRBMw" name="GenerateCode"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_sCpX8GoDEeaDvKuEhyP_8g" name="ConfigureProject"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_O6TiIjLUEd26WNosUASSSw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O6TiIzLUEd26WNosUASSSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
@@ -627,4 +631,9 @@ for (;;) {
   <C_Cpp:Ptr xmi:id="_FSoLkMUKEeWfEYAFL-UFuw" base_parameter="_FSlvUMUKEeWfEYAFL-UFuw"/>
   <C_Cpp:Ptr xmi:id="_FSqn0MUKEeWfEYAFL-UFuw" base_parameter="_FSoLkcUKEeWfEYAFL-UFuw"/>
   <Transformation:M2MTrafoChain xmi:id="_LUPFkF4REea4bLzKfwAjjA" base_Class="_Ck0eYF4REea4bLzKfwAjjA"/>
+  <Transformation:M2MTrafo xmi:id="_W3afcGk2EearUflqhq5Pgw" base_Class="_eELWgF4REea4bLzKfwAjjA"/>
+  <Transformation:M2MTrafo xmi:id="_Y4j30Gk2EearUflqhq5Pgw" base_Class="_ofuIUF4REea4bLzKfwAjjA"/>
+  <Transformation:M2MTrafo xmi:id="_ctvZoGk2EearUflqhq5Pgw" base_Class="_s7jacF4REea4bLzKfwAjjA"/>
+  <Transformation:M2MTrafo xmi:id="_VpopMGnwEead2IFRwKRBMw" base_Class="_KVyWYGnwEead2IFRwKRBMw"/>
+  <Transformation:M2MTrafo xmi:id="_vCaUsGoDEeaDvKuEhyP_8g" base_Class="_sCpX8GoDEeaDvKuEhyP_8g"/>
 </xmi:XMI>

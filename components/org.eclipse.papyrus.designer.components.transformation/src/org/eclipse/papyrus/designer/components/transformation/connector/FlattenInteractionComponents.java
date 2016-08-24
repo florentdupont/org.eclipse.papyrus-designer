@@ -22,8 +22,7 @@ import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
 import org.eclipse.papyrus.designer.components.transformation.deployment.DepPlanUtils;
 import org.eclipse.papyrus.designer.components.transformation.deployment.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.extensions.IM2MTrafo;
-import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
+import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafoElem;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.uml2.uml.Class;
@@ -44,7 +43,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  * and only deploy the fragments.
  * This is required, since the interaction component itself cannot be deployed on several nodes.
  */
-public class FlattenInteractionComponents implements IM2MTrafo {
+public class FlattenInteractionComponents implements IM2MTrafoElem {
 
 	private static final String FLATTEN_SEP = "_"; //$NON-NLS-1$
 
@@ -166,7 +165,7 @@ public class FlattenInteractionComponents implements IM2MTrafo {
 	}
 
 	@Override
-	public void transformElement(LazyCopier copier, M2MTrafo trafo, Element element) throws TransformationException {
+	public void transformElement(M2MTrafo trafo, Element element) throws TransformationException {
 		// TODO Auto-generated method stub
 		if (element instanceof InstanceSpecification) {
 			InstanceSpecification instance = (InstanceSpecification) element;

@@ -26,7 +26,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.papyrus.designer.languages.common.profile;bundle-version="0.7.1",
  org.eclipse.papyrus.designer.transformation.profile;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.deployment.profile;bundle-version="0.7.3",
- org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3"
+ org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.transformation.extensions;bundle-version="0.7.3"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.3.qualifier

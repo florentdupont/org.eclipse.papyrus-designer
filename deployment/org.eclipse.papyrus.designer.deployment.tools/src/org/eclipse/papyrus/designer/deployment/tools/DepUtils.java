@@ -9,12 +9,15 @@ import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.ImplementationProperties;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.Singleton;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint;
 import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
 import org.eclipse.papyrus.designer.transformation.base.preferences.PapyrusDesignerPreferenceConstants;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.common.util.UML2Util;
 import org.eclipse.uml2.uml.AggregationKind;
@@ -25,6 +28,7 @@ import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.InstanceValue;
+import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Property;
@@ -36,14 +40,11 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
  * Utilities around instances (within deployment plan)
- * [DepPlanUtils?]
- * [but missing: creation, ..., allocation?]
- * Structuration ??
- *
- * @author ansgar
  *
  */
 public class DepUtils {
+
+	public static final String CORE_M2MTRANSFORMATIONS_STANDARD = "core::m2mtransformations::Standard"; //$NON-NLS-1$
 
 	/**
 	 * Check whether a class is an eligible implementation for a certain node, i.e.
@@ -579,5 +580,25 @@ public class DepUtils {
 
 	public static boolean isSingleton(Class component) {
 		return StereotypeUtil.isApplied(component, Singleton.class);
+	}
+	
+	public static M2MTrafoChain getTransformationChain(Package cdp) {
+		DeploymentPlan cdpStereo = UMLUtil.getStereotypeApplication(cdp, DeploymentPlan.class);
+		M2MTrafoChain chain = null;
+		if (cdp != null) {
+			chain = cdpStereo.getChain();
+		}
+		if (chain == null) {
+			
+			NamedElement defaultChainNE = ElementUtils.getQualifiedElement(cdp.getModel(), CORE_M2MTRANSFORMATIONS_STANDARD);
+			if (defaultChainNE != null) { 
+				// chain null and default chain could be found.
+				chain = UMLUtil.getStereotypeApplication(defaultChainNE, M2MTrafoChain.class);
+			}
+			if (chain == null) {
+				throw new RuntimeException("Can not find default transformation chain");
+			}
+		}
+		return chain;
 	}
 }

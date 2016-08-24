@@ -54,7 +54,7 @@ public class BindingUtils {
 					StUtils.copyStereotypes(parameter, newParam); // copy stereotypes of the parameter
 				}
 			}
-			TransformationContext.classifier = newOperation.getClass_();
+			TransformationContext.current.classifier = newOperation.getClass_();
 			if (actual instanceof Classifier) {
 				bindOperation(newOperation, (Classifier) actual);
 			}
@@ -89,7 +89,7 @@ public class BindingUtils {
 		EList<String> bodyList = newBehavior.getBodies();
 		for (int i = 0; i < bodyList.size(); i++) {
 			String body = bodyList.get(i);
-			TransformationContext.classifier = (Classifier) newBehavior.getOwner();
+			TransformationContext.current.classifier = (Classifier) newBehavior.getOwner();
 			// pass qualified operation name as template name. Used to identify script in case of an error
 			String newBody = TextTemplateBinding.bind(body, actual);
 			bodyList.set(i, newBody);

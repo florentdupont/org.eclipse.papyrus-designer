@@ -27,7 +27,6 @@ import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
 import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.designer.transformation.core.commands.AddMarteAndFcmProfile;
-import org.eclipse.papyrus.designer.transformation.core.transformations.BootLoaderGen;
 import org.eclipse.papyrus.infra.widgets.toolbox.utils.DialogUtils;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -202,9 +201,10 @@ public class AllocationDialog extends SelectionStatusDialog {
 				nodeName = getAllocName(explicitNodeOrThread);
 			}
 			if (cl instanceof Class) {
-				if (BootLoaderGen.hasUnconnectedStartRoutine(null, (Class) cl, null)) {
+				// if (BootLoaderGen.hasUnconnectedStartRoutine(null, (Class) cl, null)) {
+				// TODO
 					nodeName += " (main)"; //$NON-NLS-1$
-				}
+				// }
 			}
 			EList<InstanceSpecification> implicitNodes = AllocUtils.getAllNodesOrThreadsParent(is);
 			implicitNodes.addAll(AllocUtils.getAllNodesOrThreadsParent(is));

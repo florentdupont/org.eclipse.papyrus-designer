@@ -63,6 +63,8 @@
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectMappings" ordered="false"
         upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.papyrus.designer.transformation.profile/model/Transformation.ecore#//M2MTrafoChain"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Singleton">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"

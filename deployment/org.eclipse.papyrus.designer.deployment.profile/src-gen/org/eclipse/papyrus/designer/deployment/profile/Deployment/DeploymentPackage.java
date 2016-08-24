@@ -509,13 +509,22 @@ public interface DeploymentPackage extends EPackage {
 	int DEPLOYMENT_PLAN__PROJECT_MAPPINGS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Chain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT_PLAN__CHAIN = 2;
+
+	/**
 	 * The number of structural features of the '<em>Plan</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT_PLAN_FEATURE_COUNT = 2;
+	int DEPLOYMENT_PLAN_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Plan</em>' class.
@@ -990,6 +999,17 @@ public interface DeploymentPackage extends EPackage {
 	EAttribute getDeploymentPlan_ProjectMappings();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan#getChain <em>Chain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Chain</em>'.
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan#getChain()
+	 * @see #getDeploymentPlan()
+	 * @generated
+	 */
+	EReference getDeploymentPlan_Chain();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.Singleton <em>Singleton</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1364,6 +1384,14 @@ public interface DeploymentPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DEPLOYMENT_PLAN__PROJECT_MAPPINGS = eINSTANCE.getDeploymentPlan_ProjectMappings();
+
+		/**
+		 * The meta object literal for the '<em><b>Chain</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOYMENT_PLAN__CHAIN = eINSTANCE.getDeploymentPlan_Chain();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.SingletonImpl <em>Singleton</em>}' class.

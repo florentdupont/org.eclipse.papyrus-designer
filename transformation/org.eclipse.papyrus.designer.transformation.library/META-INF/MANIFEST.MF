@@ -1,5 +1,8 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.papyrus.designer.transformation.library,
+ org.eclipse.papyrus.designer.transformation.library.statemachine,
+ org.eclipse.papyrus.designer.transformation.library.transformations,
+ org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers,
  org.eclipse.papyrus.designer.transformation.library.xtend
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide;bundle-version="3.8.0",
@@ -20,7 +23,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.designer.deployment.tools;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.transformation.vsl;bundle-version="0.7.3",
  org.eclipse.uml2.uml.profile.standard;bundle-version="1.0.100",
- org.eclipse.papyrus.designer.languages.cpp.codegen;bundle-version="1.0.2"
+ org.eclipse.papyrus.designer.languages.cpp.codegen;bundle-version="1.0.2",
+ org.eclipse.papyrus.designer.transformation.extensions;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.deployment.profile;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.languages.common.extensionpoints;bundle-version="1.0.2",
+ org.eclipse.papyrus.marte.static.profile;bundle-version="1.2.0"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.3.qualifier

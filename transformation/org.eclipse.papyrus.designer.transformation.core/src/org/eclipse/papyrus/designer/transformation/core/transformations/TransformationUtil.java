@@ -3,9 +3,9 @@ package org.eclipse.papyrus.designer.transformation.core.transformations;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
+import org.eclipse.papyrus.designer.deployment.tools.ConfigUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.core.Activator;
-import org.eclipse.papyrus.designer.transformation.core.extensions.InstanceConfigurator;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Slot;
@@ -16,7 +16,7 @@ public class TransformationUtil {
 			InstanceSpecification subInstance = DepUtils.getInstance(slot);
 			if (!DepUtils.isShared(slot) && (subInstance != null)) {
 				if (slot.getDefiningFeature() instanceof Property) {
-					InstanceConfigurator.configureInstance(subInstance, (Property) slot.getDefiningFeature(), instance);
+					ConfigUtils.configureInstance(subInstance, (Property) slot.getDefiningFeature(), instance);
 				}
 				applyInstanceConfigurators(subInstance);
 			}

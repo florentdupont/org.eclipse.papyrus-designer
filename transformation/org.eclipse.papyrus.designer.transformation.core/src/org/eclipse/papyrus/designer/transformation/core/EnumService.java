@@ -56,17 +56,18 @@ public class EnumService {
 	public static String literalKey(Element dummy, String enumName, String literalKey) {
 		String prefix = "ID_"; //$NON-NLS-1$
 		String literal = ""; //$NON-NLS-1$
+		TransformationContext tf = TransformationContext.current;
 		if (literalKey.equals("Port")) { //$NON-NLS-1$
-			literal = prefix + TransformationContext.port.getName();
+			literal = prefix + tf.port.getName();
 		}
 		else if (literalKey.equals("Formal")) { //$NON-NLS-1$
-			literal = prefix + TransformationContext.formalParameter.getName();
+			literal = prefix + tf.formalParameter.getName();
 		}
 		else if (literalKey.equals("Instance")) { //$NON-NLS-1$
-			literal = prefix + TransformationContext.instance.getName();
+			literal = prefix + tf.instance.getName();
 		}
 		else if (literalKey.equals("Interface")) { //$NON-NLS-1$
-			literal = prefix + TransformationContext.classifier.getName();
+			literal = prefix + tf.classifier.getName();
 		}
 		return literal(enumName, literal);
 	}
@@ -108,12 +109,11 @@ public class EnumService {
 		boolean first = false;
 		if (enumName.startsWith("L")) { //$NON-NLS-1$
 			// magic prefix for class local (only allowed for local classes)
-			if (TransformationContext.classifier instanceof Class) {
-				Class clazz = (Class) TransformationContext.classifier;
+			if (TransformationContext.current.classifier instanceof Class) {
+				Class clazz = (Class) TransformationContext.current.classifier;
 				enumeration = (Enumeration) clazz.getNestedClassifier(enumName);
 				if (enumeration == null) {
-					enumeration = (Enumeration)
-							((Class) TransformationContext.classifier).createNestedClassifier(enumName, UMLPackage.eINSTANCE.getEnumeration());
+					enumeration = (Enumeration) clazz.createNestedClassifier(enumName, UMLPackage.eINSTANCE.getEnumeration());
 				}
 			}
 			else {
@@ -140,7 +140,7 @@ public class EnumService {
 			}
 		}
 		// declare a dependency to the enumeration from the current classifier
-		checkAndCreateDependency(TransformationContext.classifier, enumeration);
+		checkAndCreateDependency(TransformationContext.current.classifier, enumeration);
 
 		if (enumName.startsWith("L")) { //$NON-NLS-1$
 			return literal;

@@ -16,7 +16,7 @@ package org.eclipse.papyrus.designer.transformation.library.iconfigurators;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
-import org.eclipse.papyrus.designer.transformation.core.extensions.IInstanceConfigurator;
+import org.eclipse.papyrus.designer.transformation.extensions.IInstanceConfigurator;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Property;
@@ -38,7 +38,7 @@ public class AnimServiceConfigurator implements IInstanceConfigurator {
 	/**
 	 * Configure the instance of the animation service.
 	 *
-	 * @see org.eclipse.papyrus.designer.components.transformation.core.extensions.IInstanceConfigurator#configureInstance(org.eclipse.uml2.uml.InstanceSpecification, org.eclipse.uml2.uml.InstanceSpecification, org.eclipse.uml2.uml.Port)
+	 * @see org.eclipse.papyrus.designer.transformation.extensions.transformation.core.extensions.IInstanceConfigurator#configureInstance(org.eclipse.uml2.uml.InstanceSpecification, org.eclipse.uml2.uml.InstanceSpecification, org.eclipse.uml2.uml.Port)
 	 *
 	 * @param instance
 	 *            the instance that should be configured

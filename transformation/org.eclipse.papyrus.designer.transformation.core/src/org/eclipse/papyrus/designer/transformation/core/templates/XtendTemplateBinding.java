@@ -11,8 +11,8 @@ import java.lang.reflect.Method;
 
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
-import org.eclipse.papyrus.designer.transformation.core.extensions.IXtend;
-import org.eclipse.papyrus.designer.transformation.core.extensions.XtendGenerator;
+import org.eclipse.papyrus.designer.transformation.extensions.IXtend;
+import org.eclipse.papyrus.designer.transformation.extensions.XtendGenerator;
 import org.eclipse.uml2.uml.Element;
 
 public class XtendTemplateBinding {

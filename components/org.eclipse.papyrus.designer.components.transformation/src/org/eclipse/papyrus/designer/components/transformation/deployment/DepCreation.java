@@ -27,6 +27,7 @@ import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
 import org.eclipse.papyrus.designer.deployment.tools.CORBAtypeNames;
 import org.eclipse.papyrus.designer.deployment.tools.ConfigUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DeployConstants;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -279,7 +280,7 @@ public class DepCreation {
 			}
 			Type type = attribute.getType();
 
-			if (Utils.isComposition(attribute)) {
+			if (ElementUtils.isComposition(attribute)) {
 				// composition, attribute is a part
 				if (((type instanceof Class) && Utils.isComponent((Class) type)) || type instanceof Node) {
 					Class cl = (Class) type;
