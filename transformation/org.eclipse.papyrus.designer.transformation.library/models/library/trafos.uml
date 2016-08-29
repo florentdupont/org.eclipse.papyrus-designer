@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:FCM="http://www.eclipse.org/papyrus/FCM/1" xmlns:SW_Concurrency="http://www.eclipse.org/papyrus/SW_Concurrency/1" xmlns:Transformation="http://www.eclipse.org/papyrus/Transformation/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/SW_Concurrency/1 http://www.eclipse.org/papyrus/MARTE/1#//SRM/SW_Concurrency">
-  <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="core" viewpoint="">
+  <uml:Model xmi:id="_Q6TiIDLUEd26WNosUASSSw" name="trafos" viewpoint="">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_O6TiITLUEd26WNosUASSSw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_clzbsC3xEd6OqY3qskOtLQ">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/sysinterfaces.uml#_RodVAAweEd6it_RkGhz_AA"/>
+      <importedPackage xmi:type="uml:Model" href="pathmap://DML_TRAFO/sysinterfaces.uml#_RodVAAweEd6it_RkGhz_AA"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_K9IBUP-FEd6628OhKk_dpg">
       <importedPackage xmi:type="uml:Model" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_DV8nkBv8EduZN5aJJITI5w"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_mXnzUPQdEeCIC-7tA9lfzA">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/osal.uml#_ROTQYC-OEdySSa8YESkO2w"/>
+      <importedPackage xmi:type="uml:Model" href="pathmap://PapyrusC_Cpp_LIBRARIES/osal.uml#_ROTQYC-OEdySSa8YESkO2w"/>
     </packageImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_TFq8cOy6Ed2UrumbR9YAVg" name="composites">
       <ownedComment xmi:type="uml:Comment" xmi:id="_hGEOAMT8Ed-zx4a_r4xAYw" annotatedElement="_SiY_AP-EEd6628OhKk_dpg">
@@ -49,8 +49,8 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_e6ckkFjmEeKaM_PspnG53g" value="1"/>
         </ownedAttribute>
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_lrFSQDz9Ed-v9PxuTj6Elw" name="derived realization of ILifeCycle" client="_SiY_AP-EEd6628OhKk_dpg">
-          <supplier xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
-          <contract xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
+          <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
+          <contract xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
         </interfaceRealization>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MWW4MAQyEd--t-uhRn9OBA" name="staticAct" specification="_yv198P-EEd6628OhKk_dpg">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_FSlvUMUKEeWfEYAFL-UFuw" name="arg">
@@ -103,7 +103,6 @@ pthread_setschedparam (pt, SCHED_RR, &amp;schedParam);
         <ownedOperation xmi:type="uml:Operation" xmi:id="_JqB6gD16Ed-Bk-AHd6yyoA" name="deactivate" method="_Bxe68H2LEeWV7cfiwPN21w"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_TBScwCxyEeOMQpc6Y-MAJw" name="configuration_complete" method="_-9Gu0H2KEeWV7cfiwPN21w"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Dependency" xmi:id="_wCkVcNYGEd-CgJIavLpOxQ" name="ImplRequirement" client="_SiY_AP-EEd6628OhKk_dpg" supplier="_ea234NYGEd-CgJIavLpOxQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_xtlE8ARAEd--t-uhRn9OBA" name="dataTypes">
       <packagedElement xmi:type="uml:Class" xmi:id="_WkkjoPNUEeCovO8AYZymZQ" name="CallEvent_">
@@ -150,7 +149,7 @@ pthread_setschedparam (pt, SCHED_RR, &amp;schedParam);
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A1OiQPQYEeCovO8AYZymZQ" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_KnS5QPQYEeCovO8AYZymZQ" name="m_cond" visibility="public">
-          <type xmi:type="uml:Class" href="pathmap://QML_CORE/osal.uml#_QWlVgPRTEeCUGrV0Hl4JwQ"/>
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/osal.uml#_QWlVgPRTEeCUGrV0Hl4JwQ"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KyZ9EPQYEeCovO8AYZymZQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KyakIPQYEeCovO8AYZymZQ" value="1"/>
         </ownedAttribute>
@@ -331,8 +330,8 @@ m_size = 0;</body>
           </defaultValue>
         </ownedAttribute>
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_pMOMQMTiEeWfEYAFL-UFuw" name="derived realization of IRunnable" client="_9V8OQCjYEeGFbebITJYb9g">
-          <supplier xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
-          <contract xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
+          <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
+          <contract xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
         </interfaceRealization>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rmAHEMTiEeWfEYAFL-UFuw" name="run" specification="_pMrfQMTiEeWfEYAFL-UFuw">
           <language>C/C++</language>
@@ -363,7 +362,7 @@ for (;;) {
           </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Port" xmi:id="_3NSGwCkAEeGDDbdzqSb4UA" name="tick" visibility="public" aggregation="composite">
-          <type xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
+          <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_30IrYCkAEeGDDbdzqSb4UA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_30LusCkAEeGDDbdzqSb4UA" value="1"/>
         </ownedAttribute>
@@ -389,7 +388,7 @@ for (;;) {
         </ownedConnector>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_SXkHQCo0EeGxrprK9wB9iA" name="Dependency1" client="_9V8OQCjYEeGFbebITJYb9g">
-        <supplier xmi:type="uml:Class" href="pathmap://QML_CORE/osal.uml#_ETakYDj8Edy0Rd6V_tf1-Q"/>
+        <supplier xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/osal.uml#_ETakYDj8Edy0Rd6V_tf1-Q"/>
       </packagedElement>
       <packagedElement xmi:type="uml:DataType" xmi:id="_OU5asFaNEeKxltxu9uR4dg" name="ParamValues">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_RW82cFaNEeKxltxu9uR4dg" name="values" visibility="public">
@@ -429,13 +428,13 @@ for (;;) {
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_-WNegNtxEd6nqsBVkgJEEA" name="LifeCycle" isAbstract="true">
         <ownedAttribute xmi:type="uml:Port" xmi:id="__SLXgNtxEd6nqsBVkgJEEA" name="lc" aggregation="composite">
-          <type xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
+          <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_57__MCS-Ed-A_I32T0fkaA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_58tJ0CS-Ed-A_I32T0fkaA" value="1"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_xsB0QL4KEeWvxpnDGpErAg" client="_JRmo0PNAEeCovO8AYZymZQ">
-        <supplier xmi:type="uml:Class" href="pathmap://QML_CORE/osal.uml#_FuKEEDj8Edy0Rd6V_tf1-Q"/>
+        <supplier xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/osal.uml#_FuKEEDj8Edy0Rd6V_tf1-Q"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_y4qB4ARJEd--t-uhRn9OBA" name="containerRules">
@@ -475,11 +474,6 @@ for (;;) {
         <packagedElement xmi:type="uml:Class" xmi:id="_CxQBcF0OEd-12d_h0i1xhQ" name="StandardPC"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_KjufQF0OEd-12d_h0i1xhQ" name="GenericARM7"/>
       </packagedElement>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_I19MANYGEd-CgJIavLpOxQ" name="pthread">
-      <packagedElement xmi:type="uml:Class" xmi:id="_ea234NYGEd-CgJIavLpOxQ" name="pthread_t"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_-vYZoCa0EeazPcQ6-9hBeQ" name="pthread_cond_t"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="__niwsCa0EeazPcQ6-9hBeQ" name="pthread_mutex_t"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_Ky7kwF4QEea4bLzKfwAjjA" name="m2mtransformations">
       <packagedElement xmi:type="uml:Class" xmi:id="_Ck0eYF4REea4bLzKfwAjjA" name="Standard">
@@ -529,47 +523,46 @@ for (;;) {
       <appliedProfile xmi:type="uml:Profile" href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
     </profileApplication>
   </uml:Model>
-  <standard:ModelLibrary xmi:id="_CQiMQFtQEd6p9KQoJ8hRoA" base_Package="_O6TiIDLUEd26WNosUASSSw"/>
   <C_Cpp:Include xmi:id="_sJry0JsqEd61Eo3nmu3JhQ" body="BootLoader bootloader;&#xA;&#xA;int main (int argc, char* argv[])&#xA;{&#xA;    bootloader.init ();&#xA;    return 0;&#xA;}&#xA;" base_class="_1RehUAGpEd6eR-dxi5su4Q"/>
   <FCM:Port xmi:id="__SL-kNtxEd6nqsBVkgJEEA" base_Port="__SLXgNtxEd6nqsBVkgJEEA">
-    <type xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
+    <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
   </FCM:Port>
   <FCM:Port xmi:id="_Zjd1EP-EEd6628OhKk_dpg" base_Port="_ZjdOAP-EEd6628OhKk_dpg">
-    <type xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
+    <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
   </FCM:Port>
   <C_Cpp:Ptr xmi:id="_Aw8hMP-FEd6628OhKk_dpg" base_parameter="_1TXqoP-EEd6628OhKk_dpg"/>
   <C_Cpp:Ptr xmi:id="_NjCToP-FEd6628OhKk_dpg" base_parameter="_BywjgP-FEd6628OhKk_dpg"/>
   <FCM:ContainerRule xmi:id="_3Jq5MARLEd-OidZzGKCpzg" base_Class="_14WtMARJEd--t-uhRn9OBA"/>
   <C_Cpp:Include xmi:id="_Q7TVYBJcEd-QgZm_R1AKbA" body="#include &lt;pthread.h>" base_class="_SiY_AP-EEd6628OhKk_dpg"/>
   <FCM:DerivedElement xmi:id="_JqAFUD16Ed-Bk-AHd6yyoA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_JqEWwD16Ed-Bk-AHd6yyoA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_RTu-gED2Ed-_DOja_sRgWA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_RUIAEED2Ed-_DOja_sRgWA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_xsrykEJFEd-Ps4Bfh0j9LQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_xs0VcEJFEd-Ps4Bfh0j9LQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_qBaUMFJEEd-OfYmxqPWG5g" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_qBeloFJEEd-OfYmxqPWG5g" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_t--FUF0NEd-12d_h0i1xhQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_t_EzAF0NEd-12d_h0i1xhQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:OperatingSystem xmi:id="_1eULwF0NEd-12d_h0i1xhQ" base_Class="_zVs5cF0NEd-12d_h0i1xhQ"/>
   <FCM:OperatingSystem xmi:id="_3MI_gF0NEd-12d_h0i1xhQ" base_Class="_17yx8F0NEd-12d_h0i1xhQ"/>
@@ -579,22 +572,22 @@ for (;;) {
   <FCM:TargetArchitecture xmi:id="_W5gJIF0OEd-12d_h0i1xhQ" base_Class="_KjufQF0OEd-12d_h0i1xhQ"/>
   <FCM:TargetArchitecture xmi:id="_YHIZ4F0OEd-12d_h0i1xhQ" base_Class="_PFcW8F0OEd-12d_h0i1xhQ"/>
   <FCM:DerivedElement xmi:id="_FWe6IG4sEd-0rs2VEGIwsA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_FWlAwG4sEd-0rs2VEGIwsA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_9Kl8IG4-Ed-J1L578xi-WA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_9K4QAG4-Ed-J1L578xi-WA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_Si_2kG5fEd-5CZIeuHpHAg" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:DerivedElement xmi:id="_SjXqAG5fEd-5CZIeuHpHAg" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
   </FCM:DerivedElement>
   <FCM:ConfigurationProperty xmi:id="_s0fGMMGJEd-Mveea1W_olA" base_Property="_rVfYoMGJEd-Mveea1W_olA"/>
   <FCM:Port xmi:id="_MzPjkPNAEeCovO8AYZymZQ" base_Port="_MzO8gPNAEeCovO8AYZymZQ" type="_omxU4PNAEeCovO8AYZymZQ"/>
@@ -607,26 +600,21 @@ for (;;) {
   <C_Cpp:Const xmi:id="_MGjk0CSlEeG6GJ4vU06VYQ" base_property="_Ig_MUCSlEeG6GJ4vU06VYQ"/>
   <C_Cpp:Include xmi:id="_Yx49gCaeEeG4fZdVXNtoOQ" body="#include &lt;errno.h>" base_class="_JRmo0PNAEeCovO8AYZymZQ"/>
   <FCM:Port xmi:id="_ATRiESjZEeGFbebITJYb9g" base_Port="_ATRiECjZEeGFbebITJYb9g">
-    <type xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
+    <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
   </FCM:Port>
   <FCM:ContainerRule xmi:id="_MS45QCjaEeGFbebITJYb9g" base_Class="_1sCBICjZEeGFbebITJYb9g"/>
   <FCM:ConfigurationProperty xmi:id="_zVumMCjbEeGFbebITJYb9g" base_Property="_tmNeoCjbEeGFbebITJYb9g"/>
   <FCM:Port xmi:id="_3NSGwSkAEeGDDbdzqSb4UA" base_Port="_3NSGwCkAEeGDDbdzqSb4UA">
-    <type xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
+    <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
   </FCM:Port>
   <FCM:OperatingSystem xmi:id="_r4nVcCp9EeG1Y7BvjQ0T-w" base_Class="_onKy0Cp9EeG1Y7BvjQ0T-w"/>
-  <C_Cpp:ExternLibrary xmi:id="_xVwkUNqCEeKrRY-H1kHnNA" base_package="_I19MANYGEd-CgJIavLpOxQ">
-    <libs>pthread</libs>
-    <libs>rt</libs>
-    <includes>pthread.h</includes>
-  </C_Cpp:ExternLibrary>
   <SW_Concurrency:SwSchedulableResource xmi:id="_42YPYBn3EeONpa5JgejICQ" base_Classifier="_SiY_AP-EEd6628OhKk_dpg" priorityElements="_rVfYoMGJEd-Mveea1W_olA"/>
   <FCM:DerivedElement xmi:id="_TJO30CxyEeOMQpc6Y-MAJw" base_Element="_TBScwCxyEeOMQpc6Y-MAJw">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_ns4qsClUEeO4bs_nkcnKOg"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_ns4qsClUEeO4bs_nkcnKOg"/>
   </FCM:DerivedElement>
   <C_Cpp:Const xmi:id="_YKw8INhuEeSqPLTzapTtmQ" base_property="_YHC5wNhuEeSqPLTzapTtmQ"/>
   <FCM:DerivedElement xmi:id="_pMuikMTiEeWfEYAFL-UFuw" base_Element="_pMrfQMTiEeWfEYAFL-UFuw">
-    <source xmi:type="uml:Operation" href="pathmap://QML_CORE/sysinterfaces.uml#_C9IK4JsqEd61Eo3nmu3JhQ"/>
+    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_C9IK4JsqEd61Eo3nmu3JhQ"/>
   </FCM:DerivedElement>
   <C_Cpp:Ptr xmi:id="_FSoLkMUKEeWfEYAFL-UFuw" base_parameter="_FSlvUMUKEeWfEYAFL-UFuw"/>
   <C_Cpp:Ptr xmi:id="_FSqn0MUKEeWfEYAFL-UFuw" base_parameter="_FSoLkcUKEeWfEYAFL-UFuw"/>

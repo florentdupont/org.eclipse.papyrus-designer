@@ -15,7 +15,6 @@
 package org.eclipse.papyrus.designer.components.transformation.listeners;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.papyrus.designer.components.transformation.Activator;
 import org.eclipse.papyrus.designer.components.transformation.sync.CompImplSync;
 import org.eclipse.papyrus.infra.core.listenerservice.IPapyrusListener;
 import org.eclipse.uml2.uml.BehavioralFeature;
@@ -35,7 +34,6 @@ public class InterfaceListener implements IPapyrusListener {
 
 	@Override
 	public void notifyChanged(Notification notification) {
-		Activator.log.info("Interface adapter"); //$NON-NLS-1$
 		int evtType = notification.getEventType();
 		Object notifier = notification.getNotifier();
 		if (evtType == Notification.SET) {

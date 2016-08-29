@@ -15,38 +15,31 @@
  package org.eclipse.papyrus.designer.transformation.library.statemachine
 
 import org.eclipse.uml2.uml.Type
-import org.eclipse.uml2.uml.Model
 import org.eclipse.uml2.uml.Package
 
 class PThreadTypes {
-	Package mPthreadPkg
+	Package target
 	
-	new (Model target) {
-		for (pkg : target.importedPackages) {
-			if (pkg.name.equals("core")) {
-				val pthreadPkgCandidate = pkg.getMember("pthread")
-				if (pthreadPkgCandidate instanceof Package) {
-					mPthreadPkg = pthreadPkgCandidate as Package
-				}
-			}
-		}
+	new (Package target) {
+		// thread pthread model is imported into state-machine, its members can be directly found. 
+		this.target = target;
 	}
 	
 	def public getPthreadCond() {
-		if (mPthreadPkg != null) {
-			mPthreadPkg.getPackagedElement("pthread_cond_t") as Type
+		if (target != null) {
+			target.getMember("pthread_cond_t") as Type
 		}
 	}
 	
 	def public getPthreadMutex() {
-		if (mPthreadPkg != null) {
-			mPthreadPkg.getPackagedElement("pthread_mutex_t") as Type
+		if (target != null) {
+			target.getMember("pthread_mutex_t") as Type
 		}
 	}
 	
 	def public getPthread() {
-		if (mPthreadPkg != null) {
-			mPthreadPkg.getPackagedElement("pthread_t") as Type
+		if (target != null) {
+			target.getMember("pthread_t") as Type
 		}
 	}
 }

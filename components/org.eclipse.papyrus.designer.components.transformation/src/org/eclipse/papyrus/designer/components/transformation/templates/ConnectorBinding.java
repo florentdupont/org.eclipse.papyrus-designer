@@ -23,7 +23,6 @@ import org.eclipse.papyrus.designer.components.transformation.Messages;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.extensions.TransformationContext;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -389,7 +388,9 @@ public class ConnectorBinding {
 					}
 					if ((formal instanceof Port) && (formalNE.getName().equals("P"))) { //$NON-NLS-1$
 						// port (but not available?)
-						actual = TransformationContext.port;
+						// actual = TransformationContext.current.port;
+						// TODO
+						actual = null;
 					}
 				}
 			}

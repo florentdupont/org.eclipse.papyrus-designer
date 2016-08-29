@@ -35,12 +35,13 @@ import org.eclipse.papyrus.designer.components.transformation.extensions.IOOTraf
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
 import org.eclipse.papyrus.designer.components.transformation.PortInfo
 import org.eclipse.papyrus.designer.components.transformation.PortUtils
-import org.eclipse.papyrus.designer.components.transformation.transformations.PrefixConstants
 import org.eclipse.uml2.uml.Port
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
 import org.eclipse.papyrus.designer.components.FCM.Assembly
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
+import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants
+import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants.CIFvariant
 
 /**
  * This class realizes the transformation from component-based to object-oriented
@@ -69,6 +70,7 @@ class StaticCppToOO implements IOOTrafo {
 	protected LazyCopier copier
 
 	def override init(LazyCopier copier, Class bootloader) {
+		PrefixConstants.init(CIFvariant.UML);
 		this.copier = copier
 	}
 

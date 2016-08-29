@@ -12,17 +12,17 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.components.transformation.connector;
+package org.eclipse.papyrus.designer.components.modellibs.core.transformations;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
-import org.eclipse.papyrus.designer.components.transformation.deployment.DepPlanUtils;
-import org.eclipse.papyrus.designer.components.transformation.deployment.DepUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepPlanUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafoElem;
+import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.uml2.uml.Class;

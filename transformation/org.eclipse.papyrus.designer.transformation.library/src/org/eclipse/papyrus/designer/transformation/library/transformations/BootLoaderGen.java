@@ -92,7 +92,9 @@ public class BootLoaderGen implements IM2MTrafoCDP {
 		// instance is within a namespace (a static attribute on the model level would not solve the
 		// problem as it must be accessed by function main).
 
-		Class nodeInfo = copier.target.createOwnedClass(NODE_INFO, false);
+		Package root = TransformationContext.current.modelRoot;
+		
+		Class nodeInfo = root.createOwnedClass(NODE_INFO, false);
 		String headerStr =
 				"const int nodeIndex = " + nodeIndex + ";" + NL + //$NON-NLS-1$//$NON-NLS-2$
 						"const int numberOfNodes = " + numberOfNodes + ";" + NL; //$NON-NLS-1$ //$NON-NLS-2$
@@ -104,18 +106,18 @@ public class BootLoaderGen implements IM2MTrafoCDP {
 
 		// bootLoader.createOwnedAttribute (mainInstance.getName (), composite);
 
-		m_bootLoader = copier.target.createOwnedClass(BOOTLOADER_NAME, false);
+		m_bootLoader = root.createOwnedClass(BOOTLOADER_NAME, false);
 		outputSizeof = false;
 		m_copier = copier;
-		Class template = (Class) ElementUtils.getQualifiedElement(copier.source, bootloaderQNAME);
+		Class template = (Class) ElementUtils.getQualifiedElement(copier.source, BOOT_LOADER_QNAME);
+		if (false) {
 		if (template == null) {
 			throw new TransformationException(String.format(
-					Messages.BootLoaderGen_CannotRetrieveTemplate, bootloaderQNAME));
+					Messages.BootLoaderGen_CannotRetrieveTemplate, BOOT_LOADER_QNAME));
 		}
 		// TODO: currently, only stereotypes are copied from template
 		StUtils.copyStereotypes(template, m_bootLoader);
-
-
+		}
 		// TODO: commented code below already fixed?
 		/*
 		 * Problem: defaultValue not taken into account by code generator
@@ -210,6 +212,7 @@ public class BootLoaderGen implements IM2MTrafoCDP {
 		// shared instances needs to be configured.
 		// It should always be possible to configure this instance via a path w/o sharing.
 		String accessName = getPath(slotPath, instance, true);
+		Package tst = TransformationContext.current.modelRoot;
 		String varName = getPath(slotPath, instance, false);
 
 		Property implemPart = null;
@@ -314,11 +317,11 @@ public class BootLoaderGen implements IM2MTrafoCDP {
 	 * @param containerSlot
 	 * @return
 	 */
-	public static boolean hasUnconnectedStartRoutine(LazyCopier copy, Class implementation, Slot containerSlot) {
+	public static boolean hasUnconnectedStartRoutine(LazyCopier copier, Class implementation, Slot containerSlot) {
 		if (implementation != null) {
 			Port startPort = AllocUtils.getStartPort(implementation);
 			if (startPort != null) {
-				return !isConnected(copy, containerSlot, startPort);
+				return !isConnected(copier, containerSlot, startPort);
 			}
 		}
 		return false;
@@ -362,10 +365,7 @@ public class BootLoaderGen implements IM2MTrafoCDP {
 		if (containerSlot != null) {
 			StructuralFeature sf = containerSlot.getDefiningFeature();
 			if (sf instanceof Property) {
-				// instance still points to a part in the tmp-model (there are no
-				// instance specifications in the final model). Therefore, we use the copier to
-				// obtain the mapped instance.
-				Property part = (Property) copier.copy(sf);
+				Property part = (Property) sf;
 				Class composite = part.getClass_();
 				for (Connector connector : composite.getOwnedConnectors()) {
 					// must assure same connector end connects part & port
@@ -518,7 +518,7 @@ public class BootLoaderGen implements IM2MTrafoCDP {
 
 	private Class m_bootLoader;
 
-	private final static String bootloaderQNAME = "core::composites::BootLoader"; //$NON-NLS-1$
+	public final static String BOOT_LOADER_QNAME = "trafos::composites::BootLoader"; //$NON-NLS-1$
 
 	/**
 	 * Initialization code, in particular assignment of part properties within composites

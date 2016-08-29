@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.eclipse.papyrus.designer</groupId>
+		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
+	</parent>
+	<artifactId>org.eclipse.papyrus.designer.languages</artifactId>
+	<packaging>pom</packaging>
+	<name>Designer Languages</name>
+	<description>This module contains the different plugins relative to different (programming) languages</description>
+
+	<modules>
+		<module>org.eclipse.papyrus.designer.transformation.core</module>
+		<module>org.eclipse.papyrus.designer.transformation.library</module>
+		<module>org.eclipse.papyrus.designer.transformation.ui</module>
+		<module>org.eclipse.papyrus.designer.transformation.base</module>
+		<module>org.eclipse.papyrus.designer.transformation.extensions</module>
+		<module>org.eclipse.papyrus.designer.transformation.profile</module>
+		<module>org.eclipse.papyrus.designer.transformation.vsl</module>
+	</modules>
+
+</project>

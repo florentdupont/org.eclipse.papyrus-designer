@@ -194,12 +194,14 @@ public class ElementUtils {
 					}
 				}
 			}
-		} else {
+		}
+		else {
 			String segment = remainingPath.split(NamedElement.SEPARATOR)[0];
 			String remainder = remainingPath.substring(segment.length() + 2);
 			for (Element element : root.getMembers()) {
 				if (element instanceof Package) {
-					if (((NamedElement) element).getName().equals(segment)) {
+					String pkgName = ((Package) element).getName();
+					if (pkgName != null && pkgName.equals(segment)) {
 						NamedElement foundElement = getQualifiedElement(
 								(Package) element, remainder, qualifiedName);
 						// return, if not found

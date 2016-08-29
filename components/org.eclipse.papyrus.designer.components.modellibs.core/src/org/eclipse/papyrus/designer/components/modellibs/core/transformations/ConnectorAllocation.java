@@ -1,13 +1,12 @@
-package org.eclipse.papyrus.designer.components.transformation.connector;
+package org.eclipse.papyrus.designer.components.modellibs.core.transformations;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.Fragment;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
-import org.eclipse.papyrus.designer.components.transformation.deployment.DepUtils;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafoElem;
+import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -72,7 +71,7 @@ public class ConnectorAllocation implements IM2MTrafoElem {
 	}
 
 	@Override
-	public void transformElement(LazyCopier copier, M2MTrafo trafo, Element element) throws TransformationException {
+	public void transformElement(M2MTrafo trafo, Element element) throws TransformationException {
 		if (element instanceof Slot) {
 			Slot partSlot = (Slot) element;
 			Property part = (Property) partSlot.getDefiningFeature();

@@ -36,7 +36,7 @@ public class TransformationContext {
 	
 	public ILangProjectSupport projectSupport;
 	
-	public Package sourceRoot;
+	public Package modelRoot;
 
 	public LazyCopier copier;
 		

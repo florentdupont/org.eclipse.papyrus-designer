@@ -12,34 +12,37 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.components.transformation.connector;
+package org.eclipse.papyrus.designer.components.modellibs.core.transformations;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
+import org.eclipse.papyrus.designer.components.modellibs.core.utils.CompDepUtils;
 import org.eclipse.papyrus.designer.components.transformation.Messages;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
-import org.eclipse.papyrus.designer.components.transformation.deployment.DepUtils;
 import org.eclipse.papyrus.designer.components.transformation.templates.ConnectorBinding;
 import org.eclipse.papyrus.designer.components.transformation.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoCDP;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafoElem;
-import org.eclipse.papyrus.designer.transformation.extensions.TransformationContext;
+import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.infra.core.Activator;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.ConnectableElement;
 import org.eclipse.uml2.uml.Connector;
 import org.eclipse.uml2.uml.ConnectorEnd;
-import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
 import org.eclipse.uml2.uml.InstanceSpecification;
+import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Port;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.TemplateBinding;
@@ -48,9 +51,9 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 /**
  * This class enables the reification of connectors, i.e. the replacement of
  * a UML connector with an interaction component. Reification is primarily
- * done on the level of a composite class, the
+ * done on the level of a composite class.
  */
-public class ConnectorReification implements IM2MTrafoElem {
+public class ConnectorReification implements IM2MTrafoCDP {
 
 	/**
 	 * Find a port that would match a connection
@@ -74,10 +77,30 @@ public class ConnectorReification implements IM2MTrafoElem {
 	}
 
 	/**
+	 * Simple helper function that finds the opposite connector end when one is given.
+	 * If returns the first connector end that is not equal to the passed one, but results
+	 * will not be useful in general for n-ary connectors (n!=2)
+	 * 
+	 * @param connector
+	 *            a connector
+	 * @param myEnd
+	 *            one end of a connector.
+	 * @return the connector end that is associated with the "other" end of a
+	 *         connection, i.e. the end that differs from the passed connector end
+	 */
+	public static ConnectorEnd oppositeConnEnd(Connector connector, ConnectorEnd myEnd) {
+		// look for the other end (connectedEnd != myEnd)
+		for (ConnectorEnd end : connector.getEnds()) {
+			if (end != myEnd) {
+				return end;
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * Reify a connector already represented in form of a part (useful for n-ary connectors)
 	 * 
-	 * @param copier
-	 *            a lazy copier
 	 * @param composite
 	 *            containing composite in target target model
 	 * @param connectorPart
@@ -90,24 +113,28 @@ public class ConnectorReification implements IM2MTrafoElem {
 	 *         connector
 	 * @throws TransformationException
 	 */
-	public static Property reifyConnector(Class composite, Property connectorPart, InstanceSpecification compositeIS) throws TransformationException {
+	public Property reifyConnector(Class composite, Property connectorPart, InstanceSpecification compositeIS) throws TransformationException {
+
+		LazyCopier copier = TransformationContext.current.copier;
 
 		if (!(connectorPart.getType() instanceof Class)) {
-			// can not happen since caller checks whether type is stereotyped as ConnectorComp
-			// which extends class
-			Activator.log.debug(Messages.ConnectorReification_TemplateTypeNotClass);
+			// type is not a class, now check whether it is an interaction component
 			return null;
 		}
+		Class connImplementation = (Class) connectorPart.getType();
+		if (!StereotypeUtil.isApplied(connImplementation, InteractionComponent.class)) {
+			return null;
+		}
+
 		// choose an implementation
-		Class connectorImplemTemplate = DepUtils.chooseImplementation((Class) connectorPart.getType(), AllocUtils.getAllNodes(compositeIS), null);
+		Class connectorImplemTemplate = CompDepUtils.chooseImplementation(connImplementation, AllocUtils.getAllNodes(compositeIS), null);
 
 		TemplateBinding binding = ConnectorBinding.obtainBinding(composite, connectorPart, connectorImplemTemplate, true);
 		Class connectorImplem;
 
-		LazyCopier copier = TransformationContext.copier;
 		if (binding != null) {
 			TemplateUtils.adaptActualsToTargetModel(copier, binding);
-			TemplateInstantiation ti = new TemplateInstantiation(copier, binding);
+			TemplateInstantiation ti = new TemplateInstantiation(binding);
 			connectorImplem = ti.bindElement(connectorImplemTemplate);
 		} else {
 			// no binding, class is not a template => copy as it is
@@ -123,23 +150,24 @@ public class ConnectorReification implements IM2MTrafoElem {
 	/**
 	 * Reify a connector
 	 *
-	 * @param copier
-	 *            The coper from source to target mode
-	 * @param tmComponent
-	 *            containing composite in target target
-	 * @param smConnector
-	 *            connector element within the source model
-	 * @param tmIS
-	 *            target instance specification of the composite passed as 2nd parameter
+	 * @param composite
+	 *            containing composite
+	 * @param connector
+	 *            connector within the passed composite. If connector reification is successful, the passed connector will be destroyed
+	 *            (since replaced by a new connector-part-connector combination)
+	 * @param compositeIS
+	 *            instance specification of the composite passed as 2nd parameter
 	 *            (required for obtaining node allocation and choosing the right implementation.
 	 *            Main use: decide whether a distributed implementation of an interaction component needs to be used)
-	 * @return the created part within tmComponent
+	 * @return the created part within the composite or null, if no reification could be executed.
 	 * @throws TransformationException
 	 */
-	public static Property reifyConnector(Class tmComponent, Connector smConnector, InstanceSpecification tmIS) throws TransformationException {
+	public Property reifyConnector(Class composite, Connector connector, InstanceSpecification compositeIS) throws TransformationException {
 
-		org.eclipse.papyrus.designer.components.FCM.Connector fcmConn = UMLUtil.getStereotypeApplication(smConnector, org.eclipse.papyrus.designer.components.FCM.Connector.class);
-		String name = ElementUtils.varName(smConnector);
+		LazyCopier copier = TransformationContext.current.copier;
+
+		org.eclipse.papyrus.designer.components.FCM.Connector fcmConn = UMLUtil.getStereotypeApplication(connector, org.eclipse.papyrus.designer.components.FCM.Connector.class);
+		String name = ElementUtils.varName(connector);
 
 		InteractionComponent connType = fcmConn.getIc();
 		if (connType == null) {
@@ -147,10 +175,10 @@ public class ConnectorReification implements IM2MTrafoElem {
 		}
 
 		// choose an implementation
-		Class connectorImplemTemplate = DepUtils.chooseImplementation(connType.getBase_Class(), AllocUtils.getAllNodes(tmIS), null);
+		Class connectorImplemTemplate = DepUtils.chooseImplementation(connType.getBase_Class(), AllocUtils.getAllNodes(compositeIS), null);
 
 		// ---- obtain binding & instantiate template type ...
-		binding = ConnectorBinding.obtainBinding(tmComponent, smConnector, connectorImplemTemplate, true);
+		TemplateBinding binding = ConnectorBinding.obtainBinding(composite, connector, connectorImplemTemplate, true);
 		Class connectorImplem;
 
 		if (binding != null) {
@@ -159,7 +187,7 @@ public class ConnectorReification implements IM2MTrafoElem {
 			// the bound package is set within container transformations and is (by default) restored to "null" afterwards.
 			// TODO: TemplateInstantiation should do this automatically
 			copier.pushPackageTemplate();
-			TemplateInstantiation ti = new TemplateInstantiation(copier, binding);
+			TemplateInstantiation ti = new TemplateInstantiation(binding);
 			connectorImplem = ti.bindElement(connectorImplemTemplate);
 			copier.popPackageTemplate();
 		} else {
@@ -171,19 +199,19 @@ public class ConnectorReification implements IM2MTrafoElem {
 			throw new TransformationException(String.format(Messages.ConnectorReification_CouldNotBind, connectorImplemTemplate.getName()));
 		}
 
-		Property tmConnectorPart = tmComponent.createOwnedAttribute(name, connectorImplemTemplate);
+		Property tmConnectorPart = composite.createOwnedAttribute(name, connectorImplemTemplate);
 		// copy id, but prefix it with "p" (for part)
-		CopyUtils.copyID(smConnector, tmConnectorPart, "p"); //$NON-NLS-1$
+		CopyUtils.copyID(connector, tmConnectorPart, "p"); //$NON-NLS-1$
 		tmConnectorPart.setIsComposite(true);
 
 		Activator.log.info(String.format(Messages.ConnectorReification_InfoAddConnectorPart, connectorImplemTemplate.getName(), connectorImplem.getName()));
 
 		// now create (simple) connections towards the new part
 		int i = 0;
-		for (ConnectorEnd smEnd : smConnector.getEnds()) {
-			Connector tmConnector = tmComponent.createOwnedConnector("c " //$NON-NLS-1$
+		for (ConnectorEnd smEnd : connector.getEnds()) {
+			Connector tmConnector = composite.createOwnedConnector("c " //$NON-NLS-1$
 					+ name + " " + String.valueOf(i)); //$NON-NLS-1$
-			CopyUtils.copyID(smConnector, tmConnector);
+			CopyUtils.copyID(connector, tmConnector);
 			i++;
 			// the new connector connects the existing end with an end of the
 			// reified connector (the newly created property.)
@@ -212,29 +240,9 @@ public class ConnectorReification implements IM2MTrafoElem {
 		tmConnectorPart.setType(connectorImplem);
 		// updatePorts(tmComponent, connectorPart, connectorImplem);
 		// connectContainerPorts(tmComponent, connectorPart);
-
+		connector.destroy();
+		
 		return tmConnectorPart;
-	}
-
-	public static TemplateBinding binding;
-
-	/**
-	 * Simple helper function
-	 *
-	 * @param part
-	 * @param connection
-	 * @return the connector end that is associated with the "other" end of a
-	 *         connection, i.e. the end that is not connected with the part
-	 *         passed as parameter.
-	 */
-	public static ConnectorEnd oppositeConnEnd(Connector connection, ConnectorEnd myEnd) {
-		// look for the other end (connectedEnd != myEnd)
-		for (ConnectorEnd end : connection.getEnds()) {
-			if (end != myEnd) {
-				return end;
-			}
-		}
-		return null;
 	}
 
 	/**
@@ -249,7 +257,7 @@ public class ConnectorReification implements IM2MTrafoElem {
 	 * @param reifiedConnector
 	 *            the part associated with the reifiedConnector
 	 */
-	static void connectContainerPorts(Class composite, Property reifiedConnector) {
+	public void connectContainerPorts(Class composite, Property reifiedConnector) {
 		// This function is based on the assumption that the additional ports of the reified
 		// connector need to be connected with a port of a component that is already
 		// connected via the "normal" connectors (explicitly modeled by the user).
@@ -321,18 +329,26 @@ public class ConnectorReification implements IM2MTrafoElem {
 	}
 
 	@Override
-	public void transformElement(M2MTrafo trafo, Element element) throws TransformationException {
-		if (element instanceof Connector) {
-			Connector connector = (Connector) element;
-			Class tmComponent = (Class) connector.getOwner();
+	public void applyTrafo(M2MTrafo trafo, Package deploymentPlan) throws TransformationException {
+		for (InstanceSpecification is : DepUtils.getInstances(deploymentPlan)) {
+			Classifier cl = DepUtils.getClassifier(is);
+			if (cl instanceof Class) {
+				Class clazz = (Class) cl;
+				EList<Connector> connectorListCopy = new BasicEList<Connector>();
+				connectorListCopy.addAll(clazz.getOwnedConnectors());
+				for (Connector connector : connectorListCopy) {
+					Class tmComponent = (Class) connector.getOwner();
+					reifyConnector(tmComponent, connector, is);
+				}
+				
+				EList<Property> attributeListCopy = new BasicEList<Property>();
+				attributeListCopy.addAll(clazz.getAttributes());
+				for (Property attribute : attributeListCopy) {
 
-			reifyConnector(tmComponent, connector, null);
-		}
-		else if (element instanceof Property) {
-			Property connectorPart = (Property) element;
-			Class tmComponent = (Class) connectorPart.getOwner();
-
-			reifyConnector(tmComponent, connectorPart, null);
+					Class tmComponent = (Class) attribute.getOwner();
+					reifyConnector(tmComponent, attribute, is);
+				}
+			}
 		}
 	}
 }

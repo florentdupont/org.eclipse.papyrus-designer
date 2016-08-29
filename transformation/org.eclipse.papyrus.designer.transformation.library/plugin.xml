@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-   <extension id="QML_CORE" point="org.eclipse.emf.ecore.uri_mapping">
-      <mapping source="pathmap://QML_CORE/" target="platform:/plugin/org.eclipse.papyrus.designer.transformation.library/models/library/">
-      </mapping>
-   </extension>
-    <extension name="Designer core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library description="Designer core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: basic" path="pathmap://QML_CORE/core.uml" provider="CEA LIST">
-      </library>
-   </extension>
-   <extension name="FIFO" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: FIFO" path="pathmap://QML_CORE/fifo.uml" provider="CEA LIST">
-      </library>
+	<extension id="DML_TRAFO" point="org.eclipse.emf.ecore.uri_mapping">
+		<mapping source="pathmap://DML_TRAFO/" target="platform:/plugin/org.eclipse.papyrus.designer.transformation.library/models/library/">
+		</mapping>
 	</extension>
-	<extension name="OS-AL" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: OS abstraction layer (OS-AL)" path="pathmap://QML_CORE/osal.uml" provider="CEA LIST">
+    <extension name="Designer transformation library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+		<library
+			description="Designer transformation library"
+			iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			name="Designer model library: M2M transformations"
+			path="pathmap://DML_TRAFO/trafos.uml"
+			provider="CEA LIST">
 		</library>
 	</extension>
 	<extension name="StateMachine" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: State-machines" path="pathmap://QML_CORE/statemachine.uml" provider="CEA LIST">
+		<library
+			iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			name="Designer model library: State-machines"
+			path="pathmap://DML_TRAFO/statemachine.uml"
+			provider="CEA LIST">
 		</library>
 	</extension>
 	<extension point="org.eclipse.papyrus.uml.diagram.wizards.templates">
@@ -87,56 +88,56 @@
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="core::bindingHelpers::LoopOperations"
+			transformationID="trafos::bindingHelpers::LoopOperations"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.LoopOperations">
 		</transformation>
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="core::bindingHelpers::BindOperation"
+			transformationID="trafos::bindingHelpers::BindOperation"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.BindOperation">
 		</transformation>
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="core::bindingHelpers::BindCppIncludeToFirstActual"
+			transformationID="trafos::bindingHelpers::BindCppIncludeToFirstActual"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.BindCppIncludeToFirstActual">
 		</transformation>
 	</extension>
 
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="core::m2mtransformations::M2MFromStereotype"
+			transformationID="trafos::m2mtransformations::M2MFromStereotype"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.M2MFromStereotype">
 		</transformation>
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="core::m2mtransformations::DeployToNodes"
+			transformationID="trafos::m2mtransformations::DeployToNodes"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.DeployToNodes">
 		</transformation>
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="core::m2mtransformations::MergeClass"
+			transformationID="trafos::m2mtransformations::MergeClass"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.MergeClass">
 		</transformation>
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="core::m2mtransformations::BootLoaderGen"
+			transformationID="trafos::m2mtransformations::BootLoaderGen"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.BootLoaderGen">
 		</transformation>
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="core::m2mtransformations::GenerateCode"
+			transformationID="trafos::m2mtransformations::GenerateCode"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.GenerateCode">
 		</transformation>
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="core::m2mtransformations::ConfigureProject"
+			transformationID="trafos::m2mtransformations::ConfigureProject"
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.ConfigureProject">
 		</transformation>
 	</extension>

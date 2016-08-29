@@ -50,18 +50,32 @@
       <client class="org.eclipse.papyrus.designer.components.modellibs.core.mappingrules.AMIpoll" portKindName="AMIpoll">
       </client>
    </extension>
-   <extension id="QML_CORE" point="org.eclipse.emf.ecore.uri_mapping">
-      <mapping source="pathmap://QML_C_CORE/" target="platform:/plugin/org.eclipse.papyrus.designer.components.modellibs.core/models/library/">
-      </mapping>
-   </extension>
-    <extension name="Designer core library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library description="Designer component core library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: port kinds and interactions" path="pathmap://QML_C_CORE/core.uml" provider="CEA LIST">
-      </library>
-   </extension>
-   <extension name="FIFO" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
-      <library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: FIFO" path="pathmap://QML_C_CORE/fifo.uml" provider="CEA LIST">
-      </library>
+	<extension id="DML_CORE" point="org.eclipse.emf.ecore.uri_mapping">
+		<mapping source="pathmap://DML_C_CORE/" target="platform:/plugin/org.eclipse.papyrus.designer.components.modellibs.core/models/library/">
+		</mapping>
 	</extension>
+	<extension name="Designer component library" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+		<library description="Designer component library" iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: port kinds and interactions" path="pathmap://DML_C_CORE/componentlib.uml" provider="CEA LIST">
+		</library>
+	</extension>
+	<extension name="FIFO" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+		<library iconpath="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif" name="Designer model library: FIFO" path="pathmap://DML_C_CORE/fifo.uml" provider="CEA LIST">
+		</library>
+	</extension>
+
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="componentlib::transformations::ConnectorReification"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.transformations.ConnectorReification">
+		</transformation>
+	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="componentlib::transformations::ExecuteOOTrafo"
+			class="org.eclipse.papyrus.designer.components.modellibs.core.transformations.ExecuteOOTrafo">
+		</transformation>
+	</extension>
+
 	<extension point="org.eclipse.papyrus.uml.diagram.wizards.templates">
 		<template
 			id="org.eclipse.papyrus.designer.components.transformation.modelibs.core.wizardTemplates.DesignerCBForMARTE"

@@ -17,17 +17,14 @@ package org.eclipse.papyrus.designer.components.transformation.listeners;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.ENamedElement;
-import org.eclipse.papyrus.designer.components.transformation.Activator;
 import org.eclipse.papyrus.designer.components.transformation.sync.CompTypeSync;
 import org.eclipse.papyrus.infra.core.listenerservice.IPapyrusListener;
 import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Port;
 
 public class PortListener implements IPapyrusListener {
 
 	public Notifier getTarget() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -42,7 +39,6 @@ public class PortListener implements IPapyrusListener {
 
 
 	public boolean isAdapterForType(Object type) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -52,25 +48,22 @@ public class PortListener implements IPapyrusListener {
 		Object notifier = notification.getNotifier();
 
 		if (evtType == Notification.SET) {
-			Activator.log.info("Port adapter, set: " + ((NamedElement) notifier).getName());
 			Object obj = notification.getFeature();
 			if (notifier instanceof Port) {
 				Port port = (Port) notifier;
 				if (obj instanceof ENamedElement) {
 					ENamedElement ne = (ENamedElement) obj;
-					if (ne.getName().equals("name")) {
+					if (ne.getName().equals("name")) { //$NON-NLS-1$
 						String oldName = notification.getOldStringValue();
 						CompTypeSync.renamePort((Class) port.getOwner(), port, oldName);
 						// profile modifications are also be indicated as name changes, but might imply a change
 						// of provided and required interfaces.
 						CompTypeSync.syncPort((Class) port.getOwner(), port);
-					} else if (ne.getName().equals("type")) {
+					} else if (ne.getName().equals("type")) { //$NON-NLS-1$
 						// CompTypeSync.syncPort((Class) port.getOwner(), port);
 					}
 				}
 			}
-		} else {
-			Activator.log.info("Port adapter, code: " + notification.getEventType() + ", " + notifier);
 		}
 	}
 }

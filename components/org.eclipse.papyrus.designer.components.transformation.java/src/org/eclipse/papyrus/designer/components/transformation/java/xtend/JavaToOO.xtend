@@ -19,7 +19,6 @@ import org.eclipse.uml2.uml.Property
 import org.eclipse.uml2.uml.Port
 import org.eclipse.papyrus.designer.components.transformation.PortInfo
 import org.eclipse.papyrus.designer.components.transformation.PortUtils
-import org.eclipse.papyrus.designer.components.transformation.transformations.PrefixConstants
 import org.eclipse.uml2.uml.AggregationKind
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.OpaqueBehavior
@@ -39,6 +38,8 @@ import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.papyrus.designer.components.FCM.Assembly
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
+import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants
+import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants.CIFvariant
 
 /**
  * This class realizes the transformation from component-based to object-oriented
@@ -74,6 +75,7 @@ class JavaToOO implements IOOTrafo {
 	protected Class bootloader // why required?
 
 	override init(LazyCopier copier, Class bootloader) {
+		PrefixConstants.init(CIFvariant.UML);
 		this.copier = copier
 		this.bootloader = bootloader
 	}

@@ -122,7 +122,7 @@ class SM2ClassesTransformationCore {
 		voidType = getPrimitiveType("void", resourceSet)
 		intType = getPrimitiveType("int", resourceSet)
 		charType = getPrimitiveType("char", resourceSet)
-		ptTypes = new PThreadTypes(targetPacket as Model)
+		ptTypes = new PThreadTypes(targetPacket)
 		this.cdefs = new CDefinitions(superContext)
 	}
 	

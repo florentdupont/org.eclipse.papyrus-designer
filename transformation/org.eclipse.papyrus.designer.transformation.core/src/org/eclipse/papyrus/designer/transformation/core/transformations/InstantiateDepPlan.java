@@ -34,6 +34,7 @@ import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.generate.GenerationOptions;
 import org.eclipse.papyrus.designer.transformation.extensions.InstanceConfigurator;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
+import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -141,8 +142,7 @@ public class InstantiateDepPlan {
 		Model existingModel = srcModelComponentDeploymentPlan.getModel();
 		TransformationContext tc = new TransformationContext();
 		TransformationContext.current = tc;
-		tc.sourceRoot = existingModel;
-
+		
 		intermediateModelManagement = ModelManagement.createNewModel(existingModel, existingModel.getName(), true);
 
 		// get the temporary model
@@ -181,6 +181,7 @@ public class InstantiateDepPlan {
 			instanceMap.put(instance, newInstance);
 		}
 		tc.deploymentPlan = intermediateModelCopier.getCopy(srcModelComponentDeploymentPlan);
+		tc.modelRoot = PackageUtil.getRootPackage(tc.deploymentPlan);
 
 		M2MTrafoChain chain = DepUtils.getTransformationChain(srcModelComponentDeploymentPlan);
 		ExecuteTransformationChain.apply(chain);

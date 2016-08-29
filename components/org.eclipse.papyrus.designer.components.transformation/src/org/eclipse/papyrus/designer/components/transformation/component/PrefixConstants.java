@@ -31,7 +31,7 @@ public class PrefixConstants {
 
 	public static String createConnections;
 
-	enum CIFvariant {
+	public enum CIFvariant {
 		UML, CCM
 	}
 
@@ -45,7 +45,7 @@ public class PrefixConstants {
 	 * @param cif
 	 *            Which CIF variant should used?
 	 */
-	void init(CIFvariant cif) {
+	public static void init(CIFvariant cif) {
 		if (cif == CIFvariant.UML) {
 			getP_Prefix = "get_"; //$NON-NLS-1$
 			getConnQ_Prefix = ""; //$NON-NLS-1$

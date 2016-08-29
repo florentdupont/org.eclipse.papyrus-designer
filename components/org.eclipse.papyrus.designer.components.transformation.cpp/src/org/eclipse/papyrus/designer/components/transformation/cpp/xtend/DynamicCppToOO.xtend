@@ -35,11 +35,12 @@ import org.eclipse.papyrus.designer.components.transformation.cpp.Constants
 import static extension org.eclipse.papyrus.designer.components.transformation.cpp.xtend.CppUtils.nameRef;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil
 import org.eclipse.papyrus.designer.components.transformation.PortUtils
-import org.eclipse.papyrus.designer.components.transformation.transformations.PrefixConstants
 import org.eclipse.papyrus.designer.components.transformation.PortInfo
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
+import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants
+import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants.CIFvariant
 
 /**
  * This class realizes the dynamic variant of the OO-transformation 
@@ -61,6 +62,7 @@ class DynamicCppToOO implements IOOTrafo {
 	protected Class bootloader // why required?
 
 	def override init(LazyCopier copier, Class bootloader) {
+		PrefixConstants.init(CIFvariant.UML);
 		this.copier = copier
 		this.bootloader = bootloader
 	}

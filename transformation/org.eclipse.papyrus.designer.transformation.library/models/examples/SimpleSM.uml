@@ -5,10 +5,10 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_Bc1WIFW4Ed63BrxiKsw-0Q">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/core.uml#_O6TiIDLUEd26WNosUASSSw"/>
+      <importedPackage xmi:type="uml:Model" href="pathmap://DML_TRAFO/trafos.uml#_Q6TiIDLUEd26WNosUASSSw"/>
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_YvEs8OusEeCTfOY57pgE3w">
-      <importedPackage xmi:type="uml:Model" href="pathmap://QML_CORE/statemachine.uml#_ago_QOUTEd-P08Bciq_LqQ"/>
+      <importedPackage xmi:type="uml:Model" href="pathmap://DML_TRAFO/statemachine.uml#_ago_QOUTEd-P08Bciq_LqQ"/>
     </packageImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_LOqIEDLaEd2qeKRLMdIx_A" name="classes">
       <packagedElement xmi:type="uml:Package" xmi:id="_XLQjUDLiEd2RVeNawwNNzg" name="System">
@@ -21,8 +21,8 @@
           <body>State-machine support is enabled with a container rule</body>
         </ownedComment>
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_VGnYgCgBEeapjr3l63b85A" name="realization of IStart" client="_oqZNUDLaEd2qeKRLMdIx_A">
-          <supplier xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
-          <contract xmi:type="uml:Interface" href="pathmap://QML_CORE/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+          <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+          <contract xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
         </interfaceRealization>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qxjWINnmEd2_cstbO2Uzgg" name="mult" specification="_4ZEZwHecEd6r18stFZxmFQ">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_YURmYGkzEearUflqhq5Pgw" name="res" direction="return">
@@ -222,7 +222,7 @@ sleep(15);
   </uml:Model>
   <C_Cpp:Include xmi:id="_EaeJMNp0EeKd1ax3yaXM9w" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
   <Transformation:ApplyTransformation xmi:id="_bov2QFl5EeagP584YGQRWg" base_Class="_oqZNUDLaEd2qeKRLMdIx_A">
-    <trafo xmi:type="Transformation:M2MTrafo" href="pathmap://QML_CORE/statemachine.uml#_BQqewGoNEea1-rBQVLBwEw"/>
+    <trafo xmi:type="Transformation:M2MTrafo" href="pathmap://DML_TRAFO/statemachine.uml#_BQqewGoNEea1-rBQVLBwEw"/>
   </Transformation:ApplyTransformation>
   <Deployment:DeploymentPlan xmi:id="_3Rk-AFl6EeaMOsb_YMu4Rg" base_Package="_QQiDgHltEeOh_8tymvdOOg"/>
   <Alloc:Allocate xmi:id="_tWIZsF15Eea4bLzKfwAjjA" base_Abstraction="_tWAd4F15Eea4bLzKfwAjjA"/>

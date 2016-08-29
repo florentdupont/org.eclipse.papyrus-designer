@@ -15,12 +15,10 @@
 package org.eclipse.papyrus.designer.components.transformation.listeners;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.papyrus.designer.components.transformation.Activator;
 import org.eclipse.papyrus.designer.components.transformation.sync.CompImplSync;
 import org.eclipse.papyrus.infra.core.listenerservice.IPapyrusListener;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Interface;
-import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Parameter;
 
@@ -39,13 +37,7 @@ public class ParameterListener implements IPapyrusListener {
 	public void notifyChanged(Notification notification) {
 		int evtType = notification.getEventType();
 		Object notifier = notification.getNotifier();
-		String name = ""; //$NON-NLS-1$
-		if (notifier instanceof NamedElement) {
-			name = ((NamedElement) notifier).getName();
-		}
 		if ((evtType == Notification.SET) || (evtType == Notification.ADD)) {
-			Activator.log.info("Parameter.adapter, set " + name);
-
 			if (notifier instanceof Parameter) {
 				Element owner = ((Parameter) notifier).getOwner();
 				if (owner instanceof Operation) {
@@ -55,9 +47,6 @@ public class ParameterListener implements IPapyrusListener {
 					}
 				}
 			}
-		}
-		else {
-			Activator.log.info("Parameter.adapter, code: " + notification.getEventType() + ", name: " + name);
 		}
 	}
 }

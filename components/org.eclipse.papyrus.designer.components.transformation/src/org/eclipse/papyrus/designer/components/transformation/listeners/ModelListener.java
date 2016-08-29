@@ -15,10 +15,8 @@
 package org.eclipse.papyrus.designer.components.transformation.listeners;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.papyrus.designer.components.transformation.Activator;
 import org.eclipse.papyrus.infra.core.listenerservice.IPapyrusListener;
 import org.eclipse.uml2.uml.Interface;
-import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Parameter;
 import org.eclipse.uml2.uml.Port;
@@ -32,20 +30,19 @@ public class ModelListener implements IPapyrusListener {
 
 	@Override
 	public void notifyChanged(Notification notification) {
-		Activator.log.info(String.format("ModelListener.notifyChanged: %s", notification.getFeature()));
+		// Activator.log.info(String.format("ModelListener.notifyChanged: %s", notification.getFeature()));
 		Object notifier = notification.getNotifier();
-		if (notifier instanceof NamedElement) {
-			String name = ((NamedElement) notifier).getName();
-			Activator.log.info("Change notification for element: " + name);
-		}
 
 		if (notifier instanceof Operation) {
 			OperationListener.getInstance().notifyChanged(notification);
-		} else if (notifier instanceof Parameter) {
+		}
+		else if (notifier instanceof Parameter) {
 			ParameterListener.getInstance().notifyChanged(notification);
-		} else if (notifier instanceof Interface) {
+		}
+		else if (notifier instanceof Interface) {
 			InterfaceListener.getInstance().notifyChanged(notification);
-		} else if (notifier instanceof Port) {
+		}
+		else if (notifier instanceof Port) {
 			PortListener.getInstance().notifyChanged(notification);
 		}
 	}

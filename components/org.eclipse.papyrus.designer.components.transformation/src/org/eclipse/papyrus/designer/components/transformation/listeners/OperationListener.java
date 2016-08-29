@@ -15,12 +15,10 @@
 package org.eclipse.papyrus.designer.components.transformation.listeners;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.papyrus.designer.components.transformation.Activator;
 import org.eclipse.papyrus.designer.components.transformation.sync.CompImplSync;
 import org.eclipse.papyrus.infra.core.listenerservice.IPapyrusListener;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Interface;
-import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Operation;
 
 /**
@@ -47,13 +45,7 @@ public class OperationListener implements IPapyrusListener {
 	public void notifyChanged(Notification notification) {
 		int evtType = notification.getEventType();
 		Object notifier = notification.getNotifier();
-		String name = ""; //$NON-NLS-1$
-		if (notifier instanceof NamedElement) {
-			name = ((NamedElement) notifier).getName();
-		}
 		if ((evtType == Notification.SET) || (evtType == Notification.ADD)) {
-			Activator.log.info("Operation.adapter, set " + name);
-
 			if (notifier instanceof Operation) {
 				Operation operation = (Operation) notifier;
 
@@ -63,8 +55,6 @@ public class OperationListener implements IPapyrusListener {
 					CompImplSync.syncViaInterface(intf);
 				}
 			}
-		} else {
-			Activator.log.info("Operation.adapter, code: " + notification.getEventType() + ", name: " + name);
 		}
 	}
 }

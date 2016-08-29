@@ -115,7 +115,7 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 
 		TransformationContext tc = new TransformationContext();
 		
-		tc.sourceRoot = generatedModel;
+		tc.modelRoot = generatedModel;
 		tc.copier = targetCopier;
 		tc.mm = genModelManagement;
 

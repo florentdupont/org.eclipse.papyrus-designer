@@ -34,7 +34,6 @@ import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Slot;
 import org.eclipse.uml2.uml.StructuralFeature;
-import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.ValueSpecification;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
@@ -44,7 +43,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  */
 public class DepUtils {
 
-	public static final String CORE_M2MTRANSFORMATIONS_STANDARD = "core::m2mtransformations::Standard"; //$NON-NLS-1$
+	public static final String CORE_M2MTRANSFORMATIONS_STANDARD = "trafos::m2mtransformations::Standard"; //$NON-NLS-1$
 
 	/**
 	 * Check whether a class is an eligible implementation for a certain node, i.e.
@@ -145,27 +144,12 @@ public class DepUtils {
 		// get reference to component model, then search all classes contained in it.
 		// TODO: assumption that implementations are in same package as type;
 
-		EList<Class> implList = new BasicEList<Class>();
-		if (StereotypeUtil.isApplied(componentType, ImplementationGroup.class)) {
-			for (Property groupAttribute : componentType.getAttributes()) {
-				Type implClass = groupAttribute.getType();
-				if ((implClass instanceof Class) && isImplEligible((Class) implClass, nodes)) {
-					InteractionComponent connImpl = UMLUtil.getStereotypeApplication(implClass, InteractionComponent.class);
-					if ((connImpl != null) && connImpl.isForDistribution()) {
-						// only add distributed connector, if distributed
-						// don't put check into
-						if (nodes.size() > 1) {
-							implList.add((Class) implClass);
-						}
-					}
-					else {
-						implList.add((Class) implClass);
-					}
-				}
-			}
-		}
-		else if (!componentType.isAbstract()) {
-			// check this after implementation group, since the latter inherits from component implementation
+		return chooseImplementation(new BasicEList<Class>(), componentType, nodes, chooser);
+	}
+	
+	public static Class chooseImplementation(EList<Class> implList, Class componentType, EList<InstanceSpecification> nodes, ImplementationChooser chooser) {
+				
+		if (!componentType.isAbstract()) {
 			return componentType;
 		}
 		else {
@@ -196,6 +180,24 @@ public class DepUtils {
 		return null;
 	}
 
+	/**
+	 * return an instance specification for the main instance within
+	 * a package.
+	 *
+	 * @param cdp
+	 *            the deployment plan
+	 */
+	public static EList<InstanceSpecification> getInstances(Package cdp) {
+		EList<InstanceSpecification> list = new BasicEList<InstanceSpecification>();
+		for (PackageableElement pe : cdp.getPackagedElements()) {
+			if (pe instanceof InstanceSpecification) {
+				InstanceSpecification is = (InstanceSpecification) pe;
+				list.add(is);
+			}
+		}
+		return list;
+	}
+	
 	/**
 	 * return an instance specification for the main instance within
 	 * a package.
