@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_PTiIDLUEd26WNosUASSSw" name="pthread">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_spbSwGrBEeaartlA90vl7w">
+      <body>This is currently a small subset of pthread types. Since they are in a package with the &quot;ExternLibrary&quot; stereotype, no code will be generated for them.
+A user can reference the classes (e.g. as a parameter or attribute type) and a C++ project will automatically be configured with the required imports defined in the stereotype</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ea234NYGEd-CgJIavLpOxQ" name="pthread_t"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_-vYZoCa0EeazPcQ6-9hBeQ" name="pthread_cond_t"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="__niwsCa0EeazPcQ6-9hBeQ" name="pthread_mutex_t"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ugrx4AHIEd6pm-KfUZMnnQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ugztsAHIEd6pm-KfUZMnnQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+  </uml:Model>
+  <C_Cpp:ExternLibrary xmi:id="_dOlpQGttEeabTeJZlY2cbw" base_package="_PTiIDLUEd26WNosUASSSw">
+    <libs>pthread</libs>
+    <libs>rt</libs>
+    <includes>pthread.h</includes>
+  </C_Cpp:ExternLibrary>
+</xmi:XMI>

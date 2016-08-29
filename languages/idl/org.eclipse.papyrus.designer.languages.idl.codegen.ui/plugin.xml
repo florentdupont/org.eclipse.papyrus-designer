@@ -21,7 +21,7 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            categoryId="org.eclipse.papyrus.idl.codegen.ui.commands.category"
+            categoryId="org.eclipse.papyrus.editor.category"
             description="Generate IDL code"
             id="org.eclipse.papyrus.designer.langauges.idl.codegen.ui.genIDL"
             name="Generate IDL code">

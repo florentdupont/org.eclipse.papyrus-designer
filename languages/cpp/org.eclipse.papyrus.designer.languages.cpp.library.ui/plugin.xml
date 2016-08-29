@@ -4,7 +4,7 @@
 	<extension
 			point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
 		<library
-			description="Standard C Ansi types"
+			description="Standard ANSI-C types"
 			iconpath="icons/transfo_cpp.gif"
 			name="AnsiCLibrary"
 			path="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml"
@@ -17,6 +17,24 @@
 			iconpath="icons/transfo_cpp.gif"
 			name="C++ STL"
 			path="pathmap://PapyrusC_Cpp_LIBRARIES/STL.uml"
+			provider="Eclipse Modeling Project"/>
+	</extension>
+	<extension
+			point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+		<library
+			description="An C++ OS abstraction layer"
+			iconpath="icons/transfo_cpp.gif"
+			name="OSAL"
+			path="pathmap://PapyrusC_Cpp_LIBRARIES/osal.uml"
+			provider="Eclipse Modeling Project"/>
+	</extension>
+	<extension
+			point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+		<library
+			description="A subset of pthread threading functions"
+			iconpath="icons/transfo_cpp.gif"
+			name="Pthread (subset)"
+			path="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml"
 			provider="Eclipse Modeling Project"/>
 	</extension>
 </plugin>
