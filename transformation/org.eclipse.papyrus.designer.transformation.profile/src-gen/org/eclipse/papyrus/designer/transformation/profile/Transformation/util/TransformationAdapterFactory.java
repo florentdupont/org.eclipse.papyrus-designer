@@ -68,20 +68,16 @@ public class TransformationAdapterFactory extends AdapterFactoryImpl {
 	protected TransformationSwitch<Adapter> modelSwitch =
 		new TransformationSwitch<Adapter>() {
 			@Override
-			public Adapter caseApplyTransformation(ApplyTransformation object) {
-				return createApplyTransformationAdapter();
-			}
-			@Override
 			public Adapter caseM2MTrafo(M2MTrafo object) {
 				return createM2MTrafoAdapter();
 			}
 			@Override
-			public Adapter caseM2MTrafoKind(M2MTrafoKind object) {
-				return createM2MTrafoKindAdapter();
-			}
-			@Override
 			public Adapter caseM2MTrafoChain(M2MTrafoChain object) {
 				return createM2MTrafoChainAdapter();
+			}
+			@Override
+			public Adapter caseApplyTransformation(ApplyTransformation object) {
+				return createApplyTransformationAdapter();
 			}
 			@Override
 			public Adapter caseDerivedElement(DerivedElement object) {
@@ -132,20 +128,6 @@ public class TransformationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createM2MTrafoAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoKind <em>M2M Trafo Kind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoKind
-	 * @generated
-	 */
-	public Adapter createM2MTrafoKindAdapter() {
 		return null;
 	}
 

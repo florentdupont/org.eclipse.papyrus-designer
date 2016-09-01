@@ -15,7 +15,7 @@
 package org.eclipse.papyrus.designer.transformation.core.templates;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.designer.transformation.core.listeners.PreCopyListener;
+import org.eclipse.papyrus.designer.transformation.core.copylisteners.PreCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.extensions.M2MTrafoExt;
@@ -41,11 +41,8 @@ public class PreTemplateInstantiationListener implements PreCopyListener {
 	}
 
 	public void init(LazyCopier copy, TemplateBinding binding) {
-		this.binding = binding;
 		preTemplateInstantiationListener.treatTemplate = false;
 	}
-
-	private TemplateBinding binding;
 
 	private boolean treatTemplate;
 

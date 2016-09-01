@@ -1,2 +1,0 @@
-#!/usr/bin/perl -p
-s/org.eclipse.papyrus.designer.components.transformation/org.eclipse.papyrus.designer.transformation/g;

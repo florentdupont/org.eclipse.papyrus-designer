@@ -14,11 +14,12 @@
 
 package org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers;
 
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
+import java.util.Iterator;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.listeners.PreCopyListener;
+import org.eclipse.papyrus.designer.transformation.core.copylisteners.PostCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.templates.BindingUtils;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
@@ -28,7 +29,6 @@ import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.library.Activator;
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.OpaqueBehavior;
@@ -38,89 +38,70 @@ import org.eclipse.uml2.uml.Type;
 
 /**
  * This binding helper loops over all operations of the actual template parameter
- * (typically an interface)
- *
+ * (an interface). For each, it creates a new copy of the operation and instantiates
+ * the operation name as well as the body (a text template) with the passed actual.
  */
-public class LoopOperations implements IM2MTrafo, PreCopyListener {
+public class LoopOperations implements IM2MTrafo, PostCopyListener {
 
 	@Override
-	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj) {
+	public void postCopyEObject(LazyCopier copier, EObject targetEObj) {
 
-		if (sourceEObj instanceof Operation) {
-			Operation operation = (Operation) sourceEObj;
+		if (targetEObj instanceof Operation) {
+			Operation operation = (Operation) targetEObj;
 
 			TemplateBinding binding = TemplateInstantiation.context.getBinding();
 			Classifier actual = TemplateUtils.getFirstActualFromBinding(binding);
 
 			if (!(actual instanceof Interface)) {
-				return sourceEObj;
+				return;
 			}
 			Interface passedActualIntf = (Interface) actual;
-			Operation last = null;
-			EList<Element> removalList = new BasicEList<Element>();
-			for (Operation intfOperation : passedActualIntf.getAllOperations()) {
-				for (Element removalElement : removalList) {
-					copy.removeForCopy(removalElement); // enable subsequent instantiations
-				}
-				removalList.clear();
-				last = BindingUtils.instantiateOperation(copy, intfOperation, operation);
-				removalList.add(operation);
+			Iterator<Operation> intfOperationIter = passedActualIntf.getAllOperations().iterator();
+			while (intfOperationIter.hasNext()) {
+				Operation intfOperation = intfOperationIter.next();
+				boolean last = intfOperationIter.hasNext();
+				// create a copy, unless last element
+				Operation operationCopy = last ? operation : EcoreUtil.copy(operation);
+				operation.getClass_().getOwnedOperations().add(operationCopy);
+				BindingUtils.instantiateOperation(intfOperation, operationCopy);
 				for (Behavior method : operation.getMethods()) {
 					if (method instanceof OpaqueBehavior) {
 						try {
-							Behavior newBehavior =
-									BindingUtils.instantiateBehavior(copy, intfOperation, (OpaqueBehavior) method);
-							newBehavior.setSpecification(last);
-						} catch (TransformationException e) {
-							Activator.log.error(e);
-							;
+							OpaqueBehavior ob = (OpaqueBehavior) method;
+							OpaqueBehavior obCopy = last ? ob : EcoreUtil.copy(ob);
+							BindingUtils.instantiateBehavior(intfOperation, obCopy);
+							obCopy.setSpecification(operationCopy);
 						}
-						// removalList.add(method);
-						copy.removeForCopy(method); // enable subsequent instantiations
+						catch (TransformationException e) {
+							Activator.log.error(e);
+						}
 					}
 				}
 			}
-			// from a logical viewpoint, we need to copy parameters & name, but not the
-			// operation identity.
-			copy.put(operation, last);
-			return last;
-			/*
-			 * else { // not LOOP_OPERATIONS
-			 * Operation newOperation = instantiateOperation(actual, template, operation, boundClass);
-			 * for(Behavior method : operation.getMethods()) {
-			 * if(method instanceof OpaqueBehavior) {
-			 * Behavior newBehavior =
-			 * instantiateBehavior(actual, template, (OpaqueBehavior)method);
-			 * newBehavior.setSpecification(newOperation);
-			 * }
-			 * }
-			 * return newOperation;
-			 */
 		}
-		else if (sourceEObj instanceof EnumerationLiteral) {
-			EnumerationLiteral literal = (EnumerationLiteral) sourceEObj;
+		else if (targetEObj instanceof EnumerationLiteral) {
+			EnumerationLiteral literal = (EnumerationLiteral) targetEObj;
 			TemplateBinding binding = TemplateInstantiation.context.getBinding();
 			Classifier actual = TemplateUtils.getFirstActualFromBinding(binding);
 			// Type passedActual = getPassedActual(template, actual, boundClass);
 			Type passedActual = actual;
 			if (!(passedActual instanceof Interface)) {
-				return sourceEObj;
+				return;
 			}
 			Interface passedActualIntf = (Interface) passedActual;
-			EnumerationLiteral newLiteral = null;
-			for (Operation intfOperation : passedActualIntf.getAllOperations()) {
-				copy.removeForCopy(literal);
-				newLiteral = copy.getCopy(literal);
+			Iterator<Operation> intfOperationIter = passedActualIntf.getAllOperations().iterator();
+			while (intfOperationIter.hasNext()) {
+				Operation intfOperation = intfOperationIter.next();
+				boolean last = intfOperationIter.hasNext();
+				// create a copy, unless last element
+				EnumerationLiteral listeralCopy = last ? literal : EcoreUtil.copy(literal);
 				try {
 					String newName = TextTemplateBinding.bind(literal.getName(), intfOperation, null);
-					newLiteral.setName(newName);
+					listeralCopy.setName(newName);
 				} catch (TransformationException e) {
 					Activator.log.error(e);
-					newLiteral.setName("none"); //$NON-NLS-1$
 				}
 			}
-			return newLiteral;
 		}
-		return null;
 	}
 }

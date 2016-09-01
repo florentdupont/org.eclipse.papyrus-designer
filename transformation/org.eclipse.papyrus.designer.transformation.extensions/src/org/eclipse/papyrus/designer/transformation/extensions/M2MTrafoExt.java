@@ -19,7 +19,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
-import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoKind;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
@@ -30,7 +29,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 public class M2MTrafoExt {
 
 	public static final String TRANSFORMATION_ID = "transformationID"; //$NON-NLS-1$
-	public static final String M2M_TRAFO_KIND = Activator.PLUGIN_ID + ".m2mTrafo"; //$NON-NLS-1$
+	public static final String M2M_TRAFO = Activator.PLUGIN_ID + ".m2mTrafo"; //$NON-NLS-1$
 
 	/**
 	 * Obtain a list of M2M transformations that are explicitly applied to a model element 
@@ -56,19 +55,14 @@ public class M2MTrafoExt {
 	 */
 	public static IM2MTrafo getM2MTrafo(M2MTrafo m2mTrafo) {
 		if (m2mTrafo != null) {
-			M2MTrafoKind kind = m2mTrafo.getKind();
-			if (kind != null) {
-				return getM2MTrafo(kind.getBase_Class().getQualifiedName());
-			}
-			else 
-				return getM2MTrafo(m2mTrafo.getBase_Class().getQualifiedName());
+			return getM2MTrafo(m2mTrafo.getBase_Class().getQualifiedName());
 		}
 		return null;
 	}
 
 	public static IM2MTrafo getM2MTrafo(String trafoName) {
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		IConfigurationElement[] configElements = reg.getConfigurationElementsFor(M2M_TRAFO_KIND);
+		IConfigurationElement[] configElements = reg.getConfigurationElementsFor(M2M_TRAFO);
 		for (IConfigurationElement configElement : configElements) {
 			try {
 				final String transformationID = configElement.getAttribute(TRANSFORMATION_ID);

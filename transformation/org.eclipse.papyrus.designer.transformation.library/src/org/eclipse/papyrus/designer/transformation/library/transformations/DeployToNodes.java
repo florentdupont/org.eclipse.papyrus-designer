@@ -72,20 +72,28 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 
 		EList<InstanceSpecification> nodes = AllocUtils.getAllNodes(topLevelInstances);
 		EList<TransformationContext> splitModels = new BasicEList<TransformationContext>();
+		InstanceConfigurator.onNodeModel = true;
 		if (nodes.size() > 0) {
-			InstanceConfigurator.onNodeModel = true;
 			for (int nodeIndex = 0; nodeIndex < nodes.size(); nodeIndex++) {
 				InstanceSpecification node = nodes.get(nodeIndex);
 
 				try {
 					splitModels.add(
-							deployNode(topLevelInstances, PackageUtil.getRootPackage(deploymentPlan), nodes, nodeIndex, node));
+							deployNode(topLevelInstances, TransformationContext.current.modelRoot, nodes, nodeIndex, node));
 				}
 				catch (InterruptedException e) {
 					throw new TransformationException(e.getMessage());
 				}
 			}
 		} else {
+			InstanceSpecification defaultNode = null; // ElementUtils.getQualifiedElement(TransformationContext.current.modelRoot, "trafos::xx::defaultNode");
+			try {
+				splitModels.add(
+					deployNode(topLevelInstances, PackageUtil.getRootPackage(deploymentPlan), nodes, 0, node));
+			}
+			catch (InterruptedException e) {
+				throw new TransformationException(e.getMessage());
+			}
 			throw new TransformationException(Messages.InstantiateDepPlan_InfoNoneAllocated);
 		}
 		return splitModels;

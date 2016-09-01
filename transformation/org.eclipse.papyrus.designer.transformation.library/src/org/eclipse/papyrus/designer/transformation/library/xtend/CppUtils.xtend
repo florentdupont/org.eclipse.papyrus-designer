@@ -5,12 +5,12 @@ import org.eclipse.uml2.uml.Operation
 import org.eclipse.uml2.uml.Parameter
 import org.eclipse.uml2.uml.ParameterDirectionKind
 import org.eclipse.uml2.uml.Type
-import org.eclipse.papyrus.designer.transformation.extensions.IXtend
 import static extension org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils.parametersNonRet
 import static extension org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils.usedNamespaces
 import static extension org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils.dereferenceTypedef
+import org.eclipse.papyrus.designer.transformation.extensions.ITextTemplate
 
-class CppUtils implements IXtend {
+class CppUtils implements ITextTemplate {
 
 	/**
 	 * create the C++ signature for an operation (including parenthesis)

@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.papyrus.designer.transformation.core,
  org.eclipse.papyrus.designer.transformation.core.commands,
+ org.eclipse.papyrus.designer.transformation.core.copylisteners,
  org.eclipse.papyrus.designer.transformation.core.generate,
- org.eclipse.papyrus.designer.transformation.core.listeners,
  org.eclipse.papyrus.designer.transformation.core.m2minterfaces,
  org.eclipse.papyrus.designer.transformation.core.sync,
  org.eclipse.papyrus.designer.transformation.core.templates,

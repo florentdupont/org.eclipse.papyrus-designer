@@ -18,6 +18,19 @@ public class CompDepUtils {
 	public static Class chooseImplementation(Class componentType, EList<InstanceSpecification> nodes, ImplementationChooser chooser) {
 
 		EList<Class> implList = new BasicEList<Class>();
+		if (nodes.size() > 1) {
+			// indicates distribution
+			InteractionComponent connImpl = UMLUtil.getStereotypeApplication(componentType, InteractionComponent.class);
+			// if a connector implementation, it must support distribution (in case of multiple nodes)
+			// TODO: criteria is not optimal, since a composite may be deployed on multiple nodes,
+			// but a contained connector might still only connect local parts.
+			if (connImpl != null) {
+				if (!connImpl.isForDistribution()) {
+					return null;
+				}
+			}
+		}
+		
 		if (StereotypeUtil.isApplied(componentType, ImplementationGroup.class)) {
 			for (Property groupAttribute : componentType.getAttributes()) {
 				Type implClass = groupAttribute.getType();

@@ -431,7 +431,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_tAMReSiLEeC_VbmKpDkWDw"/>
       <element xmi:type="uml:Generalization" href="fifo.uml#_6zGSwHLnEd6R5tffIPrlPg"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tAM4cCiLEeC_VbmKpDkWDw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tAM4cSiLEeC_VbmKpDkWDw" id="(0.1407035175879397,0.06)"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tAM4cSiLEeC_VbmKpDkWDw" id="(0.16080402010050251,0.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tAM4ciiLEeC_VbmKpDkWDw" id="(0.8440366972477065,0.92)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_tAM4cyiLEeC_VbmKpDkWDw" type="Generalization_Edge" source="_tAH_8yiLEeC_VbmKpDkWDw" target="_tALqUyiLEeC_VbmKpDkWDw">
@@ -461,7 +461,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_tAM4hCiLEeC_VbmKpDkWDw"/>
       <element xmi:type="uml:Generalization" href="fifo.uml#_ELTYQHLoEd6R5tffIPrlPg"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tAM4hSiLEeC_VbmKpDkWDw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tAM4hiiLEeC_VbmKpDkWDw" id="(0.8994974874371859,0.06)"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tAM4hiiLEeC_VbmKpDkWDw" id="(0.9045226130653267,0.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tAM4hyiLEeC_VbmKpDkWDw" id="(0.19310344827586207,0.96)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_XAfg1GzsEeWdOZKmOtT48A" type="StereotypeCommentLink" source="_tAH_8yiLEeC_VbmKpDkWDw" target="_XAfg0GzsEeWdOZKmOtT48A">

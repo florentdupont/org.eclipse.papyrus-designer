@@ -12,7 +12,7 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.transformation.core.listeners;
+package org.eclipse.papyrus.designer.transformation.core.copylisteners;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;

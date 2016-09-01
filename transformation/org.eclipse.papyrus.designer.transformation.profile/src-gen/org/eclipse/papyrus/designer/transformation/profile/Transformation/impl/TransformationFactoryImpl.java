@@ -56,10 +56,9 @@ public class TransformationFactoryImpl extends EFactoryImpl implements Transform
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TransformationPackage.APPLY_TRANSFORMATION: return createApplyTransformation();
 			case TransformationPackage.M2M_TRAFO: return createM2MTrafo();
-			case TransformationPackage.M2M_TRAFO_KIND: return createM2MTrafoKind();
 			case TransformationPackage.M2M_TRAFO_CHAIN: return createM2MTrafoChain();
+			case TransformationPackage.APPLY_TRANSFORMATION: return createApplyTransformation();
 			case TransformationPackage.DERIVED_ELEMENT: return createDerivedElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -84,16 +83,6 @@ public class TransformationFactoryImpl extends EFactoryImpl implements Transform
 	public M2MTrafo createM2MTrafo() {
 		M2MTrafoImpl m2MTrafo = new M2MTrafoImpl();
 		return m2MTrafo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public M2MTrafoKind createM2MTrafoKind() {
-		M2MTrafoKindImpl m2MTrafoKind = new M2MTrafoKindImpl();
-		return m2MTrafoKind;
 	}
 
 	/**

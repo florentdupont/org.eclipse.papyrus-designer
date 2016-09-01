@@ -3,10 +3,11 @@
 <schema targetNamespace="org.eclipse.papyrus.designer.transformation.core" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.eclipse.papyrus.designer.transformation.core" id="xtendGenerator" name="xtendGeneratorName"/>
+         <meta.schema plugin="org.eclipse.papyrus.designer.transformation.core" id="textTemplate" name="textTemplateName"/>
       </appinfo>
       <documentation>
-         An generator that can expand a string &quot;!xtend &lt;generatorName&gt;&quot; in an opaque expression. While the generator is typically written in xtend, it could also be written in Java.
+         A set of text templates implemented by a class. Each text template corresponds to a method which should return a string or character sequence. The returned texts corresponds to a binding of the template with the actuals that are passed as parameters.
+From the UML model, such templates can be referenced using the magic string &quot;!template &lt;templateName&gt;&quot; in an opaque expression. While the template classes are typically written in xtend, they could also be written in Java.
       </documentation>
    </annotation>
 
@@ -18,7 +19,7 @@
       </annotation>
       <complexType>
          <sequence minOccurs="1" maxOccurs="unbounded">
-            <element ref="client"/>
+            <element ref="template"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,7 +48,7 @@
       </complexType>
    </element>
 
-   <element name="client">
+   <element name="template">
       <complexType>
          <attribute name="templateID" type="string" use="required">
             <annotation>
@@ -62,7 +63,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.papyrus.designer.components.transformation.core.extensions.IXtend"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.papyrus.designer.transformation.extensions.ITextTemplate"/>
                </appinfo>
             </annotation>
          </attribute>

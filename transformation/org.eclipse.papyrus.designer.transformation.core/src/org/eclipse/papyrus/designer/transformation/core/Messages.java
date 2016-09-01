@@ -116,9 +116,9 @@ public class Messages extends NLS {
 
 	public static String UpdateUtils_CannotApplyFCMstereo;
 
-	public static String XtendTemplateBinding_TemplateNotFound;
+	public static String TextTemplateBinding_TemplateNotFound;
 
-	public static String XtendTemplateBinding_TemplateResultIsNotAString;
+	public static String TextTemplateBinding_TemplateResultIsNotAString;
 
 	static {
 		// initialize resource bundle

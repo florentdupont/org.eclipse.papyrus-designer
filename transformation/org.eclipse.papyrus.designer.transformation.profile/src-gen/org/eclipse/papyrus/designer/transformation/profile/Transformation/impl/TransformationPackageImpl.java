@@ -12,7 +12,6 @@ import org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyT
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
-import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoKind;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationFactory;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage;
 
@@ -38,13 +37,6 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 	 * @generated
 	 */
 	private EClass m2MTrafoEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass m2MTrafoKindEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,7 +130,7 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplyTransformation_Base_Class() {
+	public EReference getApplyTransformation_Trafo() {
 		return (EReference)applyTransformationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -147,7 +139,7 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplyTransformation_Trafo() {
+	public EReference getApplyTransformation_Base_Element() {
 		return (EReference)applyTransformationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -167,33 +159,6 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 	 */
 	public EReference getM2MTrafo_Base_Class() {
 		return (EReference)m2MTrafoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getM2MTrafo_Kind() {
-		return (EReference)m2MTrafoEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getM2MTrafoKind() {
-		return m2MTrafoKindEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getM2MTrafoKind_Base_Class() {
-		return (EReference)m2MTrafoKindEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -269,19 +234,15 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 		isCreated = true;
 
 		// Create classes and their features
-		applyTransformationEClass = createEClass(APPLY_TRANSFORMATION);
-		createEReference(applyTransformationEClass, APPLY_TRANSFORMATION__BASE_CLASS);
-		createEReference(applyTransformationEClass, APPLY_TRANSFORMATION__TRAFO);
-
 		m2MTrafoEClass = createEClass(M2M_TRAFO);
 		createEReference(m2MTrafoEClass, M2M_TRAFO__BASE_CLASS);
-		createEReference(m2MTrafoEClass, M2M_TRAFO__KIND);
-
-		m2MTrafoKindEClass = createEClass(M2M_TRAFO_KIND);
-		createEReference(m2MTrafoKindEClass, M2M_TRAFO_KIND__BASE_CLASS);
 
 		m2MTrafoChainEClass = createEClass(M2M_TRAFO_CHAIN);
 		createEReference(m2MTrafoChainEClass, M2M_TRAFO_CHAIN__BASE_CLASS);
+
+		applyTransformationEClass = createEClass(APPLY_TRANSFORMATION);
+		createEReference(applyTransformationEClass, APPLY_TRANSFORMATION__TRAFO);
+		createEReference(applyTransformationEClass, APPLY_TRANSFORMATION__BASE_ELEMENT);
 
 		derivedElementEClass = createEClass(DERIVED_ELEMENT);
 		createEReference(derivedElementEClass, DERIVED_ELEMENT__BASE_ELEMENT);
@@ -321,19 +282,15 @@ public class TransformationPackageImpl extends EPackageImpl implements Transform
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(applyTransformationEClass, ApplyTransformation.class, "ApplyTransformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getApplyTransformation_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, ApplyTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getApplyTransformation_Trafo(), this.getM2MTrafo(), null, "trafo", null, 0, -1, ApplyTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(m2MTrafoEClass, M2MTrafo.class, "M2MTrafo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getM2MTrafo_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, M2MTrafo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getM2MTrafo_Kind(), this.getM2MTrafoKind(), null, "kind", null, 0, 1, M2MTrafo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(m2MTrafoKindEClass, M2MTrafoKind.class, "M2MTrafoKind", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getM2MTrafoKind_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, M2MTrafoKind.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(m2MTrafoChainEClass, M2MTrafoChain.class, "M2MTrafoChain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getM2MTrafoChain_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, M2MTrafoChain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(applyTransformationEClass, ApplyTransformation.class, "ApplyTransformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getApplyTransformation_Trafo(), this.getM2MTrafo(), null, "trafo", null, 0, -1, ApplyTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getApplyTransformation_Base_Element(), theUMLPackage.getElement(), null, "base_Element", null, 1, 1, ApplyTransformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(derivedElementEClass, DerivedElement.class, "DerivedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDerivedElement_Base_Element(), theUMLPackage.getElement(), null, "base_Element", null, 1, 1, DerivedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

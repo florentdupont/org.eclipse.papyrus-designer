@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.AutoIndex;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.AutoIndexPerNode;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.ConfigurationProperty;
@@ -14,7 +13,6 @@ import org.eclipse.papyrus.designer.deployment.profile.Deployment.CopyAttributeV
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
-import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoAddTypes;
 import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.extensions.M2MTrafoExt;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
@@ -315,6 +313,7 @@ public class DepCreation {
 
 					if (m2mTrafo != null) {
 						IM2MTrafo eTrafo = M2MTrafoExt.getM2MTrafo(m2mTrafo);
+						/*
 						if (eTrafo instanceof IM2MTrafoAddTypes) {
 							EList<Type> addedTypes = ((IM2MTrafoAddTypes) eTrafo).getAddedTypes(m2mTrafo, is);
 							for (Type addedType : addedTypes) {
@@ -322,7 +321,7 @@ public class DepCreation {
 								createSlotForConfigProp(is, null);
 							}
 						}
-
+						*/
 					}
 				}
 			}

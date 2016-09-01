@@ -53,25 +53,6 @@ public class EnumService {
 		return enumPkg.getQualifiedName();
 	}
 
-	public static String literalKey(Element dummy, String enumName, String literalKey) {
-		String prefix = "ID_"; //$NON-NLS-1$
-		String literal = ""; //$NON-NLS-1$
-		TransformationContext tf = TransformationContext.current;
-		if (literalKey.equals("Port")) { //$NON-NLS-1$
-			literal = prefix + tf.port.getName();
-		}
-		else if (literalKey.equals("Formal")) { //$NON-NLS-1$
-			literal = prefix + tf.formalParameter.getName();
-		}
-		else if (literalKey.equals("Instance")) { //$NON-NLS-1$
-			literal = prefix + tf.instance.getName();
-		}
-		else if (literalKey.equals("Interface")) { //$NON-NLS-1$
-			literal = prefix + tf.classifier.getName();
-		}
-		return literal(enumName, literal);
-	}
-
 	public static String quoteLiteral(Element dummy, String enumName, String literal) {
 		return ElementUtils.quoteString(literal(enumName, literal));
 	}

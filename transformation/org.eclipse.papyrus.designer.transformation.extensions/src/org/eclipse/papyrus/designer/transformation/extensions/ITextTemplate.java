@@ -11,5 +11,11 @@
 
 package org.eclipse.papyrus.designer.transformation.extensions;
 
-public interface IXtend {
+/**
+ * This interface needs to be implemented by the classes that implement text
+ * transformations. It is deliberately left empty to enable the execution of
+ * arbitrary methods (referenced from the model) within these classes via the
+ * Java reflection mechanisms 
+ */
+public interface ITextTemplate {
 }

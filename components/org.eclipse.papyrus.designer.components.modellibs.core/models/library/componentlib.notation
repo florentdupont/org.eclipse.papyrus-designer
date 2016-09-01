@@ -5723,6 +5723,11 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_3u2Idl4SEea4bLzKfwAjjA"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3u2Id14SEea4bLzKfwAjjA"/>
           </children>
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_oAFQoG_FEeaWnoc8dDCyEA" name="maskLabel">
+            <stringListValue>name</stringListValue>
+            <stringListValue>type</stringListValue>
+            <stringListValue>derived</stringListValue>
+          </styles>
           <element xmi:type="uml:Property" href="componentlib.uml#_3uzFIF4SEea4bLzKfwAjjA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3u2IcV4SEea4bLzKfwAjjA" x="14" y="258" width="381" height="41"/>
         </children>
@@ -5735,6 +5740,11 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_0_f0Y2qWEea45IDGiU87rA"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0_f0ZGqWEea45IDGiU87rA"/>
           </children>
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_qGUkYG_FEeaWnoc8dDCyEA" name="maskLabel">
+            <stringListValue>name</stringListValue>
+            <stringListValue>type</stringListValue>
+            <stringListValue>derived</stringListValue>
+          </styles>
           <element xmi:type="uml:Property" href="componentlib.uml#_xneIoGqWEea45IDGiU87rA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0_fNUWqWEea45IDGiU87rA" x="14" y="438" width="381"/>
         </children>
@@ -5747,6 +5757,11 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_O1qhJGqXEea45IDGiU87rA"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1qhJWqXEea45IDGiU87rA"/>
           </children>
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_lgZiIG_FEeaWnoc8dDCyEA" name="maskLabel">
+            <stringListValue>name</stringListValue>
+            <stringListValue>type</stringListValue>
+            <stringListValue>derived</stringListValue>
+          </styles>
           <element xmi:type="uml:Property" href="componentlib.uml#_70pgMF4SEea4bLzKfwAjjA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1p6EWqXEea45IDGiU87rA" x="14" y="18" width="381" height="41"/>
         </children>
@@ -5759,6 +5774,11 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_O1rINmqXEea45IDGiU87rA"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1rIN2qXEea45IDGiU87rA"/>
           </children>
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_mUt7AG_FEeaWnoc8dDCyEA" name="maskLabel">
+            <stringListValue>name</stringListValue>
+            <stringListValue>type</stringListValue>
+            <stringListValue>derived</stringListValue>
+          </styles>
           <element xmi:type="uml:Property" href="componentlib.uml#_xnYCAGqWEea45IDGiU87rA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1rIMWqXEea45IDGiU87rA" x="14" y="78" width="381" height="41"/>
         </children>
@@ -5771,6 +5791,11 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_O1rvRmqXEea45IDGiU87rA"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1rvR2qXEea45IDGiU87rA"/>
           </children>
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_nHKEkG_FEeaWnoc8dDCyEA" name="maskLabel">
+            <stringListValue>name</stringListValue>
+            <stringListValue>type</stringListValue>
+            <stringListValue>derived</stringListValue>
+          </styles>
           <element xmi:type="uml:Property" href="componentlib.uml#_xnbsYGqWEea45IDGiU87rA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1rvQWqXEea45IDGiU87rA" x="14" y="138" width="381" height="41"/>
         </children>
@@ -5783,6 +5808,11 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_O1s9ZGqXEea45IDGiU87rA"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1s9ZWqXEea45IDGiU87rA"/>
           </children>
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_ou1NAG_FEeaWnoc8dDCyEA" name="maskLabel">
+            <stringListValue>name</stringListValue>
+            <stringListValue>type</stringListValue>
+            <stringListValue>derived</stringListValue>
+          </styles>
           <element xmi:type="uml:Property" href="componentlib.uml#_xncTcGqWEea45IDGiU87rA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1sWUWqXEea45IDGiU87rA" x="14" y="318" width="381"/>
         </children>
@@ -5795,6 +5825,11 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_O1tkdmqXEea45IDGiU87rA"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1tkd2qXEea45IDGiU87rA"/>
           </children>
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_pZghsG_FEeaWnoc8dDCyEA" name="maskLabel">
+            <stringListValue>name</stringListValue>
+            <stringListValue>type</stringListValue>
+            <stringListValue>derived</stringListValue>
+          </styles>
           <element xmi:type="uml:Property" href="componentlib.uml#_xndhkGqWEea45IDGiU87rA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O1tkcWqXEea45IDGiU87rA" x="14" y="378" width="381"/>
         </children>

@@ -40,15 +40,6 @@ public interface TransformationFactory extends EFactory {
 	M2MTrafo createM2MTrafo();
 
 	/**
-	 * Returns a new object of class '<em>M2M Trafo Kind</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>M2M Trafo Kind</em>'.
-	 * @generated
-	 */
-	M2MTrafoKind createM2MTrafoKind();
-
-	/**
 	 * Returns a new object of class '<em>M2M Trafo Chain</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

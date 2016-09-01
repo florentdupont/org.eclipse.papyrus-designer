@@ -43,7 +43,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  */
 public class DepUtils {
 
-	public static final String CORE_M2MTRANSFORMATIONS_STANDARD = "trafos::m2mtransformations::Standard"; //$NON-NLS-1$
+	public static final String TRAFOS_M2MTRANSFORMATIONS_STANDARD = "trafos::m2mtransformations::Standard"; //$NON-NLS-1$
 
 	/**
 	 * Check whether a class is an eligible implementation for a certain node, i.e.
@@ -60,19 +60,6 @@ public class DepUtils {
 			return false;
 		}
 		if (nodes != null) {
-			// now check properties
-			if (nodes.size() > 1) {
-				// indicates distribution
-				InteractionComponent connImpl = UMLUtil.getStereotypeApplication(implemCandidate, InteractionComponent.class);
-				// if a connector implementation, it must support distribution (in case of multiple nodes)
-				// TODO: criteria is not optimal, since a composite may be deployed on multiple nodes,
-				// but a contained connector might still only connect local parts.
-				if (connImpl != null) {
-					if (!connImpl.isForDistribution()) {
-						return false;
-					}
-				}
-			}
 			// must fit requirements of all nodes
 			for (InstanceSpecification nodeInstance : nodes) {
 				Target target = UMLUtil.getStereotypeApplication(nodeInstance, Target.class);
@@ -84,9 +71,9 @@ public class DepUtils {
 				if (target != null) {
 					ImplementationProperties implProps = UMLUtil.getStereotypeApplication(implemCandidate, ImplementationProperties.class);
 					if (implProps != null) {
-						if (!implProps.getArch().contains(target.getTargetArch())) {
-							return false;
-						}
+						//if (!implProps.getArch().contains(target.getTargetArch())) {
+							//return false;
+						//}
 						// TODO: check OS and size as well!
 					}
 				}
@@ -585,14 +572,16 @@ public class DepUtils {
 	}
 	
 	public static M2MTrafoChain getTransformationChain(Package cdp) {
-		DeploymentPlan cdpStereo = UMLUtil.getStereotypeApplication(cdp, DeploymentPlan.class);
 		M2MTrafoChain chain = null;
 		if (cdp != null) {
-			chain = cdpStereo.getChain();
+			DeploymentPlan cdpStereo = UMLUtil.getStereotypeApplication(cdp, DeploymentPlan.class);
+			if (cdpStereo != null) {
+				chain = cdpStereo.getChain();
+			}
 		}
 		if (chain == null) {
 			
-			NamedElement defaultChainNE = ElementUtils.getQualifiedElement(cdp.getModel(), CORE_M2MTRANSFORMATIONS_STANDARD);
+			NamedElement defaultChainNE = ElementUtils.getQualifiedElement(cdp.getModel(), TRAFOS_M2MTRANSFORMATIONS_STANDARD);
 			if (defaultChainNE != null) { 
 				// chain null and default chain could be found.
 				chain = UMLUtil.getStereotypeApplication(defaultChainNE, M2MTrafoChain.class);

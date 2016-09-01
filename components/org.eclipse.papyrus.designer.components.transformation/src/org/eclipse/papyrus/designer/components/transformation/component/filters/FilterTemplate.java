@@ -16,7 +16,7 @@ package org.eclipse.papyrus.designer.components.transformation.component.filters
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
-import org.eclipse.papyrus.designer.transformation.core.listeners.PreCopyListener;
+import org.eclipse.papyrus.designer.transformation.core.copylisteners.PreCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;

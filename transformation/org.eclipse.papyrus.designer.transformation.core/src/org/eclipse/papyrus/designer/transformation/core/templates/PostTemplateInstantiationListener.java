@@ -15,7 +15,7 @@
 package org.eclipse.papyrus.designer.transformation.core.templates;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.designer.transformation.core.listeners.PostCopyListener;
+import org.eclipse.papyrus.designer.transformation.core.copylisteners.PostCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.extensions.M2MTrafoExt;
@@ -55,7 +55,7 @@ public class PostTemplateInstantiationListener implements PostCopyListener {
 					UMLUtil.getStereotypeApplication((Element) targetEObj, ApplyTransformation.class);
 			if (applyTrafo != null) {
 				for (M2MTrafo trafo : applyTrafo.getTrafo()) {
-					IM2MTrafo ihelper = M2MTrafoExt.getM2MTrafo(trafo.getBase_Class().getName());
+					IM2MTrafo ihelper = M2MTrafoExt.getM2MTrafo(trafo.getBase_Class().getQualifiedName());
 					if (ihelper instanceof PostCopyListener) {
 						((PostCopyListener) ihelper).postCopyEObject(copier, targetEObj);
 					}

@@ -17,7 +17,7 @@ package org.eclipse.papyrus.designer.transformation.library.transformations.bind
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.listeners.PostCopyListener;
+import org.eclipse.papyrus.designer.transformation.core.copylisteners.PostCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.templates.TextTemplateBinding;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;

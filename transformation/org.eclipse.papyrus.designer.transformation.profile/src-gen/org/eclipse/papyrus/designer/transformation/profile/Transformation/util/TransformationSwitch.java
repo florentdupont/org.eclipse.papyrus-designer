@@ -66,27 +66,21 @@ public class TransformationSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TransformationPackage.APPLY_TRANSFORMATION: {
-				ApplyTransformation applyTransformation = (ApplyTransformation)theEObject;
-				T result = caseApplyTransformation(applyTransformation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TransformationPackage.M2M_TRAFO: {
 				M2MTrafo m2MTrafo = (M2MTrafo)theEObject;
 				T result = caseM2MTrafo(m2MTrafo);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TransformationPackage.M2M_TRAFO_KIND: {
-				M2MTrafoKind m2MTrafoKind = (M2MTrafoKind)theEObject;
-				T result = caseM2MTrafoKind(m2MTrafoKind);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TransformationPackage.M2M_TRAFO_CHAIN: {
 				M2MTrafoChain m2MTrafoChain = (M2MTrafoChain)theEObject;
 				T result = caseM2MTrafoChain(m2MTrafoChain);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TransformationPackage.APPLY_TRANSFORMATION: {
+				ApplyTransformation applyTransformation = (ApplyTransformation)theEObject;
+				T result = caseApplyTransformation(applyTransformation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,21 +121,6 @@ public class TransformationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseM2MTrafo(M2MTrafo object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>M2M Trafo Kind</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>M2M Trafo Kind</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseM2MTrafoKind(M2MTrafoKind object) {
 		return null;
 	}
 

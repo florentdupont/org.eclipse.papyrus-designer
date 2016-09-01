@@ -9,12 +9,15 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>M2M Trafo</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Represents a M2M transformation. Such a M2M is directly associated with a Java implementation (via an extension point) 
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getBase_Class <em>Base Class</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getKind <em>Kind</em>}</li>
  * </ul>
  *
  * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage#getM2MTrafo()
@@ -47,31 +50,5 @@ public interface M2MTrafo extends EObject {
 	 * @generated
 	 */
 	void setBase_Class(org.eclipse.uml2.uml.Class value);
-
-	/**
-	 * Returns the value of the '<em><b>Kind</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Kind</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Kind</em>' reference.
-	 * @see #setKind(M2MTrafoKind)
-	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.TransformationPackage#getM2MTrafo_Kind()
-	 * @model ordered="false"
-	 * @generated
-	 */
-	M2MTrafoKind getKind();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getKind <em>Kind</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Kind</em>' reference.
-	 * @see #getKind()
-	 * @generated
-	 */
-	void setKind(M2MTrafoKind value);
 
 } // M2MTrafo

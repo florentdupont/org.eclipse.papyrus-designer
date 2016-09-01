@@ -20,6 +20,7 @@ import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
 import org.eclipse.papyrus.designer.components.modellibs.core.utils.CompDepUtils;
 import org.eclipse.papyrus.designer.components.transformation.Messages;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
+import org.eclipse.papyrus.designer.components.transformation.sync.CompImplSync;
 import org.eclipse.papyrus.designer.components.transformation.templates.ConnectorBinding;
 import org.eclipse.papyrus.designer.components.transformation.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
@@ -46,6 +47,7 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Port;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.TemplateBinding;
+import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
@@ -164,15 +166,17 @@ public class ConnectorReification implements IM2MTrafoCDP {
 	 */
 	public Property reifyConnector(Class composite, Connector connector, InstanceSpecification compositeIS) throws TransformationException {
 
-		LazyCopier copier = TransformationContext.current.copier;
-
+		InteractionComponent connType = null;
 		org.eclipse.papyrus.designer.components.FCM.Connector fcmConn = UMLUtil.getStereotypeApplication(connector, org.eclipse.papyrus.designer.components.FCM.Connector.class);
-		String name = ElementUtils.varName(connector);
-
-		InteractionComponent connType = fcmConn.getIc();
+		if (fcmConn != null) {
+			connType = fcmConn.getIc();
+		}
 		if (connType == null) {
 			return null;
 		}
+
+		LazyCopier copier = TransformationContext.current.copier;
+		String name = ElementUtils.varName(connector);
 
 		// choose an implementation
 		Class connectorImplemTemplate = DepUtils.chooseImplementation(connType.getBase_Class(), AllocUtils.getAllNodes(compositeIS), null);
@@ -241,7 +245,7 @@ public class ConnectorReification implements IM2MTrafoCDP {
 		// updatePorts(tmComponent, connectorPart, connectorImplem);
 		// connectContainerPorts(tmComponent, connectorPart);
 		connector.destroy();
-		
+
 		return tmConnectorPart;
 	}
 
@@ -338,9 +342,24 @@ public class ConnectorReification implements IM2MTrafoCDP {
 				connectorListCopy.addAll(clazz.getOwnedConnectors());
 				for (Connector connector : connectorListCopy) {
 					Class tmComponent = (Class) connector.getOwner();
-					reifyConnector(tmComponent, connector, is);
+					Property newPart = reifyConnector(tmComponent, connector, is);
+					// update value specification (to the one just created)
+					// InstanceSpecification tmPartIS = EcoreUtil.copy(DepUtils.getInstance(slot));
+					// if (tmPartIS.getClassifiers().size() > 0) {
+					// replace classifier referenced from instance with type of reified connector
+					// tmPartIS.getClassifiers().set(0, (Classifier) tmPart.getType());
+					// TransformationUtil.updateDerivedInterfaces(tmPartIS);
+					// }
+					if (newPart != null) {
+						Type implCandidate = newPart.getType();
+						if (implCandidate instanceof Class) {
+							Class implementation = (Class) implCandidate;
+							CompImplSync.updatePorts(implementation);
+							CompImplSync.syncRealizations(implementation);
+						}
+					}
 				}
-				
+
 				EList<Property> attributeListCopy = new BasicEList<Property>();
 				attributeListCopy.addAll(clazz.getAttributes());
 				for (Property attribute : attributeListCopy) {

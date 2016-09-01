@@ -110,14 +110,13 @@ public class BootLoaderGen implements IM2MTrafoCDP {
 		outputSizeof = false;
 		m_copier = copier;
 		Class template = (Class) ElementUtils.getQualifiedElement(copier.source, BOOT_LOADER_QNAME);
-		if (false) {
 		if (template == null) {
 			throw new TransformationException(String.format(
 					Messages.BootLoaderGen_CannotRetrieveTemplate, BOOT_LOADER_QNAME));
 		}
 		// TODO: currently, only stereotypes are copied from template
+		// these contain the main functions via the stereotype C_Cpp:Include
 		StUtils.copyStereotypes(template, m_bootLoader);
-		}
 		// TODO: commented code below already fixed?
 		/*
 		 * Problem: defaultValue not taken into account by code generator

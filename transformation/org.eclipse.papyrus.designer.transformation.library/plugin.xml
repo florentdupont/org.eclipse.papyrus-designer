@@ -92,6 +92,12 @@
 			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.LoopOperations">
 		</transformation>
 	</extension>
+		<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="trafos::bindingHelpers::BindOpaqueBehavior"
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.BindOpaqueBehavior">
+		</transformation>
+	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
 			transformationID="trafos::bindingHelpers::BindOperation"
@@ -153,10 +159,18 @@
 		<toc file="help/modellibs-core-examples.xml"/>
 		<toc file="help/modellibs-core-library.xml"/>
 	</extension>
-	<extension
-			point="org.eclipse.papyrus.designer.transformation.extensions.xtendGenerator">
-		<client class="org.eclipse.papyrus.designer.transformation.library.xtend.CppUtils" templateID="CppUtils">
-		</client>
- </extension>
- 
+
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.textTemplate">
+		<template
+			class="org.eclipse.papyrus.designer.transformation.library.xtend.CppUtils"
+			templateID="CppUtils">
+		</template>
+ 	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.textTemplate">
+		<template
+			class="org.eclipse.papyrus.designer.transformation.library.xtend.FIFO"
+			templateID="FIFO">
+		</template>
+	</extension>
+
 </plugin>

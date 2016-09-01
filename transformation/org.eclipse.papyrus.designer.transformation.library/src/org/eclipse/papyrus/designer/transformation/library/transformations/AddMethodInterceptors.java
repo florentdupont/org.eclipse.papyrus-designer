@@ -19,37 +19,27 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.papyrus.designer.deployment.tools.ConfigUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
-import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
-import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.templates.TextTemplateBinding;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyStatus;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
-import org.eclipse.papyrus.designer.transformation.extensions.InstanceConfigurator;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.Dependency;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.InstanceSpecification;
-import org.eclipse.uml2.uml.Interface;
-import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.OpaqueBehavior;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
-import org.eclipse.uml2.uml.Port;
 import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.TemplateBinding;
-import org.eclipse.uml2.uml.TemplateSignature;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.profile.standard.Create;
@@ -59,11 +49,12 @@ import org.eclipse.uml2.uml.profile.standard.Destroy;
  * A model-2-model transformation that merges a class with another.
  * different cases: (1) merge only
  * (2) some methods in the template intercept all operations of the other. This is required for instance for the state machine.
- * => TODO: separate merge & interception
+ * This class focuses on the interception utility
+ * TODO: complete and test M2M transformation
  */
 public class AddMethodInterceptors implements IM2MTrafoElem {
 
-	private static final String XTEND_CPP_UTILS_CPP_CALL = "!xtend CppUtils.cppCall"; //$NON-NLS-1$
+	private static final String XTEND_CPP_UTILS_CPP_CALL = "!template CppUtils.cppCall"; //$NON-NLS-1$
 
 	public final String origOpPrefix = "orig_"; //$NON-NLS-1$
 
@@ -85,38 +76,6 @@ public class AddMethodInterceptors implements IM2MTrafoElem {
 		this.copier = copier;
 		this.tmCDP = tmCDP;
 		interceptionOpMap = new HashMap<Operation, Operation>();
-	}
-
-	/**
-	 * creates the executor. Needs to be called *before* the other operations of
-	 * this class.
-	 *
-	 * @param tmComponent
-	 *            the implementation of a component
-	 *
-	 * @throws TransformationException
-	 */
-	public void createContainer(Class smClass, Class tmClass) throws TransformationException {
-		// for non-components: create a delegation operation for all operations that are provided by a class (excluding those derived by ports)
-		// Calls on model level use CallOperationAction, will point to existing operation, unless changed.
-		// If deployed dynamically (no static component deployment), need to change factories as well.
-		// Pragmatic: rename/add existing operations (as Accord has done), do some renaming and clever model handling (assure
-		// that code referencing classes via name automatically uses the new class.
-		// => container with name of existing class, rename existing class.
-		// possible: move operations into container, existing class gets copied (with updated behaviors)
-
-		// requirements:
-		// - existing creation operations create container (separation activity CreateAction: needs to change.)
-		// trivially in this case case, since container is no separate entity.
-		// - => references could be exchanged during copier operation with a suitable copyFilter (=> container transfo becomes a copier filter)
-		// [in case of ports: quite difficult to handle: if port belongs to abstract components, it may be inherited by multiple components that
-		// might or might-not have a container => only some references need to be changed]
-		// => clarify, how container handles super-classes, i.e. if it inherits ports as well (from a container of the abstract component) or not (not trivial at all!)
-		// TODO: don't copier derived operations
-		this.smClass = smClass;
-		this.tmClass = tmClass;
-		// create a copy of all operations
-		operations = new BasicEList<Operation>(smClass.getOperations());
 	}
 
 	/**
@@ -155,183 +114,7 @@ public class AddMethodInterceptors implements IM2MTrafoElem {
 		b.setSpecification(operation);
 		return copiedOperation;
 	}
-
-	/**
-	 * return the reference of the created container class
-	 *
-	 * @return
-	 */
-	public Class getContainer() {
-		return tmClass;
-	}
-
-	/**
-	 * apply a container rule, i.e. add either a container extension or an
-	 * interceptor to the container.
-	 *
-	 * @param smContainerRule
-	 *            A container rule
-	 * @param smComponent
-	 *            the application component in the source model
-	 * @param tmComponent
-	 *            the application component in the target model
-	 * @param tmIS
-	 *            the instance specification for the application component in the target model
-	 * @throws TransformationException
-	 */
-	public void applyRule(Class mergeTemplateClass, Class smComponent, Class tmComponent)
-			throws TransformationException {
-		// dependencies of the rule become dependencies of the class that applies this rule.
-		for (Dependency dependency : mergeTemplateClass.getClientDependencies()) {
-			//
-			for (Element target : dependency.getTargets()) {
-				// target may, or may not be in a template
-				if (target instanceof Class) {
-					Class targetCl = (Class) target;
-					Class extClass = expandAggregationDep(targetCl, smComponent);
-					tmComponent.createDependency(extClass);
-				}
-				else if (target instanceof Interface) {
-					Interface targetIntf = (Interface) target;
-					if (dependency instanceof InterfaceRealization) {
-						tmComponent.createInterfaceRealization(((InterfaceRealization) dependency).getName(), copier.getCopy(targetIntf));
-					}
-				}
-				// TODO: handle additional dependencies, better use generic copier?
-			}
-		}
-
-		boolean hasConstructor = isOperationStereotypeApplied(Create.class);
-		boolean hasDestructor = isOperationStereotypeApplied(Destroy.class);
-
-		// register relation to facilitate attribute copy
-		copier.setPackageTemplate(mergeTemplateClass, tmClass);
-		// reset status to in-progress. Otherwise, the copier will not properly add new
-		// elements.
-		copier.setStatus(tmClass, CopyStatus.INPROGRESS);
-
-		for (Operation templateOperation : mergeTemplateClass.getOperations()) {
-			// Need a specific treatment of Constructor/destructor: if original class has a
-			// constructor, must add to all constructors, if it has none, copy constructor
-			boolean templateIsConstructor = StereotypeUtil.isApplied(templateOperation, Create.class);
-			boolean templateIsDestructor = StereotypeUtil.isApplied(templateOperation, Destroy.class);
-
-			boolean needsMerge = (templateIsConstructor && hasConstructor) || (templateIsDestructor && hasDestructor);
-			if (needsMerge || StereotypeUtil.isApplied(templateOperation, InterceptionRule.class)) {
-				// operation is an interceptor: add its content to the methods of the
-				// original class
-
-				// reset package template. Make sure not to use template map, otherwise methods of original class might be duplicated
-				copier.setPackageTemplate(null, null);
-				mergeOperations(smContainerRule, templateOperation);
-			}
-			else {
-				copier.setPackageTemplate(mergeTemplateClass, tmClass);
-				// normal operation. Copy from container to class
-				Operation newOperation = copier.getCopy(templateOperation);
-				if (StereotypeUtil.isApplied(templateOperation, ApplyTransformation.class)) {
-					String opBody = getBody(templateOperation);
-					// operation is not an interceptor, assume binding with class itself
-					opBody = TextTemplateBinding.bind(opBody, tmClass, null);
-					setBody(newOperation, opBody);
-				}
-				if (templateIsConstructor) {
-					newOperation.setName(tmClass.getName());
-				}
-				else if (templateIsConstructor) {
-					newOperation.setName("~" + tmClass.getName());
-				}
-			}
-		}
-
-		copier.setPackageTemplate(mergeTemplateClass, tmClass);
-
-		for (Property part : mergeTemplateClass.getAllAttributes()) {
-			Type type = part.getType();
-			if (type == null) {
-				String ruleName = (mergeTemplateClass.getName() != null) ? mergeTemplateClass.getName() : "undefined"; //$NON-NLS-1$
-				throw new TransformationException(String.format(Messages.LWContainerTrafo_CannotApplyRule, ruleName));
-			}
-			if (part instanceof Port) {
-				Port newPort = tmClass.createOwnedPort(part.getName(), part.getType());
-				StUtils.copyStereotypes(part, newPort);
-			}
-			else if (type instanceof Class) {
-				Class extOrInterceptor = (Class) type;
-				// DepUtils.chooseImplementation((Class) type,
-				// new BasicEList<InstanceSpecification>(), false);
-				if (StereotypeUtil.isApplied(part, InterceptionRule.class)) {
-					// port.filter
-					//
-				}
-				else {
-					Property extensionPart = expandAggregationExtension(part.getName(), extOrInterceptor, tmComponent);
-					copier.put(part, extensionPart);
-					copier.setPackageTemplate(null, null);
-				}
-			}
-			else {
-				Property newAttribute = EcoreUtil.copy(part);
-				tmClass.getOwnedAttributes().add(newAttribute);
-			}
-		}
-		// tell copier that tmcontainerImpl is associated with the smContainerRule
-		// register a package template (although it is not a template) to assure that the connectors
-		// get copied, although they are in a different resource (only the connectors are copied, not
-		// the types of the referenced parts).
-		// [main issue here: properties of container rule are not copies in the sense of identical
-		// copies]
-
-		// copier.setPackageTemplate(smContainerRule.getBase_Class(), tmClass);
-		// copier.setPackageTemplate(null, null);
-	}
-
-	protected boolean isOperationStereotypeApplied(java.lang.Class<? extends EObject> stereotype) {
-		for (Operation op : tmClass.getOwnedOperations()) {
-			if (StereotypeUtil.isApplied(op, stereotype)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * This container expansion does not create a new composite. Instead, it
-	 * adds the extension as a part to the copied application component. The
-	 * application component also inherits from the type of the container
-	 * extension in order to avoid copying ports.
-	 */
-	Property expandAggregationExtension(String name, Class smContainerExtImpl, Class tmComponent) throws TransformationException {
-		Class tmContainerExtImpl = expandAggregationDep(smContainerExtImpl, tmComponent);
-
-		// add part associated with the extension to the container
-		Property extensionPart = tmClass.createOwnedAttribute(name, tmContainerExtImpl);
-
-		// problem: would not be unique in case of multiple extensions
-		// Copy.copyID(tmComponent, extensionPart, "a");
-		extensionPart.setIsComposite(true);
-		return extensionPart;
-	}
-
-	Class expandAggregationDep(Class smContainerExtImpl, Class tmComponent) throws TransformationException {
-		Class tmContainerExtImpl = null;
-		TemplateSignature signature = TemplateUtils.getSignature(smContainerExtImpl);
-		if (signature == null) {
-			// no template signature, just copy the container extension into the target model
-			tmContainerExtImpl = copier.getCopy(smContainerExtImpl);
-		}
-		else {
-			// template signature found, instantiate container extension via the
-			// template binding mechanism
-			TemplateBinding binding = TemplateUtils.fixedBinding(copier.target, smContainerExtImpl, tmComponent);
-			Object[] args = new Object[] {};
-			TemplateInstantiation ti = new TemplateInstantiation(copier, binding, args);
-			tmContainerExtImpl = ti.bindElement(smContainerExtImpl);
-		}
-
-		return tmContainerExtImpl;
-	}
-
+	
 	/**
 	 * Add interception code to all operations of the lwContainer.
 	 * Can be called several times with different interception operations (which will then be concatenated)
@@ -357,7 +140,7 @@ public class AddMethodInterceptors implements IM2MTrafoElem {
 			if (StereotypeUtil.isApplied(interceptionOperationInRule, ApplyTransformation.class)) {
 				// pass operation in source model, since this enables Xtend code to check
 				// for markers on model
-				TransformationContext.classifier = tmClass;
+				TransformationContext.current.classifier = tmClass;
 				interceptionBody = TextTemplateBinding.bind(interceptionBody, smOperation, null);
 			}
 			if (interceptionBody.length() > 0) {
@@ -426,7 +209,6 @@ public class AddMethodInterceptors implements IM2MTrafoElem {
 	 *      executor instance (container and executor are merged).
 	 *      The purpose of this operation is therefore the configuration of the instance rather than its creation
 	 */
-	@Override
 	public InstanceSpecification createContainerInstance(Class tmComponent, InstanceSpecification tmExecutorIS) throws TransformationException {
 		InstanceSpecification containerIS = tmExecutorIS;
 		// InstanceConfigurator.configureInstance(smContainerRule, containerIS, null, context);
@@ -442,7 +224,7 @@ public class AddMethodInterceptors implements IM2MTrafoElem {
 					InstanceSpecification containerExtIS = DepCreation.createDepPlan(tmCDP, (Class) tmContainerExtImpl, containerIS.getName() + "." + //$NON-NLS-1$
 							extensionPart.getName(), false);
 					// configure extension
-					InstanceConfigurator.configureInstance(containerExtIS, extensionPart, null);
+					ConfigUtils.configureInstance(containerExtIS, extensionPart, null);
 					DepCreation.createSlot(containerIS, containerExtIS, extensionPart);
 				}
 			}

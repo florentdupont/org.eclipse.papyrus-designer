@@ -3,6 +3,6 @@
 <plugin>
  plugin.xml
 	<extension-point id="instanceConfig" name="instanceConfigName" schema="schema/instanceConfig.exsd"/>
-	<extension-point id="xtendGenerator" name="xtendGeneratorName" schema="schema/xtendGenerator.exsd"/>
+	<extension-point id="textTemplate" name="textTemplateName" schema="schema/textTemplate.exsd"/>
 	<extension-point id="m2mTrafo" name="m2mTrafoName" schema="schema/m2mTrafo.exsd"/>
  </plugin>

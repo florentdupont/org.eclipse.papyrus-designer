@@ -86,6 +86,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_FEFOQFf_EeanCpyPTMVlnA" name="availROM" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-bSu4G_EEeaWnoc8dDCyEA" name="target" visibility="public" type="_tn0YIFf-EeanCpyPTMVlnA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_PoxxgFf-EeanCpyPTMVlnA" name="E_Target_Class1" memberEnd="_PoyYkFf-EeanCpyPTMVlnA _PoyYkVf-EeanCpyPTMVlnA">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_PoyYkFf-EeanCpyPTMVlnA" name="extension_Target" type="_O8X-gFf-EeanCpyPTMVlnA" aggregation="composite" association="_PoxxgFf-EeanCpyPTMVlnA"/>

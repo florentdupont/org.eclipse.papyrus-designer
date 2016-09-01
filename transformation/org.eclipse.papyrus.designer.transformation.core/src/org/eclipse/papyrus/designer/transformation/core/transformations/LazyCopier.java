@@ -32,8 +32,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
 import org.eclipse.papyrus.designer.transformation.core.Activator;
-import org.eclipse.papyrus.designer.transformation.core.listeners.PostCopyListener;
-import org.eclipse.papyrus.designer.transformation.core.listeners.PreCopyListener;
+import org.eclipse.papyrus.designer.transformation.core.copylisteners.PostCopyListener;
+import org.eclipse.papyrus.designer.transformation.core.copylisteners.PreCopyListener;
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -316,46 +316,6 @@ public class LazyCopier extends Copier {
 	}
 
 	private Stack<Namespace> boundPackages;
-
-	/**
-	 * Remove an element and its children from the map to enable subsequent copies, in particular if the
-	 * same element (e.g. an operation) is bound multiple times within a template instantiation.
-	 * TODO: there must be a better way to do this.
-	 *
-	 * @param element
-	 */
-	public void removeForCopy(EObject element) {
-		templateMap.remove(element);
-		if (element instanceof Element) {
-			// also remove applied stereotypes
-			for (EObject stereoApplication : ((Element) element).getStereotypeApplications()) {
-				removeForCopy(stereoApplication);
-			}
-		}
-		EClass eClass = element.eClass();
-		for (int i = 0, size = eClass.getFeatureCount(); i < size; ++i)
-		{
-			EStructuralFeature eStructuralFeature = eClass.getEStructuralFeature(i);
-			if (eStructuralFeature.isChangeable() && !eStructuralFeature.isDerived())
-			{
-				if (eStructuralFeature instanceof EAttribute) {
-					// copyAttribute((EAttribute)eStructuralFeature, sourceEObj, targetEObj);
-				}
-				else {
-					EReference eReference = (EReference) eStructuralFeature;
-					if (eReference.isContainment()) {
-						for (EObject ref : getRefs(eReference, element)) {
-							removeForCopy(ref);
-						}
-					}
-					else if (!eReference.isContainer()) {
-						// not contained, but copy reference as well
-
-					}
-				}
-			}
-		}
-	}
 
 	@SuppressWarnings("unchecked")
 	public EList<EObject> getRefs(EReference eReference, EObject eObject) {

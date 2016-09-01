@@ -18,22 +18,22 @@ import org.eclipse.core.runtime.Platform;
 
 
 /**
- * Support for embedding xtend templates
+ * Support for embedding text templates
  */
-public class XtendGenerator {
+public class TextTemplateExt {
 
-	public static final String ITEMPLATE_ID = Activator.PLUGIN_ID + ".xtendGenerator"; //$NON-NLS-1$
+	public static final String ITEMPLATE_ID = Activator.PLUGIN_ID + ".textTemplate"; //$NON-NLS-1$
 
-	public static IXtend getXtendGenerator(String generatorID) {
+	public static ITextTemplate getTextTemplate(String templateID) {
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
 		IConfigurationElement[] configElements = reg.getConfigurationElementsFor(ITEMPLATE_ID);
 		for (IConfigurationElement configElement : configElements) {
 			try {
 				final String iTemplateID = configElement.getAttribute("templateID"); //$NON-NLS-1$
-				if (iTemplateID.equals(generatorID)) {
+				if (iTemplateID.equals(templateID)) {
 					final Object obj = configElement.createExecutableExtension("class"); //$NON-NLS-1$
-					if (obj instanceof IXtend) {
-						return (IXtend) obj;
+					if (obj instanceof ITextTemplate) {
+						return (ITextTemplate) obj;
 					}
 				}
 			} catch (CoreException exception) {

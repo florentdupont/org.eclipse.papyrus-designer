@@ -11,19 +11,10 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://DML_TRAFO/statemachine.uml#_ago_QOUTEd-P08Bciq_LqQ"/>
     </packageImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_LOqIEDLaEd2qeKRLMdIx_A" name="classes">
-      <packagedElement xmi:type="uml:Package" xmi:id="_XLQjUDLiEd2RVeNawwNNzg" name="System">
-        <packagedElement xmi:type="uml:Class" xmi:id="_bYJagDLiEd2RVeNawwNNzg" name="System_impl">
-          <ownedAttribute xmi:type="uml:Property" xmi:id="_gV1cgDLiEd2RVeNawwNNzg" name="simpleSM" type="_oqZNUDLaEd2qeKRLMdIx_A" isUnique="false" aggregation="composite"/>
-        </packagedElement>
-      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oqZNUDLaEd2qeKRLMdIx_A" name="SimpleSM" classifierBehavior="_y7KWsOYXEeCBL_IbXY9ofw">
         <ownedComment xmi:type="uml:Comment" xmi:id="_cb-ncDemEeGPyrZ5I3hMlA" annotatedElement="_oqZNUDLaEd2qeKRLMdIx_A">
           <body>State-machine support is enabled with a container rule</body>
         </ownedComment>
-        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_VGnYgCgBEeapjr3l63b85A" name="realization of IStart" client="_oqZNUDLaEd2qeKRLMdIx_A">
-          <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
-          <contract xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
-        </interfaceRealization>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qxjWINnmEd2_cstbO2Uzgg" name="mult" specification="_4ZEZwHecEd6r18stFZxmFQ">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_YURmYGkzEearUflqhq5Pgw" name="res" direction="return">
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YUTbkGkzEearUflqhq5Pgw" value="1"/>
@@ -157,6 +148,9 @@ sleep(15);
           </when>
         </packagedElement>
       </packagedElement>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_yHXTMG-EEea89JTVlr8RHA" client="_oqZNUDLaEd2qeKRLMdIx_A">
+        <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_v3fMgDLiEd2RVeNawwNNzg" name="platform">
       <packagedElement xmi:type="uml:Package" xmi:id="_rbwXsF15Eea4bLzKfwAjjA" name="HWArchitectureMonolithicPlatform">
@@ -179,14 +173,12 @@ sleep(15);
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_234GEDLiEd2RVeNawwNNzg" name="deployment">
-      <packagedElement xmi:type="uml:Package" xmi:id="_QQiDgHltEeOh_8tymvdOOg" name="System_implDepPlan">
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_QQm8AHltEeOh_8tymvdOOg" name="mainInstance" classifier="_bYJagDLiEd2RVeNawwNNzg">
-          <slot xmi:type="uml:Slot" xmi:id="_QQtpsHltEeOh_8tymvdOOg" definingFeature="_gV1cgDLiEd2RVeNawwNNzg">
-            <value xmi:type="uml:InstanceValue" xmi:id="_QQuQwHltEeOh_8tymvdOOg" instance="_QQr0gHltEeOh_8tymvdOOg"/>
-          </slot>
-        </packagedElement>
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_QQr0gHltEeOh_8tymvdOOg" name="mainInstance.simpleSM" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
-        <packagedElement xmi:type="uml:Abstraction" xmi:id="_tWAd4F15Eea4bLzKfwAjjA" name="allocate mainInstance to monoNode" client="_QQm8AHltEeOh_8tymvdOOg" supplier="_rb46kF15Eea4bLzKfwAjjA"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_GYFZYG-QEea89JTVlr8RHA" name="SimpleSMDepPlan">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_GYJDwG-QEea89JTVlr8RHA" name="mainInstance" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
+        <packagedElement xmi:type="uml:Abstraction" xmi:id="_D1STYG-6Eea89JTVlr8RHA" name="allocate mainInstance to monoNode" client="_GYJDwG-QEea89JTVlr8RHA" supplier="_rb46kF15Eea4bLzKfwAjjA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_MfLhYG-6Eea89JTVlr8RHA" name="SimpleSMDepPlanNoBL">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_MfMIcG-6Eea89JTVlr8RHA" name="mainInstance" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
       </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_O6TiIjLUEd26WNosUASSSw">
@@ -221,9 +213,9 @@ sleep(15);
     </profileApplication>
   </uml:Model>
   <C_Cpp:Include xmi:id="_EaeJMNp0EeKd1ax3yaXM9w" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
-  <Transformation:ApplyTransformation xmi:id="_bov2QFl5EeagP584YGQRWg" base_Class="_oqZNUDLaEd2qeKRLMdIx_A">
-    <trafo xmi:type="Transformation:M2MTrafo" href="pathmap://DML_TRAFO/statemachine.uml#_BQqewGoNEea1-rBQVLBwEw"/>
-  </Transformation:ApplyTransformation>
-  <Deployment:DeploymentPlan xmi:id="_3Rk-AFl6EeaMOsb_YMu4Rg" base_Package="_QQiDgHltEeOh_8tymvdOOg"/>
-  <Alloc:Allocate xmi:id="_tWIZsF15Eea4bLzKfwAjjA" base_Abstraction="_tWAd4F15Eea4bLzKfwAjjA"/>
+  <Alloc:Allocate xmi:id="_D1ZBEG-6Eea89JTVlr8RHA" base_Abstraction="_D1STYG-6Eea89JTVlr8RHA"/>
+  <Deployment:DeploymentPlan xmi:id="_SqAE4G-6Eea89JTVlr8RHA" base_Package="_MfLhYG-6Eea89JTVlr8RHA">
+    <chain xmi:type="Transformation:M2MTrafoChain" href="pathmap://DML_TRAFO/trafos.uml#_A7oqsG-DEea89JTVlr8RHA"/>
+  </Deployment:DeploymentPlan>
+  <Deployment:DeploymentPlan xmi:id="_fDaRkG-6Eea89JTVlr8RHA" base_Package="_GYFZYG-QEea89JTVlr8RHA"/>
 </xmi:XMI>
