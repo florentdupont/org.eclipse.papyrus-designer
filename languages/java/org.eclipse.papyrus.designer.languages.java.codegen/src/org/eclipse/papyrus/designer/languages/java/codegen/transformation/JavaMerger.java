@@ -121,11 +121,11 @@ public class JavaMerger {
 							Activator.log.error(e);
 						}
 
-						/*try {
+						try {
 							srcFolder.delete(true, null);
 						} catch (CoreException e) {
 							Activator.log.error(e);
-						}*/
+						}
 					}
 				}
 			}
