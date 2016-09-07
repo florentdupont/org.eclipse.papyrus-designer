@@ -20,24 +20,31 @@ import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.External
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.NoCodeGen
 import org.eclipse.uml2.uml.Classifier
 import org.eclipse.uml2.uml.PrimitiveType
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.ExternLibrary
 
 class JavaClassImportClassDeclaration {
-	static def javaClassAllImports(Classifier classifier, EList<Classifier> list) {
+	static def javaClassAllImports(Classifier classifier, EList<Classifier> list, String prefix) {
 		var List<String> newList = new ArrayList<String>()
 		for (cl : list) {
-			//var String str = null
-			if (cl != classifier && !GenUtils.hasStereotype(cl, NoCodeGen) || GenUtils.hasStereotype(cl, External)) {
+			if ((cl != classifier && !GenUtils.hasStereotype(cl, NoCodeGen)) || GenUtils.hasStereotype(cl, External) || GenUtils.hasStereotypeTree(cl, ExternLibrary)) {
 				if (!(cl instanceof PrimitiveType)) {
-					newList.addAll(JavaClassImportDeclaration.javaClassImports(cl, classifier))
+					val imports = JavaClassImportDeclaration.javaClassImports(cl, classifier)
+					
+					if (GenUtils.hasStereotype(cl, External) || GenUtils.hasStereotypeTree(cl, ExternLibrary)) {
+						// We don't add a prefix to External.name or ExternLibrary.imports
+						newList.addAll(JavaClassImportDeclaration.javaClassImports(cl, classifier))
+					} else {
+						for (theImport : imports) {
+							newList.add(prefix + theImport)
+						}
+					}
 				}
-			} else {
-				//str = null
 			}
 		}
 		return newList.filter[str | str != null]
 	}
 	
-	static def javaClassAllImports(Classifier clazz) {
-		javaClassAllImports(clazz, ClassUtils.requiredClassifiers(clazz))
+	static def javaClassAllImports(Classifier clazz, String prefix) {
+		javaClassAllImports(clazz, ClassUtils.requiredClassifiers(clazz), prefix)
 	}
 }
