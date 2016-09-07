@@ -22,6 +22,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project;
+import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.AggregationKind;
 import org.eclipse.uml2.uml.Behavior;
 import org.eclipse.uml2.uml.Classifier;
@@ -888,10 +890,25 @@ public class GenUtils {
 	 *
 	 * @param ne
 	 *            a named element
-	 * @return the fully qualified name with "_" as separator character
+	 * @return the fully qualified name with separator character
 	 */
 	public static String getFullName(NamedElement ne, String separator) {
 		return ne.getQualifiedName().replace("::", separator); //$NON-NLS-1$ //$NON-NLS-2$
+	}
+	
+	/**
+	 * Return the qualified name of a named element, but use separator instead of "::" as separator, and check if project name should be considered
+	 *
+	 * @param ne
+	 *            a named element
+	 * @return the fully qualified name with separator character, without the project name optionally
+	 */
+	public static String getFullName(NamedElement ne, String separator, boolean withProjectName) {
+		String qName = getFullName(ne, separator);
+		if (!withProjectName) {
+			return getQualifiedNameWithoutProject(ne, qName, separator);
+		}
+		return qName;
 	}
 
 	/**
@@ -1056,10 +1073,35 @@ public class GenUtils {
 	 * Return the qualified name of a package, but use passed separator instead of "::" as separator
 	 *
 	 * @param pkg
-	 * @return
+	 * @return the fully qualified name with separator character, without the project name optionally
 	 */
 	public static String getFullPath(Package pkg, String seperator) {
 		return pkg.getQualifiedName().replace("::", seperator); //$NON-NLS-1$//$NON-NLS-2$
+	}
+	
+	/**
+	 * Return the qualified name of a package, but use separator instead of "::" as separator, and check if project name should be considered
+	 *
+	 * @param pkg
+	 * @return the fully qualified name with separator character, without the project name optionally
+	 */
+	public static String getFullPath(Package pkg, String separator, boolean withProjectName) {
+		String qName = getFullPath(pkg);
+		if (!withProjectName) {
+			return getQualifiedNameWithoutProject(pkg, qName, separator);
+		}
+		return qName;
+	}
+	
+	private static String getQualifiedNameWithoutProject(NamedElement ne, String qName, String separator) {
+		org.eclipse.uml2.uml.Package root = PackageUtil.getRootPackage(ne);
+		if (qName != null && root != null && GenUtils.hasStereotype(root, Project.class)) {
+			if (qName.startsWith(root.getName())) {
+				return qName.replaceFirst(root.getName() + separator, "");
+			}
+		}
+		
+		return qName;
 	}
 
 	/**

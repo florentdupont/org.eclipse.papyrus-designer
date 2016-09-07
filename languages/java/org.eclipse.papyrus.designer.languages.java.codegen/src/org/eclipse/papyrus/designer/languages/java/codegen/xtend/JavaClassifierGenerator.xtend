@@ -29,7 +29,7 @@ class JavaClassifierGenerator {
 	}
 	
 	static def generateClassCode(Classifier classifier, String prefix) '''
-		package «prefix + GenUtils.getFullPath(classifier.package, ".")»;
+		package «prefix + GenUtils.getFullPath(classifier.package, ".", false)»;
 		
 		«FOR path : getSortedIncludePathList(classifier)»
 			«JavaImportUtil.importDirective(path, prefix)»

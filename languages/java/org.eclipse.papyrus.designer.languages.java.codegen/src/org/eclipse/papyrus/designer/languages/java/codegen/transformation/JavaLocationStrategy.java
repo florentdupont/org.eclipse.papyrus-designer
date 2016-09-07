@@ -11,7 +11,10 @@
 
 package org.eclipse.papyrus.designer.languages.java.codegen.transformation;
 
+import org.eclipse.papyrus.designer.languages.common.base.GenUtils;
 import org.eclipse.papyrus.designer.languages.common.base.HierarchyLocationStrategy;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project;
+import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.NamedElement;
 
 public class JavaLocationStrategy extends HierarchyLocationStrategy {
@@ -23,6 +26,18 @@ public class JavaLocationStrategy extends HierarchyLocationStrategy {
 	 * @return filename for this element
 	 */
 	public String getFileName(NamedElement element) {
-		return super.getFileName(element);
+		String fileQualifiedName = super.getFileName(element);
+		
+		org.eclipse.uml2.uml.Package root = PackageUtil.getRootPackage(element);
+		if (fileQualifiedName != null && root != null && GenUtils.hasStereotype(root, Project.class)) {
+			if (fileQualifiedName.startsWith(root.getName()) || fileQualifiedName.startsWith("/" + root.getName())) {
+				String fileQualifiedNameWithoutRoot = fileQualifiedName.replaceFirst(root.getName() + "/", "");
+				return fileQualifiedNameWithoutRoot;
+			}
+			
+			return fileQualifiedName;
+		}
+		
+		return fileQualifiedName;
 	}
 }
