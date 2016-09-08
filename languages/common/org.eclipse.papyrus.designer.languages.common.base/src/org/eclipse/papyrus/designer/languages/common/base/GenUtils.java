@@ -1086,7 +1086,7 @@ public class GenUtils {
 	 * @return the fully qualified name with separator character, without the project name optionally
 	 */
 	public static String getFullPath(Package pkg, String separator, boolean withProjectName) {
-		String qName = getFullPath(pkg);
+		String qName = getFullPath(pkg, separator);
 		if (!withProjectName) {
 			return getQualifiedNameWithoutProject(pkg, qName, separator);
 		}
