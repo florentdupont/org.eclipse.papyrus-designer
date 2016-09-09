@@ -11,7 +11,6 @@
 
 package org.eclipse.papyrus.designer.languages.java.codegen.xtend
 
-import java.util.ArrayList
 import java.util.List
 import org.eclipse.emf.common.util.EList
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
@@ -21,10 +20,11 @@ import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.NoCodeGen
 import org.eclipse.uml2.uml.Classifier
 import org.eclipse.uml2.uml.PrimitiveType
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.ExternLibrary
+import org.eclipse.emf.common.util.UniqueEList
 
 class JavaClassImportClassDeclaration {
 	static def javaClassAllImports(Classifier classifier, EList<Classifier> list, String prefix) {
-		var List<String> newList = new ArrayList<String>()
+		var List<String> newList = new UniqueEList<String>()
 		for (cl : list) {
 			if ((cl != classifier && !GenUtils.hasStereotype(cl, NoCodeGen)) || GenUtils.hasStereotype(cl, External) || GenUtils.hasStereotypeTree(cl, ExternLibrary)) {
 				if (!(cl instanceof PrimitiveType)) {
