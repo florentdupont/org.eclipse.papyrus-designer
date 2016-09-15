@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Codegen="http://www.eclipse.org/papyrus/Codegen/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="HelloWorldJava">
+    <packageImport xmi:id="_BUI4cntDEea3BdFt533Isw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_BUI4c3tDEea3BdFt533Isw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://DML_TRAFO/trafos.uml#_Q6TiIDLUEd26WNosUASSSw"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq4kgHtDEea3BdFt533Isw" name="globalenums"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq5LkHtDEea3BdFt533Isw" name="deployment">
+      <packagedElement xmi:type="uml:Package" xmi:id="_yl9-AFT2EeKvFeqt5Q_lqw" name="SystemDepPlan">
+        <ownedComment xmi:id="_wAbboFZVEeKKZs15rvNNjA" annotatedElement="_ymQR4FT2EeKvFeqt5Q_lqw">
+          <body>Value mainInstance.hello is a UML instance-value, i.e. a reference to the instance specification on the left.
+&quot;Test message&quot; is a StringValue initializing the message attribute</body>
+        </ownedComment>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ymQR4FT2EeKvFeqt5Q_lqw" name="mainInstance" classifier="_tyiqsc__Ed-TP80eVS-2Rg">
+          <slot xmi:id="_tfj4gFUwEeKdxoQIVxFNNg" definingFeature="_8pupUFTzEeKvFeqt5Q_lqw">
+            <value xmi:type="uml:LiteralString" xmi:id="_tfni4FUwEeKdxoQIVxFNNg" name="value for message" value="&quot;Test message&quot;">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </value>
+          </slot>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Bq7n0XtDEea3BdFt533Isw" name="classes">
+      <packagedElement xmi:type="uml:Class" xmi:id="_tyiqsc__Ed-TP80eVS-2Rg" name="HelloWorld">
+        <ownedComment xmi:id="_SxvpUFT0EeKvFeqt5Q_lqw" annotatedElement="_8pupUFTzEeKvFeqt5Q_lqw _tyiqsc__Ed-TP80eVS-2Rg">
+          <body>Configuration attribute within the Hello World component. Its value is configured on the instance level.</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_8pupUFTzEeKvFeqt5Q_lqw" name="message" visibility="public" aggregation="composite">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__HwK8FTzEeKvFeqt5Q_lqw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__HwyAFTzEeKvFeqt5Q_lqw" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="__HynMFTzEeKvFeqt5Q_lqw">
+            <value xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <interfaceRealization xmi:id="_nuUGgHEKEeatX-i6MtVR2A" client="_tyiqsc__Ed-TP80eVS-2Rg">
+          <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+          <contract href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+        </interfaceRealization>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tyjRwc__Ed-TP80eVS-2Rg" name="run" specification="_UtCt0FTzEeKvFeqt5Q_lqw">
+          <language>C/C++</language>
+          <language>JAVA</language>
+          <body>cout &lt;&lt; &quot;Hello world: &quot; &lt;&lt; message &lt;&lt; endl;</body>
+          <body>System.out.println(&quot;Hello world: &quot; + message);</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_UtCt0FTzEeKvFeqt5Q_lqw" name="run" method="_tyjRwc__Ed-TP80eVS-2Rg"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_BTms8HtDEea3BdFt533Isw">
+      <eAnnotations xmi:id="_BTms8XtDEea3BdFt533Isw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_BTv24HtDEea3BdFt533Isw">
+      <eAnnotations xmi:id="_BTv24XtDEea3BdFt533Isw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_BT95UHtDEea3BdFt533Isw">
+      <eAnnotations xmi:id="_BT95UXtDEea3BdFt533Isw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_BUI4cHtDEea3BdFt533Isw">
+      <eAnnotations xmi:id="_BUI4cXtDEea3BdFt533Isw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Deployment/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://DEP_PROFILE/Deployment.profile.uml#_gPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+  </uml:Model>
+  <Codegen:GeneratorHint xmi:id="_BUQNMHtDEea3BdFt533Isw" base_Element="_O6TiIDLUEd26WNosUASSSw">
+    <language href="pathmap://Codegen_PROFILES/languages.uml#_2Zt6YCjREeayco6FJ_OtTQ"/>
+  </Codegen:GeneratorHint>
+  <Codegen:GeneratorHint xmi:id="_Bq4kgXtDEea3BdFt533Isw" base_Element="_O6TiIDLUEd26WNosUASSSw">
+    <language href="pathmap://Codegen_PROFILES/languages.uml#_2Zt6YCjREeayco6FJ_OtTQ"/>
+  </Codegen:GeneratorHint>
+  <Codegen:GeneratorHint xmi:id="_Bq7n0HtDEea3BdFt533Isw" base_Element="_Bq7n0XtDEea3BdFt533Isw">
+    <language href="pathmap://Codegen_PROFILES/languages.uml#_2Zt6YCjREeayco6FJ_OtTQ"/>
+  </Codegen:GeneratorHint>
+</xmi:XMI>

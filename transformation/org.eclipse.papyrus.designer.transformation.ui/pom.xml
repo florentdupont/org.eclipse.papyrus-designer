@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
-		<artifactId>org.eclipse.papyrus.designer.components</artifactId>
+		<artifactId>org.eclipse.papyrus.designer.transformation</artifactId>
 		<version>0.7.3-SNAPSHOT</version>
 	</parent>
-	<artifactId>org.eclipse.papyrus.designer.components.transformation.ui</artifactId>
-	<description>This module contains the UI elements for component-based design</description>
+	<artifactId>org.eclipse.papyrus.designer.transformation.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<description>This module contains the UI for starting code generation and model-2-model related transformations</description>
 </project>

@@ -7,10 +7,11 @@
 		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
 	</parent>
-	<artifactId>org.eclipse.papyrus.designer.languages</artifactId>
+	<artifactId>org.eclipse.papyrus.designer.transformation</artifactId>
+	<version>0.7.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Designer Languages</name>
-	<description>This module contains the different plugins relative to different (programming) languages</description>
+	<name>Designer transformation</name>
+	<description>This module contains the different plugins required for model-2-model transformations</description>
 
 	<modules>
 		<module>org.eclipse.papyrus.designer.transformation.core</module>
@@ -20,6 +21,7 @@
 		<module>org.eclipse.papyrus.designer.transformation.extensions</module>
 		<module>org.eclipse.papyrus.designer.transformation.profile</module>
 		<module>org.eclipse.papyrus.designer.transformation.vsl</module>
+		<module>languages</module>
 	</modules>
 
 </project>

@@ -27,6 +27,7 @@ import org.eclipse.papyrus.designer.components.transformation.PortUtils;
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants;
 import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.RealizationUtils;
 import org.eclipse.papyrus.designer.transformation.core.sync.SyncBehaviorParameters;
 import org.eclipse.papyrus.designer.transformation.core.transformations.UpdateUtils;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
@@ -166,61 +167,6 @@ public class CompImplSync {
 	}
 
 	/**
-	 * Add an interface realization relationship from an implementation (Class) towards an interface
-	 *
-	 * @param implementation
-	 *            A component implementation
-	 * @param providedIntf
-	 *            The interface that is provided at one of its port
-	 */
-	protected static void addRealization(final Class implementation, final Interface providedIntf) {
-		if (!hasRealization(implementation, providedIntf)) {
-			InterfaceRealization ir =
-					implementation.createInterfaceRealization(calcRealizationName(providedIntf), providedIntf);
-			ir.getClients().add(implementation);
-			ir.getSuppliers().add(providedIntf);
-		}
-	}
-
-	/**
-	 * Calculate the name of an interface realization towards an interface that is
-	 * provided at one of its ports
-	 *
-	 * @param providedIntf
-	 *            an interface provided by a component
-	 * @return the calculated name
-	 */
-	protected static String calcRealizationName(Interface providedIntf) {
-		String name = providedIntf.getName();
-		if (name == null) {
-			name = "undefined"; //$NON-NLS-1$
-		}
-		return "derived realization of " + name; //$NON-NLS-1$
-	}
-
-	/**
-	 * return existing interface-realization relationship
-	 *
-	 * @param implementation
-	 * @param intf
-	 * @return
-	 */
-	protected static InterfaceRealization getRealization(Class implementation, Interface intf) {
-		return implementation.getInterfaceRealization(null, intf);
-	}
-
-	/**
-	 * check, whether an interface-realization relationship already exists
-	 *
-	 * @param implementation
-	 * @param intf
-	 * @return
-	 */
-	protected static boolean hasRealization(Class implementation, Interface intf) {
-		return getRealization(implementation, intf) != null;
-	}
-
-	/**
 	 * Synchronize realization (generalization) relationship.
 	 *
 	 * @param implementation
@@ -261,11 +207,11 @@ public class CompImplSync {
 							">, inputs would therefore be undistinguishable"); //$NON-NLS-1$
 				}
 				providedIntfs.add(providedIntf);
-				InterfaceRealization ir = getRealization(implementation, providedIntf);
+				InterfaceRealization ir = implementation.getInterfaceRealization(null,  providedIntf);
 				if (ir == null) {
-					addRealization(implementation, providedIntf);
+					RealizationUtils.addRealization(implementation, providedIntf);
 				} else {
-					String name = calcRealizationName(providedIntf);
+					String name = RealizationUtils.calcRealizationName(providedIntf);
 					if (!name.equals(ir.getName())) {
 						ir.setName(name);
 					}
@@ -290,7 +236,7 @@ public class CompImplSync {
 			String name = ir.getName();
 			// automatically added interface realization is identified via its name (simpler
 			// compared to use of stereotype)
-			if ((name != null) && name.startsWith("derived")) { //$NON-NLS-1$
+			if ((name != null) && name.startsWith(RealizationUtils.REALIZATION_OF)) {
 				Interface inheritedIntf = ir.getContract();
 				if (!providedIntfs.contains(inheritedIntf)) {
 					toBeRemoved.add(ir);

@@ -16,12 +16,11 @@
 	<modules>
 		<module>org.eclipse.papyrus.designer.components.fcm.profile</module>
 		<module>org.eclipse.papyrus.designer.components.doc</module>
-		<module>org.eclipse.papyrus.designer.components.transformation.core</module>
+		<module>org.eclipse.papyrus.designer.components.transformation</module>
 		<module>org.eclipse.papyrus.designer.components.transformation.cpp</module>
 		<module>org.eclipse.papyrus.designer.components.transformation.java</module>
 		<module>org.eclipse.papyrus.designer.components.transformation.ui</module>
 		<module>org.eclipse.papyrus.designer.components.validation</module>
-		<module>org.eclipse.papyrus.designer.components.vsl</module>
 		<module>org.eclipse.papyrus.designer.components.modellibs.core</module>
 		<module>tracing</module>
 	</modules>

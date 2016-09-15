@@ -4,9 +4,9 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.transformation</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
+		<version>0.7.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.transformation.profile</artifactId>
 	<packaging>eclipse-plugin</packaging>
-	<description>This module contains a profile for code generation</description>
+	<description>This module contains the model-2-model transformation profile</description>
 </project>

@@ -126,7 +126,7 @@ abstract public class ModelElementsCreator {
 			return;
 		}
 		GeneratorHint hint = UMLUtil.getStereotypeApplication(element, GeneratorHint.class);
-		if (hint != null) {
+		if (hint != null && hint.getLanguage() != null) {
 			String language = hint.getLanguage().getBase_Class().getName();
 			if ((language != null) && (!language.equals(generatorLanguage))) {
 				// try to generate code with a new model elements creator for the requested language

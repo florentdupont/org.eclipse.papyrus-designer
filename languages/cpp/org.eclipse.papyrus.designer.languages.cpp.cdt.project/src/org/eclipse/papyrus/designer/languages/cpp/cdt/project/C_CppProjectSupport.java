@@ -50,8 +50,6 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 	// TODO specific "root" is only required for component based code generation
 	public static final String WS_PREFIX = "ws:"; //$NON-NLS-1$
 
-	public static final String ROOT = WS_PREFIX + "root"; //$NON-NLS-1$
-	
 	private static final String C = "c"; //$NON-NLS-1$
 
 	private static final String CPP = "cpp"; //$NON-NLS-1$
@@ -206,8 +204,6 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 		settings.includePaths = new UniqueEList<String>();
 		// include project directory (all paths are relative to it => ".")
 		settings.includePaths.add(WS_PREFIX + "."); //$NON-NLS-1$
-		// include also "root" (relative path)
-		settings.includePaths.add(ROOT);
 
 		settings.libs = new UniqueEList<String>();
 		settings.libPaths = new UniqueEList<String>();

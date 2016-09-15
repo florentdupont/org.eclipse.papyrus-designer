@@ -21,6 +21,8 @@
 	<modules>
 		<module>components</module>
 		<module>languages</module>
+		<module>deployment</module>
+		<module>transformation</module>
 		<module>gui</module>
 		<module>releng</module>
 		<module>targetplatform</module>

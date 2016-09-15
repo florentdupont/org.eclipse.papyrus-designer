@@ -49,6 +49,7 @@ public class GenerateCode implements IM2MTrafoCDP {
 		else {
 			monitor.setTaskName(String.format(Messages.GenerateCode_GeneratingCodeForNode, targetLanguage, node.getName()));
 		}
+		// TODO: ineffective, since folder name is not used by generated code
 		IFolder folder = genProject.getFolder(genModel.getName());
 		try {
 			folder.delete(true, null);
