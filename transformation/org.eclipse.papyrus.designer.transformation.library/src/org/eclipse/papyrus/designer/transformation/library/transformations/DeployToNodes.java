@@ -25,13 +25,13 @@ import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.papyrus.designer.transformation.base.UIContext;
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
 import org.eclipse.papyrus.designer.transformation.base.utils.ProjectManagement;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoModelSplit;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
-import org.eclipse.papyrus.designer.transformation.core.transformations.PartialCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterStateMachines;
@@ -54,13 +54,11 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  * instantiation). This transformation targets a new model 2. Adding
  * get_p/connect_q operations to a class (transformation within same model) 3.
  * Remove all component types 4. distribute to nodes
- *
- * @author ansgar
- *
  */
 public class DeployToNodes implements IM2MTrafoModelSplit {
 
-	
+	public static final String TRAFOS_DEFAULT_PLATFORM_DEFAULT_NODE = "trafos::defaultPlatform::defaultNode"; //$NON-NLS-1$
+
 	@Override
 	public EList<TransformationContext> splitModel(M2MTrafo trafo, Package deploymentPlan) throws TransformationException {
 	// public void deployOnNodes(Map<InstanceSpecification, InstanceSpecification> instanceMap, Model existingModel, Model tmpModel) throws TransformationException, InterruptedException {
@@ -79,29 +77,33 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 
 				try {
 					splitModels.add(
-							deployNode(topLevelInstances, TransformationContext.current.modelRoot, nodes, nodeIndex, node));
+							deployNode(topLevelInstances, TransformationContext.current.modelRoot, nodes, nodeIndex, node, false));
 				}
 				catch (InterruptedException e) {
 					throw new TransformationException(e.getMessage());
 				}
 			}
-		} else {
-			InstanceSpecification defaultNode = null; // ElementUtils.getQualifiedElement(TransformationContext.current.modelRoot, "trafos::xx::defaultNode");
+		}
+		else {
+			InstanceSpecification defaultNode = (InstanceSpecification)
+					ElementUtils.getQualifiedElementFromRS(TransformationContext.initialSourceRoot, TRAFOS_DEFAULT_PLATFORM_DEFAULT_NODE);
+			if (defaultNode == null) {
+				throw new TransformationException(String.format("Can not find default node (%s)", TRAFOS_DEFAULT_PLATFORM_DEFAULT_NODE));
+			}
 			try {
 				splitModels.add(
-					deployNode(topLevelInstances, PackageUtil.getRootPackage(deploymentPlan), nodes, 0, node));
+					deployNode(topLevelInstances, PackageUtil.getRootPackage(deploymentPlan), nodes, 0, defaultNode, true));
 			}
 			catch (InterruptedException e) {
 				throw new TransformationException(e.getMessage());
 			}
-			throw new TransformationException(Messages.InstantiateDepPlan_InfoNoneAllocated);
 		}
 		return splitModels;
 	}
 
-	private TransformationContext deployNode(EList<InstanceSpecification> topLevelInstances, Package existingModel, EList<InstanceSpecification> nodes, int nodeIndex, InstanceSpecification node)
+	private TransformationContext deployNode(EList<InstanceSpecification> topLevelInstances, Package existingModel, EList<InstanceSpecification> nodes, int nodeIndex, InstanceSpecification node, boolean allocAll)
 			throws TransformationException, InterruptedException {
-		ModelManagement genModelManagement = ModelManagement.createNewModel(existingModel, "root", false);
+		ModelManagement genModelManagement = ModelManagement.createNewModel(existingModel, existingModel.getName(), false); //$NON-NLS-1$
 		Model generatedModel = genModelManagement.getModel();
 		
 		// --------------------------------------------------------------------
@@ -113,8 +115,7 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 		// Package originalRoot = genModel.createNestedPackage
 		// (existingModel.getName ());
 		LazyCopier targetCopier = new LazyCopier(existingModel, generatedModel, true, true);
-		// TODO: distribution to nodes is currently not done. How
-		// can it be realized with a copier filter ?
+
 		targetCopier.preCopyListeners.add(FilterStateMachines.getInstance());
 		targetCopier.preCopyListeners.add(FilterTemplateBinding.getInstance());
 		targetCopier.preCopyListeners.add(FilterM2MTrafo.getInstance());
@@ -127,13 +128,9 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 		tc.copier = targetCopier;
 		tc.mm = genModelManagement;
 
-		// change to flat copy eventually later (not yet working)
-		depInstance = new PartialCopier();
-	
 		this.node = node;
-		depInstance.init(targetCopier, node);
 		for (InstanceSpecification is : topLevelInstances) {
-			distributeToNode(false, is);
+			distributeToNode(targetCopier, allocAll, is);
 		}
 		tc.deploymentPlan = (Package) targetCopier.get(TransformationContext.current.deploymentPlan);
 		
@@ -143,39 +140,12 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 		ILangProjectSupport projectSupport = LanguageProjectSupport.getProjectSupport(targetLanguage);
 		IProject genProject = getOrCreateProject(projectSupport, projectName);
 		if (genProject == null) {
-			throw new TransformationException(String.format("Could not create project for language %s", targetLanguage));
+			throw new TransformationException(String.format(Messages.DeployToNodes_CouldNotCreateProject, targetLanguage));
 		}
 		tc.projectSupport = projectSupport;
 		tc.project = genProject;
 		tc.node = node;
-		
-		/*
-		GatherConfigData gatherConfigData = new GatherConfigData(projectSupport);
-		Deploy deployment = new Deploy(targetCopier, gatherConfigData, node, nodeIndex, nodes.size());
 
-		for (InstanceSpecification topLevelInstance : topLevelInstances) {
-			InstanceSpecification nodeRootIS = deployment.distributeToNode(topLevelInstance);
-			// TransformationUtil.updateDerivedInterfaces(nodeRootIS);
-		}
-		deployment.finalize(targetLanguage);
-
-		if ((generationOptions & GenerationOptions.REWRITE_SETTINGS) != 0) {
-			projectSupport.setSettings(genProject, gatherConfigData.getSettings());
-		}
-
-		// --------------------------------------------------------------------
-		checkProgressStatus();
-		// --------------------------------------------------------------------
-
-		if (generateCode) {
-			ILangCodegen codegen = LanguageCodegen.getGenerator(targetLanguage);
-			GenerateCode codeGenerator = new GenerateCode(genProject, codegen, genModelManagement, TransformationContext.monitor);
-			boolean option = (generationOptions & GenerationOptions.ONLY_CHANGED) != 0;
-			codeGenerator.generate(node, targetLanguage, option);
-		}
-		*/
-		// genModelManagement.dispose();
-		
 		return tc;
 	}
 
@@ -234,7 +204,7 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 	 * @param instance
 	 * @throws TransformationException
 	 */
-	public InstanceSpecification distributeToNode(boolean allocAll, InstanceSpecification instance)
+	public InstanceSpecification distributeToNode(LazyCopier targetCopier, boolean allocAll, InstanceSpecification instance)
 			throws TransformationException {
 
 		// once an instance is explicitly allocated on a partition (use of getNodes instead of getAllNodes)
@@ -251,8 +221,8 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 					Messages.Deploy_0, instance.getName()));
 		}
 
-		// copy implementation into node specific model
-		InstanceSpecification tmInstance = depInstance.deployInstance(instance);
+		// copy instance to node specific model, no allocation-check is required, since it is done by recursive calls
+		InstanceSpecification tmInstance = targetCopier.getCopy(instance);
 
 		for (Slot slot : instance.getSlots()) {
 			InstanceSpecification containedInstance = DepUtils.getInstance(slot);
@@ -260,21 +230,14 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 			if (containedInstance != null) {
 				if (!DepUtils.isShared(slot)) {
 					StructuralFeature sf = slot.getDefiningFeature();
-					boolean viaAllocAll = allocAll;
-					if (allocAll && (sf instanceof Property)) {
-						// only take allocation of parent instance into account, if composition
-						// However, problematic, since code gets copied anyway.
-						// viaAllocAll = (((Property) sf).getAggregation() == AggregationKind.COMPOSITE_LITERAL);
-					}
-					if (viaAllocAll || AllocUtils.getAllNodes(containedInstance).contains(node)) {
-						if (sf instanceof Property) {
-							// execute configurator before recursive call. Otherwise values put here would be ignored.
-							// TODO: instances are not copied to node model. Thus, the instances here are the same as in the
-							// configuration on the intermediate model. (true?)
-							ConfigUtils.configureInstance(containedInstance, (Property) sf, tmInstance);
-						}
+					if (allocAll || AllocUtils.getAllNodes(containedInstance).contains(node)) {
 						// distribute subInstance
-						distributeToNode(allocAll, containedInstance);
+						InstanceSpecification tmContainedInstance = distributeToNode(targetCopier, allocAll, containedInstance);
+						if (sf instanceof Property) {
+							// execute configurator after recursive call on target model instance
+							ConfigUtils.configureInstance(tmContainedInstance, (Property) sf, tmInstance);
+						}
+					
 					}
 				}
 			}
@@ -304,6 +267,4 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 	}
 	
 	InstanceSpecification node;
-	
-	PartialCopier depInstance;
 }

@@ -35,7 +35,7 @@ public class PrefixConstants {
 		UML, CCM
 	}
 
-	public static final String INDEX_TYPE_FOR_MULTI_RECEPTACLE = "corba::Long"; //$NON-NLS-1$;
+	public static final String INDEX_TYPE_FOR_MULTI_RECEPTACLE = "PrimitiveTypes::Integer"; //$NON-NLS-1$;
 
 	/**
 	 * Initialize a specific CIF variant

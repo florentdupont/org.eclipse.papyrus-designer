@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="trafos::m2mtransformations::BootLoaderGen::C++"
+			class="org.eclipse.papyrus.designer.transformation.languages.cpp.library.BootLoaderGenCpp">
+		</transformation>
+	</extension>
+	<extension point="org.eclipse.emf.ecore.uri_mapping">
+    	<mapping
+          source="pathmap://DML_TRAFOS_CPP/"
+          target="platform:/plugin/org.eclipse.papyrus.designer.transformation.languages.cpp.library/models/library/">
+		</mapping>
+	</extension>
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard
+			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
+			class="org.eclipse.papyrus.designer.transformation.languages.cpp.library.wizards.HelloWorldCppModelWizard"
+			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+			id="org.eclipse.papyrus.designer.transformation.languages.cpp.library.wizards.HelloWorldCppModelWizard"
+			name="Papyrus Designer C++ hello world example with deployment plan">
+			<selection class="org.eclipse.core.resources.IResource"/>
+		</wizard>
+	</extension>
+</plugin>

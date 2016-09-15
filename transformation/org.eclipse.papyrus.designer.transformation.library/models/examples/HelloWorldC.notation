@@ -66,13 +66,13 @@
         <children xmi:type="notation:DecorationNode" xmi:id="_6UflI1WUEeKdxoQIVxFNNg" visible="false" type="Port_StereotypeLabel">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_6UflJFWUEeKdxoQIVxFNNg" x="25" y="-10"/>
         </children>
-        <element xmi:type="uml:Port" href="pathmap://QML_CORE/core.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
+        <element xmi:type="uml:Port" href="pathmap://DML_C_CORE/componentlib.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6UeXAVWUEeKdxoQIVxFNNg" x="-10" y="55"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_e_OH1i1QEea25uwDpRQuxg" type="StereotypeComment">
         <styles xmi:type="notation:TitleStyle" xmi:id="_e_OH1y1QEea25uwDpRQuxg"/>
         <styles xmi:type="notation:EObjectValueStyle" xmi:id="_e_OH2S1QEea25uwDpRQuxg" name="BASE_ELEMENT">
-          <eObjectValue xmi:type="uml:Port" href="pathmap://QML_CORE/core.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
+          <eObjectValue xmi:type="uml:Port" href="pathmap://DML_C_CORE/componentlib.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
         </styles>
         <element xsi:nil="true"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e_OH2C1QEea25uwDpRQuxg" x="200" y="100"/>
@@ -153,18 +153,18 @@
         <children xmi:type="notation:DecorationNode" xmi:id="_wd9k4VWUEeKdxoQIVxFNNg" visible="false" type="Port_StereotypeLabel">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_wd9k4lWUEeKdxoQIVxFNNg" x="25" y="-10"/>
         </children>
-        <element xmi:type="uml:Port" href="pathmap://QML_CORE/core.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
+        <element xmi:type="uml:Port" href="pathmap://DML_C_CORE/componentlib.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wd8WwVWUEeKdxoQIVxFNNg" x="-10" y="27"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_e_Ou8y1QEea25uwDpRQuxg" type="StereotypeComment">
         <styles xmi:type="notation:TitleStyle" xmi:id="_e_Ou9C1QEea25uwDpRQuxg"/>
         <styles xmi:type="notation:EObjectValueStyle" xmi:id="_e_Ou9i1QEea25uwDpRQuxg" name="BASE_ELEMENT">
-          <eObjectValue xmi:type="uml:Port" href="pathmap://QML_CORE/core.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
+          <eObjectValue xmi:type="uml:Port" href="pathmap://DML_C_CORE/componentlib.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
         </styles>
         <element xsi:nil="true"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e_Ou9S1QEea25uwDpRQuxg" x="200" y="100"/>
       </children>
-      <element xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_N6fa4JsrEd61Eo3nmu3JhQ"/>
+      <element xmi:type="uml:Class" href="pathmap://DML_C_CORE/componentlib.uml#_N6fa4JsrEd61Eo3nmu3JhQ"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rjTBsVWUEeKdxoQIVxFNNg" x="90" y="18" width="253" height="73"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_fEfpYC1QEea25uwDpRQuxg" type="StereotypeComment">
@@ -222,7 +222,7 @@
     <edges xmi:type="notation:Connector" xmi:id="_e_OH2i1QEea25uwDpRQuxg" type="StereotypeCommentLink" source="_6UeXAFWUEeKdxoQIVxFNNg" target="_e_OH1i1QEea25uwDpRQuxg">
       <styles xmi:type="notation:FontStyle" xmi:id="_e_OH2y1QEea25uwDpRQuxg"/>
       <styles xmi:type="notation:EObjectValueStyle" xmi:id="_e_OH3y1QEea25uwDpRQuxg" name="BASE_ELEMENT">
-        <eObjectValue xmi:type="uml:Port" href="pathmap://QML_CORE/core.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
+        <eObjectValue xmi:type="uml:Port" href="pathmap://DML_C_CORE/componentlib.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
       </styles>
       <element xsi:nil="true"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_e_OH3C1QEea25uwDpRQuxg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
@@ -232,7 +232,7 @@
     <edges xmi:type="notation:Connector" xmi:id="_e_Ou9y1QEea25uwDpRQuxg" type="StereotypeCommentLink" source="_wd8WwFWUEeKdxoQIVxFNNg" target="_e_Ou8y1QEea25uwDpRQuxg">
       <styles xmi:type="notation:FontStyle" xmi:id="_e_Ou-C1QEea25uwDpRQuxg"/>
       <styles xmi:type="notation:EObjectValueStyle" xmi:id="_e_PV8i1QEea25uwDpRQuxg" name="BASE_ELEMENT">
-        <eObjectValue xmi:type="uml:Port" href="pathmap://QML_CORE/core.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
+        <eObjectValue xmi:type="uml:Port" href="pathmap://DML_C_CORE/componentlib.uml#_OfiosJsrEd61Eo3nmu3JhQ"/>
       </styles>
       <element xsi:nil="true"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_e_Ou-S1QEea25uwDpRQuxg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>

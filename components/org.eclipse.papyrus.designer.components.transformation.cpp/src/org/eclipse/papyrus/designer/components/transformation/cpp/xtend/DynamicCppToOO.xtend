@@ -193,7 +193,7 @@ class DynamicCppToOO implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						val eLong = ElementUtils.getQualifiedElement(PackageUtil.getRootPackage(implementation),
+						val eLong = ElementUtils.getQualifiedElementFromRS(PackageUtil.getRootPackage(implementation),
 							PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
 						if (eLong instanceof Type) {
 							op.createOwnedParameter("index", eLong as Type) 
@@ -489,7 +489,7 @@ class DynamicCppToOO implements IOOTrafo {
 			}
 		}
 		
-		val partManager = ElementUtils.getQualifiedElement(PackageUtil.getRootPackage(compositeImplementation), PART_MANAGER);
+		val partManager = ElementUtils.getQualifiedElementFromRS(compositeImplementation, PART_MANAGER);
 		if (partManager instanceof Type) {
 			compositeImplementation.createOwnedAttribute(PARTS, partManager as Type);
 		}

@@ -142,7 +142,8 @@ public class InstantiateDepPlan {
 		Model existingModel = srcModelComponentDeploymentPlan.getModel();
 		TransformationContext tc = new TransformationContext();
 		TransformationContext.current = tc;
-		
+		TransformationContext.initialSourceRoot = existingModel;
+
 		intermediateModelManagement = ModelManagement.createNewModel(existingModel, existingModel.getName(), true);
 
 		// get the temporary model

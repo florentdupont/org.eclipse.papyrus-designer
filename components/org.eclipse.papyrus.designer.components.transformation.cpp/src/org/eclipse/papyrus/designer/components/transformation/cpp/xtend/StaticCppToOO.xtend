@@ -203,7 +203,7 @@ class StaticCppToOO implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						var eLong = ElementUtils.getQualifiedElement(copier.source,
+						var eLong = ElementUtils.getQualifiedElementFromRS(copier.source,
 							PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
 						if (eLong != null) {
 							eLong = copier.getCopy(eLong);

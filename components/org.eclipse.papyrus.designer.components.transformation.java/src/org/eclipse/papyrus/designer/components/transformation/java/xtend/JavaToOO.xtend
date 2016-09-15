@@ -213,7 +213,7 @@ class JavaToOO implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						val eLong = ElementUtils.getQualifiedElement(PackageUtil.getRootPackage(implementation),
+						val eLong = ElementUtils.getQualifiedElementFromRS(implementation,
 							PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
 						if (eLong instanceof Type) {
 							op.createOwnedParameter("index", eLong as Type) 

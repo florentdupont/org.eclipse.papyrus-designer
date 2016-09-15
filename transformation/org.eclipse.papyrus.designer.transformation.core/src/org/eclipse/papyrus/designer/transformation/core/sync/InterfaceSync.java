@@ -16,10 +16,9 @@ package org.eclipse.papyrus.designer.transformation.core.sync;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement;
-import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Generalization;
@@ -104,7 +103,7 @@ public class InterfaceSync {
 
 	public static void syncGenericSignalReceptionSupport(Interface intf) {
 
-		NamedElement genericReceptionNE = ElementUtils.getQualifiedElement(PackageUtil.getRootPackage(intf), SIGNAL_RECEPTION_QN);
+		NamedElement genericReceptionNE = ElementUtils.getQualifiedElementFromRS(intf, SIGNAL_RECEPTION_QN);
 		if (genericReceptionNE instanceof Interface) {
 			Interface genericReceptionIntf = (Interface) genericReceptionNE;
 			if (intf.getOwnedReceptions().size() > 0) {

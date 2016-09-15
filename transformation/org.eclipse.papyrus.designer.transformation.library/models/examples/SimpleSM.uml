@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Alloc="http://www.eclipse.org/papyrus/Alloc/1" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:Deployment="http://www.eclipse.org/papyrus/Deployment/1" xmlns:Transformation="http://www.eclipse.org/papyrus/Transformation/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/Alloc/1 http://www.eclipse.org/papyrus/MARTE/1#//Alloc">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:Deployment="http://www.eclipse.org/papyrus/Deployment/1" xmlns:Transformation="http://www.eclipse.org/papyrus/Transformation/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="SimpleSM">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_O6TiITLUEd26WNosUASSSw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -152,30 +152,9 @@ sleep(15);
         <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_v3fMgDLiEd2RVeNawwNNzg" name="platform">
-      <packagedElement xmi:type="uml:Package" xmi:id="_rbwXsF15Eea4bLzKfwAjjA" name="HWArchitectureMonolithicPlatform">
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_rb2eUF15Eea4bLzKfwAjjA" classifier="_M1a_8MniEeCMCo5Ox2CNmg">
-          <slot xmi:type="uml:Slot" xmi:id="_rb6vwF15Eea4bLzKfwAjjA" definingFeature="_QgKzYMniEeCMCo5Ox2CNmg">
-            <value xmi:type="uml:InstanceValue" xmi:id="_rb794F15Eea4bLzKfwAjjA" instance="_rb46kF15Eea4bLzKfwAjjA"/>
-          </slot>
-        </packagedElement>
-        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_rb46kF15Eea4bLzKfwAjjA" name="monoNode" classifier="_zY9vMDLiEd2RVeNawwNNzg"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Node" xmi:id="_zY9vMDLiEd2RVeNawwNNzg" name="MonoNode"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_M1a_8MniEeCMCo5Ox2CNmg" name="HWArchitectureMonolithic">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_QgKzYMniEeCMCo5Ox2CNmg" name="monoNode" visibility="public" type="_zY9vMDLiEd2RVeNawwNNzg" aggregation="composite">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XijRAMniEeCMCo5Ox2CNmg" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XkfxwMniEeCMCo5Ox2CNmg" value="1"/>
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_XlIq8MniEeCMCo5Ox2CNmg">
-            <value xsi:nil="true"/>
-          </defaultValue>
-        </ownedAttribute>
-      </packagedElement>
-    </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_234GEDLiEd2RVeNawwNNzg" name="deployment">
       <packagedElement xmi:type="uml:Package" xmi:id="_GYFZYG-QEea89JTVlr8RHA" name="SimpleSMDepPlan">
         <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_GYJDwG-QEea89JTVlr8RHA" name="mainInstance" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
-        <packagedElement xmi:type="uml:Abstraction" xmi:id="_D1STYG-6Eea89JTVlr8RHA" name="allocate mainInstance to monoNode" client="_GYJDwG-QEea89JTVlr8RHA" supplier="_rb46kF15Eea4bLzKfwAjjA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_MfLhYG-6Eea89JTVlr8RHA" name="SimpleSMDepPlanNoBL">
         <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_MfMIcG-6Eea89JTVlr8RHA" name="mainInstance" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
@@ -213,7 +192,6 @@ sleep(15);
     </profileApplication>
   </uml:Model>
   <C_Cpp:Include xmi:id="_EaeJMNp0EeKd1ax3yaXM9w" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
-  <Alloc:Allocate xmi:id="_D1ZBEG-6Eea89JTVlr8RHA" base_Abstraction="_D1STYG-6Eea89JTVlr8RHA"/>
   <Deployment:DeploymentPlan xmi:id="_SqAE4G-6Eea89JTVlr8RHA" base_Package="_MfLhYG-6Eea89JTVlr8RHA">
     <chain xmi:type="Transformation:M2MTrafoChain" href="pathmap://DML_TRAFO/trafos.uml#_A7oqsG-DEea89JTVlr8RHA"/>
   </Deployment:DeploymentPlan>

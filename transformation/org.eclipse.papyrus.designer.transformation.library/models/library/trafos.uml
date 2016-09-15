@@ -24,22 +24,6 @@
       <ownedComment xmi:type="uml:Comment" xmi:id="_EuvHYCXREeGX6PuSE-DJlQ">
         <body> Interceptor variant of thread (inherits all, only difference to Thread superclass: tagged as connector)</body>
       </ownedComment>
-      <packagedElement xmi:type="uml:Class" xmi:id="_1RehUAGpEd6eR-dxi5su4Q" name="BootLoader">
-        <ownedComment xmi:type="uml:Comment" xmi:id="_JMwYwMGJEd-Mveea1W_olA">
-          <body>A template for the bootloader generation.</body>
-        </ownedComment>
-        <ownedComment xmi:type="uml:Comment" xmi:id="_JM4UkMGJEd-Mveea1W_olA">
-          <body>This C++ implementation of the template contains principally the definition of the 
-&quot;main&quot; function and the declaration of the bootloader instance</body>
-        </ownedComment>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_AFnZUAGqEd6eR-dxi5su4Q" name="b:createInstances" specification="_3kwykAGpEd6eR-dxi5su4Q">
-          <language>C/C++</language>
-          <body>&lt;%createInstances%></body>
-        </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_IbrFUAGqEd6eR-dxi5su4Q" name="b:main" specification="_6pkAUAGpEd6eR-dxi5su4Q"/>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_3kwykAGpEd6eR-dxi5su4Q" name="createInstances" method="_AFnZUAGqEd6eR-dxi5su4Q"/>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_6pkAUAGpEd6eR-dxi5su4Q" name="main" isStatic="true" method="_IbrFUAGqEd6eR-dxi5su4Q"/>
-      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_SiY_AP-EEd6628OhKk_dpg" name="Thread">
         <ownedComment xmi:type="uml:Comment" xmi:id="_lCtoICnOEeGxrprK9wB9iA" annotatedElement="_rVfYoMGJEd-Mveea1W_olA">
           <body>Priority of the thread. The interpretation of the value is OS specific. In case of POSIX; priorities are only taken into account for threads with a FIFO and round-robin scheduliung policy.</body>
@@ -508,9 +492,14 @@ for (;;) {
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Okno4G-DEea89JTVlr8RHA" name="statemachine" visibility="public">
           <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/statemachine.uml#_6-9EUCPoEeauR8esGjVxRA"/>
         </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ZtOZgHCKEeaAna84v3Lx-w" name="deployToNodes" type="_eELWgF4REea4bLzKfwAjjA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_TUnXsG-EEea89JTVlr8RHA" name="generateCode" type="_KVyWYGnwEead2IFRwKRBMw"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_UCZDsG-EEea89JTVlr8RHA" name="configureProject" type="_sCpX8GoDEeaDvKuEhyP_8g"/>
       </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_d5c-0HCJEeaAna84v3Lx-w" name="defaultPlatform">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_iE2oQHCJEeaAna84v3Lx-w" name="defaultNode" classifier="_mhxfgHCJEeaAna84v3Lx-w"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mhxfgHCJEeaAna84v3Lx-w" name="DefaultNode"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_O6TiIjLUEd26WNosUASSSw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O6TiIzLUEd26WNosUASSSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -543,7 +532,6 @@ for (;;) {
       <appliedProfile xmi:type="uml:Profile" href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_sJry0JsqEd61Eo3nmu3JhQ" body="BootLoader bootloader;&#xA;&#xA;int main (int argc, char* argv[])&#xA;{&#xA;    bootloader.init ();&#xA;    return 0;&#xA;}&#xA;" base_class="_1RehUAGpEd6eR-dxi5su4Q"/>
   <FCM:Port xmi:id="__SL-kNtxEd6nqsBVkgJEEA" base_Port="__SLXgNtxEd6nqsBVkgJEEA">
     <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
   </FCM:Port>

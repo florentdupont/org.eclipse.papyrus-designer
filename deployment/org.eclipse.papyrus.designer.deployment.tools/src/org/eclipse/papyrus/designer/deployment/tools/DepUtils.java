@@ -581,7 +581,7 @@ public class DepUtils {
 		}
 		if (chain == null) {
 			
-			NamedElement defaultChainNE = ElementUtils.getQualifiedElement(cdp.getModel(), TRAFOS_M2MTRANSFORMATIONS_STANDARD);
+			NamedElement defaultChainNE = ElementUtils.getQualifiedElementFromRS(cdp, TRAFOS_M2MTRANSFORMATIONS_STANDARD);
 			if (defaultChainNE != null) { 
 				// chain null and default chain could be found.
 				chain = UMLUtil.getStereotypeApplication(defaultChainNE, M2MTrafoChain.class);

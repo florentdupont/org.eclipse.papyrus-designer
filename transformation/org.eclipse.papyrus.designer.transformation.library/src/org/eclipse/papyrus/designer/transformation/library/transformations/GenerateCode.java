@@ -10,6 +10,8 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.papyrus.designer.deployment.tools.Activator;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
@@ -55,7 +57,13 @@ public class GenerateCode implements IM2MTrafoCDP {
 		}
 		ILangCodegen codegen = LanguageCodegen.getGenerator(targetLanguage);
 	
-		codegen.generateCode(genProject, genModel, monitor);
+		// the generated model can contain more than one top-level element due to copied external model references
+		Resource genModelResource = genModel.eResource();
+		for (EObject topLevelElement : genModelResource.getContents()) {
+			if (topLevelElement instanceof Package) {
+				codegen.generateCode(genProject, (Package) topLevelElement, monitor);
+			}
+		}
 
 		if (monitor.isCanceled()) {
 			return;
@@ -121,6 +129,7 @@ public class GenerateCode implements IM2MTrafoCDP {
 	@Override
 	public void applyTrafo(M2MTrafo trafo, Package deploymentPlan) throws TransformationException {
 		// get first language (restricted to single target language, acceptable?)
+
 		String targetLanguage = DepUtils.getTargetLanguage(DepUtils.getTopLevelInstances(deploymentPlan).iterator().next());
 		try {
 			generate(null, targetLanguage);

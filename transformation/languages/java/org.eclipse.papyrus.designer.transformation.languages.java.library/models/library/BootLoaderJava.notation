@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_tKryIHhpEealuJVOx0h2iw" type="PapyrusUMLClassDiagram" name="Bootloader" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_yvxLUHhpEealuJVOx0h2iw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yv5HIHhpEealuJVOx0h2iw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_yv5uMHhpEealuJVOx0h2iw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_yv5uMXhpEealuJVOx0h2iw" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yv5uMnhpEealuJVOx0h2iw" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_ET_PkHjkEeakrcXZeNIVKw" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="BootLoaderJava.uml#_ET2FoHjkEeakrcXZeNIVKw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ET_PkXjkEeakrcXZeNIVKw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_yv5uM3hpEealuJVOx0h2iw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yv5uNHhpEealuJVOx0h2iw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yv5uNXhpEealuJVOx0h2iw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yv5uNnhpEealuJVOx0h2iw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yv6VQHhpEealuJVOx0h2iw" type="Class_OperationCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_1hkkkHhpEealuJVOx0h2iw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="BootLoaderJava.uml#_1hV7EHhpEealuJVOx0h2iw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_1hkkkXhpEealuJVOx0h2iw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_8cJwoHjjEeakrcXZeNIVKw" type="Operation_ClassOperationLabel">
+        <element xmi:type="uml:Operation" href="BootLoaderJava.uml#_8b9jYHjjEeakrcXZeNIVKw"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8cJwoXjjEeakrcXZeNIVKw"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_yv6VQXhpEealuJVOx0h2iw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yv6VQnhpEealuJVOx0h2iw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yv6VQ3hpEealuJVOx0h2iw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yv6VRHhpEealuJVOx0h2iw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yv6VRXhpEealuJVOx0h2iw" visible="false" type="Class_NestedClassifierCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_yv6VRnhpEealuJVOx0h2iw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yv6VR3hpEealuJVOx0h2iw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yv6VSHhpEealuJVOx0h2iw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yv6VSXhpEealuJVOx0h2iw"/>
+    </children>
+    <element xmi:type="uml:Class" href="BootLoaderJava.uml#_yvoocHhpEealuJVOx0h2iw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yvxLUXhpEealuJVOx0h2iw" x="152" y="92" width="269" height="149"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_CUF98HjwEeasG4qn4umteA" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_CUIaMHjwEeasG4qn4umteA" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_CUIaMXjwEeasG4qn4umteA" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_CUIaMnjwEeasG4qn4umteA" y="5"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_CUJoUHjwEeasG4qn4umteA" type="Class_AttributeCompartment">
+      <children xmi:type="notation:Shape" xmi:id="_IHsUQHjwEeasG4qn4umteA" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="BootLoaderJava.uml#_IHT5wHjwEeasG4qn4umteA"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_IHsUQXjwEeasG4qn4umteA"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_OFAnQHjwEeasG4qn4umteA" type="Property_ClassAttributeLabel">
+        <element xmi:type="uml:Property" href="BootLoaderJava.uml#_OEuTYHjwEeasG4qn4umteA"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_OFAnQXjwEeasG4qn4umteA"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_CUJoUXjwEeasG4qn4umteA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_CUJoUnjwEeasG4qn4umteA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_CUJoU3jwEeasG4qn4umteA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CUJoVHjwEeasG4qn4umteA"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_CUJoVXjwEeasG4qn4umteA" type="Class_OperationCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_CUJoVnjwEeasG4qn4umteA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_CUJoV3jwEeasG4qn4umteA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_CUJoWHjwEeasG4qn4umteA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CUJoWXjwEeasG4qn4umteA"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_CUJoWnjwEeasG4qn4umteA" visible="false" type="Class_NestedClassifierCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_CUJoW3jwEeasG4qn4umteA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_CUJoXHjwEeasG4qn4umteA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_CUJoXXjwEeasG4qn4umteA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CUJoXnjwEeasG4qn4umteA"/>
+    </children>
+    <element xmi:type="uml:Class" href="BootLoaderJava.uml#_CS_KsHjwEeasG4qn4umteA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CUF98XjwEeasG4qn4umteA" x="546" y="91" width="255" height="150"/>
+  </children>
+  <styles xmi:type="notation:StringValueStyle" xmi:id="_tKryIXhpEealuJVOx0h2iw" name="diagram_compatibility_version" stringValue="1.2.0"/>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_tKryInhpEealuJVOx0h2iw"/>
+  <styles xmi:type="style:PapyrusViewStyle" xmi:id="_tKryI3hpEealuJVOx0h2iw">
+    <owner xmi:type="uml:Model" href="BootLoaderJava.uml#_cy2oEHhpEealuJVOx0h2iw"/>
+  </styles>
+  <element xmi:type="uml:Model" href="BootLoaderJava.uml#_cy2oEHhpEealuJVOx0h2iw"/>
+</notation:Diagram>

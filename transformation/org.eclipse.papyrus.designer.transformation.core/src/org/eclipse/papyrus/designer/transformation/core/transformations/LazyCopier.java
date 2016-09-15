@@ -118,16 +118,8 @@ public class LazyCopier extends Copier {
 		standardMap = new HashMap<EObject, EObject>();
 		statusMap = new HashMap<EObject, CopyStatus>();
 		boundPackages = new Stack<Namespace>();
-		if (copyExtReferences) {
-			// original source package becomes a sub-package in the target model
-			Package newSourceRoot = target.createNestedPackage(source.getName());
-			put(source, newSourceRoot);
-			setStatus(newSourceRoot, CopyStatus.SHALLOW);
-		}
-		else {
-			put(source, target);
-			setStatus(target, CopyStatus.SHALLOW);
-		}
+		put(source, target);
+		setStatus(target, CopyStatus.SHALLOW);
 		this.copyID = copyID;
 		if (copyID) {
 			CopyUtils.copyID(source, target);
@@ -135,8 +127,8 @@ public class LazyCopier extends Copier {
 	};
 
 	/**
- *
- */
+	 *
+	 */
 	private static final long serialVersionUID = -1664013545661635289L;
 
 	/**
@@ -674,8 +666,10 @@ public class LazyCopier extends Copier {
 		}
 		if (copy instanceof PackageableElement) {
 			// if we copy external resources, we might reach the "top" on the source level
-			// which becomes a sub-package of the new model.
-			target.getPackagedElements().add((PackageableElement) copy);
+			// which becomes a new top-level element. Thus, the model violates the common
+			// convention that a resource contains exactly one top-level element (the model)
+			target.eResource().getContents().add(copy);
+
 		}
 	}
 

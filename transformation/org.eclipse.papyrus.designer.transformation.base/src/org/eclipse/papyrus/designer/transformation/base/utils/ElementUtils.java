@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External;
@@ -48,6 +49,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Relationship;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLPackage;
+import org.eclipse.uml2.uml.resource.UMLResource;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
@@ -62,12 +64,11 @@ public class ElementUtils {
 	 * @param name
 	 * @return
 	 */
-	public static NamedElement getNamedElementFromList(
-			EList<? extends EObject> elementList, String name) {
+	public static NamedElement getNamedElementFromList(EList<? extends EObject> elementList, String name) {
 		for (EObject element : elementList) {
 			if (element instanceof NamedElement) {
 				NamedElement namedElement = (NamedElement) element;
-				if((namedElement.getName() != null) && namedElement.getName().equals(name)) {
+				if ((namedElement.getName() != null) && namedElement.getName().equals(name)) {
 					return namedElement;
 				}
 			}
@@ -98,14 +99,14 @@ public class ElementUtils {
 	 * on the modeling convention that implementations inherit from types.
 	 * TODO: It currently returns the first abstract (direct) superclass
 	 * 
-	 * @param clazz A component implementation
+	 * @param clazz
+	 *            A component implementation
 	 * @return the first abstract superclass
 	 */
 	public static Class componentType(Class clazz) {
 		if (clazz.isAbstract()) {
 			return clazz;
-		}
-		else {
+		} else {
 			for (Class superclass : clazz.getSuperClasses()) {
 				if (superclass.isAbstract()) {
 					return superclass;
@@ -138,76 +139,80 @@ public class ElementUtils {
 				}
 			}
 			return parts;
-		}
-		else {
+		} else {
 			return implementation.getParts();
 		}
 	}
+
+	public static NamedElement getQualifiedElementFromRS(Element element, String qualifiedName) {
+		return getQualifiedElementFromRS(element.eResource().getResourceSet(), qualifiedName);
+	}
 	
 	/**
-	 * Get an element via its qualified name. Will find elements from the root
-	 * model and elements in imported models. Also supports target model in
-	 * which imports have been copied (while keeping the top-level name)
+	 * Get an element via its qualified name. This function will find all elements in the
+	 * resource set that have this qualified name (whether imported or not)
 	 *
-	 * @param root
+	 * @param rs
+	 *            a resource set
 	 * @param qualifiedName
-	 * @return
+	 *            the qualified name of an element
+	 * @return the found element or null
 	 */
-	public static NamedElement getQualifiedElement(Package root,
-			String qualifiedName) {
-		NamedElement namedElement = null;
-		int index = qualifiedName.indexOf("::"); //$NON-NLS-1$
-		if (index != -1) {
-			// first try using a path without top element (since
-			// getQualifiedElement is typically used for
-			// imported elements)
-			String remainder = qualifiedName.substring(index + 2);
-			namedElement = getQualifiedElement(root, remainder, qualifiedName);
-		}
-		if (namedElement == null) {
-			// try with complete name as path name, but assume that the element
-			// has been copied into the model,
-			// i.e. qualifiedName is prefixed by model name
-			namedElement = getQualifiedElement(root, qualifiedName,
-					qualifiedName); //$NON-NLS-1$
-		}
-		return namedElement;
-	}
-
-	/**
-	 * Retrieve an element via its qualified name within a package The segments
-	 * of the package may be non unique due to imports
-	 *
-	 * @return the found element, if it exists
-	 */
-	public static NamedElement getQualifiedElement(Package root,
-			String remainingPath, String qualifiedName) {
-		if (root == null) {
-			return null;
-		}
-		if (!remainingPath.contains(NamedElement.SEPARATOR)) {
-			for (NamedElement candidate : root.getMembers()) {
-				String name = candidate.getName();
-				if ((name != null) && name.equals(remainingPath)) {
-					if (candidate.getQualifiedName().equals(qualifiedName)) {
-						return candidate;
+	public static NamedElement getQualifiedElementFromRS(ResourceSet rs, String qualifiedName) {
+		for (Resource resource : rs.getResources()) {
+			if (resource instanceof UMLResource) {
+				for (EObject topLevelElem : resource.getContents()) {
+					if (topLevelElem instanceof Package) {
+						NamedElement ne = getQualifiedElement((Package) topLevelElem, qualifiedName);
+						if (ne != null) {
+							return ne;
+						}
 					}
 				}
 			}
 		}
-		else {
-			String segment = remainingPath.split(NamedElement.SEPARATOR)[0];
-			String remainder = remainingPath.substring(segment.length() + 2);
-			for (Element element : root.getMembers()) {
-				if (element instanceof Package) {
-					String pkgName = ((Package) element).getName();
-					if (pkgName != null && pkgName.equals(segment)) {
-						NamedElement foundElement = getQualifiedElement(
-								(Package) element, remainder, qualifiedName);
-						// return, if not found
-						if (foundElement != null) {
-							return foundElement;
-						}
+		return null;
+	}
+
+	/**
+	 * Get an element via its qualified name. It will ignore imports
+	 *
+	 * @param root
+	 *            the root element (package) of a model
+	 * @param qualifiedName
+	 *            the qualified name of an element
+	 * @return the found element or null
+	 */
+	public static NamedElement getQualifiedElement(Package root, String qualifiedName) {
+		String[] path = qualifiedName.split(NamedElement.SEPARATOR);
+		if (root.getName().equals(path[0])) {
+			return getQualifiedElement(root, path, 1);
+		}
+		return null;
+	}
+
+	/**
+	 * Retrieve an element via its qualified name within a root package.
+	 *
+	 * @return the found element, if it exists
+	 */
+	public static NamedElement getQualifiedElement(Package root, String[] path, int pos) {
+		if (root == null) {
+			return null;
+		}
+		if (pos == path.length) {
+			return root;
+		} else if (pos < path.length) {
+			NamedElement segmentElem = root.getPackagedElement(path[pos++]);
+			if (segmentElem != null) {
+				if (pos == path.length) {
+					return segmentElem;
+				} else if (segmentElem instanceof Package) {
+					// requires further recursion
+					NamedElement foundElement = getQualifiedElement((Package) segmentElem, path, pos);
+					// return, if not found
+					if (foundElement != null) {
+						return foundElement;
 					}
 				}
 			}
@@ -221,27 +226,23 @@ public class ElementUtils {
 	 * This is always true, if the 2nd belongs to a different model, whether
 	 * imported or not. This distinction is however not required in our context.
 	 */
-	public static boolean isElementInDifferentModel(Package model,
-			NamedElement namedElement) {
+	public static boolean isElementInDifferentModel(Package model, NamedElement namedElement) {
 		return model != PackageUtil.getRootPackage(namedElement);
 	}
 
-	public static <T extends EObject> EList<T> getAllElementsOfType(Element examineElement, java.lang.Class<T> clazz)
-	{
+	public static <T extends EObject> EList<T> getAllElementsOfType(Element examineElement, java.lang.Class<T> clazz) {
 		EList<Element> visitedPackages = new BasicEList<Element>();
 		return getAllElementsOfType(examineElement, clazz, visitedPackages);
 	}
 
 	@SuppressWarnings("unchecked")
-	public static <T extends EObject> EList<T> getAllElementsOfType(Element examineElement, java.lang.Class<T> clazz, EList<Element> visitedPackages)
-	{
+	public static <T extends EObject> EList<T> getAllElementsOfType(Element examineElement, java.lang.Class<T> clazz, EList<Element> visitedPackages) {
 		EList<T> list = new UniqueEList<T>();
 		for (Element element : examineElement.allOwnedElements()) {
 			if (element instanceof Package) {
 				if (!visitedPackages.contains(element)) {
 					visitedPackages.add(element);
-					list.addAll(getAllElementsOfType(element, clazz,
-							visitedPackages));
+					list.addAll(getAllElementsOfType(element, clazz, visitedPackages));
 				}
 			} else if (clazz.isInstance(element)) {
 				list.add((T) element);
@@ -259,8 +260,7 @@ public class ElementUtils {
 	public static String quoteString(String str) {
 		if (str.startsWith(StringConstants.QUOTE)) {
 			return str;
-		}
-		else {
+		} else {
 			return StringConstants.QUOTE + str + StringConstants.QUOTE;
 		}
 	}
@@ -321,7 +321,7 @@ public class ElementUtils {
 			}
 		}
 		return type.getQualifiedName();
-	
+
 	}
 
 	/**
@@ -333,7 +333,7 @@ public class ElementUtils {
 	public static EList<Classifier> getReferencedClassifiers(Classifier classifier) {
 		EList<Classifier> list = new UniqueEList<Classifier>();
 		list.addAll(classifier.parents());
-	
+
 		if (classifier instanceof Class) {
 			// get classifiers referenced by attributes
 			for (Operation operation : ((Class) classifier).getOwnedOperations()) {
@@ -344,7 +344,7 @@ public class ElementUtils {
 					}
 				}
 			}
-	
+
 			// get classifiers referenced by attributes
 			for (Property attribute : ((Class) classifier).getOwnedAttributes()) {
 				Type type = attribute.getType();
@@ -386,8 +386,7 @@ public class ElementUtils {
 					return ir.getContract();
 				}
 			}
-		}
-		else if (owner instanceof Interface) {
+		} else if (owner instanceof Interface) {
 			return (Interface) owner;
 		}
 		return null;
@@ -395,7 +394,7 @@ public class ElementUtils {
 
 	public static <T extends EObject> EList<T> reverse(EList<T> list) {
 		EList<T> reverseList = new BasicEList<T>();
-		for (int i=list.size()-1; i>=0; i--) {
+		for (int i = list.size() - 1; i >= 0; i--) {
 			reverseList.add(list.get(i));
 		}
 		return reverseList;
@@ -403,7 +402,7 @@ public class ElementUtils {
 
 	public static EList<Namespace> usedNamespaces(NamedElement element) {
 		EList<Namespace> list = new BasicEList<Namespace>(element.allNamespaces());
-	
+
 		if (list.size() < 1) {
 			return null;
 		}
@@ -466,7 +465,7 @@ public class ElementUtils {
 	public static String xmlID(Element element) {
 		Resource resource = element.eResource();
 		// TODO: use EcoreUtil getURI (InternalEObject) instead?
-	
+
 		if (resource instanceof XMLResource) {
 			XMLResource xmlResource = (XMLResource) resource;
 			return xmlResource.getID(element);

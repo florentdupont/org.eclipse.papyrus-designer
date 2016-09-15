@@ -69,7 +69,7 @@ public class ModelManagement {
 	/**
 	 * provide access to the model
 	 * 
-	 * @return the model amanaged by this instance of model manager
+	 * @return the model managed by this instance of model manager
 	 */
 	public Model getModel() {
 		return model;

@@ -46,4 +46,6 @@ public class TransformationContext {
 	public InstanceSpecification node;
 
 	public static TransformationContext current;
+	
+	public static Package initialSourceRoot;
 }

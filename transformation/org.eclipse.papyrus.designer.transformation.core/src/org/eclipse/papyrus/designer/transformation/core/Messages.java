@@ -30,6 +30,8 @@ public class Messages extends NLS {
 
 	public static String Deploy_0;
 
+	public static String DeployToNodes_CouldNotCreateProject;
+
 	public static String Description_NoAvail;
 
 	public static String LWContainerTrafo_CannotApplyRule;

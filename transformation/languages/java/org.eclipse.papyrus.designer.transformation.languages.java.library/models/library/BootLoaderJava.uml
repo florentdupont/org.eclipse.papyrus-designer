@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:PapyrusJava="http://www.eclipse.org/papyrus/PapyrusJava/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_cy2oEHhpEealuJVOx0h2iw" name="BootLoaderJava">
+    <packagedElement xmi:type="uml:Class" xmi:id="_yvoocHhpEealuJVOx0h2iw" name="BootLoader">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ET2FoHjkEeakrcXZeNIVKw" name="args" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JDJtYHjkEeakrcXZeNIVKw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JDNXwHjkEeakrcXZeNIVKw" value="*"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_P6k4MHjkEeakrcXZeNIVKw" name="main" specification="_1hV7EHhpEealuJVOx0h2iw">
+        <language>JAVA</language>
+        <body>BootLoader bl = new BootLoader();
+// store arguments for future access
+bl.args = args;
+bl.init();</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1hV7EHhpEealuJVOx0h2iw" name="main" isStatic="true" method="_P6k4MHjkEeakrcXZeNIVKw">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_5eBMAHhpEealuJVOx0h2iw" name="args">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-s9gMHjkEeaHHPBxAPaLsg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-tWhwHjkEeaHHPBxAPaLsg" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_CS_KsHjwEeasG4qn4umteA" name="NodeInfo">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_IHT5wHjwEeasG4qn4umteA" name="nodeIndex" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_evLegHjwEeasG4qn4umteA" name="def"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OEuTYHjwEeasG4qn4umteA" name="numberOfNodes" visibility="public" isStatic="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_cY15QHjwEeasG4qn4umteA" name="def"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_prKXQHhpEealuJVOx0h2iw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_prOosHhpEealuJVOx0h2iw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Qk-poHjwEeasG4qn4umteA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlAe0HjwEeasG4qn4umteA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
+  </uml:Model>
+  <PapyrusJava:Array xmi:id="_-utCgHhpEealuJVOx0h2iw" base_parameter="_5eBMAHhpEealuJVOx0h2iw" definition="[]"/>
+</xmi:XMI>

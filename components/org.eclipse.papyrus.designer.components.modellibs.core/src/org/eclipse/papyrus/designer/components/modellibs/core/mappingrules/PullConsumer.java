@@ -127,7 +127,7 @@ public class PullConsumer implements IMappingRule {
 				}
 			}
 			Package model = PackageUtil.getRootPackage(umlPort);
-			Element element = ElementUtils.getQualifiedElement(model, BOOL_QNAME);
+			Element element = ElementUtils.getQualifiedElementFromRS(model, BOOL_QNAME);
 			Type booleanType = null;
 			if (element instanceof Type) {
 				booleanType = (Type) element;
