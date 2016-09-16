@@ -823,9 +823,9 @@ public class JavaMerger {
 	}
 
 	private ASTNode getAstNode(IJavaElement javaElement, CompilationUnit astRoot) {
+		ASTNode node = null;
+		
 		if (astRoot != null) {
-			ASTNode node = null;
-
 			if (javaElement instanceof IType) {
 				node = astRoot.findDeclaringNode(((IType) javaElement).getKey());
 			} else if (javaElement instanceof IMethod) {
@@ -834,20 +834,26 @@ public class JavaMerger {
 				node = astRoot.findDeclaringNode(((IField) javaElement).getKey());
 			}
 
-			if (node != null) {
-				return node;
-			}
-
-			if (javaElement instanceof ISourceReference) {
+			if (node == null && javaElement instanceof ISourceReference) {
 				try {
-					return NodeFinder.perform(astRoot, ((ISourceReference) javaElement).getSourceRange());
+					node = NodeFinder.perform(astRoot, ((ISourceReference) javaElement).getSourceRange());
+					if (javaElement instanceof IType) {
+						if (node instanceof TypeDeclaration) {
+							return node;
+						} else {
+							// Usually we cannot get the first type (e.g. the declaring class) of a compilation unit
+							int offset = ((ISourceReference) javaElement).getNameRange().getOffset();
+							int length = ((ISourceReference) javaElement).getNameRange().getLength() + 1;
+							node = NodeFinder.perform(astRoot, offset, length);
+						}
+					}
 				} catch (JavaModelException e) {
 					Activator.log.error(e);
 				}
 			}
 		}
 
-		return null;
+		return node;
 	}
 
 	private ASTNode getASTNodeFromString(String source, int kind) {

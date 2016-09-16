@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.languages</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
+		<version>1.0.4-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.languages.java</artifactId>
 	<packaging>pom</packaging>
@@ -13,34 +13,14 @@
 	<description>This module contains the different plugins relative to Papyrus Designer Java code generation and reverse</description>
 
 	<modules>
-		
+		<module>org.eclipse.papyrus.designer.languages.java.codegen</module>
+		<module>org.eclipse.papyrus.designer.languages.java.codegen.ui</module>
+		<module>org.eclipse.papyrus.designer.languages.java.jdt.project</module>
+		<module>org.eclipse.papyrus.designer.languages.java.library</module>
+		<module>org.eclipse.papyrus.designer.languages.java.library.ui</module>
 		<module>org.eclipse.papyrus.designer.languages.java.profile</module>
-		
-		<!-- module>org.eclipse.papyrus.designer.languages.java.template</module> 
-			<module>org.eclipse.papyrus.designer.languages.java-updatesite</module -->
-		<module>
-			org.eclipse.papyrus.designer.languages.java.codegen
-		</module>
-		<module>
-			org.eclipse.papyrus.designer.languages.java.codegen.ui
-		</module>
-		<module>
-			org.eclipse.papyrus.designer.languages.java.jdt.project
-		</module>
-		<module>
-			org.eclipse.papyrus.designer.languages.java.profile.ui
-		</module>
-		<module>
-			org.eclipse.papyrus.designer.languages.java.library
-		</module>
-		<module>
-			org.eclipse.papyrus.designer.languages.java.library.ui
-		</module>
-		<module>
-			org.eclipse.papyrus.designer.languages.java.reverse
-		</module>
-		<module>
-			org.eclipse.papyrus.designer.languages.java.reverse.ui
-		</module>
+		<module>org.eclipse.papyrus.designer.languages.java.profile.ui</module>
+		<module>org.eclipse.papyrus.designer.languages.java.reverse</module>
+		<module>org.eclipse.papyrus.designer.languages.java.reverse.ui</module>
 	</modules>
 </project>

@@ -3,18 +3,18 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.uml2.uml;bundle-version="5.0.1",
  org.eclipse.papyrus.uml.tools.utils;bundle-version="1.2.0",
- org.eclipse.papyrus.designer.components.transformation;bundle-version="0.7.0",
+ org.eclipse.papyrus.designer.components.transformation;bundle-version="0.7.4",
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
  org.eclipse.papyrus.uml.tools;bundle-version="1.2.0",
- org.eclipse.papyrus.designer.transformation.core;bundle-version="0.7.3",
- org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
- org.eclipse.papyrus.designer.components.fcm.profile;bundle-version="0.7.3"
+ org.eclipse.papyrus.designer.transformation.core;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.components.fcm.profile;bundle-version="0.7.4"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.3.qualifier
+Bundle-Version: 0.7.5.qualifier
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
 Bundle-ManifestVersion: 2

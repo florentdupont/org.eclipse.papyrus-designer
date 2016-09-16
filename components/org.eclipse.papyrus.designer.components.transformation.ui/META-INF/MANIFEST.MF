@@ -6,7 +6,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.uml2.uml,
  org.eclipse.core.resources,
  org.eclipse.ui.ide,
- org.eclipse.papyrus.designer.components.fcm.profile;bundle-version="0.7.0",
+ org.eclipse.papyrus.designer.components.fcm.profile;bundle-version="0.7.4",
  org.eclipse.papyrus.marte.static.profile;bundle-version="1.2.0",
  org.eclipse.papyrus.uml.diagram.common;bundle-version="1.2.0",
  org.eclipse.papyrus.infra.gmfdiag.widgets;bundle-version="1.2.0",
@@ -20,15 +20,15 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.infra.emf;bundle-version="1.2.0",
  org.eclipse.papyrus.uml.tools.utils;bundle-version="1.2.0",
  org.eclipse.papyrus.infra.widgets.toolbox;bundle-version="1.2.0",
- org.eclipse.papyrus.designer.components.transformation;bundle-version="0.7.0",
- org.eclipse.papyrus.designer.ui;bundle-version="0.7.0",
+ org.eclipse.papyrus.designer.components.transformation;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.ui;bundle-version="0.7.4",
  org.eclipse.papyrus.infra.ui.emf;bundle-version="1.2.0",
- org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
- org.eclipse.papyrus.designer.transformation.core;bundle-version="0.7.3",
- org.eclipse.papyrus.designer.transformation.ui;bundle-version="0.7.3"
+ org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.transformation.core;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.transformation.ui;bundle-version="0.7.4"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.3.qualifier
+Bundle-Version: 0.7.5.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.components.transformation.ui.Activator

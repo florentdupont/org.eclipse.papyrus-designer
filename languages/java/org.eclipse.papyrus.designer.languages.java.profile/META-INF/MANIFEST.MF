@@ -6,14 +6,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.uml2.uml;bundle-version="5.0.0";visibility:=reexport
 Export-Package: org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava,
  org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.impl,
- org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.util,
- org.eclipse.papyrus.designer.languages.java.profile.java,
- org.eclipse.papyrus.designer.languages.java.profile.java.impl,
- org.eclipse.papyrus.designer.languages.java.profile.java.util
+ org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.util
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
-Bundle-Version: 1.0.2.qualifier
+Bundle-Version: 1.0.4.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.languages.java.profile.Activator

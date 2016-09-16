@@ -22,28 +22,5 @@
             genModel="profiles/PapyrusJava.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated java.profile -->
-      <package
-            uri="http://www.eclipse.org/papyrus/JAVA/1"
-            class="org.eclipse.papyrus.designer.languages.java.profile.java.JavaPackage"
-            genModel="models/java.profile.genmodel"/>
-   </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated java.profile -->
-      <parser
-            type="java"
-            class="org.eclipse.papyrus.designer.languages.java.profile.java.util.JavaResourceFactoryImpl"/>
-   </extension>
-      <extension
-         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
-      <profile
-            description="Java profile for code generation and reverse (v1.0)"
-            iconpath="icons/javaprofile.gif"
-            name="Java"
-            path="pathmap://Papyrus_JAVA_PROFILES/java.profile.uml"
-            provider="Cedric Dumoulin">
-      </profile>
-   </extension>
 </plugin>

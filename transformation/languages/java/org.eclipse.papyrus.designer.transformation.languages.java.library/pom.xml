@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.transformation.languages.java</artifactId>
-		<version>0.7.3-SNAPSHOT</version>
+		<version>0.7.5-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.transformation.languages.java.library</artifactId>
 	<packaging>eclipse-plugin</packaging>

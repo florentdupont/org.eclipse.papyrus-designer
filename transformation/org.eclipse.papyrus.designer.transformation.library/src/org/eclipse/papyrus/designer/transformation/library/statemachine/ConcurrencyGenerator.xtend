@@ -316,7 +316,7 @@ class ConcurrencyGenerator {
 		var ret = '''
 			pthread_t «paramThreadName»;
 			«STRUCT_FOR_THREAD» «threadStructParam»(this, «core.getRegionMacroId(r)», «enteringMode», «IF isEnter»«THREAD_FUNC_ENTER_REGION_TYPE»«ELSE»«THREAD_FUNC_EXIT_REGION_TYPE»«ENDIF», 0);
-			THREAD_CREATE(«paramThreadName», «threadStructParam»)'''
+			«superContext.name»_THREAD_CREATE(«paramThreadName», «threadStructParam»)'''
 		return ret
 	}
 	

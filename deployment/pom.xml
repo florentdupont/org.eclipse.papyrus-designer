@@ -5,10 +5,10 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
+		<version>1.0.4-SNAPSHOT</version>
 	</parent>
-	<artifactId>org.eclipse.papyrus.designer.languages</artifactId>
-	<version>0.7.3-SNAPSHOT</version>
+	<artifactId>org.eclipse.papyrus.designer.deployment</artifactId>
+	<version>0.7.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Designer deployment</name>
 	<description>This module contains the different plugins handling deployment issues</description>

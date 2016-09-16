@@ -12,7 +12,6 @@
 package org.eclipse.papyrus.designer.languages.java.codegen.utils;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils;
@@ -118,8 +117,8 @@ public class JavaGenUtils {
 			return ne.getName();
 		}
 		
-		// Check if we can use the short name of ne
-		String qName = GenUtils.getFullName(ne, ".");
+		// Get qualified name and remove root name if root is a <<Project>>
+		String qName = GenUtils.getFullName(ne, ".", false);
 		
 		// First check that the ne is not a direct inner class of ns
 		// Also check that ne doesnt have the same short name as a direct inner class of ns

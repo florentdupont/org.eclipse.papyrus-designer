@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Papyrus Reverse Cpp
 Bundle-SymbolicName: org.eclipse.papyrus.designer.languages.cpp.reverse
-Bundle-Version: 1.0.2.qualifier
+Bundle-Version: 1.0.4.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.cdt.core,
  org.eclipse.cdt.ui;bundle-version="5.9.0",
@@ -11,11 +11,11 @@ Require-Bundle: org.eclipse.cdt.core,
  org.eclipse.uml2.uml.profile.standard;bundle-version="1.0.0",
  org.eclipse.papyrus.infra.core;bundle-version="1.0.2",
  org.eclipse.papyrus.uml.tools.utils;bundle-version="1.0.2",
- org.eclipse.papyrus.designer.languages.cpp.codegen;bundle-version="0.7.0",
- org.eclipse.papyrus.designer.languages.cpp.profile;bundle-version="0.7.0",
- org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor;bundle-version="0.7.0",
- org.eclipse.papyrus.designer.languages.common.texteditor.model;bundle-version="0.7.0",
- org.eclipse.papyrus.designer.languages.common.base;bundle-version="0.7.0"
+ org.eclipse.papyrus.designer.languages.cpp.codegen;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.languages.cpp.profile;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.languages.common.texteditor.model;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.languages.common.base;bundle-version="0.7.4"
 Export-Package: org.eclipse.papyrus.designer.languages.cpp.reverse.reverse,
  org.eclipse.papyrus.designer.languages.cpp.reverse.reverse.change,
  org.eclipse.papyrus.designer.languages.cpp.reverse.utils

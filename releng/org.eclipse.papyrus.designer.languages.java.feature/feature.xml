@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.papyrus.designer.languages.java.feature"
       label="%featureName"
-      version="1.0.2.qualifier"
+      version="1.0.4.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.example.com/description">
@@ -78,18 +78,19 @@ http://www.eclipse.org/legal/epl-v10.html
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-	
-	<!--<plugin
+
+   <plugin
          id="org.eclipse.papyrus.designer.languages.java.reverse"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-	
-	<plugin
+
+   <plugin
          id="org.eclipse.papyrus.designer.languages.java.reverse.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
-         unpack="false"/>-->
+         unpack="false"/>
+
 </feature>

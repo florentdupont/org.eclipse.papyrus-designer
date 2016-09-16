@@ -88,7 +88,7 @@ class JavaClassImportDeclaration {
 					}
 				}
 				
-				val qName = GenUtils.getFullName(ne, ".")
+				val qName = GenUtils.getFullName(ne, ".", false)
 				importsOfClassifier.add(qName)
 				return qName
 			}

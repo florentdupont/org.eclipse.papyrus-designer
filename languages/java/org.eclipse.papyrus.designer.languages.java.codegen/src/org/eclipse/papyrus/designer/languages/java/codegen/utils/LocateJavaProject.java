@@ -71,9 +71,9 @@ public class LocateJavaProject {
 			Project javaProject = UMLUtil.getStereotypeApplication(rootPkg, Project.class);
 			projectName = javaProject.getProjectName();
 			
-			if (projectName.equals(".")
-					|| projectName.equals("..")) {
+			if (projectName != null && (projectName.equals(".") || projectName.equals(".."))) {
 				displayError("An error was encountered during code generation: invalid project name. The default project name will be chosen."); // $NON-NLS-1$
+				projectName = null;
 			}
 		}
 		

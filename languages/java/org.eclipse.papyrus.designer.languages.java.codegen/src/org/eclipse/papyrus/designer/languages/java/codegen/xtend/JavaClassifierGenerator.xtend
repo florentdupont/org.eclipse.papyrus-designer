@@ -23,16 +23,16 @@ import org.eclipse.papyrus.designer.languages.java.codegen.utils.JavaGenUtils
 
 class JavaClassifierGenerator {
 	
-	static def getSortedIncludePathList(Classifier classifier) {
-		var importPathList = JavaClassImportClassDeclaration.javaClassAllImports(classifier).sort;
+	static def getSortedIncludePathList(Classifier classifier, String prefix) {
+		var importPathList = JavaClassImportClassDeclaration.javaClassAllImports(classifier, prefix).sort;
 		return importPathList
 	}
 	
 	static def generateClassCode(Classifier classifier, String prefix) '''
-		package «prefix + GenUtils.getFullPath(classifier.package, ".")»;
+		package «prefix + GenUtils.getFullPath(classifier.package, ".", false)»;
 		
-		«FOR path : getSortedIncludePathList(classifier)»
-			«JavaImportUtil.importDirective(path, prefix)»
+		«FOR path : getSortedIncludePathList(classifier, prefix)»
+			«JavaImportUtil.importDirective(path)»
 		«ENDFOR»
 		
 		«JavaImportUtil.javaImport(classifier)»

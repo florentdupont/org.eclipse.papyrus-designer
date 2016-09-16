@@ -284,7 +284,7 @@ public class CompilationUnitAnalyser {
 
 		// First, find the parent Package
 		currentCompilationUnitPackage = getCuPackage(cu.getPackage());
-		;
+		
 		classifierCatalog.setCurrentCompilationUnitPackage(currentCompilationUnitPackage);
 
 		// Add imports

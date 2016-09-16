@@ -6,7 +6,7 @@
          point="org.eclipse.ui.menus">
 	<menuContribution
 		allPopups="true"
-		locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup">
+		locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup?after=others">
 		<menu
 			icon="icons/designer-16x16.gif"
 			id="org.eclipse.papyrus.designer.popup"
@@ -16,7 +16,7 @@
 	</menuContribution>
 	<menuContribution
 		allPopups="true"
-		locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=filtersMenu">
+		locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=additions">
 		<menu
 			icon="icons/designer-16x16.gif"
 			id="org.eclipse.papyrus.designer.popup"

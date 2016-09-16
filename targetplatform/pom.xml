@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
+		<version>1.0.4-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.targetplatform</artifactId>
 	<packaging>pom</packaging>
@@ -23,10 +23,22 @@
 			</modules>
 		</profile>
 		<profile>
+			<id>neon-papyrusmilestone</id>
+			<activation>
+				<property>
+					<name>eclipse.targetrelease</name>
+					<value>neon-papyrusmilestone</value>
+				</property>
+			</activation>
+			<modules>
+				<module>org.eclipse.papyrus.designer.targetplatform.neon-papyrusmilestone</module>
+			</modules>
+		</profile>
+		<profile>
 			<id>neon-papyrusnightly</id>
 			<activation>
 				<property>
-					<name>eclipse.release</name>
+					<name>eclipse.targetrelease</name>
 					<value>neon-papyrusnightly</value>
 				</property>
 			</activation>
@@ -35,6 +47,4 @@
 			</modules>
 		</profile>
 	</profiles>
-
-<version>1.0.2-SNAPSHOT</version>
 </project>

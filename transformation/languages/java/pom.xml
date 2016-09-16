@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.transformation.languages</artifactId>
-		<version>0.7.3-SNAPSHOT</version>
+		<version>0.7.5-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.transformation.languages.java</artifactId>
 	<packaging>pom</packaging>

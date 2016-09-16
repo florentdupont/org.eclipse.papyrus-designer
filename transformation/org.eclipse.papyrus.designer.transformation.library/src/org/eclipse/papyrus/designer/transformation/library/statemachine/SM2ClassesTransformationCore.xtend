@@ -14,12 +14,18 @@ import java.util.Map.Entry
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.common.util.UniqueEList
 import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Virtual
+import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement
+import org.eclipse.papyrus.designer.transformation.vsl.ParseVSL
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.AnyReceiveEvent
@@ -27,15 +33,16 @@ import org.eclipse.uml2.uml.Behavior
 import org.eclipse.uml2.uml.CallEvent
 import org.eclipse.uml2.uml.ChangeEvent
 import org.eclipse.uml2.uml.Class
+import org.eclipse.uml2.uml.Element
 import org.eclipse.uml2.uml.Enumeration
 import org.eclipse.uml2.uml.Event
 import org.eclipse.uml2.uml.FinalState
-import org.eclipse.uml2.uml.Model
 import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.OpaqueExpression
 import org.eclipse.uml2.uml.Operation
 import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.ParameterDirectionKind
+import org.eclipse.uml2.uml.Profile
 import org.eclipse.uml2.uml.Pseudostate
 import org.eclipse.uml2.uml.PseudostateKind
 import org.eclipse.uml2.uml.Region
@@ -49,19 +56,11 @@ import org.eclipse.uml2.uml.Type
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.Vertex
 import org.eclipse.uml2.uml.util.UMLUtil
-import org.eclipse.papyrus.designer.transformation.vsl.ParseVSL
 
 import static org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
 
 import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.TransformationUtil.*
 import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.TransformationUtil.eventID
-import org.eclipse.uml2.uml.Profile
-import org.eclipse.uml2.uml.Element
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen
-import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
-import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils
-import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement
-import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
 
 class SM2ClassesTransformationCore {
 	protected extension CDefinitions cdefs;
