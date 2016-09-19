@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Transformation
 Bundle-SymbolicName: org.eclipse.papyrus.designer.transformation.languages.cpp.library;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.7.5.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.transformation.profile;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.transformation.extensions;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.transformation.core;bundle-version="0.7.3",
- org.eclipse.papyrus.designer.deployment.tools;bundle-version="0.7.3",
+ org.eclipse.papyrus.designer.deployment.tools;bundle-version="0.7.5",
  org.eclipse.papyrus.designer.languages.cpp.profile;bundle-version="1.0.2",
  org.eclipse.papyrus.designer.deployment.profile;bundle-version="0.7.3",
  org.eclipse.papyrus.uml.tools.utils;bundle-version="2.0.0",
