@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.papyrus.designer.components.main.feature"
+      id="org.eclipse.papyrus.designer.transformation.main.feature"
       label="%featureName"
       version="0.7.5.qualifier"
       provider-name="%providerName">
 
    <description>
-      A component based design methodology, part of Papyrus software designer (from which
+      A transformation based design methodology, part of Papyrus software designer (from which
       it inherits support for generating code for several programming languages). It is based on
-- A profile derived from a flexible component model (FCM) with
-- extensible port definitions (kind)
-- extensible set of connector types and implementations
-- extensible set of container services
-- A library of predefined port kinds
-- A library of connector types along with their implementations
-- The tool chain supporting a set of model-to-model transformation
-(connector and container expansion)
-- A C++ code generator
-- A Java code generator
-- CDT support, i.e. the generation of a CDT project from the
-model
+- A M2M transformation profile
+- A deployment profile
+- A generic M2M transformation infrastructure providing for instance a generic lazy model copying mechanism. 
+- A library of pre-defined M2M transformations (e.g. adding an additional class aka boot-loader that instantiates the system)
    </description>
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">
-      Copyright (c) 2012 CEA LIST
+      Copyright (c) 2016 CEA LIST
 All rights reserved. This program and the accompanying materials
 are made available under the terms of the Eclipse Public License
 v1.0
@@ -42,6 +34,13 @@ http://www.eclipse.org/legal/epl-v10.html
    </requires>
 
    <plugin
+         id="org.eclipse.papyrus.designer.transformation.base"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="org.eclipse.papyrus.designer.transformation.core"
          download-size="0"
          install-size="0"
@@ -49,63 +48,63 @@ http://www.eclipse.org/legal/epl-v10.html
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.components.transformation.ui"
+         id="org.eclipse.papyrus.designer.transformation.extensions"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.components.doc"
+         id="org.eclipse.papyrus.designer.transformation.languages.cpp.library"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.components.validation"
+         id="org.eclipse.papyrus.designer.transformation.languages.java.library"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.components.fcm.profile"
+         id="org.eclipse.papyrus.designer.transformation.library"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.ui"
+         id="org.eclipse.papyrus.designer.transformation.profile"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.components.transformation.cpp"
+         id="org.eclipse.papyrus.designer.transformation.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.components.modellibs.core"
+         id="org.eclipse.papyrus.designer.transformation.vsl"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.components.transformation"
+         id="org.eclipse.papyrus.designer.deployment.profile"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.components.transformation.java"
+         id="org.eclipse.papyrus.designer.deployment.tools"
          download-size="0"
          install-size="0"
          version="0.0.0"

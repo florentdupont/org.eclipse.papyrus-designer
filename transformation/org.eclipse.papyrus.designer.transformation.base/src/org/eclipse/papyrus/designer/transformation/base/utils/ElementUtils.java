@@ -161,7 +161,8 @@ public class ElementUtils {
 	public static NamedElement getQualifiedElementFromRS(ResourceSet rs, String qualifiedName) {
 		for (Resource resource : rs.getResources()) {
 			if (resource instanceof UMLResource) {
-				for (EObject topLevelElem : resource.getContents()) {
+				if (resource.getContents().size() > 0) {
+					EObject topLevelElem = resource.getContents().get(0);
 					if (topLevelElem instanceof Package) {
 						NamedElement ne = getQualifiedElement((Package) topLevelElem, qualifiedName);
 						if (ne != null) {
