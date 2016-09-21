@@ -17,6 +17,7 @@ import java.util.Iterator;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoCDP;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
@@ -34,6 +35,8 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  */
 public class ExecuteTransformation {
 		
+	public static final String MODEL = "model"; //$NON-NLS-1$
+
 	public static void apply(Iterator<Property> m2mPropertyIter) throws TransformationException {
 		if (!m2mPropertyIter.hasNext()) {
 			return;
@@ -60,16 +63,21 @@ public class ExecuteTransformation {
 				while (m2mPropertyIter.hasNext()) {
 					remainingTrafos.add(m2mPropertyIter.next());
 				}
-				TransformationContext oldTC = TransformationContext.current;
 				// now apply to each create sub-models
 				for (TransformationContext newContext : newContexts) {
 					TransformationContext.current = newContext;
 					apply(remainingTrafos.iterator());
 					
 					// save models
-					String path = newContext.mm.getPath(newContext.project, "model", null); //$NON-NLS-1$
+					String path = newContext.mm.getPath(newContext.project, MODEL, null);
 					newContext.mm.saveModel(path);
 					newContext.mm.dispose();
+					// also save & dispose additional projects
+					for (ModelManagement mm : newContext.copier.getAdditionalRootPkgs()) {
+						String pathAdds = mm.getPath(newContext.project, MODEL, null);
+						mm.saveModel(pathAdds);
+						mm.dispose();
+					}
 				}
 			}
 			else {

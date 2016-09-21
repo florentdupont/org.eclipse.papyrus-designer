@@ -60,7 +60,6 @@ public class ModelManagement {
 			
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				Resource resource = null;
 				if (create) {
 					resource = resourceSet.createResource(URI.createURI(uri));

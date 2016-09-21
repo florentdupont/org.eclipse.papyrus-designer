@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.papyrus.designer.components.FCM.FCMPackage;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
 import org.eclipse.papyrus.designer.components.FCM.TemplatePort;
-import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,10 +74,10 @@ public class TemplatePortImpl extends PortImpl implements TemplatePort {
                return null;
        }
        if(base_Port.isConjugated()) {
-               return MapUtil.getBoundType(this);
+               return PortMapUtil.getBoundType(this);
        }
        else {
-               return MapUtil.getBoundType(this);
+               return PortMapUtil.getBoundType(this);
        }
 
 	}

@@ -905,6 +905,7 @@ public class GenUtils {
 	 * @return the fully qualified name with separator character, without the project name optionally
 	 */
 	public static String getFullName(NamedElement ne, String separator, boolean withProjectName) {
+		checkProxy(ne);
 		String qName = getFullName(ne, separator);
 		if (!withProjectName) {
 			return getQualifiedNameWithoutProject(ne, qName, separator);

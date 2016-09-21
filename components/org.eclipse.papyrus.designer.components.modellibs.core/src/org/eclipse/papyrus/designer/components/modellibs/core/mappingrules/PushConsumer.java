@@ -17,7 +17,7 @@ package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
 import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Interface;
@@ -47,7 +47,7 @@ public class PushConsumer implements IMappingRule {
 
 		if ((type instanceof PrimitiveType) || (type instanceof DataType) || (type instanceof Signal)) {
 
-			Interface derivedInterface = MapUtil.getDerivedInterface(p, PushProducer.PUSH_I_PREFIX);
+			Interface derivedInterface = PortMapUtil.getDerivedInterface(p, PushProducer.PUSH_I_PREFIX);
 			if (derivedInterface == null) {
 				return true;
 			}
@@ -80,7 +80,7 @@ public class PushConsumer implements IMappingRule {
 
 		if ((type instanceof PrimitiveType) || (type instanceof DataType) || (type instanceof Signal)) {
 
-			Interface derivedInterface = MapUtil.getDerivedInterface(p, PushProducer.PUSH_I_PREFIX, update);
+			Interface derivedInterface = PortMapUtil.getDerivedInterface(p, PushProducer.PUSH_I_PREFIX, update);
 			if (!update) {
 				return derivedInterface;
 			}

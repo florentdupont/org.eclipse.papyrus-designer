@@ -23,7 +23,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -34,9 +33,7 @@ import org.eclipse.papyrus.designer.transformation.base.Messages;
 import org.eclipse.papyrus.designer.transformation.base.UIContext;
 import org.eclipse.uml2.common.util.UML2Util;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Package;
-import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.UMLPackage;
 
@@ -51,13 +48,21 @@ public class ModelManagement {
 	 * Create a new model and associate it with a temporary
 	 * resource
 	 */
-	public ModelManagement() {
+	public ModelManagement(Package model) {
 		getResourceSet();
-		model = UMLFactory.eINSTANCE.createModel();
+		this.model = model;
 		resource = resourceSet.createResource(URI.createURI("temp.uml")); //$NON-NLS-1$
 		resource.getContents().add(model);
 	}
 
+	/**
+	 * Create a new model and associate it with a temporary
+	 * resource
+	 */
+	public ModelManagement() {
+		this(UMLFactory.eINSTANCE.createModel());
+	}
+	
 	public void dispose() {
 		if (model != null) {
 			model.destroy();
@@ -71,7 +76,7 @@ public class ModelManagement {
 	 * 
 	 * @return the model managed by this instance of model manager
 	 */
-	public Model getModel() {
+	public Package getModel() {
 		return model;
 	}
 
@@ -181,64 +186,15 @@ public class ModelManagement {
 	 */
 	public static ModelManagement createNewModel(Package existingModel, String name, boolean copyImports) throws TransformationException {
 		ModelManagement mm = new ModelManagement();
-		Model newModel = mm.getModel();
+		Package newModel = mm.getModel();
 		newModel.setName(name);
-
-		try {
-			// copy profile application
-			for (Profile profile : existingModel.getAppliedProfiles()) {
-				// reload profile in resource of new model
-				UIContext.monitor.subTask(Messages.InstantiateDepPlan_InfoApplyProfile + profile.getQualifiedName());
-
-				if (profile.eResource() == null) {
-					String profileName = profile.getQualifiedName();
-					if (profileName == null) {
-						if (profile instanceof MinimalEObjectImpl.Container) {
-							URI uri = ((MinimalEObjectImpl.Container) profile).eProxyURI();
-							if (uri != null) {
-								throw new TransformationException(String.format(Messages.InstantiateDepPlan_CheckInputModelProfileNoRes, uri));
-							}
-						}
-						throw new TransformationException(Messages.InstantiateDepPlan_CheckInputModelProfileNoResNoName);
-					}
-					throw new TransformationException(String.format(Messages.InstantiateDepPlan_CheckInputModelProfile3, profileName));
-				}
-
-				Resource profileResource = null;
-				try {
-					profileResource = ModelManagement.getResourceSet().getResource(profile.eResource().getURI(), true);
-				} catch (WrappedException e) {
-					// read 2nd time (some diagnostic errors are raised only
-					// once)
-					Activator.log.warn("Warning: exception in profile.eResource() " + e.getMessage()); //$NON-NLS-1$
-					profileResource = ModelManagement.getResourceSet().getResource(profile.eResource().getURI(), true);
-				}
-				if (profileResource.getContents().size() == 0) {
-					throw new TransformationException(String.format("Cannot copy profile with URI %s. Check whether the URI corresponds to an existing location", profileResource.getURI()));
-				}
-				Profile newProfileTop = (Profile) profileResource.getContents().get(0);
-				Profile newProfile;
-				String qname = profile.getQualifiedName();
-				if ((qname != null) && qname.contains("::")) { //$NON-NLS-1$
-					// profile is a sub-profile within same resource
-					newProfile = (Profile) ElementUtils.getQualifiedElement(newProfileTop, qname);
-				} else {
-					newProfile = newProfileTop;
-				}
-				newProfile.getMember("dummy"); // force profile loading //$NON-NLS-1$
-				newModel.applyProfile(newProfile);
-			}
-		} catch (IllegalArgumentException e) {
-			throw new TransformationException(Messages.InstantiateDepPlan_IllegalArgumentDuringCopy + e.toString());
-		}
-
-		// copier imports (and load resources associated - TODO: might not be
-		// necessary)
-		// While this is useful in general, it implies that code for imported
-		// models
+		StUtils.copyProfileApplications(existingModel, newModel);
+		StUtils.copyStereotypes(existingModel, newModel);
+		
+		// copy imports (and load the associated resources).
+		// While this is useful in general, it implies that code for imported models
 		// has been generated and compiled (for the right target) into a
-		// library. This may be
-		// quite tedious, unless automatically managed.
+		// library. This may be quite tedious, unless automatically managed.
 		// Therefore we do not activate this option in a first pass of the model
 		// transformations.
 		if (copyImports) {
@@ -267,11 +223,10 @@ public class ModelManagement {
 				}
 			}
 		}
-		StUtils.copyStereotypes(existingModel, newModel);
 
 		return mm;
 	}
-
+	
 	/**
 	 * return the used resource set (a singleton)
 	 */
@@ -284,7 +239,7 @@ public class ModelManagement {
 
 	private static ResourceSet resourceSet = null;
 
-	private Model model;
+	private Package model;
 
 	private Resource resource;
 }

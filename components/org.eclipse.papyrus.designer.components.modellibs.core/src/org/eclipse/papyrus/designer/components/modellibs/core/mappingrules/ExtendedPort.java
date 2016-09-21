@@ -15,7 +15,7 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils;
 import org.eclipse.uml2.uml.Class;
@@ -75,7 +75,7 @@ public class ExtendedPort implements IMappingRule {
 		Class extendedPort = p.getKind().getBase_Class();
 
 		String prefix = extendedPort.getName() + "_" + (p.getBase_Port().isConjugated() ? REQ_PREFIX : PROV_PREFIX); //$NON-NLS-1$
-		Interface derivedInterface = MapUtil.getDerivedInterface(p, prefix, true);
+		Interface derivedInterface = PortMapUtil.getDerivedInterface(p, prefix, true);
 		if (!update) {
 			return derivedInterface;
 		}

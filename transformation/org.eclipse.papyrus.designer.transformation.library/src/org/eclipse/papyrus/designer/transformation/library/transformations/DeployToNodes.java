@@ -41,7 +41,6 @@ import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTra
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.InstanceSpecification;
-import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Slot;
@@ -104,7 +103,7 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 	private TransformationContext deployNode(EList<InstanceSpecification> topLevelInstances, Package existingModel, EList<InstanceSpecification> nodes, int nodeIndex, InstanceSpecification node, boolean allocAll)
 			throws TransformationException, InterruptedException {
 		ModelManagement genModelManagement = ModelManagement.createNewModel(existingModel, existingModel.getName(), false); //$NON-NLS-1$
-		Model generatedModel = genModelManagement.getModel();
+		Package generatedModel = genModelManagement.getModel();
 		
 		// --------------------------------------------------------------------
 		checkProgressStatus();
@@ -116,6 +115,24 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 		// (existingModel.getName ());
 		LazyCopier targetCopier = new LazyCopier(existingModel, generatedModel, true, true);
 
+		// register additional "roots" for multi-root models
+		// TODO: cleaner solution
+		/*
+		for (EObject sourcePkg : existingModel.eResource().getContents()) {
+			if (sourcePkg instanceof Package && sourcePkg != existingModel)  {
+				Package targetPkg;
+				if (sourcePkg instanceof Model) {
+					targetPkg = UMLFactory.eINSTANCE.createModel();
+				}
+				else {
+					targetPkg = UMLFactory.eINSTANCE.createPackage();		
+				}
+				targetPkg.setName(((Package) sourcePkg).getName()); 
+				generatedModel.eResource().getContents().add(targetPkg);
+				targetCopier.put(sourcePkg, targetPkg);
+			}
+		}
+		*/
 		targetCopier.preCopyListeners.add(FilterStateMachines.getInstance());
 		targetCopier.preCopyListeners.add(FilterTemplateBinding.getInstance());
 		targetCopier.preCopyListeners.add(FilterM2MTrafo.getInstance());

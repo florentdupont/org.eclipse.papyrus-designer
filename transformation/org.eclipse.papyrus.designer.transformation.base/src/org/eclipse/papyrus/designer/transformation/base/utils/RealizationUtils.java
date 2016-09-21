@@ -65,4 +65,10 @@ public class RealizationUtils {
 		}
 		return REALIZATION_OF + name;
 	}
+
+	public static void addUsage(Class portType, Interface usedInterface) {
+		if (!portType.getUsedInterfaces().contains(usedInterface)) {
+			portType.createUsage(usedInterface);
+		}
+	}
 }

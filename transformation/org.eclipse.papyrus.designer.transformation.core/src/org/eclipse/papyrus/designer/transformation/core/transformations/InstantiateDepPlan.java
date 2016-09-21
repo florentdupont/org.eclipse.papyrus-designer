@@ -32,6 +32,7 @@ import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.EnumService;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.generate.GenerationOptions;
+import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterDeploymentPlan;
 import org.eclipse.papyrus.designer.transformation.extensions.InstanceConfigurator;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
@@ -144,18 +145,18 @@ public class InstantiateDepPlan {
 		TransformationContext.current = tc;
 		TransformationContext.initialSourceRoot = existingModel;
 
-		intermediateModelManagement = ModelManagement.createNewModel(existingModel, existingModel.getName(), true);
+		intermediateModelManagement = ModelManagement.createNewModel(existingModel, existingModel.getName(), false);
 
 		// get the temporary model
-		Model intermediateModel = intermediateModelManagement.getModel();
+		Package intermediateModel = intermediateModelManagement.getModel();
 
 		// create a package for global enumerations that are used by xtend code
 		EnumService.createEnumPackage(intermediateModel);
 
 		// create a lazy copier towards the intermediate model
-		LazyCopier intermediateModelCopier = new LazyCopier(existingModel, intermediateModel, false, true);
+		LazyCopier intermediateModelCopier = new LazyCopier(existingModel, intermediateModel, true, true);
 		// add pre-copy and post-copy listeners to the copier
-		// intermediateModelCopier.preCopyListeners.add(FilterTemplate.getInstance());
+		intermediateModelCopier.preCopyListeners.add(FilterDeploymentPlan.getInstance());
 
 		// 1b: reify the connectors "into" the new model
 		monitor.subTask(Messages.InstantiateDepPlan_InfoExpandingConnectors);
@@ -185,6 +186,7 @@ public class InstantiateDepPlan {
 		tc.modelRoot = PackageUtil.getRootPackage(tc.deploymentPlan);
 
 		M2MTrafoChain chain = DepUtils.getTransformationChain(srcModelComponentDeploymentPlan);
+		
 		ExecuteTransformationChain.apply(chain);
 
 		/*
@@ -194,12 +196,19 @@ public class InstantiateDepPlan {
 		 */
 
 		intermediateModelManagement.saveModel(project, TEMP_MODEL_FOLDER, TEMP_MODEL_POSTFIX);
-
+		// also save additional root elements
+		for (ModelManagement mm : tc.copier.getAdditionalRootPkgs()) {
+			mm.saveModel(project, TEMP_MODEL_FOLDER, TEMP_MODEL_POSTFIX);
+		}
 		// --------------------------------------------------------------------
 		checkProgressStatus();
 		// --------------------------------------------------------------------
 
 		intermediateModelManagement.dispose();
+		// also dispose additional models
+		for (ModelManagement mm : tc.copier.getAdditionalRootPkgs()) {
+			mm.dispose();
+		}
 	}
 
 	private void destroyDeploymentPlanFolder(Model generatedModel) {

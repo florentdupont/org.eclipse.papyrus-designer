@@ -15,7 +15,7 @@
 package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants;
 import org.eclipse.uml2.uml.Class;
@@ -58,9 +58,9 @@ public class ExtendedPort2 implements IMappingRule {
 		Class extendedPort = (Class) type;
 		boolean isConjugated = p.getBase_Port().isConjugated();
 		String prefix = isConjugated ? CONJ_PREFIX : NORM_PREFIX;
-		Class derivedClass = MapUtil.getDerivedClass(p, prefix, update);
-		Interface providedInterface = MapUtil.getDerivedInterface(p, prefix, update);
-		Interface requiredInterface = MapUtil.getDerivedInterface(p, prefix, update);
+		Class derivedClass = PortMapUtil.getDerivedClass(p, prefix, update);
+		Interface providedInterface = PortMapUtil.getDerivedInterface(p, prefix, update);
+		Interface requiredInterface = PortMapUtil.getDerivedInterface(p, prefix, update);
 		if (!update) {
 			return derivedClass;
 		}
@@ -111,7 +111,7 @@ public class ExtendedPort2 implements IMappingRule {
 
 		Class extendedPort = (Class) type;
 		String prefix = isConjugated ? CONJ_PREFIX : NORM_PREFIX;
-		Interface derivedInterface = MapUtil.getDerivedInterface(p, prefix);
+		Interface derivedInterface = PortMapUtil.getDerivedInterface(p, prefix);
 
 		if (derivedInterface == null) {
 			return true;

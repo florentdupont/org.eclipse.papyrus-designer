@@ -15,6 +15,7 @@ package org.eclipse.papyrus.designer.transformation.core.transformations;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
 import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
@@ -36,7 +37,32 @@ public class ApplyRecursive {
 		this.transformation = transformation;
 	}
 
+	/**
+	 * recursively execute a transformation. Handle specific case of multiple root elements
+	 * (i.e. if a root element is passed and the resource has multiple root elements of type package,
+	 * the transformation is executed for all of these) 
+	 * @param pkg
+	 * @throws TransformationException
+	 */
 	public void applyRecursive(Package pkg) throws TransformationException {
+		
+		applyRecursiveSub(pkg);
+		
+		// handle specific case of multiple root elements
+		EList<ModelManagement> additionalRootPkgs = new BasicEList<ModelManagement>();
+		// work on copy, since recursive transformation might trigger the addition of new rootPkgs
+		additionalRootPkgs.addAll(TransformationContext.current.copier.getAdditionalRootPkgs());
+		for (ModelManagement mm : additionalRootPkgs) {
+			applyRecursiveSub(mm.getModel());
+		}
+	}
+	
+	/**
+	 * recursively execute a transformation on the passed model.
+	 * @param pkg
+	 * @throws TransformationException
+	 */
+	public void applyRecursiveSub(Package pkg)  throws TransformationException {
 		EList<PackageableElement> elements = new BasicEList<PackageableElement>();
 		elements.addAll(pkg.getPackagedElements());
 		for (PackageableElement pe : elements) {
@@ -61,7 +87,7 @@ public class ApplyRecursive {
 				}
 			} else if (pe instanceof Package) {
 				// recurse
-				applyRecursive((Package) pe);
+				applyRecursiveSub((Package) pe);
 			}
 		}
 	}

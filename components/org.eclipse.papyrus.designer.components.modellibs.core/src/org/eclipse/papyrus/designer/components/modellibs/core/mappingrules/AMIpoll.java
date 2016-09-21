@@ -18,7 +18,8 @@ import java.util.Iterator;
 
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.RealizationUtils;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Operation;
@@ -49,10 +50,10 @@ public class AMIpoll implements IMappingRule {
 			return null;
 		}
 
-		Class derivedType = MapUtil.getDerivedClass(p, AMI_POLL);
+		Class derivedType = PortMapUtil.getDerivedClass(p, AMI_POLL);
 		Interface typingInterface = (Interface) type;
-		Interface derivedInterface = MapUtil.getDerivedInterface(p, IAMI_POLL);
-		MapUtil.addUsage(derivedType, derivedInterface);
+		Interface derivedInterface = PortMapUtil.getDerivedInterface(p, IAMI_POLL);
+		RealizationUtils.addUsage(derivedType, derivedInterface);
 
 		if (!update) {
 			return derivedType;

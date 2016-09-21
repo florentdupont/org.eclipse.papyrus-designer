@@ -17,9 +17,10 @@ package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
 import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.RealizationUtils;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.DataType;
@@ -57,7 +58,7 @@ public class PullConsumer implements IMappingRule {
 
 		if ((type instanceof PrimitiveType) || (type instanceof DataType) || (type instanceof Signal)) {
 
-			Interface derivedInterface = MapUtil.getDerivedInterface(p, PULL_I_PREFIX);
+			Interface derivedInterface = PortMapUtil.getDerivedInterface(p, PULL_I_PREFIX);
 			if (derivedInterface == null) {
 				return true;
 			}
@@ -102,9 +103,9 @@ public class PullConsumer implements IMappingRule {
 
 		if ((type instanceof PrimitiveType) || (type instanceof DataType) || (type instanceof Signal)) {
 
-			Class derivedClass = MapUtil.getDerivedClass(p, PULL_C_PREFIX, update);
-			Interface derivedInterface = MapUtil.getDerivedInterface(p, PULL_I_PREFIX, update);
-			MapUtil.addUsage(derivedClass, derivedInterface);
+			Class derivedClass = PortMapUtil.getDerivedClass(p, PULL_C_PREFIX, update);
+			Interface derivedInterface = PortMapUtil.getDerivedInterface(p, PULL_I_PREFIX, update);
+			RealizationUtils.addUsage(derivedClass, derivedInterface);
 			if (!update) {
 				return derivedClass;
 			}

@@ -10,7 +10,8 @@ import java.util.Iterator;
 
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.RealizationUtils;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Operation;
@@ -33,11 +34,11 @@ public class AMIcallback implements IMappingRule {
 		}
 
 		Interface typingInterface = (Interface) type;
-		Class derivedType = MapUtil.getDerivedClass(p, AMI_CB);
-		Interface derivedRequestInterface = MapUtil.getDerivedInterface(p, _REQUEST);
-		Interface derivedReplyInterface = MapUtil.getDerivedInterface(p, _REPLY);
-		MapUtil.addUsage(derivedType, derivedRequestInterface);			// caller can use (require) the request interface
-		MapUtil.addRealization(derivedType, derivedReplyInterface);		// callers must implement (provide) the reply interface
+		Class derivedType = PortMapUtil.getDerivedClass(p, AMI_CB);
+		Interface derivedRequestInterface = PortMapUtil.getDerivedInterface(p, _REQUEST);
+		Interface derivedReplyInterface = PortMapUtil.getDerivedInterface(p, _REPLY);
+		RealizationUtils.addUsage(derivedType, derivedRequestInterface);			// caller can use (require) the request interface
+		RealizationUtils.addRealization(derivedType, derivedReplyInterface);		// callers must implement (provide) the reply interface
 		
 		if (!update) {
 			return derivedType;

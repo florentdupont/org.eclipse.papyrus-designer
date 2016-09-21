@@ -10,13 +10,12 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.papyrus.designer.deployment.tools.Activator;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
 import org.eclipse.papyrus.designer.transformation.base.UIContext;
+import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoCDP;
@@ -58,13 +57,12 @@ public class GenerateCode implements IM2MTrafoCDP {
 		}
 		ILangCodegen codegen = LanguageCodegen.getGenerator(targetLanguage);
 	
+		codegen.generateCode(genProject, genModel, monitor);
+
 		// the generated model can contain more than one top-level element due to copied external model references
-		Resource genModelResource = genModel.eResource();
-		for (EObject topLevelElement : genModelResource.getContents()) {
-			if (topLevelElement instanceof Package) {
-				codegen.generateCode(genProject, (Package) topLevelElement, monitor);
-			}
-		}
+		for (ModelManagement mm : TransformationContext.current.copier.getAdditionalRootPkgs()) {
+			codegen.generateCode(genProject, mm.getModel(), monitor);
+	}
 
 		if (monitor.isCanceled()) {
 			return;

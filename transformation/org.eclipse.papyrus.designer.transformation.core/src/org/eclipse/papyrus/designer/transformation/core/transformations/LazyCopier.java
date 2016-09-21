@@ -31,6 +31,9 @@ import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
+import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.copylisteners.PostCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.copylisteners.PreCopyListener;
@@ -42,7 +45,7 @@ import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
-import org.eclipse.uml2.uml.PackageableElement;
+import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.util.UMLUtil;
@@ -124,6 +127,7 @@ public class LazyCopier extends Copier {
 		if (copyID) {
 			CopyUtils.copyID(source, target);
 		}
+		rootPkgs = new BasicEList<ModelManagement>();
 	};
 
 	/**
@@ -175,6 +179,8 @@ public class LazyCopier extends Copier {
 
 	protected boolean copyID;
 
+	protected EList<ModelManagement> rootPkgs;
+
 	/**
 	 * Elements within package templates must be treated differently, we have to ensure that:
 	 * (1) several instantiations with same binding of the same package template do not lead to double copies
@@ -193,6 +199,15 @@ public class LazyCopier extends Copier {
 				standardMap;
 	}
 
+	/**
+	 * Elements from referenced resources might get copied as well and become
+	 * additional root pkgs.
+	 * @return
+	 */
+	public EList<ModelManagement> getAdditionalRootPkgs() {
+		return rootPkgs;
+	}
+	
 	@Override
 	public EObject get(Object sourceEObj) {
 		if (sourceEObj instanceof EObject) {
@@ -390,12 +405,12 @@ public class LazyCopier extends Copier {
 		boolean sameResource = (sourceEObj.eResource() == source.eResource());
 		if (!sameResource && !copyExtReferences && !withinTemplate) {
 			// do not copy if within different resource, unless
-			// 1. copyImports
+			// 1. copyExtReferences
 			// 2. within package template
 			return sourceEObj;
 		}
-
-		if (sourceEObj instanceof Stereotype) {
+	
+		if ((sourceEObj instanceof Stereotype) || (sourceEObj instanceof Profile)) {
 			// do not copy Stereotypes, as it would imply copying meta-model elements (the base_X
 			// attribute of the stereotype is typed with a meta-model element)
 			return sourceEObj;
@@ -573,7 +588,7 @@ public class LazyCopier extends Copier {
 				List<EObject> source = (List<EObject>) eObject.eGet(eReference);
 				@SuppressWarnings("unchecked")
 				List<EObject> target = (List<EObject>) copyEObject.eGet(getTarget(eReference));
-				// do not clear (would remove elements that are added by copy listeners)
+				// do not clear target element (would remove elements that are added by copy listeners)
 				// But: better enforce exact copy? (listeners could only add in a post-copy step)
 				// target.clear();
 				if (!source.isEmpty()) {
@@ -644,32 +659,41 @@ public class LazyCopier extends Copier {
 		EObject copy = null;
 		EObject lastSource = null;
 		EList<EObject> copyStereoList = new BasicEList<EObject>();
+		boolean contained = false;
 		while (owner != null) {
 			if (containsKey(owner)) {
 				// owner is in map, still need to re-copy (update) the containment
 				// references, since one of the children did not exist before
-				//
 				shallowCopy(owner);
-				if (lastSource != null) {
-					// StUtils.copyStereotypes(this, (Element)lastSource, (Element)copy);
-				}
-				return;
-				// break;
+				contained = true;
+				break;
 			}
 			copy = shallowCopy(owner);
-			// copyStereoList.add(sourceEObj);
+			copyStereoList.add(lastSource);
+			lastSource = owner;
 			owner = owner.eContainer();
 		}
+		if (copy instanceof Package && !contained) {
+			Package copiedPkg = (Package) copy;
+	
+			// if we copy external resources, we might reach the "top" on the source level
+			// which becomes a new top-level element that is added to a new resource (managed by the
+			// model management instance) below.
+			ModelManagement mm = new ModelManagement(copiedPkg);
+			rootPkgs.add(mm);
+			
+			try {
+				StUtils.copyProfileApplications((Package) lastSource, copiedPkg);
+			}
+			catch (TransformationException e) {
+				throw new RuntimeException(e);
+			}
+		}
 		// copy the stereotypes after the container has been created completely
+		// (stereotypes are added to the resource contents, which becomes defined after
+		// adding an element to the model tree)
 		for (EObject copyStereo : copyStereoList) {
 			copyStereotypes(copyStereo);
-		}
-		if (copy instanceof PackageableElement) {
-			// if we copy external resources, we might reach the "top" on the source level
-			// which becomes a new top-level element. Thus, the model violates the common
-			// convention that a resource contains exactly one top-level element (the model)
-			target.eResource().getContents().add(copy);
-
 		}
 	}
 

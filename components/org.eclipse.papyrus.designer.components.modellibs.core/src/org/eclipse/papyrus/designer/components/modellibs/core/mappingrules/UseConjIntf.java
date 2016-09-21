@@ -18,7 +18,8 @@ import java.util.Iterator;
 
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.RealizationUtils;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Operation;
@@ -50,15 +51,15 @@ public class UseConjIntf implements IMappingRule {
 		}
 
 		Interface typingInterface = (Interface) type;
-		Interface derivedInterface = MapUtil.getDerivedInterface(p, CONJ_INTF, update);
-		Class derivedType = MapUtil.getDerivedClass(p, CONJ_INTF_TYPE, update);
+		Interface derivedInterface = PortMapUtil.getDerivedInterface(p, CONJ_INTF, update);
+		Class derivedType = PortMapUtil.getDerivedClass(p, CONJ_INTF_TYPE, update);
 		if (!update) {
 			return derivedType;
 		}
 		if (derivedInterface == null) {
 			return null;
 		}
-		MapUtil.addUsage(derivedType, derivedInterface);
+		RealizationUtils.addUsage(derivedType, derivedInterface);
 		for (Operation operation : typingInterface.getOwnedOperations()) {
 			String name = operation.getName();
 
@@ -131,8 +132,8 @@ public class UseConjIntf implements IMappingRule {
 		}
 
 		Interface typingInterface = (Interface) type;
-		Interface derivedInterface = MapUtil.getOrCreateDerivedInterface(p, CONJ_INTF);
-		Class derivedType = MapUtil.getOrCreateDerivedClass(p, CONJ_INTF_TYPE);
+		Interface derivedInterface = PortMapUtil.getOrCreateDerivedInterface(p, CONJ_INTF);
+		Class derivedType = PortMapUtil.getOrCreateDerivedClass(p, CONJ_INTF_TYPE);
 		if ((derivedInterface == null) || (derivedType == null)) {
 			return true;
 		}

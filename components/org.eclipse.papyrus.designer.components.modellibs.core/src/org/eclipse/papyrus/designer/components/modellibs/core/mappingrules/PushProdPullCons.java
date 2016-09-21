@@ -16,7 +16,7 @@ package org.eclipse.papyrus.designer.components.modellibs.core.mappingrules;
 
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
-import org.eclipse.papyrus.designer.components.FCM.profile.MapUtil;
+import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.PrimitiveType;
@@ -37,7 +37,7 @@ public class PushProdPullCons implements IMappingRule {
 
 		if ((type instanceof PrimitiveType) || (type instanceof DataType) || (type instanceof Signal)) {
 
-			Class derivedClass = MapUtil.getDerivedClass(p, "PushProdPullcons", update);
+			Class derivedClass = PortMapUtil.getDerivedClass(p, "PushProdPullcons", update);
 			if (!update) {
 				return derivedClass;
 			}
