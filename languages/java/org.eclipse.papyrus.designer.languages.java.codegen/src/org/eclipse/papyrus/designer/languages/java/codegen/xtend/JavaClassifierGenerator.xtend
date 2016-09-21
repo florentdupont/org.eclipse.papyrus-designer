@@ -29,7 +29,7 @@ class JavaClassifierGenerator {
 	}
 	
 	static def generateClassCode(Classifier classifier, String prefix) '''
-		package «prefix + GenUtils.getFullPath(classifier.package, ".", false)»;
+		«packageDeclaration(classifier, prefix)»
 		
 		«FOR path : getSortedIncludePathList(classifier, prefix)»
 			«JavaImportUtil.importDirective(path)»
@@ -93,5 +93,19 @@ class JavaClassifierGenerator {
 		}
 		
 		return result
+	}
+	
+	static def packageDeclaration(Classifier classifier, String prefix) {
+		var qName = prefix + GenUtils.getFullPath(classifier.package, ".", false)
+		
+		if (qName.endsWith(".")) {
+			qName = qName.substring(0, qName.length - 1)
+		}
+		
+		if (qName.empty) {
+			return ""
+		}
+		
+		return "package " + qName + ";"
 	}
 }
