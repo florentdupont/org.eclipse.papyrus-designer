@@ -24,6 +24,7 @@
 <repository location="https://hudson.eclipse.org/papyrus/job/Papyrus-Neon-Developer/lastSuccessfulBuild/artifact/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.papyrus.marte.core.feature.feature.group" version="0.0.0"/>
 <repository location="https://hudson.eclipse.org/papyrus/view/MARTE/job/papyrus-marte-neon/ws/releng/org.eclipse.papyrus.marte.p2/target/repository/"/>
 </location>
 <!--location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">

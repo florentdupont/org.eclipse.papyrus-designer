@@ -14,8 +14,8 @@ location "http://download.eclipse.org/modeling/mdt/papyrus/updates/milestones/ne
   org.eclipse.papyrus.sdk.feature.feature.group
 }
 
-location "http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/neon/2.0.0/extra/" papyrus-neon-extra {
- org.eclipse.papyrus.extra.marte.feature.feature.group
+location "https://hudson.eclipse.org/papyrus/view/MARTE/job/papyrus-marte-neon/ws/releng/org.eclipse.papyrus.marte.p2/target/repository/" papyrus-neon-extra {
+ org.eclipse.papyrus.marte.core.feature.feature.group
 }
 
 location "https://hudson.eclipse.org/papyrus/job/Papyrus-Neon-Developer/lastSuccessfulBuild/artifact/repository/" papyrus-neon-developper-nightly {
