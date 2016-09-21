@@ -1096,6 +1096,10 @@ public class GenUtils {
 	private static String getQualifiedNameWithoutProject(NamedElement ne, String qName, String separator) {
 		org.eclipse.uml2.uml.Package root = PackageUtil.getRootPackage(ne);
 		if (qName != null && root != null && GenUtils.hasStereotype(root, Project.class)) {
+			if (qName.equals(root.getName())) {
+				return "";
+			}
+			
 			if (qName.startsWith(root.getName())) {
 				return qName.replaceFirst(root.getName() + separator, "");
 			}
