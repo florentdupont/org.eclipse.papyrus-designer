@@ -18,7 +18,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
-import org.eclipse.papyrus.designer.components.transformation.core.transformations.container.ContainerTrafo;
+import org.eclipse.papyrus.designer.components.transformation.container.ContainerTrafo;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Property;
@@ -38,9 +38,9 @@ public class ExecutorIsNotUsedAsPartName extends AbstractModelConstraint
 		if (StereotypeUtil.isApplied(class_, RuleApplication.class)) {
 			// limit check to classes applying a container rule.
 			for (Property attribute : class_.getOwnedAttributes()) {
-				if (attribute.getName().equals(ContainerTrafo.executorPartName)) {
+				//FIXME if (attribute.getName().equals(ContainerTrafo.executorPartName)) {
 					return ctx.createFailureStatus("A property may not use the reserved name \"_executor\"");
-				}
+				//}
 			}
 		}
 		return ctx.createSuccessStatus();

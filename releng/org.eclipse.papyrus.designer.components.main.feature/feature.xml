@@ -39,14 +39,8 @@ http://www.eclipse.org/legal/epl-v10.html
       <import feature="org.eclipse.papyrus.designer.languages.common.feature"/>
       <import feature="org.eclipse.papyrus.designer.languages.cpp.feature"/>
       <import feature="org.eclipse.papyrus.designer.languages.java.feature"/>
+      <import feature="org.eclipse.papyrus.designer.transformation.main.feature"/>
    </requires>
-
-   <plugin
-         id="org.eclipse.papyrus.designer.transformation.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="org.eclipse.papyrus.designer.components.transformation.ui"
@@ -77,20 +71,6 @@ http://www.eclipse.org/legal/epl-v10.html
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.papyrus.designer.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.papyrus.designer.components.transformation.cpp"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.papyrus.designer.components.modellibs.core"
          download-size="0"
          install-size="0"
@@ -106,6 +86,13 @@ http://www.eclipse.org/legal/epl-v10.html
 
    <plugin
          id="org.eclipse.papyrus.designer.components.transformation.java"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.components.transformation.cpp"
          download-size="0"
          install-size="0"
          version="0.0.0"

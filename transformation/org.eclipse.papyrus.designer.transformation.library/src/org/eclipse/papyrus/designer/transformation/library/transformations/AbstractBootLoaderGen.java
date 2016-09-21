@@ -173,7 +173,7 @@ abstract public class AbstractBootLoaderGen implements IM2MTrafoCDP {
 	 * @param containerSlot
 	 * @return
 	 */
-	public boolean hasUnconnectedStartRoutine(LazyCopier copier, Class implementation, Slot containerSlot) {
+	public static boolean hasUnconnectedStartRoutine(LazyCopier copier, Class implementation, Slot containerSlot) {
 		Port startPort = AllocUtils.getStartPort(implementation);
 		if (startPort != null) {
 			return !isConnected(copier, containerSlot, startPort);

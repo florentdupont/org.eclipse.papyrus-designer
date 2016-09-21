@@ -20,8 +20,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.papyrus.designer.components.FCM.DeploymentPlan;
-import org.eclipse.papyrus.designer.components.transformation.core.deployment.BootLoaderGen;
-import org.eclipse.papyrus.designer.components.transformation.core.deployment.DepUtils;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.transformation.library.transformations.AbstractBootLoaderGen;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -66,7 +66,7 @@ public class InitialEntryPoints extends AbstractModelConstraint {
 		Classifier cl = DepUtils.getClassifier(is);
 		if (cl instanceof Class) {
 			Class implementation = (Class) cl;
-			if (BootLoaderGen.hasUnconnectedStartRoutine(null, implementation, null)) {
+			if (AbstractBootLoaderGen.hasUnconnectedStartRoutine(null, implementation, null)) {
 				entryPoints.add(implementation.getName());
 			}
 		}
