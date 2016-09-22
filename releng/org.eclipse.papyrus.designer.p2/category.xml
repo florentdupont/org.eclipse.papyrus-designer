@@ -19,6 +19,11 @@
 	<feature id="org.eclipse.papyrus.designer.languages.idl.feature" url="features/org.eclipse.papyrus.designer.languages.idl.feature_1.0.4.qualifier.jar" version="1.0.4.qualifier">
 		<category name="org.eclipse.papyrus.category"/>
 	</feature>
+	
+	<!--Main feature for model to model transformation -->
+	<feature id="org.eclipse.papyrus.designer.transformation.main.feature" url="features/org.eclipse.papyrus.designer.transformation.main.feature_0.7.5.qualifier.jar" version="0.7.5.qualifier">
+		<category name="org.eclipse.papyrus.category"/>
+	</feature>
 
 	<!--Main feature for component based engineering -->
 	<feature id="org.eclipse.papyrus.designer.components.main.feature" url="features/org.eclipse.papyrus.designer.components.main.feature_0.7.5.qualifier.jar" version="0.7.5.qualifier">
