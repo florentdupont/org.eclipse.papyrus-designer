@@ -11,35 +11,33 @@
  *  Van Cam Pham        <VanCam.PHAM@cea.fr>
  *
  *****************************************************************************/
- 
+
  package org.eclipse.papyrus.designer.transformation.library.statemachine
 
-import org.eclipse.uml2.uml.Type
 import org.eclipse.uml2.uml.Package
+import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
+import org.eclipse.uml2.uml.Type
+import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext
 
 class PThreadTypes {
-	Package target
-	
-	new (Package target) {
-		// thread pthread model is imported into state-machine, its members can be directly found. 
-		this.target = target;
-	}
-	
+
+	val static PTHREAD_COND_T = "pthread::pthread_cond_t"
+	val static PTHREAD_MUTEX_T = "pthread::pthread_mutex_t"
+	val static PTHREAD_T = "pthread::pthread_t"
+
 	def public getPthreadCond() {
-		if (target != null) {
-			target.getMember("pthread_cond_t") as Type
-		}
+		ElementUtils.getQualifiedElementFromRS(getRoot, PTHREAD_COND_T) as Type
 	}
-	
+
 	def public getPthreadMutex() {
-		if (target != null) {
-			target.getMember("pthread_mutex_t") as Type
-		}
+		ElementUtils.getQualifiedElementFromRS(getRoot, PTHREAD_MUTEX_T) as Type
 	}
-	
+
 	def public getPthread() {
-		if (target != null) {
-			target.getMember("pthread_t") as Type
-		}
+		ElementUtils.getQualifiedElementFromRS(getRoot, PTHREAD_T) as Type
+	}
+
+	def public getRoot() {
+		TransformationContext.current.copier.source
 	}
 }
