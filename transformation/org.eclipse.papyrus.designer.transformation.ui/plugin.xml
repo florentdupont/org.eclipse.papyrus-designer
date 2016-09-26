@@ -33,30 +33,9 @@
       </command>
       <command
             categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.transformation.ui.handlers.SelectConnectorHandler"
-            description="Choose connector type and implementation"
-            id="org.eclipse.papyrus.designer.transformation.ui.menuActions.SelectionConnectorCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.transformation.ui.handlers.SelectContainerHandler"
-            description="Choose container properties"
-            id="org.eclipse.papyrus.designer.transformation.ui.menuActions.SelectionContainerCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
             defaultHandler="org.eclipse.papyrus.designer.transformation.ui.handlers.ConfigureInstanceHandler"
             description="Configure instance"
             id="org.eclipse.papyrus.designer.transformation.ui.menuActions.ConfigureInstanceCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.transformation.ui.handlers.ConfigurePortHandler"
-            description="Configure ports"
-            id="org.eclipse.papyrus.designer.transformation.ui.menuActions.ConfigurePortsCmd"
             name="dummy">
       </command>
       <command
@@ -128,45 +107,12 @@
                   checkEnabled="true">
             </visibleWhen>
          </command>
-          <command
-               commandId="org.eclipse.papyrus.designer.transformation.ui.menuActions.SelectionConnectorCmd"
-               icon="icons/selConnector.gif"
-               id="org.eclipse.papyrus.designer.transformation.ui.menuActions.SelectionConnectorMenu"
-               label="Show / choose connector type and implementation"
-               mnemonic="C"
-               mode="FORCE_TEXT"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
-               commandId="org.eclipse.papyrus.designer.transformation.ui.menuActions.SelectionContainerCmd"
-               icon="icons/selContainer.gif"
-               id="org.eclipse.papyrus.designer.transformation.ui.menuActions.SelectionContainerMenu"
-               label="Show / choose container properties"
-               mode="FORCE_TEXT"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
          <command
                commandId="org.eclipse.papyrus.designer.transformation.ui.menuActions.ConfigureInstanceCmd"
                icon="icons/selContainer.gif"
                id="org.eclipse.papyrus.designer.transformation.ui.menuActions.ConfigureInstanceMenu"
                label="Configure instance properties"
                mode="FORCE_TEXT"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
-               commandId="org.eclipse.papyrus.designer.transformation.ui.menuActions.ConfigurePortsCmd"
-               icon="icons/selContainer.gif"
-               id="org.eclipse.papyrus.designer.transformation.ui.menuActions.ConfigurePortsMenu"
-               label="Configure ports"
                style="push">
             <visibleWhen
                   checkEnabled="true">
