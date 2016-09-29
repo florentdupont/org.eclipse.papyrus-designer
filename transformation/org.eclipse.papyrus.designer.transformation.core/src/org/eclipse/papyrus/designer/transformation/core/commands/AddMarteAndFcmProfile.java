@@ -15,15 +15,11 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.AbstractEMFOperation;
+import org.eclipse.papyrus.designer.transformation.base.utils.StdModelLibs;
 import org.eclipse.papyrus.designer.transformation.core.Activator;
-import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Profile;
@@ -40,10 +36,6 @@ public class AddMarteAndFcmProfile extends AbstractEMFOperation {
 	}
 
 	public static final String CMD_LABEL = "Add MARTE/FCM profiles"; //$NON-NLS-1$
-
-	public static final String FCM_PROFILE_URI = "pathmap://FCM_PROFILES/FCM.profile.uml"; //$NON-NLS-1$
-
-	public static final String MARTE_PROFILE_URI = "pathmap://Papyrus_PROFILES/MARTE.profile.uml";//$NON-NLS-1$
 
 	static final String MARTE_FOUNDATIONS = "MARTE_Foundations"; //$NON-NLS-1$
 
@@ -65,39 +57,15 @@ public class AddMarteAndFcmProfile extends AbstractEMFOperation {
 
 	int applyCode;
 
-	public static Element getContent(URI uri, ResourceSet rs) {
-		// Resource resource = getTransactionalEditingDomain ().getResourceSet().getResource (uri, true);
-		Resource resource = rs.getResource(uri, true);
-		return getContent(resource);
-	}
-
-	public static Element getContent(Resource resource) {
-		EList<EObject> contentObj = resource.getContents();
-		if ((contentObj.size() > 0) && (contentObj.get(0) instanceof Element)) {
-			return (Element) contentObj.get(0);
-		}
-		return null;
-	}
-
 	@Override
 	protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 		final ResourceSet resourceSet = selectedPkg.eResource().getResourceSet();
 
 		try {
-			/*
-			 * // Apply UML Standard profile
-			 * // Retrieve standard profile
-			 * Profile umlStdProfile =
-			 * (Profile) getContent (URI.createURI(UMLResource.STANDARD_PROFILE_URI));
-			 * // Apply to new model
-			 * umlModel.applyProfile(umlStdProfile);
-			 */
-
 			if ((applyCode & APPLY_FCM) != 0) {
 				// Retrieve FCM profile
-				Profile fcmProfile =
-						(Profile) getContent(URI.createURI(FCM_PROFILE_URI), resourceSet);
+				Profile fcmProfile = (Profile) StdModelLibs.addResource(StdModelLibs.FCM_PROFILE_URI, resourceSet);
 
 				// Apply FCM profile and its nested profiles to new model
 				if (fcmProfile instanceof Profile) {
@@ -113,8 +81,7 @@ public class AddMarteAndFcmProfile extends AbstractEMFOperation {
 
 			if ((applyCode & (APPLY_ALLOC | APPLY_HLAM_GCM)) != 0) {
 				// Retrieve MARTE profile
-				Profile marteProfile =
-						(Profile) getContent(URI.createURI(MARTE_PROFILE_URI), resourceSet);
+				Profile marteProfile = (Profile) StdModelLibs.addResource(StdModelLibs.MARTE_PROFILE_URI, resourceSet);
 
 				// Apply MARTE::MARTE_DesignModel::HLAM
 				// & MARTE::MARTE_DesignModel::GCM

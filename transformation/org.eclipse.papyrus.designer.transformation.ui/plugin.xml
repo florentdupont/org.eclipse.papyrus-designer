@@ -40,13 +40,6 @@
       </command>
       <command
             categoryId="org.eclipse.papyrus.editor.category"
-            defaultHandler="org.eclipse.papyrus.designer.transformation.ui.handlers.AddProfileAndModelLibsHandler"
-            description="Add FCM profile and basic model library (component-based design)"
-            id="org.eclipse.papyrus.designer.transformation.ui.menuActions.AddProfileAndModelLibsCmd"
-            name="dummy">
-      </command>
-      <command
-            categoryId="org.eclipse.papyrus.editor.category"
             defaultHandler="org.eclipse.papyrus.designer.transformation.ui.handlers.AllocateHandler"
             description="Allocate to node"
             id="org.eclipse.papyrus.designer.transformation.ui.menuActions.AllocateCmd"
@@ -113,17 +106,6 @@
                id="org.eclipse.papyrus.designer.transformation.ui.menuActions.ConfigureInstanceMenu"
                label="Configure instance properties"
                mode="FORCE_TEXT"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
-               commandId="org.eclipse.papyrus.designer.transformation.ui.menuActions.AddProfileAndModelLibsCmd"
-               icon="icons/Stereotype.gif"
-               id="org.eclipse.papyrus.designer.transformation.ui.menuActions.AddProfileAndModelLibsMenu"
-               label="Add profiles and model libraries"
-               mnemonic="P"
                style="push">
             <visibleWhen
                   checkEnabled="true">

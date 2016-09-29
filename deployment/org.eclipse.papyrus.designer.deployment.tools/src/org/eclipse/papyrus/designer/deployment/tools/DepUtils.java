@@ -30,6 +30,7 @@ import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHi
 import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
 import org.eclipse.papyrus.designer.transformation.base.preferences.PapyrusDesignerPreferenceConstants;
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.transformation.base.utils.StdModelLibs;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.common.util.UML2Util;
@@ -594,6 +595,8 @@ public class DepUtils {
 		}
 		if (chain == null) {
 			
+			// first load standard M2M library into resource set
+			StdModelLibs.addResource(StdModelLibs.DESIGNER_TRAFOLIB_URI, cdp);
 			NamedElement defaultChainNE = ElementUtils.getQualifiedElementFromRS(cdp, TRAFOS_M2MTRANSFORMATIONS_STANDARD);
 			if (defaultChainNE != null) { 
 				// chain null and default chain could be found.

@@ -12,3 +12,4 @@ Bundle-Activator: org.eclipse.papyrus.designer.languages.cpp.library.Activator
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.eclipse.papyrus.designer.languages.cpp.library;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.papyrus.designer.languages.cpp.library
