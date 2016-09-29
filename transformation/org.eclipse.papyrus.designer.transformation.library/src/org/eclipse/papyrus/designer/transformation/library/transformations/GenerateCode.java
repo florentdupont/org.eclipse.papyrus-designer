@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.papyrus.designer.deployment.tools.Activator;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.languages.common.base.GenUtils;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
 import org.eclipse.papyrus.designer.transformation.base.UIContext;
@@ -48,8 +49,7 @@ public class GenerateCode implements IM2MTrafoCDP {
 		else {
 			monitor.setTaskName(String.format(Messages.GenerateCode_GeneratingCodeForNode, targetLanguage, node.getName()));
 		}
-		// TODO: ineffective, since folder name is not used by generated code
-		IFolder folder = genProject.getFolder(genModel.getName());
+		IFolder folder = genProject.getFolder(GenUtils.getSourceFolder(genModel));
 		try {
 			folder.delete(true, null);
 		} catch (CoreException e) {
@@ -62,7 +62,7 @@ public class GenerateCode implements IM2MTrafoCDP {
 		// the generated model can contain more than one top-level element due to copied external model references
 		for (ModelManagement mm : TransformationContext.current.copier.getAdditionalRootPkgs()) {
 			codegen.generateCode(genProject, mm.getModel(), monitor);
-	}
+		}
 
 		if (monitor.isCanceled()) {
 			return;

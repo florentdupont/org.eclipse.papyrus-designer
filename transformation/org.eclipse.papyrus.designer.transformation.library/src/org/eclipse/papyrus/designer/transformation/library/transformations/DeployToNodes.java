@@ -32,8 +32,10 @@ import org.eclipse.papyrus.designer.transformation.base.utils.TransformationExce
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoModelSplit;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyExtResources;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
-import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterM2MTrafo;
+import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterKeepLanguage;
+import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterKeepM2MTrafo;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterStateMachines;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterTemplateBinding;
 import org.eclipse.papyrus.designer.transformation.extensions.InstanceConfigurator;
@@ -102,40 +104,22 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 
 	private TransformationContext deployNode(EList<InstanceSpecification> topLevelInstances, Package existingModel, EList<InstanceSpecification> nodes, int nodeIndex, InstanceSpecification node, boolean allocAll)
 			throws TransformationException, InterruptedException {
-		ModelManagement genModelManagement = ModelManagement.createNewModel(existingModel, existingModel.getName(), false); //$NON-NLS-1$
+		ModelManagement genModelManagement = ModelManagement.createNewModel(existingModel.getName());
 		Package generatedModel = genModelManagement.getModel();
 		
 		// --------------------------------------------------------------------
 		checkProgressStatus();
 		// --------------------------------------------------------------------
 
-		// new model has name "root" and contains a package with the
-		// existing model
-		// Package originalRoot = genModel.createNestedPackage
-		// (existingModel.getName ());
-		LazyCopier targetCopier = new LazyCopier(existingModel, generatedModel, true, true);
+		LazyCopier targetCopier = new LazyCopier(existingModel, generatedModel, CopyExtResources.ALL_EXCEPT, true);
 
-		// register additional "roots" for multi-root models
-		// TODO: cleaner solution
-		/*
-		for (EObject sourcePkg : existingModel.eResource().getContents()) {
-			if (sourcePkg instanceof Package && sourcePkg != existingModel)  {
-				Package targetPkg;
-				if (sourcePkg instanceof Model) {
-					targetPkg = UMLFactory.eINSTANCE.createModel();
-				}
-				else {
-					targetPkg = UMLFactory.eINSTANCE.createPackage();		
-				}
-				targetPkg.setName(((Package) sourcePkg).getName()); 
-				generatedModel.eResource().getContents().add(targetPkg);
-				targetCopier.put(sourcePkg, targetPkg);
-			}
-		}
-		*/
+		// add pre-copy and post-copy listeners to the copier
+		targetCopier.preCopyListeners.add(FilterKeepM2MTrafo.getInstance());
+		targetCopier.preCopyListeners.add(FilterKeepLanguage.getInstance());
 		targetCopier.preCopyListeners.add(FilterStateMachines.getInstance());
 		targetCopier.preCopyListeners.add(FilterTemplateBinding.getInstance());
-		targetCopier.preCopyListeners.add(FilterM2MTrafo.getInstance());
+
+		targetCopier.addResource(null);
 
 		UIContext.monitor.setTaskName(String.format(Messages.InstantiateDepPlan_InfoDeployingForNode, node.getName()));
 

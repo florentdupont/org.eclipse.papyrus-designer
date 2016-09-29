@@ -15,27 +15,18 @@
 package org.eclipse.papyrus.designer.transformation.base.utils;
 
 import java.io.IOException;
-import java.util.Iterator;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.papyrus.designer.transformation.base.Activator;
-import org.eclipse.papyrus.designer.transformation.base.Messages;
-import org.eclipse.papyrus.designer.transformation.base.UIContext;
-import org.eclipse.uml2.common.util.UML2Util;
-import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.UMLFactory;
-import org.eclipse.uml2.uml.UMLPackage;
 
 
 /**
@@ -81,54 +72,43 @@ public class ModelManagement {
 	}
 
 	/**
-	 * Save a model within the given project at a default location.
-	 * This location is [model.name/].uml within the project root.
-	 * 
-	 * @link ModelManagement.getPath
-	 * 
-	 * @param project
-	 *            an existing project
+	 * Set the URI of the managed resource via a string
+	 * @param path
 	 */
-	public void saveModel(IProject project) {
-		saveModel(getPath(project, null, null));
+	public void setURI(String path) {
+		URI uri = URI.createURI(path);
+		setURI(uri);	
 	}
-
+	
 	/**
-	 * Save the model within a given project, folder and postfix
+	 * Set the URI of the managed resource
+	 * @param uri
+	 */
+	public void setURI(URI uri) {
+		resource.setURI(uri);
+	}
+	
+	/**
+	 * Set the URI  model within a given project, folder and postfix
 	 * 
 	 * @param project
 	 * @param modelFolder
 	 * @param modelPostfix
 	 */
-	public void saveModel(IProject project, String modelFolder, String modelPostfix) {
+	public void setURI(IProject project, String modelFolder, String modelPostfix) {
 		String path = this.getPath(project, modelFolder, this.getModel().getName() + modelPostfix);
-		this.saveModel(path);
+		setURI(path);
 	}
 
 	/**
-	 * Save a model using the passed path
+	 * Save a model
 	 *
 	 * @param path
 	 *            A string representation of the path. It will be converted into a URI
 	 */
-	public void saveModel(String path) {
+	public void save() {
 
 		try {
-			URI uri = URI.createURI(path);
-
-			ResourceSetImpl resourceSet = new ResourceSetImpl();
-			resourceSet.getPackageRegistry().put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
-
-			resource.setURI(uri);
-			EList<EObject> contents = resource.getContents();
-
-			for (Iterator<EObject> allContents = UML2Util.getAllContents(model, true, false); allContents.hasNext();) {
-				EObject eObject = allContents.next();
-
-				if (eObject instanceof Element) {
-					contents.addAll(((Element) eObject).getStereotypeApplications());
-				}
-			}
 			resource.save(null);
 		} catch (IOException e) {
 			Activator.log.error(e);
@@ -160,8 +140,7 @@ public class ModelManagement {
 				try {
 					ifolder.create(false, true, null);
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					Activator.log.error(e);
 				}
 			}
 			file = ifolder.getFile(filename);
@@ -184,45 +163,10 @@ public class ModelManagement {
 	 * @return the model-management instance for the new model (use getModel() to obtain the actual model)
 	 * @throws TransformationException
 	 */
-	public static ModelManagement createNewModel(Package existingModel, String name, boolean copyImports) throws TransformationException {
+	public static ModelManagement createNewModel(String name) throws TransformationException {
 		ModelManagement mm = new ModelManagement();
 		Package newModel = mm.getModel();
 		newModel.setName(name);
-		StUtils.copyProfileApplications(existingModel, newModel);
-		StUtils.copyStereotypes(existingModel, newModel);
-		
-		// copy imports (and load the associated resources).
-		// While this is useful in general, it implies that code for imported models
-		// has been generated and compiled (for the right target) into a
-		// library. This may be quite tedious, unless automatically managed.
-		// Therefore we do not activate this option in a first pass of the model
-		// transformations.
-		if (copyImports) {
-			for (Package importedPackage : existingModel.getImportedPackages()) {
-				if (importedPackage == null) {
-					throw new TransformationException(Messages.InstantiateDepPlan_CheckInputImportPkg);
-				}
-				if (importedPackage.eResource() == null) {
-					String errorMsg = Messages.InstantiateDepPlan_CheckInputImportPkgNoRes;
-					if (importedPackage instanceof MinimalEObjectImpl.Container) {
-						URI uri = ((MinimalEObjectImpl.Container) importedPackage).eProxyURI();
-						if (uri != null) {
-							errorMsg += " - URI: " + uri.devicePath(); //$NON-NLS-1$
-						}
-					}
-					throw new TransformationException(errorMsg);
-				}
-				newModel.createPackageImport(importedPackage);
-				UIContext.monitor.subTask(String.format(Messages.InstantiateDepPlan_InfoImportPackage, importedPackage.getName()));
-
-				try {
-					importedPackage.eResource().load(null);
-					newModel.getMember("dummy"); // force loading of model //$NON-NLS-1$
-				} catch (IOException e) {
-					throw new TransformationException(e.getMessage());
-				}
-			}
-		}
 
 		return mm;
 	}

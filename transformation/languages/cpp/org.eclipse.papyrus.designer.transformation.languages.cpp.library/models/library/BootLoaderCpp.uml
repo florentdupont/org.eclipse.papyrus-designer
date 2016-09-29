@@ -2,13 +2,13 @@
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Model xmi:id="_cy2oEHhpEealuJVOx0h2iw" name="BootLoaderCpp">
     <packagedElement xmi:type="uml:Class" xmi:id="_yvoocHhpEealuJVOx0h2iw" name="BootLoader">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_i8h2AHlvEeavUcYMQ2Z1Aw" name="argc">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_i8h2AHlvEeavUcYMQ2Z1Aw" name="argc" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ET2FoHjkEeakrcXZeNIVKw" name="argv" visibility="public" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JDJtYHjkEeakrcXZeNIVKw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JDNXwHjkEeakrcXZeNIVKw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JDJtYHjkEeakrcXZeNIVKw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JDNXwHjkEeakrcXZeNIVKw" value="1"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init"/>
     </packagedElement>
@@ -29,5 +29,6 @@
       <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_QkSTYHlvEeavUcYMQ2Z1Aw" body="BootLoader bootloader;&#xA;&#xA;int main (int argc, char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoader::argc = argc;&#xA;&#x9;BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init ();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
+  <C_Cpp:Include xmi:id="_QkSTYHlvEeavUcYMQ2Z1Aw" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
+  <C_Cpp:Ptr xmi:id="_wwHtgIT7EeaQgdQ6K7vzuQ" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
 </xmi:XMI>

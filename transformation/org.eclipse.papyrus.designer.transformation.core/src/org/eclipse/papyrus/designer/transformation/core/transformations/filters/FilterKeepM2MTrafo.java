@@ -18,29 +18,30 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.designer.transformation.core.copylisteners.PreCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
-
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 
 /**
- * Do not copy the M2MTrafo stereotype (references by ApplyTransformation stereotype). It would imply copying
- * the M2M definitions into the target model
+ * This filter keeps the stereotypes M2MTrafoChain and M2MTrafo as a source code reference.
+ * This avoids that the deployment plan stereotype references to a copy of the transformation
+ * chain.
  */
-public class FilterM2MTrafo implements PreCopyListener {
+public class FilterKeepM2MTrafo implements PreCopyListener {
 
-	public static FilterM2MTrafo getInstance() {
+	public static FilterKeepM2MTrafo getInstance() {
 		if (instance == null) {
-			instance = new FilterM2MTrafo();
+			instance = new FilterKeepM2MTrafo();
 		}
 		return instance;
 	}
-
+	
 	@Override
-	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj) {
-		if (sourceEObj instanceof M2MTrafo) {
-			return null;
+	public EObject preCopyEObject(LazyCopier copier, EObject sourceEObj) {
+		if (sourceEObj instanceof M2MTrafoChain || sourceEObj instanceof M2MTrafo) {
+			return LazyCopier.USE_SOURCE_OBJECT;
 		}
 		return sourceEObj;
-		
 	}
 
-	private static FilterM2MTrafo instance = null;
+
+	private static FilterKeepM2MTrafo instance = null;
 }

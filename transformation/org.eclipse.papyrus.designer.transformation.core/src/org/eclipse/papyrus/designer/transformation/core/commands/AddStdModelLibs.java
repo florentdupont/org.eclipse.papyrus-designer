@@ -41,9 +41,9 @@ public class AddStdModelLibs extends AbstractEMFOperation {
 		importList = null;
 	}
 
-	public static final String CMD_LABEL = "Add Designer CORE libraries"; //$NON-NLS-1$
+	public static final String CMD_LABEL = "Add Designer main libraries"; //$NON-NLS-1$
 
-	public static final String DESIGNER_BASIC_CALLS_URI = "pathmap://QML_CORE/core.uml"; //$NON-NLS-1$
+	public static final String DESIGNER_TRAFOLIB_URI = "pathmap://DML_TRAFOS/trafos.uml"; //$NON-NLS-1$
 
 	public static final String DESIGNER_MARTE_CALLS_URI = "pathmap://QML_MARTE/marte.uml"; //$NON-NLS-1$
 
@@ -135,7 +135,7 @@ public class AddStdModelLibs extends AbstractEMFOperation {
 		final ResourceSet resourceSet = selectedPkg.eResource().getResourceSet();
 		availableImportPackages = new BasicEList<PackageImport>();
 
-		PackageImport pi = getModelLibraryImportFromURI(URI.createURI(DESIGNER_BASIC_CALLS_URI), resourceSet);
+		PackageImport pi = getModelLibraryImportFromURI(URI.createURI(DESIGNER_TRAFOLIB_URI), resourceSet);
 		if (pi != null) {
 			availableImportPackages.add(pi);
 		}

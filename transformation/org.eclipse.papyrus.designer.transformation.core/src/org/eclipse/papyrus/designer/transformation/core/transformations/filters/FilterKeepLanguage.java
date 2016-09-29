@@ -15,32 +15,31 @@
 package org.eclipse.papyrus.designer.transformation.core.transformations.filters;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Language;
 import org.eclipse.papyrus.designer.transformation.core.copylisteners.PreCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 
-/**
- * This filter removes the deployment plan stereotype. The objective is to
- * avoid creating a copy of transformation chain (referenced via the deployment plan)
- * in the target model
- */
-public class FilterDeploymentPlan implements PreCopyListener {
 
-	public static FilterDeploymentPlan getInstance() {
+/**
+ * Assure that language attribute (of the GeneratorHint stereotype) is not copied
+ * (avoid copying the language model library)
+ */
+public class FilterKeepLanguage implements PreCopyListener {
+
+	public static FilterKeepLanguage getInstance() {
 		if (instance == null) {
-			instance = new FilterDeploymentPlan();
+			instance = new FilterKeepLanguage();
 		}
 		return instance;
 	}
-	
+
 	@Override
-	public EObject preCopyEObject(LazyCopier copier, EObject sourceEObj) {
-		if (sourceEObj instanceof DeploymentPlan) {
-			return null;
+	public EObject preCopyEObject(LazyCopier copy, EObject sourceEObj) {
+		if (sourceEObj instanceof Language) {
+			return LazyCopier.USE_SOURCE_OBJECT;
 		}
 		return sourceEObj;
 	}
 
-
-	private static FilterDeploymentPlan instance = null;
+	private static FilterKeepLanguage instance = null;
 }

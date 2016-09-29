@@ -22,12 +22,14 @@ import java.util.Stack;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
@@ -97,7 +99,34 @@ public class LazyCopier extends Copier {
 		SHALLOW
 	}
 
-	public static final EObject useSourceEObject = EcoreFactory.eINSTANCE.createEObject();
+	/**
+	 * This enumeration controls how elements from additional resources (i.e. != resource containing the source package)
+	 * should be copied.
+	 */
+	public enum CopyExtResources {
+
+		/**
+		 * Don't copy any additional resources, references remain in these resources
+		 */
+		NONE,
+
+		/**
+		 * Copy selected resources, provided via the method addResource()
+		 */
+		SELECTED,
+
+		/**
+		 *  Copy all, except the selected resources, provided via the method addResource()
+		 */
+		ALL_EXCEPT,
+
+		/**
+		 * Copy elements from all resources that are referenced by an element of the source model.
+		 */
+		ALL
+	}
+
+	public static final EObject USE_SOURCE_OBJECT = EcoreFactory.eINSTANCE.createEObject();
 	
 	/**
 	 *
@@ -105,16 +134,21 @@ public class LazyCopier extends Copier {
 	 *            source package (root)
 	 * @param target
 	 *            target package (root)
-	 * @param copyExtResources_
-	 *            copy elements that are not within the same resource instead of referencing them.
+	 * @param copyExtResources
+	 *            A list of resources that should be copied elements that are not within the same resource instead of referencing them.
 	 * @param copyID
 	 *            copyID true, if XML IDs should be copied as well.
 	 */
-	public LazyCopier(Package source, Package target, boolean copyExtResources_, boolean copyID) {
+	public LazyCopier(Package source, Package target, CopyExtResources copyExtResources, boolean copyID) {
 		this.source = source;
 		this.target = target;
 		// useOriginalReferences = false;
-		copyExtReferences = copyExtResources_;
+		this.copyExtResources = copyExtResources;
+		selectedResourceList = new UniqueEList<Resource>();
+		// add resource of source package to "resources to be copied" list
+		if (copyExtResources == CopyExtResources.NONE || copyExtResources == CopyExtResources.SELECTED) {
+			selectedResourceList.add(source.eResource());
+		}
 		preCopyListeners = new BasicEList<PreCopyListener>();
 		postCopyListeners = new BasicEList<PostCopyListener>();
 		templateMapInfo = new HashMap<EObject, Map<EObject, EObject>>();
@@ -150,7 +184,12 @@ public class LazyCopier extends Copier {
 	 * if true, copy packages or elements that are imported into the target
 	 * model
 	 */
-	public boolean copyExtReferences;
+	protected CopyExtResources copyExtResources;
+
+	/**
+	 * The list of external resources that should be copied (depending on the copyExtResource setting)
+	 */
+	protected EList<Resource> selectedResourceList;
 
 	/**
 	 * Bound package template
@@ -197,6 +236,15 @@ public class LazyCopier extends Copier {
 		return withinTemplate ?
 				templateMap :
 				standardMap;
+	}
+
+	/**
+	 * Add the passed resource to the resources to be copied list
+	 *
+	 * @param resource the resource to be added
+	 */
+	public void addResource(Resource resource) {
+		selectedResourceList.add(resource);
 	}
 
 	/**
@@ -287,7 +335,7 @@ public class LazyCopier extends Copier {
 	/**
 	 * Set the reference of a bound package template. It must be a member of the target model.
 	 * Setting the package template is required to assure that elements that are part of a different
-	 * resource get copied (if the copyExtReferences flag is set to false, copying would not be done otherwise)
+	 * resource get copied (if the copyExtResources flag is set to false, copying would not be done otherwise)
 	 *
 	 * @param packageTemplate
 	 *            Reference to package (with a template signature) in source model that should be instantiated
@@ -369,6 +417,19 @@ public class LazyCopier extends Copier {
 		return false;
 	}
 
+	public boolean copyResource(EObject sourceEObj) {
+		if (copyExtResources == CopyExtResources.ALL) {
+			return true;
+		}
+		else if (copyExtResources == CopyExtResources.ALL_EXCEPT){
+			return !selectedResourceList.contains(sourceEObj.eResource());
+		}
+		else {
+			// SELECTED or NONE
+			return selectedResourceList.contains(sourceEObj.eResource());
+		}
+	}
+
 	/**
 	 * Returns a copy of the given eObject.
 	 *
@@ -402,10 +463,9 @@ public class LazyCopier extends Copier {
 		}
 
 		boolean withinTemplate = withinTemplate(sourceEObj);
-		boolean sameResource = (sourceEObj.eResource() == source.eResource());
-		if (!sameResource && !copyExtReferences && !withinTemplate) {
+		if (!copyResource(sourceEObj) && !withinTemplate) {
 			// do not copy if within different resource, unless
-			// 1. copyExtReferences
+			// 1. copyExtResources
 			// 2. within package template
 			return sourceEObj;
 		}
@@ -419,7 +479,7 @@ public class LazyCopier extends Copier {
 		for (PreCopyListener listener : preCopyListeners) {
 			EObject result = listener.preCopyEObject(this, sourceEObj);
 			if (result != sourceEObj) {
-				if (result == useSourceEObject) {
+				if (result == USE_SOURCE_OBJECT) {
 					return sourceEObj;
 				}
 				return result;
@@ -455,7 +515,9 @@ public class LazyCopier extends Copier {
 			}
 			// creates a shallow copy of the container. This container will update containment references (such as packagedElement)
 			// and thus update links
-			createShallowContainer(sourceEObj);
+			if (sourceEObj.eContainer() != null) {
+				shallowCopy(sourceEObj.eContainer());
+			}
 		}
 		EClass eClass = sourceEObj.eClass();
 		for (int i = 0, size = eClass.getFeatureCount(); i < size; ++i)
@@ -520,8 +582,7 @@ public class LazyCopier extends Copier {
 	 */
 	public EObject noCopy(EObject sourceEObj) {
 		boolean withinTemplate = withinTemplate(sourceEObj);
-		boolean sameResource = (sourceEObj.eResource() == source.eResource());
-		if (!sameResource && !copyExtReferences && !withinTemplate) {
+		if (!copyResource(sourceEObj) && !withinTemplate) {
 			return sourceEObj;
 		}
 		else {
@@ -532,35 +593,28 @@ public class LazyCopier extends Copier {
 	/**
 	 * Copy stereotype applications. Since stereotype applications are not part of the containment of an eObject, they are not copied by the
 	 * generic function.
-	 * A problem of copying stereotypes is that it may drag whole hierarchies with it, for instance if we copy the base_ attributes,
-	 * we transform a shallow copy into a normal copy.
-	 * => always make shallow copies of packages, never shallow copies of classes? [the split into fragments is solved, but the split of the system component???]
+	 * All attributes are fully copied. This could imply that unwanted elements are copied as well, but this could not be avoided. If
+	 * necessary, use specific copy filters
+	 *
+	 * @param sourceEObj the source object whose stereotypes should copied
 	 */
-	public void copyStereotypes(EObject sourceEObj, boolean duringShallow) {
+	public void copyStereotypes(EObject sourceEObj) {
 		if (sourceEObj instanceof Element) {
 
 			for (EObject stereoApplication : ((Element) sourceEObj).getStereotypeApplications()) {
-				EObject copiedStereoApplication = (duringShallow) ?
-						shallowCopy(stereoApplication) :
-						copy(stereoApplication);
+				EObject copiedStereoApplication = copy(stereoApplication);
+				EObject targetEObj = get(sourceEObj);
 
-				if (copiedStereoApplication != null) {
-					// UMLUtil.setBaseElement(copiedStereoApplication, (Element) get(sourceEObj));
+				if (copiedStereoApplication != null && targetEObj != null) {
 					// add copied stereotype application to the resource (as top-level objects).
-					if (!target.eResource().getContents().contains(copiedStereoApplication)) {
-						target.eResource().getContents().add(copiedStereoApplication);
+					if (targetEObj.eResource() != null) {
+						if (!targetEObj.eResource().getContents().contains(copiedStereoApplication)) {
+							targetEObj.eResource().getContents().add(copiedStereoApplication);
+						}
 					}
 				}
 			}
 		}
-	}
-
-	public void copyStereotypes(EObject sourceEObj) {
-		copyStereotypes(sourceEObj, false);
-	}
-
-	public void shallowCopyStereotypes(EObject sourceEObj) {
-		copyStereotypes(sourceEObj, true);
 	}
 
 	/**
@@ -648,56 +702,6 @@ public class LazyCopier extends Copier {
 	}
 
 	/**
-	 * Create a "shallow" container for an object, i.e. create (recursively) the owner without
-	 * adding all other children of this owner (e.g. in case of a package, the package itself will
-	 * be created, but not all elements within that package).
-	 *
-	 * @param sourceEObj
-	 */
-	public void createShallowContainer(EObject sourceEObj) {
-		EObject owner = sourceEObj.eContainer();
-		EObject copy = null;
-		EObject lastSource = null;
-		EList<EObject> copyStereoList = new BasicEList<EObject>();
-		boolean contained = false;
-		while (owner != null) {
-			if (containsKey(owner)) {
-				// owner is in map, still need to re-copy (update) the containment
-				// references, since one of the children did not exist before
-				shallowCopy(owner);
-				contained = true;
-				break;
-			}
-			copy = shallowCopy(owner);
-			copyStereoList.add(lastSource);
-			lastSource = owner;
-			owner = owner.eContainer();
-		}
-		if (copy instanceof Package && !contained) {
-			Package copiedPkg = (Package) copy;
-	
-			// if we copy external resources, we might reach the "top" on the source level
-			// which becomes a new top-level element that is added to a new resource (managed by the
-			// model management instance) below.
-			ModelManagement mm = new ModelManagement(copiedPkg);
-			rootPkgs.add(mm);
-			
-			try {
-				StUtils.copyProfileApplications((Package) lastSource, copiedPkg);
-			}
-			catch (TransformationException e) {
-				throw new RuntimeException(e);
-			}
-		}
-		// copy the stereotypes after the container has been created completely
-		// (stereotypes are added to the resource contents, which becomes defined after
-		// adding an element to the model tree)
-		for (EObject copyStereo : copyStereoList) {
-			copyStereotypes(copyStereo);
-		}
-	}
-
-	/**
 	 * Make a shallow copy of an element, i.e. only create the element itself and not
 	 * all of its contents. If a subset of the containing elements already exist in the copied
 	 * model, update the containment references pointing to these. The function may be called
@@ -726,6 +730,28 @@ public class LazyCopier extends Copier {
 				CopyUtils.copyID(sourceEObj, targetEObj);
 			}
 			first = true;
+			if (sourceEObj.eContainer() != null) {
+				shallowCopy(sourceEObj.eContainer());
+			}
+			else {
+				// reach top level element, but not the source pkg.
+				if (sourceEObj instanceof Package && sourceEObj != source) {
+					Package targetPkg = (Package) targetEObj;
+
+					// if we copy external resources, we might reach the "top" on the source level
+					// which becomes a new top-level element that is added to a new resource (managed by the
+					// model management instance) below.
+					ModelManagement mm = new ModelManagement(targetPkg);
+					rootPkgs.add(mm);
+
+					try {
+						StUtils.copyProfileApplications((Package) sourceEObj, targetPkg);
+					}
+					catch (TransformationException e) {
+						throw new RuntimeException(e);
+					}
+				}
+			}
 		}
 		else if (getStatus(targetEObj) == CopyStatus.FULL) {
 			// object has already been completely copied. Nothing to do, return targetEObj.
@@ -737,7 +763,11 @@ public class LazyCopier extends Copier {
 			return targetEObj;
 		}
 
-		shallowCopyStereotypes(sourceEObj);
+		// change status temporarily to avoid that base_ element referenced by the stereotype
+		// becomes a full copy
+		setStatus(targetEObj, CopyStatus.INPROGRESS);
+		copyStereotypes(sourceEObj);
+		setStatus(targetEObj, CopyStatus.SHALLOW);
 
 		EClass eClass = sourceEObj.eClass();
 

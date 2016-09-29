@@ -81,10 +81,7 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 			throw new TransformationException(String.format(
 					Messages.BootLoaderGen_CannotRetrieveTemplate, CPP_BOOTLOADER_QNAME));
 		}
-		// register the pair between the owner of the bootloader template and the root package
-		// this will assure that the bootloader gets copied into the root package
-		copier.put(template.getOwner(), root)
-		copier.setStatus(template.getOwner(), CopyStatus.INPROGRESS);
+		// copy bootloader (will be in its own top-level package)
 		m_bootLoader = copier.getCopy(template)
 
 		val cppInclude = StereotypeUtil.applyApp(m_bootLoader, Include);
@@ -100,6 +97,7 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 				using namespace std
 			'''
 		}
+		// bootloader is in root package, must be referenced via root.name package
 		cppInclude.body = existingBody + bodyStr
 
 		val nodeInfo = ElementUtils.getQualifiedElement(bootloader_ml, CPP_NODEINFO_QNAME) as Class

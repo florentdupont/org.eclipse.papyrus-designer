@@ -23,6 +23,7 @@ import org.eclipse.papyrus.designer.transformation.base.utils.TransformationExce
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyExtResources;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
@@ -121,7 +122,7 @@ public class TemplatePort implements ITemplateMappingRule {
 			try {
 				TemplateBinding binding =
 						TemplateUtils.fixedBinding(model, extendedPort, (Classifier) type);
-				LazyCopier copier = new LazyCopier(model, model, false, true);
+				LazyCopier copier = new LazyCopier(model, model, CopyExtResources.NONE, true);
 				TemplateInstantiation ti = new TemplateInstantiation(copier, binding);
 				// remove listener synchronizing implementation, since it would add derived
 				// elements for the extended port itself (e.g. provided operations)

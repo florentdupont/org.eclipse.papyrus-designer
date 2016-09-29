@@ -11,6 +11,7 @@
 
 package org.eclipse.papyrus.designer.languages.common.base;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -1459,5 +1460,25 @@ public class GenUtils {
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * @param element
+	 *            An element of the model
+	 * @return the source folder from the Project stereotype, that is eventually applied to the
+	 *         model root.
+	 */
+	public static String getSourceFolder(Element element) {
+		Package rootPkg = PackageUtil.getRootPackage(element);
+		if (rootPkg != null) {
+			org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project projectStereo =
+					UMLUtil.getStereotypeApplication(rootPkg, org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project.class);
+
+			if (projectStereo != null) {
+				return projectStereo.getSourceFolder() + File.separator;
+			}
+		}
+		// default folder for generated code
+		return "src-gen" + File.separator; //$NON-NLS-1$
 	}
 }

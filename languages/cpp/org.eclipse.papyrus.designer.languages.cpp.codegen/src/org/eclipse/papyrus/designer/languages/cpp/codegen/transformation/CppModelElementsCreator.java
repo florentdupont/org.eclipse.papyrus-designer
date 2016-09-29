@@ -27,7 +27,6 @@ import org.eclipse.papyrus.designer.languages.cpp.codegen.Activator;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.Constants;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.Messages;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.preferences.CppCodeGenUtils;
-import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.xtend.CppClassifierGenerator;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.xtend.CppPackageHeaderGenerator;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary;
@@ -129,7 +128,7 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 	@Override
 	protected void createPackageableElementFile(PackageableElement element, IProgressMonitor monitor) {
 		if (sourceFolder == null) {
-			sourceFolder = CppGenUtils.getSourceFolder(element);
+			sourceFolder = GenUtils.getSourceFolder(element);
 		}
 
 		if (element instanceof Package) {

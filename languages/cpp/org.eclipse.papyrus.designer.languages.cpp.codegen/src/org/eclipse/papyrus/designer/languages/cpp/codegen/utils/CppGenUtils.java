@@ -11,18 +11,18 @@
 
 package org.eclipse.papyrus.designer.languages.cpp.codegen.utils;
 
-import java.io.File;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ExternLibrary;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Visibility;
-import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.ClassifierTemplateParameter;
 import org.eclipse.uml2.uml.ConnectableElementTemplateParameter;
@@ -53,6 +53,12 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 public class CppGenUtils {
 
 	public static final String ANSI_C_LIB = "AnsiCLibrary"; //$NON-NLS-1$
+
+	/**
+	 * If true, qualified names use all namespace elements.
+	 * If false, the top-level package is skipped
+	 */
+	public static boolean USE_ALL_NS = true;
 
 	/**
 	 * Return a list of template parameters without type
@@ -225,19 +231,17 @@ public class CppGenUtils {
 		}
 
 		for (Namespace ns : ne.allNamespaces()) {
-			// don't add qualified name for specific top-level namespace "root".
-			// TODO: specific workaround for the way Qompass creates its target model. Needs to be removed.
-			if (!((ns.getOwner() == null) && ns.getName().equals("root"))) { //$NON-NLS-1$
-				qName = ns.getName() + "::" + qName; //$NON-NLS-1$
+			if (ns.getOwner() != null || USE_ALL_NS) {
+				qName = ns.getName() + NamedElement.SEPARATOR + qName;
 			}
 		}
 		if (qName == null) {
 			GenUtils.checkProxy(ne);
-			return "undefined";
+			return "undefined"; //$NON-NLS-1$
 		}
-		if (qName.contains("::")) { //$NON-NLS-1$
+		if (qName.contains(NamedElement.SEPARATOR)) {
 			// is a qualified name => make path absolute
-			return "::" + qName; //$NON-NLS-1$
+			return NamedElement.SEPARATOR + qName;
 		} else {
 			return qName;
 		}
@@ -300,7 +304,7 @@ public class CppGenUtils {
 			if (ns.getOwner() != null) {
 				String nsName = ns.getName();
 				if (!namespace.equals("")) { //$NON-NLS-1$
-					nsName += "::"; //$NON-NLS-1$
+					nsName += NamedElement.SEPARATOR;
 				}
 				namespace = nsName + namespace;
 			}
@@ -309,6 +313,22 @@ public class CppGenUtils {
 			namespace = "\n" + "using namespace " + namespace + ";\n"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 		return namespace;
+	}
+
+	/**
+	 * Return all namespaces, with specific case of a package (which needs to
+	 * include itself as a namespace unlike other elements (e.g. classes)
+	 */
+	public static EList<Namespace> getAllNamespaces(NamedElement ne) {
+		if (ne instanceof Package) {
+			EList<Namespace> allNamespaces = new BasicEList<Namespace>();
+			allNamespaces.add((Package) ne);
+			allNamespaces.addAll(ne.allNamespaces());
+			return allNamespaces;
+		}
+		else {
+			return ne.allNamespaces();
+		}
 	}
 
 	/**
@@ -321,11 +341,8 @@ public class CppGenUtils {
 	public static String openNS(NamedElement ne) {
 		String openNS = ""; //$NON-NLS-1$
 		currentNS = ne.getNamespace();
-		if (ne instanceof Package) {
-			openNS = "namespace " + ne.getName() + " {\n"; //$NON-NLS-1$ //$NON-NLS-2$
-		}
-		for (Namespace ns : ne.allNamespaces()) {
-			if (ns.getOwner() != null) {	// skip top-level package (useful?)
+		for (Namespace ns : getAllNamespaces(ne)) {
+			if (ns.getOwner() != null || USE_ALL_NS) {
 				openNS = "namespace " + ns.getName() + " {\n" + openNS; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
@@ -342,18 +359,14 @@ public class CppGenUtils {
 	public static String openNSMinimal(NamedElement ne) {
 		String openNS = ""; //$NON-NLS-1$
 		currentNS = ne.getNamespace();
-		if (ne instanceof Package) {
-			openNS = "namespace " + ne.getName() + " {"; //$NON-NLS-1$ //$NON-NLS-2$
-		}
-		for (Namespace ns : ne.allNamespaces()) {
-			if (ns.getOwner() != null) {	// skip top-level package (useful?)
+		for (Namespace ns : getAllNamespaces(ne)) {
+			if (ns.getOwner() != null || USE_ALL_NS) {
 				openNS = "namespace " + ns.getName() + " {" + openNS; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 		return openNS;
 	}
-
-
+	
 	/**
 	 * Return a C++ close-namespace definition for a named element
 	 *
@@ -363,11 +376,8 @@ public class CppGenUtils {
 	 */
 	public static String closeNS(NamedElement ne) {
 		String closeNS = ""; //$NON-NLS-1$
-		if (ne instanceof Package) {
-			closeNS = "} // of namespace " + ne.getName() + "\n"; //$NON-NLS-1$ //$NON-NLS-2$
-		}
-		for (Namespace ns : ne.allNamespaces()) {
-			if (ns.getOwner() != null) {
+		for (Namespace ns : getAllNamespaces(ne)) {
+			if (ns.getOwner() != null || USE_ALL_NS) {
 				closeNS += "} // of namespace " + ns.getName() + "\n"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
@@ -383,12 +393,9 @@ public class CppGenUtils {
 	 */
 	public static String closeNSMinimal(NamedElement ne) {
 		String closeNS = ""; //$NON-NLS-1$
-		if (ne instanceof Package) {
-			closeNS = "}"; //$NON-NLS-1$ //$NON-NLS-2$
-		}
-		for (Namespace ns : ne.allNamespaces()) {
-			if (ns.getOwner() != null) {
-				closeNS += "}"; //$NON-NLS-1$ //$NON-NLS-2$
+		for (Namespace ns : getAllNamespaces(ne)) {
+			if (ns.getOwner() != null || USE_ALL_NS) {
+				closeNS += "}"; //$NON-NLS-1$
 			}
 		}
 		return closeNS;
@@ -457,24 +464,5 @@ public class CppGenUtils {
 
 		currVisibility = newVisibility;
 		return currVisibility.toString() + ":\n" + content; //$NON-NLS-1$
-	}
-
-	/**
-	 * @param element
-	 *            An element of the model
-	 * @return the source folder from the Project stereotype, that is eventually applied to the
-	 *         model root.
-	 */
-	public static String getSourceFolder(Element element) {
-		Package rootPkg = PackageUtil.getRootPackage(element);
-		if (rootPkg != null) {
-			org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project projectStereo =
-					UMLUtil.getStereotypeApplication(rootPkg, org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project.class);
-
-			if (projectStereo != null) {
-				return projectStereo.getSourceFolder() + File.pathSeparator;
-			}
-		}
-		return ""; //$NON-NLS-1$
 	}
 }

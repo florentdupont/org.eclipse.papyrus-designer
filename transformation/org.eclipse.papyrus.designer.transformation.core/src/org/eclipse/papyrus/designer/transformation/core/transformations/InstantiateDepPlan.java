@@ -32,12 +32,13 @@ import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.EnumService;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.generate.GenerationOptions;
-import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterDeploymentPlan;
+import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyExtResources;
 import org.eclipse.papyrus.designer.transformation.extensions.InstanceConfigurator;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
@@ -145,7 +146,7 @@ public class InstantiateDepPlan {
 		TransformationContext.current = tc;
 		TransformationContext.initialSourceRoot = existingModel;
 
-		intermediateModelManagement = ModelManagement.createNewModel(existingModel, existingModel.getName(), false);
+		intermediateModelManagement = ModelManagement.createNewModel(existingModel.getName());
 
 		// get the temporary model
 		Package intermediateModel = intermediateModelManagement.getModel();
@@ -154,21 +155,23 @@ public class InstantiateDepPlan {
 		EnumService.createEnumPackage(intermediateModel);
 
 		// create a lazy copier towards the intermediate model
-		LazyCopier intermediateModelCopier = new LazyCopier(existingModel, intermediateModel, true, true);
-		// add pre-copy and post-copy listeners to the copier
-		intermediateModelCopier.preCopyListeners.add(FilterDeploymentPlan.getInstance());
+		LazyCopier intermediateModelCopier = new LazyCopier(existingModel, intermediateModel, CopyExtResources.SELECTED, true);
 
-		// 1b: reify the connectors "into" the new model
-		monitor.subTask(Messages.InstantiateDepPlan_InfoExpandingConnectors);
-
-		// obtain the component deployment plan in target model
-		Package intermediateModelComponentDeploymentPlan = (Package) intermediateModelCopier.shallowCopy(srcModelComponentDeploymentPlan);
-		intermediateModelCopier.createShallowContainer(srcModelComponentDeploymentPlan);
+		// obtain the component deployment plan in target model, only make a shallow
+		// copy right now, otherwise all instances would already be copied.
+		intermediateModelCopier.shallowCopy(srcModelComponentDeploymentPlan);
 
 		InstanceConfigurator.onNodeModel = false;
 
 		tc.copier = intermediateModelCopier;
 		Map<InstanceSpecification, InstanceSpecification> instanceMap = new HashMap<InstanceSpecification, InstanceSpecification>();
+		
+		// calculate which resources to copy: based on the classifiers that are referenced from the instances
+		for (InstanceSpecification instance : DepUtils.getInstances(srcModelComponentDeploymentPlan)) {
+			Classifier cl = DepUtils.getClassifier(instance);
+			intermediateModelCopier.addResource(cl.eResource());
+		}
+
 		for (InstanceSpecification instance : DepUtils.getTopLevelInstances(srcModelComponentDeploymentPlan)) {
 			// InstanceSpecification newInstance = mainModelTrafo.transformInstance(instance, null);
 			InstanceSpecification newInstance = intermediateModelCopier.getCopy(instance);
@@ -195,11 +198,18 @@ public class InstantiateDepPlan {
 		 * }
 		 */
 
-		intermediateModelManagement.saveModel(project, TEMP_MODEL_FOLDER, TEMP_MODEL_POSTFIX);
+		// setURIs and save (first update all URIs to ensure that model references use the
+		// correct URI before saving)
+		intermediateModelManagement.setURI(project, TEMP_MODEL_FOLDER, TEMP_MODEL_POSTFIX);
 		// also save additional root elements
 		for (ModelManagement mm : tc.copier.getAdditionalRootPkgs()) {
-			mm.saveModel(project, TEMP_MODEL_FOLDER, TEMP_MODEL_POSTFIX);
+			mm.setURI(project, TEMP_MODEL_FOLDER, TEMP_MODEL_POSTFIX);
 		}
+		intermediateModelManagement.save();
+		for (ModelManagement mm : tc.copier.getAdditionalRootPkgs()) {
+			mm.save();
+		}
+
 		// --------------------------------------------------------------------
 		checkProgressStatus();
 		// --------------------------------------------------------------------
@@ -235,33 +245,6 @@ public class InstantiateDepPlan {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Return the name of a project that is associated with a model that
-	 * is deployed on a node (in the context of a deployment plan)
-	 * 
-	 * @param model
-	 *            The model that is deployed
-	 * @param node
-	 *            The node onto which the software is deployed
-	 * @return The resulting project name
-	 */
-	public String getProjectName(Model model, InstanceSpecification node) {
-		String projectName = model.getName() + "_" + node.getName(); //$NON-NLS-1$
-		projectName += "_" + srcModelComponentDeploymentPlan.getName(); //$NON-NLS-1$
-		DeploymentPlan depPlan = UMLUtil.getStereotypeApplication(srcModelComponentDeploymentPlan, DeploymentPlan.class);
-		if (depPlan != null) {
-			for (String mapping : depPlan.getProjectMappings()) {
-				if (mapping.startsWith(projectName)) {
-					int index = mapping.indexOf("="); //$NON-NLS-1$
-					if (index != -1) {
-						return mapping.substring(index + 1);
-					}
-				}
-			}
-		}
-		return projectName;
 	}
 
 	/**

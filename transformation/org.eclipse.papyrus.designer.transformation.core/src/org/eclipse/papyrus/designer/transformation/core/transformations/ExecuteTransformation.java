@@ -68,16 +68,24 @@ public class ExecuteTransformation {
 					TransformationContext.current = newContext;
 					apply(remainingTrafos.iterator());
 					
-					// save models
+					// setURIs and save (first update all URIs to ensure that model references use the
+					// correct URI before saving)
+
 					String path = newContext.mm.getPath(newContext.project, MODEL, null);
-					newContext.mm.saveModel(path);
-					newContext.mm.dispose();
+					newContext.mm.setURI(path);
 					// also save & dispose additional projects
 					for (ModelManagement mm : newContext.copier.getAdditionalRootPkgs()) {
 						String pathAdds = mm.getPath(newContext.project, MODEL, null);
-						mm.saveModel(pathAdds);
-						mm.dispose();
+						mm.setURI(pathAdds);
 					}
+					newContext.mm.save();
+					for (ModelManagement mm : newContext.copier.getAdditionalRootPkgs()) {
+						mm.save();
+					}
+					newContext.mm.dispose();
+					for (ModelManagement mm : newContext.copier.getAdditionalRootPkgs()) {
+						mm.dispose();
+					}		
 				}
 			}
 			else {

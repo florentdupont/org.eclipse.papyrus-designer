@@ -76,10 +76,7 @@ public class BootLoaderGenJava extends AbstractBootLoaderGen implements IM2MTraf
 			throw new TransformationException(String.format(
 					Messages.BootLoaderGen_CannotRetrieveTemplate, JAVA_BOOTLOADER_QNAME));
 		}
-		// register the pair between the owner of the bootloader template and the root package
-		// this will assure that the bootloader and node-info below get copied into the root package
-		copier.put(template.getOwner(), root)
-		copier.setStatus(template.getOwner(), CopyStatus.INPROGRESS);
+		// copy bootloader (will be in its own top-level package)
 		m_bootLoader = copier.getCopy(template)
 		
 		val javaImport = StereotypeUtil.applyApp(m_bootLoader, Import);
