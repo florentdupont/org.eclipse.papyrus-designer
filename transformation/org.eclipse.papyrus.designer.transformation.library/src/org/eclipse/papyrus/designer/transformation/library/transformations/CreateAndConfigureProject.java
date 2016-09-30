@@ -14,13 +14,19 @@
 
 package org.eclipse.papyrus.designer.transformation.library.transformations;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.OperatingSystem;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
+import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.papyrus.designer.transformation.base.UIContext;
+import org.eclipse.papyrus.designer.transformation.base.utils.ProjectManagement;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoCDP;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
 import org.eclipse.papyrus.designer.transformation.core.transformations.ApplyRecursive;
@@ -33,7 +39,7 @@ import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
-public class ConfigureProject implements IM2MTrafoCDP {
+public class CreateAndConfigureProject implements IM2MTrafoCDP {
 
 	/**
 	 * Gather configuration data for a code generation project
@@ -65,17 +71,73 @@ public class ConfigureProject implements IM2MTrafoCDP {
 		return null;
 	}
 
+	/**
+	 * Get an existing or create a new project for a given language
+	 * @param projectSupport project support instance (for a given programming language)
+	 * @param projectName the name of the project to create (or get, if it already exists)
+	 * @return the project or null, if no project creation support is available for the target language
+	 * @throws TransformationException
+	 */
+	protected IProject getOrCreateProject(ILangProjectSupport projectSupport, String projectName) throws TransformationException {
+		IProject genProject = ProjectManagement.getNamedProject(projectName);
+		if ((genProject == null) || !genProject.exists()) {
+			genProject = projectSupport.createProject(projectName);
+			// project is new, force re-write of settings
+			UIContext.configureProject = true;
+		}
+		return genProject;
+	}
+
+	/**
+	 * Return the name of a project that is associated with a model that
+	 * is deployed on a node (in the context of a deployment plan)
+	 * 
+	 * @param model
+	 *            The model that is deployed
+	 * @param node
+	 *            The node onto which the software is deployed
+	 * @return The resulting project name
+	 */
+	public String getProjectName(Package model, InstanceSpecification node) {
+		String projectName = model.getName() + "_" + node.getName(); //$NON-NLS-1$
+		projectName += "_" + TransformationContext.current.deploymentPlan.getName(); //$NON-NLS-1$
+		DeploymentPlan depPlan = UMLUtil.getStereotypeApplication(TransformationContext.current.deploymentPlan, DeploymentPlan.class);
+		if (depPlan != null) {
+			for (String mapping : depPlan.getProjectMappings()) {
+				if (mapping.startsWith(projectName)) {
+					int index = mapping.indexOf("="); //$NON-NLS-1$
+					if (index != -1) {
+						return mapping.substring(index + 1);
+					}
+				}
+			}
+		}
+		return projectName;
+	}
+	
 	protected AbstractSettings settings;
 
 	protected ILangProjectSupport projectSupport;
 
 	@Override
 	public void applyTrafo(M2MTrafo trafo, Package deploymentPlan) throws TransformationException {
+		TransformationContext tc = TransformationContext.current;
+		EList<InstanceSpecification> topLevelInstances = 
+				DepUtils.getTopLevelInstances(TransformationContext.current.deploymentPlan);
+		// get first language (restricted to single target language, acceptable?)
+		String targetLanguage = DepUtils.getTargetLanguage(topLevelInstances.iterator().next());
+		String projectName = getProjectName(tc.modelRoot, tc.node);
+		projectSupport = LanguageProjectSupport.getProjectSupport(targetLanguage);
+		IProject genProject = getOrCreateProject(projectSupport, projectName);
+		if (genProject == null) {
+			throw new TransformationException(String.format(Messages.DeployToNodes_CouldNotCreateProject, targetLanguage));
+		}
+		tc.projectSupport = projectSupport;
+		tc.project = genProject;
+
 		if (UIContext.configureProject) {
-			projectSupport = TransformationContext.current.projectSupport;
 			GatherConfigData gatherData = new GatherConfigData();
 			settings = projectSupport.initialConfigurationData();
-			AbstractSettings settings = projectSupport.initialConfigurationData();
 			if (settings != null) {
 				settings.targetOS = getTargetOS(TransformationContext.current.node);
 			}

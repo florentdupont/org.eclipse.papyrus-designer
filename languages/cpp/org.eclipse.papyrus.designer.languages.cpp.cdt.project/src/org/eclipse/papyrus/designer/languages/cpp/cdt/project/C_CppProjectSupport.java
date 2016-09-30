@@ -202,8 +202,9 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 	public AbstractSettings initialConfigurationData() {
 		CDTSettings settings = new CDTSettings();
 		settings.includePaths = new UniqueEList<String>();
-		// include project directory (all paths are relative to it => ".")
-		settings.includePaths.add(WS_PREFIX + "."); //$NON-NLS-1$
+		// include project directory (all paths are relative to it)
+		// TODO: choose source folder depending on model (which is currently not passed as a parameter)
+		settings.includePaths.add(WS_PREFIX + "src-gen"); //$NON-NLS-1$
 
 		settings.libs = new UniqueEList<String>();
 		settings.libPaths = new UniqueEList<String>();

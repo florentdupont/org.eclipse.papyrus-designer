@@ -143,8 +143,8 @@
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
-			transformationID="trafos::m2mtransformations::ConfigureProject"
-			class="org.eclipse.papyrus.designer.transformation.library.transformations.ConfigureProject">
+			transformationID="trafos::m2mtransformations::CreateAndConfigureProject"
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.CreateAndConfigureProject">
 		</transformation>
 	</extension>
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">

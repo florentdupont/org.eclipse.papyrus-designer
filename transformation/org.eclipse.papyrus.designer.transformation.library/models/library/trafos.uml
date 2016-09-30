@@ -476,8 +476,8 @@ for (;;) {
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_kKwTMF4REea4bLzKfwAjjA" name="deployToNodes" type="_eELWgF4REea4bLzKfwAjjA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_uYn1YF4REea4bLzKfwAjjA" name="bootloaderCreation" type="_s7jacF4REea4bLzKfwAjjA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yhiuAGoDEeaDvKuEhyP_8g" name="createAndConfigure" type="_sCpX8GoDEeaDvKuEhyP_8g"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_bTGMEGnwEead2IFRwKRBMw" name="generateCode" type="_KVyWYGnwEead2IFRwKRBMw"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_yhiuAGoDEeaDvKuEhyP_8g" name="configureProject" type="_sCpX8GoDEeaDvKuEhyP_8g"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_atMMkF4REea4bLzKfwAjjA" name="Tracing">
         <generalization xmi:type="uml:Generalization" xmi:id="_chwhgF4REea4bLzKfwAjjA" general="_Ck0eYF4REea4bLzKfwAjjA"/>
@@ -486,15 +486,15 @@ for (;;) {
       <packagedElement xmi:type="uml:Class" xmi:id="_ofuIUF4REea4bLzKfwAjjA" name="M2MFromStereotype"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_s7jacF4REea4bLzKfwAjjA" name="BootLoaderGen"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_KVyWYGnwEead2IFRwKRBMw" name="GenerateCode"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_sCpX8GoDEeaDvKuEhyP_8g" name="ConfigureProject"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_sCpX8GoDEeaDvKuEhyP_8g" name="CreateAndConfigureProject"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_3e-jAG-CEea89JTVlr8RHA" name="Simple">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_FSvN0G-DEea89JTVlr8RHA" name="m2MFromStereotype" type="_ofuIUF4REea4bLzKfwAjjA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Okno4G-DEea89JTVlr8RHA" name="statemachine" visibility="public">
           <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/statemachine.uml#_6-9EUCPoEeauR8esGjVxRA"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ZtOZgHCKEeaAna84v3Lx-w" name="deployToNodes" type="_eELWgF4REea4bLzKfwAjjA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_UCZDsG-EEea89JTVlr8RHA" name="createAndConfigure" type="_sCpX8GoDEeaDvKuEhyP_8g"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_TUnXsG-EEea89JTVlr8RHA" name="generateCode" type="_KVyWYGnwEead2IFRwKRBMw"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_UCZDsG-EEea89JTVlr8RHA" name="configureProject" type="_sCpX8GoDEeaDvKuEhyP_8g"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_d5c-0HCJEeaAna84v3Lx-w" name="defaultPlatform">
