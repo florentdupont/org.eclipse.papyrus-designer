@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
@@ -34,8 +35,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil.Copier;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
-import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.copylisteners.PostCopyListener;
 import org.eclipse.papyrus.designer.transformation.core.copylisteners.PreCopyListener;
@@ -452,7 +451,6 @@ public class LazyCopier extends Copier {
 			return null;
 		}
 
-
 		EObject targetEObj = get(sourceEObj);
 
 		CopyStatus status = getStatus(targetEObj);
@@ -460,6 +458,12 @@ public class LazyCopier extends Copier {
 		if (status == CopyStatus.FULL || status == CopyStatus.INPROGRESS) {
 			// copy already exists, return targetEObj
 			return targetEObj;
+		}
+		if (status == CopyStatus.SHALLOW) {
+			if (sourceEObj instanceof Package) {
+				// a shallow copy of a package is not transformed into a full copy
+				return targetEObj;
+			}
 		}
 
 		boolean withinTemplate = withinTemplate(sourceEObj);
@@ -470,9 +474,10 @@ public class LazyCopier extends Copier {
 			return sourceEObj;
 		}
 	
-		if ((sourceEObj instanceof Stereotype) || (sourceEObj instanceof Profile)) {
+		if ((sourceEObj instanceof Stereotype) || (sourceEObj instanceof Profile) || (sourceEObj instanceof EPackage)) {
 			// do not copy Stereotypes, as it would imply copying meta-model elements (the base_X
 			// attribute of the stereotype is typed with a meta-model element)
+			// do not copy EPackage as well (definition of a profile application)
 			return sourceEObj;
 		}
 
@@ -743,13 +748,6 @@ public class LazyCopier extends Copier {
 					// model management instance) below.
 					ModelManagement mm = new ModelManagement(targetPkg);
 					rootPkgs.add(mm);
-
-					try {
-						StUtils.copyProfileApplications((Package) sourceEObj, targetPkg);
-					}
-					catch (TransformationException e) {
-						throw new RuntimeException(e);
-					}
 				}
 			}
 		}
@@ -762,12 +760,6 @@ public class LazyCopier extends Copier {
 			// *afterwards* by the code within the (full) copy operation).
 			return targetEObj;
 		}
-
-		// change status temporarily to avoid that base_ element referenced by the stereotype
-		// becomes a full copy
-		setStatus(targetEObj, CopyStatus.INPROGRESS);
-		copyStereotypes(sourceEObj);
-		setStatus(targetEObj, CopyStatus.SHALLOW);
 
 		EClass eClass = sourceEObj.eClass();
 
@@ -783,11 +775,20 @@ public class LazyCopier extends Copier {
 					EReference eReference = (EReference) eStructuralFeature;
 					// create a shallow copy of the containment: update only references already in the copy map
 					if (sourceEObj != targetEObj) {
-						shallowCopyContainment(eReference, sourceEObj, targetEObj);
+						if (eReference.getName().equals("profileApplication")) { //$NON-NLS-1$
+							// make a complete copy of te profileApplication
+							copyContainment(eReference, sourceEObj, targetEObj);
+						}
+						else {
+							shallowCopyContainment(eReference, sourceEObj, targetEObj);
+						}
 					}
 				}
 			}
 		}
+
+		copyStereotypes(sourceEObj);
+
 		return targetEObj;
 	}
 
