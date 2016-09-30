@@ -4,7 +4,8 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.eclipse.papyrus.designer.transformation.library.statemachine
+
+package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine
 
 import java.util.ArrayList
 import java.util.HashMap
@@ -57,10 +58,10 @@ import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.Vertex
 import org.eclipse.uml2.uml.util.UMLUtil
 
-import static org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
+import static org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SMCodeGeneratorConstants.*
 
-import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.TransformationUtil.*
-import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.TransformationUtil.eventID
+import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.TransformationUtil.*
+import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.TransformationUtil.eventID
 
 class SM2ClassesTransformationCore {
 	protected extension CDefinitions cdefs;

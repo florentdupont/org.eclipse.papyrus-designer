@@ -12,8 +12,10 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.transformation.library.statemachine;
+package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine;
 
+import org.eclipse.papyrus.designer.languages.cpp.library.CppUriConstants;
+import org.eclipse.papyrus.designer.transformation.base.utils.StdModelLibs;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
@@ -37,6 +39,9 @@ public class CompleteStatemachine implements IM2MTrafoElem {
 			if (tmClass.getClassifierBehavior() instanceof StateMachine) {
 				StateMachine sm = (StateMachine) tmClass.getClassifierBehavior();
 				SM2ClassesTransformationCore trafoCore = new SM2ClassesTransformationCore(TransformationContext.current.copier, sm, tmClass);
+
+				// TODO: move to C++ specific library
+				StdModelLibs.addResource(CppUriConstants.PTHREAD_LIB, TransformationContext.current.copier.source);
 
 				Package smModel = (Package) trafo.getBase_Class().getPackage().getOwner();
 				NamedElement stateEnum = smModel.getPackagedElement(SYSTEM_STATE_ENUM_T);

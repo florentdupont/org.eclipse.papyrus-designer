@@ -12,12 +12,12 @@
  *
  *****************************************************************************/
  
- package org.eclipse.papyrus.designer.transformation.library.statemachine
+package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine
 
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.util.UMLUtil
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
-import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
+import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SMCodeGeneratorConstants.*
 
 class TimeEventTransformation {
 	protected extension CDefinitions cdefs;

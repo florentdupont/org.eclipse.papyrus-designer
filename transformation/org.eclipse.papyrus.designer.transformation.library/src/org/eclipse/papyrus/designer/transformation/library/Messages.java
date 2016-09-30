@@ -20,6 +20,7 @@ public class Messages extends NLS {
 
 	public static String MergeClass_CannotApply0;
 	public static String BootLoaderGen_AtLeastOneBlockingCall;
+	public static String CompleteStatemachine_NoTransformationFound;
 
 	static {
 		// initialize resource bundle

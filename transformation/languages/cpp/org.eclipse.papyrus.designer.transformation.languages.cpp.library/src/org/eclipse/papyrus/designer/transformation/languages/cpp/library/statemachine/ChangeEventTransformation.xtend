@@ -4,19 +4,22 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.eclipse.papyrus.designer.transformation.library.statemachine
+
+package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine
 
 import org.eclipse.uml2.uml.ChangeEvent
 import org.eclipse.uml2.uml.Class
 import org.eclipse.uml2.uml.OpaqueExpression
 import org.eclipse.uml2.uml.Package
 
-import static org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
+import static org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SMCodeGeneratorConstants.*
 
-import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.TransformationUtil.*
+import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.TransformationUtil.*
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
 import org.eclipse.uml2.uml.util.UMLUtil
+import org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SM2ClassesTransformationCore
+import org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.PThreadTypes
 
 class ChangeEventTransformation {
 	protected extension CDefinitions cdefs;

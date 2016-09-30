@@ -12,8 +12,8 @@
  *
  *****************************************************************************/
  
- package org.eclipse.papyrus.designer.transformation.library.statemachine
-
+package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine
+ 
 import org.eclipse.uml2.uml.Class
 
 class CDefinitions {

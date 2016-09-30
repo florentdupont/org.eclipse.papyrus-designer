@@ -12,7 +12,7 @@
  *
  *****************************************************************************/
  
- package org.eclipse.papyrus.designer.transformation.library.statemachine
+package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine
 
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
@@ -27,8 +27,10 @@ import org.eclipse.uml2.uml.Type
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.util.UMLUtil
 
-import static org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
-import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.TransformationUtil.*
+import static org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SMCodeGeneratorConstants.*
+import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.TransformationUtil.*
+import org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SM2ClassesTransformationCore
+import org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.PThreadTypes
 
 class ConcurrencyGenerator {
 	protected extension CDefinitions cdefs;

@@ -150,7 +150,7 @@
 	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
 		<transformation
 			transformationID="statemachine::rules::CompleteSM"
-			class="org.eclipse.papyrus.designer.transformation.library.statemachine.CompleteStatemachine">
+			class="org.eclipse.papyrus.designer.transformation.library.transformations.CompleteStatemachine">
 		</transformation>
 	</extension>
 	

@@ -12,7 +12,7 @@
  *
  *****************************************************************************/
  
- package org.eclipse.papyrus.designer.transformation.library.statemachine
+package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine
 
 import java.util.ArrayList
 import java.util.HashMap
@@ -35,10 +35,9 @@ import org.eclipse.uml2.uml.State
 import org.eclipse.uml2.uml.Transition
 import org.eclipse.uml2.uml.TransitionKind
 import org.eclipse.uml2.uml.Vertex
-import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.TransformationUtil.eventName
-import org.eclipse.papyrus.designer.transformation.library.xtend.BehaviorUtil
-import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
-
+import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.TransformationUtil.eventName
+import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SMCodeGeneratorConstants.*
+import org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SM2ClassesTransformationCore
 
 class EventTransformation {
 	protected extension CDefinitions cdefs;

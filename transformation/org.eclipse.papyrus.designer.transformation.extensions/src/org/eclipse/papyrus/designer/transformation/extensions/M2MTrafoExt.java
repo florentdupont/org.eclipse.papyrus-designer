@@ -60,13 +60,30 @@ public class M2MTrafoExt {
 		return null;
 	}
 
-	public static IM2MTrafo getM2MTrafo(String trafoName) {
+	/**
+	 * The a language specific M2M transformation from a generic one, provided that the following
+	 * convention is applied: a language specific transformation is registered by appending the language
+	 * name and :: as separator as transformation ID
+	 * @param m2mTrafo a generic transformation
+	 * @param language the name of a language, e.g. C++ or Java (as defined currently in the common languages.uml library)
+	 * @return a language specific model library
+	 */
+	public static IM2MTrafo getM2MTrafoForLanguage(M2MTrafo m2mTrafo, String language) {
+		return M2MTrafoExt.getM2MTrafo(String.format("%s::%s", m2mTrafo.getBase_Class().getQualifiedName(), language)); //$NON-NLS-1$
+	}
+	
+	/**
+	 * Get a transformation by passing the transformation ID
+	 * @param trafoID the ID of a registered transformation, typically the qualified name of the associated model element
+	 * @return the transformation, if it exists, null otherwise
+	 */
+	public static IM2MTrafo getM2MTrafo(String trafoID) {
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
 		IConfigurationElement[] configElements = reg.getConfigurationElementsFor(M2M_TRAFO);
 		for (IConfigurationElement configElement : configElements) {
 			try {
 				final String transformationID = configElement.getAttribute(TRANSFORMATION_ID);
-				if ((transformationID != null) && transformationID.equals(trafoName)) {
+				if ((transformationID != null) && transformationID.equals(trafoID)) {
 					final Object obj = configElement.createExecutableExtension("class"); //$NON-NLS-1$
 					if (obj instanceof IM2MTrafo) {
 						return (IM2MTrafo) obj;
@@ -77,6 +94,6 @@ public class M2MTrafoExt {
 			}
 		}
 		throw new TransformationRTException(
-				String.format("Cannot find class for transformation <%s>", trafoName));
+				String.format("Cannot find class for transformation <%s>", trafoID));
 	}
 }

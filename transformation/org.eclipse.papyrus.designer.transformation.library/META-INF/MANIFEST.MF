@@ -1,6 +1,5 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.papyrus.designer.transformation.library,
- org.eclipse.papyrus.designer.transformation.library.statemachine,
  org.eclipse.papyrus.designer.transformation.library.transformations,
  org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers,
  org.eclipse.papyrus.designer.transformation.library.xtend

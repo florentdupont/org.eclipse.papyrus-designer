@@ -12,7 +12,7 @@
  *
  *****************************************************************************/
  
- package org.eclipse.papyrus.designer.transformation.library.statemachine
+package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine
 
 import org.eclipse.uml2.uml.Pseudostate
 import org.eclipse.uml2.uml.PseudostateKind
@@ -22,8 +22,9 @@ import java.util.ArrayList
 import org.eclipse.uml2.uml.State
 import org.eclipse.uml2.uml.FinalState
 import org.eclipse.uml2.uml.Region
-import static extension org.eclipse.papyrus.designer.transformation.library.statemachine.SMCodeGeneratorConstants.*
+import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SMCodeGeneratorConstants.*
 import java.util.List
+import org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.SM2ClassesTransformationCore
 
 class PseudostateGenerator {
 	protected extension CDefinitions cdefs;

@@ -7,6 +7,13 @@
 			class="org.eclipse.papyrus.designer.transformation.languages.cpp.library.BootLoaderGenCpp">
 		</transformation>
 	</extension>
+	<extension point="org.eclipse.papyrus.designer.transformation.extensions.m2mTrafo">
+		<transformation
+			transformationID="statemachine::rules::CompleteSM::C++"
+			class="org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.CompleteStatemachine">
+		</transformation>
+	</extension>
+
 	<extension point="org.eclipse.emf.ecore.uri_mapping">
     	<mapping
           source="pathmap://DML_TRAFOS_CPP/"

@@ -12,7 +12,7 @@
  *
  *****************************************************************************/
  
- package org.eclipse.papyrus.designer.transformation.library.statemachine
+package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine
 
 class SMCodeGeneratorConstants {
 	public static String PROCESSFROM = "processFrom"
