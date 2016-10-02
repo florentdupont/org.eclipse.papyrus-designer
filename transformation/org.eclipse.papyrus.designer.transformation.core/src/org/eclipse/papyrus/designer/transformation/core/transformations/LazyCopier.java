@@ -836,7 +836,12 @@ public class LazyCopier extends Copier {
 						for (PreCopyListener listener : preCopyListeners) {
 							EObject result = listener.preCopyEObject(this, referencedEObject);
 							if (result != referencedEObject) {
-								copyReferencedEObject = result;
+								if (result == USE_SOURCE_OBJECT) {
+									copyReferencedEObject = referencedEObject;
+								}
+								else {
+									copyReferencedEObject = result;
+								}
 								noCopy = (result == null);
 								break;
 							}
