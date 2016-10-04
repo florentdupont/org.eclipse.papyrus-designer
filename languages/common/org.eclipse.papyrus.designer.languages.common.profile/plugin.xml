@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-	<extension
-			point="org.eclipse.emf.ecore.uri_mapping">
-		<mapping
-			source="pathmap://Codegen_PROFILES/"
-			target="platform:/plugin/org.eclipse.papyrus.designer.languages.common.profile/profiles/"/>
-	</extension>
-  
-	<extension 
-			point="org.eclipse.uml2.uml.generated_package">
-		<profile
-			uri="http://www.eclipse.org/papyrus/Codegen/1"
-			location="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
-	</extension>
-
-
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://Codegen_PROFILES/"
+            target="platform:/plugin/org.eclipse.papyrus.designer.languages.common.profile/profiles/">
+      </mapping>
+   </extension>
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated Codegen.profile -->
       <package
             uri="http://www.eclipse.org/papyrus/Codegen/1"
             class="org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage"
             genModel="profiles/Codegen.profile.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.uml2.uml.generated_package">
+      <profile
+            location="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"
+            uri="http://www.eclipse.org/papyrus/Codegen/1">
+      </profile>
    </extension>
 
 </plugin>

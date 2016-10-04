@@ -73,6 +73,8 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.GENERATOR_HINT: return createGeneratorHint();
 			case CodegenPackage.LANGUAGE: return createLanguage();
 			case CodegenPackage.NO_CODE_GEN: return createNoCodeGen();
+			case CodegenPackage.MAVEN_PROJECT: return createMavenProject();
+			case CodegenPackage.ARCHE_TYPE: return createArcheType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -146,6 +148,26 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public NoCodeGen createNoCodeGen() {
 		NoCodeGenImpl noCodeGen = new NoCodeGenImpl();
 		return noCodeGen;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MavenProject createMavenProject() {
+		MavenProjectImpl mavenProject = new MavenProjectImpl();
+		return mavenProject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArcheType createArcheType() {
+		ArcheTypeImpl archeType = new ArcheTypeImpl();
+		return archeType;
 	}
 
 	/**

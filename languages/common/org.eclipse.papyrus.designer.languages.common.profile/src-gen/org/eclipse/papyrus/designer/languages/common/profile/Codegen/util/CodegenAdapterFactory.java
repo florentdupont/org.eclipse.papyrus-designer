@@ -96,6 +96,14 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createNoCodeGenAdapter();
 			}
 			@Override
+			public Adapter caseMavenProject(MavenProject object) {
+				return createMavenProjectAdapter();
+			}
+			@Override
+			public Adapter caseArcheType(ArcheType object) {
+				return createArcheTypeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -168,6 +176,34 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNoCodeGenAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject <em>Maven Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject
+	 * @generated
+	 */
+	public Adapter createMavenProjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType <em>Arche Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType
+	 * @generated
+	 */
+	public Adapter createArcheTypeAdapter() {
 		return null;
 	}
 

@@ -70,6 +70,24 @@ public interface CodegenFactory extends EFactory {
 	NoCodeGen createNoCodeGen();
 
 	/**
+	 * Returns a new object of class '<em>Maven Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Maven Project</em>'.
+	 * @generated
+	 */
+	MavenProject createMavenProject();
+
+	/**
+	 * Returns a new object of class '<em>Arche Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Arche Type</em>'.
+	 * @generated
+	 */
+	ArcheType createArcheType();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
