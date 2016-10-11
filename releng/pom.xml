@@ -29,6 +29,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	</modules>
 	
 	<profiles>
+		<!-- Profile dedicated to make the updatesite p2 and the rcp -->
 		<profile>
 			<id>product</id>
 			<activation>
@@ -36,6 +37,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			</activation>
 			<modules>
 				<module>org.eclipse.papyrus.designer.p2</module>
+				<module>org.eclipse.papyrus.designer.rcp</module>
+				<module>org.eclipse.papyrus.designer.rcp.feature</module>
+				<module>org.eclipse.papyrus.designer.feature</module>
+				<module>org.eclipse.papyrus.designer.product</module>
 			</modules>
 		</profile>
 	</profiles>

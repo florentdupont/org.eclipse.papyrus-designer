@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.papyrus.designer.feature_1.0.4.qualifier.jar" id="org.eclipse.papyrus.designer.feature" version="1.0.4.qualifier"/>
+</site>
