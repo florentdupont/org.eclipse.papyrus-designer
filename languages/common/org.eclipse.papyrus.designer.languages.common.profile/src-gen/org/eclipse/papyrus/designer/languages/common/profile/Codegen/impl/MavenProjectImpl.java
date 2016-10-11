@@ -2,18 +2,23 @@
  */
 package org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject;
 
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact;
 import org.eclipse.uml2.uml.Model;
 
 /**
@@ -24,79 +29,18 @@ import org.eclipse.uml2.uml.Model;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getParentGroupId <em>Parent Group Id</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getParentArtifactId <em>Parent Artifact Id</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getParentVersion <em>Parent Version</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getBase_Model <em>Base Model</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getArchType <em>Arch Type</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MavenProjectImpl extends MinimalEObjectImpl.Container implements MavenProject {
-	/**
-	 * The default value of the '{@link #getParentGroupId() <em>Parent Group Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParentGroupId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PARENT_GROUP_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getParentGroupId() <em>Parent Group Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParentGroupId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String parentGroupId = PARENT_GROUP_ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getParentArtifactId() <em>Parent Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParentArtifactId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PARENT_ARTIFACT_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getParentArtifactId() <em>Parent Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParentArtifactId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String parentArtifactId = PARENT_ARTIFACT_ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getParentVersion() <em>Parent Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParentVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PARENT_VERSION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getParentVersion() <em>Parent Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParentVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected String parentVersion = PARENT_VERSION_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -178,6 +122,26 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	protected ArcheType archType;
 
 	/**
+	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDependencies()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MavenDependency> dependencies;
+
+	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParentArtifact parent;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -194,69 +158,6 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	@Override
 	protected EClass eStaticClass() {
 		return CodegenPackage.Literals.MAVEN_PROJECT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getParentGroupId() {
-		return parentGroupId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParentGroupId(String newParentGroupId) {
-		String oldParentGroupId = parentGroupId;
-		parentGroupId = newParentGroupId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_PROJECT__PARENT_GROUP_ID, oldParentGroupId, parentGroupId));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getParentArtifactId() {
-		return parentArtifactId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParentArtifactId(String newParentArtifactId) {
-		String oldParentArtifactId = parentArtifactId;
-		parentArtifactId = newParentArtifactId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_PROJECT__PARENT_ARTIFACT_ID, oldParentArtifactId, parentArtifactId));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getParentVersion() {
-		return parentVersion;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParentVersion(String newParentVersion) {
-		String oldParentVersion = parentVersion;
-		parentVersion = newParentVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_PROJECT__PARENT_VERSION, oldParentVersion, parentVersion));
 	}
 
 	/**
@@ -403,15 +304,59 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MavenDependency> getDependencies() {
+		if (dependencies == null) {
+			dependencies = new EObjectResolvingEList<MavenDependency>(MavenDependency.class, this, CodegenPackage.MAVEN_PROJECT__DEPENDENCIES);
+		}
+		return dependencies;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParentArtifact getParent() {
+		if (parent != null && parent.eIsProxy()) {
+			InternalEObject oldParent = (InternalEObject)parent;
+			parent = (ParentArtifact)eResolveProxy(oldParent);
+			if (parent != oldParent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CodegenPackage.MAVEN_PROJECT__PARENT, oldParent, parent));
+			}
+		}
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParentArtifact basicGetParent() {
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(ParentArtifact newParent) {
+		ParentArtifact oldParent = parent;
+		parent = newParent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_PROJECT__PARENT, oldParent, parent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.MAVEN_PROJECT__PARENT_GROUP_ID:
-				return getParentGroupId();
-			case CodegenPackage.MAVEN_PROJECT__PARENT_ARTIFACT_ID:
-				return getParentArtifactId();
-			case CodegenPackage.MAVEN_PROJECT__PARENT_VERSION:
-				return getParentVersion();
 			case CodegenPackage.MAVEN_PROJECT__GROUP_ID:
 				return getGroupId();
 			case CodegenPackage.MAVEN_PROJECT__ARTIFACT_ID:
@@ -424,6 +369,11 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 			case CodegenPackage.MAVEN_PROJECT__ARCH_TYPE:
 				if (resolve) return getArchType();
 				return basicGetArchType();
+			case CodegenPackage.MAVEN_PROJECT__DEPENDENCIES:
+				return getDependencies();
+			case CodegenPackage.MAVEN_PROJECT__PARENT:
+				if (resolve) return getParent();
+				return basicGetParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -433,18 +383,10 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.MAVEN_PROJECT__PARENT_GROUP_ID:
-				setParentGroupId((String)newValue);
-				return;
-			case CodegenPackage.MAVEN_PROJECT__PARENT_ARTIFACT_ID:
-				setParentArtifactId((String)newValue);
-				return;
-			case CodegenPackage.MAVEN_PROJECT__PARENT_VERSION:
-				setParentVersion((String)newValue);
-				return;
 			case CodegenPackage.MAVEN_PROJECT__GROUP_ID:
 				setGroupId((String)newValue);
 				return;
@@ -460,6 +402,13 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 			case CodegenPackage.MAVEN_PROJECT__ARCH_TYPE:
 				setArchType((ArcheType)newValue);
 				return;
+			case CodegenPackage.MAVEN_PROJECT__DEPENDENCIES:
+				getDependencies().clear();
+				getDependencies().addAll((Collection<? extends MavenDependency>)newValue);
+				return;
+			case CodegenPackage.MAVEN_PROJECT__PARENT:
+				setParent((ParentArtifact)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -472,15 +421,6 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.MAVEN_PROJECT__PARENT_GROUP_ID:
-				setParentGroupId(PARENT_GROUP_ID_EDEFAULT);
-				return;
-			case CodegenPackage.MAVEN_PROJECT__PARENT_ARTIFACT_ID:
-				setParentArtifactId(PARENT_ARTIFACT_ID_EDEFAULT);
-				return;
-			case CodegenPackage.MAVEN_PROJECT__PARENT_VERSION:
-				setParentVersion(PARENT_VERSION_EDEFAULT);
-				return;
 			case CodegenPackage.MAVEN_PROJECT__GROUP_ID:
 				setGroupId(GROUP_ID_EDEFAULT);
 				return;
@@ -496,6 +436,12 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 			case CodegenPackage.MAVEN_PROJECT__ARCH_TYPE:
 				setArchType((ArcheType)null);
 				return;
+			case CodegenPackage.MAVEN_PROJECT__DEPENDENCIES:
+				getDependencies().clear();
+				return;
+			case CodegenPackage.MAVEN_PROJECT__PARENT:
+				setParent((ParentArtifact)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -508,12 +454,6 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.MAVEN_PROJECT__PARENT_GROUP_ID:
-				return PARENT_GROUP_ID_EDEFAULT == null ? parentGroupId != null : !PARENT_GROUP_ID_EDEFAULT.equals(parentGroupId);
-			case CodegenPackage.MAVEN_PROJECT__PARENT_ARTIFACT_ID:
-				return PARENT_ARTIFACT_ID_EDEFAULT == null ? parentArtifactId != null : !PARENT_ARTIFACT_ID_EDEFAULT.equals(parentArtifactId);
-			case CodegenPackage.MAVEN_PROJECT__PARENT_VERSION:
-				return PARENT_VERSION_EDEFAULT == null ? parentVersion != null : !PARENT_VERSION_EDEFAULT.equals(parentVersion);
 			case CodegenPackage.MAVEN_PROJECT__GROUP_ID:
 				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
 			case CodegenPackage.MAVEN_PROJECT__ARTIFACT_ID:
@@ -524,6 +464,10 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 				return base_Model != null;
 			case CodegenPackage.MAVEN_PROJECT__ARCH_TYPE:
 				return archType != null;
+			case CodegenPackage.MAVEN_PROJECT__DEPENDENCIES:
+				return dependencies != null && !dependencies.isEmpty();
+			case CodegenPackage.MAVEN_PROJECT__PARENT:
+				return parent != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -538,13 +482,7 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (parentGroupId: ");
-		result.append(parentGroupId);
-		result.append(", parentArtifactId: ");
-		result.append(parentArtifactId);
-		result.append(", parentVersion: ");
-		result.append(parentVersion);
-		result.append(", groupId: ");
+		result.append(" (groupId: ");
 		result.append(groupId);
 		result.append(", artifactId: ");
 		result.append(artifactId);

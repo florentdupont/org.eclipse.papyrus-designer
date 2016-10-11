@@ -282,40 +282,13 @@ public interface CodegenPackage extends EPackage {
 	int MAVEN_PROJECT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Parent Group Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_PROJECT__PARENT_GROUP_ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Parent Artifact Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_PROJECT__PARENT_ARTIFACT_ID = 1;
-
-	/**
-	 * The feature id for the '<em><b>Parent Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_PROJECT__PARENT_VERSION = 2;
-
-	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__GROUP_ID = 3;
+	int MAVEN_PROJECT__GROUP_ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
@@ -324,7 +297,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__ARTIFACT_ID = 4;
+	int MAVEN_PROJECT__ARTIFACT_ID = 1;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -333,7 +306,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__VERSION = 5;
+	int MAVEN_PROJECT__VERSION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Base Model</b></em>' reference.
@@ -342,7 +315,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__BASE_MODEL = 6;
+	int MAVEN_PROJECT__BASE_MODEL = 3;
 
 	/**
 	 * The feature id for the '<em><b>Arch Type</b></em>' reference.
@@ -351,7 +324,25 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__ARCH_TYPE = 7;
+	int MAVEN_PROJECT__ARCH_TYPE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Dependencies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_PROJECT__DEPENDENCIES = 5;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_PROJECT__PARENT = 6;
 
 	/**
 	 * The number of structural features of the '<em>Maven Project</em>' class.
@@ -360,7 +351,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT_FEATURE_COUNT = 8;
+	int MAVEN_PROJECT_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Maven Project</em>' class.
@@ -409,13 +400,13 @@ public interface CodegenPackage extends EPackage {
 	int ARCHE_TYPE__VERSION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Reprository</b></em>' attribute.
+	 * The feature id for the '<em><b>Repository</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARCHE_TYPE__REPROSITORY = 3;
+	int ARCHE_TYPE__REPOSITORY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -445,6 +436,198 @@ public interface CodegenPackage extends EPackage {
 	int ARCHE_TYPE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenDependencyImpl <em>Maven Dependency</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenDependencyImpl
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getMavenDependency()
+	 * @generated
+	 */
+	int MAVEN_DEPENDENCY = 6;
+
+	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY__GROUP_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY__ARTIFACT_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY__VERSION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY__BASE_CLASS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Exclusions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY__EXCLUSIONS = 4;
+
+	/**
+	 * The number of structural features of the '<em>Maven Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Maven Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_DEPENDENCY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ExcludedDependencyImpl <em>Excluded Dependency</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ExcludedDependencyImpl
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getExcludedDependency()
+	 * @generated
+	 */
+	int EXCLUDED_DEPENDENCY = 7;
+
+	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUDED_DEPENDENCY__GROUP_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUDED_DEPENDENCY__ARTIFACT_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUDED_DEPENDENCY__BASE_CLASS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Excluded Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUDED_DEPENDENCY_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Excluded Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUDED_DEPENDENCY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ParentArtifactImpl <em>Parent Artifact</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ParentArtifactImpl
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getParentArtifact()
+	 * @generated
+	 */
+	int PARENT_ARTIFACT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_ARTIFACT__GROUP_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_ARTIFACT__ARTIFACT_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_ARTIFACT__VERSION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_ARTIFACT__BASE_CLASS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Parent Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_ARTIFACT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Parent Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_ARTIFACT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.GenerationModeKind <em>Generation Mode Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -452,7 +635,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getGenerationModeKind()
 	 * @generated
 	 */
-	int GENERATION_MODE_KIND = 6;
+	int GENERATION_MODE_KIND = 9;
 
 
 	/**
@@ -605,39 +788,6 @@ public interface CodegenPackage extends EPackage {
 	EClass getMavenProject();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParentGroupId <em>Parent Group Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Parent Group Id</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParentGroupId()
-	 * @see #getMavenProject()
-	 * @generated
-	 */
-	EAttribute getMavenProject_ParentGroupId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParentArtifactId <em>Parent Artifact Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Parent Artifact Id</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParentArtifactId()
-	 * @see #getMavenProject()
-	 * @generated
-	 */
-	EAttribute getMavenProject_ParentArtifactId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParentVersion <em>Parent Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Parent Version</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParentVersion()
-	 * @see #getMavenProject()
-	 * @generated
-	 */
-	EAttribute getMavenProject_ParentVersion();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getGroupId <em>Group Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -693,6 +843,28 @@ public interface CodegenPackage extends EPackage {
 	EReference getMavenProject_ArchType();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getDependencies <em>Dependencies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Dependencies</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getDependencies()
+	 * @see #getMavenProject()
+	 * @generated
+	 */
+	EReference getMavenProject_Dependencies();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParent()
+	 * @see #getMavenProject()
+	 * @generated
+	 */
+	EReference getMavenProject_Parent();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType <em>Arche Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,15 +908,15 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getArcheType_Version();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType#getReprository <em>Reprository</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType#getRepository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Reprository</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType#getReprository()
+	 * @return the meta object for the attribute '<em>Repository</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType#getRepository()
 	 * @see #getArcheType()
 	 * @generated
 	 */
-	EAttribute getArcheType_Reprository();
+	EAttribute getArcheType_Repository();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType#getBase_Class <em>Base Class</em>}'.
@@ -756,6 +928,168 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArcheType_Base_Class();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency <em>Maven Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Maven Dependency</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency
+	 * @generated
+	 */
+	EClass getMavenDependency();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getGroupId()
+	 * @see #getMavenDependency()
+	 * @generated
+	 */
+	EAttribute getMavenDependency_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getArtifactId <em>Artifact Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getArtifactId()
+	 * @see #getMavenDependency()
+	 * @generated
+	 */
+	EAttribute getMavenDependency_ArtifactId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getVersion()
+	 * @see #getMavenDependency()
+	 * @generated
+	 */
+	EAttribute getMavenDependency_Version();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getBase_Class <em>Base Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Class</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getBase_Class()
+	 * @see #getMavenDependency()
+	 * @generated
+	 */
+	EReference getMavenDependency_Base_Class();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getExclusions <em>Exclusions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Exclusions</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency#getExclusions()
+	 * @see #getMavenDependency()
+	 * @generated
+	 */
+	EReference getMavenDependency_Exclusions();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency <em>Excluded Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Excluded Dependency</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency
+	 * @generated
+	 */
+	EClass getExcludedDependency();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency#getGroupId()
+	 * @see #getExcludedDependency()
+	 * @generated
+	 */
+	EAttribute getExcludedDependency_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency#getArtifactId <em>Artifact Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency#getArtifactId()
+	 * @see #getExcludedDependency()
+	 * @generated
+	 */
+	EAttribute getExcludedDependency_ArtifactId();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency#getBase_Class <em>Base Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Class</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency#getBase_Class()
+	 * @see #getExcludedDependency()
+	 * @generated
+	 */
+	EReference getExcludedDependency_Base_Class();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact <em>Parent Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parent Artifact</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact
+	 * @generated
+	 */
+	EClass getParentArtifact();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact#getGroupId()
+	 * @see #getParentArtifact()
+	 * @generated
+	 */
+	EAttribute getParentArtifact_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact#getArtifactId <em>Artifact Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact#getArtifactId()
+	 * @see #getParentArtifact()
+	 * @generated
+	 */
+	EAttribute getParentArtifact_ArtifactId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact#getVersion()
+	 * @see #getParentArtifact()
+	 * @generated
+	 */
+	EAttribute getParentArtifact_Version();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact#getBase_Class <em>Base Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Class</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact#getBase_Class()
+	 * @see #getParentArtifact()
+	 * @generated
+	 */
+	EReference getParentArtifact_Base_Class();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project#getGenerationMode <em>Generation Mode</em>}'.
@@ -924,30 +1258,6 @@ public interface CodegenPackage extends EPackage {
 		EClass MAVEN_PROJECT = eINSTANCE.getMavenProject();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent Group Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MAVEN_PROJECT__PARENT_GROUP_ID = eINSTANCE.getMavenProject_ParentGroupId();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent Artifact Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MAVEN_PROJECT__PARENT_ARTIFACT_ID = eINSTANCE.getMavenProject_ParentArtifactId();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MAVEN_PROJECT__PARENT_VERSION = eINSTANCE.getMavenProject_ParentVersion();
-
-		/**
 		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -988,6 +1298,22 @@ public interface CodegenPackage extends EPackage {
 		EReference MAVEN_PROJECT__ARCH_TYPE = eINSTANCE.getMavenProject_ArchType();
 
 		/**
+		 * The meta object literal for the '<em><b>Dependencies</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAVEN_PROJECT__DEPENDENCIES = eINSTANCE.getMavenProject_Dependencies();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAVEN_PROJECT__PARENT = eINSTANCE.getMavenProject_Parent();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ArcheTypeImpl <em>Arche Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1022,12 +1348,12 @@ public interface CodegenPackage extends EPackage {
 		EAttribute ARCHE_TYPE__VERSION = eINSTANCE.getArcheType_Version();
 
 		/**
-		 * The meta object literal for the '<em><b>Reprository</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Repository</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ARCHE_TYPE__REPROSITORY = eINSTANCE.getArcheType_Reprository();
+		EAttribute ARCHE_TYPE__REPOSITORY = eINSTANCE.getArcheType_Repository();
 
 		/**
 		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
@@ -1036,6 +1362,132 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARCHE_TYPE__BASE_CLASS = eINSTANCE.getArcheType_Base_Class();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenDependencyImpl <em>Maven Dependency</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenDependencyImpl
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getMavenDependency()
+		 * @generated
+		 */
+		EClass MAVEN_DEPENDENCY = eINSTANCE.getMavenDependency();
+
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY__GROUP_ID = eINSTANCE.getMavenDependency_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY__ARTIFACT_ID = eINSTANCE.getMavenDependency_ArtifactId();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAVEN_DEPENDENCY__VERSION = eINSTANCE.getMavenDependency_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAVEN_DEPENDENCY__BASE_CLASS = eINSTANCE.getMavenDependency_Base_Class();
+
+		/**
+		 * The meta object literal for the '<em><b>Exclusions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAVEN_DEPENDENCY__EXCLUSIONS = eINSTANCE.getMavenDependency_Exclusions();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ExcludedDependencyImpl <em>Excluded Dependency</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ExcludedDependencyImpl
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getExcludedDependency()
+		 * @generated
+		 */
+		EClass EXCLUDED_DEPENDENCY = eINSTANCE.getExcludedDependency();
+
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXCLUDED_DEPENDENCY__GROUP_ID = eINSTANCE.getExcludedDependency_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXCLUDED_DEPENDENCY__ARTIFACT_ID = eINSTANCE.getExcludedDependency_ArtifactId();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXCLUDED_DEPENDENCY__BASE_CLASS = eINSTANCE.getExcludedDependency_Base_Class();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ParentArtifactImpl <em>Parent Artifact</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ParentArtifactImpl
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getParentArtifact()
+		 * @generated
+		 */
+		EClass PARENT_ARTIFACT = eINSTANCE.getParentArtifact();
+
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARENT_ARTIFACT__GROUP_ID = eINSTANCE.getParentArtifact_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARENT_ARTIFACT__ARTIFACT_ID = eINSTANCE.getParentArtifact_ArtifactId();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARENT_ARTIFACT__VERSION = eINSTANCE.getParentArtifact_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARENT_ARTIFACT__BASE_CLASS = eINSTANCE.getParentArtifact_Base_Class();
 
 		/**
 		 * The meta object literal for the '<em><b>Generation Mode</b></em>' attribute feature.

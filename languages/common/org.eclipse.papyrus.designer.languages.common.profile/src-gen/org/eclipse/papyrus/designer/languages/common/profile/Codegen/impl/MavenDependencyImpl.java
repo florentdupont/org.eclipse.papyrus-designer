@@ -2,7 +2,11 @@
  */
 package org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -10,27 +14,30 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Arche Type</b></em>'.
+ * An implementation of the model object '<em><b>Maven Dependency</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ArcheTypeImpl#getGroupId <em>Group Id</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ArcheTypeImpl#getArtifactId <em>Artifact Id</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ArcheTypeImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ArcheTypeImpl#getRepository <em>Repository</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ArcheTypeImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenDependencyImpl#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenDependencyImpl#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenDependencyImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenDependencyImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenDependencyImpl#getExclusions <em>Exclusions</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements ArcheType {
+public class MavenDependencyImpl extends MinimalEObjectImpl.Container implements MavenDependency {
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,26 +99,6 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 	protected String version = VERSION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRepository() <em>Repository</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRepository()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REPOSITORY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRepository()
-	 * @generated
-	 * @ordered
-	 */
-	protected String repository = REPOSITORY_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getBase_Class() <em>Base Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,11 +109,21 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 	protected org.eclipse.uml2.uml.Class base_Class;
 
 	/**
+	 * The cached value of the '{@link #getExclusions() <em>Exclusions</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExclusions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ExcludedDependency> exclusions;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ArcheTypeImpl() {
+	protected MavenDependencyImpl() {
 		super();
 	}
 
@@ -137,7 +134,7 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CodegenPackage.Literals.ARCHE_TYPE;
+		return CodegenPackage.Literals.MAVEN_DEPENDENCY;
 	}
 
 	/**
@@ -158,7 +155,7 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.ARCHE_TYPE__GROUP_ID, oldGroupId, groupId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_DEPENDENCY__GROUP_ID, oldGroupId, groupId));
 	}
 
 	/**
@@ -179,7 +176,7 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.ARCHE_TYPE__ARTIFACT_ID, oldArtifactId, artifactId));
+			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_DEPENDENCY__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
@@ -200,28 +197,7 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 		String oldVersion = version;
 		version = newVersion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.ARCHE_TYPE__VERSION, oldVersion, version));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getRepository() {
-		return repository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRepository(String newRepository) {
-		String oldRepository = repository;
-		repository = newRepository;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.ARCHE_TYPE__REPOSITORY, oldRepository, repository));
+			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_DEPENDENCY__VERSION, oldVersion, version));
 	}
 
 	/**
@@ -235,7 +211,7 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 			base_Class = (org.eclipse.uml2.uml.Class)eResolveProxy(oldBase_Class);
 			if (base_Class != oldBase_Class) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CodegenPackage.ARCHE_TYPE__BASE_CLASS, oldBase_Class, base_Class));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CodegenPackage.MAVEN_DEPENDENCY__BASE_CLASS, oldBase_Class, base_Class));
 			}
 		}
 		return base_Class;
@@ -259,7 +235,19 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 		org.eclipse.uml2.uml.Class oldBase_Class = base_Class;
 		base_Class = newBase_Class;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.ARCHE_TYPE__BASE_CLASS, oldBase_Class, base_Class));
+			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_DEPENDENCY__BASE_CLASS, oldBase_Class, base_Class));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ExcludedDependency> getExclusions() {
+		if (exclusions == null) {
+			exclusions = new EObjectResolvingEList<ExcludedDependency>(ExcludedDependency.class, this, CodegenPackage.MAVEN_DEPENDENCY__EXCLUSIONS);
+		}
+		return exclusions;
 	}
 
 	/**
@@ -270,17 +258,17 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CodegenPackage.ARCHE_TYPE__GROUP_ID:
+			case CodegenPackage.MAVEN_DEPENDENCY__GROUP_ID:
 				return getGroupId();
-			case CodegenPackage.ARCHE_TYPE__ARTIFACT_ID:
+			case CodegenPackage.MAVEN_DEPENDENCY__ARTIFACT_ID:
 				return getArtifactId();
-			case CodegenPackage.ARCHE_TYPE__VERSION:
+			case CodegenPackage.MAVEN_DEPENDENCY__VERSION:
 				return getVersion();
-			case CodegenPackage.ARCHE_TYPE__REPOSITORY:
-				return getRepository();
-			case CodegenPackage.ARCHE_TYPE__BASE_CLASS:
+			case CodegenPackage.MAVEN_DEPENDENCY__BASE_CLASS:
 				if (resolve) return getBase_Class();
 				return basicGetBase_Class();
+			case CodegenPackage.MAVEN_DEPENDENCY__EXCLUSIONS:
+				return getExclusions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -290,23 +278,25 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CodegenPackage.ARCHE_TYPE__GROUP_ID:
+			case CodegenPackage.MAVEN_DEPENDENCY__GROUP_ID:
 				setGroupId((String)newValue);
 				return;
-			case CodegenPackage.ARCHE_TYPE__ARTIFACT_ID:
+			case CodegenPackage.MAVEN_DEPENDENCY__ARTIFACT_ID:
 				setArtifactId((String)newValue);
 				return;
-			case CodegenPackage.ARCHE_TYPE__VERSION:
+			case CodegenPackage.MAVEN_DEPENDENCY__VERSION:
 				setVersion((String)newValue);
 				return;
-			case CodegenPackage.ARCHE_TYPE__REPOSITORY:
-				setRepository((String)newValue);
-				return;
-			case CodegenPackage.ARCHE_TYPE__BASE_CLASS:
+			case CodegenPackage.MAVEN_DEPENDENCY__BASE_CLASS:
 				setBase_Class((org.eclipse.uml2.uml.Class)newValue);
+				return;
+			case CodegenPackage.MAVEN_DEPENDENCY__EXCLUSIONS:
+				getExclusions().clear();
+				getExclusions().addAll((Collection<? extends ExcludedDependency>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -320,20 +310,20 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.ARCHE_TYPE__GROUP_ID:
+			case CodegenPackage.MAVEN_DEPENDENCY__GROUP_ID:
 				setGroupId(GROUP_ID_EDEFAULT);
 				return;
-			case CodegenPackage.ARCHE_TYPE__ARTIFACT_ID:
+			case CodegenPackage.MAVEN_DEPENDENCY__ARTIFACT_ID:
 				setArtifactId(ARTIFACT_ID_EDEFAULT);
 				return;
-			case CodegenPackage.ARCHE_TYPE__VERSION:
+			case CodegenPackage.MAVEN_DEPENDENCY__VERSION:
 				setVersion(VERSION_EDEFAULT);
 				return;
-			case CodegenPackage.ARCHE_TYPE__REPOSITORY:
-				setRepository(REPOSITORY_EDEFAULT);
-				return;
-			case CodegenPackage.ARCHE_TYPE__BASE_CLASS:
+			case CodegenPackage.MAVEN_DEPENDENCY__BASE_CLASS:
 				setBase_Class((org.eclipse.uml2.uml.Class)null);
+				return;
+			case CodegenPackage.MAVEN_DEPENDENCY__EXCLUSIONS:
+				getExclusions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -347,16 +337,16 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CodegenPackage.ARCHE_TYPE__GROUP_ID:
+			case CodegenPackage.MAVEN_DEPENDENCY__GROUP_ID:
 				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
-			case CodegenPackage.ARCHE_TYPE__ARTIFACT_ID:
+			case CodegenPackage.MAVEN_DEPENDENCY__ARTIFACT_ID:
 				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-			case CodegenPackage.ARCHE_TYPE__VERSION:
+			case CodegenPackage.MAVEN_DEPENDENCY__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-			case CodegenPackage.ARCHE_TYPE__REPOSITORY:
-				return REPOSITORY_EDEFAULT == null ? repository != null : !REPOSITORY_EDEFAULT.equals(repository);
-			case CodegenPackage.ARCHE_TYPE__BASE_CLASS:
+			case CodegenPackage.MAVEN_DEPENDENCY__BASE_CLASS:
 				return base_Class != null;
+			case CodegenPackage.MAVEN_DEPENDENCY__EXCLUSIONS:
+				return exclusions != null && !exclusions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -377,10 +367,8 @@ public class ArcheTypeImpl extends MinimalEObjectImpl.Container implements Arche
 		result.append(artifactId);
 		result.append(", version: ");
 		result.append(version);
-		result.append(", repository: ");
-		result.append(repository);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ArcheTypeImpl
+} //MavenDependencyImpl

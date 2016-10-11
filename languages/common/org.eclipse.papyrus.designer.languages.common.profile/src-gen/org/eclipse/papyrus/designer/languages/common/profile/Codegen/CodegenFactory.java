@@ -88,6 +88,33 @@ public interface CodegenFactory extends EFactory {
 	ArcheType createArcheType();
 
 	/**
+	 * Returns a new object of class '<em>Maven Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Maven Dependency</em>'.
+	 * @generated
+	 */
+	MavenDependency createMavenDependency();
+
+	/**
+	 * Returns a new object of class '<em>Excluded Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Excluded Dependency</em>'.
+	 * @generated
+	 */
+	ExcludedDependency createExcludedDependency();
+
+	/**
+	 * Returns a new object of class '<em>Parent Artifact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parent Artifact</em>'.
+	 * @generated
+	 */
+	ParentArtifact createParentArtifact();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

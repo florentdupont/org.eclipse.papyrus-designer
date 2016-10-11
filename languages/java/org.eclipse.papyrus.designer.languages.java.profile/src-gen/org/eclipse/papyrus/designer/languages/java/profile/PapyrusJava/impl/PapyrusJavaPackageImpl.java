@@ -27,6 +27,7 @@ import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.ExternLib
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.External;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Final;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Import;
+import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.ManualGeneration;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Native;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.NoCodeGen;
@@ -178,6 +179,13 @@ public class PapyrusJavaPackageImpl extends EPackageImpl implements PapyrusJavaP
 	 * @generated
 	 */
 	private EClass finalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass javaProjectSettingsEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -707,6 +715,51 @@ public class PapyrusJavaPackageImpl extends EPackageImpl implements PapyrusJavaP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getJavaProjectSettings() {
+		return javaProjectSettingsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaProjectSettings_ProjectNatures() {
+		return (EAttribute)javaProjectSettingsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaProjectSettings_ClassPaths() {
+		return (EAttribute)javaProjectSettingsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaProjectSettings_OutputLocation() {
+		return (EAttribute)javaProjectSettingsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJavaProjectSettings_Base_Package() {
+		return (EReference)javaProjectSettingsEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PapyrusJavaFactory getPapyrusJavaFactory() {
 		return (PapyrusJavaFactory)getEFactoryInstance();
 	}
@@ -798,6 +851,12 @@ public class PapyrusJavaPackageImpl extends EPackageImpl implements PapyrusJavaP
 
 		finalEClass = createEClass(FINAL);
 		createEReference(finalEClass, FINAL__BASE_PARAMETER);
+
+		javaProjectSettingsEClass = createEClass(JAVA_PROJECT_SETTINGS);
+		createEAttribute(javaProjectSettingsEClass, JAVA_PROJECT_SETTINGS__PROJECT_NATURES);
+		createEAttribute(javaProjectSettingsEClass, JAVA_PROJECT_SETTINGS__CLASS_PATHS);
+		createEAttribute(javaProjectSettingsEClass, JAVA_PROJECT_SETTINGS__OUTPUT_LOCATION);
+		createEReference(javaProjectSettingsEClass, JAVA_PROJECT_SETTINGS__BASE_PACKAGE);
 	}
 
 	/**
@@ -902,6 +961,12 @@ public class PapyrusJavaPackageImpl extends EPackageImpl implements PapyrusJavaP
 
 		initEClass(finalEClass, Final.class, "Final", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFinal_Base_Parameter(), theUMLPackage.getParameter(), null, "base_Parameter", null, 1, 1, Final.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(javaProjectSettingsEClass, JavaProjectSettings.class, "JavaProjectSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJavaProjectSettings_ProjectNatures(), theTypesPackage.getString(), "projectNatures", null, 0, -1, JavaProjectSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getJavaProjectSettings_ClassPaths(), theTypesPackage.getString(), "classPaths", null, 0, -1, JavaProjectSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getJavaProjectSettings_OutputLocation(), theTypesPackage.getString(), "outputLocation", null, 1, 1, JavaProjectSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getJavaProjectSettings_Base_Package(), theUMLPackage.getPackage(), null, "base_Package", null, 1, 1, JavaProjectSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

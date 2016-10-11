@@ -132,6 +132,7 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 		if (genProject == null) {
 			throw new TransformationException(String.format(Messages.DeployToNodes_CouldNotCreateProject, targetLanguage));
 		}
+		
 		tc.projectSupport = projectSupport;
 		tc.project = genProject;
 

@@ -104,6 +104,18 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createArcheTypeAdapter();
 			}
 			@Override
+			public Adapter caseMavenDependency(MavenDependency object) {
+				return createMavenDependencyAdapter();
+			}
+			@Override
+			public Adapter caseExcludedDependency(ExcludedDependency object) {
+				return createExcludedDependencyAdapter();
+			}
+			@Override
+			public Adapter caseParentArtifact(ParentArtifact object) {
+				return createParentArtifactAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -204,6 +216,48 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArcheTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency <em>Maven Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDependency
+	 * @generated
+	 */
+	public Adapter createMavenDependencyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency <em>Excluded Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ExcludedDependency
+	 * @generated
+	 */
+	public Adapter createExcludedDependencyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact <em>Parent Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact
+	 * @generated
+	 */
+	public Adapter createParentArtifactAdapter() {
 		return null;
 	}
 

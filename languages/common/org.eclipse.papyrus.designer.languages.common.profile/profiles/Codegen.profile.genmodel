@@ -61,9 +61,6 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//NoCodeGen/base_Element"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//MavenProject">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//MavenProject/parentGroupId"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//MavenProject/parentArtifactId"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//MavenProject/parentVersion"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//MavenProject/groupId"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//MavenProject/artifactId"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//MavenProject/version"/>
@@ -71,14 +68,40 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/base_Model"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/archType"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/dependencies"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/parent"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//ArcheType">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ArcheType/groupId"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ArcheType/artifactId"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ArcheType/version"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ArcheType/reprository"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ArcheType/repository"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//ArcheType/base_Class"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//MavenDependency">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//MavenDependency/groupId"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//MavenDependency/artifactId"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//MavenDependency/version"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenDependency/base_Class"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenDependency/exclusions"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//ExcludedDependency">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ExcludedDependency/groupId"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ExcludedDependency/artifactId"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//ExcludedDependency/base_Class"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//ParentArtifact">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ParentArtifact/groupId"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ParentArtifact/artifactId"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ParentArtifact/version"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//ParentArtifact/base_Class"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

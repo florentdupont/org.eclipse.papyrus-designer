@@ -196,6 +196,15 @@ public interface PapyrusJavaFactory extends EFactory {
 	Final createFinal();
 
 	/**
+	 * Returns a new object of class '<em>Java Project Settings</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Java Project Settings</em>'.
+	 * @generated
+	 */
+	JavaProjectSettings createJavaProjectSettings();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

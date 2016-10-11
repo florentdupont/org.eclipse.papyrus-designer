@@ -75,6 +75,9 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.NO_CODE_GEN: return createNoCodeGen();
 			case CodegenPackage.MAVEN_PROJECT: return createMavenProject();
 			case CodegenPackage.ARCHE_TYPE: return createArcheType();
+			case CodegenPackage.MAVEN_DEPENDENCY: return createMavenDependency();
+			case CodegenPackage.EXCLUDED_DEPENDENCY: return createExcludedDependency();
+			case CodegenPackage.PARENT_ARTIFACT: return createParentArtifact();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -168,6 +171,36 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public ArcheType createArcheType() {
 		ArcheTypeImpl archeType = new ArcheTypeImpl();
 		return archeType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MavenDependency createMavenDependency() {
+		MavenDependencyImpl mavenDependency = new MavenDependencyImpl();
+		return mavenDependency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExcludedDependency createExcludedDependency() {
+		ExcludedDependencyImpl excludedDependency = new ExcludedDependencyImpl();
+		return excludedDependency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParentArtifact createParentArtifact() {
+		ParentArtifactImpl parentArtifact = new ParentArtifactImpl();
+		return parentArtifact;
 	}
 
 	/**

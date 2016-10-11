@@ -17,17 +17,22 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
+ org.eclipse.uml2.uml.profile.standard;bundle-version="1.0.0",
+ org.eclipse.papyrus.marte.static.profile;bundle-version="1.2.0",
+ org.eclipse.ui.workbench,
+ org.eclipse.jdt.core,
+ org.eclipse.m2e.maven.runtime,
+ org.eclipse.jdt.launching,
  org.eclipse.papyrus.designer.transformation.profile;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.deployment.tools;bundle-version="0.7.5",
  org.eclipse.papyrus.designer.transformation.vsl;bundle-version="0.7.3",
- org.eclipse.uml2.uml.profile.standard;bundle-version="1.0.0",
  org.eclipse.papyrus.designer.languages.cpp.codegen;bundle-version="1.0.2",
  org.eclipse.papyrus.designer.transformation.extensions;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.deployment.profile;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.languages.common.extensionpoints;bundle-version="1.0.2",
- org.eclipse.papyrus.marte.static.profile;bundle-version="1.2.0",
- org.eclipse.papyrus.designer.languages.common.base;bundle-version="1.0.4"
+ org.eclipse.papyrus.designer.languages.common.base;bundle-version="1.0.4",
+ org.eclipse.papyrus.designer.languages.common.profile
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.5.qualifier
