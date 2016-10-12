@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.components</groupId>
 		<artifactId>org.eclipse.papyrus.components.parent</artifactId>
-		<version>0.0.16</version>
+		<version>0.0.18</version>
 	</parent>
 	
 	<groupId>org.eclipse.papyrus.designer</groupId>
