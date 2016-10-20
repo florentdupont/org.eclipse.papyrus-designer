@@ -336,7 +336,7 @@ abstract public class AbstractBootLoaderGen implements IM2MTrafoCDP {
 		}
 		
 		if (m_initCodeRun != null) {
-			code+= m_initCodeRun;
+			code += m_initCodeRun;
 		}
 		else {
 			code += languageDefaultExecCode();

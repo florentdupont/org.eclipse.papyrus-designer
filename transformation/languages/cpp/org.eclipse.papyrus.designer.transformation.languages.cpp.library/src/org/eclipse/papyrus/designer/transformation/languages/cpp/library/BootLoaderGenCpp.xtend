@@ -27,7 +27,6 @@ import org.eclipse.papyrus.designer.transformation.base.utils.TransformationExce
 import org.eclipse.papyrus.designer.transformation.core.Messages
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoCDP
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
-import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyStatus
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext
 import org.eclipse.papyrus.designer.transformation.library.transformations.AbstractBootLoaderGen
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo
@@ -130,8 +129,12 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 	'''
 	
 	
-	override def public String 	languageRunStart(String varName, boolean useOO) '''
-		«varName».get_start()->run();
+	override def public String languageRunStart(String varName, boolean useOO) '''
+		«IF useOO»
+			«varName».run();
+		«ELSE»
+			«varName».get_start()->run();
+		«ENDIF»
 	'''
 	
 	override def public String languageAssignRef(String accessName, String referenceVarName) '''
@@ -163,7 +166,7 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 		for (InstanceSpecification is : DepUtils.getTopLevelInstances(deploymentPlan))  {
 			addInstance(is, slotPath);
 		}
-		addInit("C/Cpp");
+		addInit("C/C++");
 	}
 
 	def override public void languageInit() {
