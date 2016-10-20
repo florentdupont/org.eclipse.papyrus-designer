@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2013 CEA LIST
- *
+ * Copyright (c) 2015 CEA LIST
+ * 
  * All rights reserved. This program and the accompanying materials are
  * made available under the terms of the Eclipse Public License v1.0 which
  * accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *    Ansgar Radermacher - Initial API and implementation
- *
+ * 
  */
 package org.eclipse.papyrus.designer.components.FCM;
 
@@ -74,7 +74,7 @@ public enum InterceptionKind implements Enumerator {
 	 * @ordered
 	 */
 	INTERCEPT_ALL_IN(3, "InterceptAllIn", "InterceptAllIn"), //$NON-NLS-1$ //$NON-NLS-2$
-	
+
 	/**
 	 * The '<em><b>Intercept Matching</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -89,7 +89,8 @@ public enum InterceptionKind implements Enumerator {
 	 * The '<em><b>Intercept Some</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Intercept Some</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * If the meaning of '<em><b>Intercept Some</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTERCEPT_SOME
@@ -103,7 +104,8 @@ public enum InterceptionKind implements Enumerator {
 	 * The '<em><b>Intercept All</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Intercept All</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * If the meaning of '<em><b>Intercept All</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTERCEPT_ALL
@@ -117,7 +119,8 @@ public enum InterceptionKind implements Enumerator {
 	 * The '<em><b>Intercept All Out</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Intercept All Out</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * If the meaning of '<em><b>Intercept All Out</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTERCEPT_ALL_OUT
@@ -131,7 +134,8 @@ public enum InterceptionKind implements Enumerator {
 	 * The '<em><b>Intercept All In</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Intercept All In</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * If the meaning of '<em><b>Intercept All In</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTERCEPT_ALL_IN
@@ -145,7 +149,8 @@ public enum InterceptionKind implements Enumerator {
 	 * The '<em><b>Intercept Matching</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Intercept Matching</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * If the meaning of '<em><b>Intercept Matching</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTERCEPT_MATCHING
@@ -162,7 +167,7 @@ public enum InterceptionKind implements Enumerator {
 	 * @generated
 	 */
 	private static final InterceptionKind[] VALUES_ARRAY =
-			new InterceptionKind[] {
+		new InterceptionKind[] {
 			INTERCEPT_SOME,
 			INTERCEPT_ALL,
 			INTERCEPT_ALL_OUT,
@@ -271,7 +276,6 @@ public enum InterceptionKind implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -281,7 +285,6 @@ public enum InterceptionKind implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 	  return name;
 	}
@@ -291,7 +294,6 @@ public enum InterceptionKind implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral() {
 	  return literal;
 	}
@@ -306,5 +308,5 @@ public enum InterceptionKind implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-
-} // InterceptionKind
+	
+} //InterceptionKind

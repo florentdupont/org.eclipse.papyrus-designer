@@ -9,7 +9,7 @@ package org.eclipse.papyrus.designer.components.validation.constraints;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.papyrus.designer.components.FCM.ConfigurationProperty;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.ConfigurationProperty;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.AggregationKind;
@@ -49,9 +49,6 @@ public class AggregationKindValid extends AbstractModelConstraint {
 					// no composition, but not singleton: warn user to make up a proper deployment plan
 					// validation has been made Qompass specific by checking whether the Configuration attribute is applicable
 
-					// first check, if the attribute is referenced by an instance specification (via
-					// the defining feature attribute). Otherwise, do not continue, since the warnings might lead to false
-					// alerts
 					return ctx.createFailureStatus("The attribute '" + attribute.getName() + "' has a non-composition aggregation kind, but the referenced type ('" +
 							type.getName() + "') is not a singleton. The associated instance specifications have to be set-up manually");
 				}

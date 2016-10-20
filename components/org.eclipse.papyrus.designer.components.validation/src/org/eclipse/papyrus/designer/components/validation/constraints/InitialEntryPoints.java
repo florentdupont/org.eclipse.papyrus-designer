@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.papyrus.designer.components.FCM.DeploymentPlan;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.library.transformations.AbstractBootLoaderGen;
 import org.eclipse.uml2.uml.Class;
@@ -37,42 +37,33 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 public class InitialEntryPoints extends AbstractModelConstraint {
 
 	@Override
-	public IStatus validate(IValidationContext ctx)
-	{
+	public IStatus validate(IValidationContext ctx) {
 		Package pkg = (Package) ctx.getTarget();
 
 		DeploymentPlan cdp = UMLUtil.getStereotypeApplication(pkg, DeploymentPlan.class);
 		if (cdp != null) {
-			InstanceSpecification initIS = cdp.getMainInstance();
-			if (initIS != null) {
-				entryPoints = new BasicEList<String>();
-				validate(initIS);
-				if (entryPoints.size() > 1) {
-					String msg = ""; //$NON-NLS-1$
-					for (String entryPoint : entryPoints) {
-						if (msg.length() > 0) {
-							msg += ", "; //$NON-NLS-1$
-						}
-						msg += entryPoint;
+			entryPoints = new BasicEList<String>();
+			for (InstanceSpecification is : DepUtils.getInstances(pkg)) {
+				Classifier cl = DepUtils.getClassifier(is);
+				if (cl instanceof Class) {
+					Class implementation = (Class) cl;
+					if (AbstractBootLoaderGen.hasUnconnectedStartRoutine(null, implementation, null)) {
+						entryPoints.add(implementation.getName());
 					}
-					return ctx.createFailureStatus(String.format("The deployment plan '%s' contains more than one start entry point: %s", pkg.getName(), msg)); //$NON-NLS-1$
 				}
+			}
+			if (entryPoints.size() > 1) {
+				String msg = ""; //$NON-NLS-1$
+				for (String entryPoint : entryPoints) {
+					if (msg.length() > 0) {
+						msg += ", "; //$NON-NLS-1$
+					}
+					msg += entryPoint;
+				}
+				return ctx.createFailureStatus(String.format("The deployment plan '%s' contains more than one start entry point: %s", pkg.getName(), msg)); //$NON-NLS-1$
 			}
 		}
 		return ctx.createSuccessStatus();
-	}
-
-	public void validate(InstanceSpecification is) {
-		Classifier cl = DepUtils.getClassifier(is);
-		if (cl instanceof Class) {
-			Class implementation = (Class) cl;
-			if (AbstractBootLoaderGen.hasUnconnectedStartRoutine(null, implementation, null)) {
-				entryPoints.add(implementation.getName());
-			}
-		}
-		for (InstanceSpecification subIS : DepUtils.getContainedInstances(is)) {
-			validate(subIS);
-		}
 	}
 
 	private EList<String> entryPoints;

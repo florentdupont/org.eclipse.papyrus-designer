@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2013 CEA LIST
- *
+ * Copyright (c) 2015 CEA LIST
+ * 
  * All rights reserved. This program and the accompanying materials are
  * made available under the terms of the Eclipse Public License v1.0 which
  * accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *    Ansgar Radermacher - Initial API and implementation
- *
+ * 
  */
 package org.eclipse.papyrus.designer.components.FCM;
 
@@ -32,33 +32,6 @@ public interface FCMFactory extends EFactory {
 	FCMFactory eINSTANCE = org.eclipse.papyrus.designer.components.FCM.impl.FCMFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Template</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Template</em>'.
-	 * @generated
-	 */
-	Template createTemplate();
-
-	/**
-	 * Returns a new object of class '<em>Binding Helper</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binding Helper</em>'.
-	 * @generated
-	 */
-	BindingHelper createBindingHelper();
-
-	/**
-	 * Returns a new object of class '<em>Configuration Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Configuration Property</em>'.
-	 * @generated
-	 */
-	ConfigurationProperty createConfigurationProperty();
-
-	/**
 	 * Returns a new object of class '<em>Implementation Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,24 +39,6 @@ public interface FCMFactory extends EFactory {
 	 * @generated
 	 */
 	ImplementationGroup createImplementationGroup();
-
-	/**
-	 * Returns a new object of class '<em>Assembly</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assembly</em>'.
-	 * @generated
-	 */
-	Assembly createAssembly();
-
-	/**
-	 * Returns a new object of class '<em>Flatten</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flatten</em>'.
-	 * @generated
-	 */
-	Flatten createFlatten();
 
 	/**
 	 * Returns a new object of class '<em>Comp To OOmapping</em>'.
@@ -167,15 +122,6 @@ public interface FCMFactory extends EFactory {
 	ContainerRule createContainerRule();
 
 	/**
-	 * Returns a new object of class '<em>Config Option</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Config Option</em>'.
-	 * @generated
-	 */
-	ConfigOption createConfigOption();
-
-	/**
 	 * Returns a new object of class '<em>Template Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,24 +149,6 @@ public interface FCMFactory extends EFactory {
 	PortKind createPortKind();
 
 	/**
-	 * Returns a new object of class '<em>Deployment Plan</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Deployment Plan</em>'.
-	 * @generated
-	 */
-	DeploymentPlan createDeploymentPlan();
-
-	/**
-	 * Returns a new object of class '<em>Derived Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Derived Element</em>'.
-	 * @generated
-	 */
-	DerivedElement createDerivedElement();
-
-	/**
 	 * Returns a new object of class '<em>Comp Impl Template</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,42 +156,6 @@ public interface FCMFactory extends EFactory {
 	 * @generated
 	 */
 	CompImplTemplate createCompImplTemplate();
-
-	/**
-	 * Returns a new object of class '<em>Implementation Properties</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementation Properties</em>'.
-	 * @generated
-	 */
-	ImplementationProperties createImplementationProperties();
-
-	/**
-	 * Returns a new object of class '<em>Operating System</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Operating System</em>'.
-	 * @generated
-	 */
-	OperatingSystem createOperatingSystem();
-
-	/**
-	 * Returns a new object of class '<em>Target Architecture</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Target Architecture</em>'.
-	 * @generated
-	 */
-	TargetArchitecture createTargetArchitecture();
-
-	/**
-	 * Returns a new object of class '<em>Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Configuration</em>'.
-	 * @generated
-	 */
-	Configuration createConfiguration();
 
 	/**
 	 * Returns a new object of class '<em>Interception Rule</em>'.
@@ -275,24 +167,6 @@ public interface FCMFactory extends EFactory {
 	InterceptionRule createInterceptionRule();
 
 	/**
-	 * Returns a new object of class '<em>Target</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Target</em>'.
-	 * @generated
-	 */
-	Target createTarget();
-
-	/**
-	 * Returns a new object of class '<em>Compiler Chain</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compiler Chain</em>'.
-	 * @generated
-	 */
-	CompilerChain createCompilerChain();
-
-	/**
 	 * Returns a new object of class '<em>Fragment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -302,58 +176,13 @@ public interface FCMFactory extends EFactory {
 	Fragment createFragment();
 
 	/**
-	 * Returns a new object of class '<em>Copy Attribute Value</em>'.
+	 * Returns a new object of class '<em>Assembly</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Copy Attribute Value</em>'.
+	 * @return a new object of class '<em>Assembly</em>'.
 	 * @generated
 	 */
-	CopyAttributeValue createCopyAttributeValue();
-
-	/**
-	 * Returns a new object of class '<em>Auto Index</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Auto Index</em>'.
-	 * @generated
-	 */
-	AutoIndex createAutoIndex();
-
-	/**
-	 * Returns a new object of class '<em>Auto Index Per Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Auto Index Per Node</em>'.
-	 * @generated
-	 */
-	AutoIndexPerNode createAutoIndexPerNode();
-
-	/**
-	 * Returns a new object of class '<em>Init Precedence</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Init Precedence</em>'.
-	 * @generated
-	 */
-	InitPrecedence createInitPrecedence();
-
-	/**
-	 * Returns a new object of class '<em>Connector Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Connector Configuration</em>'.
-	 * @generated
-	 */
-	ConnectorConfiguration createConnectorConfiguration();
-
-	/**
-	 * Returns a new object of class '<em>Bind Template</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bind Template</em>'.
-	 * @generated
-	 */
-	BindTemplate createBindTemplate();
+	Assembly createAssembly();
 
 	/**
 	 * Returns the package supported by this factory.
@@ -364,4 +193,4 @@ public interface FCMFactory extends EFactory {
 	 */
 	FCMPackage getFCMPackage();
 
-} // FCMFactory
+} //FCMFactory

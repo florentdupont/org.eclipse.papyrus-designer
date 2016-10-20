@@ -1,14 +1,14 @@
 /**
- * Copyright (c) 2013 CEA LIST
- *
+ * Copyright (c) 2015 CEA LIST
+ * 
  * All rights reserved. This program and the accompanying materials are
  * made available under the terms of the Eclipse Public License v1.0 which
  * accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *    Ansgar Radermacher - Initial API and implementation
- *
+ * 
  */
 package org.eclipse.papyrus.designer.components.FCM;
 
@@ -46,7 +46,9 @@ public enum ContainerRuleKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIGHT_WEIGHT_OO_RULE(1, "LightWeightOORule", "LightWeightOORule"), /**
+	LIGHT_WEIGHT_OO_RULE(1, "LightWeightOORule", "LightWeightOORule"), //$NON-NLS-1$ //$NON-NLS-2$
+
+	/**
 	 * The '<em><b>Custom Transformation</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,7 +62,8 @@ public enum ContainerRuleKind implements Enumerator {
 	 * The '<em><b>Component Rule</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Component Rule</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * If the meaning of '<em><b>Component Rule</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #COMPONENT_RULE
@@ -74,7 +77,8 @@ public enum ContainerRuleKind implements Enumerator {
 	 * The '<em><b>Light Weight OO Rule</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Light Weight OO Rule</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * If the meaning of '<em><b>Light Weight OO Rule</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LIGHT_WEIGHT_OO_RULE
@@ -106,7 +110,7 @@ public enum ContainerRuleKind implements Enumerator {
 	 * @generated
 	 */
 	private static final ContainerRuleKind[] VALUES_ARRAY =
-			new ContainerRuleKind[] {
+		new ContainerRuleKind[] {
 			COMPONENT_RULE,
 			LIGHT_WEIGHT_OO_RULE,
 			CUSTOM_TRANSFORMATION,
@@ -211,7 +215,6 @@ public enum ContainerRuleKind implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public int getValue() {
 	  return value;
 	}
@@ -221,7 +224,6 @@ public enum ContainerRuleKind implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getName() {
 	  return name;
 	}
@@ -231,7 +233,6 @@ public enum ContainerRuleKind implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public String getLiteral() {
 	  return literal;
 	}
@@ -246,5 +247,5 @@ public enum ContainerRuleKind implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-
-} // ContainerRuleKind
+	
+} //ContainerRuleKind

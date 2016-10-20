@@ -9,7 +9,7 @@ package org.eclipse.papyrus.designer.components.validation.constraints;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.papyrus.designer.components.FCM.ConfigurationProperty;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.ConfigurationProperty;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Slot;
 import org.eclipse.uml2.uml.StructuralFeature;

@@ -18,24 +18,6 @@
          <constraints
                categories="org.eclipse.papyrus.designer.components.validation.constraints">
             <constraint
-                  class="org.eclipse.papyrus.designer.components.validation.constraints.SystemHasNoPorts"
-                  id="org.eclipse.papyrus.designer.components.validation.constraints.SystemHasNoPorts_ID"
-                  lang="Java"
-                  mode="Batch"
-                  name="org.eclipse.papyrus.designer.components.validation.constraints.SystemHasNoPorts"
-                  severity="ERROR"
-                  statusCode="1">
-               <message>
-                  &quot;Designer: {0}&quot;
-               </message>
-               <description>
-                  The system component (main instance within deployment plan) may not have ports.
-               </description>
-               <target
-                     class="Package">
-               </target>
-            </constraint>
-            <constraint
                   class="org.eclipse.papyrus.designer.components.validation.constraints.InstanceSpecificationSlotForAllProperties"
                   id="org.eclipse.papyrus.designer.components.validation.constraints.InstanceSpecificationSlotForAllProperties_ID"
                   lang="Java"

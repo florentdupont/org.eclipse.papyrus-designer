@@ -21,7 +21,6 @@ import java.util.Map;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.papyrus.designer.components.FCM.BindTemplate;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRuleKind;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
@@ -412,16 +411,8 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 		}
 		else {
 			// template signature found, instantiate container extension via template binding mechanism
-			Classifier actual;
-			if (StereotypeUtil.isApplied(smExtensionPart, BindTemplate.class)) {
-				BindTemplate bt = UMLUtil.getStereotypeApplication(smExtensionPart, BindTemplate.class);
-				// use explicit binding from stereotype
-				actual = (Classifier) bt.getActual().get(0);
-			}
-			else {
-				// use executor component as actual
-				actual = tmComponent;
-			}
+			// use executor component as actual
+			Classifier actual = tmComponent;
 			// template signature and instantiate container extension via the
 			// template binding mechanism, use executor component as actual
 			TemplateBinding binding = TemplateUtils.fixedBinding(copier.target, smContainerExtImpl, actual);
@@ -767,8 +758,8 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 	 * configurators that configure the container instance.
 	 */
 	protected Map<Property, Port> portInfo;
-	
+
 	public static InstanceSpecification instance;
-	
+
 	public static Port port;
 }

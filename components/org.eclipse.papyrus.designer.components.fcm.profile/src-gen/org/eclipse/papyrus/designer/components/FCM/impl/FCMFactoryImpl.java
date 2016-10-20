@@ -18,44 +18,24 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.papyrus.designer.components.FCM.Assembly;
-import org.eclipse.papyrus.designer.components.FCM.AutoIndex;
-import org.eclipse.papyrus.designer.components.FCM.AutoIndexPerNode;
-import org.eclipse.papyrus.designer.components.FCM.BindTemplate;
-import org.eclipse.papyrus.designer.components.FCM.BindingHelper;
+import org.eclipse.papyrus.designer.components.FCM.*;
 import org.eclipse.papyrus.designer.components.FCM.CodeGenOptions;
 import org.eclipse.papyrus.designer.components.FCM.CompImplTemplate;
 import org.eclipse.papyrus.designer.components.FCM.CompToOOmapping;
-import org.eclipse.papyrus.designer.components.FCM.CompilerChain;
-import org.eclipse.papyrus.designer.components.FCM.ConfigOption;
-import org.eclipse.papyrus.designer.components.FCM.Configuration;
-import org.eclipse.papyrus.designer.components.FCM.ConfigurationProperty;
 import org.eclipse.papyrus.designer.components.FCM.Connector;
-import org.eclipse.papyrus.designer.components.FCM.ConnectorConfiguration;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRule;
 import org.eclipse.papyrus.designer.components.FCM.ContainerRuleKind;
-import org.eclipse.papyrus.designer.components.FCM.CopyAttributeValue;
-import org.eclipse.papyrus.designer.components.FCM.DeploymentPlan;
-import org.eclipse.papyrus.designer.components.FCM.DerivedElement;
 import org.eclipse.papyrus.designer.components.FCM.FCMFactory;
 import org.eclipse.papyrus.designer.components.FCM.FCMPackage;
-import org.eclipse.papyrus.designer.components.FCM.Flatten;
-import org.eclipse.papyrus.designer.components.FCM.Fragment;
 import org.eclipse.papyrus.designer.components.FCM.ImplementationGroup;
-import org.eclipse.papyrus.designer.components.FCM.ImplementationProperties;
-import org.eclipse.papyrus.designer.components.FCM.InitPrecedence;
 import org.eclipse.papyrus.designer.components.FCM.InstanceConfigurator;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
 import org.eclipse.papyrus.designer.components.FCM.InterceptionKind;
 import org.eclipse.papyrus.designer.components.FCM.InterceptionRule;
-import org.eclipse.papyrus.designer.components.FCM.OperatingSystem;
 import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
 import org.eclipse.papyrus.designer.components.FCM.RuleApplication;
 import org.eclipse.papyrus.designer.components.FCM.Singleton;
-import org.eclipse.papyrus.designer.components.FCM.Target;
-import org.eclipse.papyrus.designer.components.FCM.TargetArchitecture;
-import org.eclipse.papyrus.designer.components.FCM.Template;
 import org.eclipse.papyrus.designer.components.FCM.TemplatePort;
 import org.eclipse.papyrus.designer.components.FCM.UseInstanceConfigurator;
 
@@ -103,12 +83,7 @@ public class FCMFactoryImpl extends EFactoryImpl implements FCMFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case FCMPackage.TEMPLATE: return createTemplate();
-			case FCMPackage.BINDING_HELPER: return createBindingHelper();
-			case FCMPackage.CONFIGURATION_PROPERTY: return createConfigurationProperty();
 			case FCMPackage.IMPLEMENTATION_GROUP: return createImplementationGroup();
-			case FCMPackage.ASSEMBLY: return createAssembly();
-			case FCMPackage.FLATTEN: return createFlatten();
 			case FCMPackage.COMP_TO_OOMAPPING: return createCompToOOmapping();
 			case FCMPackage.CODE_GEN_OPTIONS: return createCodeGenOptions();
 			case FCMPackage.INTERACTION_COMPONENT: return createInteractionComponent();
@@ -118,27 +93,13 @@ public class FCMFactoryImpl extends EFactoryImpl implements FCMFactory {
 			case FCMPackage.INSTANCE_CONFIGURATOR: return createInstanceConfigurator();
 			case FCMPackage.RULE_APPLICATION: return createRuleApplication();
 			case FCMPackage.CONTAINER_RULE: return createContainerRule();
-			case FCMPackage.CONFIG_OPTION: return createConfigOption();
 			case FCMPackage.TEMPLATE_PORT: return createTemplatePort();
 			case FCMPackage.PORT: return createPort();
 			case FCMPackage.PORT_KIND: return createPortKind();
-			case FCMPackage.DEPLOYMENT_PLAN: return createDeploymentPlan();
-			case FCMPackage.DERIVED_ELEMENT: return createDerivedElement();
 			case FCMPackage.COMP_IMPL_TEMPLATE: return createCompImplTemplate();
-			case FCMPackage.IMPLEMENTATION_PROPERTIES: return createImplementationProperties();
-			case FCMPackage.OPERATING_SYSTEM: return createOperatingSystem();
-			case FCMPackage.TARGET_ARCHITECTURE: return createTargetArchitecture();
-			case FCMPackage.CONFIGURATION: return createConfiguration();
 			case FCMPackage.INTERCEPTION_RULE: return createInterceptionRule();
-			case FCMPackage.TARGET: return createTarget();
-			case FCMPackage.COMPILER_CHAIN: return createCompilerChain();
 			case FCMPackage.FRAGMENT: return createFragment();
-			case FCMPackage.COPY_ATTRIBUTE_VALUE: return createCopyAttributeValue();
-			case FCMPackage.AUTO_INDEX: return createAutoIndex();
-			case FCMPackage.AUTO_INDEX_PER_NODE: return createAutoIndexPerNode();
-			case FCMPackage.INIT_PRECEDENCE: return createInitPrecedence();
-			case FCMPackage.CONNECTOR_CONFIGURATION: return createConnectorConfiguration();
-			case FCMPackage.BIND_TEMPLATE: return createBindTemplate();
+			case FCMPackage.ASSEMBLY: return createAssembly();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -184,64 +145,9 @@ public class FCMFactoryImpl extends EFactoryImpl implements FCMFactory {
 	 * @generated
 	 */
 	@Override
-	public Template createTemplate() {
-		TemplateImpl template = new TemplateImpl();
-		return template;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public BindingHelper createBindingHelper() {
-		BindingHelperImpl bindingHelper = new BindingHelperImpl();
-		return bindingHelper;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ConfigurationProperty createConfigurationProperty() {
-		ConfigurationPropertyImpl configurationProperty = new ConfigurationPropertyImpl();
-		return configurationProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public ImplementationGroup createImplementationGroup() {
 		ImplementationGroupImpl implementationGroup = new ImplementationGroupImpl();
 		return implementationGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Assembly createAssembly() {
-		AssemblyImpl assembly = new AssemblyImpl();
-		return assembly;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Flatten createFlatten() {
-		FlattenImpl flatten = new FlattenImpl();
-		return flatten;
 	}
 
 	/**
@@ -349,17 +255,6 @@ public class FCMFactoryImpl extends EFactoryImpl implements FCMFactory {
 	 * @generated
 	 */
 	@Override
-	public ConfigOption createConfigOption() {
-		ConfigOptionImpl configOption = new ConfigOptionImpl();
-		return configOption;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public TemplatePort createTemplatePort() {
 		TemplatePortImpl templatePort = new TemplatePortImpl();
 		return templatePort;
@@ -393,75 +288,9 @@ public class FCMFactoryImpl extends EFactoryImpl implements FCMFactory {
 	 * @generated
 	 */
 	@Override
-	public DeploymentPlan createDeploymentPlan() {
-		DeploymentPlanImpl deploymentPlan = new DeploymentPlanImpl();
-		return deploymentPlan;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DerivedElement createDerivedElement() {
-		DerivedElementImpl derivedElement = new DerivedElementImpl();
-		return derivedElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public CompImplTemplate createCompImplTemplate() {
 		CompImplTemplateImpl compImplTemplate = new CompImplTemplateImpl();
 		return compImplTemplate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ImplementationProperties createImplementationProperties() {
-		ImplementationPropertiesImpl implementationProperties = new ImplementationPropertiesImpl();
-		return implementationProperties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public OperatingSystem createOperatingSystem() {
-		OperatingSystemImpl operatingSystem = new OperatingSystemImpl();
-		return operatingSystem;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TargetArchitecture createTargetArchitecture() {
-		TargetArchitectureImpl targetArchitecture = new TargetArchitectureImpl();
-		return targetArchitecture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Configuration createConfiguration() {
-		ConfigurationImpl configuration = new ConfigurationImpl();
-		return configuration;
 	}
 
 	/**
@@ -480,29 +309,6 @@ public class FCMFactoryImpl extends EFactoryImpl implements FCMFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Target createTarget() {
-		TargetImpl target = new TargetImpl();
-		return target;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public CompilerChain createCompilerChain() {
-		CompilerChainImpl compilerChain = new CompilerChainImpl();
-		return compilerChain;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Fragment createFragment() {
 		FragmentImpl fragment = new FragmentImpl();
 		return fragment;
@@ -513,65 +319,9 @@ public class FCMFactoryImpl extends EFactoryImpl implements FCMFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public CopyAttributeValue createCopyAttributeValue() {
-		CopyAttributeValueImpl copyAttributeValue = new CopyAttributeValueImpl();
-		return copyAttributeValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public AutoIndex createAutoIndex() {
-		AutoIndexImpl autoIndex = new AutoIndexImpl();
-		return autoIndex;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public AutoIndexPerNode createAutoIndexPerNode() {
-		AutoIndexPerNodeImpl autoIndexPerNode = new AutoIndexPerNodeImpl();
-		return autoIndexPerNode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public InitPrecedence createInitPrecedence() {
-		InitPrecedenceImpl initPrecedence = new InitPrecedenceImpl();
-		return initPrecedence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ConnectorConfiguration createConnectorConfiguration() {
-		ConnectorConfigurationImpl connectorConfiguration = new ConnectorConfigurationImpl();
-		return connectorConfiguration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public BindTemplate createBindTemplate() {
-		BindTemplateImpl bindTemplate = new BindTemplateImpl();
-		return bindTemplate;
+	public Assembly createAssembly() {
+		AssemblyImpl assembly = new AssemblyImpl();
+		return assembly;
 	}
 
 	/**

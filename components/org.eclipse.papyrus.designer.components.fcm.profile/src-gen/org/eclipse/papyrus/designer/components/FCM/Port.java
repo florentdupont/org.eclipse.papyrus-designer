@@ -1,18 +1,17 @@
 /**
- * Copyright (c) 2013 CEA LIST
- *
+ * Copyright (c) 2015 CEA LIST
+ * 
  * All rights reserved. This program and the accompanying materials are
  * made available under the terms of the Eclipse Public License v1.0 which
  * accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *    Ansgar Radermacher - Initial API and implementation
- *
+ * 
  */
 package org.eclipse.papyrus.designer.components.FCM;
 
-import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Type;
 
 /**
@@ -38,7 +37,8 @@ public interface Port extends ConfigurableElementInstance {
 	 * Returns the value of the '<em><b>Base Port</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Base Port</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Base Port</em>' reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Port</em>' reference.
@@ -63,7 +63,8 @@ public interface Port extends ConfigurableElementInstance {
 	 * Returns the value of the '<em><b>Kind</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Kind</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Kind</em>' reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Kind</em>' reference.
@@ -113,5 +114,5 @@ public interface Port extends ConfigurableElementInstance {
 	/**
 	 * Update the derived interfaces of a port. Manually added method
 	 */
-	void update();
+	public void update();
 } // Port

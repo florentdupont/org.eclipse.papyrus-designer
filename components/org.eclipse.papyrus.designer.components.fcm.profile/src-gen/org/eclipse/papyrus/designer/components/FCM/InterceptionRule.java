@@ -1,20 +1,22 @@
 /**
- * Copyright (c) 2013 CEA LIST
- *
+ * Copyright (c) 2015 CEA LIST
+ * 
  * All rights reserved. This program and the accompanying materials are
  * made available under the terms of the Eclipse Public License v1.0 which
  * accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *    Ansgar Radermacher - Initial API and implementation
- *
+ * 
  */
 package org.eclipse.papyrus.designer.components.FCM;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.uml2.uml.Feature;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Property;
@@ -44,7 +46,8 @@ public interface InterceptionRule extends EObject {
 	 * The literals are from the enumeration {@link org.eclipse.papyrus.designer.components.FCM.InterceptionKind}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Interception Kind</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Interception Kind</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interception Kind</em>' attribute.
@@ -72,7 +75,8 @@ public interface InterceptionRule extends EObject {
 	 * The list contents are of type {@link org.eclipse.uml2.uml.Feature}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Interception Set</em>' reference list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Interception Set</em>' reference list isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interception Set</em>' reference list.
@@ -110,7 +114,8 @@ public interface InterceptionRule extends EObject {
 	 * Returns the value of the '<em><b>Base Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Base Property</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Base Property</em>' reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Property</em>' reference.
@@ -135,7 +140,8 @@ public interface InterceptionRule extends EObject {
 	 * Returns the value of the '<em><b>Base Operation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Base Operation</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Base Operation</em>' reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Operation</em>' reference.

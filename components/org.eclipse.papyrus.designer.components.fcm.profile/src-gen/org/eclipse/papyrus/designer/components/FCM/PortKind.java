@@ -1,18 +1,19 @@
 /**
- * Copyright (c) 2013 CEA LIST
- *
+ * Copyright (c) 2015 CEA LIST
+ * 
  * All rights reserved. This program and the accompanying materials are
  * made available under the terms of the Eclipse Public License v1.0 which
  * accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *    Ansgar Radermacher - Initial API and implementation
- *
+ * 
  */
 package org.eclipse.papyrus.designer.components.FCM;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.uml2.uml.Interface;
 
 /**
@@ -39,7 +40,8 @@ public interface PortKind extends EObject {
 	 * Returns the value of the '<em><b>Base Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Base Class</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Base Class</em>' reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Class</em>' reference.
@@ -64,7 +66,8 @@ public interface PortKind extends EObject {
 	 * Returns the value of the '<em><b>Provided Interface</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provided Interface</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Provided Interface</em>' reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Interface</em>' reference.
@@ -89,7 +92,8 @@ public interface PortKind extends EObject {
 	 * Returns the value of the '<em><b>Required Interface</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Interface</em>' reference isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Required Interface</em>' reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Interface</em>' reference.
@@ -114,7 +118,8 @@ public interface PortKind extends EObject {
 	 * Returns the value of the '<em><b>Extended Port</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Extended Port</em>' attribute isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Extended Port</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extended Port</em>' attribute.

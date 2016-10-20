@@ -15,9 +15,8 @@
 package org.eclipse.papyrus.designer.components.transformation.listeners;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.papyrus.designer.components.FCM.DeploymentPlan;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.infra.core.listenerservice.IPapyrusListener;
-import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
@@ -46,13 +45,8 @@ public class DepPlanListener implements IPapyrusListener {
 			// Object oldValue = notification.getOldValue ();
 			if (notifier instanceof Package) {
 				DeploymentPlan de = UMLUtil.getStereotypeApplication((Package) notifier, DeploymentPlan.class);
-				Object mainInstance = (de != null) ? de.getMainInstance() : null;
-				if (mainInstance instanceof InstanceSpecification) {
-					// TODO user wants to declare the system component, the instance specification should be created
-					// automatically
-
-				}
-				// if ((oldValue instanceof ) && (notifier instanceof Class)) {
+				// TODO user wants to declare the system component, the instance specification should be created
+				// automatically
 			}
 		}
 	}
