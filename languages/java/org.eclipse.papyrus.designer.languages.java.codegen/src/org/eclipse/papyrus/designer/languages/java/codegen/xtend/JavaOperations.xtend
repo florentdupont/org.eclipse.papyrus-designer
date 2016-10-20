@@ -25,6 +25,7 @@ import org.eclipse.uml2.uml.Interface
 import org.eclipse.uml2.uml.Operation
 import org.eclipse.uml2.uml.profile.standard.Create
 import org.eclipse.uml2.uml.util.UMLUtil
+import org.eclipse.uml2.uml.ParameterDirectionKind
 
 class JavaOperations {
 	static def javaOperationImplementation(Operation operation) '''	
@@ -35,8 +36,18 @@ class JavaOperations {
 		if ((operation.type == null) || isConstructor(operation)) {
 			JavaOperations.constructorOrVoid(operation)
 		} else {
-			JavaGenUtils.javaQualifiedName(operation.type, operation.owner) + ' ' 
+			JavaGenUtils.javaQualifiedName(operation.type, operation.owner) + Modifier.modArray(JavaOperations.returnParameter(operation)) + ' '
 		}
+	}
+	
+	static def returnParameter(Operation operation) {
+		for (parameter : operation.returnResult()) {
+			if (parameter.direction == ParameterDirectionKind.RETURN_LITERAL && parameter.type == operation.type) {
+				return parameter
+			}
+		}
+		
+		return null;
 	}
 	
 	static def throwss(Operation operation) '''
