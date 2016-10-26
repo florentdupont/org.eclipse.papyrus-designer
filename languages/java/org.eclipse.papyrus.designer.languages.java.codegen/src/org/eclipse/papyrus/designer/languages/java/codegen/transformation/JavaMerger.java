@@ -889,12 +889,12 @@ public class JavaMerger {
 
 						// Modifiers
 						if (leftTypeDeclaration.getModifiers() != rightTypeDeclaration.getModifiers()) {
+							needSave = true;
 							rightTypeDeclaration.modifiers().clear();
 							List newModifiers = astRoot.getAST().newModifiers(leftTypeDeclaration.getModifiers());
 							for (Object object : newModifiers) {
 								IExtendedModifier modifier = (IExtendedModifier) object;
 								rightTypeDeclaration.modifiers().add(modifier);
-								needSave = true;
 							}
 						}
 
@@ -943,13 +943,13 @@ public class JavaMerger {
 							}
 
 							if (differentInterfaces) {
+								needSave = true;
 								rightTypeDeclaration.superInterfaceTypes().clear();
 								List copyOfLeftSuperInterfaceTypes = ASTNode.copySubtrees(astRoot.getAST(), leftTypeDeclaration.superInterfaceTypes());
 								if (copyOfLeftSuperInterfaceTypes != null) {
 									for (Object copyOfLeftSuperInterfaceType : copyOfLeftSuperInterfaceTypes) {
 										if (copyOfLeftSuperInterfaceType instanceof Type) {
 											rightTypeDeclaration.superInterfaceTypes().add(copyOfLeftSuperInterfaceType);
-											needSave = true;
 										}
 									}
 								}
@@ -974,13 +974,13 @@ public class JavaMerger {
 						}
 						
 						if (differentTypeParameters) {
+							needSave = true;
 							rightTypeDeclaration.typeParameters().clear();
 							List copyOfLeftTypeParameters = ASTNode.copySubtrees(astRoot.getAST(), leftTypeDeclaration.typeParameters());
 							if (copyOfLeftTypeParameters != null) {
 								for (Object copyOfLeftTypeParameter : copyOfLeftTypeParameters) {
 									if (copyOfLeftTypeParameter instanceof TypeParameter) {
 										rightTypeDeclaration.typeParameters().add(copyOfLeftTypeParameter);
-										needSave = true;
 									}
 								}
 							}
