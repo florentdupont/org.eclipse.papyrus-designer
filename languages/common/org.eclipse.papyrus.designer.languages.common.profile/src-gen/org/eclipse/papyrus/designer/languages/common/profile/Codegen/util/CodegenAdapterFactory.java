@@ -116,6 +116,10 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 				return createParentArtifactAdapter();
 			}
 			@Override
+			public Adapter caseProperty(Property object) {
+				return createPropertyAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -258,6 +262,20 @@ public class CodegenAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParentArtifactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property
+	 * @generated
+	 */
+	public Adapter createPropertyAdapter() {
 		return null;
 	}
 

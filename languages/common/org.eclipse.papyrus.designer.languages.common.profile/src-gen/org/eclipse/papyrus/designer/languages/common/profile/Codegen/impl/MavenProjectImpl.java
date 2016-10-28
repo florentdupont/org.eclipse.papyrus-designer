@@ -19,6 +19,7 @@ import org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenDepend
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject;
 
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property;
 import org.eclipse.uml2.uml.Model;
 
 /**
@@ -33,9 +34,10 @@ import org.eclipse.uml2.uml.Model;
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getBase_Model <em>Base Model</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getArchType <em>Arch Type</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getArcheType <em>Arche Type</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,14 +114,14 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	protected Model base_Model;
 
 	/**
-	 * The cached value of the '{@link #getArchType() <em>Arch Type</em>}' reference.
+	 * The cached value of the '{@link #getArcheType() <em>Arche Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getArchType()
+	 * @see #getArcheType()
 	 * @generated
 	 * @ordered
 	 */
-	protected ArcheType archType;
+	protected ArcheType archeType;
 
 	/**
 	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' reference list.
@@ -140,6 +142,16 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	 * @ordered
 	 */
 	protected ParentArtifact parent;
+
+	/**
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Property> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -266,16 +278,16 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ArcheType getArchType() {
-		if (archType != null && archType.eIsProxy()) {
-			InternalEObject oldArchType = (InternalEObject)archType;
-			archType = (ArcheType)eResolveProxy(oldArchType);
-			if (archType != oldArchType) {
+	public ArcheType getArcheType() {
+		if (archeType != null && archeType.eIsProxy()) {
+			InternalEObject oldArcheType = (InternalEObject)archeType;
+			archeType = (ArcheType)eResolveProxy(oldArcheType);
+			if (archeType != oldArcheType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CodegenPackage.MAVEN_PROJECT__ARCH_TYPE, oldArchType, archType));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE, oldArcheType, archeType));
 			}
 		}
-		return archType;
+		return archeType;
 	}
 
 	/**
@@ -283,8 +295,8 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ArcheType basicGetArchType() {
-		return archType;
+	public ArcheType basicGetArcheType() {
+		return archeType;
 	}
 
 	/**
@@ -292,11 +304,11 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setArchType(ArcheType newArchType) {
-		ArcheType oldArchType = archType;
-		archType = newArchType;
+	public void setArcheType(ArcheType newArcheType) {
+		ArcheType oldArcheType = archeType;
+		archeType = newArcheType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_PROJECT__ARCH_TYPE, oldArchType, archType));
+			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE, oldArcheType, archeType));
 	}
 
 	/**
@@ -354,6 +366,18 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Property> getProperties() {
+		if (properties == null) {
+			properties = new EObjectResolvingEList<Property>(Property.class, this, CodegenPackage.MAVEN_PROJECT__PROPERTIES);
+		}
+		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -366,14 +390,16 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 			case CodegenPackage.MAVEN_PROJECT__BASE_MODEL:
 				if (resolve) return getBase_Model();
 				return basicGetBase_Model();
-			case CodegenPackage.MAVEN_PROJECT__ARCH_TYPE:
-				if (resolve) return getArchType();
-				return basicGetArchType();
+			case CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE:
+				if (resolve) return getArcheType();
+				return basicGetArcheType();
 			case CodegenPackage.MAVEN_PROJECT__DEPENDENCIES:
 				return getDependencies();
 			case CodegenPackage.MAVEN_PROJECT__PARENT:
 				if (resolve) return getParent();
 				return basicGetParent();
+			case CodegenPackage.MAVEN_PROJECT__PROPERTIES:
+				return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -399,8 +425,8 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 			case CodegenPackage.MAVEN_PROJECT__BASE_MODEL:
 				setBase_Model((Model)newValue);
 				return;
-			case CodegenPackage.MAVEN_PROJECT__ARCH_TYPE:
-				setArchType((ArcheType)newValue);
+			case CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE:
+				setArcheType((ArcheType)newValue);
 				return;
 			case CodegenPackage.MAVEN_PROJECT__DEPENDENCIES:
 				getDependencies().clear();
@@ -408,6 +434,10 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 				return;
 			case CodegenPackage.MAVEN_PROJECT__PARENT:
 				setParent((ParentArtifact)newValue);
+				return;
+			case CodegenPackage.MAVEN_PROJECT__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -433,14 +463,17 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 			case CodegenPackage.MAVEN_PROJECT__BASE_MODEL:
 				setBase_Model((Model)null);
 				return;
-			case CodegenPackage.MAVEN_PROJECT__ARCH_TYPE:
-				setArchType((ArcheType)null);
+			case CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE:
+				setArcheType((ArcheType)null);
 				return;
 			case CodegenPackage.MAVEN_PROJECT__DEPENDENCIES:
 				getDependencies().clear();
 				return;
 			case CodegenPackage.MAVEN_PROJECT__PARENT:
 				setParent((ParentArtifact)null);
+				return;
+			case CodegenPackage.MAVEN_PROJECT__PROPERTIES:
+				getProperties().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -462,12 +495,14 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case CodegenPackage.MAVEN_PROJECT__BASE_MODEL:
 				return base_Model != null;
-			case CodegenPackage.MAVEN_PROJECT__ARCH_TYPE:
-				return archType != null;
+			case CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE:
+				return archeType != null;
 			case CodegenPackage.MAVEN_PROJECT__DEPENDENCIES:
 				return dependencies != null && !dependencies.isEmpty();
 			case CodegenPackage.MAVEN_PROJECT__PARENT:
 				return parent != null;
+			case CodegenPackage.MAVEN_PROJECT__PROPERTIES:
+				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

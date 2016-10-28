@@ -54,12 +54,14 @@
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Model" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Model"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="archType" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="archeType" ordered="false"
         lowerBound="1" eType="#//ArcheType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" ordered="false"
         upperBound="-1" eType="#//MavenDependency"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" ordered="false"
         lowerBound="1" eType="#//ParentArtifact"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
+        upperBound="-1" eType="#//Property"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArcheType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" ordered="false"
@@ -99,6 +101,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" ordered="false"
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>

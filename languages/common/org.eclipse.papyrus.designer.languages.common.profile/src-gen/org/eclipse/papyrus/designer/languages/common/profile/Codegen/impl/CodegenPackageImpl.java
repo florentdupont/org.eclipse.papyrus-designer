@@ -35,6 +35,7 @@ import org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project;
 
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property;
 import org.eclipse.uml2.types.TypesPackage;
 
 import org.eclipse.uml2.uml.UMLPackage;
@@ -108,6 +109,13 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * @generated
 	 */
 	private EClass parentArtifactEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -347,7 +355,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMavenProject_ArchType() {
+	public EReference getMavenProject_ArcheType() {
 		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -367,6 +375,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 */
 	public EReference getMavenProject_Parent() {
 		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMavenProject_Properties() {
+		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -563,6 +580,42 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProperty() {
+		return propertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Name() {
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Value() {
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProperty_Base_Class() {
+		return (EReference)propertyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getProject_GenerationMode() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(1);
 	}
@@ -627,9 +680,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(mavenProjectEClass, MAVEN_PROJECT__ARTIFACT_ID);
 		createEAttribute(mavenProjectEClass, MAVEN_PROJECT__VERSION);
 		createEReference(mavenProjectEClass, MAVEN_PROJECT__BASE_MODEL);
-		createEReference(mavenProjectEClass, MAVEN_PROJECT__ARCH_TYPE);
+		createEReference(mavenProjectEClass, MAVEN_PROJECT__ARCHE_TYPE);
 		createEReference(mavenProjectEClass, MAVEN_PROJECT__DEPENDENCIES);
 		createEReference(mavenProjectEClass, MAVEN_PROJECT__PARENT);
+		createEReference(mavenProjectEClass, MAVEN_PROJECT__PROPERTIES);
 
 		archeTypeEClass = createEClass(ARCHE_TYPE);
 		createEAttribute(archeTypeEClass, ARCHE_TYPE__GROUP_ID);
@@ -655,6 +709,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(parentArtifactEClass, PARENT_ARTIFACT__ARTIFACT_ID);
 		createEAttribute(parentArtifactEClass, PARENT_ARTIFACT__VERSION);
 		createEReference(parentArtifactEClass, PARENT_ARTIFACT__BASE_CLASS);
+
+		propertyEClass = createEClass(PROPERTY);
+		createEAttribute(propertyEClass, PROPERTY__NAME);
+		createEAttribute(propertyEClass, PROPERTY__VALUE);
+		createEReference(propertyEClass, PROPERTY__BASE_CLASS);
 
 		// Create enums
 		generationModeKindEEnum = createEEnum(GENERATION_MODE_KIND);
@@ -717,9 +776,10 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getMavenProject_ArtifactId(), theTypesPackage.getString(), "artifactId", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getMavenProject_Version(), theTypesPackage.getString(), "version", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMavenProject_Base_Model(), theUMLPackage.getModel(), null, "base_Model", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMavenProject_ArchType(), this.getArcheType(), null, "archType", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMavenProject_ArcheType(), this.getArcheType(), null, "archeType", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMavenProject_Dependencies(), this.getMavenDependency(), null, "dependencies", null, 0, -1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMavenProject_Parent(), this.getParentArtifact(), null, "parent", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMavenProject_Properties(), this.getProperty(), null, "properties", null, 0, -1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(archeTypeEClass, ArcheType.class, "ArcheType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArcheType_GroupId(), theTypesPackage.getString(), "groupId", null, 1, 1, ArcheType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -745,6 +805,11 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getParentArtifact_ArtifactId(), theTypesPackage.getString(), "artifactId", null, 1, 1, ParentArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getParentArtifact_Version(), theTypesPackage.getString(), "version", null, 1, 1, ParentArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParentArtifact_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, ParentArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProperty_Name(), theTypesPackage.getString(), "name", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getProperty_Value(), theTypesPackage.getString(), "value", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProperty_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(generationModeKindEEnum, GenerationModeKind.class, "GenerationModeKind");

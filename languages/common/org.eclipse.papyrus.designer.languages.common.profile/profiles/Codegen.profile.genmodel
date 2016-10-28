@@ -67,11 +67,13 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/base_Model"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/archType"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/archeType"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/dependencies"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/parent"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//MavenProject/properties"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//ArcheType">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ArcheType/groupId"/>
@@ -102,6 +104,12 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//ParentArtifact/version"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//ParentArtifact/base_Class"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Codegen.ecore#//Property">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//Property/name"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Codegen.ecore#//Property/value"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Codegen.ecore#//Property/base_Class"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

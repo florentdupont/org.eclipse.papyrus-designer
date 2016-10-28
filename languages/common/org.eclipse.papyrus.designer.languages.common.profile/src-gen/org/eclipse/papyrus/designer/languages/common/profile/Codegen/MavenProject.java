@@ -20,9 +20,10 @@ import org.eclipse.uml2.uml.Model;
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getBase_Model <em>Base Model</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArchType <em>Arch Type</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArcheType <em>Arche Type</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage#getMavenProject()
@@ -135,30 +136,30 @@ public interface MavenProject extends EObject {
 	void setBase_Model(Model value);
 
 	/**
-	 * Returns the value of the '<em><b>Arch Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Arche Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Arch Type</em>' reference isn't clear,
+	 * If the meaning of the '<em>Arche Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Arch Type</em>' reference.
-	 * @see #setArchType(ArcheType)
-	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage#getMavenProject_ArchType()
+	 * @return the value of the '<em>Arche Type</em>' reference.
+	 * @see #setArcheType(ArcheType)
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage#getMavenProject_ArcheType()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ArcheType getArchType();
+	ArcheType getArcheType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArchType <em>Arch Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArcheType <em>Arche Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Arch Type</em>' reference.
-	 * @see #getArchType()
+	 * @param value the new value of the '<em>Arche Type</em>' reference.
+	 * @see #getArcheType()
 	 * @generated
 	 */
-	void setArchType(ArcheType value);
+	void setArcheType(ArcheType value);
 
 	/**
 	 * Returns the value of the '<em><b>Dependencies</b></em>' reference list.
@@ -201,5 +202,21 @@ public interface MavenProject extends EObject {
 	 * @generated
 	 */
 	void setParent(ParentArtifact value);
+
+	/**
+	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Properties</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Properties</em>' reference list.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage#getMavenProject_Properties()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	EList<Property> getProperties();
 
 } // MavenProject

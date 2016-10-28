@@ -78,6 +78,7 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 			case CodegenPackage.MAVEN_DEPENDENCY: return createMavenDependency();
 			case CodegenPackage.EXCLUDED_DEPENDENCY: return createExcludedDependency();
 			case CodegenPackage.PARENT_ARTIFACT: return createParentArtifact();
+			case CodegenPackage.PROPERTY: return createProperty();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -201,6 +202,16 @@ public class CodegenFactoryImpl extends EFactoryImpl implements CodegenFactory {
 	public ParentArtifact createParentArtifact() {
 		ParentArtifactImpl parentArtifact = new ParentArtifactImpl();
 		return parentArtifact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Property createProperty() {
+		PropertyImpl property = new PropertyImpl();
+		return property;
 	}
 
 	/**

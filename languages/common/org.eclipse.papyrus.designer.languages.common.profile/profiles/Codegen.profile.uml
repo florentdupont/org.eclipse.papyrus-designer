@@ -108,6 +108,10 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5Gox4IxhEeaOauF9JIo_Gw" value="*"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_FFlPIIxtEeaOauF9JIo_Gw" name="parent" type="_gi7xkIxsEeaOauF9JIo_Gw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_EMucQJtaEeatqKwg1x5n1Q" name="properties" type="_UCA58JtaEeatqKwg1x5n1Q">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WxbmMJtdEeatqKwg1x5n1Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WxlXMJtdEeatqKwg1x5n1Q" value="*"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_APV34IrLEeat8a5HiKvSeg" name="E_MavenProject_Model1" memberEnd="_APb-gIrLEeat8a5HiKvSeg _APdzsIrLEeat8a5HiKvSeg">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_APb-gIrLEeat8a5HiKvSeg" name="extension_MavenProject" type="_ezeagIrJEeat8a5HiKvSeg" aggregation="composite" association="_APV34IrLEeat8a5HiKvSeg"/>
@@ -183,6 +187,20 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_V1UT8I6_EeaOauF9JIo_Gw" name="E_ExcludedDependency_Class1" memberEnd="_V1U7AI6_EeaOauF9JIo_Gw _V1ViEI6_EeaOauF9JIo_Gw">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_V1U7AI6_EeaOauF9JIo_Gw" name="extension_ExcludedDependency" type="_D2ZQQI6_EeaOauF9JIo_Gw" aggregation="composite" association="_V1UT8I6_EeaOauF9JIo_Gw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_UCA58JtaEeatqKwg1x5n1Q" name="Property">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WcnUIJtaEeatqKwg1x5n1Q" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Zten8JtaEeatqKwg1x5n1Q" name="value">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_q60dsZtaEeatqKwg1x5n1Q" name="base_Class" association="_q6qssJtaEeatqKwg1x5n1Q">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_q6qssJtaEeatqKwg1x5n1Q" name="E_Property_Class1" memberEnd="_q60dsJtaEeatqKwg1x5n1Q _q60dsZtaEeatqKwg1x5n1Q">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_q60dsJtaEeatqKwg1x5n1Q" name="extension_Property" type="_UCA58JtaEeatqKwg1x5n1Q" aggregation="composite" association="_q6qssJtaEeatqKwg1x5n1Q"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_QvyJsBa_EearhdjjJ6cVzQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Qv1NABa_EearhdjjJ6cVzQ" source="http://www.eclipse.org/uml2/2.0.0/UML">

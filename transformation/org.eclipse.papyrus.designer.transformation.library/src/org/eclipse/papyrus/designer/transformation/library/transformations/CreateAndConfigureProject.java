@@ -15,6 +15,11 @@
 package org.eclipse.papyrus.designer.transformation.library.transformations;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.OperatingSystem;
@@ -42,9 +47,10 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 public class CreateAndConfigureProject implements IM2MTrafoCDP {
 
 	/**
-	 * Gather configuration data for a code generation project
-	 * In particular, a class might be stereotyped to provide additional information
-	 * about required compilation options (in case of C++ include paths, libraries, ...)
+	 * Gather configuration data for a code generation project In particular, a
+	 * class might be stereotyped to provide additional information about
+	 * required compilation options (in case of C++ include paths, libraries,
+	 * ...)
 	 */
 	public class GatherConfigData implements IM2MTrafoElem {
 
@@ -73,15 +79,47 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 
 	/**
 	 * Get an existing or create a new project for a given language
-	 * @param projectSupport project support instance (for a given programming language)
-	 * @param projectName the name of the project to create (or get, if it already exists)
-	 * @return the project or null, if no project creation support is available for the target language
+	 * 
+	 * @param projectSupport
+	 *            project support instance (for a given programming language)
+	 * @param projectName
+	 *            the name of the project to create (or get, if it already
+	 *            exists)
+	 * @param targetLanguage
+	 * @return the project or null, if no project creation support is available
+	 *         for the target language
 	 * @throws TransformationException
 	 */
-	protected IProject getOrCreateProject(ILangProjectSupport projectSupport, String projectName) throws TransformationException {
+	protected IProject getOrCreateProject(ILangProjectSupport projectSupport, String projectName, String targetLanguage)
+			throws TransformationException {
 		IProject genProject = ProjectManagement.getNamedProject(projectName);
 		if ((genProject == null) || !genProject.exists()) {
+			IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+			IProject[] projectsBeforeCreation = root.getProjects();
 			genProject = projectSupport.createProject(projectName);
+			try {
+				root.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				IProject[] projectsAfterCreation = root.getProjects();
+				boolean found = false;
+				for (int i = 0; i < projectsBeforeCreation.length; i++) {
+					if (!projectsAfterCreation[i].getName().equals(projectsBeforeCreation[i].getName())) {
+						genProject = projectsAfterCreation[i];
+						found = true;
+						break;
+					}
+				}
+				// The generated project is the last in the projects list in the
+				// workspace
+				if ((found == false) && (projectsBeforeCreation.length < projectsAfterCreation.length)) {
+					genProject = projectsAfterCreation[projectsAfterCreation.length - 1];
+				}
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+			if ((genProject == null) || !genProject.exists()) {
+				throw new RuntimeException(
+						"Could not create "+ targetLanguage +" project. This might indicate that there is a problem with your "+ targetLanguage +" installation."); //$NON-NLS-1$
+			}
 			// project is new, force re-write of settings
 			UIContext.configureProject = true;
 		}
@@ -89,8 +127,8 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 	}
 
 	/**
-	 * Return the name of a project that is associated with a model that
-	 * is deployed on a node (in the context of a deployment plan)
+	 * Return the name of a project that is associated with a model that is
+	 * deployed on a node (in the context of a deployment plan)
 	 * 
 	 * @param model
 	 *            The model that is deployed
@@ -101,7 +139,8 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 	public String getProjectName(Package model, InstanceSpecification node) {
 		String projectName = model.getName() + "_" + node.getName(); //$NON-NLS-1$
 		projectName += "_" + TransformationContext.current.deploymentPlan.getName(); //$NON-NLS-1$
-		DeploymentPlan depPlan = UMLUtil.getStereotypeApplication(TransformationContext.current.deploymentPlan, DeploymentPlan.class);
+		DeploymentPlan depPlan = UMLUtil.getStereotypeApplication(TransformationContext.current.deploymentPlan,
+				DeploymentPlan.class);
 		if (depPlan != null) {
 			for (String mapping : depPlan.getProjectMappings()) {
 				if (mapping.startsWith(projectName)) {
@@ -114,7 +153,7 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 		}
 		return projectName;
 	}
-	
+
 	protected AbstractSettings settings;
 
 	protected ILangProjectSupport projectSupport;
@@ -122,17 +161,18 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 	@Override
 	public void applyTrafo(M2MTrafo trafo, Package deploymentPlan) throws TransformationException {
 		TransformationContext tc = TransformationContext.current;
-		EList<InstanceSpecification> topLevelInstances = 
-				DepUtils.getTopLevelInstances(TransformationContext.current.deploymentPlan);
-		// get first language (restricted to single target language, acceptable?)
+		EList<InstanceSpecification> topLevelInstances = DepUtils
+				.getTopLevelInstances(TransformationContext.current.deploymentPlan);
+		// get first language (restricted to single target language,
+		// acceptable?)
 		String targetLanguage = DepUtils.getTargetLanguage(topLevelInstances.iterator().next());
 		String projectName = getProjectName(tc.modelRoot, tc.node);
 		projectSupport = LanguageProjectSupport.getProjectSupport(targetLanguage);
-		IProject genProject = getOrCreateProject(projectSupport, projectName);
+		IProject genProject = getOrCreateProject(projectSupport, projectName, targetLanguage);
 		if (genProject == null) {
-			throw new TransformationException(String.format(Messages.DeployToNodes_CouldNotCreateProject, targetLanguage));
+			throw new TransformationException(
+					String.format(Messages.DeployToNodes_CouldNotCreateProject, targetLanguage));
 		}
-		
 		tc.projectSupport = projectSupport;
 		tc.project = genProject;
 

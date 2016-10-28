@@ -318,13 +318,13 @@ public interface CodegenPackage extends EPackage {
 	int MAVEN_PROJECT__BASE_MODEL = 3;
 
 	/**
-	 * The feature id for the '<em><b>Arch Type</b></em>' reference.
+	 * The feature id for the '<em><b>Arche Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__ARCH_TYPE = 4;
+	int MAVEN_PROJECT__ARCHE_TYPE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Dependencies</b></em>' reference list.
@@ -345,13 +345,22 @@ public interface CodegenPackage extends EPackage {
 	int MAVEN_PROJECT__PARENT = 6;
 
 	/**
+	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_PROJECT__PROPERTIES = 7;
+
+	/**
 	 * The number of structural features of the '<em>Maven Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT_FEATURE_COUNT = 7;
+	int MAVEN_PROJECT_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Maven Project</em>' class.
@@ -628,6 +637,61 @@ public interface CodegenPackage extends EPackage {
 	int PARENT_ARTIFACT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.PropertyImpl
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__VALUE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__BASE_CLASS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.GenerationModeKind <em>Generation Mode Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,7 +699,7 @@ public interface CodegenPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getGenerationModeKind()
 	 * @generated
 	 */
-	int GENERATION_MODE_KIND = 9;
+	int GENERATION_MODE_KIND = 10;
 
 
 	/**
@@ -832,15 +896,15 @@ public interface CodegenPackage extends EPackage {
 	EReference getMavenProject_Base_Model();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArchType <em>Arch Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArcheType <em>Arche Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Arch Type</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArchType()
+	 * @return the meta object for the reference '<em>Arche Type</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArcheType()
 	 * @see #getMavenProject()
 	 * @generated
 	 */
-	EReference getMavenProject_ArchType();
+	EReference getMavenProject_ArcheType();
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getDependencies <em>Dependencies</em>}'.
@@ -863,6 +927,17 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMavenProject_Parent();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getProperties()
+	 * @see #getMavenProject()
+	 * @generated
+	 */
+	EReference getMavenProject_Properties();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType <em>Arche Type</em>}'.
@@ -1092,6 +1167,49 @@ public interface CodegenPackage extends EPackage {
 	EReference getParentArtifact_Base_Class();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property
+	 * @generated
+	 */
+	EClass getProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property#getName()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property#getValue()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property#getBase_Class <em>Base Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Class</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property#getBase_Class()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_Base_Class();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project#getGenerationMode <em>Generation Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1290,12 +1408,12 @@ public interface CodegenPackage extends EPackage {
 		EReference MAVEN_PROJECT__BASE_MODEL = eINSTANCE.getMavenProject_Base_Model();
 
 		/**
-		 * The meta object literal for the '<em><b>Arch Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Arche Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MAVEN_PROJECT__ARCH_TYPE = eINSTANCE.getMavenProject_ArchType();
+		EReference MAVEN_PROJECT__ARCHE_TYPE = eINSTANCE.getMavenProject_ArcheType();
 
 		/**
 		 * The meta object literal for the '<em><b>Dependencies</b></em>' reference list feature.
@@ -1312,6 +1430,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MAVEN_PROJECT__PARENT = eINSTANCE.getMavenProject_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAVEN_PROJECT__PROPERTIES = eINSTANCE.getMavenProject_Properties();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ArcheTypeImpl <em>Arche Type</em>}' class.
@@ -1488,6 +1614,40 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARENT_ARTIFACT__BASE_CLASS = eINSTANCE.getParentArtifact_Base_Class();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.PropertyImpl <em>Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.PropertyImpl
+		 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.CodegenPackageImpl#getProperty()
+		 * @generated
+		 */
+		EClass PROPERTY = eINSTANCE.getProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__BASE_CLASS = eINSTANCE.getProperty_Base_Class();
 
 		/**
 		 * The meta object literal for the '<em><b>Generation Mode</b></em>' attribute feature.
