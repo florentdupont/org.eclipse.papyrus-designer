@@ -48,4 +48,7 @@ public class TransformationContext {
 	public static TransformationContext current;
 	
 	public static Package initialSourceRoot;
+	
+	public static Package initialDeploymentPlan;
+
 }

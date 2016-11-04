@@ -14,6 +14,8 @@
 
 package org.eclipse.papyrus.designer.transformation.library.transformations;
 
+import java.util.StringTokenizer;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -21,6 +23,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.OperatingSystem;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
@@ -29,6 +32,7 @@ import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSet
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.papyrus.designer.transformation.base.UIContext;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.designer.transformation.base.utils.ProjectManagement;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
@@ -113,17 +117,51 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 				if ((found == false) && (projectsBeforeCreation.length < projectsAfterCreation.length)) {
 					genProject = projectsAfterCreation[projectsAfterCreation.length - 1];
 				}
+
 			} catch (CoreException e) {
 				e.printStackTrace();
 			}
 			if ((genProject == null) || !genProject.exists()) {
-				throw new RuntimeException(
-						"Could not create "+ targetLanguage +" project. This might indicate that there is a problem with your "+ targetLanguage +" installation."); //$NON-NLS-1$
+				throw new RuntimeException("Could not create " + targetLanguage //$NON-NLS-1$
+						+ " project. This might indicate that there is a problem with your " + targetLanguage
+						+ " installation.");
 			}
+
 			// project is new, force re-write of settings
 			UIContext.configureProject = true;
 		}
 		return genProject;
+	}
+
+	void storeProjectName(IProject genProject, Package model, InstanceSpecification node) {
+		final String projectGeneratedName = model.getName() + "_" + node.getName() + "_"
+				+ TransformationContext.current.deploymentPlan.getName();
+		if (genProject != null) {
+			final String pName = genProject.getName();
+			CommandSupport.exec(TransformationContext.initialDeploymentPlan, "Change Project Mapping", new Runnable() {
+				@Override
+				public void run() {
+					Package deploymentPlanElement = TransformationContext.initialDeploymentPlan;
+					DeploymentPlan deploymentPlan = UMLUtil.getStereotypeApplication(deploymentPlanElement,
+							DeploymentPlan.class);
+					EList<String> projectMappings = deploymentPlan.getProjectMappings();
+					String newMapping = "";
+					int oldMappingIndex = -1;
+					for (int j = 0; j < projectMappings.size(); j++) {
+						StringTokenizer str = new StringTokenizer(projectMappings.get(j), "=");
+						String genName = str.nextToken();
+						if (genName.equals(projectGeneratedName)) {
+							newMapping = projectGeneratedName + "=" + pName;
+							oldMappingIndex = j;
+						}
+					}
+					if (oldMappingIndex != -1) {
+						projectMappings.remove(oldMappingIndex);
+						projectMappings.add(newMapping);
+					}
+				}
+			});
+		}
 	}
 
 	/**
@@ -173,6 +211,9 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 			throw new TransformationException(
 					String.format(Messages.DeployToNodes_CouldNotCreateProject, targetLanguage));
 		}
+
+		storeProjectName(genProject, tc.modelRoot, tc.node);
+
 		tc.projectSupport = projectSupport;
 		tc.project = genProject;
 
