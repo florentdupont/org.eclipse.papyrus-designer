@@ -45,15 +45,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Element" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MavenProject">
+  <eClassifiers xsi:type="ecore:EClass" name="MavenProject" eSuperTypes="#//Project">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" ordered="false"
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" ordered="false"
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" ordered="false"
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Model" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="archeType" ordered="false"
         lowerBound="1" eType="#//ArcheType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" ordered="false"

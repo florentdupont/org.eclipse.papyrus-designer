@@ -871,71 +871,6 @@ public interface PapyrusJavaPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.impl.JavaProjectSettingsImpl <em>Java Project Settings</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.impl.JavaProjectSettingsImpl
-	 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.impl.PapyrusJavaPackageImpl#getJavaProjectSettings()
-	 * @generated
-	 */
-	int JAVA_PROJECT_SETTINGS = 18;
-
-	/**
-	 * The feature id for the '<em><b>Project Natures</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PROJECT_SETTINGS__PROJECT_NATURES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Class Paths</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PROJECT_SETTINGS__CLASS_PATHS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PROJECT_SETTINGS__OUTPUT_LOCATION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Base Package</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PROJECT_SETTINGS__BASE_PACKAGE = 3;
-
-	/**
-	 * The number of structural features of the '<em>Java Project Settings</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PROJECT_SETTINGS_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Java Project Settings</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_PROJECT_SETTINGS_OPERATION_COUNT = 0;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Array <em>Array</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1479,60 +1414,6 @@ public interface PapyrusJavaPackage extends EPackage {
 	EReference getFinal_Base_Parameter();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings <em>Java Project Settings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Java Project Settings</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings
-	 * @generated
-	 */
-	EClass getJavaProjectSettings();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings#getProjectNatures <em>Project Natures</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Project Natures</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings#getProjectNatures()
-	 * @see #getJavaProjectSettings()
-	 * @generated
-	 */
-	EAttribute getJavaProjectSettings_ProjectNatures();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings#getClassPaths <em>Class Paths</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Class Paths</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings#getClassPaths()
-	 * @see #getJavaProjectSettings()
-	 * @generated
-	 */
-	EAttribute getJavaProjectSettings_ClassPaths();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings#getOutputLocation <em>Output Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Output Location</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings#getOutputLocation()
-	 * @see #getJavaProjectSettings()
-	 * @generated
-	 */
-	EAttribute getJavaProjectSettings_OutputLocation();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings#getBase_Package <em>Base Package</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Base Package</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings#getBase_Package()
-	 * @see #getJavaProjectSettings()
-	 * @generated
-	 */
-	EReference getJavaProjectSettings_Base_Package();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1998,48 +1879,6 @@ public interface PapyrusJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FINAL__BASE_PARAMETER = eINSTANCE.getFinal_Base_Parameter();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.impl.JavaProjectSettingsImpl <em>Java Project Settings</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.impl.JavaProjectSettingsImpl
-		 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.impl.PapyrusJavaPackageImpl#getJavaProjectSettings()
-		 * @generated
-		 */
-		EClass JAVA_PROJECT_SETTINGS = eINSTANCE.getJavaProjectSettings();
-
-		/**
-		 * The meta object literal for the '<em><b>Project Natures</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JAVA_PROJECT_SETTINGS__PROJECT_NATURES = eINSTANCE.getJavaProjectSettings_ProjectNatures();
-
-		/**
-		 * The meta object literal for the '<em><b>Class Paths</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JAVA_PROJECT_SETTINGS__CLASS_PATHS = eINSTANCE.getJavaProjectSettings_ClassPaths();
-
-		/**
-		 * The meta object literal for the '<em><b>Output Location</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JAVA_PROJECT_SETTINGS__OUTPUT_LOCATION = eINSTANCE.getJavaProjectSettings_OutputLocation();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Package</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference JAVA_PROJECT_SETTINGS__BASE_PACKAGE = eINSTANCE.getJavaProjectSettings_Base_Package();
 
 	}
 

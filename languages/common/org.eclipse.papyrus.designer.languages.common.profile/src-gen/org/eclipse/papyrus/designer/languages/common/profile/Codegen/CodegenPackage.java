@@ -282,13 +282,58 @@ public interface CodegenPackage extends EPackage {
 	int MAVEN_PROJECT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Base Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_PROJECT__BASE_MODEL = PROJECT__BASE_MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Generation Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_PROJECT__GENERATION_MODE = PROJECT__GENERATION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Project Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_PROJECT__PROJECT_NAME = PROJECT__PROJECT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Source Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_PROJECT__SOURCE_FOLDER = PROJECT__SOURCE_FOLDER;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_PROJECT__PREFIX = PROJECT__PREFIX;
+
+	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__GROUP_ID = 0;
+	int MAVEN_PROJECT__GROUP_ID = PROJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
@@ -297,7 +342,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__ARTIFACT_ID = 1;
+	int MAVEN_PROJECT__ARTIFACT_ID = PROJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -306,16 +351,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__VERSION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Base Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_PROJECT__BASE_MODEL = 3;
+	int MAVEN_PROJECT__VERSION = PROJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Arche Type</b></em>' reference.
@@ -324,7 +360,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__ARCHE_TYPE = 4;
+	int MAVEN_PROJECT__ARCHE_TYPE = PROJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Dependencies</b></em>' reference list.
@@ -333,7 +369,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__DEPENDENCIES = 5;
+	int MAVEN_PROJECT__DEPENDENCIES = PROJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -342,7 +378,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__PARENT = 6;
+	int MAVEN_PROJECT__PARENT = PROJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' reference list.
@@ -351,7 +387,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT__PROPERTIES = 7;
+	int MAVEN_PROJECT__PROPERTIES = PROJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Maven Project</em>' class.
@@ -360,7 +396,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT_FEATURE_COUNT = 8;
+	int MAVEN_PROJECT_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Maven Project</em>' class.
@@ -369,7 +405,7 @@ public interface CodegenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT_OPERATION_COUNT = 0;
+	int MAVEN_PROJECT_OPERATION_COUNT = PROJECT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ArcheTypeImpl <em>Arche Type</em>}' class.
@@ -885,17 +921,6 @@ public interface CodegenPackage extends EPackage {
 	EAttribute getMavenProject_Version();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getBase_Model <em>Base Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Base Model</em>'.
-	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getBase_Model()
-	 * @see #getMavenProject()
-	 * @generated
-	 */
-	EReference getMavenProject_Base_Model();
-
-	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArcheType <em>Arche Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1398,14 +1423,6 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MAVEN_PROJECT__VERSION = eINSTANCE.getMavenProject_Version();
-
-		/**
-		 * The meta object literal for the '<em><b>Base Model</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MAVEN_PROJECT__BASE_MODEL = eINSTANCE.getMavenProject_Base_Model();
 
 		/**
 		 * The meta object literal for the '<em><b>Arche Type</b></em>' reference feature.

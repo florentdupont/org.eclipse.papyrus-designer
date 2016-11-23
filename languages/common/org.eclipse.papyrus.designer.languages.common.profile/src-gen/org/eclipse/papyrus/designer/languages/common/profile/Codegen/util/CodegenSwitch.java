@@ -105,6 +105,7 @@ public class CodegenSwitch<T> extends Switch<T> {
 			case CodegenPackage.MAVEN_PROJECT: {
 				MavenProject mavenProject = (MavenProject)theEObject;
 				T result = caseMavenProject(mavenProject);
+				if (result == null) result = caseProject(mavenProject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -86,7 +86,6 @@ public class PapyrusJavaFactoryImpl extends EFactoryImpl implements PapyrusJavaF
 			case PapyrusJavaPackage.DEFAULT: return createDefault();
 			case PapyrusJavaPackage.STATIC_CLASSIFIER: return createStaticClassifier();
 			case PapyrusJavaPackage.FINAL: return createFinal();
-			case PapyrusJavaPackage.JAVA_PROJECT_SETTINGS: return createJavaProjectSettings();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -270,16 +269,6 @@ public class PapyrusJavaFactoryImpl extends EFactoryImpl implements PapyrusJavaF
 	public Final createFinal() {
 		FinalImpl final_ = new FinalImpl();
 		return final_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JavaProjectSettings createJavaProjectSettings() {
-		JavaProjectSettingsImpl javaProjectSettings = new JavaProjectSettingsImpl();
-		return javaProjectSettings;
 	}
 
 	/**

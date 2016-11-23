@@ -3,9 +3,6 @@
 package org.eclipse.papyrus.designer.languages.common.profile.Codegen;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.uml2.uml.Model;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +16,6 @@ import org.eclipse.uml2.uml.Model;
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getBase_Model <em>Base Model</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getArcheType <em>Arche Type</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getParent <em>Parent</em>}</li>
@@ -30,7 +26,7 @@ import org.eclipse.uml2.uml.Model;
  * @model
  * @generated
  */
-public interface MavenProject extends EObject {
+public interface MavenProject extends Project {
 	/**
 	 * Returns the value of the '<em><b>Group Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,32 +104,6 @@ public interface MavenProject extends EObject {
 	 * @generated
 	 */
 	void setVersion(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Base Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Base Model</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Base Model</em>' reference.
-	 * @see #setBase_Model(Model)
-	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage#getMavenProject_Base_Model()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	Model getBase_Model();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getBase_Model <em>Base Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base Model</em>' reference.
-	 * @see #getBase_Model()
-	 * @generated
-	 */
-	void setBase_Model(Model value);
 
 	/**
 	 * Returns the value of the '<em><b>Arche Type</b></em>' reference.

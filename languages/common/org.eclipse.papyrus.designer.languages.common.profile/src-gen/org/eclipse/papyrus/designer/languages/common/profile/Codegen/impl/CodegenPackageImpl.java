@@ -346,7 +346,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMavenProject_Base_Model() {
+	public EReference getMavenProject_ArcheType() {
 		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -355,7 +355,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMavenProject_ArcheType() {
+	public EReference getMavenProject_Dependencies() {
 		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -364,7 +364,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMavenProject_Dependencies() {
+	public EReference getMavenProject_Parent() {
 		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -373,17 +373,8 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMavenProject_Parent() {
-		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getMavenProject_Properties() {
-		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(7);
+		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -679,7 +670,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEAttribute(mavenProjectEClass, MAVEN_PROJECT__GROUP_ID);
 		createEAttribute(mavenProjectEClass, MAVEN_PROJECT__ARTIFACT_ID);
 		createEAttribute(mavenProjectEClass, MAVEN_PROJECT__VERSION);
-		createEReference(mavenProjectEClass, MAVEN_PROJECT__BASE_MODEL);
 		createEReference(mavenProjectEClass, MAVEN_PROJECT__ARCHE_TYPE);
 		createEReference(mavenProjectEClass, MAVEN_PROJECT__DEPENDENCIES);
 		createEReference(mavenProjectEClass, MAVEN_PROJECT__PARENT);
@@ -751,6 +741,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		mavenProjectEClass.getESuperTypes().add(this.getProject());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -775,7 +766,6 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEAttribute(getMavenProject_GroupId(), theTypesPackage.getString(), "groupId", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getMavenProject_ArtifactId(), theTypesPackage.getString(), "artifactId", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getMavenProject_Version(), theTypesPackage.getString(), "version", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMavenProject_Base_Model(), theUMLPackage.getModel(), null, "base_Model", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMavenProject_ArcheType(), this.getArcheType(), null, "archeType", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMavenProject_Dependencies(), this.getMavenDependency(), null, "dependencies", null, 0, -1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMavenProject_Parent(), this.getParentArtifact(), null, "parent", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

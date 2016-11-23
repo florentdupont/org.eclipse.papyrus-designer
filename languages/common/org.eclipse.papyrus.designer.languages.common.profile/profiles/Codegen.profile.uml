@@ -90,6 +90,7 @@
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_3kxJQCvnEeaYpOY-WMgw6g" name="extension_NoCodeGen" type="_xUTQwCvnEeaYpOY-WMgw6g" aggregation="composite" association="_3kvUECvnEeaYpOY-WMgw6g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_ezeagIrJEeat8a5HiKvSeg" name="MavenProject">
+      <generalization xmi:type="uml:Generalization" xmi:id="_pp1zoLF3EeaECavyT4ZIdQ" general="_YmGwQBbAEearhdjjJ6cVzQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_uOFuYIrJEeat8a5HiKvSeg" name="groupId">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
@@ -98,9 +99,6 @@
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_u63U0IrJEeat8a5HiKvSeg" name="version">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_APdzsIrLEeat8a5HiKvSeg" name="base_Model" association="_APV34IrLEeat8a5HiKvSeg">
-        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Model"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_FAlg4IrtEeawRY7Kk_fDXQ" name="archeType" type="_BVBVcIrqEeawRY7Kk_fDXQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_1bp_0IxfEeaOauF9JIo_Gw" name="dependencies" type="_I1EhAIxfEeaOauF9JIo_Gw">
@@ -112,9 +110,6 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WxbmMJtdEeatqKwg1x5n1Q"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WxlXMJtdEeatqKwg1x5n1Q" value="*"/>
       </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_APV34IrLEeat8a5HiKvSeg" name="E_MavenProject_Model1" memberEnd="_APb-gIrLEeat8a5HiKvSeg _APdzsIrLEeat8a5HiKvSeg">
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_APb-gIrLEeat8a5HiKvSeg" name="extension_MavenProject" type="_ezeagIrJEeat8a5HiKvSeg" aggregation="composite" association="_APV34IrLEeat8a5HiKvSeg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_BVBVcIrqEeawRY7Kk_fDXQ" name="ArcheType">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_RK5pAIrqEeawRY7Kk_fDXQ" name="groupId">

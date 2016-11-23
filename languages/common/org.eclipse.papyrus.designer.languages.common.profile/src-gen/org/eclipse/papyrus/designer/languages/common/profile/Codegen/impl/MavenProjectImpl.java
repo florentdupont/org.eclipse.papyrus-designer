@@ -10,8 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.CodegenPackage;
@@ -20,7 +18,6 @@ import org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProjec
 
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.ParentArtifact;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property;
-import org.eclipse.uml2.uml.Model;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +30,6 @@ import org.eclipse.uml2.uml.Model;
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getBase_Model <em>Base Model</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getArcheType <em>Arche Type</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getParent <em>Parent</em>}</li>
@@ -42,7 +38,7 @@ import org.eclipse.uml2.uml.Model;
  *
  * @generated
  */
-public class MavenProjectImpl extends MinimalEObjectImpl.Container implements MavenProject {
+public class MavenProjectImpl extends ProjectImpl implements MavenProject {
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -102,16 +98,6 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	 * @ordered
 	 */
 	protected String version = VERSION_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getBase_Model() <em>Base Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBase_Model()
-	 * @generated
-	 * @ordered
-	 */
-	protected Model base_Model;
 
 	/**
 	 * The cached value of the '{@link #getArcheType() <em>Arche Type</em>}' reference.
@@ -240,44 +226,6 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Model getBase_Model() {
-		if (base_Model != null && base_Model.eIsProxy()) {
-			InternalEObject oldBase_Model = (InternalEObject)base_Model;
-			base_Model = (Model)eResolveProxy(oldBase_Model);
-			if (base_Model != oldBase_Model) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CodegenPackage.MAVEN_PROJECT__BASE_MODEL, oldBase_Model, base_Model));
-			}
-		}
-		return base_Model;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Model basicGetBase_Model() {
-		return base_Model;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBase_Model(Model newBase_Model) {
-		Model oldBase_Model = base_Model;
-		base_Model = newBase_Model;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_PROJECT__BASE_MODEL, oldBase_Model, base_Model));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ArcheType getArcheType() {
 		if (archeType != null && archeType.eIsProxy()) {
 			InternalEObject oldArcheType = (InternalEObject)archeType;
@@ -387,9 +335,6 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 				return getArtifactId();
 			case CodegenPackage.MAVEN_PROJECT__VERSION:
 				return getVersion();
-			case CodegenPackage.MAVEN_PROJECT__BASE_MODEL:
-				if (resolve) return getBase_Model();
-				return basicGetBase_Model();
 			case CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE:
 				if (resolve) return getArcheType();
 				return basicGetArcheType();
@@ -421,9 +366,6 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 				return;
 			case CodegenPackage.MAVEN_PROJECT__VERSION:
 				setVersion((String)newValue);
-				return;
-			case CodegenPackage.MAVEN_PROJECT__BASE_MODEL:
-				setBase_Model((Model)newValue);
 				return;
 			case CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE:
 				setArcheType((ArcheType)newValue);
@@ -460,9 +402,6 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 			case CodegenPackage.MAVEN_PROJECT__VERSION:
 				setVersion(VERSION_EDEFAULT);
 				return;
-			case CodegenPackage.MAVEN_PROJECT__BASE_MODEL:
-				setBase_Model((Model)null);
-				return;
 			case CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE:
 				setArcheType((ArcheType)null);
 				return;
@@ -493,8 +432,6 @@ public class MavenProjectImpl extends MinimalEObjectImpl.Container implements Ma
 				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case CodegenPackage.MAVEN_PROJECT__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-			case CodegenPackage.MAVEN_PROJECT__BASE_MODEL:
-				return base_Model != null;
 			case CodegenPackage.MAVEN_PROJECT__ARCHE_TYPE:
 				return archeType != null;
 			case CodegenPackage.MAVEN_PROJECT__DEPENDENCIES:

@@ -296,27 +296,6 @@
     <packagedElement xmi:type="uml:Extension" xmi:id="_cnRlIPpwEeWvI4zfbofpEg" name="E_Final_Parameter1" memberEnd="_cnSMMPpwEeWvI4zfbofpEg _cnVPgPpwEeWvI4zfbofpEg">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_cnSMMPpwEeWvI4zfbofpEg" name="extension_Final" type="_OeUtcPpwEeWvI4zfbofpEg" aggregation="composite" association="_cnRlIPpwEeWvI4zfbofpEg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_b6SfMJXzEeaQrpocGjR4WA" name="JavaProjectSettings">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_dXnY0JXzEeaQrpocGjR4WA" name="projectNatures">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m6rqgJXzEeaQrpocGjR4WA"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m6wjAJXzEeaQrpocGjR4WA" value="*"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_dzxwYJXzEeaQrpocGjR4WA" name="classPaths">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rKNmAJXzEeaQrpocGjR4WA"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rKO0IJXzEeaQrpocGjR4WA" value="*"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_eKcj8JXzEeaQrpocGjR4WA" name="outputLocation">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_4ReXMJXzEeaQrpocGjR4WA" name="base_Package" association="_4RZesJXzEeaQrpocGjR4WA">
-        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_4RZesJXzEeaQrpocGjR4WA" name="E_JavaProjectSettings_Package1" memberEnd="_4RdJEJXzEeaQrpocGjR4WA _4ReXMJXzEeaQrpocGjR4WA">
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_4RdJEJXzEeaQrpocGjR4WA" name="extension_JavaProjectSettings" type="_b6SfMJXzEeaQrpocGjR4WA" aggregation="composite" association="_4RZesJXzEeaQrpocGjR4WA"/>
-    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_QS19UMogEeGKstsYRuxdvw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QUmQ0MogEeGKstsYRuxdvw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>

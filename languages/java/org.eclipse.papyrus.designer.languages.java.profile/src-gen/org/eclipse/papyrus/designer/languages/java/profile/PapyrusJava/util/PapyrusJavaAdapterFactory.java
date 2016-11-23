@@ -152,10 +152,6 @@ public class PapyrusJavaAdapterFactory extends AdapterFactoryImpl {
 				return createFinalAdapter();
 			}
 			@Override
-			public Adapter caseJavaProjectSettings(JavaProjectSettings object) {
-				return createJavaProjectSettingsAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -424,20 +420,6 @@ public class PapyrusJavaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFinalAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings <em>Java Project Settings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.JavaProjectSettings
-	 * @generated
-	 */
-	public Adapter createJavaProjectSettingsAdapter() {
 		return null;
 	}
 
