@@ -48,7 +48,7 @@
         </interfaceRealization>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mlIZ8OUVEd-P08Bciq_LqQ" name="[name/]" specification="_2qJyMOUUEd-P08Bciq_LqQ">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.eventInterceptor</body>
+          <body>!template StateMachineGen.eventInterceptor</body>
         </ownedBehavior>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_2qJyMOUUEd-P08Bciq_LqQ" name="[name/]" method="_mlIZ8OUVEd-P08Bciq_LqQ"/>
       </packagedElement>
@@ -110,13 +110,13 @@
         </interfaceRealization>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rglykOupEeCTfOY57pgE3w" name="processEvents" visibility="package" specification="_b5mYgCaiEeGRo-gX9igNzw">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.processEvents
+          <body>!template StateMachineGen.processEvents
 
 </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_p_0sUCaiEeGRo-gX9igNzw" name="run" specification="_PXRH0MTfEeWfEYAFL-UFuw">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.activate</body>
+          <body>!template StateMachineGen.activate</body>
         </ownedBehavior>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_b5mYgCaiEeGRo-gX9igNzw" name="processEvents" method="_rglykOupEeCTfOY57pgE3w"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_PXRH0MTfEeWfEYAFL-UFuw" name="run" method="_p_0sUCaiEeGRo-gX9igNzw"/>
@@ -451,7 +451,7 @@
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_zusHkOCQEeW9GrJuOSoZTg" client="_0k6cIF1CEeWbP6DS-3NPyQ" supplier="_lqsBUOCQEeW9GrJuOSoZTg" contract="_lqsBUOCQEeW9GrJuOSoZTg"/>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_J-bDAF3VEeWbP6DS-3NPyQ" name="[name]" specification="_e5QLgF1DEeWbP6DS-3NPyQ">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.eventInterceptorOO</body>
+          <body>!template StateMachineGen.eventInterceptorOO</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GGdugGH9EeWEu6399scseQ" name="LWStateMachineWCallEvents" specification="_xt1ogGH8EeWEu6399scseQ">
           <language>C/C++</language>
@@ -461,13 +461,13 @@ thread.connect_rRun(runAdapter.get_run());</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Sxi6AJLREeWyWIXHbEJ4ew" name="processEvents" visibility="package" specification="_YcqpwJLREeWyWIXHbEJ4ew">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.processEventsOO&#xD;
+          <body>!template StateMachineGen.processEventsOO&#xD;
 &#xD;
 </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_hcr5oN_9EeW9GrJuOSoZTg" name="runSM" specification="_dkpREN_9EeW9GrJuOSoZTg">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.activateOO
+          <body>!template StateMachineGen.activateOO
 </body>
         </ownedBehavior>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_xt1ogGH8EeWEu6399scseQ" name="LWStateMachineWCallEvents" method="_GGdugGH9EeWEu6399scseQ"/>
@@ -478,17 +478,17 @@ thread.connect_rRun(runAdapter.get_run());</body>
       <packagedElement xmi:type="uml:Class" xmi:id="_rpA0oMBJEeWmeYo0CV4Tlg" name="LWStateMachineWCallEventsSub">
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rpA0psBJEeWmeYo0CV4Tlg" name="[name]" specification="_rpA0rMBJEeWmeYo0CV4Tlg">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.eventInterceptorOO</body>
+          <body>!template StateMachineGen.eventInterceptorOO</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rpA0qMBJEeWmeYo0CV4Tlg" name="processEvents" visibility="package" specification="_rpA0q8BJEeWmeYo0CV4Tlg">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.processEventsOO
+          <body>!template StateMachineGen.processEventsOO
 
 </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rpA0qcBJEeWmeYo0CV4Tlg" name="activate" specification="_rpA0qsBJEeWmeYo0CV4Tlg">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.activateOO
+          <body>!template StateMachineGen.activateOO
 </body>
         </ownedBehavior>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_rpA0qsBJEeWmeYo0CV4Tlg" name="activate" method="_rpA0qcBJEeWmeYo0CV4Tlg"/>
@@ -520,7 +520,7 @@ thread.connect_rRun(runAdapter.get_run());</body>
         <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_6-9EViPoEeauR8esGjVxRA" client="_6-9EUCPoEeauR8esGjVxRA" supplier="_lqsBUOCQEeW9GrJuOSoZTg" contract="_lqsBUOCQEeW9GrJuOSoZTg"/>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6-9EVyPoEeauR8esGjVxRA" name="[name]">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.eventInterceptorOO</body>
+          <body>!template StateMachineGen.eventInterceptorOO</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6-9EWCPoEeauR8esGjVxRA" name="LWStateMachineWCallEvents">
           <language>C/C++</language>
@@ -530,13 +530,13 @@ thread.connect_rRun(runAdapter.get_run());</body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6-9EWSPoEeauR8esGjVxRA" name="processEvents" visibility="package">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.processEventsOO
+          <body>!template StateMachineGen.processEventsOO
 
 </body>
         </ownedBehavior>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_6-9EWiPoEeauR8esGjVxRA" name="runSM">
           <language>C/C++</language>
-          <body>!xtend StateMachineGen.activateOO
+          <body>!template StateMachineGen.activateOO
 </body>
         </ownedBehavior>
       </packagedElement>
@@ -815,9 +815,9 @@ return ret;</body>
     </profileApplication>
   </uml:Model>
   <FCM:InteractionComponent xmi:id="_hanSUOUUEd-P08Bciq_LqQ" base_Class="_u-qioOUTEd-P08Bciq_LqQ"/>
-  <FCM:Template xmi:id="_9E8EUOUUEd-P08Bciq_LqQ" base_Element="_2qJyMOUUEd-P08Bciq_LqQ" kind="LoopOperations">
+  <Transformation:ApplyTransformation xmi:id="_9E8EUOUUEd-P08Bciq_LqQ" base_Element="_2qJyMOUUEd-P08Bciq_LqQ" kind="LoopOperations">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://DML_TRAFO/trafos.uml#_nLe_sHJDEeOMF7YEvnQt5g"/>
-  </FCM:Template>
+  </Transformation:ApplyTransformation>
   <FCM:Port xmi:id="_a45twOuMEeCTfOY57pgE3w" base_Port="_a4NKMOuMEeCTfOY57pgE3w">
     <kind xmi:type="FCM:PortKind" href="pathmap://DML_TRAFO/trafos.uml#_9Fif4FRxEd6GqrP6fkWBoQ"/>
     <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/trafos.uml#_elkpwPQREeCovO8AYZymZQ"/>
@@ -834,9 +834,9 @@ return ret;</body>
   <FCM:InstanceConfigurator xmi:id="_QQYfQCNYEeGj_4swHBbKwg" base_Class="_KEMp0CNYEeGj_4swHBbKwg"/>
   <FCM:UseInstanceConfigurator xmi:id="_StgB8CNYEeGj_4swHBbKwg" base_Class="_u-qioOUTEd-P08Bciq_LqQ" configurator="_QQYfQCNYEeGj_4swHBbKwg"/>
   <FCM:ConfigurationProperty xmi:id="_uhdD8CVvEeGaL60JjVj19Q" base_Property="_bL0sACVvEeGaL60JjVj19Q"/>
-  <FCM:Template xmi:id="_nngKECaiEeGRo-gX9igNzw" base_Element="_b5mYgCaiEeGRo-gX9igNzw">
+  <Transformation:ApplyTransformation xmi:id="_nngKECaiEeGRo-gX9igNzw" base_Element="_b5mYgCaiEeGRo-gX9igNzw">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://DML_TRAFO/trafos.uml#_7qhTUHkgEeOCpqruXGWNPw"/>
-  </FCM:Template>
+  </Transformation:ApplyTransformation>
   <FCM:Port xmi:id="_JZGWgF8xEeGerN33d-RdRg" base_Port="_xUE3QF8wEeGerN33d-RdRg" type="_L-I7kF8wEeGerN33d-RdRg">
     <kind xmi:type="FCM:PortKind" href="pathmap://DML_TRAFO/trafos.uml#_9Fif4FRxEd6GqrP6fkWBoQ"/>
   </FCM:Port>
@@ -846,8 +846,8 @@ return ret;</body>
     <kind xmi:type="FCM:PortKind" href="pathmap://DML_TRAFO/trafos.uml#_wySlkFRxEd6GqrP6fkWBoQ"/>
   </FCM:Port>
   <FCM:Singleton xmi:id="_uqa34F_1EeGbQoflzrdx0g" base_Class="_xELAwF81EeGbQoflzrdx0g"/>
-  <FCM:DerivedElement xmi:id="_bmnIYF_4EeGbQoflzrdx0g" base_Element="_bmbiMF_4EeGbQoflzrdx0g" source="_N3m-oF8wEeGerN33d-RdRg"/>
-  <FCM:DerivedElement xmi:id="_bmyukF_4EeGbQoflzrdx0g" base_Element="_bmo9kF_4EeGbQoflzrdx0g" source="_ZgY_oF8wEeGerN33d-RdRg"/>
+  <Transformation:DerivedElement xmi:id="_bmnIYF_4EeGbQoflzrdx0g" base_Element="_bmbiMF_4EeGbQoflzrdx0g" source="_N3m-oF8wEeGerN33d-RdRg"/>
+  <Transformation:DerivedElement xmi:id="_bmyukF_4EeGbQoflzrdx0g" base_Element="_bmo9kF_4EeGbQoflzrdx0g" source="_ZgY_oF8wEeGerN33d-RdRg"/>
   <FCM:InstanceConfigurator xmi:id="_SdiecGGDEeO2F4QRMDSOXg" base_Class="_QH7R8GGDEeO2F4QRMDSOXg"/>
   <FCM:UseInstanceConfigurator xmi:id="_VnhuMGGDEeO2F4QRMDSOXg" base_Class="_xELAwF81EeGbQoflzrdx0g" configurator="_SdiecGGDEeO2F4QRMDSOXg"/>
   <FCM:Singleton xmi:id="_JOwQEHg_EeOejZqJpKQeww" base_Class="_B0gFAHg_EeOejZqJpKQeww"/>
@@ -858,49 +858,49 @@ return ret;</body>
     <kind xmi:type="FCM:PortKind" href="pathmap://DML_TRAFO/trafos.uml#_wySlkFRxEd6GqrP6fkWBoQ"/>
   </FCM:Port>
   <FCM:UseInstanceConfigurator xmi:id="_4HKnkHg_EeOejZqJpKQeww" base_Class="_B0gFAHg_EeOejZqJpKQeww" configurator="_SdiecGGDEeO2F4QRMDSOXg"/>
-  <FCM:DerivedElement xmi:id="_hQPjMHk8EeOh_8tymvdOOg" base_Element="_hQJckHk8EeOh_8tymvdOOg" source="_N3m-oF8wEeGerN33d-RdRg"/>
-  <FCM:DerivedElement xmi:id="_hQW38Hk8EeOh_8tymvdOOg" base_Element="_hQSmgHk8EeOh_8tymvdOOg" source="_ZgY_oF8wEeGerN33d-RdRg"/>
-  <FCM:Template xmi:id="_yd5NYF3TEeWbP6DS-3NPyQ" base_Element="_e5QLgF1DEeWbP6DS-3NPyQ">
+  <Transformation:DerivedElement xmi:id="_hQPjMHk8EeOh_8tymvdOOg" base_Element="_hQJckHk8EeOh_8tymvdOOg" source="_N3m-oF8wEeGerN33d-RdRg"/>
+  <Transformation:DerivedElement xmi:id="_hQW38Hk8EeOh_8tymvdOOg" base_Element="_hQSmgHk8EeOh_8tymvdOOg" source="_ZgY_oF8wEeGerN33d-RdRg"/>
+  <Transformation:ApplyTransformation xmi:id="_yd5NYF3TEeWbP6DS-3NPyQ" base_Element="_e5QLgF1DEeWbP6DS-3NPyQ">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://DML_TRAFO/trafos.uml#_nLe_sHJDEeOMF7YEvnQt5g"/>
-  </FCM:Template>
+  </Transformation:ApplyTransformation>
   <FCM:ContainerRule xmi:id="_-GBU0F3YEeW4Af5fHX2Rfg" base_Class="_0k6cIF1CEeWbP6DS-3NPyQ" kind="LightWeightOORule"/>
   <standard:Create xmi:id="_9F8wQGH8EeWEu6399scseQ" base_BehavioralFeature="_xt1ogGH8EeWEu6399scseQ"/>
   <FCM:InterceptionRule xmi:id="_5u8BwJHLEeWxgKjui1HhNA" base_Operation="_e5QLgF1DEeWbP6DS-3NPyQ"/>
-  <FCM:Template xmi:id="_YfX_gJLREeWyWIXHbEJ4ew" base_Element="_YcqpwJLREeWyWIXHbEJ4ew">
+  <Transformation:ApplyTransformation xmi:id="_YfX_gJLREeWyWIXHbEJ4ew" base_Element="_YcqpwJLREeWyWIXHbEJ4ew">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://DML_TRAFO/trafos.uml#_7qhTUHkgEeOCpqruXGWNPw"/>
-  </FCM:Template>
-  <FCM:Template xmi:id="_rr-pEMBJEeWmeYo0CV4Tlg" base_Element="_rpA0rMBJEeWmeYo0CV4Tlg">
+  </Transformation:ApplyTransformation>
+  <Transformation:ApplyTransformation xmi:id="_rr-pEMBJEeWmeYo0CV4Tlg" base_Element="_rpA0rMBJEeWmeYo0CV4Tlg">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://DML_TRAFO/trafos.uml#_nLe_sHJDEeOMF7YEvnQt5g"/>
-  </FCM:Template>
+  </Transformation:ApplyTransformation>
   <FCM:InterceptionRule xmi:id="_rsPu0MBJEeWmeYo0CV4Tlg" base_Operation="_rpA0rMBJEeWmeYo0CV4Tlg"/>
-  <FCM:DerivedElement xmi:id="_rsTZMMBJEeWmeYo0CV4Tlg" base_Element="_rpA0qsBJEeWmeYo0CV4Tlg">
+  <Transformation:DerivedElement xmi:id="_rsTZMMBJEeWmeYo0CV4Tlg" base_Element="_rpA0qsBJEeWmeYo0CV4Tlg">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:Template xmi:id="_rsVOYMBJEeWmeYo0CV4Tlg" base_Element="_rpA0qsBJEeWmeYo0CV4Tlg">
+  </Transformation:DerivedElement>
+  <Transformation:ApplyTransformation xmi:id="_rsVOYMBJEeWmeYo0CV4Tlg" base_Element="_rpA0qsBJEeWmeYo0CV4Tlg">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://DML_TRAFO/trafos.uml#_7qhTUHkgEeOCpqruXGWNPw"/>
-  </FCM:Template>
+  </Transformation:ApplyTransformation>
   <FCM:ContainerRule xmi:id="_rsY4wMBJEeWmeYo0CV4Tlg" base_Class="_rpA0oMBJEeWmeYo0CV4Tlg" kind="LightWeightOORule"/>
-  <FCM:Template xmi:id="_rsat8MBJEeWmeYo0CV4Tlg" base_Element="_rpA0q8BJEeWmeYo0CV4Tlg">
+  <Transformation:ApplyTransformation xmi:id="_rsat8MBJEeWmeYo0CV4Tlg" base_Element="_rpA0q8BJEeWmeYo0CV4Tlg">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://DML_TRAFO/trafos.uml#_7qhTUHkgEeOCpqruXGWNPw"/>
-  </FCM:Template>
-  <FCM:DerivedElement xmi:id="_PXBQMMTfEeWfEYAFL-UFuw" base_Element="_PW-z8MTfEeWfEYAFL-UFuw">
+  </Transformation:ApplyTransformation>
+  <Transformation:DerivedElement xmi:id="_PXBQMMTfEeWfEYAFL-UFuw" base_Element="_PW-z8MTfEeWfEYAFL-UFuw">
     <source xmi:type="uml:Interface" href="pathmap://DML_TRAFO/trafos.uml#_omxU4PNAEeCovO8AYZymZQ"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_PXGvwMTfEeWfEYAFL-UFuw" base_Element="_PXETgcTfEeWfEYAFL-UFuw" source="_L-I7kF8wEeGerN33d-RdRg"/>
-  <FCM:DerivedElement xmi:id="_PXUyMMTfEeWfEYAFL-UFuw" base_Element="_PXRH0MTfEeWfEYAFL-UFuw">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_PXGvwMTfEeWfEYAFL-UFuw" base_Element="_PXETgcTfEeWfEYAFL-UFuw" source="_L-I7kF8wEeGerN33d-RdRg"/>
+  <Transformation:DerivedElement xmi:id="_PXUyMMTfEeWfEYAFL-UFuw" base_Element="_PXRH0MTfEeWfEYAFL-UFuw">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_C9IK4JsqEd61Eo3nmu3JhQ"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_azVKkN_-EeW9GrJuOSoZTg" base_Element="_azSuUN_-EeW9GrJuOSoZTg">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_azVKkN_-EeW9GrJuOSoZTg" base_Element="_azSuUN_-EeW9GrJuOSoZTg">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_C9IK4JsqEd61Eo3nmu3JhQ"/>
-  </FCM:DerivedElement>
+  </Transformation:DerivedElement>
   <C_Cpp:Ptr xmi:id="_exWgEOCSEeW9GrJuOSoZTg" base_property="_Y0QPgOCSEeW9GrJuOSoZTg"/>
-  <FCM:Template xmi:id="_I1HpwODIEeW9GrJuOSoZTg" base_Element="_dkpREN_9EeW9GrJuOSoZTg">
+  <Transformation:ApplyTransformation xmi:id="_I1HpwODIEeW9GrJuOSoZTg" base_Element="_dkpREN_9EeW9GrJuOSoZTg">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://DML_TRAFO/trafos.uml#_7qhTUHkgEeOCpqruXGWNPw"/>
-  </FCM:Template>
-  <FCM:DerivedElement xmi:id="_dMJCAPCGEeWeJ4SmoZSqDg" base_Element="_dL_4EfCGEeWeJ4SmoZSqDg" source="_L-I7kF8wEeGerN33d-RdRg"/>
-  <FCM:Template xmi:id="_V9bwcPEGEeWeJ4SmoZSqDg" base_Element="_PXRH0MTfEeWfEYAFL-UFuw">
+  </Transformation:ApplyTransformation>
+  <Transformation:DerivedElement xmi:id="_dMJCAPCGEeWeJ4SmoZSqDg" base_Element="_dL_4EfCGEeWeJ4SmoZSqDg" source="_L-I7kF8wEeGerN33d-RdRg"/>
+  <Transformation:ApplyTransformation xmi:id="_V9bwcPEGEeWeJ4SmoZSqDg" base_Element="_PXRH0MTfEeWfEYAFL-UFuw">
     <helper xmi:type="FCM:BindingHelper" href="pathmap://DML_TRAFO/trafos.uml#_7qhTUHkgEeOCpqruXGWNPw"/>
-  </FCM:Template>
+  </Transformation:ApplyTransformation>
   <C_Cpp:Include xmi:id="_xYvwMCfnEeaUspRU-Igu6g" header="// common definitions for statemachine&#xA;&#xA;#define TIME_EVENT_LOWER_BOUND (0)&#xA;#define CHANGE_EVENT_LOWER_BOUND (2)&#xA;#define TE_INDEX(id) (id - TIME_EVENT_LOWER_BOUND)&#xA;#define CHE_INDEX(id) (id - CHANGE_EVENT_LOWER_BOUND)&#xA;#define SMSERVER_REGION0_DEFAULT (0)&#xA;#define SMSERVER_REGION0 (0)&#xA;#include &quot;time.h&quot;&#xA;#include &quot;pthread.h&quot;&#xA;#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING) {return;}" base_package="_ago_QOUTEd-P08Bciq_LqQ"/>
   <C_Cpp:Ptr xmi:id="_2MBEsCkVEea0-deBroAIbQ" base_property="_jliRwCkVEea0-deBroAIbQ"/>
   <standard:Create xmi:id="_6ksVICkVEea0-deBroAIbQ" base_BehavioralFeature="_ZmpmwCkVEea0-deBroAIbQ"/>

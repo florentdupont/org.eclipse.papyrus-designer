@@ -29,14 +29,6 @@
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qGsMIFeJEeKxltxu9uR4dg" source="CustomAppearance_Annotation">
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qRYZMFeJEeKxltxu9uR4dg" key="CustomAppearance_MaskValue" value="28"/>
           </eAnnotations>
-          <children xmi:type="notation:DecorationNode" xmi:id="_THI2YMTgEeWfEYAFL-UFuw" visible="false" type="StereotypeLabel">
-            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0FDMcMThEeWfEYAFL-UFuw" source="PapyrusCSSForceValue">
-              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0FDMccThEeWfEYAFL-UFuw" key="visible" value="true"/>
-            </eAnnotations>
-            <styles xmi:type="notation:StringValueStyle" xmi:id="_THI2YcTgEeWfEYAFL-UFuw" name="stereotype" stringValue="FCM::ConfigurationProperty"/>
-            <element xmi:type="uml:Stereotype" href="pathmap://FCM_PROFILES/FCM.profile.uml#_L8b3wMtvEd2H_o0jIC6qDQ"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_THI2YsTgEeWfEYAFL-UFuw"/>
-          </children>
           <styles xmi:type="notation:StringListValueStyle" xmi:id="_0kPp4MThEeWfEYAFL-UFuw" name="maskLabel">
             <stringListValue>name</stringListValue>
             <stringListValue>type</stringListValue>
@@ -67,20 +59,10 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_s9ecMSXREeGX6PuSE-DJlQ"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_s9fDQCXREeGX6PuSE-DJlQ" type="Operation_ClassOperationLabel" fontName="Sans Serif" lineColor="0">
-          <children xmi:type="notation:DecorationNode" xmi:id="_THMgwMTgEeWfEYAFL-UFuw" visible="false" type="StereotypeLabel">
-            <styles xmi:type="notation:StringValueStyle" xmi:id="_THMgwcTgEeWfEYAFL-UFuw" name="stereotype" stringValue="FCM::DerivedElement"/>
-            <element xmi:type="uml:Stereotype" href="pathmap://FCM_PROFILES/FCM.profile.uml#_6B80EGV9Ed6b6erIXzmEEA"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_THMgwsTgEeWfEYAFL-UFuw"/>
-          </children>
           <element xmi:type="uml:Operation" href="trafos.uml#_JmxyMD16Ed-Bk-AHd6yyoA"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_s9fDQSXREeGX6PuSE-DJlQ"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_s9fqUCXREeGX6PuSE-DJlQ" type="Operation_ClassOperationLabel" fontName="Sans Serif" lineColor="0">
-          <children xmi:type="notation:DecorationNode" xmi:id="_THOV8MTgEeWfEYAFL-UFuw" visible="false" type="StereotypeLabel">
-            <styles xmi:type="notation:StringValueStyle" xmi:id="_THOV8cTgEeWfEYAFL-UFuw" name="stereotype" stringValue="FCM::DerivedElement"/>
-            <element xmi:type="uml:Stereotype" href="pathmap://FCM_PROFILES/FCM.profile.uml#_6B80EGV9Ed6b6erIXzmEEA"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_THOV8sTgEeWfEYAFL-UFuw"/>
-          </children>
           <element xmi:type="uml:Operation" href="trafos.uml#_JqB6gD16Ed-Bk-AHd6yyoA"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_s9fqUSXREeGX6PuSE-DJlQ"/>
         </children>
@@ -1281,8 +1263,8 @@
           </children>
           <children xmi:type="notation:BasicCompartment" xmi:id="_kNDY4Fy8EeOwKfaVRwV11Q" visible="false" type="AppliedStereotypeCompartement">
             <styles xmi:type="notation:TitleStyle" xmi:id="_kNDY4Vy8EeOwKfaVRwV11Q" showTitle="true"/>
-            <element xmi:type="FCM:ConfigurationProperty" href="trafos.uml#_s0fGMMGJEd-Mveea1W_olA"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kNDY4ly8EeOwKfaVRwV11Q"/>
+            <element xmi:type="FCM:ConfigurationProperty" href="trafos.uml#_s0fGMMGJEd-Mveea1W_olA"/>
           </children>
           <children xmi:type="notation:BasicCompartment" xmi:id="_kNDY41y8EeOwKfaVRwV11Q" visible="false" type="compartment_shape_display">
             <styles xmi:type="notation:TitleStyle" xmi:id="_kNDY5Fy8EeOwKfaVRwV11Q"/>
@@ -1372,8 +1354,8 @@
           </children>
           <children xmi:type="notation:BasicCompartment" xmi:id="_kNF1IFy8EeOwKfaVRwV11Q" visible="false" type="AppliedStereotypeCompartement">
             <styles xmi:type="notation:TitleStyle" xmi:id="_kNF1IVy8EeOwKfaVRwV11Q" showTitle="true"/>
-            <element xmi:type="FCM:ConfigurationProperty" href="trafos.uml#_zVumMCjbEeGFbebITJYb9g"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kNF1Ily8EeOwKfaVRwV11Q"/>
+            <element xmi:type="FCM:ConfigurationProperty" href="trafos.uml#_zVumMCjbEeGFbebITJYb9g"/>
           </children>
           <children xmi:type="notation:BasicCompartment" xmi:id="_kNF1I1y8EeOwKfaVRwV11Q" visible="false" type="compartment_shape_display">
             <styles xmi:type="notation:TitleStyle" xmi:id="_kNF1JFy8EeOwKfaVRwV11Q"/>

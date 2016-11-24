@@ -542,67 +542,59 @@ for (;;) {
   <C_Cpp:Ptr xmi:id="_NjCToP-FEd6628OhKk_dpg" base_parameter="_BywjgP-FEd6628OhKk_dpg"/>
   <FCM:ContainerRule xmi:id="_3Jq5MARLEd-OidZzGKCpzg" base_Class="_14WtMARJEd--t-uhRn9OBA"/>
   <C_Cpp:Include xmi:id="_Q7TVYBJcEd-QgZm_R1AKbA" body="#include &lt;pthread.h>" base_class="_SiY_AP-EEd6628OhKk_dpg"/>
-  <FCM:DerivedElement xmi:id="_JqAFUD16Ed-Bk-AHd6yyoA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  <Transformation:DerivedElement xmi:id="_JqAFUD16Ed-Bk-AHd6yyoA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_JqEWwD16Ed-Bk-AHd6yyoA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_JqEWwD16Ed-Bk-AHd6yyoA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_RTu-gED2Ed-_DOja_sRgWA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_RTu-gED2Ed-_DOja_sRgWA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_RUIAEED2Ed-_DOja_sRgWA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_RUIAEED2Ed-_DOja_sRgWA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_xsrykEJFEd-Ps4Bfh0j9LQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_xsrykEJFEd-Ps4Bfh0j9LQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_xs0VcEJFEd-Ps4Bfh0j9LQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_xs0VcEJFEd-Ps4Bfh0j9LQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_qBaUMFJEEd-OfYmxqPWG5g" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_qBaUMFJEEd-OfYmxqPWG5g" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_qBeloFJEEd-OfYmxqPWG5g" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_qBeloFJEEd-OfYmxqPWG5g" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_t--FUF0NEd-12d_h0i1xhQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_t--FUF0NEd-12d_h0i1xhQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_t_EzAF0NEd-12d_h0i1xhQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_t_EzAF0NEd-12d_h0i1xhQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:OperatingSystem xmi:id="_1eULwF0NEd-12d_h0i1xhQ" base_Class="_zVs5cF0NEd-12d_h0i1xhQ"/>
-  <FCM:OperatingSystem xmi:id="_3MI_gF0NEd-12d_h0i1xhQ" base_Class="_17yx8F0NEd-12d_h0i1xhQ"/>
-  <FCM:OperatingSystem xmi:id="_8h8mkF0NEd-12d_h0i1xhQ" base_Class="_4RuHgF0NEd-12d_h0i1xhQ"/>
-  <FCM:OperatingSystem xmi:id="_BL7pcF0OEd-12d_h0i1xhQ" base_Class="__1uEcF0NEd-12d_h0i1xhQ"/>
-  <FCM:TargetArchitecture xmi:id="_FYOqwF0OEd-12d_h0i1xhQ" base_Class="_CxQBcF0OEd-12d_h0i1xhQ"/>
-  <FCM:TargetArchitecture xmi:id="_W5gJIF0OEd-12d_h0i1xhQ" base_Class="_KjufQF0OEd-12d_h0i1xhQ"/>
-  <FCM:TargetArchitecture xmi:id="_YHIZ4F0OEd-12d_h0i1xhQ" base_Class="_PFcW8F0OEd-12d_h0i1xhQ"/>
-  <FCM:DerivedElement xmi:id="_FWe6IG4sEd-0rs2VEGIwsA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_FWe6IG4sEd-0rs2VEGIwsA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_FWlAwG4sEd-0rs2VEGIwsA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_FWlAwG4sEd-0rs2VEGIwsA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_9Kl8IG4-Ed-J1L578xi-WA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_9Kl8IG4-Ed-J1L578xi-WA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_9K4QAG4-Ed-J1L578xi-WA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_9K4QAG4-Ed-J1L578xi-WA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_Si_2kG5fEd-5CZIeuHpHAg" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_Si_2kG5fEd-5CZIeuHpHAg" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_SjXqAG5fEd-5CZIeuHpHAg" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_SjXqAG5fEd-5CZIeuHpHAg" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:ConfigurationProperty xmi:id="_s0fGMMGJEd-Mveea1W_olA" base_Property="_rVfYoMGJEd-Mveea1W_olA"/>
+  </Transformation:DerivedElement>
   <FCM:Port xmi:id="_MzPjkPNAEeCovO8AYZymZQ" base_Port="_MzO8gPNAEeCovO8AYZymZQ" type="_omxU4PNAEeCovO8AYZymZQ"/>
   <FCM:ContainerRule xmi:id="_F1wZsPQUEeCovO8AYZymZQ" base_Class="__4GvgPQTEeCovO8AYZymZQ"/>
-  <FCM:DerivedElement xmi:id="_mKpWAPQXEeCovO8AYZymZQ" base_Element="_tK0poPQWEeCovO8AYZymZQ0" source="_tK0poPQWEeCovO8AYZymZQ"/>
-  <FCM:DerivedElement xmi:id="_mK0VIPQXEeCovO8AYZymZQ" base_Element="_FBMo4PQXEeCovO8AYZymZQ0" source="_FBMo4PQXEeCovO8AYZymZQ"/>
-  <FCM:DerivedElement xmi:id="_mK7C0PQXEeCovO8AYZymZQ" base_Element="_f1HmEPQREeCovO8AYZymZQ0" source="_f1HmEPQREeCovO8AYZymZQ"/>
+  <Transformation:DerivedElement xmi:id="_mKpWAPQXEeCovO8AYZymZQ" base_Element="_tK0poPQWEeCovO8AYZymZQ0" source="_tK0poPQWEeCovO8AYZymZQ"/>
+  <Transformation:DerivedElement xmi:id="_mK0VIPQXEeCovO8AYZymZQ" base_Element="_FBMo4PQXEeCovO8AYZymZQ0" source="_FBMo4PQXEeCovO8AYZymZQ"/>
+  <Transformation:DerivedElement xmi:id="_mK7C0PQXEeCovO8AYZymZQ" base_Element="_f1HmEPQREeCovO8AYZymZQ0" source="_f1HmEPQREeCovO8AYZymZQ"/>
   <standard:Create xmi:id="_o4VNAPRTEeCUGrV0Hl4JwQ" base_BehavioralFeature="_lrF08PRTEeCUGrV0Hl4JwQ"/>
   <FCM:InterceptionRule xmi:id="_qlcF8AJzEeG0Lb1KYG16fA" interceptionSet="__SLXgNtxEd6nqsBVkgJEEA" base_Property="_mvN04PTWEeCn1-FCrfecFg"/>
   <C_Cpp:Const xmi:id="_MGjk0CSlEeG6GJ4vU06VYQ" base_property="_Ig_MUCSlEeG6GJ4vU06VYQ"/>
@@ -611,19 +603,17 @@ for (;;) {
     <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
   </FCM:Port>
   <FCM:ContainerRule xmi:id="_MS45QCjaEeGFbebITJYb9g" base_Class="_1sCBICjZEeGFbebITJYb9g"/>
-  <FCM:ConfigurationProperty xmi:id="_zVumMCjbEeGFbebITJYb9g" base_Property="_tmNeoCjbEeGFbebITJYb9g"/>
   <FCM:Port xmi:id="_3NSGwSkAEeGDDbdzqSb4UA" base_Port="_3NSGwCkAEeGDDbdzqSb4UA">
     <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
   </FCM:Port>
-  <FCM:OperatingSystem xmi:id="_r4nVcCp9EeG1Y7BvjQ0T-w" base_Class="_onKy0Cp9EeG1Y7BvjQ0T-w"/>
   <SW_Concurrency:SwSchedulableResource xmi:id="_42YPYBn3EeONpa5JgejICQ" base_Classifier="_SiY_AP-EEd6628OhKk_dpg" priorityElements="_rVfYoMGJEd-Mveea1W_olA"/>
-  <FCM:DerivedElement xmi:id="_TJO30CxyEeOMQpc6Y-MAJw" base_Element="_TBScwCxyEeOMQpc6Y-MAJw">
+  <Transformation:DerivedElement xmi:id="_TJO30CxyEeOMQpc6Y-MAJw" base_Element="_TBScwCxyEeOMQpc6Y-MAJw">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_ns4qsClUEeO4bs_nkcnKOg"/>
-  </FCM:DerivedElement>
+  </Transformation:DerivedElement>
   <C_Cpp:Const xmi:id="_YKw8INhuEeSqPLTzapTtmQ" base_property="_YHC5wNhuEeSqPLTzapTtmQ"/>
-  <FCM:DerivedElement xmi:id="_pMuikMTiEeWfEYAFL-UFuw" base_Element="_pMrfQMTiEeWfEYAFL-UFuw">
+  <Transformation:DerivedElement xmi:id="_pMuikMTiEeWfEYAFL-UFuw" base_Element="_pMrfQMTiEeWfEYAFL-UFuw">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_C9IK4JsqEd61Eo3nmu3JhQ"/>
-  </FCM:DerivedElement>
+  </Transformation:DerivedElement>
   <C_Cpp:Ptr xmi:id="_FSoLkMUKEeWfEYAFL-UFuw" base_parameter="_FSlvUMUKEeWfEYAFL-UFuw"/>
   <C_Cpp:Ptr xmi:id="_FSqn0MUKEeWfEYAFL-UFuw" base_parameter="_FSoLkcUKEeWfEYAFL-UFuw"/>
   <Transformation:M2MTrafoChain xmi:id="_LUPFkF4REea4bLzKfwAjjA" base_Class="_Ck0eYF4REea4bLzKfwAjjA"/>

@@ -58,7 +58,7 @@ TODO: configurable buffer size, use data structure (CppParameterStorage)</body>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_nBpugClzEd-eoo60eNyGlg" name="derived realization of I" client="_Whe8EClYEd-eoo60eNyGlg" supplier="_ZzlzMPfBEd2TbIfwytOyPA" contract="_ZzlzMPfBEd2TbIfwytOyPA"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_WhfjIilYEd-eoo60eNyGlg" name="[name/]" specification="_2bwsEClzEd-eoo60eNyGlg">
             <language>C/C++</language>
-            <body>!xtend AsyncCalls.asyncCall</body>
+            <body>!template AsyncCalls.asyncCall</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_WhfjIylYEd-eoo60eNyGlg" name="static[name/]" specification="_WhfjJSlYEd-eoo60eNyGlg">
             <language>C/C++</language>
@@ -68,7 +68,7 @@ return NULL;
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_nV2DcED5Ed-_DOja_sRgWA" name="dispatch" specification="_G6LzAD3QEd-Bk-AHd6yyoA">
             <language>C/C++</language>
-            <body>!xtend AsyncCalls.dispatch_</body>
+            <body>!template AsyncCalls.dispatch_</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_WhfjJSlYEd-eoo60eNyGlg" name="staticDispatch" isStatic="true" method="_WhfjIylYEd-eoo60eNyGlg">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_WhfjJilYEd-eoo60eNyGlg" name="arg">
@@ -103,7 +103,7 @@ spawning new requests</body>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_pXzxh0J1Ed-Ps4Bfh0j9LQ" name="derived realization of I" client="_pXzKcEJ1Ed-Ps4Bfh0j9LQ" supplier="_ZzlzMPfBEd2TbIfwytOyPA" contract="_ZzlzMPfBEd2TbIfwytOyPA"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pXzxhEJ1Ed-Ps4Bfh0j9LQ" name="[name/]" specification="_pXzxjkJ1Ed-Ps4Bfh0j9LQ">
             <language>C/C++</language>
-            <body>!xtend AsyncCalls.asyncCall</body>
+            <body>!template AsyncCalls.asyncCall</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pXzxhUJ1Ed-Ps4Bfh0j9LQ" name="static[name/]" specification="_pXzxiEJ1Ed-Ps4Bfh0j9LQ">
             <language>C/C++</language>
@@ -113,7 +113,7 @@ return NULL;
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_pXzxhkJ1Ed-Ps4Bfh0j9LQ" name="dispatch" specification="_pXzxj0J1Ed-Ps4Bfh0j9LQ">
             <language>C/C++</language>
-            <body>!xtend AsyncCalls.dispatchWithThreadPool</body>
+            <body>!template AsyncCalls.dispatchWithThreadPool</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_pXzxiEJ1Ed-Ps4Bfh0j9LQ" name="staticDispatch" isStatic="true" method="_pXzxhUJ1Ed-Ps4Bfh0j9LQ">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_pXzxiUJ1Ed-Ps4Bfh0j9LQ" name="arg">
@@ -154,7 +154,7 @@ TODO: complete, move into model of Qompass AMI plugin</body>
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_3itBmtdwEd-ZnqCk2P2ZKg" name="derived realization of I" client="_3itBkNdwEd-ZnqCk2P2ZKg" supplier="_ZzlzMPfBEd2TbIfwytOyPA" contract="_ZzlzMPfBEd2TbIfwytOyPA"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3itBl9dwEd-ZnqCk2P2ZKg" name="[name/]" specification="_3itBoddwEd-ZnqCk2P2ZKg">
             <language>C/C++</language>
-            <body>!xtend AMIPull.operation</body>
+            <body>!template AMIPull.operation</body>
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3itBmNdwEd-ZnqCk2P2ZKg" name="static[name/]" specification="_3itBm9dwEd-ZnqCk2P2ZKg">
             <language>C/C++</language>
@@ -164,7 +164,7 @@ return NULL;
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3itBmddwEd-ZnqCk2P2ZKg" name="dispatch" specification="_3itBotdwEd-ZnqCk2P2ZKg">
             <language>C/C++</language>
-            <body>!xtend AsyncCall.dispatch_</body>
+            <body>!template AsyncCall.dispatch_</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_3itBm9dwEd-ZnqCk2P2ZKg" name="staticDispatch" isStatic="true" method="_3itBmNdwEd-ZnqCk2P2ZKg">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_3itBnNdwEd-ZnqCk2P2ZKg" name="arg">
@@ -187,7 +187,7 @@ return NULL;
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_8e_ocF7sEeGEmrrwB1vhPg" name="derived realization of I" client="_Mo2kwF7pEeGEmrrwB1vhPg" supplier="_ZzlzMPfBEd2TbIfwytOyPA" contract="_ZzlzMPfBEd2TbIfwytOyPA"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DmUQcF7tEeGEmrrwB1vhPg" name="operation1" specification="_ChD4kF7tEeGEmrrwB1vhPg">
             <language>C/C++</language>
-            <body>!xtend MultipleReceptacle.operation_</body>
+            <body>!template MultipleReceptacle.operation_</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_ChD4kF7tEeGEmrrwB1vhPg" name="[name/]" method="_DmUQcF7tEeGEmrrwB1vhPg"/>
         </packagedElement>
@@ -248,7 +248,7 @@ Call operations of buffer component?
           <generalization xmi:type="uml:Generalization" xmi:id="_EWShMPNHEeCovO8AYZymZQ" general="_b_yh4AzyEd6it_RkGhz_AA"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qRJc8PNJEeCovO8AYZymZQ" name="[name/]" specification="_aGt1sPNJEeCovO8AYZymZQ">
             <language>C/C++</language>
-            <body>!xtend StructBasedMarshalling.marshall</body>
+            <body>!template StructBasedMarshalling.marshall</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_aGt1sPNJEeCovO8AYZymZQ" name="[name/]" method="_qRJc8PNJEeCovO8AYZymZQ"/>
         </packagedElement>
@@ -298,7 +298,7 @@ Call operations of buffer component?
           <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_1tfFAJyCEd6WR4pSVO_UYw" name="derived realization of I" client="_jOU60A1jEd6tvthBDl600Q" supplier="_ZzlzMPfBEd2TbIfwytOyPA" contract="_ZzlzMPfBEd2TbIfwytOyPA"/>
           <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GSdesJ09Ed6l5bTPBsl00Q" name="[name/]" specification="__y0hwJ08Ed6l5bTPBsl00Q">
             <language>C/C++</language>
-            <body>!xtend SyncCalls.syncCall</body>
+            <body>!template SyncCalls.syncCall</body>
           </ownedBehavior>
           <ownedOperation xmi:type="uml:Operation" xmi:id="__y0hwJ08Ed6l5bTPBsl00Q" name="[name/]" method="_GSdesJ09Ed6l5bTPBsl00Q"/>
         </packagedElement>
@@ -1142,6 +1142,9 @@ Be aware that the number of instantiated template packages will be considerably 
         <ownedAttribute xmi:type="uml:Property" xmi:id="_xnYCAGqWEea45IDGiU87rA" name="manualTransformations">
           <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/trafos.uml#_ofuIUF4REea4bLzKfwAjjA"/>
         </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SjAWwLF-Eeaf-JvHZ0beEw" name="completeSM">
+          <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/statemachine.uml#_6-9EUCPoEeauR8esGjVxRA"/>
+        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_xnbsYGqWEea45IDGiU87rA" name="deployToNodes">
           <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/trafos.uml#_eELWgF4REea4bLzKfwAjjA"/>
         </ownedAttribute>
@@ -1149,11 +1152,11 @@ Be aware that the number of instantiated template packages will be considerably 
         <ownedAttribute xmi:type="uml:Property" xmi:id="_xncTcGqWEea45IDGiU87rA" name="bootloaderCreation">
           <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/trafos.uml#_s7jacF4REea4bLzKfwAjjA"/>
         </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xneIoGqWEea45IDGiU87rA" name="createAndConfig">
+          <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/trafos.uml#_sCpX8GoDEeaDvKuEhyP_8g"/>
+        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_xndhkGqWEea45IDGiU87rA" name="generateCode">
           <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/trafos.uml#_KVyWYGnwEead2IFRwKRBMw"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_xneIoGqWEea45IDGiU87rA" name="configureProject">
-          <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/trafos.uml#_sCpX8GoDEeaDvKuEhyP_8g"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_2RvRQF4SEea4bLzKfwAjjA" name="ExecuteOOTrafo"/>
@@ -1162,7 +1165,7 @@ Be aware that the number of instantiated template packages will be considerably 
     <packagedElement xmi:type="uml:Package" xmi:id="_B_a2UKLvEeSBiP8ZTcBQrQ" name="OOtransformations">
       <packagedElement xmi:type="uml:Class" xmi:id="_mgbVIKLvEeSBiP8ZTcBQrQ" name="StaticCpp"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_nRnhgKLvEeSBiP8ZTcBQrQ" name="DynamicCpp"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_pu1x4KLvEeSBiP8ZTcBQrQ" name="StaticJava"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_pu1x4KLvEeSBiP8ZTcBQrQ" name="Java"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_O6TiIjLUEd26WNosUASSSw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O6TiIzLUEd26WNosUASSSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -1232,83 +1235,74 @@ Be aware that the number of instantiated template packages will be considerably 
   <C_Cpp:Ptr xmi:id="_G6PMUCvHEd-uZPFNCty7PQ" base_parameter="_Dn-xYCvHEd-uZPFNCty7PQ"/>
   <C_Cpp:Ptr xmi:id="_NPp2QCvHEd-uZPFNCty7PQ" base_parameter="_IdnDkCvHEd-uZPFNCty7PQ"/>
   <C_Cpp:Const xmi:id="_dtZbECvHEd-uZPFNCty7PQ" base_property="_Xq00oCvHEd-uZPFNCty7PQ"/>
-  <FCM:Template xmi:id="_iOmWwDNZEd-0bO2vHbUkEA" base_Element="_KOvHsPiREd2UhpY2Y3WUyg"/>
-  <FCM:Template xmi:id="_qcrLcDNZEd-0bO2vHbUkEA" base_Element="__y0hwJ08Ed6l5bTPBsl00Q"/>
-  <FCM:DerivedElement xmi:id="_JqAFUD16Ed-Bk-AHd6yyoA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  <Transformation:ApplyTransformation xmi:id="_iOmWwDNZEd-0bO2vHbUkEA" base_Element="_KOvHsPiREd2UhpY2Y3WUyg"/>
+  <Transformation:ApplyTransformation xmi:id="_qcrLcDNZEd-0bO2vHbUkEA" base_Element="__y0hwJ08Ed6l5bTPBsl00Q"/>
+  <Transformation:DerivedElement xmi:id="_JqAFUD16Ed-Bk-AHd6yyoA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_JqEWwD16Ed-Bk-AHd6yyoA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_JqEWwD16Ed-Bk-AHd6yyoA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_RTu-gED2Ed-_DOja_sRgWA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_RTu-gED2Ed-_DOja_sRgWA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_RUIAEED2Ed-_DOja_sRgWA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_RUIAEED2Ed-_DOja_sRgWA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
+  </Transformation:DerivedElement>
   <C_Cpp:Ptr xmi:id="_5048MED6Ed-_DOja_sRgWA" base_property="_2fcqYED6Ed-_DOja_sRgWA"/>
-  <FCM:DerivedElement xmi:id="_xsrykEJFEd-Ps4Bfh0j9LQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  <Transformation:DerivedElement xmi:id="_xsrykEJFEd-Ps4Bfh0j9LQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_xs0VcEJFEd-Ps4Bfh0j9LQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_xs0VcEJFEd-Ps4Bfh0j9LQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_qBaUMFJEEd-OfYmxqPWG5g" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_qBaUMFJEEd-OfYmxqPWG5g" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_qBeloFJEEd-OfYmxqPWG5g" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_qBeloFJEEd-OfYmxqPWG5g" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_t--FUF0NEd-12d_h0i1xhQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_t--FUF0NEd-12d_h0i1xhQ" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_t_EzAF0NEd-12d_h0i1xhQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_t_EzAF0NEd-12d_h0i1xhQ" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:OperatingSystem xmi:id="_1eULwF0NEd-12d_h0i1xhQ" base_Class="_zVs5cF0NEd-12d_h0i1xhQ"/>
-  <FCM:OperatingSystem xmi:id="_3MI_gF0NEd-12d_h0i1xhQ" base_Class="_17yx8F0NEd-12d_h0i1xhQ"/>
-  <FCM:OperatingSystem xmi:id="_8h8mkF0NEd-12d_h0i1xhQ" base_Class="_4RuHgF0NEd-12d_h0i1xhQ"/>
-  <FCM:OperatingSystem xmi:id="_BL7pcF0OEd-12d_h0i1xhQ" base_Class="__1uEcF0NEd-12d_h0i1xhQ"/>
-  <FCM:TargetArchitecture xmi:id="_FYOqwF0OEd-12d_h0i1xhQ" base_Class="_CxQBcF0OEd-12d_h0i1xhQ"/>
-  <FCM:TargetArchitecture xmi:id="_W5gJIF0OEd-12d_h0i1xhQ" base_Class="_KjufQF0OEd-12d_h0i1xhQ"/>
-  <FCM:TargetArchitecture xmi:id="_YHIZ4F0OEd-12d_h0i1xhQ" base_Class="_PFcW8F0OEd-12d_h0i1xhQ"/>
-  <FCM:DerivedElement xmi:id="_FWe6IG4sEd-0rs2VEGIwsA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_FWe6IG4sEd-0rs2VEGIwsA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_FWlAwG4sEd-0rs2VEGIwsA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_FWlAwG4sEd-0rs2VEGIwsA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_9Kl8IG4-Ed-J1L578xi-WA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_9Kl8IG4-Ed-J1L578xi-WA" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_9K4QAG4-Ed-J1L578xi-WA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_9K4QAG4-Ed-J1L578xi-WA" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_Si_2kG5fEd-5CZIeuHpHAg" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_Si_2kG5fEd-5CZIeuHpHAg" base_Element="_JmxyMD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_WHyq4Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_SjXqAG5fEd-5CZIeuHpHAg" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_SjXqAG5fEd-5CZIeuHpHAg" base_Element="_JqB6gD16Ed-Bk-AHd6yyoA">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_W7YrADz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:Template xmi:id="_3IqLUKE1Ed-r8p-5QgO3cg" base_Element="_pXzxjkJ1Ed-Ps4Bfh0j9LQ"/>
-  <FCM:Template xmi:id="_9u11IKE1Ed-r8p-5QgO3cg" base_Element="_2bwsEClzEd-eoo60eNyGlg"/>
+  </Transformation:DerivedElement>
+  <Transformation:ApplyTransformation xmi:id="_3IqLUKE1Ed-r8p-5QgO3cg" base_Element="_pXzxjkJ1Ed-Ps4Bfh0j9LQ"/>
+  <Transformation:ApplyTransformation xmi:id="_9u11IKE1Ed-r8p-5QgO3cg" base_Element="_2bwsEClzEd-eoo60eNyGlg"/>
   <FCM:PortKind xmi:id="_H5-aQLqOEd-SedGzMDDkww" base_Class="_AQZZwLqOEd-SedGzMDDkww"/>
   <FCM:PortKind xmi:id="_KtgR0LqOEd-SedGzMDDkww" base_Class="__nMrwLqNEd-SedGzMDDkww"/>
-  <FCM:ConfigurationProperty xmi:id="_s0fGMMGJEd-Mveea1W_olA" base_Property="_rVfYoMGJEd-Mveea1W_olA"/>
   <FCM:InteractionComponent xmi:id="_8BUh8NdwEd-ZnqCk2P2ZKg" base_Class="_3itBkNdwEd-ZnqCk2P2ZKg"/>
-  <FCM:Template xmi:id="_CTIeQNdxEd-ZnqCk2P2ZKg" base_Element="_3itBoddwEd-ZnqCk2P2ZKg"/>
-  <C_Cpp:Typedef xmi:id="_68Aa4No9Ed-wvpj-p-V_QQ" definition="!xtend CppParameterStorage" base_primitivetype="_xOqL0No9Ed-wvpj-p-V_QQ"/>
+  <Transformation:ApplyTransformation xmi:id="_CTIeQNdxEd-ZnqCk2P2ZKg" base_Element="_3itBoddwEd-ZnqCk2P2ZKg"/>
+  <C_Cpp:Typedef xmi:id="_68Aa4No9Ed-wvpj-p-V_QQ" definition="!template CppParameterStorage" base_primitivetype="_xOqL0No9Ed-wvpj-p-V_QQ"/>
   <FCM:InteractionComponent xmi:id="_xaHRQDJKEeCAhMtIsY9HwA" base_Class="_pXzKcEJ1Ed-Ps4Bfh0j9LQ"/>
   <FCM:Port xmi:id="_MzPjkPNAEeCovO8AYZymZQ" base_Port="_MzO8gPNAEeCovO8AYZymZQ" kind="_wySlkFRxEd6GqrP6fkWBoQ" type="_omxU4PNAEeCovO8AYZymZQ"/>
-  <FCM:Template xmi:id="_c_dkcPNJEeCovO8AYZymZQ" base_Element="_aGt1sPNJEeCovO8AYZymZQ"/>
-  <FCM:ImplementationProperties xmi:id="_WIe68PQMEeCovO8AYZymZQ" base_Class="__uJRYPNGEeCovO8AYZymZQ"/>
+  <Transformation:ApplyTransformation xmi:id="_c_dkcPNJEeCovO8AYZymZQ" base_Element="_aGt1sPNJEeCovO8AYZymZQ"/>
   <FCM:ContainerRule xmi:id="_F1wZsPQUEeCovO8AYZymZQ" base_Class="__4GvgPQTEeCovO8AYZymZQ"/>
-  <FCM:DerivedElement xmi:id="_mKpWAPQXEeCovO8AYZymZQ" base_Element="_tK0poPQWEeCovO8AYZymZQ0" source="_tK0poPQWEeCovO8AYZymZQ"/>
-  <FCM:DerivedElement xmi:id="_mK0VIPQXEeCovO8AYZymZQ" base_Element="_FBMo4PQXEeCovO8AYZymZQ0" source="_FBMo4PQXEeCovO8AYZymZQ"/>
-  <FCM:DerivedElement xmi:id="_mK7C0PQXEeCovO8AYZymZQ" base_Element="_f1HmEPQREeCovO8AYZymZQ0" source="_f1HmEPQREeCovO8AYZymZQ"/>
+  <Transformation:DerivedElement xmi:id="_mKpWAPQXEeCovO8AYZymZQ" base_Element="_tK0poPQWEeCovO8AYZymZQ0" source="_tK0poPQWEeCovO8AYZymZQ"/>
+  <Transformation:DerivedElement xmi:id="_mK0VIPQXEeCovO8AYZymZQ" base_Element="_FBMo4PQXEeCovO8AYZymZQ0" source="_FBMo4PQXEeCovO8AYZymZQ"/>
+  <Transformation:DerivedElement xmi:id="_mK7C0PQXEeCovO8AYZymZQ" base_Element="_f1HmEPQREeCovO8AYZymZQ0" source="_f1HmEPQREeCovO8AYZymZQ"/>
   <standard:Create xmi:id="_o4VNAPRTEeCUGrV0Hl4JwQ" base_BehavioralFeature="_lrF08PRTEeCUGrV0Hl4JwQ"/>
   <FCM:InterceptionRule xmi:id="_qlcF8AJzEeG0Lb1KYG16fA" interceptionSet="__SLXgNtxEd6nqsBVkgJEEA" base_Property="_mvN04PTWEeCn1-FCrfecFg"/>
-  <FCM:Template xmi:id="_QUZxoCQeEeGj_4swHBbKwg" base_Element="_QQPDUSQeEeGj_4swHBbKwg"/>
+  <Transformation:ApplyTransformation xmi:id="_QUZxoCQeEeGj_4swHBbKwg" base_Element="_QQPDUSQeEeGj_4swHBbKwg"/>
   <C_Cpp:Const xmi:id="_MGjk0CSlEeG6GJ4vU06VYQ" base_property="_Ig_MUCSlEeG6GJ4vU06VYQ"/>
   <C_Cpp:Include xmi:id="_Yx49gCaeEeG4fZdVXNtoOQ" body="#include &lt;errno.h>" base_class="_JRmo0PNAEeCovO8AYZymZQ"/>
   <FCM:InteractionComponent xmi:id="_OXit8CfwEeG6iME5Q8XPKw" base_Class="_5J9coCXQEeGX6PuSE-DJlQ"/>
@@ -1316,50 +1310,48 @@ Be aware that the number of instantiated template packages will be considerably 
     <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
   </FCM:Port>
   <FCM:ContainerRule xmi:id="_MS45QCjaEeGFbebITJYb9g" base_Class="_1sCBICjZEeGFbebITJYb9g"/>
-  <FCM:ConfigurationProperty xmi:id="_zVumMCjbEeGFbebITJYb9g" base_Property="_tmNeoCjbEeGFbebITJYb9g"/>
   <FCM:Port xmi:id="_3NSGwSkAEeGDDbdzqSb4UA" base_Port="_3NSGwCkAEeGDDbdzqSb4UA" kind="_9Fif4FRxEd6GqrP6fkWBoQ">
     <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
   </FCM:Port>
-  <FCM:OperatingSystem xmi:id="_r4nVcCp9EeG1Y7BvjQ0T-w" base_Class="_onKy0Cp9EeG1Y7BvjQ0T-w"/>
   <FCM:Port xmi:id="_-nlmgENqEeGoAtSeIK7WLg" base_Port="_-nk_cENqEeGoAtSeIK7WLg" kind="_qOK0cFR1Ed6GqrP6fkWBoQ" type="_WkkjoPNUEeCovO8AYZymZQ"/>
   <FCM:Port xmi:id="_9gJEAENvEeGoAtSeIK7WLg" base_Port="_9gIc8ENvEeGoAtSeIK7WLg" kind="_pE6GUFR1Ed6GqrP6fkWBoQ" type="_WkkjoPNUEeCovO8AYZymZQ"/>
   <FCM:Port xmi:id="_MhIhgENxEeGoAtSeIK7WLg" base_Port="_MhH6cENxEeGoAtSeIK7WLg" kind="_pE6GUFR1Ed6GqrP6fkWBoQ" type="_WkkjoPNUEeCovO8AYZymZQ"/>
   <FCM:Port xmi:id="_Zd6hAENxEeGoAtSeIK7WLg" base_Port="_Zd558ENxEeGoAtSeIK7WLg" kind="_qOK0cFR1Ed6GqrP6fkWBoQ" type="_WkkjoPNUEeCovO8AYZymZQ"/>
   <FCM:Port xmi:id="_i6QeoEN8EeGfhclnRyNzoA" base_Port="_i5SOQEN8EeGfhclnRyNzoA" kind="_qOK0cFR1Ed6GqrP6fkWBoQ" type="_WkkjoPNUEeCovO8AYZymZQ"/>
   <FCM:Port xmi:id="_0KaqgF7pEeGEmrrwB1vhPg" base_Port="_0KY1UF7pEeGEmrrwB1vhPg" kind="_wySlkFRxEd6GqrP6fkWBoQ" type="_ZzlzMPfBEd2TbIfwytOyPA"/>
-  <FCM:Template xmi:id="_GNBM8F7tEeGEmrrwB1vhPg" base_Element="_ChD4kF7tEeGEmrrwB1vhPg"/>
+  <Transformation:ApplyTransformation xmi:id="_GNBM8F7tEeGEmrrwB1vhPg" base_Element="_ChD4kF7tEeGEmrrwB1vhPg"/>
   <FCM:InteractionComponent xmi:id="_UBcmIF7tEeGEmrrwB1vhPg" base_Class="_Mo2kwF7pEeGEmrrwB1vhPg"/>
   <FCM:InteractionComponent xmi:id="_Z3Zs4F7tEeGEmrrwB1vhPg" base_Class="_TLShkF7qEeGEmrrwB1vhPg"/>
   <FCM:PortKind xmi:id="_SrCqQC8qEeKx7OxAiA06uw" base_Class="_GjnlcC8qEeKx7OxAiA06uw"/>
   <SW_Concurrency:SwSchedulableResource xmi:id="_42YPYBn3EeONpa5JgejICQ" base_Classifier="_SiY_AP-EEd6628OhKk_dpg" priorityElements="_rVfYoMGJEd-Mveea1W_olA"/>
   <C_Cpp:NoCodeGen xmi:id="_ilpvUBqnEeOfW_TxE-lJDw" base_element="_q56toNzEEeKPWMO32vUmzw"/>
-  <FCM:DerivedElement xmi:id="_TJO30CxyEeOMQpc6Y-MAJw" base_Element="_TBScwCxyEeOMQpc6Y-MAJw">
+  <Transformation:DerivedElement xmi:id="_TJO30CxyEeOMQpc6Y-MAJw" base_Element="_TBScwCxyEeOMQpc6Y-MAJw">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_ns4qsClUEeO4bs_nkcnKOg"/>
-  </FCM:DerivedElement>
+  </Transformation:DerivedElement>
   <FCM:CompToOOmapping xmi:id="_45ldwKLvEeSBiP8ZTcBQrQ" base_Class="_pu1x4KLvEeSBiP8ZTcBQrQ"/>
   <FCM:CompToOOmapping xmi:id="_5zQ3wKLvEeSBiP8ZTcBQrQ" base_Class="_mgbVIKLvEeSBiP8ZTcBQrQ"/>
   <FCM:CompToOOmapping xmi:id="_66vdMKLvEeSBiP8ZTcBQrQ" base_Class="_nRnhgKLvEeSBiP8ZTcBQrQ"/>
   <C_Cpp:Const xmi:id="_YKw8INhuEeSqPLTzapTtmQ" base_property="_YHC5wNhuEeSqPLTzapTtmQ"/>
-  <FCM:DerivedElement xmi:id="_QS4L8DUKEeWa95xDrmW0sg" base_Element="_QO65ADUKEeWa95xDrmW0sg" source="_ZzlzMPfBEd2TbIfwytOyPA"/>
-  <FCM:DerivedElement xmi:id="_utfFkH2KEeWV7cfiwPN21w" base_Element="_utaNEH2KEeWV7cfiwPN21w">
+  <Transformation:DerivedElement xmi:id="_QS4L8DUKEeWa95xDrmW0sg" base_Element="_QO65ADUKEeWa95xDrmW0sg" source="_ZzlzMPfBEd2TbIfwytOyPA"/>
+  <Transformation:DerivedElement xmi:id="_utfFkH2KEeWV7cfiwPN21w" base_Element="_utaNEH2KEeWV7cfiwPN21w">
     <source xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_T3li0Dz6Ed-v9PxuTj6Elw"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_oJglwH2LEeWV7cfiwPN21w" base_Element="_oJcUUH2LEeWV7cfiwPN21w">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_oJglwH2LEeWV7cfiwPN21w" base_Element="_oJcUUH2LEeWV7cfiwPN21w">
     <source xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_7TuzoCUUEd6YR-YzyVnLng"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_AsyHQH2MEeWV7cfiwPN21w" base_Element="_AsqygH2MEeWV7cfiwPN21w" source="_ZzlzMPfBEd2TbIfwytOyPA"/>
-  <FCM:DerivedElement xmi:id="_pMMXEMTiEeWfEYAFL-UFuw" base_Element="_pMJ60MTiEeWfEYAFL-UFuw">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_AsyHQH2MEeWV7cfiwPN21w" base_Element="_AsqygH2MEeWV7cfiwPN21w" source="_ZzlzMPfBEd2TbIfwytOyPA"/>
+  <Transformation:DerivedElement xmi:id="_pMMXEMTiEeWfEYAFL-UFuw" base_Element="_pMJ60MTiEeWfEYAFL-UFuw">
     <source xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_pMuikMTiEeWfEYAFL-UFuw" base_Element="_pMrfQMTiEeWfEYAFL-UFuw">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_pMuikMTiEeWfEYAFL-UFuw" base_Element="_pMrfQMTiEeWfEYAFL-UFuw">
     <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_C9IK4JsqEd61Eo3nmu3JhQ"/>
-  </FCM:DerivedElement>
-  <FCM:DerivedElement xmi:id="_FSjTEMUKEeWfEYAFL-UFuw" base_Element="_FSgPwMUKEeWfEYAFL-UFuw">
+  </Transformation:DerivedElement>
+  <Transformation:DerivedElement xmi:id="_FSjTEMUKEeWfEYAFL-UFuw" base_Element="_FSgPwMUKEeWfEYAFL-UFuw">
     <source xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_BHFPQJsqEd61Eo3nmu3JhQ"/>
-  </FCM:DerivedElement>
+  </Transformation:DerivedElement>
   <C_Cpp:Ptr xmi:id="_FSoLkMUKEeWfEYAFL-UFuw" base_parameter="_FSlvUMUKEeWfEYAFL-UFuw"/>
   <C_Cpp:Ptr xmi:id="_FSqn0MUKEeWfEYAFL-UFuw" base_parameter="_FSoLkcUKEeWfEYAFL-UFuw"/>
-  <FCM:DerivedElement xmi:id="_LO_PUMp7EeWZ7LDc4RWI6w" base_Element="_LO4hoMp7EeWZ7LDc4RWI6w" source="_fxfe8Cu1Ed-uZPFNCty7PQ"/>
+  <Transformation:DerivedElement xmi:id="_LO_PUMp7EeWZ7LDc4RWI6w" base_Element="_LO4hoMp7EeWZ7LDc4RWI6w" source="_fxfe8Cu1Ed-uZPFNCty7PQ"/>
   <C_Cpp:Ptr xmi:id="_LPF9AMp7EeWZ7LDc4RWI6w" base_parameter="_LPCSoMp7EeWZ7LDc4RWI6w"/>
   <C_Cpp:Ptr xmi:id="_LPK1gMp7EeWZ7LDc4RWI6w" base_parameter="_LPGkEMp7EeWZ7LDc4RWI6w"/>
   <Transformation:M2MTrafoChain xmi:id="_NQUF0GpIEeaSLtRdInZlZA" base_Class="_bnyXIF4SEea4bLzKfwAjjA"/>
