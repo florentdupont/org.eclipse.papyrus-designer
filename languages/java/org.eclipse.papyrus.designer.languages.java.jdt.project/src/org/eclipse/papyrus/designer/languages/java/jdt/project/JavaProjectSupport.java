@@ -11,27 +11,36 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jdt.ui.actions.OpenNewJavaProjectWizardAction;
 import org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageOne;
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.m2e.core.ui.internal.wizards.MavenProjectWizard;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.AbstractSettings;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
  * Supports the creation and configuration of JDT projects
  */
 public class JavaProjectSupport implements ILangProjectSupport {
 	private int dialogStatus;
+	private MavenProject mavenProjectDetails;
 
 	/**
-	 * Create a Java project.
-	 * Caller should test before calling, whether the project exists already
+	 * Create a Java project. Caller should test before calling, whether the
+	 * project exists already
 	 *
 	 * @param projectName
 	 * @return the created project
 	 */
 	@Override
-	public IProject createProject(String projectName)
-	{
+	public IProject createProject(String projectName) {
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 
 		IProject project = root.getProject(projectName);
@@ -40,8 +49,9 @@ public class JavaProjectSupport implements ILangProjectSupport {
 			// create JDT wizard for Java
 			final NewJavaProjectWizardPageOne wiz = new JavaNamedProjectWizard(projectName);
 
-			//wiz.setWindowTitle("create project " + projectName); //$NON-NLS-1$
-			//wiz.init(wb, null);
+			// wiz.setWindowTitle("create project " + projectName);
+			// //$NON-NLS-1$
+			// wiz.init(wb, null);
 
 			Display.getDefault().syncExec(new Runnable() {
 				@Override
@@ -60,13 +70,66 @@ public class JavaProjectSupport implements ILangProjectSupport {
 			return null;
 		}
 		if ((project == null) || !project.exists()) {
-			throw new RuntimeException("Could not create JDT project. This might indicate that there is a problem with your JDT installation."); //$NON-NLS-1$
+			throw new RuntimeException(
+					"Could not create JDT project. This might indicate that there is a problem with your JDT installation."); //$NON-NLS-1$
 		}
 		return project;
 	}
 
 	@Override
+	public IProject createProject(String projectName, Package modelRoot) {
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		IProject project = root.getProject(projectName);
+		mavenProjectDetails = UMLUtil.getStereotypeApplication(modelRoot, MavenProject.class);
+		try {
+			if (mavenProjectDetails == null) {
+				// create JDT wizard for Java
+				final NewJavaProjectWizardPageOne wiz = new JavaNamedProjectWizard(projectName);
+				Display.getDefault().syncExec(new Runnable() {
+					@Override
+					public void run() {
+						OpenNewJavaProjectWizardAction wizDiag = new OpenNewJavaProjectWizardAction();
+						wizDiag.setConfiguredWizardPages(wiz, null);
+						wizDiag.run();
+					}
+				});
+			} else {
+				// Create Maven wizard
+				final MavenProjectWizard mavenWiz = new MavenProjectWizard();
+				mavenWiz.setWindowTitle(projectName);
+				Display.getDefault().syncExec(new Runnable() {
+					@Override
+					public void run() {
+						IWorkbench wb = PlatformUI.getWorkbench();
+						mavenWiz.init(wb, new StructuredSelection());
+						Shell shell = wb.getActiveWorkbenchWindow().getShell();
+						WizardDialog dialog = new WizardDialog(shell, mavenWiz);
+						dialog.create();
+						dialog.open();
+					}
+				});
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		project = root.getProject(projectName);
+		
+		/*
+		 * if ((project == null) || !project.exists()) { throw new
+		 * RuntimeException("Could not create JDT project. This might indicate that there is a problem with your JDT installation."
+		 * ); //$NON-NLS-1$ }
+		 */
+		return project;
+	}
+
+	@Override
 	public void setSettings(IProject project, AbstractSettings settings) {
+		if(project != null){
+			CustomizePOMFile customizePOMFile = new CustomizePOMFile(project, mavenProjectDetails);
+			customizePOMFile.execute();	
+		}
+		
 	}
 
 	@Override

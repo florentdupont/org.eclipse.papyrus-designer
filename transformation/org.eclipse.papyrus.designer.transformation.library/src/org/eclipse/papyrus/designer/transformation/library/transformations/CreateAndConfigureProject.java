@@ -23,7 +23,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.OperatingSystem;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
@@ -90,17 +89,18 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 	 *            the name of the project to create (or get, if it already
 	 *            exists)
 	 * @param targetLanguage
+	 * @param modelRoot
 	 * @return the project or null, if no project creation support is available
 	 *         for the target language
 	 * @throws TransformationException
 	 */
-	protected IProject getOrCreateProject(ILangProjectSupport projectSupport, String projectName, String targetLanguage)
-			throws TransformationException {
+	protected IProject getOrCreateProject(ILangProjectSupport projectSupport, String projectName, String targetLanguage,
+			Package modelRoot) throws TransformationException {
 		IProject genProject = ProjectManagement.getNamedProject(projectName);
 		if ((genProject == null) || !genProject.exists()) {
 			IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 			IProject[] projectsBeforeCreation = root.getProjects();
-			genProject = projectSupport.createProject(projectName);
+			genProject = projectSupport.createProject(projectName, modelRoot);
 			try {
 				root.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 				IProject[] projectsAfterCreation = root.getProjects();
@@ -126,7 +126,7 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 						+ " project. This might indicate that there is a problem with your " + targetLanguage
 						+ " installation.");
 			}
-
+			
 			// project is new, force re-write of settings
 			UIContext.configureProject = true;
 		}
@@ -206,7 +206,7 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 		String targetLanguage = DepUtils.getTargetLanguage(topLevelInstances.iterator().next());
 		String projectName = getProjectName(tc.modelRoot, tc.node);
 		projectSupport = LanguageProjectSupport.getProjectSupport(targetLanguage);
-		IProject genProject = getOrCreateProject(projectSupport, projectName, targetLanguage);
+		IProject genProject = getOrCreateProject(projectSupport, projectName, targetLanguage, tc.modelRoot);
 		if (genProject == null) {
 			throw new TransformationException(
 					String.format(Messages.DeployToNodes_CouldNotCreateProject, targetLanguage));

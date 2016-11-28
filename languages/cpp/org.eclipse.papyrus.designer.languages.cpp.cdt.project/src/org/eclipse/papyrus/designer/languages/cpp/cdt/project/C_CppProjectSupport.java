@@ -55,17 +55,16 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 	private static final String CPP = "cpp"; //$NON-NLS-1$
 
 	protected int dialogStatus;
-	
+
 	/**
-	 * Create a C++ project.
-	 * Caller should test before calling, whether the project exists already
+	 * Create a C++ project. Caller should test before calling, whether the
+	 * project exists already
 	 *
 	 * @param projectName
 	 * @return the created project
 	 */
 	@Override
-	public IProject createProject(String projectName)
-	{
+	public IProject createProject(String projectName) {
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 
 		IProject project = root.getProject(projectName);
@@ -74,9 +73,8 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 			IWorkbench wb = PlatformUI.getWorkbench();
 
 			// create CDT wizard for C++ or C
-			final CDTCommonProjectWizard wiz = this instanceof CppProjectSupport ?
-				new CCNamedProjectWizard(projectName) :
-				new CNamedProjectWizard(projectName);
+			final CDTCommonProjectWizard wiz = this instanceof CppProjectSupport ? new CCNamedProjectWizard(projectName)
+					: new CNamedProjectWizard(projectName);
 
 			wiz.setWindowTitle("create project " + projectName); //$NON-NLS-1$
 			wiz.init(wb, null);
@@ -94,38 +92,35 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 			if (dialogStatus == Window.OK) {
 				// update project (name might have changed by user)
 				project = wiz.getLastProject();
-			}
-			else if (dialogStatus == Window.CANCEL) {
+			} else if (dialogStatus == Window.CANCEL) {
 				return null;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			project = null;
 		}
-	
+
 		if ((project == null) || !project.exists()) {
-			throw new RuntimeException("Could not create CDT project. This might indicate that there is a problem with your CDT installation."); //$NON-NLS-1$
+			throw new RuntimeException(
+					"Could not create CDT project. This might indicate that there is a problem with your CDT installation."); //$NON-NLS-1$
 		}
 		return project;
 	}
 
 	@Override
-	public void setSettings(IProject project, AbstractSettings abstractSettings)
-	{
+	public void setSettings(IProject project, AbstractSettings abstractSettings) {
 		CDTSettings settings = (CDTSettings) abstractSettings;
 		try {
 			// ((CProject) project).
 			// IProjectDescription desc = m_project.getDescription();
 
-			ICProjectDescriptionManager mngr =
-					CoreModel.getDefault().getProjectDescriptionManager();
+			ICProjectDescriptionManager mngr = CoreModel.getDefault().getProjectDescriptionManager();
 			ICProjectDescription cdesc = mngr.getProjectDescription(project, true);
 
 			// loop over all configurations
 			for (ICConfigurationDescription configDescr : cdesc.getConfigurations()) {
 
-				ICFolderDescription folderDescription =
-						configDescr.getRootFolderDescription();
+				ICFolderDescription folderDescription = configDescr.getRootFolderDescription();
 
 				ICLanguageSetting[] languageSettings = folderDescription.getLanguageSettings();
 
@@ -134,22 +129,22 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 				for (int i = 0; i < settings.includePaths.size(); i++) {
 					String path = settings.includePaths.get(i);
 					if (isWsRelPath(path)) {
-						icIncludePaths[i] = new CIncludePathEntry(removeWsPrefix(path), ICSettingEntry.VALUE_WORKSPACE_PATH);
-					}
-					else {
-						icIncludePaths[i] = new CIncludePathEntry(path, 0);			
+						icIncludePaths[i] = new CIncludePathEntry(removeWsPrefix(path),
+								ICSettingEntry.VALUE_WORKSPACE_PATH);
+					} else {
+						icIncludePaths[i] = new CIncludePathEntry(path, 0);
 					}
 				}
 
-				// define name of used operating system from model (attribute of "Target" stereotype)
+				// define name of used operating system from model (attribute of
+				// "Target" stereotype)
 				// and add it to list of macros
 				if (settings.targetOS != null) {
 					settings.macros.add("OS_" + settings.targetOS); //$NON-NLS-1$
 				}
 
 				// define macros
-				EList<ICLanguageSettingEntry> icMacros =
-						new BasicEList<ICLanguageSettingEntry>();
+				EList<ICLanguageSettingEntry> icMacros = new BasicEList<ICLanguageSettingEntry>();
 				for (int i = 0; i < settings.macros.size(); i++) {
 					// TODO: need to define values for macros as well?
 					icMacros.add(new CMacroEntry(settings.macros.get(i), "", 0)); //$NON-NLS-1$
@@ -158,12 +153,13 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 				// now set include path and preprocessor code
 				for (ICLanguageSetting lang : languageSettings) {
 					// selection better via ID? (instead of extension)
-					// Log.log(Status.INFO, Log.CODEGEN, "CppLanguageSupport: lang.getID: " + lang.getId() + " lang.getLanguageID: " + lang.getLanguageId());
+					// Log.log(Status.INFO, Log.CODEGEN, "CppLanguageSupport:
+					// lang.getID: " + lang.getId() + " lang.getLanguageID: " +
+					// lang.getLanguageId());
 					for (String ext : lang.getSourceExtensions()) {
 						if (ext.equals(CPP) || ext.equals(C)) {
 							lang.setSettingEntries(ICSettingEntry.INCLUDE_PATH, icIncludePaths);
-							ICLanguageSettingEntry icOldMacros[] =
-									lang.getSettingEntries(ICSettingEntry.MACRO);
+							ICLanguageSettingEntry icOldMacros[] = lang.getSettingEntries(ICSettingEntry.MACRO);
 							for (ICLanguageSettingEntry entry : icOldMacros) {
 								icMacros.add(entry);
 							}
@@ -203,7 +199,8 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 		CDTSettings settings = new CDTSettings();
 		settings.includePaths = new UniqueEList<String>();
 		// include project directory (all paths are relative to it)
-		// TODO: choose source folder depending on model (which is currently not passed as a parameter)
+		// TODO: choose source folder depending on model (which is currently not
+		// passed as a parameter)
 		settings.includePaths.add(WS_PREFIX + "src-gen"); //$NON-NLS-1$
 
 		settings.libs = new UniqueEList<String>();
@@ -222,9 +219,12 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 				settings.includePaths.addAll(cppLibrary.getIncludePaths());
 				for (String libPath : cppLibrary.getLibPaths()) {
 					if (isWsRelPath(libPath)) {
-						// libPaths starting with a slash (separator char) are relative to workspace location
-						// TODO: need to support absolute paths (host file system?) as well?
-						// (additional prefix. Eclipse standards?) Problem: workspace_loc is added
+						// libPaths starting with a slash (separator char) are
+						// relative to workspace location
+						// TODO: need to support absolute paths (host file
+						// system?) as well?
+						// (additional prefix. Eclipse standards?) Problem:
+						// workspace_loc is added
 						// automatically for absolute includePaths
 						settings.libPaths.add("${workspace_loc:" + removeWsPrefix(libPath) + "}");
 					} else {
@@ -238,16 +238,21 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 			owner = owner.getOwner();
 		}
 	}
-	
+
 	public static String removeWsPrefix(String path) {
 		return path.substring(WS_PREFIX.length());
 	}
 
 	/**
-	 * @return true, if the path is a workspace relative path 
+	 * @return true, if the path is a workspace relative path
 	 */
 	public static boolean isWsRelPath(String path) {
 		return path.startsWith(WS_PREFIX);
-		
+
+	}
+
+	@Override
+	public IProject createProject(String projectName, Package modelRoot) {
+		return createProject(projectName);
 	}
 }

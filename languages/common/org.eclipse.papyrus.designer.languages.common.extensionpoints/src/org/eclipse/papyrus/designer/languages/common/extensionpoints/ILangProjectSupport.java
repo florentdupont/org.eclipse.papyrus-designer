@@ -13,6 +13,7 @@ package org.eclipse.papyrus.designer.languages.common.extensionpoints;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.Package;
 
 /**
  * Common interface to create projects for a specific programming language.
@@ -33,6 +34,22 @@ public interface ILangProjectSupport {
 	public IProject createProject(String projectName);
 
 	/**
+	 * Create a project for a specific language and configure it (according to
+	 * gathered configuration data before). In case of C/C++ for instance, a CDT
+	 * project should be created, in case of Java, a JDT project. An
+	 * implementation should call setProject and setSettings before returning
+	 * the project. It also adds the Maven nature to the project when the user
+	 * wants a Maven project to be generated.
+	 *
+	 * @param projectName
+	 *            the named of the project
+	 * @param modelRoot
+	 *            the root package of the model used to generate the project
+	 * @return the created project
+	 */
+	public IProject createProject(String projectName, Package modelRoot);
+
+	/**
 	 * Write the project settings from the passed project specific settings.
 	 * (which may be obtained via gatherConfigData).
 	 *
@@ -43,6 +60,7 @@ public interface ILangProjectSupport {
 
 	/**
 	 * Create an initial (empty) configuration.
+	 * 
 	 * @return the project specific configuration.
 	 */
 	public AbstractSettings initialConfigurationData();
