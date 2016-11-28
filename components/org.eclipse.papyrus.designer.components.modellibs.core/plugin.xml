@@ -94,44 +94,53 @@
 			notation_file="models/wizardTemplates/DesignerCBSimple.notation">
 		</template>
 	</extension>
-	<extension point="org.eclipse.ui.newWizards">
-		<wizard
+	
+	<extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            canFinishEarly="false"
 			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.wizards.HelloWorldModelWizard"
-			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
-			id="org.eclipse.papyrus.designer.components.modellibs.core.new.HelloWorld"
-			name="Papyrus Designer component-based hello world example">
-			<selection class="org.eclipse.core.resources.IResource"/>
-		</wizard>
-		<wizard
-			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.wizards.ProducerConsumerModelWizard"
-			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
-			id="org.eclipse.papyrus.designer.components.modellibs.core.new.ProducerConsumer"
-			name="Papyrus Designer component-based producer/comsumer example">
-			<selection class="org.eclipse.core.resources.IResource"/>
-		</wizard>
-		<wizard
-			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.wizards.SimpleSMModelWizard"
-			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
-			id="org.eclipse.papyrus.designer.components.modellibs.core.new.SimpleSM"
-			name="Papyrus Designer component-based example using a simple state machine">
-			<selection class="org.eclipse.core.resources.IResource"/>
-		</wizard>
-		<wizard
-			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.designer.components.modellibs.core.ABitComplexSMModelWizard"
-			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
-			id="org.eclipse.papyrus.designer.components.modellibs.core.new.ABitComplexSM"
-			name="Papyrus Designer component-based example using a bit more complex state machine">
-			<selection class="org.eclipse.core.resources.IResource"/>
-		</wizard>
+            class="org.eclipse.papyrus.uml.diagram.wizards.wizardstmp.PapyrusExampleInstallerWizard"
+            finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+            icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+            id="org.eclipse.papyrus.designer.examples.category.DesignerExamplesComponents.installer"
+            name="Papyrus Designer component-based examples"
+            project="true">
+      </wizard>
+   </extension>
+
+	<extension point="org.eclipse.emf.common.ui.examples">
+		<example
+			id="org.eclipse.papyrus.designer.examples.DesignerExampleComponents"
+			pageImage="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/PapyrusLogo_48x48.png"
+			wizardID="org.eclipse.papyrus.designer.examples.category.DesignerExamplesComponents.installer">
+			<projectDescriptor
+				contentURI="models/examples/CHelloWorldCpp/"
+				name="CHelloWorldCpp"
+				description="Component-based Hello World example for C++.">
+			</projectDescriptor>
+			<fileToOpen
+				location="CHelloWorldCpp/CHelloWorldCpp.di">
+			</fileToOpen>
+			<projectDescriptor
+				contentURI="models/examples/CHelloWorldJava/"
+				name="CHelloWorldJava"
+				description="Component-based Hello World example for Java.">
+			</projectDescriptor>
+			<fileToOpen
+				location="CHelloWorldJava/CHelloWorldJava.di">
+			</fileToOpen>
+			<projectDescriptor
+				contentURI="models/examples/ProducerConsumer/"
+				name="ProducerConsumer"
+				description="Component-based producer/consumer example (for C++).">
+			</projectDescriptor>
+			<fileToOpen
+				location="ProducerConsumer/ProducerConsumer.di">
+			</fileToOpen>
+		</example>
 	</extension>
+   
 	<extension
 			point="org.eclipse.help.toc">
 		<toc file="help/modellibs-core-examples.xml"/>

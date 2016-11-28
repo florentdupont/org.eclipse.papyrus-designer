@@ -7,13 +7,13 @@
 package org.eclipse.papyrus.designer.ui;
 
 import org.eclipse.papyrus.infra.core.log.LogHelper;
-import org.osgi.framework.BundleActivator;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator implements BundleActivator {
+public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.eclipse.papyrus.designer.ui"; //$NON-NLS-1$

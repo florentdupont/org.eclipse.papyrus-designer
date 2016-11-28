@@ -20,15 +20,37 @@
           target="platform:/plugin/org.eclipse.papyrus.designer.transformation.languages.cpp.library/models/library/">
 		</mapping>
 	</extension>
-	<extension point="org.eclipse.ui.newWizards">
-		<wizard
-			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.designer.transformation.languages.cpp.library.wizards.HelloWorldCppModelWizard"
-			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
-			id="org.eclipse.papyrus.designer.transformation.languages.cpp.library.wizards.HelloWorldCppModelWizard"
-			name="Papyrus Designer C++ hello world example with deployment plan">
-			<selection class="org.eclipse.core.resources.IResource"/>
-		</wizard>
-	</extension>
+
+	<extension point="org.eclipse.emf.common.ui.examples">
+		<example
+			id="org.eclipse.papyrus.designer.examples.DesignerExamplesWithM2Mtrafo.cpp"
+			pageImage="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/PapyrusLogo_48x48.png"
+			wizardID="org.eclipse.papyrus.designer.examples.category.DesignerExamplesWithM2Mtrafo.installer">
+			<projectDescriptor
+				contentURI="models/examples/HelloWorldCpp/"
+				name="HelloWorldCpp"
+				description="Papyrus Designer C++ hello world example with a deployment plan.">
+			</projectDescriptor>
+			<fileToOpen
+				location="HelloWorldCpp/HelloWorldCpp.di">
+			</fileToOpen>
+			<projectDescriptor
+				contentURI="models/examples/SimpleSM/"
+				name="SimpleSM"
+				description="Papyrus Designer example using a busing a simple state machine.">
+			</projectDescriptor>
+			<fileToOpen
+				location="SimpleSM/SimpleSM.di">
+			</fileToOpen>
+			<projectDescriptor
+				contentURI="models/examples/AbitComplexSM/"
+				name="AbitComplexSM"
+				description="Papyrus Designer example using a bit more complex state machine.">
+			</projectDescriptor>
+			<fileToOpen
+				location="AbitComplexSM/AbitComplexSM.di">
+			</fileToOpen>
+		</example>
+   </extension>
+
 </plugin>

@@ -2,29 +2,47 @@
 <?eclipse version="3.4"?>
 <plugin>
 
-<extension
-         point="org.eclipse.ui.menus">
-	<menuContribution
-		allPopups="true"
-		locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup?after=others">
-		<menu
-			icon="icons/designer-16x16.gif"
-			id="org.eclipse.papyrus.designer.popup"
-			label="Designer">
-			<separator name="designer" visible="true"/>
-		</menu>
-	</menuContribution>
-	<menuContribution
-		allPopups="true"
-		locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=additions">
-		<menu
-			icon="icons/designer-16x16.gif"
-			id="org.eclipse.papyrus.designer.popup"
-			label="Designer">
-			<separator name="codegen" visible="true"/>
-			<separator name="components" visible="true"/>
-			<separator name="architect" visible="true"/>
-		</menu>
-	</menuContribution>
-</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			allPopups="true"
+			locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup?after=others">
+			<menu
+				icon="icons/designer-16x16.gif"
+				id="org.eclipse.papyrus.designer.popup"
+				label="Designer">
+				<separator name="designer" visible="true"/>
+			</menu>
+		</menuContribution>
+		<menuContribution
+			allPopups="true"
+			locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=additions">
+			<menu
+				icon="icons/designer-16x16.gif"
+				id="org.eclipse.papyrus.designer.popup"
+				label="Designer">
+				<separator name="codegen" visible="true"/>
+				<separator name="components" visible="true"/>
+				<separator name="architect" visible="true"/>
+			</menu>
+		</menuContribution>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category
+			id="org.eclipse.papyrus.designer.examples"
+			name="Papyrus Designer examples"
+			parentCategory="org.eclipse.papyrus.examples">
+		</category>
+
+      <wizard
+            canFinishEarly="false"
+			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
+            class="org.eclipse.papyrus.uml.diagram.wizards.wizardstmp.PapyrusExampleInstallerWizard"
+            finalPerspective="org.eclipse.papyrus.infra.core.perspective"
+            icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
+            id="org.eclipse.papyrus.designer.examples.category.DesignerExamplesDirect.installer"
+            name="Papyrus Designer examples based on direct code generation (no transformations)"
+            project="true">
+      </wizard>
+   </extension>
 </plugin>

@@ -12,16 +12,21 @@
 			source="pathmap://DML_TRAFOS_JAVA/"
 			target="platform:/plugin/org.eclipse.papyrus.designer.transformation.languages.java.library/models/library/"/>
 	</extension>
-	<extension point="org.eclipse.ui.newWizards">
-		<wizard
-			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.designer.transformation.languages.java.library.wizards.HelloWorldJavaModelWizard"
-			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-			icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
-			id="org.eclipse.papyrus.designer.transformation.languages.java.library.wizards.HelloWorldjavaModelWizard"
-			name="Papyrus Designer C++ hello world example with deployment plan">
-			<selection class="org.eclipse.core.resources.IResource"/>
-		</wizard>
-	</extension>
+
+	<extension point="org.eclipse.emf.common.ui.examples">
+		<example
+			id="org.eclipse.papyrus.designer.examples.DesignerExamplesWithM2Mtrafo.java"
+			pageImage="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/PapyrusLogo_48x48.png"
+			wizardID="org.eclipse.papyrus.designer.examples.category.DesignerExamplesWithM2Mtrafo.installer">
+			<projectDescriptor
+				contentURI="models/examples/HelloWorldJava/"
+				name="HelloWorldJava"
+				description="Papyrus Designer Java hello world example with a deployment plan.">
+			</projectDescriptor>
+			<fileToOpen
+				location="HelloWorldJava/HelloWorldJava.di">
+			</fileToOpen>
+		</example>
+   </extension>
 	
 </plugin>

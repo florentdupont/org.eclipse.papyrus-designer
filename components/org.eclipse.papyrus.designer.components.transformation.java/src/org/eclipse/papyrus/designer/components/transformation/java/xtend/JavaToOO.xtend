@@ -85,7 +85,10 @@ class JavaToOO implements IOOTrafo {
 	public static final String progLang = "JAVA"
 
 	override addPortOperations(Class implementation) {
-		addGetPortOperation(implementation)
+		// only implementations (non abstract classes) have get operations for ports
+		if (!implementation.isAbstract) {
+			addGetPortOperation(implementation)
+		}
 		addConnectPortOperation(implementation)
 	}
 

@@ -33,7 +33,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.designer.deployment.profile;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.languages.common.extensionpoints;bundle-version="1.0.2",
  org.eclipse.papyrus.designer.languages.common.base;bundle-version="1.0.4",
- org.eclipse.papyrus.designer.languages.common.profile
+ org.eclipse.papyrus.designer.languages.common.profile,
+ org.eclipse.papyrus.designer.ui;bundle-version="1.0.4"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.7.5.qualifier

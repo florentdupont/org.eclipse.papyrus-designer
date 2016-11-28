@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:Deployment="http://www.eclipse.org/papyrus/Deployment/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="ABitComplexSMOrthogonalExample">
+    <packagedElement xmi:type="uml:Package" xmi:id="_JVYRMKv6EeaLELdEtPrdIA" name="globalenums"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_JV09IKv6EeaLELdEtPrdIA" name="deployment">
+      <packagedElement xmi:type="uml:Package" xmi:id="_JV2LQqv6EeaLELdEtPrdIA" name="System_implDepPlan">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_QQr0gHltEeOh_8tymvdOOg" name="mainInstance" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
+      </packagedElement>
+      <profileApplication xmi:id="_-bWMkKv5EeaLELdEtPrdIA">
+        <eAnnotations xmi:id="_-bWzoKv5EeaLELdEtPrdIA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Deployment/1#/"/>
+        </eAnnotations>
+        <appliedProfile href="pathmap://DEP_PROFILE/Deployment.profile.uml#_gPDsIBa-EearhdjjJ6cVzQ"/>
+      </profileApplication>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_JWGC4Kv6EeaLELdEtPrdIA" name="components">
+      <packagedElement xmi:type="uml:Class" xmi:id="_oqZNUDLaEd2qeKRLMdIx_A" name="SimpleSM" classifierBehavior="_JfLtcKv6EeaLELdEtPrdIA">
+        <generalization xmi:id="_LuEUwCgBEeapjr3l63b85A">
+          <general xmi:type="uml:Class" href="pathmap://DML_C_CORE/componentlib.uml#_N6fa4JsrEd61Eo3nmu3JhQ"/>
+        </generalization>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_4KiE8DLbEd2qeKRLMdIx_A" name="p" type="_cn-H0DLbEd2qeKRLMdIx_A" aggregation="composite"/>
+        <ownedAttribute xmi:id="_Ya5_oCkFEeaWptp_P1JVYQ" name="x">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JZlbwKv6EeaLELdEtPrdIA" name="systemState">
+          <type xmi:type="uml:Enumeration" href="pathmap://DML_TRAFO/statemachine.uml#_uYyt0CdFEea3Ob5UfxuCGA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Jcj3QKv6EeaLELdEtPrdIA" name="Junction1">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Jcp94av6EeaLELdEtPrdIA" name="states" type="_JckeU6v6EeaLELdEtPrdIA"/>
+        <ownedAttribute xmi:id="_JcuPUKv6EeaLELdEtPrdIA" name="activeStateID" type="_Jcj3Qav6EeaLELdEtPrdIA"/>
+        <ownedAttribute xmi:id="_JdlyAav6EeaLELdEtPrdIA" name="dispatchFlag">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JeNdEKv6EeaLELdEtPrdIA" name="threads">
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml#_ea234NYGEd-CgJIavLpOxQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JeQgYav6EeaLELdEtPrdIA" name="flags">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JeS8oav6EeaLELdEtPrdIA" name="conds">
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml#_-vYZoCa0EeazPcQ6-9hBeQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JeVY4av6EeaLELdEtPrdIA" name="mutexes">
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml#__niwsCa0EeazPcQ6-9hBeQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JeYcMav6EeaLELdEtPrdIA" name="threadStructs">
+          <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/statemachine.uml#_4Z1UwCmREearkPe7QerpcQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JekpcKv6EeaLELdEtPrdIA" name="doActivityTable" type="_JehmIKv6EeaLELdEtPrdIA"/>
+        <ownedAttribute xmi:id="_Jeph8Kv6EeaLELdEtPrdIA" name="timeEventTable" type="_JehmIKv6EeaLELdEtPrdIA"/>
+        <ownedAttribute xmi:id="_JetMUKv6EeaLELdEtPrdIA" name="timeEventThreads">
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml#_ea234NYGEd-CgJIavLpOxQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Jew2sav6EeaLELdEtPrdIA" name="timeEventFlags">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Jez6Aav6EeaLELdEtPrdIA" name="timeEventConds">
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml#_-vYZoCa0EeazPcQ6-9hBeQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Je29Uav6EeaLELdEtPrdIA" name="timeEventMutexes">
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml#__niwsCa0EeazPcQ6-9hBeQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Je6nsKv6EeaLELdEtPrdIA" name="timeEventThreadStructs">
+          <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/statemachine.uml#_4Z1UwCmREearkPe7QerpcQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JfAuUav6EeaLELdEtPrdIA" name="regionTable" type="_Je9rA6v6EeaLELdEtPrdIA"/>
+        <ownedAttribute xmi:id="_JfDxpav6EeaLELdEtPrdIA" name="regionExitTable" type="_JehmIKv6EeaLELdEtPrdIA"/>
+        <ownedAttribute xmi:id="_JfIDEKv6EeaLELdEtPrdIA" name="eventQueue">
+          <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/statemachine.uml#_dWxYQD0zEeaQfbTekb55bw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JfIDEav6EeaLELdEtPrdIA" name="currentEvent">
+          <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/statemachine.uml#_MyJIUD0zEeaQfbTekb55bw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JfLtcav6EeaLELdEtPrdIA" name="dispatchThread">
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml#_ea234NYGEd-CgJIavLpOxQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JfLtcqv6EeaLELdEtPrdIA" name="dispatchStruct">
+          <type xmi:type="uml:Class" href="pathmap://DML_TRAFO/statemachine.uml#_4Z1UwCmREearkPe7QerpcQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JfMUgKv6EeaLELdEtPrdIA" name="runToCompletionMutex">
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml#__niwsCa0EeazPcQ6-9hBeQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_JfMUgav6EeaLELdEtPrdIA" name="runToCompletionCond">
+          <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/pthread.uml#_-vYZoCa0EeazPcQ6-9hBeQ"/>
+        </ownedAttribute>
+        <interfaceRealization xmi:id="_YQqH0JYlEd6G9q9hwr11bw" name="derived realization of ICompute" client="_oqZNUDLaEd2qeKRLMdIx_A" supplier="_cn-H0DLbEd2qeKRLMdIx_A" contract="_cn-H0DLbEd2qeKRLMdIx_A"/>
+        <interfaceRealization xmi:id="_VGnYgCgBEeapjr3l63b85A" name="derived realization of IStart" client="_oqZNUDLaEd2qeKRLMdIx_A">
+          <supplier xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+          <contract href="pathmap://DML_TRAFO/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
+        </interfaceRealization>
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_y7KWsOYXEeCBL_IbXY9ofw" name="SMServer">
+          <region xmi:id="_0Lv00OYXEeCBL_IbXY9ofw" name="Region0">
+            <transition xmi:id="_CLBzIOYYEeCBL_IbXY9ofw" name="Transition0" source="_1UVNgOYXEeCBL_IbXY9ofw" target="_53E_8OYXEeCBL_IbXY9ofw"/>
+            <transition xmi:id="_Doi6AOYYEeCBL_IbXY9ofw" name="Transition1" source="_53E_8OYXEeCBL_IbXY9ofw" target="_7_1cMOYXEeCBL_IbXY9ofw">
+              <trigger xmi:id="_rHpXoOtoEeCjb9i0gG4phA" event="_rHoJgOtoEeCjb9i0gG4phA"/>
+            </transition>
+            <transition xmi:id="_OH_UYOYYEeCBL_IbXY9ofw" name="Transition2" source="_7_1cMOYXEeCBL_IbXY9ofw" target="_53E_8OYXEeCBL_IbXY9ofw">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_CAWpgSSoEeG6GJ4vU06VYQ" name="add">
+                <language>C/C++</language>
+                <body>add(2,3);&#xD;
+mult(3,5);&#xD;
+std::cout &lt;&lt;&quot;From State1 to State0 \n&quot;;</body>
+              </effect>
+              <trigger xmi:id="_-aQtACaeEeG4fZdVXNtoOQ" event="_-PMFcCaeEeG4fZdVXNtoOQ"/>
+            </transition>
+            <transition xmi:id="_mJvoUOtqEeCzSsOGmQH2aA" name="Transition3" source="_53E_8OYXEeCBL_IbXY9ofw" target="_7_1cMOYXEeCBL_IbXY9ofw">
+              <trigger xmi:id="_8WepQHoDEeOA64V_YLapaA" event="_8WeCMHoDEeOA64V_YLapaA"/>
+            </transition>
+            <transition xmi:id="_rdKgsCjmEeaJJusTB1aIbg" source="_53E_8OYXEeCBL_IbXY9ofw" target="_owZYcCjmEeaJJusTB1aIbg">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_-EnkACjmEeaJJusTB1aIbg">
+                <language>C++</language>
+                <body>std::cout &lt;&lt; &quot;From State 0 to State 2\n&quot;;</body>
+              </effect>
+              <trigger xmi:id="_4eMuECjmEeaJJusTB1aIbg" event="_4WSIMCjmEeaJJusTB1aIbg"/>
+            </transition>
+            <transition xmi:id="_BO7j4CjnEeaJJusTB1aIbg" source="_owZYcCjmEeaJJusTB1aIbg" target="__9lQwCjmEeaJJusTB1aIbg">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_F9mScCjnEeaJJusTB1aIbg">
+                <language>C++</language>
+                <body>x = 6;&#xD;
+std::cout &lt;&lt;&quot;From State 2 to Junction1\n&quot;;&#xD;
+</body>
+              </effect>
+              <trigger xmi:id="_GlK94CjpEeaJJusTB1aIbg" event="_-PMFcCaeEeG4fZdVXNtoOQ"/>
+            </transition>
+            <transition xmi:id="_G1QTMCjnEeaJJusTB1aIbg" source="__9lQwCjmEeaJJusTB1aIbg" target="_53E_8OYXEeCBL_IbXY9ofw"/>
+            <transition xmi:id="_HnKRQCjnEeaJJusTB1aIbg" guard="_KB4nQCjnEeaJJusTB1aIbg" source="__9lQwCjmEeaJJusTB1aIbg" target="_w-8yoCkEEeaWptp_P1JVYQ">
+              <ownedRule xmi:id="_KB4nQCjnEeaJJusTB1aIbg">
+                <specification xmi:type="uml:OpaqueExpression" xmi:id="_KB4nQSjnEeaJJusTB1aIbg">
+                  <language>C++</language>
+                  <body>x == 5</body>
+                </specification>
+              </ownedRule>
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_QlLVICjnEeaJJusTB1aIbg">
+                <language>C++</language>
+                <body>std::cout &lt;&lt; &quot;From Junction1 to Shallow history \n&quot;;</body>
+              </effect>
+            </transition>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_1UVNgOYXEeCBL_IbXY9ofw" name="Initial0"/>
+            <subvertex xmi:type="uml:State" xmi:id="_53E_8OYXEeCBL_IbXY9ofw" name="State0"/>
+            <subvertex xmi:type="uml:State" xmi:id="_7_1cMOYXEeCBL_IbXY9ofw" name="State1"/>
+            <subvertex xmi:type="uml:State" xmi:id="_owZYcCjmEeaJJusTB1aIbg" name="State2">
+              <entry xmi:type="uml:OpaqueBehavior" xmi:id="_hGRNQCkFEeaWptp_P1JVYQ">
+                <language>C++</language>
+                <body>x = 5;</body>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="__9lQwCjmEeaJJusTB1aIbg" name="Junction1" kind="junction"/>
+            <subvertex xmi:type="uml:State" xmi:id="_mxZZgCkEEeaWptp_P1JVYQ" name="State3">
+              <region xmi:id="_pXD0MCkEEeaWptp_P1JVYQ" name="Region1">
+                <transition xmi:id="_zRtfcCkEEeaWptp_P1JVYQ" source="_w-8yoCkEEeaWptp_P1JVYQ" target="_pXM-ICkEEeaWptp_P1JVYQ">
+                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_7hUlMCkEEeaWptp_P1JVYQ">
+                    <language>C++</language>
+                    <body>std::cout &lt;&lt; &quot;From Shallow history  to State 4\n&quot;;</body>
+                  </effect>
+                </transition>
+                <transition xmi:id="__pc4MCkEEeaWptp_P1JVYQ" source="_pXM-ICkEEeaWptp_P1JVYQ" target="_-AIxACkEEeaWptp_P1JVYQ">
+                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_Im4tQCkFEeaWptp_P1JVYQ">
+                    <language>C++</language>
+                    <body>std::cout &lt;&lt; &quot;From State 4 to State 5 \n&quot;;</body>
+                  </effect>
+                  <trigger xmi:id="_D0f8UCkFEeaWptp_P1JVYQ" event="_-PMFcCaeEeG4fZdVXNtoOQ"/>
+                </transition>
+                <transition xmi:id="_JPEuoCkFEeaWptp_P1JVYQ" source="_-AIxACkEEeaWptp_P1JVYQ" target="_7_1cMOYXEeCBL_IbXY9ofw">
+                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_QHO5QCkFEeaWptp_P1JVYQ">
+                    <language>C++</language>
+                    <body>std::cout &lt;&lt; &quot;From State 5 to State 1 \n&quot;;</body>
+                  </effect>
+                  <trigger xmi:id="_NO0hsCkFEeaWptp_P1JVYQ" event="_-PMFcCaeEeG4fZdVXNtoOQ"/>
+                </transition>
+                <subvertex xmi:type="uml:Pseudostate" xmi:id="_w-8yoCkEEeaWptp_P1JVYQ" name="ShallowHistory1" kind="shallowHistory"/>
+                <subvertex xmi:type="uml:State" xmi:id="_pXM-ICkEEeaWptp_P1JVYQ" name="State4"/>
+                <subvertex xmi:type="uml:State" xmi:id="_-AIxACkEEeaWptp_P1JVYQ" name="State5"/>
+              </region>
+              <region xmi:id="_0LTyMCkKEeaYyIUJlvqqqw" name="Region2">
+                <transition xmi:id="_4wueICkKEeaYyIUJlvqqqw" source="_3vbZMCkKEeaYyIUJlvqqqw" target="_00q4QCkKEeaYyIUJlvqqqw">
+                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_83I54CkKEeaYyIUJlvqqqw">
+                    <language>C++</language>
+                    <body>std::cout &lt;&lt;&quot;Initial to state 6\n&quot;;</body>
+                  </effect>
+                </transition>
+                <transition xmi:id="_98L2YCkKEeaYyIUJlvqqqw" source="_00q4QCkKEeaYyIUJlvqqqw" target="_2KfbsCkKEeaYyIUJlvqqqw">
+                  <effect xmi:type="uml:OpaqueBehavior" xmi:id="_iNXwgCkLEeaYyIUJlvqqqw">
+                    <language>C++</language>
+                    <body>std::cout&lt;&lt;&quot;From state6 to state7\n&quot;;</body>
+                  </effect>
+                  <trigger xmi:id="_IiaOMCkLEeaYyIUJlvqqqw" event="_ay7_QCkLEeaYyIUJlvqqqw"/>
+                </transition>
+                <transition xmi:id="_MOEnoCkLEeaYyIUJlvqqqw" source="_2KfbsCkKEeaYyIUJlvqqqw" target="_00q4QCkKEeaYyIUJlvqqqw">
+                  <trigger xmi:id="_bCRbwCkLEeaYyIUJlvqqqw" event="_ay7_QCkLEeaYyIUJlvqqqw"/>
+                </transition>
+                <subvertex xmi:type="uml:Pseudostate" xmi:id="_3vbZMCkKEeaYyIUJlvqqqw" name="Initial1"/>
+                <subvertex xmi:type="uml:State" xmi:id="_00q4QCkKEeaYyIUJlvqqqw" name="State6">
+                  <entry xmi:type="uml:OpaqueBehavior" xmi:id="_mZyGkCkLEeaYyIUJlvqqqw">
+                    <language>C++</language>
+                    <body>std::cout&lt;&lt;&quot;Entering state6\n&quot;;</body>
+                  </entry>
+                </subvertex>
+                <subvertex xmi:type="uml:State" xmi:id="_2KfbsCkKEeaYyIUJlvqqqw" name="State7"/>
+              </region>
+            </subvertex>
+          </region>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ML-4AKI5Ed6FqJCjEUrkqQ" name="add" specification="_TbIjUJYlEd6G9q9hwr11bw">
+          <ownedParameter xmi:id="_uqXVkC1REea25uwDpRQuxg" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqXVkS1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqXVki1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_uqX8oC1REea25uwDpRQuxg" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqX8oS1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqX8oi1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_uqX8oy1REea25uwDpRQuxg" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqX8pC1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqYjsC1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <language>C/C++</language>
+          <body>this->processCE_CServer_impl_add(a, b);
+// original method code
+cout &lt;&lt; &quot;a=&quot; &lt;&lt; a &lt;&lt; &quot; b=&quot; &lt;&lt; b &lt;&lt; &quot; a+b=&quot; &lt;&lt; a+b &lt;&lt; endl;
+return a+b;</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_qxjWINnmEd2_cstbO2Uzgg" name="mult" specification="_4ZEZwHecEd6r18stFZxmFQ">
+          <ownedParameter xmi:id="_uqWHcC1REea25uwDpRQuxg" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqWHcS1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqWHci1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_uqWHcy1REea25uwDpRQuxg" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqWugC1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqWugS1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_uqWugi1REea25uwDpRQuxg" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqWugy1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqWuhC1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <language>C/C++</language>
+          <body>cout &lt;&lt; &quot;a=&quot; &lt;&lt; a &lt;&lt; &quot; b=&quot; &lt;&lt; b &lt;&lt; &quot; a*b=&quot; &lt;&lt; a*b &lt;&lt; endl;
+return a*b;</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YNCW4CgBEeapjr3l63b85A" name="run" specification="_VGsRACgBEeapjr3l63b85A">
+          <language>C/C++</language>
+          <body>cout &lt;&lt; &quot;call add (2, 3);&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;result: &quot; &lt;&lt; add (2, 3) &lt;&lt; endl;
+cout &lt;&lt; &quot;sleeping for 15 seconds (statemachine remains active);&quot; &lt;&lt; endl;
+sleep(15);
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Jc_VEav6EeaLELdEtPrdIA" name="SMServer_Region0_Enter" specification="_Jc-uAKv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>switch(enter_mode) {
+	case SMSERVER_REGION0_DEFAULT:
+		activeStateID = STATE0_ID;
+		
+		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+		
+		//TODO: set systemState to EVENT_CONSUMED
+		break;
+	case SMSERVER_REGION0_STATE1:
+		activeStateID = STATE1_ID;
+		//starting the counters for time events
+		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+		//TODO: set systemState to EVENT_CONSUMED
+		break;
+}</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JdCYYKv6EeaLELdEtPrdIA" name="State3_Region1_Enter" specification="_Jc_8IKv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>switch(enter_mode) {
+	case STATE3_REGION1_SHALLOWHISTORY1: 
+		unsigned int loc_ActiveId;
+		if (states[STATE3_ID].previousStates[0] != STATE_MAX) {
+			loc_ActiveId = states[STATE3_ID].previousStates[0];
+		} else {
+			//for the first time, the history should be initialized
+			std::cout &lt;&lt; &quot;From Shallow history  to State 4\n&quot;;
+			loc_ActiveId = STATE4_ID;
+		}
+		states[STATE3_ID].actives[0] = loc_ActiveId;
+			(this->*states[loc_ActiveId].entry)();
+			if (STATE4_ID == loc_ActiveId) {
+				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+			} else 
+			if (STATE5_ID == loc_ActiveId) {
+				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+			}
+			setFlag(loc_ActiveId, statemachine::TF_DO_ACTIVITY, true);
+		//TODO: set systemState to EVENT_CONSUMED
+		break;
+}</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JdDmgav6EeaLELdEtPrdIA" name="State3_Region1_Exit" specification="_JdDmgKv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>//exiting region Region1
+if (states[STATE3_ID].actives[0] != STATE_MAX) {
+	//signal to exit the doActivity of sub-state of State3
+	setFlag(states[STATE3_ID].actives[0], statemachine::TF_DO_ACTIVITY, false);
+	if (STATE4_ID == states[STATE3_ID].actives[0]) {
+		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+	} else 
+	if (STATE5_ID == states[STATE3_ID].actives[0]) {
+		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+	}
+	//exit action of sub-state of State3
+	(this->*states[states[STATE3_ID].actives[0]].exit)();
+	//save history region Region1 of state State3
+	states[STATE3_ID].previousStates[0] = states[STATE3_ID].actives[0];
+	//set active sub-state of State3 to STATE_MAX meaning NULL
+	states[STATE3_ID].actives[0] = STATE_MAX;
+}</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JdE0oqv6EeaLELdEtPrdIA" name="State3_Region2_Enter" specification="_JdE0oKv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>switch(enter_mode) {
+	case STATE3_REGION2_DEFAULT:
+		std::cout &lt;&lt;&quot;Initial to state 6\n&quot;;
+		states[STATE3_ID].actives[1] = STATE6_ID;
+		
+		(this->*states[STATE6_ID].entry)();
+		//starting the counters for time events
+		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_1_UNIT_S__ID), statemachine::TF_TIME_EVENT, true);
+		
+		//TODO: set systemState to EVENT_CONSUMED
+		break;
+}</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JdGCwKv6EeaLELdEtPrdIA" name="State3_Region2_Exit" specification="_JdFbsKv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>//exiting region Region2
+if (states[STATE3_ID].actives[1] != STATE_MAX) {
+	//signal to exit the doActivity of sub-state of State3
+	setFlag(states[STATE3_ID].actives[0], statemachine::TF_DO_ACTIVITY, false);
+	if (STATE6_ID == states[STATE3_ID].actives[1]) {
+		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_1_UNIT_S__ID), statemachine::TF_TIME_EVENT, false);
+	} else 
+	if (STATE7_ID == states[STATE3_ID].actives[1]) {
+		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_1_UNIT_S__ID), statemachine::TF_TIME_EVENT, false);
+	}
+	//exit action of sub-state of State3
+	(this->*states[states[STATE3_ID].actives[0]].exit)();
+	//set active sub-state of State3 to STATE_MAX meaning NULL
+	states[STATE3_ID].actives[1] = STATE_MAX;
+}</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JdUFMav6EeaLELdEtPrdIA" name="SimpleSM" specification="_JdHQ4Kv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>startBehavior();</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JdlyAKv6EeaLELdEtPrdIA" name="startBehavior" specification="_JdUFMqv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>systemState = statemachine::IDLE;
+doActivityTable[STATE0_ID] =  states[STATE0_ID].doActivity;
+doActivityTable[STATE1_ID] =  states[STATE1_ID].doActivity;
+states[STATE2_ID].entry = &amp;SimpleSM::State2_entry;
+doActivityTable[STATE2_ID] =  states[STATE2_ID].doActivity;
+doActivityTable[STATE3_ID] =  states[STATE3_ID].doActivity;
+doActivityTable[STATE4_ID] =  states[STATE4_ID].doActivity;
+doActivityTable[STATE5_ID] =  states[STATE5_ID].doActivity;
+states[STATE6_ID].entry = &amp;SimpleSM::State6_entry;
+doActivityTable[STATE6_ID] =  states[STATE6_ID].doActivity;
+doActivityTable[STATE7_ID] =  states[STATE7_ID].doActivity;
+
+// initialize all threads, the threads wait until the associated flag is set
+for(int i = 0; i &lt; (int) STATE_MAX; i++) {
+	if (states[i].doActivity != &amp;SimpleSM::doActivity_dft) {
+		threadStructs[i].id = i;
+		threadStructs[i].ptr = this;
+		threadStructs[i].func_type = statemachine::TF_DO_ACTIVITY;
+		mutexes[i] = PTHREAD_MUTEX_INITIALIZER;
+		conds[i] = PTHREAD_COND_INITIALIZER;
+		pthread_create(&amp;threads[i], NULL, &amp;SimpleSM::thread_func_wrapper, &amp;threadStructs[i]);
+	}
+}
+
+timeEventThreadStructs[SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID)].duration = 50;
+timeEventThreadStructs[SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID)].duration = 500;
+timeEventThreadStructs[SIMPLESM_TE_INDEX(TE_VALUE_1_UNIT_S__ID)].duration = 1000;
+timeEventThreadStructs[SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID)].duration = 25;
+for(int i = SIMPLESM_TIME_EVENT_LOWER_BOUND; i &lt; 4; i++) {
+	timeEventThreadStructs[SIMPLESM_TE_INDEX(i)].id = i;
+	timeEventThreadStructs[SIMPLESM_TE_INDEX(i)].ptr = this;
+	timeEventThreadStructs[SIMPLESM_TE_INDEX(i)].func_type = statemachine::TF_TIME_EVENT;
+	timeEventMutexes[SIMPLESM_TE_INDEX(i)] = PTHREAD_MUTEX_INITIALIZER;
+	timeEventConds[SIMPLESM_TE_INDEX(i)] = PTHREAD_COND_INITIALIZER;
+	pthread_create(&amp;timeEventThreads[SIMPLESM_TE_INDEX(i)], NULL, &amp;SimpleSM::thread_func_wrapper, &amp;timeEventThreadStructs[SIMPLESM_TE_INDEX(i)]);
+	while(timeEventFlags[SIMPLESM_TE_INDEX(i)]) {}
+}
+
+regionTable[REGION_ID_STATE3_REGION1] = &amp;SimpleSM::State3_Region1_Enter;
+regionExitTable[REGION_ID_STATE3_REGION1] = &amp;SimpleSM::State3_Region1_Exit;
+regionTable[REGION_ID_STATE3_REGION2] = &amp;SimpleSM::State3_Region2_Enter;
+regionExitTable[REGION_ID_STATE3_REGION2] = &amp;SimpleSM::State3_Region2_Exit;
+
+
+runToCompletionMutex = PTHREAD_MUTEX_INITIALIZER;
+runToCompletionCond = PTHREAD_COND_INITIALIZER;
+
+dispatchStruct = statemachine::StructForThread_t(this, 0, 0, statemachine::TF_STATE_MACHINE_TYPE, 0);
+SimpleSM_THREAD_CREATE(dispatchThread, dispatchStruct)
+while(!dispatchFlag) {}
+
+
+//initialze root active state
+//execute initial effect
+SMServer_Region0_Enter(SMSERVER_REGION0_DEFAULT);
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JdwxIKv6EeaLELdEtPrdIA" name="processTE_value_50_unit_ms_" specification="_JdmZEKv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>systemState = statemachine::EVENT_PROCESSING;
+if (systemState == statemachine::EVENT_PROCESSING) {
+	switch(activeStateID) {
+		case STATE0_ID: 
+			//from State0 to State1
+			if (true) {
+			setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+					setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+			activeStateID = STATE1_ID;
+			//starting the counters for time events
+			setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+			systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+	}
+}
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JeABsKv6EeaLELdEtPrdIA" name="processTE_value_500_unit_ms_" specification="_JdwxIav6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>systemState = statemachine::EVENT_PROCESSING;
+if (states[STATE3_ID].actives[0] == STATE4_ID) {
+	//from State4 to State5
+	if (true) {
+	setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+	std::cout &lt;&lt; &quot;From State 4 to State 5 \n&quot;;
+	states[STATE3_ID].actives[0] = STATE5_ID;
+	//starting the counters for time events
+	setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+	systemState = statemachine::EVENT_CONSUMED;
+	}
+}
+if (states[STATE3_ID].actives[0] == STATE5_ID) {
+	//from State5 to State1
+	if (true) {
+	//exiting concurrent state State3
+	pthread_t State3_Region1_exit_thread;
+	statemachine::StructForThread_t State3_Region1_exit_thread_struct(this, REGION_ID_STATE3_REGION1, 0, statemachine::TF_EXIT_REGION, 0);
+	SimpleSM_THREAD_CREATE(State3_Region1_exit_thread, State3_Region1_exit_thread_struct)
+	pthread_t State3_Region2_exit_thread;
+	statemachine::StructForThread_t State3_Region2_exit_thread_struct(this, REGION_ID_STATE3_REGION2, 0, statemachine::TF_EXIT_REGION, 0);
+	SimpleSM_THREAD_CREATE(State3_Region2_exit_thread, State3_Region2_exit_thread_struct)
+	pthread_join(State3_Region1_exit_thread, NULL);
+	pthread_join(State3_Region2_exit_thread, NULL);
+	std::cout &lt;&lt; &quot;From State 5 to State 1 \n&quot;;
+	activeStateID = STATE1_ID;
+	//starting the counters for time events
+	setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+	systemState = statemachine::EVENT_CONSUMED;
+	}
+}
+if (systemState == statemachine::EVENT_PROCESSING) {
+	switch(activeStateID) {
+		case STATE1_ID: 
+			//from State1 to State0
+			if (true) {
+			setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+			add(2,3);
+			mult(3,5);
+			std::cout &lt;&lt;&quot;From State1 to State0 \n&quot;;
+			activeStateID = STATE0_ID;
+			//starting the counters for time events
+			setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+					setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+			systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		case STATE2_ID: 
+			//from State2 to Junction1
+			if (true) {
+				Junction1 = 0;
+				if (x == 5) {
+					Junction1 = 1;
+				}
+				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+				x = 6;
+				std::cout &lt;&lt;&quot;From State 2 to Junction1\n&quot;;
+				if (Junction1 == 0) {
+					activeStateID = STATE0_ID;
+					//starting the counters for time events
+					setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+							setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+				} else 
+				if (Junction1 == 1) {
+					std::cout &lt;&lt; &quot;From Junction1 to Shallow history \n&quot;;
+					activeStateID = STATE3_ID;
+					//starting the counters for time events
+					//State3_Region1_Enter(STATE3_REGION1_SHALLOWHISTORY1);
+					pthread_t State3_Region1_enter_thread;
+					statemachine::StructForThread_t State3_Region1_enter_thread_struct(this, REGION_ID_STATE3_REGION1, STATE3_REGION1_SHALLOWHISTORY1, statemachine::TF_ENTER_REGION, 0);
+					SimpleSM_THREAD_CREATE(State3_Region1_enter_thread, State3_Region1_enter_thread_struct)
+					//State3_Region2_Enter(STATE3_REGION2_DEFAULT);
+					pthread_t State3_Region2_enter_thread;
+					statemachine::StructForThread_t State3_Region2_enter_thread_struct(this, REGION_ID_STATE3_REGION2, STATE3_REGION2_DEFAULT, statemachine::TF_ENTER_REGION, 0);
+					SimpleSM_THREAD_CREATE(State3_Region2_enter_thread, State3_Region2_enter_thread_struct)
+					pthread_join(State3_Region1_enter_thread, NULL);
+					pthread_join(State3_Region2_enter_thread, NULL);
+				}
+			systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+	}
+}
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JeAowKv6EeaLELdEtPrdIA" name="processTE_value_1_unit_s_" specification="_JeABsav6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>systemState = statemachine::EVENT_PROCESSING;
+if (states[STATE3_ID].actives[1] == STATE6_ID) {
+	//from State6 to State7
+	if (true) {
+	setFlag(SIMPLESM_TE_INDEX(TE_VALUE_1_UNIT_S__ID), statemachine::TF_TIME_EVENT, false);
+	std::cout&lt;&lt;&quot;From state6 to state7\n&quot;;
+	states[STATE3_ID].actives[1] = STATE7_ID;
+	//starting the counters for time events
+	setFlag(SIMPLESM_TE_INDEX(TE_VALUE_1_UNIT_S__ID), statemachine::TF_TIME_EVENT, true);
+	systemState = statemachine::EVENT_CONSUMED;
+	}
+}
+if (states[STATE3_ID].actives[1] == STATE7_ID) {
+	//from State7 to State6
+	if (true) {
+	setFlag(SIMPLESM_TE_INDEX(TE_VALUE_1_UNIT_S__ID), statemachine::TF_TIME_EVENT, false);
+	states[STATE3_ID].actives[1] = STATE6_ID;
+	(this->*states[STATE6_ID].entry)();
+	//starting the counters for time events
+	setFlag(SIMPLESM_TE_INDEX(TE_VALUE_1_UNIT_S__ID), statemachine::TF_TIME_EVENT, true);
+	systemState = statemachine::EVENT_CONSUMED;
+	}
+}
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JeBP0Kv6EeaLELdEtPrdIA" name="processTE_value_25_unit_ms_" specification="_JeAowav6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>systemState = statemachine::EVENT_PROCESSING;
+if (systemState == statemachine::EVENT_PROCESSING) {
+	switch(activeStateID) {
+		case STATE0_ID: 
+			//from State0 to State2
+			if (true) {
+			setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+					setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+			std::cout &lt;&lt; &quot;From State 0 to State 2\n&quot;;
+			activeStateID = STATE2_ID;
+			(this->*states[STATE2_ID].entry)();
+			//starting the counters for time events
+			setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+			systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+	}
+}
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JeB24Kv6EeaLELdEtPrdIA" name="processCE_CServer_impl_add" specification="_JeBP0av6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>SIMPLESM_GET_CONTROL
+systemState = statemachine::EVENT_PROCESSING;
+if (systemState == statemachine::EVENT_PROCESSING) {
+	switch(activeStateID) {
+		case STATE0_ID: 
+			//from State0 to State1
+			if (true) {
+			setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+					setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
+			activeStateID = STATE1_ID;
+			//starting the counters for time events
+			setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, true);
+			systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+	}
+}
+SIMPLESM_RELEASE_CONTROL
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JeLA0av6EeaLELdEtPrdIA" name="processCompletionEvent" specification="_JeLA0Kv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>systemState = statemachine::EVENT_PROCESSING;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JeMO8qv6EeaLELdEtPrdIA" name="State2_entry" specification="_JeMO8av6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>x = 5;</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JeM2Aav6EeaLELdEtPrdIA" name="State6_entry" specification="_JeM2AKv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>std::cout&lt;&lt;&quot;Entering state6\n&quot;;</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Jeg_Eav6EeaLELdEtPrdIA" name="thread_func_wrapper" specification="_Jebfgav6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>statemachine::StructForThread_t* cptr = (statemachine::StructForThread_t*)data;
+SimpleSM* ptr = (SimpleSM*) cptr->ptr;
+switch(cptr->func_type) {
+	case statemachine::TF_TIME_EVENT:
+		ptr->listenTimeEvent(SIMPLESM_TE_INDEX(cptr->id), cptr->duration);
+		break;
+	case statemachine::TF_ENTER_REGION:
+		ptr->regionCall(cptr->id, cptr->enter_mode);
+		break;
+	case statemachine::TF_EXIT_REGION:
+		ptr->exitRegionCall(cptr->id);
+		break;
+		case statemachine::TF_STATE_MACHINE_TYPE:
+			ptr->dispatchEvent();
+			break;
+}
+return NULL;</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JenswKv6EeaLELdEtPrdIA" name="doCallActivity" specification="_JenFsav6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>flags[id] = false;
+while(true) {
+	pthread_mutex_lock(&amp;mutexes[id]);
+	while(!flags[id]) {
+		pthread_cond_wait(&amp;conds[id], &amp;mutexes[id]);
+	}
+	(this->*doActivityTable[id])();
+	bool commitEvent = false;
+	if (flags[id]) {
+		commitEvent = true;
+		flags[id] = false;
+	}
+	pthread_cond_signal(&amp;conds[id]);
+	pthread_mutex_unlock(&amp;mutexes[id]);
+}</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JeoT0Kv6EeaLELdEtPrdIA" name="setFlag" specification="_Jenswav6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>//value = true => start activity
+//value = false => stop activity
+if (func_type == statemachine::TF_TIME_EVENT) {
+	pthread_mutex_lock(&amp;timeEventMutexes[SIMPLESM_TE_INDEX(id)]);
+	timeEventFlags[SIMPLESM_TE_INDEX(id)] = value;
+	pthread_cond_signal(&amp;timeEventConds[SIMPLESM_TE_INDEX(id)]);
+	pthread_mutex_unlock(&amp;timeEventMutexes[SIMPLESM_TE_INDEX(id)]);
+	return;
+}
+if (func_type == statemachine::TF_DO_ACTIVITY) {
+}
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Je9rAqv6EeaLELdEtPrdIA" name="listenTimeEvent" specification="_Je9D8av6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>struct timeval tv;
+struct timespec ts;
+int timedWaitResult;
+while(true) {
+	pthread_mutex_lock(&amp;timeEventMutexes[id]);
+	while(!timeEventFlags[id]) {
+		pthread_cond_wait(&amp;timeEventConds[id], &amp;timeEventMutexes[id]);
+	}
+	
+	gettimeofday(&amp;tv, NULL);
+	ts.tv_sec = time(NULL) + duration / 1000;
+	ts.tv_nsec = tv.tv_usec * 1000 + 1000 * 1000 * (duration % 1000);
+	ts.tv_sec += ts.tv_nsec / (1000 * 1000 * 1000);
+	ts.tv_nsec %= (1000 * 1000 * 1000);
+	
+	timedWaitResult = pthread_cond_timedwait(&amp;timeEventConds[id], &amp;timeEventMutexes[id], &amp;ts);
+	
+  	bool commitEvent = false;
+  	if (timedWaitResult != 0) {
+  		//timeout
+  		commitEvent = true;
+  	}
+	timeEventFlags[id] = false;
+	pthread_cond_signal(&amp;timeEventConds[id]);
+	pthread_mutex_unlock(&amp;timeEventMutexes[id]);
+	if (commitEvent) {
+		//the state does not change, push time event to the queue
+		eventQueue.push(statemachine::PRIORITY_2, NULL, id, statemachine::TIME_EVENT, id);
+	}
+}</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JfDxpKv6EeaLELdEtPrdIA" name="regionCall" specification="_JfDxoav6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>(this->*regionTable[id])(enter_mode);</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JfHcAqv6EeaLELdEtPrdIA" name="exitRegionCall" specification="_JfHcAKv6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>(this->*regionExitTable[id])();</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_JfLtcKv6EeaLELdEtPrdIA" name="dispatchEvent" specification="_JfLGYav6EeaLELdEtPrdIA">
+          <language>C++</language>
+          <body>bool popDeferred = false;
+while(true) {
+	//run-to-completion: need to have a mutex here
+	currentEvent = eventQueue.pop(popDeferred);
+	dispatchFlag = true;
+	if (currentEvent != NULL) {
+		SIMPLESM_GET_CONTROL
+		switch(currentEvent->eventID) {
+			case TE_VALUE_50_UNIT_MS__ID:
+				processTE_value_50_unit_ms_();
+				break;
+			case TE_VALUE_500_UNIT_MS__ID:
+				processTE_value_500_unit_ms_();
+				break;
+			case TE_VALUE_1_UNIT_S__ID:
+				processTE_value_1_unit_s_();
+				break;
+			case TE_VALUE_25_UNIT_MS__ID:
+				processTE_value_25_unit_ms_();
+				break;
+				case COMPLETIONEVENT_ID: 
+					processCompletionEvent();
+				break;
+		}
+		if (systemState == statemachine::EVENT_DEFERRED) {
+			eventQueue.saveDeferred(*currentEvent);
+		}
+		popDeferred = (systemState != statemachine::EVENT_DEFERRED);
+		systemState = statemachine::IDLE;
+		SIMPLESM_RELEASE_CONTROL
+	}
+}</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_TbIjUJYlEd6G9q9hwr11bw" name="add" method="_ML-4AKI5Ed6FqJCjEUrkqQ">
+          <ownedParameter xmi:id="_uqMWcC1REea25uwDpRQuxg" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqM9gC1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqNkkC1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_uqNkkS1REea25uwDpRQuxg" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqOLoC1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqOLoS1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_uqOLoi1REea25uwDpRQuxg" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqPZwC1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqPZwS1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_4ZEZwHecEd6r18stFZxmFQ" name="mult" method="_qxjWINnmEd2_cstbO2Uzgg">
+          <ownedParameter xmi:id="_uqR2AC1REea25uwDpRQuxg" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqSdEC1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqTEIC1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_uqTEIS1REea25uwDpRQuxg" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqTrMC1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqTrMS1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_uqTrMi1REea25uwDpRQuxg" name="res" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uqU5UC1REea25uwDpRQuxg" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uqU5US1REea25uwDpRQuxg" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_VGsRACgBEeapjr3l63b85A" name="run" method="_YNCW4CgBEeapjr3l63b85A"/>
+        <ownedOperation xmi:id="_JckeUKv6EeaLELdEtPrdIA" name="entry_dft"/>
+        <ownedOperation xmi:id="_JckeUav6EeaLELdEtPrdIA" name="exit_dft"/>
+        <ownedOperation xmi:id="_JckeUqv6EeaLELdEtPrdIA" name="doActivity_dft"/>
+        <ownedOperation xmi:id="_Jc-uAKv6EeaLELdEtPrdIA" name="SMServer_Region0_Enter" method="_Jc_VEav6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_Jc_VEKv6EeaLELdEtPrdIA" name="enter_mode">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Jc_8IKv6EeaLELdEtPrdIA" name="State3_Region1_Enter" method="_JdCYYKv6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_Jc_8Iav6EeaLELdEtPrdIA" name="enter_mode">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_JdDmgKv6EeaLELdEtPrdIA" name="State3_Region1_Exit" method="_JdDmgav6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JdE0oKv6EeaLELdEtPrdIA" name="State3_Region2_Enter" method="_JdE0oqv6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_JdE0oav6EeaLELdEtPrdIA" name="enter_mode">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_JdFbsKv6EeaLELdEtPrdIA" name="State3_Region2_Exit" method="_JdGCwKv6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JdHQ4Kv6EeaLELdEtPrdIA" name="SimpleSM" method="_JdUFMav6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JdUFMqv6EeaLELdEtPrdIA" name="startBehavior" method="_JdlyAKv6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JdmZEKv6EeaLELdEtPrdIA" name="processTE_value_50_unit_ms_" method="_JdwxIKv6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JdwxIav6EeaLELdEtPrdIA" name="processTE_value_500_unit_ms_" method="_JeABsKv6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JeABsav6EeaLELdEtPrdIA" name="processTE_value_1_unit_s_" method="_JeAowKv6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JeAowav6EeaLELdEtPrdIA" name="processTE_value_25_unit_ms_" method="_JeBP0Kv6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JeBP0av6EeaLELdEtPrdIA" name="processCE_CServer_impl_add" method="_JeB24Kv6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_JeE6MKv6EeaLELdEtPrdIA" name="a">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JeE6Mav6EeaLELdEtPrdIA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JeE6Mqv6EeaLELdEtPrdIA" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_JeGIUKv6EeaLELdEtPrdIA" name="b">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JeGvYKv6EeaLELdEtPrdIA" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JeGvYav6EeaLELdEtPrdIA" value="1"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_JeLA0Kv6EeaLELdEtPrdIA" name="processCompletionEvent" method="_JeLA0av6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JeMO8av6EeaLELdEtPrdIA" name="State2_entry" method="_JeMO8qv6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_JeM2AKv6EeaLELdEtPrdIA" name="State6_entry" method="_JeM2Aav6EeaLELdEtPrdIA"/>
+        <ownedOperation xmi:id="_Jebfgav6EeaLELdEtPrdIA" name="thread_func_wrapper" isStatic="true" method="_Jeg_Eav6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_Jebfgqv6EeaLELdEtPrdIA" name="data">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_Jed7wav6EeaLELdEtPrdIA" name="ret" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_JenFsav6EeaLELdEtPrdIA" name="doCallActivity" method="_JenswKv6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_JenFsqv6EeaLELdEtPrdIA" name="id">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Jenswav6EeaLELdEtPrdIA" name="setFlag" method="_JeoT0Kv6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_Jenswqv6EeaLELdEtPrdIA" name="id">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_Jensw6v6EeaLELdEtPrdIA" name="func_type">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_JensxKv6EeaLELdEtPrdIA" name="value">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Je9D8av6EeaLELdEtPrdIA" name="listenTimeEvent" method="_Je9rAqv6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_Je9rAKv6EeaLELdEtPrdIA" name="id">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_Je9rAav6EeaLELdEtPrdIA" name="duration">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_JfDxoav6EeaLELdEtPrdIA" name="regionCall" method="_JfDxpKv6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_JfDxoqv6EeaLELdEtPrdIA" name="id">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_JfDxo6v6EeaLELdEtPrdIA" name="enter_mode">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_JfHcAKv6EeaLELdEtPrdIA" name="exitRegionCall" method="_JfHcAqv6EeaLELdEtPrdIA">
+          <ownedParameter xmi:id="_JfHcAav6EeaLELdEtPrdIA" name="id">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_JfLGYav6EeaLELdEtPrdIA" name="dispatchEvent" method="_JfLtcKv6EeaLELdEtPrdIA"/>
+        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_JcLcwKv6EeaLELdEtPrdIA" name="EventId_t">
+          <ownedLiteral xmi:id="_JcUmsKv6EeaLELdEtPrdIA" name="TE_VALUE_50_UNIT_MS__ID"/>
+          <ownedLiteral xmi:id="_JcUmsav6EeaLELdEtPrdIA" name="TE_VALUE_500_UNIT_MS__ID"/>
+          <ownedLiteral xmi:id="_JcUmsqv6EeaLELdEtPrdIA" name="TE_VALUE_1_UNIT_S__ID"/>
+          <ownedLiteral xmi:id="_JcVNwKv6EeaLELdEtPrdIA" name="TE_VALUE_25_UNIT_MS__ID"/>
+          <ownedLiteral xmi:id="_JcXqAKv6EeaLELdEtPrdIA" name="CE_CSERVER_IMPL_ADD_ID"/>
+          <ownedLiteral xmi:id="_JcYREKv6EeaLELdEtPrdIA" name="COMPLETIONEVENT_ID"/>
+        </nestedClassifier>
+        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_Jcj3Qav6EeaLELdEtPrdIA" name="StateIDEnum">
+          <ownedLiteral xmi:id="_JeLn4Kv6EeaLELdEtPrdIA" name="STATE0_ID"/>
+          <ownedLiteral xmi:id="_JeLn4av6EeaLELdEtPrdIA" name="STATE1_ID"/>
+          <ownedLiteral xmi:id="_JeMO8Kv6EeaLELdEtPrdIA" name="STATE2_ID"/>
+          <ownedLiteral xmi:id="_JeMO86v6EeaLELdEtPrdIA" name="STATE3_ID"/>
+          <ownedLiteral xmi:id="_JeMO9Kv6EeaLELdEtPrdIA" name="STATE4_ID"/>
+          <ownedLiteral xmi:id="_JeMO9av6EeaLELdEtPrdIA" name="STATE5_ID"/>
+          <ownedLiteral xmi:id="_JeMO9qv6EeaLELdEtPrdIA" name="STATE6_ID"/>
+          <ownedLiteral xmi:id="_JeM2Aqv6EeaLELdEtPrdIA" name="STATE7_ID"/>
+          <ownedLiteral xmi:id="_JeM2A6v6EeaLELdEtPrdIA" name="STATE_MAX"/>
+        </nestedClassifier>
+        <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_JckeU6v6EeaLELdEtPrdIA" name="State_t"/>
+        <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_JehmIKv6EeaLELdEtPrdIA" name="FptPointer"/>
+        <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_Je9rA6v6EeaLELdEtPrdIA" name="RegionFunctionPtr_t"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_JWKUUKv6EeaLELdEtPrdIA" name="Interfaces">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_cn-H0DLbEd2qeKRLMdIx_A" name="ICompute">
+          <ownedReception xmi:id="_1U0U8McqEeSsAI2TZshUyg" name="add" signal="_ywk2kMcqEeSsAI2TZshUyg"/>
+          <ownedReception xmi:id="_M-tXYMcrEeSsAI2TZshUyg" name="mult" signal="_z0nGcMcqEeSsAI2TZshUyg"/>
+          <ownedOperation xmi:id="_DGs6wDLgEd28fJKJJnUaeQ" name="add">
+            <ownedParameter xmi:id="_DGs6wTLgEd28fJKJJnUaeQ" name="a">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6wzLgEd28fJKJJnUaeQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6wjLgEd28fJKJJnUaeQ" value="1"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_DGs6xTLgEd28fJKJJnUaeQ" name="b">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6xzLgEd28fJKJJnUaeQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6xjLgEd28fJKJJnUaeQ" value="1"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_DGs6yTLgEd28fJKJJnUaeQ" name="res" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DGs6yzLgEd28fJKJJnUaeQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DGs6yjLgEd28fJKJJnUaeQ" value="1"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_L8EY8DLgEd28fJKJJnUaeQ" name="mult">
+            <ownedParameter xmi:id="_L8EY8TLgEd28fJKJJnUaeQ" name="a">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY8zLgEd28fJKJJnUaeQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY8jLgEd28fJKJJnUaeQ" value="1"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_L8EY9TLgEd28fJKJJnUaeQ" name="b">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY9zLgEd28fJKJJnUaeQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY9jLgEd28fJKJJnUaeQ" value="1"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_L8EY-TLgEd28fJKJJnUaeQ" name="res" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L8EY-zLgEd28fJKJJnUaeQ" value="1"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L8EY-jLgEd28fJKJJnUaeQ" value="1"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Signal" xmi:id="_ywk2kMcqEeSsAI2TZshUyg" name="Add"/>
+        <packagedElement xmi:type="uml:Signal" xmi:id="_z0nGcMcqEeSsAI2TZshUyg" name="Mult"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_JW4tEav6EeaLELdEtPrdIA" name="events">
+        <packagedElement xmi:type="uml:TimeEvent" xmi:id="_rHoJgOtoEeCjb9i0gG4phA" name="TE - {value=50, unit=ms}" isRelative="true">
+          <when xmi:id="_rHoJgetoEeCjb9i0gG4phA">
+            <expr xmi:type="uml:OpaqueExpression" xmi:id="_rHoJgutoEeCjb9i0gG4phA">
+              <language>Natural language</language>
+              <body>{value=50, unit=ms}</body>
+            </expr>
+          </when>
+        </packagedElement>
+        <packagedElement xmi:type="uml:TimeEvent" xmi:id="_-PMFcCaeEeG4fZdVXNtoOQ" name="TE - {value=500, unit=ms}" isRelative="true">
+          <when xmi:id="_-PMFcSaeEeG4fZdVXNtoOQ">
+            <expr xmi:type="uml:OpaqueExpression" xmi:id="_-PMFciaeEeG4fZdVXNtoOQ">
+              <language>Natural language</language>
+              <body>{value=500, unit=ms}</body>
+            </expr>
+          </when>
+        </packagedElement>
+        <packagedElement xmi:type="uml:CallEvent" xmi:id="_8WeCMHoDEeOA64V_YLapaA" name="CE - CServer_impl - add" operation="_TbIjUJYlEd6G9q9hwr11bw"/>
+        <packagedElement xmi:type="uml:TimeEvent" xmi:id="_4WSIMCjmEeaJJusTB1aIbg" name="TE - {value=25, unit=ms}" isRelative="true">
+          <when xmi:id="_4WSIMSjmEeaJJusTB1aIbg">
+            <expr xmi:type="uml:OpaqueExpression" xmi:id="_4WSIMijmEeaJJusTB1aIbg">
+              <language>Natural language</language>
+              <body>{value=25, unit=ms}</body>
+            </expr>
+          </when>
+        </packagedElement>
+        <packagedElement xmi:type="uml:TimeEvent" xmi:id="_ay7_QCkLEeaYyIUJlvqqqw" name="TE-{value=1, unit=s}" isRelative="true">
+          <when xmi:id="_ay7_QSkLEeaYyIUJlvqqqw">
+            <expr xmi:type="uml:OpaqueExpression" xmi:id="_ay7_QikLEeaYyIUJlvqqqw">
+              <language>Natural language</language>
+              <body>{value=1, unit=s}</body>
+            </expr>
+          </when>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_JZlbwav6EeaLELdEtPrdIA" client="_oqZNUDLaEd2qeKRLMdIx_A">
+        <supplier xmi:type="uml:Enumeration" href="pathmap://DML_TRAFO/statemachine.uml#_hNs5oCdSEea6h5xPEh8iAg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_Jcp94Kv6EeaLELdEtPrdIA" client="_JckeU6v6EeaLELdEtPrdIA" supplier="_Jcj3Qav6EeaLELdEtPrdIA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_JbzpUKv6EeaLELdEtPrdIA" name="external">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Jb6-EKv6EeaLELdEtPrdIA" name="std::thread"/>
+    </packagedElement>
+    <profileApplication xmi:id="_O6TiIjLUEd26WNosUASSSw">
+      <eAnnotations xmi:id="_O6TiIzLUEd26WNosUASSSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_GcC0cAHtEd6HSdiss9GQ0A">
+      <eAnnotations xmi:id="_Gd1kMAHtEd6HSdiss9GQ0A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_zi-sUE2sEeGl8qrc8BM7vA">
+      <eAnnotations xmi:id="_0QJUUE2sEeGl8qrc8BM7vA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//Alloc"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_ar8OsAPMEdyuUt-4qHuVvQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_JZyQEKv6EeaLELdEtPrdIA">
+      <eAnnotations xmi:id="_JZy3IKv6EeaLELdEtPrdIA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Deployment:DeploymentPlan xmi:id="_JV3ZYKv6EeaLELdEtPrdIA" base_Package="_JV2LQqv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Include xmi:id="_JWJtQKv6EeaLELdEtPrdIA" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" header="#define SIMPLESM_TIME_EVENT_LOWER_BOUND (0)&#xA;#define SIMPLESM_CHANGE_EVENT_LOWER_BOUND (4)&#xA;#define SIMPLESM_TE_INDEX(id) (id - SIMPLESM_TIME_EVENT_LOWER_BOUND)&#xA;#define SIMPLESM_CHE_INDEX(id) (id - SIMPLESM_CHANGE_EVENT_LOWER_BOUND)&#xA;#define SMSERVER_REGION0_DEFAULT (0)&#xA;#define SMSERVER_REGION0_STATE1 (1)&#xA;#define STATE3_REGION1_SHALLOWHISTORY1 (1)&#xA;#define STATE3_REGION2_DEFAULT (0)&#xA;#define REGION_ID_STATE3_REGION1 (0)&#xA;#define REGION_ID_STATE3_REGION2 (1)&#xA;#define SMSERVER_REGION0 (0)&#xA;#define STATE3_REGION1 (1)&#xA;#define STATE3_REGION2 (2)&#xA;#include &quot;time.h&quot;&#xA;#include &quot;pthread.h&quot;&#xA;#include &quot;time.h&quot;&#xA;&#x9;&#x9;#include &quot;sys/time.h&quot;&#xA;#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING) {return;}&#xA;#define SimpleSM_THREAD_CREATE(thThread, str) pthread_create(&amp;thThread, NULL, &amp;SimpleSM::thread_func_wrapper, &amp;str);&#xA;#define SIMPLESM_GET_CONTROL /*mutex synchronization to protect run-to-completion semantics*/ \&#xA;&#x9;&#x9;pthread_mutex_lock(&amp;runToCompletionMutex); \&#xA;&#x9;&#x9;while (systemState != statemachine::IDLE) {\&#xA;&#x9;&#x9;&#x9;pthread_cond_wait(&amp;runToCompletionCond, &amp;runToCompletionMutex);\&#xA;&#x9;&#x9;}&#xA;#define SIMPLESM_RELEASE_CONTROL systemState = statemachine::IDLE; pthread_cond_signal(&amp;runToCompletionCond); \&#xA;&#x9;&#x9;&#x9;&#x9;pthread_mutex_unlock(&amp;runToCompletionMutex);" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
+  <C_Cpp:NoCodeGen xmi:id="_Jb6XAKv6EeaLELdEtPrdIA" base_element="_JbzpUKv6EeaLELdEtPrdIA"/>
+  <C_Cpp:External xmi:id="_Jb-ocKv6EeaLELdEtPrdIA" base_Classifier="_Jb6-EKv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Typedef xmi:id="_JcovwKv6EeaLELdEtPrdIA" definition="struct State_t {&#xA;&#x9;//2 is configured as the maximum number of orthogonal regions a composite states can have&#xA;&#x9;unsigned int /*StateIDEnum*/ previousStates[2]; //for history states&#xA;&#x9;unsigned int /*StateIDEnum*/ actives[2];&#xA;&#x9;void (SimpleSM::*entry)();&#xA;&#x9;void (SimpleSM::*exit)();&#xA;&#x9;void (SimpleSM::*doActivity)();&#xA;&#x9;State_t() {&#xA;&#x9;&#x9;entry = &amp;SimpleSM::entry_dft;&#xA;&#x9;&#x9;exit = &amp;SimpleSM::exit_dft;&#xA;&#x9;&#x9;doActivity = &amp;SimpleSM::doActivity_dft;&#xA;&#x9;&#x9;for(int i = 0; i &lt; 2; i++) {&#xA;&#x9;&#x9;&#x9;previousStates[i] = STATE_MAX;&#xA;&#x9;&#x9;&#x9;actives[i] = STATE_MAX;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;} " base_primitivetype="_JckeU6v6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JctoQKv6EeaLELdEtPrdIA" definition="[8]" base_property="_Jcp94av6EeaLELdEtPrdIA"/>
+  <standard:Create xmi:id="_JdUFMKv6EeaLELdEtPrdIA" base_BehavioralFeature="_JdHQ4Kv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JeQgYKv6EeaLELdEtPrdIA" definition="[STATE_MAX]" base_property="_JeNdEKv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JeS8oKv6EeaLELdEtPrdIA" definition="[STATE_MAX]" base_property="_JeQgYav6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JeVY4Kv6EeaLELdEtPrdIA" definition="[STATE_MAX]" base_property="_JeS8oav6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JeYcMKv6EeaLELdEtPrdIA" definition="[STATE_MAX]" base_property="_JeVY4av6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JebfgKv6EeaLELdEtPrdIA" definition="[STATE_MAX]" base_property="_JeYcMav6EeaLELdEtPrdIA"/>
+  <C_Cpp:Ptr xmi:id="_Jed7wKv6EeaLELdEtPrdIA" base_parameter="_Jebfgqv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Ptr xmi:id="_Jeg_EKv6EeaLELdEtPrdIA" base_parameter="_Jed7wav6EeaLELdEtPrdIA"/>
+  <C_Cpp:Typedef xmi:id="_JekCYKv6EeaLELdEtPrdIA" definition="void (SimpleSM::*typeName)()" base_primitivetype="_JehmIKv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JenFsKv6EeaLELdEtPrdIA" definition="[STATE_MAX]" base_property="_JekpcKv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JeslQKv6EeaLELdEtPrdIA" definition="[4]" base_property="_Jeph8Kv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_Jew2sKv6EeaLELdEtPrdIA" definition="[4]" base_property="_JetMUKv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_Jez6AKv6EeaLELdEtPrdIA" definition="[4]" base_property="_Jew2sav6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_Je29UKv6EeaLELdEtPrdIA" definition="[4]" base_property="_Jez6Aav6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_Je6AoKv6EeaLELdEtPrdIA" definition="[4]" base_property="_Je29Uav6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_Je9D8Kv6EeaLELdEtPrdIA" definition="[4]" base_property="_Je6nsKv6EeaLELdEtPrdIA"/>
+  <C_Cpp:Typedef xmi:id="_JfAuUKv6EeaLELdEtPrdIA" definition="void (SimpleSM::*typeName)(char enter_mode)" base_primitivetype="_Je9rA6v6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JfDxoKv6EeaLELdEtPrdIA" definition="[2]" base_property="_JfAuUav6EeaLELdEtPrdIA"/>
+  <C_Cpp:Array xmi:id="_JfG08Kv6EeaLELdEtPrdIA" definition="[2]" base_property="_JfDxpav6EeaLELdEtPrdIA"/>
+  <C_Cpp:Ptr xmi:id="_JfLGYKv6EeaLELdEtPrdIA" base_property="_JfIDEav6EeaLELdEtPrdIA"/>
+</xmi:XMI>

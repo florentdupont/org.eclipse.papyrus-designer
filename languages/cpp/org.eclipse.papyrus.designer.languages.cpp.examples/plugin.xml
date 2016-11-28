@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-	<extension point="org.eclipse.ui.newWizards">
-		<wizard
-			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-			class="org.eclipse.papyrus.cpp.examples.HelloWorldOOModelWizard"
-			finalPerspective="org.eclipse.papyrus.infra.core.perspective"
-			icon="platform:/plugin/org.eclipse.papyrus.infra.ui/icons/papyrus/Papyrus.gif"
-			id="org.eclipse.papyrus.cpp.examples.new.HelloWorldOO"
-			name="C/C++ hello world example">
-			<selection class="org.eclipse.core.resources.IResource"/>
-		</wizard>
-	</extension>
+	<extension point="org.eclipse.emf.common.ui.examples">
+		<example
+			id="org.eclipse.papyrus.designer.examples.DesignerExamplesSimple.HelloWorld"
+			pageImage="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/PapyrusLogo_48x48.png"
+			wizardID="org.eclipse.papyrus.designer.examples.category.DesignerExamplesDirect.installer">
+			<projectDescriptor
+				contentURI="models/examples/HelloWorldOO/"
+				name="HelloWorldOO"
+				description="apyrus Designer Simple C++ hello world example (direct code generation).">
+			</projectDescriptor>
+			<fileToOpen
+				location="/HelloWorldOO/HelloWorldOO.di">
+			</fileToOpen>
+		</example>
+   </extension>
 </plugin>
