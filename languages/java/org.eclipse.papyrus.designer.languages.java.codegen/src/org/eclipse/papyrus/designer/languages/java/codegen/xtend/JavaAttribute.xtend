@@ -11,14 +11,11 @@
  
 package org.eclipse.papyrus.designer.languages.java.codegen.xtend
 
-import org.eclipse.papyrus.designer.languages.java.codegen.utils.Modifier
-import org.eclipse.uml2.uml.Class
-import org.eclipse.uml2.uml.Classifier
-import org.eclipse.uml2.uml.DataType
-import org.eclipse.uml2.uml.Interface
-import org.eclipse.uml2.uml.Property
-import org.eclipse.uml2.uml.Signal
 import org.eclipse.papyrus.designer.languages.java.codegen.utils.JavaGenUtils
+import org.eclipse.papyrus.designer.languages.java.codegen.utils.Modifier
+import org.eclipse.uml2.uml.AttributeOwner
+import org.eclipse.uml2.uml.Classifier
+import org.eclipse.uml2.uml.Property
 
 class JavaAttribute {
 
@@ -33,18 +30,15 @@ class JavaAttribute {
 		}
 	}
 	
-	// return a list of owned attributes, since this is not supported directly on a classifier
+	/**
+	 * @return a list of owned attributes, since this is not supported directly on a classifier, null if not available
+	 */
 	static def getOwnedAttributesWNull(Classifier cl) {	
-		if (cl instanceof Class) {
-			(cl as Class).ownedAttributes
-		} else if (cl instanceof DataType) {
-			(cl as DataType).ownedAttributes
-		} else if (cl instanceof Interface) {
-			(cl as Interface).ownedAttributes
-		} else if (cl instanceof Signal) {
-			(cl as Signal).ownedAttributes
+		if (cl instanceof AttributeOwner) {
+			(cl as AttributeOwner).ownedAttributes
 		} else {
 			//Sequence{}
+		    return null
 		}
 	}
 

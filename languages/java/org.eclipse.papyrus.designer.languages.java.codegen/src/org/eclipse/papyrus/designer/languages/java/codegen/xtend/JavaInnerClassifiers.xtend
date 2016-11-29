@@ -20,8 +20,8 @@ class JavaInnerClassifiers {
 		«JavaClassifierGenerator.classVisibility(classifier)»«JavaClassifierGenerator.classModifiers(classifier)»«JavaClassifierGenerator.classifierType(classifier)» «classifier.name»«JavaTemplates.templateSignature(classifier)»«JavaClassInheritedDeclarations.
 			javaClassInheritedDeclarations(classifier)» {
 			«IF classifier instanceof Enumeration»«JavaEnumerations.javaEnumerationLiterals(classifier as Enumeration)»«ENDIF»
-		    «JavaClassTypeAndEnum.javaClassTypeAndEnum(classifier)»
-		    ««« TODO: Not possible to model inner classifier in an Enumeration in UML»
+			«JavaClassTypeAndEnum.javaClassTypeAndEnum(classifier)»
+			««« TODO: Not possible to model inner classifier in an Enumeration in UML»
 			«JavaClassAttributesDeclaration.javaClassAttributesDeclaration(classifier).toString»
 			«JavaClassOperationsDeclaration.javaClassOperationsDeclaration(classifier).toString»
 		};

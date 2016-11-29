@@ -11,7 +11,6 @@
 
 package org.eclipse.papyrus.designer.languages.java.codegen.utils;
 
-import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Array;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Default;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Final;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Native;

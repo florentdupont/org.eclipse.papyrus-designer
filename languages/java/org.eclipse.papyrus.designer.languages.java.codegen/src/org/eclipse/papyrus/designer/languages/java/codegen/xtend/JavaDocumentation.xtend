@@ -34,7 +34,7 @@ class JavaDocumentation {
 	
 	static def javaParamDoc(Parameter parameter) '''
 		* «IF (parameter.direction == ParameterDirectionKind.RETURN_LITERAL)
-		  »@return«ELSE»@param«ENDIF» «parameter.name» «GenUtils.getComments(parameter).replaceAll('\n', '\n *    ')»
+		  »@return«ELSE»@param «parameter.name»«ENDIF» «GenUtils.getComments(parameter).replaceAll('\n', '\n *    ')»
 	'''
 	
 	static def javaBehaviorDoc(Behavior behavior) '''

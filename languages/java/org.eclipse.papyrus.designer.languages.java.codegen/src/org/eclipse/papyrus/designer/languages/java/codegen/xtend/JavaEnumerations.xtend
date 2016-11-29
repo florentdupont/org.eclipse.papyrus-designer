@@ -16,9 +16,9 @@ import org.eclipse.uml2.uml.EnumerationLiteral
 
 class JavaEnumerations {
 	static def javaEnumerationLiterals(Enumeration enumeration) '''
-		«FOR i : 0 ..< enumeration.ownedLiterals.size»
-			«JavaDocumentation.javaElementDoc(enumeration.ownedLiterals.get(i))»
-			«enumeration.ownedLiterals.get(i).name»«enumeration.ownedLiterals.get(i).defaultValue»«IF i < enumeration.ownedLiterals.size - 1»,«ELSE»;«ENDIF»
+		«FOR literal : enumeration.ownedLiterals SEPARATOR "," AFTER ";"»
+			«JavaDocumentation.javaElementDoc(literal)»
+			«literal.name»«literal.defaultValue»
 		«ENDFOR»
 	'''
 	

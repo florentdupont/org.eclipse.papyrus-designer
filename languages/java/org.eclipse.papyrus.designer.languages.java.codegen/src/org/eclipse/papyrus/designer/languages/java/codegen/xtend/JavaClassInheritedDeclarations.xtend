@@ -25,16 +25,20 @@ class JavaClassInheritedDeclarations {
 		«IF (!(clazz instanceof Enumeration) && generalizations(clazz).length > 0)» extends «JavaGenUtils.javaQualifiedName((generalizations(clazz).get(0).targets.get(0) as Classifier), (generalizations(clazz).get(0).targets.get(0) as Classifier).owner)»«ENDIF»«IF (realizations(clazz).length > 0)» implements «ENDIF»«FOR fr: realizations(clazz) SEPARATOR ", "»«JavaGenUtils.javaQualifiedName(fr.targets.get(0) as Classifier, (fr.targets.get(0) as Classifier).owner)»«ENDFOR»
 	'''
 	
-	//Return a list of relationships that are Generalizations
-	//and the target does not point to a classifier that has the no-code-gen Stereotype
+	/**
+	 * Return a list of relationships that are Generalizations
+	 * and the target does not point to a classifier that has the no-code-gen Stereotype
+	 */
 	static def generalizations(Classifier clazz) {
 		clazz.sourceDirectedRelationships.filter[(it instanceof Generalization) &&
 				(it.targets.size > 0) && (!GenUtils.hasStereotype(it.targets.get(0), NoCodeGen))
 		]
 	}
 	
-	//Return a list of relationships that are InterfaceRealizations
-	//and the target does not point to a classifier that has the no-code-gen Stereotype
+	/**
+	 * Return a list of relationships that are InterfaceRealizations
+	 * and the target does not point to a classifier that has the no-code-gen Stereotype
+	 */
 	static def realizations(Classifier clazz) {
 		clazz.sourceDirectedRelationships.filter[(it instanceof InterfaceRealization) &&
 				(it.targets.size > 0) && (!GenUtils.hasStereotype(it.targets.get(0), NoCodeGen))

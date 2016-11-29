@@ -43,8 +43,8 @@ class JavaClassifierGenerator {
 		«classVisibility(classifier)»«classModifiers(classifier)»«classifierType(classifier)» «classifier.name»«JavaTemplates.templateSignature(classifier)»«JavaClassInheritedDeclarations.
 			javaClassInheritedDeclarations(classifier)» {
 			«IF classifier instanceof Enumeration»«JavaEnumerations.javaEnumerationLiterals(classifier as Enumeration)»«ENDIF»
-		    «JavaClassTypeAndEnum.javaClassTypeAndEnum(classifier)»
-		    ««« TODO: Not possible to model inner classifier in an Enumeration in UML»
+			«JavaClassTypeAndEnum.javaClassTypeAndEnum(classifier)»
+			««« TODO: Not possible to model inner classifier in an Enumeration in UML»
 			«JavaClassAttributesDeclaration.javaClassAttributesDeclaration(classifier).toString»
 			«JavaClassOperationsDeclaration.javaClassOperationsDeclaration(classifier).toString»
 		};
@@ -65,14 +65,15 @@ class JavaClassifierGenerator {
 			return classifier.visibility.toString.toLowerCase
 		} else {
 			if (classifier.visibility == VisibilityKind.PUBLIC_LITERAL) {
-				return "public"
+				return "public "
 			}
+			// protected and private are not legal modifiers of root classes
 			return "" //Java package-private visibility (default) for class
 		}
 	}
 	
 	static def classModifiers(Classifier classifier) { // TODO refactor this in Modifier.java
-		var String result = " "
+		var String result = ""
 			
 		if (!(classifier instanceof Enumeration) && !(classifier instanceof Interface)) {
 			if (classifier.abstract) {

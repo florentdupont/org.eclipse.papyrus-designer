@@ -18,8 +18,7 @@ import org.eclipse.uml2.uml.Classifier
 class JavaClassOperationsDeclaration {
 	static def javaClassOperationsDeclaration(Classifier clazz) '''
 		«FOR op : JavaOperations.getOwnedOperations(clazz)»
-		
-		«IF !GenUtils.hasStereotype(op, NoCodeGen)»«JavaOperations.javaOperationDeclaration(op)»«ENDIF»
+			«IF !GenUtils.hasStereotype(op, NoCodeGen)»«JavaOperations.javaOperationDeclaration(op)»«ENDIF»
 		«ENDFOR»
 	'''
 }

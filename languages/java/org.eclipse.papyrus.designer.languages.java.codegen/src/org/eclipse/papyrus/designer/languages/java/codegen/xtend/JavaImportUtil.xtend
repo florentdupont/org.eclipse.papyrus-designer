@@ -24,11 +24,10 @@ class JavaImportUtil {
 
 	static def javaImport(NamedElement ne) {
 		if (GenUtils.hasStereotype(ne, Import)) {
-			UMLUtil.getStereotypeApplication(ne, Import)
-			var header = UMLUtil.getStereotypeApplication(ne, Import).manualImports
+			val import = UMLUtil.getStereotypeApplication(ne, Import)
+			var header = import.manualImports
 			if ((header != null) && (header.length > 0)) {
-				var includeHeader = org.eclipse.papyrus.designer.languages.java.codegen.xtend.JavaImportUtil.constImportStart + GenUtils.cleanCR(header) + '\n' +
-					org.eclipse.papyrus.designer.languages.java.codegen.xtend.JavaImportUtil.constImportEnd
+				var includeHeader = JavaImportUtil.constImportStart + GenUtils.cleanCR(header) + '\n' + JavaImportUtil.constImportEnd
 				return includeHeader
 			}
 		}
