@@ -125,11 +125,10 @@ public class JavaProjectSupport implements ILangProjectSupport {
 
 	@Override
 	public void setSettings(IProject project, AbstractSettings settings) {
-		if(project != null){
+		if (project != null && mavenProjectDetails != null) {
 			CustomizePOMFile customizePOMFile = new CustomizePOMFile(project, mavenProjectDetails);
 			customizePOMFile.execute();	
 		}
-		
 	}
 
 	@Override
