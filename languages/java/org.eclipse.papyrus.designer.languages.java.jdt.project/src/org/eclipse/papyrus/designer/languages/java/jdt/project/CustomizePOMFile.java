@@ -117,8 +117,8 @@ public class CustomizePOMFile {
 		ArrayList<Plugin> plugins = new ArrayList<Plugin>();
 
 		Plugin pluginJar = new Plugin();
-		pluginJar.setArtifactId("org.apache.maven.plugins");
-		pluginJar.setGroupId("maven-jar-plugin");
+		pluginJar.setGroupId("org.apache.maven.plugins");
+		pluginJar.setArtifactId("maven-jar-plugin");
 		pluginJar.setVersion("2.1");
 		pluginJar.getConfiguration();
 		plugins.add(pluginJar);
@@ -127,12 +127,12 @@ public class CustomizePOMFile {
 		}
 
 		Plugin pluginRelease = new Plugin();
-		pluginRelease.setArtifactId("org.apache.maven.plugins");
-		pluginRelease.setGroupId("maven-release-plugin");
+		pluginRelease.setGroupId("org.apache.maven.plugins");
+		pluginRelease.setArtifactId("maven-release-plugin");
 		pluginRelease.setVersion("2.5.3");
 		pluginRelease.getConfiguration();
 		plugins.add(pluginRelease);
-
+		
 		build.setFinalName(genProject.getName());
 		build.setPlugins(plugins);
 		pomFileModel.setBuild(build);
@@ -142,9 +142,21 @@ public class CustomizePOMFile {
 		Xpp3Dom configDom = new Xpp3Dom("configuration");
 		Xpp3Dom archiveDom = new Xpp3Dom("archive");
 		Xpp3Dom manifestDom = new Xpp3Dom("manifestEntries");
+		
 		Xpp3Dom entryDom = new Xpp3Dom("Entry-Point");
 		entryDom.setValue("${microservice.entrypoint}");
+		Xpp3Dom jarKindDom = new Xpp3Dom("Jar-Kind");
+		jarKindDom.setValue("vortex-microservice");
+		Xpp3Dom impTitleDom = new Xpp3Dom("Implementation-Title");
+		impTitleDom.setValue("${project.artifactId}");
+		Xpp3Dom specTitleDom = new Xpp3Dom("Specification-Title");
+		specTitleDom.setValue("${project.artifactId}");
+		
 		manifestDom.addChild(entryDom);
+		manifestDom.addChild(jarKindDom);
+		manifestDom.addChild(impTitleDom);
+		manifestDom.addChild(specTitleDom);
+		
 		archiveDom.addChild(manifestDom);
 		configDom.addChild(archiveDom);
 		pluginJar.setConfiguration(configDom);
@@ -170,7 +182,6 @@ public class CustomizePOMFile {
 				}
 				dependency.setExclusions(exclusions);
 			}
-
 			dependencies.add(dependency);
 		}
 		pomFileModel.setDependencies(dependencies);

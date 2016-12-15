@@ -60,6 +60,8 @@
         lowerBound="1" eType="#//ParentArtifact"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
         upperBound="-1" eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArcheType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" ordered="false"

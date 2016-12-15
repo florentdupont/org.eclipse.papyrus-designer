@@ -39,16 +39,19 @@ public class ProcessWrapper {
 				String s;
 				boolean error = false;
 				String errorMsg = ""; //$NON-NLS-1$
-				while((s = results.readLine()) != null) {
-					// TODO: output may indicate an error, but this is not true in general
-					errorMsg += s;
-					error = true;
-				}
+				
 				errors = new BufferedReader(new InputStreamReader(p.getErrorStream()));
 				while((s = errors.readLine()) != null) {
 					errorMsg += s;
 					error = true;
 				}
+				
+				while((s = results.readLine()) != null) {
+					// TODO: output may indicate an error, but this is not true in general
+					errorMsg += s;
+					error = true;
+				}
+				
 				try {
 					p.waitFor();
 				} catch (InterruptedException exp) {

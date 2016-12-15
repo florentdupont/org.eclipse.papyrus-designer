@@ -382,6 +382,15 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMavenProject_Base_Package() {
+		return (EReference)mavenProjectEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getArcheType() {
 		return archeTypeEClass;
 	}
@@ -674,6 +683,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		createEReference(mavenProjectEClass, MAVEN_PROJECT__DEPENDENCIES);
 		createEReference(mavenProjectEClass, MAVEN_PROJECT__PARENT);
 		createEReference(mavenProjectEClass, MAVEN_PROJECT__PROPERTIES);
+		createEReference(mavenProjectEClass, MAVEN_PROJECT__BASE_PACKAGE);
 
 		archeTypeEClass = createEClass(ARCHE_TYPE);
 		createEAttribute(archeTypeEClass, ARCHE_TYPE__GROUP_ID);
@@ -770,6 +780,7 @@ public class CodegenPackageImpl extends EPackageImpl implements CodegenPackage {
 		initEReference(getMavenProject_Dependencies(), this.getMavenDependency(), null, "dependencies", null, 0, -1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMavenProject_Parent(), this.getParentArtifact(), null, "parent", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMavenProject_Properties(), this.getProperty(), null, "properties", null, 0, -1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getMavenProject_Base_Package(), theUMLPackage.getPackage(), null, "base_Package", null, 1, 1, MavenProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(archeTypeEClass, ArcheType.class, "ArcheType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArcheType_GroupId(), theTypesPackage.getString(), "groupId", null, 1, 1, ArcheType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

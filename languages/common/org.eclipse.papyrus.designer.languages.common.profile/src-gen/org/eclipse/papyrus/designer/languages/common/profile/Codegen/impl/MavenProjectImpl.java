@@ -34,6 +34,7 @@ import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Property;
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.MavenProjectImpl#getBase_Package <em>Base Package</em>}</li>
  * </ul>
  *
  * @generated
@@ -138,6 +139,16 @@ public class MavenProjectImpl extends ProjectImpl implements MavenProject {
 	 * @ordered
 	 */
 	protected EList<Property> properties;
+
+	/**
+	 * The cached value of the '{@link #getBase_Package() <em>Base Package</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBase_Package()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.eclipse.uml2.uml.Package base_Package;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -326,6 +337,44 @@ public class MavenProjectImpl extends ProjectImpl implements MavenProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public org.eclipse.uml2.uml.Package getBase_Package() {
+		if (base_Package != null && base_Package.eIsProxy()) {
+			InternalEObject oldBase_Package = (InternalEObject)base_Package;
+			base_Package = (org.eclipse.uml2.uml.Package)eResolveProxy(oldBase_Package);
+			if (base_Package != oldBase_Package) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CodegenPackage.MAVEN_PROJECT__BASE_PACKAGE, oldBase_Package, base_Package));
+			}
+		}
+		return base_Package;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.uml2.uml.Package basicGetBase_Package() {
+		return base_Package;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBase_Package(org.eclipse.uml2.uml.Package newBase_Package) {
+		org.eclipse.uml2.uml.Package oldBase_Package = base_Package;
+		base_Package = newBase_Package;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CodegenPackage.MAVEN_PROJECT__BASE_PACKAGE, oldBase_Package, base_Package));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -345,6 +394,9 @@ public class MavenProjectImpl extends ProjectImpl implements MavenProject {
 				return basicGetParent();
 			case CodegenPackage.MAVEN_PROJECT__PROPERTIES:
 				return getProperties();
+			case CodegenPackage.MAVEN_PROJECT__BASE_PACKAGE:
+				if (resolve) return getBase_Package();
+				return basicGetBase_Package();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,6 +433,9 @@ public class MavenProjectImpl extends ProjectImpl implements MavenProject {
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
+			case CodegenPackage.MAVEN_PROJECT__BASE_PACKAGE:
+				setBase_Package((org.eclipse.uml2.uml.Package)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -414,6 +469,9 @@ public class MavenProjectImpl extends ProjectImpl implements MavenProject {
 			case CodegenPackage.MAVEN_PROJECT__PROPERTIES:
 				getProperties().clear();
 				return;
+			case CodegenPackage.MAVEN_PROJECT__BASE_PACKAGE:
+				setBase_Package((org.eclipse.uml2.uml.Package)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -440,6 +498,8 @@ public class MavenProjectImpl extends ProjectImpl implements MavenProject {
 				return parent != null;
 			case CodegenPackage.MAVEN_PROJECT__PROPERTIES:
 				return properties != null && !properties.isEmpty();
+			case CodegenPackage.MAVEN_PROJECT__BASE_PACKAGE:
+				return base_Package != null;
 		}
 		return super.eIsSet(featureID);
 	}

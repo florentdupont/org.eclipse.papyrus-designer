@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
-  <uml:Profile xmi:id="_fPDsIBa-EearhdjjJ6cVzQ" name="Codegen" metaclassReference="_WWO_YBbAEearhdjjJ6cVzQ _LQB30CXmEea8zMl4rVTOhQ _bIj1ICi3EeaXvZJsTlfH8A">
+  <uml:Profile xmi:id="_fPDsIBa-EearhdjjJ6cVzQ" name="Codegen" metaclassReference="_WWO_YBbAEearhdjjJ6cVzQ _LQB30CXmEea8zMl4rVTOhQ _bIj1ICi3EeaXvZJsTlfH8A _6sPNwMLHEeafnp9_6s3n2g">
     <ownedComment xmi:type="uml:Comment" xmi:id="_SK_skCXrEea8zMl4rVTOhQ" annotatedElement="_YmGwQBbAEearhdjjJ6cVzQ">
       <body>Control how code is generated:
 - name of project to generate code into
@@ -26,6 +26,9 @@
     </elementImport>
     <elementImport xmi:type="uml:ElementImport" xmi:id="_bIj1ICi3EeaXvZJsTlfH8A" alias="Class">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </elementImport>
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_6sPNwMLHEeafnp9_6s3n2g" alias="Package">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
     </elementImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_fTx0EBa-EearhdjjJ6cVzQ">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -109,6 +112,9 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_EMucQJtaEeatqKwg1x5n1Q" name="properties" type="_UCA58JtaEeatqKwg1x5n1Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WxbmMJtdEeatqKwg1x5n1Q"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WxlXMJtdEeatqKwg1x5n1Q" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_A5dlAMLIEeafnp9_6s3n2g" name="base_Package" association="_A5W3UMLIEeafnp9_6s3n2g">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_BVBVcIrqEeawRY7Kk_fDXQ" name="ArcheType">
@@ -196,6 +202,9 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_q6qssJtaEeatqKwg1x5n1Q" name="E_Property_Class1" memberEnd="_q60dsJtaEeatqKwg1x5n1Q _q60dsZtaEeatqKwg1x5n1Q">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_q60dsJtaEeatqKwg1x5n1Q" name="extension_Property" type="_UCA58JtaEeatqKwg1x5n1Q" aggregation="composite" association="_q6qssJtaEeatqKwg1x5n1Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_A5W3UMLIEeafnp9_6s3n2g" name="E_MavenProject_Package1" memberEnd="_A5cW4MLIEeafnp9_6s3n2g _A5dlAMLIEeafnp9_6s3n2g">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_A5cW4MLIEeafnp9_6s3n2g" name="extension_MavenProject" type="_ezeagIrJEeat8a5HiKvSeg" aggregation="composite" association="_A5W3UMLIEeafnp9_6s3n2g"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_QvyJsBa_EearhdjjJ6cVzQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Qv1NABa_EearhdjjJ6cVzQ" source="http://www.eclipse.org/uml2/2.0.0/UML">

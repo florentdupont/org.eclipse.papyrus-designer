@@ -390,13 +390,22 @@ public interface CodegenPackage extends EPackage {
 	int MAVEN_PROJECT__PROPERTIES = PROJECT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Base Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_PROJECT__BASE_PACKAGE = PROJECT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Maven Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_PROJECT_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 7;
+	int MAVEN_PROJECT_FEATURE_COUNT = PROJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Maven Project</em>' class.
@@ -965,6 +974,17 @@ public interface CodegenPackage extends EPackage {
 	EReference getMavenProject_Properties();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getBase_Package <em>Base Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Base Package</em>'.
+	 * @see org.eclipse.papyrus.designer.languages.common.profile.Codegen.MavenProject#getBase_Package()
+	 * @see #getMavenProject()
+	 * @generated
+	 */
+	EReference getMavenProject_Base_Package();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.ArcheType <em>Arche Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1455,6 +1475,14 @@ public interface CodegenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MAVEN_PROJECT__PROPERTIES = eINSTANCE.getMavenProject_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Package</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAVEN_PROJECT__BASE_PACKAGE = eINSTANCE.getMavenProject_Base_Package();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.languages.common.profile.Codegen.impl.ArcheTypeImpl <em>Arche Type</em>}' class.

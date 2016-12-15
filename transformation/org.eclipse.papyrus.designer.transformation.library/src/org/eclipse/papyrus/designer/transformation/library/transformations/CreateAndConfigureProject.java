@@ -206,7 +206,7 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 		String targetLanguage = DepUtils.getTargetLanguage(topLevelInstances.iterator().next());
 		String projectName = getProjectName(tc.modelRoot, tc.node);
 		projectSupport = LanguageProjectSupport.getProjectSupport(targetLanguage);
-		IProject genProject = getOrCreateProject(projectSupport, projectName, targetLanguage, tc.modelRoot);
+		IProject genProject = getOrCreateProject(projectSupport, projectName, targetLanguage, tc.deploymentPlan);
 		if (genProject == null) {
 			throw new TransformationException(
 					String.format(Messages.DeployToNodes_CouldNotCreateProject, targetLanguage));
