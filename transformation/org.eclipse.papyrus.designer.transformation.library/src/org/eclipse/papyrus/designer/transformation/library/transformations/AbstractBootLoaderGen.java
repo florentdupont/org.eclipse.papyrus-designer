@@ -58,6 +58,11 @@ import org.eclipse.uml2.uml.util.UMLUtil;
  */
 abstract public class AbstractBootLoaderGen implements IM2MTrafoCDP {
 
+	// name of the createConnections operation
+	// TODO: bootloader should not contain component-specific code
+	// duplicate constant in the designer.components.transformations.Constants (not accessible from here)
+	protected static final String CREATE_CONNECTIONS = "createConnections"; //$NON-NLS-1$
+
 	protected static final String SYSINTERFACES_ISTART = "sysinterfaces::IStart"; //$NON-NLS-1$
 
 	protected static final String INIT_OP = "init"; //$NON-NLS-1$
@@ -485,12 +490,10 @@ abstract public class AbstractBootLoaderGen implements IM2MTrafoCDP {
 			m_activation.put(implementation, varNameList);
 		}
 
-		// check, if implementation contains a composite with assembly connectors
-		for (Connector connector : implementation.getOwnedConnectors()) {
-			if (ConnectorUtil.isAssembly(connector)) {
-				m_initCodeCConnections += languageCreateConn(varName);
-				break;
-			}
+		// check, if implementation contains a createConnection implementation (for composite components with assembly connectors)
+		// TODO: This code should not be part of the "standard" bootloader generator
+		if (implementation.getOwnedOperation(CREATE_CONNECTIONS,  null,  null) != null) {
+			m_initCodeCConnections += languageCreateConn(varName);
 		}
 
 		return implemPart;

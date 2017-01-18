@@ -125,7 +125,7 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 	'''
 
 	override languageCreateConn(String varName) '''
-		«varName».createConnections();
+		«varName».«CREATE_CONNECTIONS»();
 	'''
 	
 	

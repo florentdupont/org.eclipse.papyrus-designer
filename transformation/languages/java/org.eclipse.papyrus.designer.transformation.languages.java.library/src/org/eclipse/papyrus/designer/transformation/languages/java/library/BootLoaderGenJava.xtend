@@ -110,7 +110,7 @@ public class BootLoaderGenJava extends AbstractBootLoaderGen implements IM2MTraf
 	'''
 	
 	override def public String languageCreateConn(String varName) '''
-		«varName».createConnections();
+		«varName».«CREATE_CONNECTIONS»();
 	'''
 	
 	override def public String 	languageRunStart(String varName, boolean useOO) '''
