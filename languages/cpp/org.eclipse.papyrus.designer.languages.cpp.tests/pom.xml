@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
@@ -9,41 +10,4 @@
 	<artifactId>org.eclipse.papyrus.designer.languages.cpp.codegen.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 	<description>This module contains tests for the C/C++ code generation</description>
-	
-	 <build>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-surefire-plugin</artifactId>
-                <version>${tycho-version}</version>
-                <configuration>
-                    <testClass>${testSuiteClass}</testClass>
-                    <useUIHarness>true</useUIHarness>
-                    <useUIThread>true</useUIThread>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <argLine>-Xms512m -Xmx2048m -XX:MaxPermSize=512M</argLine>
-                    <appArgLine>-testConfig=${testConfig}</appArgLine>
-                    <product>org.eclipse.sdk.ide</product>
-                    <skipTests>${skipAllTests}</skipTests>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>target-platform-configuration</artifactId>
-                <version>${tycho-version}</version>
-                <configuration>
-                    <dependency-resolution>
-                        <extraRequirements>
-                            <requirement>
-                                <type>eclipse-feature</type>
-                                <id>org.eclipse.papyrus.sdk.feature</id>
-                                <versionRange>0.0.0</versionRange>
-                            </requirement>
-                        </extraRequirements>
-                    </dependency-resolution>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-	
 </project>

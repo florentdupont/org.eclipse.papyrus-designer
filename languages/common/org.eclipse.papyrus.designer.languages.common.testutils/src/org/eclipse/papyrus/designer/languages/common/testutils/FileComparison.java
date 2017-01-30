@@ -52,7 +52,7 @@ public class FileComparison {
 	public static void assertGeneratedMatchesExpected(IFolder generatedFolder, IProject modelProject, String fileName, String... depthSegments) throws Exception {
 		assertTrue("Default generated folder \"" + generatedFolder + "\" was not generated", generatedFolder.exists());
 
-		/* TEST-GENERATED PACKAGE FOLDER */
+		// test generated folder
 		IFolder generatedPackageFolder = null;
 		for (int i = 0; i < depthSegments.length; i++) {
 			if (i == 0) {
@@ -63,7 +63,7 @@ public class FileComparison {
 			assertTrue("Package folder \"" + depthSegments[i] + "\" was not generated.", generatedPackageFolder.exists());
 		}
 
-		/* TEST-GENERATED FILE */
+		// test generated file
 		IFile generatedFile = null;
 		if (generatedPackageFolder != null) {
 			generatedFile = generatedPackageFolder.getFile(fileName);
@@ -74,7 +74,7 @@ public class FileComparison {
 		String fileContent = getFileContents(generatedFile);
 
 
-		/* PREVIOUSLY GENERATED PACKAGE FOLDER */
+		// test expected folder
 		IFolder expectedFolder = null;
 		for (int i = 0; i < depthSegments.length; i++) {
 			
@@ -83,17 +83,17 @@ public class FileComparison {
 			} else {
 				expectedFolder = expectedFolder.getFolder(depthSegments[i]);
 			}
-			assertTrue("Package folder \"" + depthSegments[i] + "\" was not generated.", expectedFolder.exists());
+			assertTrue("Expected folder \"" + depthSegments[i] + "\" does not exist.", expectedFolder.exists());
 		}
 
-		/* PREVIOUSLY GENERATED FILE */
+		// test expected file
 		IFile expectedFile = null;
 		if (expectedFolder != null) {
 			expectedFile = expectedFolder.getFile(fileName);
 		} else {
 			expectedFile = modelProject.getFile(fileName);
 		}
-		assertTrue("File " + fileName + " was not generated.", expectedFile.exists());
+		assertTrue("Expected file " + fileName + " does not exist.", expectedFile.exists());
 		String expectedFileContent = getFileContents(expectedFile);
 
 		assertContentMatches(fileName, fileContent, expectedFileContent);
@@ -103,7 +103,7 @@ public class FileComparison {
 		try {
 			for (IResource memberExp : expectedFolder.members()) {
 				IResource memberGen = generatedFolder.findMember(memberExp.getName());
-				assertThat("expected file does not exist in generated code", memberGen.exists());
+				assertThat(String.format("expected file or folder \"%s\" does not exist in generated code", memberExp.getName()), memberGen != null);
 				if (memberGen instanceof IFile) {
 					assertThat("expected resource exists, but is not a file in generated code", memberGen instanceof IFile);
 					String generatedFileContent = getFileContents((IFile) memberGen);

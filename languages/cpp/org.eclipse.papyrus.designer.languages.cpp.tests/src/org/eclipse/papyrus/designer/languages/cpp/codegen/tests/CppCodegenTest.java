@@ -9,61 +9,46 @@ package org.eclipse.papyrus.designer.languages.cpp.codegen.tests;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-import java.util.List;
-
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.designer.languages.common.testutils.FileComparison;
+import org.eclipse.papyrus.designer.languages.common.testutils.RecursiveCopy;
 import org.eclipse.papyrus.designer.languages.common.testutils.TestConstants;
-import org.eclipse.papyrus.editor.PapyrusMultiDiagramEditor;
-import org.eclipse.papyrus.infra.core.sashwindows.di.service.IPageManager;
-import org.eclipse.papyrus.infra.core.services.ServicesRegistry;
 import org.eclipse.papyrus.infra.services.openelement.service.OpenElementService;
 import org.eclipse.papyrus.infra.ui.editor.IMultiDiagramEditor;
-import org.eclipse.papyrus.junit.utils.EditorUtils;
 import org.eclipse.papyrus.junit.utils.rules.HouseKeeper;
-import org.eclipse.papyrus.uml.tools.model.UmlModel;
-import org.eclipse.papyrus.uml.tools.model.UmlUtils;
-import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.papyrus.junit.utils.rules.PapyrusEditorFixture;
+import org.eclipse.papyrus.junit.utils.rules.PluginResource;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.IHandlerService;
-import org.junit.AfterClass;
+import org.eclipse.uml2.uml.Package;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 @SuppressWarnings("nls")
+@PluginResource("resources/CppCodegenTest.di")
 public class CppCodegenTest {
 
 	static {
-		// This system property avoids opening dialogs during Papyrus operations.  It must
+		// This system property avoids opening dialogs during Papyrus operations. It must
 		// be set before trying to load any of the Papyrus classes.
 		System.setProperty("papyrus.run-headless", Boolean.TRUE.toString());
 	}
 
 	private static final String GENERATE_COMMAND_ID = "org.eclipse.papyrus.designer.languages.cpp.codegen.command";
 
-	private static final String EDITOR_ID = "org.eclipse.papyrus.infra.core.papyrusEditor";
-
-	private static final String ModelProjectName = "project";
-
 	private static final String ModelName = "CppCodegenTest.uml";
 
 	private static final String GenProjectName = "org.eclipse.papyrus.cppgen.CppCodegenTest";
 
 	private static final String GenFolderName = "CppCodegenTest";
-
-	private static final String ModelPath = "/" + ModelProjectName + '/' + ModelName;
-
-	private static final String ExpectedGenFolderName = "ExpectedModel";
-
-	private static final String ExpectedGenFolderPath = "/" + ModelProjectName + '/' + ExpectedGenFolderName;
 
 	private static final String Class1_fragment = "_x6ArECrKEeOncLSXAkfRBA";
 
@@ -87,11 +72,7 @@ public class CppCodegenTest {
 
 	private static final String Model_fragment = "_1_ToYCoNEeOncLSXAkfRBA";
 
-	private static final IProgressMonitor npm = new NullProgressMonitor();
-
 	private static IProject modelProject;
-
-	private static IProject genProject;
 
 	private static IHandlerService handlerService;
 
@@ -99,87 +80,53 @@ public class CppCodegenTest {
 
 	private static URI genCodeUri;
 
-	private static IWorkbenchPage page;
-
-	private static PapyrusMultiDiagramEditor editor;
+	private static IMultiDiagramEditor multiEditor;
 
 	private static OpenElementService elementActivator;
 
-	private static UmlModel model;
+	private static Package model;
 
 	@ClassRule
 	public static HouseKeeper.Static houseKeeper = new HouseKeeper.Static();
 
+	@ClassRule
+	/** The model set fixture. */
+	public final static PapyrusEditorFixture modelSetFixture = new PapyrusEditorFixture();
+
 	@BeforeClass
 	public static void loadProject() throws Exception {
 
-		handlerService = (IHandlerService)PlatformUI.getWorkbench().getService(IHandlerService.class);
-		
-		// Create a project to hold the model, make sure it has C++ natures to avoid confirmation
-		// dialog during code generation.
-		modelProject = houseKeeper.createProject(ModelProjectName);
+		handlerService = (IHandlerService) PlatformUI.getWorkbench().getService(IHandlerService.class);
 
-		// Import the LANGUAGE_NAME .h and .cpp files from this test plugin to the runtime workbench.
-		IFile diFile = houseKeeper.createFile(modelProject, "CppCodegenTest.di", "resources/CppCodegenTest.di");
-		houseKeeper.createFile(modelProject, "CppCodegenTest.notation", "resources/CppCodegenTest.notation");
-		houseKeeper.createFile(modelProject, "CppCodegenTest.uml", "resources/CppCodegenTest.uml");
+		// Obtain model project
+		modelProject = modelSetFixture.getProject().getProject();
 
-		String[] targetFiles = new String[]{
-			"Class1.h", "Class1.cpp",
-			"Class2.h", "Class2.cpp",
-			"Class3.h", "Class3.cpp",
-			"Class4.h", "Class4.cpp",
-			"Class5.h", "Class5.cpp",
-			"Class6.h", "Class6.cpp",
-			"Class7.h", "Class7.cpp",
-			"Pkg_CppCodegenTest.h",
-			"Package1/Class8.h", "Package1/Class8.cpp",
-			"Package1/Class9.h", "Package1/Class9.cpp",
-			"Package1/Pkg_Package1.h"
-		};
+		String modelProjectName = modelProject.getName();
 
-		for (String targetFile: targetFiles){
-			houseKeeper.createFile(modelProject, targetFile, ExpectedGenFolderName + "/" + targetFile);
-		}
+		// copy expected results folder into model project
+		Bundle srcBundle = FrameworkUtil.getBundle(CppCodegenTest.class);
+		RecursiveCopy copier = new RecursiveCopy(houseKeeper);
+		copier.copy(srcBundle, TestConstants.EXPECTED_RESULT, modelProject, "");
 
 		// Setup the base modelUri for convenience in the test cases.
-		modelUri = URI.createPlatformResourceURI(ModelPath, true);
+		modelUri = URI.createPlatformResourceURI("/" + modelProjectName + '/' + ModelName, true);
 		assertNotNull(modelUri);
 
-		// Get the currently active workbench page so we can control the editor that is about
-		// to be opened.
-		page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-
-		editor = (PapyrusMultiDiagramEditor) EditorUtils.openEditor(diFile);
-		assertNotNull(editor);
-
-		model = UmlUtils.getUmlModel();
+		model = modelSetFixture.getModel();
 		assertNotNull(model);
 
+		multiEditor = modelSetFixture.getEditor();
+		assertNotNull(multiEditor);
+
 		// Model elements are selected with the appropriate service.
-		elementActivator = editor.getServicesRegistry().getService(OpenElementService.class);
+		elementActivator = multiEditor.getServicesRegistry().getService(OpenElementService.class);
 		assertNotNull(elementActivator);
 
-		//Setup the base genCodeUri for convenience in the test cases.
-		genCodeUri = URI.createPlatformPluginURI(ExpectedGenFolderPath, true);
+		elementActivator.startService();
+
+		// Setup the base genCodeUri for convenience in the test cases.
+		genCodeUri = URI.createPlatformPluginURI("/" + modelProjectName + '/' + TestConstants.EXPECTED_RESULT, true);
 		assertNotNull(genCodeUri);
-	}
-
-	@AfterClass
-	public static void cleanup() throws Exception {
-		if(modelProject == null) {
-			return;
-		}
-
-		// Close the editor without saving anything.  This is required in order to avoid dialogs
-		// about "do you want to save these changes" when the project is deleted.
-		if(page != null) {
-			page.closeAllEditors(false);
-		}
-
-		// Now we should be able to delete the project without opening any confirmation dialogs.
-		modelProject.delete(true, true, npm);
-		modelProject = null;
 	}
 
 	@Test
@@ -265,33 +212,29 @@ public class CppCodegenTest {
 
 	private void selectSemanticElement(String uriFragment) throws Exception {
 		URI elementUri = modelUri.appendFragment(uriFragment);
-		EObject semantic = model.getResource().getResourceSet().getEObject(elementUri, true);
+		EObject semantic = model.eResource().getResourceSet().getEObject(elementUri, true);
 
-		// #openSemanticElement returns the editor if successful and null otherwise
+		// #openSemanticElement returns the multiEditor if successful and null otherwise
 
 		// the open often fails if pages are passed in, so we first try to open without specifying
 		// pages
-		IMultiDiagramEditor editor = elementActivator.openSemanticElement(semantic);//, pages.toArray());
+		IMultiDiagramEditor editor = elementActivator.openSemanticElement(semantic);
 		assertNotNull(editor);
 
-		// If there isn't an active editor, then we try passing in the list of pages.  From observation,
-		// this is needed on the first call (first test case) but causes problems on later ones.
-		if(editor.getActiveEditor() == null) {
-			ServicesRegistry registry = (ServicesRegistry)editor.getAdapter(ServicesRegistry.class);
-			assertNotNull(registry);
-
-			IPageManager pageManager = registry.getService(IPageManager.class);
-			assertNotNull(pageManager);
-
-			List<Object> pages = pageManager.allPages();
-			assertNotNull(pages);
-			assertTrue(pages.size() > 0);
-
-			editor = elementActivator.openSemanticElement(semantic, pages.toArray());
-			assertNotNull(editor);
+		try {
+			// wait (max 1 second) until editor becomes available
+			int i = 0;
+			while (editor.getActiveEditor() == null) {
+				editor = elementActivator.openSemanticElement(semantic);
+				Thread.sleep(10);
+				if (i++ > 100) {
+					fail("Timeout during wait for editor to become active");
+				}
+			}
+		} catch (InterruptedException e) {
 		}
 
-		// make sure there is an active editor so that the selection will be available
+		// make sure there is an active multiEditor so that the selection will be available
 		assertNotNull(editor.getActiveEditor());
 	}
 
