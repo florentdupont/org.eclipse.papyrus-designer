@@ -14,6 +14,8 @@
 #include "CppCodegenTest/Class3.h"
 #include "CppCodegenTest/Class5.h"
 
+namespace CppCodegenTest {
+
 /************************************************************/
 /**
  * Virtual class inheritance and class instantiation
@@ -31,6 +33,8 @@ public:
 /************************************************************/
 
 /* Inline functions                                         */
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class6 class header

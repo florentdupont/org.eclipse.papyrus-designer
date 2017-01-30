@@ -13,11 +13,15 @@
 
 // Derived includes directives
 
+namespace CppCodegenTest {
+
 // static attributes (if any)
 /**
  * 
  */
 int Class7::staticProp;
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class7 class body

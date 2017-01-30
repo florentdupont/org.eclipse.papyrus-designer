@@ -13,6 +13,8 @@
 
 // Derived includes directives
 
+namespace CppCodegenTest {
+
 // static attributes (if any)
 
 /**
@@ -36,6 +38,8 @@ Class3::~Class3() {
  */
 Class3::Class3() {
 }
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class3 class body

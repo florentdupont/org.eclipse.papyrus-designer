@@ -17,7 +17,11 @@
 #include <iostream>
 // End of Include stereotype (header)
 
+namespace CppCodegenTest {
 class Class1;
+}
+
+namespace CppCodegenTest {
 
 /************************************************************/
 /**
@@ -142,6 +146,8 @@ int packageIVal3;
 inline int Class2::inlineOp(int /*in*/a, int /*in*/b) {
 	return a + b;
 }
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class2 class header

@@ -13,7 +13,11 @@
 
 // Derived includes directives
 
+namespace CppCodegenTest {
+
 // static attributes (if any)
+
+}// of namespace CppCodegenTest
 
 /************************************************************
  End of Class5 class body

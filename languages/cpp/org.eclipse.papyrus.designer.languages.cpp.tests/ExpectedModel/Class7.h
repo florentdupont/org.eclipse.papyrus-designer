@@ -17,6 +17,8 @@
 #define helloworld 3
 // End of Include stereotype (header)
 
+namespace CppCodegenTest {
+
 /************************************************************/
 /**
  * 
@@ -45,6 +47,8 @@ int externProp;
 /************************************************************/
 
 /* Inline functions                                         */
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class7 class header

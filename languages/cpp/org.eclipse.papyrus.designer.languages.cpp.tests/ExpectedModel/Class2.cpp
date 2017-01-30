@@ -18,6 +18,8 @@
 #include <string.h>
 // End of Include declaration (body)
 
+namespace CppCodegenTest {
+
 // static attributes (if any)
 
 /**
@@ -113,6 +115,8 @@ Class1* Class2::classesOp(Class1 /*in*/c1) {
 void Class2::constOp() const {
 	std::cout << "I am a const method" << std::endl;
 }
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class2 class body

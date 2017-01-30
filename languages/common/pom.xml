@@ -19,5 +19,6 @@
 		<module>org.eclipse.papyrus.designer.languages.common.profile.ui</module>
 		<module>org.eclipse.papyrus.designer.languages.common.texteditor.model</module>
 		<module>org.eclipse.papyrus.designer.languages.common.texteditor.modelexplorer</module>
+		<module>org.eclipse.papyrus.designer.languages.common.testutils</module>
 	</modules>
 </project>

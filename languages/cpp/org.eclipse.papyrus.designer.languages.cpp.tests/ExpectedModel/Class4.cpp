@@ -14,6 +14,8 @@
 // Derived includes directives
 #include "CppCodegenTest/Class3.h"
 
+namespace CppCodegenTest {
+
 // static attributes (if any)
 /**
  * 
@@ -23,6 +25,8 @@ char* Class4::charStringStaticInit = "Hello World";
  * 
  */
 const char* Class4::charStringStaticConstInit = "Hello World";
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class4 class body

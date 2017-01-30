@@ -13,6 +13,7 @@
 
 // Derived includes directives
 
+namespace CppCodegenTest {
 namespace Package1 {
 
 // static attributes (if any)
@@ -37,6 +38,7 @@ void Class8::operation1(int /*in*/iVal1) {
 }
 
 } // of namespace Package1
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class8 class body

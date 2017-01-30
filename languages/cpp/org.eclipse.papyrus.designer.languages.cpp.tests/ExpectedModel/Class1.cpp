@@ -13,6 +13,8 @@
 
 // Derived includes directives
 
+namespace CppCodegenTest {
+
 // static attributes (if any)
 
 /**
@@ -45,6 +47,8 @@ Class1::Class1(const Class1& /*in*/cSource) {
 
 	iVal = cSource.iVal;
 }
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class1 class body

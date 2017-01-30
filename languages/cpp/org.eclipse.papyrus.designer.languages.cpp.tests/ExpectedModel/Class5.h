@@ -13,6 +13,8 @@
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 
+namespace CppCodegenTest {
+
 /************************************************************/
 /**
  * C++ Virtual Interface
@@ -42,6 +44,8 @@ public:
 /************************************************************/
 
 /* Inline functions                                         */
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class5 class header

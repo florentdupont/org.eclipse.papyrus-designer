@@ -13,6 +13,8 @@
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 
+namespace CppCodegenTest {
+
 /************************************************************/
 /**
  * 
@@ -49,6 +51,8 @@ private:
 /************************************************************/
 
 /* Inline functions                                         */
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class1 class header

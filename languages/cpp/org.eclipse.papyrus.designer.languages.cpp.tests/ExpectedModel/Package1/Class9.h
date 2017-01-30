@@ -13,6 +13,7 @@
 
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 
+namespace CppCodegenTest {
 namespace Package1 {
 
 /************************************************************/
@@ -63,6 +64,7 @@ int externOperation();
 /* Inline functions                                         */
 
 } // of namespace Package1
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class9 class header

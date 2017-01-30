@@ -14,6 +14,8 @@
 #include "AnsiCLibrary/Pkg_AnsiCLibrary.h"
 #include "CppCodegenTest/Class2.h"
 
+namespace CppCodegenTest {
+
 /************************************************************/
 /**
  * 
@@ -45,6 +47,8 @@ public:
 /************************************************************/
 
 /* Inline functions                                         */
+
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class3 class header

@@ -19,10 +19,12 @@
 
 /* Package dependency header include                        */
 
+namespace CppCodegenTest {
 namespace Package1 {
 
 // Types defined within the package
 }// of namespace Package1
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Pkg_Package1 package header

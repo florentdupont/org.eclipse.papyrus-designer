@@ -13,6 +13,7 @@
 
 // Derived includes directives
 
+namespace CppCodegenTest {
 namespace Package1 {
 
 // static attributes (if any)
@@ -39,6 +40,7 @@ int Class9::externOperation() {
 }
 
 } // of namespace Package1
+} // of namespace CppCodegenTest
 
 /************************************************************
  End of Class9 class body
