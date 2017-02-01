@@ -11,16 +11,12 @@
 package org.eclipse.papyrus.designer.components.transformation.commands;
 
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.workspace.AbstractEMFOperation;
 import org.eclipse.papyrus.designer.transformation.base.utils.LibraryUtils;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageImport;
@@ -29,7 +25,7 @@ import org.eclipse.uml2.uml.PackageImport;
  * This class adds "standard" model libraries for component-based development: the FCM profile, parts of the MARTE profile (allocation)
  * and the associated package imports to your model.
  */
-public class AddStdModelLibs extends AbstractEMFOperation {
+public class AddStdModelLibs extends RecordingCommand {
 
 	public AddStdModelLibs(Package pkg, TransactionalEditingDomain domain) {
 		super(domain, CMD_LABEL);
@@ -149,14 +145,12 @@ public class AddStdModelLibs extends AbstractEMFOperation {
 	}
 
 	@Override
-	protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
+	protected void doExecute() {
 
 		for (PackageImport pi : importList) {
 			if (!isAlreadyImported(selectedPkg, pi)) {
 				selectedPkg.getPackageImports().add(pi);
 			}
 		}
-		return Status.OK_STATUS;
 	}
 }

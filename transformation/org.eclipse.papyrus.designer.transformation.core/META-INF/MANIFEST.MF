@@ -7,7 +7,8 @@ Export-Package: org.eclipse.papyrus.designer.transformation.core,
  org.eclipse.papyrus.designer.transformation.core.sync,
  org.eclipse.papyrus.designer.transformation.core.templates,
  org.eclipse.papyrus.designer.transformation.core.transformations,
- org.eclipse.papyrus.designer.transformation.core.transformations.filters
+ org.eclipse.papyrus.designer.transformation.core.transformations.filters,
+ org.eclipse.papyrus.designer.transformation.core.utils
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.uml2.uml,

@@ -32,6 +32,7 @@ import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.EnumService;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.generate.GenerationOptions;
+import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyExtResources;
 import org.eclipse.papyrus.designer.transformation.extensions.InstanceConfigurator;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
@@ -125,6 +126,8 @@ public class InstantiateDepPlan {
 			printAndDisplayErrorMessage(e, Messages.InstantiateDepPlan_TransformationException, false);
 		} catch (final Exception e) {
 			printAndDisplayErrorMessage(e, Messages.InstantiateDepPlan_ErrorsDuringTransformation, true);
+		} finally {
+			TransformationContext.current = null;
 		}
 	}
 
@@ -139,14 +142,14 @@ public class InstantiateDepPlan {
 		ModelManagement intermediateModelManagement = null;
 		UIContext.monitor = monitor;
 		UIContext.configureProject = (generationOptions & GenerationOptions.REWRITE_SETTINGS) != 0;
-		
+
 		// 1a: create a new model (and applies same profiles / imports)
 		Model existingModel = srcModelComponentDeploymentPlan.getModel();
 		TransformationContext tc = new TransformationContext();
 		TransformationContext.current = tc;
 		TransformationContext.initialSourceRoot = existingModel;
 		TransformationContext.initialDeploymentPlan = srcModelComponentDeploymentPlan;
-		
+
 		intermediateModelManagement = ModelManagement.createNewModel(existingModel.getName());
 
 		// get the temporary model
@@ -166,11 +169,13 @@ public class InstantiateDepPlan {
 
 		tc.copier = intermediateModelCopier;
 		Map<InstanceSpecification, InstanceSpecification> instanceMap = new HashMap<InstanceSpecification, InstanceSpecification>();
-		
+
 		// calculate which resources to copy: based on the classifiers that are referenced from the instances
 		for (InstanceSpecification instance : DepUtils.getInstances(srcModelComponentDeploymentPlan)) {
-			Classifier cl = DepUtils.getClassifier(instance);
-			intermediateModelCopier.addResource(cl.eResource());
+			if (!TemplateUtils.withinPkgTemplate(instance)) {
+				Classifier cl = DepUtils.getClassifier(instance);
+				intermediateModelCopier.addResource(cl.eResource());
+			}
 		}
 
 		for (InstanceSpecification instance : DepUtils.getTopLevelInstances(srcModelComponentDeploymentPlan)) {
@@ -190,7 +195,7 @@ public class InstantiateDepPlan {
 		tc.modelRoot = PackageUtil.getRootPackage(tc.deploymentPlan);
 
 		M2MTrafoChain chain = DepUtils.getTransformationChain(srcModelComponentDeploymentPlan);
-		
+
 		ExecuteTransformationChain.apply(chain);
 
 		/*
@@ -249,7 +254,7 @@ public class InstantiateDepPlan {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param canonicalProjectName
 	 *            the automatically calculated project name
 	 * @param userProjectName

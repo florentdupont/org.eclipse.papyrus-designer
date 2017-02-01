@@ -10,18 +10,13 @@
  *******************************************************************************/
 package org.eclipse.papyrus.designer.components.transformation.commands;
 
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.workspace.AbstractEMFOperation;
 import org.eclipse.papyrus.designer.components.transformation.Activator;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Package;
@@ -31,7 +26,7 @@ import org.eclipse.uml2.uml.Profile;
 /**
  * This class adds the FCM profile, parts of the MARTE profile and required package imports to your model.
  */
-public class AddMarteAndFcmProfile extends AbstractEMFOperation {
+public class AddMarteAndFcmProfile extends RecordingCommand {
 
 	public AddMarteAndFcmProfile(Package selectedPkg, int applyCode, TransactionalEditingDomain domain) {
 		super(domain, CMD_LABEL);
@@ -80,8 +75,7 @@ public class AddMarteAndFcmProfile extends AbstractEMFOperation {
 	}
 
 	@Override
-	protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
+	protected void doExecute() {
 		final ResourceSet resourceSet = selectedPkg.eResource().getResourceSet();
 
 		try {
@@ -141,8 +135,7 @@ public class AddMarteAndFcmProfile extends AbstractEMFOperation {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			Activator.log.error(e);
 		}
-		return Status.OK_STATUS;
 	}
 }

@@ -14,21 +14,16 @@
 
 package org.eclipse.papyrus.designer.transformation.base.utils;
 
-import java.util.Collections;
+import java.util.concurrent.CancellationException;
 
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.commands.operations.IOperationHistory;
-import org.eclipse.core.commands.operations.IUndoableOperation;
-import org.eclipse.core.commands.operations.OperationHistoryFactory;
-import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
-import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.papyrus.designer.transformation.base.Activator;
 import org.eclipse.papyrus.designer.transformation.base.Messages;
 import org.eclipse.papyrus.infra.core.services.ServiceException;
@@ -78,19 +73,21 @@ public class CommandSupport {
 	public static void exec(String label, ExecutionEvent event, final RunnableWithResult command) {
 		// ServiceUtilsForActionHandlers serviceUtils = ServiceUtilsForActionHandlers.getInstance();
 		ServiceUtilsForHandlers serviceUtils = ServiceUtilsForHandlers.getInstance();
-		IOperationHistory history = OperationHistoryFactory.getOperationHistory();
 		try {
-			history.execute(new AbstractTransactionalCommand(serviceUtils.getTransactionalEditingDomain(event),
-					label, Collections.EMPTY_LIST) {
+			TransactionalEditingDomain domain = serviceUtils.getTransactionalEditingDomain(event);
+			domain.getCommandStack().execute(new RecordingCommand(domain, label) {
 
 				@Override
-				public CommandResult doExecuteWithResult(IProgressMonitor dummy, IAdaptable info) {
-					return command.run();
+				public void doExecute() {
+					CommandResult result = command.run();
+					if (result.getReturnValue() instanceof IStatus) {
+						IStatus status = (IStatus) result.getReturnValue();
+						if (!status.isOK()) {
+							throw new CancellationException();
+						}
+					}
 				}
-			}, null, null);
-		}
-		catch (ExecutionException e) {
-			Activator.log.error(Messages.CommandSupport_ErrorDuringCmdExec, e);
+			});
 		}
 		catch (ServiceException e) {
 			Activator.log.error(Messages.CommandSupport_NoEditingDomain, e);
@@ -107,28 +104,17 @@ public class CommandSupport {
 		if (domain == null) {
 			command.run();
 		} else {
-			IOperationHistory history = OperationHistoryFactory.getOperationHistory();
-			try {
-				history.execute(new AbstractTransactionalCommand(domain, label, Collections.EMPTY_LIST) {
+			domain.getCommandStack().execute(new RecordingCommand(domain, label) {
 
-					@Override
-					public CommandResult doExecuteWithResult(IProgressMonitor dummy, IAdaptable info) {
-						command.run();
-						return CommandResult.newOKCommandResult();
-					}
-				}, null, null);
-			} catch (ExecutionException e) {
-				Activator.log.error(e);
-			}
+				@Override
+				public void doExecute() {
+					command.run();
+				}
+			});
 		}
 	}
 
-	public static void exec(IUndoableOperation command) {
-		IOperationHistory history = OperationHistoryFactory.getOperationHistory();
-		try {
-			history.execute(command, new NullProgressMonitor(), null);
-		} catch (ExecutionException e) {
-			Activator.log.error(e);
-		}
+	public static void exec(TransactionalEditingDomain domain, Command command) {
+		domain.getCommandStack().execute(command);
 	}
 }

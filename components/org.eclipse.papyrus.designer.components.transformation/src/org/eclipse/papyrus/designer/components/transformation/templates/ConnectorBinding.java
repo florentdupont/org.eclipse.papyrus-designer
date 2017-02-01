@@ -292,7 +292,7 @@ public class ConnectorBinding {
 			boolean sameConjugation = (otherPort.isConjugated() == port.isConjugated());
 			// if assembly connection, conjugations must be different.
 			if (isAssembly == sameConjugation) {
-				return actual; // was: continue
+				return actual;
 			}
 
 			// now compare kinds

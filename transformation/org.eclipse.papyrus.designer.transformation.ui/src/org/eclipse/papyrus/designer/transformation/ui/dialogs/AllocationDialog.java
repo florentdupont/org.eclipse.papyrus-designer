@@ -15,10 +15,11 @@
 package org.eclipse.papyrus.designer.transformation.ui.dialogs;
 
 import org.eclipse.draw2d.Label;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.emf.workspace.AbstractEMFOperation;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.papyrus.MARTE.MARTE_DesignModel.SRM.SW_Concurrency.SwSchedulableResource;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
@@ -300,8 +301,9 @@ public class AllocationDialog extends SelectionStatusDialog {
 			if (!AllocUtils.allocate(is, newNode)) {
 				if (MessageDialog.openQuestion(Display.getDefault().getActiveShell(), "Error",
 						"Stereotype application failed. The profile MARTE::Allocation is probably not applied. Try to apply it?")) {
-					AbstractEMFOperation applyProfile = new AddMarteAndFcmProfile(PackageUtil.getRootPackage(is), AddMarteAndFcmProfile.APPLY_ALLOC, TransactionUtil.getEditingDomain(is));
-					CommandSupport.exec(applyProfile);
+					TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(is);
+					Command applyProfile = new AddMarteAndFcmProfile(PackageUtil.getRootPackage(is), AddMarteAndFcmProfile.APPLY_ALLOC, domain);
+					CommandSupport.exec(domain, applyProfile);
 					AllocUtils.allocate(is, newNode);
 				}
 			}
