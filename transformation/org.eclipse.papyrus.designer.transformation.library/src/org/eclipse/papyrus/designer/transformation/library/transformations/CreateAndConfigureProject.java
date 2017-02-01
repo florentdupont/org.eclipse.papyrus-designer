@@ -41,6 +41,7 @@ import org.eclipse.papyrus.designer.transformation.core.transformations.Transfor
 import org.eclipse.papyrus.designer.transformation.library.Messages;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -48,6 +49,10 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
 public class CreateAndConfigureProject implements IM2MTrafoCDP {
+
+	protected AbstractSettings settings;
+
+	protected ILangProjectSupport projectSupport;
 
 	/**
 	 * Gather configuration data for a code generation project In particular, a
@@ -82,7 +87,7 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 
 	/**
 	 * Get an existing or create a new project for a given language
-	 * 
+	 *
 	 * @param projectSupport
 	 *            project support instance (for a given programming language)
 	 * @param projectName
@@ -126,48 +131,60 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 						+ " project. This might indicate that there is a problem with your " + targetLanguage
 						+ " installation.");
 			}
-			
+
 			// project is new, force re-write of settings
 			UIContext.configureProject = true;
 		}
 		return genProject;
 	}
 
-	void storeProjectName(IProject genProject, Package model, InstanceSpecification node) {
-		final String projectGeneratedName = model.getName() + "_" + node.getName() + "_"
-				+ TransformationContext.current.deploymentPlan.getName();
-		if (genProject != null) {
+	/**
+	 * Update the project name in the mapping (part of deployment plan). The object is to take a user decision into account
+	 * to change the project name during project generation.
+	 * @param genProject the generated project
+	 * @param model the root model (used to calculate default project name)
+	 * @param node the deployment node
+	 */
+	void storeProjectName(final IProject genProject, final String defaultProjectName) {
+		if (genProject != null && TransformationContext.initialDeploymentPlan != null) {
 			final String pName = genProject.getName();
-			CommandSupport.exec(TransformationContext.initialDeploymentPlan, "Change Project Mapping", new Runnable() {
+			final Runnable storeProject = new Runnable() {
+
 				@Override
 				public void run() {
 					Package deploymentPlanElement = TransformationContext.initialDeploymentPlan;
 					DeploymentPlan deploymentPlan = UMLUtil.getStereotypeApplication(deploymentPlanElement,
 							DeploymentPlan.class);
 					EList<String> projectMappings = deploymentPlan.getProjectMappings();
-					String newMapping = "";
-					int oldMappingIndex = -1;
+					String newMapping = defaultProjectName + "=" + pName;
 					for (int j = 0; j < projectMappings.size(); j++) {
 						StringTokenizer str = new StringTokenizer(projectMappings.get(j), "=");
 						String genName = str.nextToken();
-						if (genName.equals(projectGeneratedName)) {
-							newMapping = projectGeneratedName + "=" + pName;
-							oldMappingIndex = j;
+						if (genName.equals(defaultProjectName)) {
+							projectMappings.remove(j);
+							break;
 						}
 					}
-					if (oldMappingIndex != -1) {
-						projectMappings.remove(oldMappingIndex);
-						projectMappings.add(newMapping);
-					}
+					projectMappings.add(newMapping);
 				}
-			});
+			};
+			// command must be run in UI thread, otherwise subsequent updates of Papyrus widgets will raise an SWT exception
+			Runnable storeProjectCmd = new Runnable() {
+
+				@Override
+				public void run() {
+					CommandSupport.exec(TransformationContext.initialDeploymentPlan, "Change Project Mapping", storeProject);
+				}
+			};
+			Display.getDefault().asyncExec(storeProjectCmd);
 		}
 	}
 
 	/**
 	 * Return the name of a project that is associated with a model that is
-	 * deployed on a node (in the context of a deployment plan)
-	 * 
+	 * deployed on a node (in the context of a deployment plan). The function
+	 * takes a user defined project name into account
+	 *
 	 * @param model
 	 *            The model that is deployed
 	 * @param node
@@ -192,9 +209,19 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 		return projectName;
 	}
 
-	protected AbstractSettings settings;
-
-	protected ILangProjectSupport projectSupport;
+	/**
+	 * Return the default name of a project deployment on a node (in the context of a deployment plan)
+	 * @param model
+	 *            The model that is deployed
+	 * @param node
+	 *            The node onto which the software is deployed
+	 * @return The resulting project name
+	 */
+	public String getDefaultProjectName(Package model, InstanceSpecification node) {
+		String projectName = model.getName() + "_" + node.getName(); //$NON-NLS-1$
+		projectName += "_" + TransformationContext.current.deploymentPlan.getName(); //$NON-NLS-1$
+		return projectName;
+	}
 
 	@Override
 	public void applyTrafo(M2MTrafo trafo, Package deploymentPlan) throws TransformationException {
@@ -212,7 +239,10 @@ public class CreateAndConfigureProject implements IM2MTrafoCDP {
 					String.format(Messages.DeployToNodes_CouldNotCreateProject, targetLanguage));
 		}
 
-		storeProjectName(genProject, tc.modelRoot, tc.node);
+		if (!genProject.getName().equals(projectName)) {
+			// if name has been changed during project creation, the new name should be stored in the project mappings
+			storeProjectName(genProject, getDefaultProjectName(tc.modelRoot, tc.node));
+		}
 
 		tc.projectSupport = projectSupport;
 		tc.project = genProject;
