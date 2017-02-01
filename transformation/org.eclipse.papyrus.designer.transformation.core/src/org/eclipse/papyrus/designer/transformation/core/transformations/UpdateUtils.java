@@ -69,7 +69,7 @@ public class UpdateUtils {
 			de.setSource(source);
 		}
 		else {
-			throw new TransformationRTException(Messages.UpdateUtils_CannotApplyFCMstereo);
+			throw new TransformationRTException(Messages.UpdateUtils_CannotApplyTrafoStereotype);
 		}
 	}
 

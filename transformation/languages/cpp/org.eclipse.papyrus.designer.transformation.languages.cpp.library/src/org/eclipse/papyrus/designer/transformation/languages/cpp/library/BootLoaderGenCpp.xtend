@@ -65,8 +65,6 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 		// instance is within a namespace (a static attribute on the model level would not solve the
 		// problem as it must be accessed by function main).
 
-		val root = TransformationContext.current.modelRoot;
-
 		outputSizeof = false;
 		m_copier = copier;
 		
@@ -85,7 +83,7 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 
 		val cppInclude = StereotypeUtil.applyApp(m_bootLoader, Include);
 		if (cppInclude == null) {
-			throw new TransformationException(Messages.BootLoaderGen_CannotApplyCppInclude);
+			throw new TransformationException("Cannot apply cppInclude stereotype. Make sure that the C/C++ profile is applied to your model.");
 		}
 		val existingBody = cppInclude.body
 		var bodyStr = EMPTYSTR;

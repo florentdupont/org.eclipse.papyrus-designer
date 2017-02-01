@@ -6,6 +6,7 @@
  */
 package org.eclipse.papyrus.designer.components.modellibs.core;
 
+import org.eclipse.papyrus.designer.transformation.base.utils.FilteringLogHelper;
 import org.eclipse.papyrus.infra.core.log.LogHelper;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -39,8 +40,8 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 
-		// register the login helper
-		log = new LogHelper(plugin);
+		// register the logging helper
+		log = new FilteringLogHelper(plugin);
 	}
 
 	/*

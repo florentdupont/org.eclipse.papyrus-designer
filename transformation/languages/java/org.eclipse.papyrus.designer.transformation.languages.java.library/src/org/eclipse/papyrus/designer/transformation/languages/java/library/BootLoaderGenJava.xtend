@@ -81,7 +81,7 @@ public class BootLoaderGenJava extends AbstractBootLoaderGen implements IM2MTraf
 		
 		val javaImport = StereotypeUtil.applyApp(m_bootLoader, Import);
 		if (javaImport == null) {
-			throw new TransformationException(Messages.BootLoaderGen_CannotApplyCppInclude);
+			throw new TransformationException("Cannot apply javaImport stereotype. Make sure that the Java profile is applied to your model.");
 		}
 
 		val nodeInfo = ElementUtils.getQualifiedElement(bootloader_ml, JAVA_NODEINFO_QNAME) as Class

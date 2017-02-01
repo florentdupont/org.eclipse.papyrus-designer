@@ -18,13 +18,15 @@ import java.util.Iterator;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.deployment.tools.Activator;
+import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
+import org.eclipse.papyrus.designer.transformation.core.Activator;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.Package;
@@ -37,6 +39,10 @@ import org.eclipse.uml2.uml.TemplateSignature;
 import org.eclipse.uml2.uml.TemplateableElement;
 import org.eclipse.uml2.uml.Type;
 
+/**
+ * A set of template/signature based helper functions.
+ *
+ */
 public class TemplateUtils {
 
 	/**
@@ -105,6 +111,26 @@ public class TemplateUtils {
 	}
 
 	/**
+	 * @return true, if the passed instance reference an element that is within a package template.
+	 *         The caller of this function can use the result to decide whether the classifier behind an
+	 *         instance should be copied (it should not be done, but rather use template instantiation).
+	 *         A cleaner option is to reference an instantiated (bound) copy of the package template, but it
+	 *         would require to manage and synchronize template bindings in the user model.
+	 * @param instance
+	 *            an instance specification
+	 */
+	public static boolean withinPkgTemplate(InstanceSpecification instance) {
+		Classifier cl = DepUtils.getClassifier(instance);
+		TemplateSignature ts = TemplateUtils.getSignature(cl);
+		if (ts == null) {
+			return false;
+		}
+		else {
+			return ts.getOwner() instanceof Package;
+		}
+	}
+
+	/**
 	 * Create a template binding by using a single, fixed actual (used within
 	 * Qompass for the binding of container extensions depending on the component
 	 * executor)
@@ -116,8 +142,7 @@ public class TemplateUtils {
 	 * @return
 	 * @throws TransformationException
 	 */
-	public static TemplateBinding fixedBinding(Package model, TemplateableElement template, Classifier fixedActual)
-			throws TransformationException {
+	public static TemplateBinding fixedBinding(Package model, TemplateableElement template, Classifier fixedActual) throws TransformationException {
 		// obtain the signature of an element within a package template.
 
 		TemplateSignature signature = getSignature(template);
@@ -153,8 +178,7 @@ public class TemplateUtils {
 			// class does not exist yet, needs to be created.
 			boundPackage = ((Package) owner).createNestedPackage(name);
 
-			Activator.log.info(String.format(
-					Messages.TemplateUtils_InfoCreateBoundPackage, name, owner.getName()));
+			Activator.log.info(String.format(Messages.TemplateUtils_InfoCreateBoundPackage, name, owner.getName()));
 		}
 
 		TemplateBinding binding = boundPackage.getTemplateBinding(signature);
@@ -169,8 +193,7 @@ public class TemplateUtils {
 			// loop on template parameters;
 			for (TemplateParameter parameter : signature.getOwnedParameters()) {
 
-				TemplateParameterSubstitution substitution =
-						binding.createParameterSubstitution();
+				TemplateParameterSubstitution substitution = binding.createParameterSubstitution();
 				substitution.setFormal(parameter);
 
 				// now obtain suitable binding for this parameter - look for
@@ -194,9 +217,7 @@ public class TemplateUtils {
 	 * @return
 	 * @throws TransformationException
 	 */
-	public static TemplateBinding getSubBinding(Package model,
-			TemplateableElement te, TemplateBinding existingBinding)
-			throws TransformationException {
+	public static TemplateBinding getSubBinding(Package model, TemplateableElement te, TemplateBinding existingBinding) throws TransformationException {
 
 		for (TemplateParameterSubstitution tps : existingBinding.getParameterSubstitutions()) {
 			ParameterableElement pe = tps.getActual();
@@ -238,8 +259,7 @@ public class TemplateUtils {
 		for (TemplateParameterSubstitution substitution : binding.getParameterSubstitutions()) {
 			ParameterableElement pe = substitution.getFormal().getParameteredElement();
 			if (pe == formal) {
-				Activator.log.info(String.format(
-						Messages.TemplateUtils_InfoGetActualFrom, pe));
+				Activator.log.info(String.format(Messages.TemplateUtils_InfoGetActualFrom, pe));
 				return (Classifier) substitution.getActual();
 			}
 		}
@@ -249,10 +269,10 @@ public class TemplateUtils {
 	public static Classifier getActualFromBinding(TemplateBinding binding, String formalName) {
 		for (TemplateParameterSubstitution substitution : binding.getParameterSubstitutions()) {
 			ParameterableElement pe = substitution.getFormal().getParameteredElement();
-			Activator.log.info(String.format(
-					Messages.TemplateUtils_InfoGetActualFrom, pe));
-			if ((pe instanceof NamedElement)
-					&& ((NamedElement) pe).getName().equals(formalName)) {
+			if (pe instanceof NamedElement) {
+				Activator.log.info(String.format(Messages.TemplateUtils_InfoGetActualFrom, ((NamedElement) pe).getName()));
+			}
+			if ((pe instanceof NamedElement) && ((NamedElement) pe).getName().equals(formalName)) {
 				return (Classifier) substitution.getActual();
 			}
 		}
@@ -269,8 +289,7 @@ public class TemplateUtils {
 	public static Classifier getFirstActualFromBinding(TemplateBinding binding) {
 		for (TemplateParameterSubstitution substitution : binding.getParameterSubstitutions()) {
 			ParameterableElement pe = substitution.getFormal().getParameteredElement();
-			Activator.log.info(String.format(
-					Messages.TemplateUtils_InfoGetActualFrom, pe));
+			Activator.log.info(String.format(Messages.TemplateUtils_InfoGetActualFrom, pe));
 			return (Classifier) substitution.getActual();
 		}
 		return null;

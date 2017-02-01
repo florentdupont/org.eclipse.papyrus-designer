@@ -17,6 +17,7 @@ package org.eclipse.papyrus.designer.components.modellibs.core.transformations;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
+import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
 import org.eclipse.papyrus.designer.components.modellibs.core.utils.CompDepUtils;
 import org.eclipse.papyrus.designer.components.transformation.Messages;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
@@ -33,7 +34,6 @@ import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstan
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
-import org.eclipse.papyrus.infra.core.Activator;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;

@@ -22,6 +22,16 @@ public class Messages extends NLS {
 	public static String BootLoaderGen_AtLeastOneBlockingCall;
 	public static String CompleteStatemachine_NoTransformationFound;
 
+	public static String DeployToNodes_CantFindDefaultNode;
+
+	public static String DeployToNodes_CantFindImplementation;
+
+	public static String DeployToNodes_CouldNotCreateProject;
+
+	public static String InstantiateDepPlan_InfoDeployingForNode;
+
+	public static String InstantiateDepPlan_InfoGeneratingModel;
+
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

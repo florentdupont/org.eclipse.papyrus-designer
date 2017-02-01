@@ -24,8 +24,8 @@ import org.eclipse.papyrus.designer.transformation.base.UIContext;
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
-import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoModelSplit;
+import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyExtResources;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
@@ -34,6 +34,7 @@ import org.eclipse.papyrus.designer.transformation.core.transformations.filters.
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterStateMachines;
 import org.eclipse.papyrus.designer.transformation.core.transformations.filters.FilterTemplateBinding;
 import org.eclipse.papyrus.designer.transformation.extensions.InstanceConfigurator;
+import org.eclipse.papyrus.designer.transformation.library.Messages;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.uml2.uml.Classifier;
@@ -83,7 +84,7 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 			InstanceSpecification defaultNode = (InstanceSpecification)
 					ElementUtils.getQualifiedElementFromRS(TransformationContext.initialSourceRoot, TRAFOS_DEFAULT_PLATFORM_DEFAULT_NODE);
 			if (defaultNode == null) {
-				throw new TransformationException(String.format("Can not find default node (%s)", TRAFOS_DEFAULT_PLATFORM_DEFAULT_NODE));
+				throw new TransformationException(String.format(Messages.DeployToNodes_CantFindDefaultNode, TRAFOS_DEFAULT_PLATFORM_DEFAULT_NODE));
 			}
 			try {
 				splitModels.add(
@@ -125,7 +126,9 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 
 		this.node = node;
 		for (InstanceSpecification is : topLevelInstances) {
-			distributeToNode(targetCopier, allocAll, is);
+			if (!TemplateUtils.withinPkgTemplate(is)) {
+				distributeToNode(targetCopier, allocAll, is);
+			}
 		}
 		tc.deploymentPlan = (Package) targetCopier.get(TransformationContext.current.deploymentPlan);
 		tc.node = node;
@@ -155,7 +158,7 @@ public class DeployToNodes implements IM2MTrafoModelSplit {
 		Classifier smImplementation = DepUtils.getClassifier(instance);
 		if (smImplementation == null) {
 			throw new TransformationException(String.format(
-					Messages.Deploy_0, instance.getName()));
+					Messages.DeployToNodes_CantFindImplementation, instance.getName()));
 		}
 
 		// copy instance to node specific model, no allocation-check is required, since it is done by recursive calls
