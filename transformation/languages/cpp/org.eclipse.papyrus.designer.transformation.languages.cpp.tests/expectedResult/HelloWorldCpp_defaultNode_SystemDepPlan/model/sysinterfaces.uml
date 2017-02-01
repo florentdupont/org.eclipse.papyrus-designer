@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_S8xrAOSqEeaYxL1QJO8D3g" name="sysinterfaces">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_PTWzwCS-Ed-A_I32T0fkaA" name="IStart">
+    <generalization xmi:id="_XpdjECS-Ed-A_I32T0fkaA" general="_BHFPQJsqEd61Eo3nmu3JhQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_BHFPQJsqEd61Eo3nmu3JhQ" name="IRunnable">
+    <ownedOperation xmi:id="_C9IK4JsqEd61Eo3nmu3JhQ" name="run"/>
+  </packagedElement>
+  <profileApplication xmi:id="_RodVAgweEd6it_RkGhz_AA">
+    <eAnnotations xmi:id="_RodVAwweEd6it_RkGhz_AA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+  </profileApplication>
+  <profileApplication xmi:id="_-PJq0F_LEd6vU6EJjexEKQ">
+    <eAnnotations xmi:id="_-PN8QF_LEd6vU6EJjexEKQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+  </profileApplication>
+</uml:Model>

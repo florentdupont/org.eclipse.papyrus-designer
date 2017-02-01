@@ -62,6 +62,7 @@ import static org.eclipse.papyrus.designer.transformation.languages.cpp.library.
 
 import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.TransformationUtil.*
 import static extension org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine.TransformationUtil.eventID
+import java.util.LinkedHashMap
 
 class SM2ClassesTransformationCore {
 	protected extension CDefinitions cdefs;
@@ -1111,7 +1112,7 @@ class SM2ClassesTransformationCore {
 	}
 
 	private def Map<Event, List<Transition>> getAllEvents(Region region) {
-		val Map<Event, List<Transition>> ret = new HashMap
+		val Map<Event, List<Transition>> ret = new LinkedHashMap
 		var subVertices = region.subvertices
 		var transitions = region.transitions
 

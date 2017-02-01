@@ -40,7 +40,6 @@ public class CompleteStatemachine implements IM2MTrafoElem {
 				StateMachine sm = (StateMachine) tmClass.getClassifierBehavior();
 				SM2ClassesTransformationCore trafoCore = new SM2ClassesTransformationCore(TransformationContext.current.copier, sm, tmClass);
 
-				// TODO: move to C++ specific library
 				StdModelLibs.addResource(CppUriConstants.PTHREAD_LIB, TransformationContext.current.copier.source);
 
 				Package smModel = (Package) trafo.getBase_Class().getPackage().getOwner();
