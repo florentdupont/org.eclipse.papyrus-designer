@@ -11,7 +11,8 @@ Require-Bundle: org.junit;bundle-version="4.12.0",
  org.eclipse.papyrus.junit.utils;bundle-version="2.0.1",
  org.eclipse.uml2.uml;bundle-version="5.2.2",
  org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.5",
- org.eclipse.papyrus.designer.transformation.core;bundle-version="0.7.5"
+ org.eclipse.papyrus.designer.transformation.core;bundle-version="0.7.5",
+ org.eclipse.papyrus.designer.languages.common.base;bundle-version="1.0.4"
 Export-Package: org.eclipse.papyrus.designer.languages.common.testutils
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin

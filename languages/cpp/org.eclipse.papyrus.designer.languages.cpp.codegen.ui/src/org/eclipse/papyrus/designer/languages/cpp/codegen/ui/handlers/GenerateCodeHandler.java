@@ -33,8 +33,6 @@ import org.eclipse.uml2.uml.PackageableElement;
  */
 public class GenerateCodeHandler extends CmdHandler {
 
-	private static final boolean Headless = Boolean.getBoolean("papyrus.run-headless");
-
 	// ------------------------------------------------------------------------
 	// Execution
 	// ------------------------------------------------------------------------

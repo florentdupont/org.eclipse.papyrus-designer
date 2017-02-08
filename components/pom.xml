@@ -22,6 +22,7 @@
 		<module>org.eclipse.papyrus.designer.components.transformation.ui</module>
 		<module>org.eclipse.papyrus.designer.components.validation</module>
 		<module>org.eclipse.papyrus.designer.components.modellibs.core</module>
+		<module>org.eclipse.papyrus.designer.components.tests</module>
 		<!-- module>tracing</module-->
 	</modules>
 

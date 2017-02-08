@@ -14,6 +14,7 @@
 
 	<modules>
 		<module>org.eclipse.papyrus.designer.transformation.languages.cpp.library</module>
+		<module>org.eclipse.papyrus.designer.transformation.languages.cpp.tests</module>
 	</modules>
 
 </project>

@@ -17,6 +17,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.papyrus.designer.languages.common.base.TestInfo;
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.ProjectManagement;
 import org.eclipse.papyrus.designer.transformation.core.transformations.InstantiateDepPlan;
@@ -28,6 +29,13 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
 public class TransformationTestSupport {
+
+	static {
+		// This system property avoids opening dialogs during Papyrus operations. It must
+		// be set before trying to load any of the Papyrus classes.
+		System.setProperty(TestInfo.PAPYRUS_RUN_HEADLESS, Boolean.TRUE.toString());
+	}
+
 	/**
 	 * The house keeper
 	 */

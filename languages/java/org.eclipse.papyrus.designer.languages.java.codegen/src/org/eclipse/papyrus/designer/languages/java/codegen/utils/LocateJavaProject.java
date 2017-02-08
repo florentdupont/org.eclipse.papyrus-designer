@@ -26,6 +26,7 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils;
+import org.eclipse.papyrus.designer.languages.common.base.TestInfo;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project;
@@ -43,7 +44,7 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 public class LocateJavaProject {
 	public static final String LANGUAGE_NAME = "Java"; //$NON-NLS-1$
 
-	private static final boolean Headless = Boolean.getBoolean("papyrus.run-headless"); //$NON-NLS-1$
+	private static final boolean Headless = TestInfo.runsHeadless();
 	
 	public static final String DEFAULT_SOURCE_FOLDER = "src-codegen/"; //$NON-NLS-1$
 

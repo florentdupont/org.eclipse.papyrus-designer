@@ -19,6 +19,7 @@ import org.eclipse.papyrus.designer.components.FCM.Port;
 import org.eclipse.papyrus.designer.components.FCM.profile.IMappingRule;
 import org.eclipse.papyrus.designer.components.FCM.profile.PortMapUtil;
 import org.eclipse.papyrus.designer.components.modellibs.core.Activator;
+import org.eclipse.papyrus.designer.languages.common.base.UriConstants;
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.RealizationUtils;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
@@ -128,6 +129,7 @@ public class PullConsumer implements IMappingRule {
 				}
 			}
 			Package model = PackageUtil.getRootPackage(umlPort);
+			PackageUtil.loadPackage(UriConstants.UML_PRIMITIVE_TYPES, model.eResource().getResourceSet());
 			Element element = ElementUtils.getQualifiedElementFromRS(model, BOOL_QNAME);
 			Type booleanType = null;
 			if (element instanceof Type) {

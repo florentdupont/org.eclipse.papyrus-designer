@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.PortKind;
 import org.eclipse.papyrus.designer.components.FCM.TemplatePort;
+import org.eclipse.papyrus.designer.transformation.core.utils.ComparisonUtils;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
@@ -243,7 +244,7 @@ public class PortUtils {
 	public static boolean sameKinds(Port portA, Port portB) {
 		PortKind kindA = getKind(portA);
 		PortKind kindB = getKind(portB);
-		return kindA == kindB;
+		return ComparisonUtils.sameObject(kindA, kindB);
 	}
 
 	/**
@@ -266,7 +267,9 @@ public class PortUtils {
 		if ((fcmPortA == null) || (fcmPortB == null)) {
 			return false;
 		}
-		boolean sameTypeAndKind = (fcmPortA.getType() == fcmPortB.getType()) && fcmPortA.getKind() == fcmPortB.getKind();
+		// require strict identity for type (unlike the kind, both must be in the same resource set)
+		boolean sameTypeAndKind = (fcmPortA.getType() == fcmPortB.getType()) &&
+				ComparisonUtils.sameObject(fcmPortA.getKind(), fcmPortB.getKind());
 		if (isAssembly) {
 			return (sameTypeAndKind && portA.isConjugated() != portB.isConjugated());
 		} else {

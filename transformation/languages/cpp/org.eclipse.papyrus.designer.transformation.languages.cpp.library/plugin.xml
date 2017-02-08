@@ -43,12 +43,12 @@
 				location="SimpleSM/SimpleSM.di">
 			</fileToOpen>
 			<projectDescriptor
-				contentURI="models/examples/AbitComplexSM/"
-				name="AbitComplexSM"
+				contentURI="models/examples/ComplexSM/"
+				name="ComplexSM"
 				description="Papyrus Designer example using a bit more complex state machine.">
 			</projectDescriptor>
 			<fileToOpen
-				location="AbitComplexSM/AbitComplexSM.di">
+				location="ComplexSM/ComplexSM.di">
 			</fileToOpen>
 		</example>
    </extension>

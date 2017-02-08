@@ -11,7 +11,6 @@
 
 package org.eclipse.papyrus.designer.languages.common.base;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -1475,10 +1474,10 @@ public class GenUtils {
 					UMLUtil.getStereotypeApplication(rootPkg, org.eclipse.papyrus.designer.languages.common.profile.Codegen.Project.class);
 
 			if (projectStereo != null) {
-				return projectStereo.getSourceFolder() + "/";
+				return projectStereo.getSourceFolder() + "/"; //$NON-NLS-1$
 			}
 		}
 		// default folder for generated code
-		return "src-gen" + "/"; //$NON-NLS-1$
+		return "src-gen/"; //$NON-NLS-1$
 	}
 }

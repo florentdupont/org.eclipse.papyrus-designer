@@ -15,6 +15,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.papyrus.designer.languages.common.base.TestInfo;
 import org.eclipse.papyrus.designer.languages.common.testutils.FileComparison;
 import org.eclipse.papyrus.designer.languages.common.testutils.RecursiveCopy;
 import org.eclipse.papyrus.designer.languages.common.testutils.TestConstants;
@@ -39,7 +40,7 @@ public class CppCodegenTest {
 	static {
 		// This system property avoids opening dialogs during Papyrus operations. It must
 		// be set before trying to load any of the Papyrus classes.
-		System.setProperty("papyrus.run-headless", Boolean.TRUE.toString());
+		TestInfo.runHeadless();
 	}
 
 	private static final String GENERATE_COMMAND_ID = "org.eclipse.papyrus.designer.languages.cpp.codegen.command";

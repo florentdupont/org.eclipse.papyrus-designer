@@ -24,6 +24,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DeployConstants;
+import org.eclipse.papyrus.designer.languages.common.base.TestInfo;
 import org.eclipse.papyrus.designer.transformation.base.UIContext;
 import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement;
@@ -298,7 +299,10 @@ public class InstantiateDepPlan {
 
 	private void printAndDisplayErrorMessage(Exception e, final String title, final String message, final boolean consultConsole) {
 		e.printStackTrace();
-		displayError(title, message);
+		// only display message, if not running headless
+		if (!TestInfo.runsHeadless()) {
+			displayError(title, message);
+		}
 		Activator.log.error(e);
 	}
 

@@ -21,6 +21,7 @@
 		<module>org.eclipse.papyrus.designer.transformation.extensions</module>
 		<module>org.eclipse.papyrus.designer.transformation.profile</module>
 		<module>org.eclipse.papyrus.designer.transformation.vsl</module>
+		<module>org.eclipse.papyrus.designer.transformation.tests</module>
 		<module>languages</module>
 	</modules>
 

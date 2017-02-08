@@ -19,6 +19,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.papyrus.designer.languages.common.base.TestInfo;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangProjectSupport;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageProjectSupport;
 import org.eclipse.papyrus.designer.languages.cpp.codegen.Activator;
@@ -31,7 +32,8 @@ import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
 public class LocateCppProject {
-	private static final boolean Headless = Boolean.getBoolean("papyrus.run-headless"); //$NON-NLS-1$
+
+	private static final boolean Headless = TestInfo.runsHeadless();
 
 	/**
 	 * Locate and return the target project for the given packageable element. Return null if
