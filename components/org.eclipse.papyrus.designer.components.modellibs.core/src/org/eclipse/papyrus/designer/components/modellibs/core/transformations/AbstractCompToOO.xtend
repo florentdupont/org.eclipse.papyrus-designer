@@ -1,85 +1,98 @@
 /*****************************************************************************
- * Copyright (c) 2015 CEA LIST.
- *
- *
+ * Copyright (c) 2017 CEA LIST.
+ * 
+ * 
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *  Ansgar Radermacher  ansgar.radermacher@cea.fr
- *
+ * 
  *****************************************************************************/
-package org.eclipse.papyrus.designer.components.transformation.cpp.xtend
 
-import org.eclipse.papyrus.designer.components.transformation.extensions.IOOTrafo
+package org.eclipse.papyrus.designer.components.modellibs.core.transformations
+
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
 import org.eclipse.uml2.uml.Class
 import org.eclipse.uml2.uml.Property
 import org.eclipse.uml2.uml.Port
 import org.eclipse.papyrus.designer.components.transformation.PortInfo
-import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
+import org.eclipse.papyrus.designer.components.transformation.PortUtils
 import org.eclipse.uml2.uml.AggregationKind
 import org.eclipse.uml2.uml.UMLPackage
 import org.eclipse.uml2.uml.OpaqueBehavior
 import org.eclipse.uml2.uml.ConnectorEnd
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
 import org.eclipse.uml2.uml.Type
 import java.util.HashMap
 import java.util.Map
 import org.eclipse.uml2.uml.Connector
 import org.eclipse.emf.common.util.EList
 import org.eclipse.uml2.uml.StructuralFeature
-import org.eclipse.papyrus.designer.components.transformation.cpp.Messages
-import org.eclipse.papyrus.designer.components.transformation.cpp.Constants
-import static extension org.eclipse.papyrus.designer.components.transformation.cpp.xtend.CppUtils.nameRef;
-import org.eclipse.papyrus.uml.tools.utils.PackageUtil
-import org.eclipse.papyrus.designer.components.transformation.PortUtils
+import org.eclipse.papyrus.designer.components.transformation.extensions.IOOTrafo
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.papyrus.designer.components.FCM.Assembly
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants.CIFvariant
+import org.eclipse.uml2.uml.MultiplicityElement
+import org.eclipse.uml2.uml.Element
 
 /**
  * This class realizes the transformation from component-based to object-oriented
  * models. It includes the replacement of ports and connectors. Ports are
  * replaced with attributes and access operations, connectors within a composite
- * by an operation that creates the initial setup.
+ * by an operation that creates the initial setup. It is an abstract class that is
+ * refined for C++ and Java
  * 
  * 1. add an operation that allows to retrieve the reference to an interface provided
- * by a port. This operation has a mapping specific name, e.g. get_<port_name>
- * 2. add an operation that allows to connect a specific port.
- * the connect_q operation (*including a
- * storage attribute*) for a port with a required interface
- * 3. add an implementation for the getcnx_q operation for a port
- * with a required interface (the operation itself has been added before)
- *
- * TODO: C++ specific, support different "component to OO" mappings
- *
- * Problems: need to align bootloader creation with this mapping, since
- * the bootloader may be responsible for instantiation
+ *    by a port. This operation has a mapping to a specific name, e.g. get_<port_name>
  * 
- * Caveat: Assure that the folder derivedInterfaces already exists in a model.
- * Otherwise the call to getProvided/getRequired interface might trigger its
- * creation resulting in the corruption of list iterators (ConcurrentAccess
- * exception)
- *
+ * 2. add an operation that allows to connect a specific port.
+ *    the connect_q operation (*including a storage attribute*) for a port with a required interface
+ * 
+ * 3. add an implementation for the getcnx_q operation for a port
+ *    with a required interface (the operation itself has been added before)
+ * 
  */
-class CppPortMapping implements IOOTrafo {
+abstract class AbstractCompToOO implements IOOTrafo {
 
-	// protected LazyCopier copier
+	protected LazyCopier copier
+
+	protected String progLang
+
+	public static final String NL = "\n"
 
 	def override init(LazyCopier copier, Class bootloader) {
-		// this.copier = copier
 		PrefixConstants.init(CIFvariant.UML);
+		this.copier = copier
 	}
 
+	/**
+	 * de-reference an attribute. Use language specific mechanism, e.g. attributeName-> in case of a C++ pointer
+	 */
+	abstract def String nameRef(Property attribute)
+
+	/**
+	 * apply a stereotypes that transforms an elements into a reference, a pointer in case of C++
+	 */
+	abstract def void applyRef(Element element)
+
+	/**
+	 * Return the reference of an attribute
+	 */
+	abstract def String getRef(Property attribute)
+	
 	override addPortOperations(Class implementation) {
-		addGetPortOperation(implementation)
+		// only implementations (non abstract classes) have get operations for ports
+		if (!implementation.isAbstract) {
+			addGetPortOperation(implementation)
+		}
+		// but all classes need a connection operation, since it does not rely on an implementation 
 		addConnectPortOperation(implementation)
 	}
 
@@ -88,7 +101,7 @@ class CppPortMapping implements IOOTrafo {
 	 * adds a suitable implementation that evaluates delegation connectors from
 	 * the port to a property within the composite. The delegation target could
 	 * either be a normal class (no port) or an inner component.
-	 *
+	 * 
 	 * @param implementation
 	 */
 	def addGetPortOperation(Class implementation) {
@@ -96,8 +109,7 @@ class CppPortMapping implements IOOTrafo {
 			val providedIntf = portInfo.getProvided()
 			if (providedIntf != null) {
 
-				// port provides an interface, add "get_p" operation &
-				// implementation
+				// port provides an interface, add "get_p" operation and implementation
 				val opName = PrefixConstants.getP_Prefix + portInfo.name
 				var op = implementation.getOwnedOperation(opName, null, null)
 				if (op != null) {
@@ -111,38 +123,28 @@ class CppPortMapping implements IOOTrafo {
 					op = implementation.createOwnedOperation(opName, null, null, providedIntf)
 					val retParam = op.getOwnedParameters().get(0)
 					retParam.setName(Constants.retParamName)
-					StereotypeUtil.apply(retParam, Ptr)
+					applyRef(retParam)
 
-					val behavior = implementation.createOwnedBehavior(opName, UMLPackage.eINSTANCE.getOpaqueBehavior()) as OpaqueBehavior
+					val behavior = implementation.createOwnedBehavior(opName,
+						UMLPackage.eINSTANCE.getOpaqueBehavior()) as OpaqueBehavior
 					op.getMethods().add(behavior)
 
 					val ce = ConnectorUtil.getDelegation(implementation, portInfo.getModelPort())
 
-					// if there is an delegation to an inner property, delegate to
-					// it
-					// Make distinction between delegation to component (with a
-					// port) or
+					// if there is an delegation to an inner property, delegate to it
+					// Make distinction between delegation to component (with a port) or
 					// "normal" class (without).
 					var String body
 					if (ce != null) {
 						val part = ce.partWithPort
 						val role = ce.role
 
-						body = "return " 
+						body = "return "
 						if (role instanceof Port) {
-
-							// check whether the part exists within the implementation (might not be the case
-							// due to partially copied composites).
-							// Check is based on names, since the connector points to elements within another
-							// model (copyClassifier does not make a proper connector copy)
-							// TODO: this will NOT work for extended ports!
 							body += '''«part.nameRef»«PrefixConstants.getP_Prefix»«role.name»();'''
 						} else {
-
 							// role is not a port: connector connects directly to a
-							// structural feature
-							// without passing via a port
-							// TODO: check whether structural feature exists
+							// structural feature without passing via a port
 							body += role.name
 						}
 					} else {
@@ -150,26 +152,26 @@ class CppPortMapping implements IOOTrafo {
 						// no delegation, check whether port implements provided interface
 						var implementsIntf = implementation.getInterfaceRealization(null, providedIntf) != null
 						if (!implementsIntf) {
-							// TODO: This is a hack/workaround. Fix on level of extended port.
+
 							// The extended port itself is not copied to the target
 							// model (since referenced via a stereotype). Therefore,
 							// a port of an extended port still points to the
 							// original model. We try whether the providedIntf
 							// within the target model is within the interface
 							// realizations.
-							
-							// val providedIntfInCopy = copier.getCopy(providedIntf)
-							// implementsIntf = implementation.getInterfaceRealization(null, providedIntfInCopy) != null
+							val providedIntfInCopy = copier.getCopy(providedIntf)
+							implementsIntf = implementation.getInterfaceRealization(null, providedIntfInCopy) != null
 						}
 						if (implementsIntf) {
-							body = "return this;" 
+							body = "return this;"
 						} else {
 							throw new RuntimeException(
-								String.format(Messages.CompImplTrafos_IntfNotImplemented, providedIntf.name,
-									portInfo.port.name, implementation.name))
+								String.format(
+									"Interface <%s> provided by port <%s> of class <%s> is not implemented by the component itself nor does the port delegate to a part",
+									providedIntf.name, portInfo.port.name, implementation.name))
 						}
 					}
-					behavior.getLanguages().add(Constants.progLang)
+					behavior.getLanguages().add(progLang)
 					behavior.getBodies().add(body)
 				}
 			}
@@ -182,16 +184,15 @@ class CppPortMapping implements IOOTrafo {
 	 * (method) is needed for ports inherited from a component type (the
 	 * behavior is implementation specific, as it needs to take delegation to
 	 * parts into account)
-	 *
+	 * 
 	 * @param implementation
 	 */
-	static def addConnectPortOperation(Class implementation) {
+	def addConnectPortOperation(Class implementation) {
 		for (PortInfo portInfo : PortUtils.flattenExtendedPorts(PortUtils.getAllPorts2(implementation))) {
 			val requiredIntf = portInfo.getRequired()
 			if (requiredIntf != null) {
 
-				// port requires an interface, add "connect_p" operation &
-				// implementation
+				// port requires an interface, add "connect_p" operation and implementation
 				val opName = PrefixConstants.connectQ_Prefix + portInfo.name
 
 				if (implementation.getOwnedOperation(opName, null, null) != null) {
@@ -204,20 +205,25 @@ class CppPortMapping implements IOOTrafo {
 					if (multiPort) {
 
 						// add index parameter
-						val eLong = ElementUtils.getQualifiedElement(PackageUtil.getRootPackage(implementation),
+						var eLong = ElementUtils.getQualifiedElementFromRS(copier.source,
 							PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
+						if (eLong != null) {
+							eLong = copier.getCopy(eLong);
+						}
 						if (eLong instanceof Type) {
-							op.createOwnedParameter("index", eLong as Type) 
+							op.createOwnedParameter("index", eLong)
 						} else {
 							throw new RuntimeException(
-								String.format(Messages.CompImplTrafos_CannotFindType,
+								String.format(
+									"Can not find type %s. Thus, unable to create suitable connect operation in component to OO transformation",
 									PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE))
 						}
 					}
-					val refParam = op.createOwnedParameter("ref", requiredIntf) 
-					StereotypeUtil.apply(refParam, Ptr)
+					val refParam = op.createOwnedParameter("ref", requiredIntf)
+					applyRef(refParam)
 
-					val behavior = implementation.createOwnedBehavior(opName, UMLPackage.eINSTANCE.getOpaqueBehavior()) as OpaqueBehavior
+					val behavior = implementation.createOwnedBehavior(opName,
+						UMLPackage.eINSTANCE.getOpaqueBehavior()) as OpaqueBehavior
 
 					op.getMethods().add(behavior)
 
@@ -238,14 +244,12 @@ class CppPortMapping implements IOOTrafo {
 
 							// TODO: no check that multiplicity of both port matches
 							if ((portInfo.getUpper() > 1) || (portInfo.getUpper() == -1)) {
-								body += "(index, ref);";
-							}
-							else {
-								body += "(ref);";
+								body += "(index, ref);"
+							} else {
+								body += "(ref);"
 							}
 
 						} else {
-							// TODO: does this case make sense?
 							body += '''«part.name»;'''
 						}
 					} else {
@@ -264,8 +268,7 @@ class CppPortMapping implements IOOTrafo {
 						body += " = ref;"
 					}
 
-					// TODO: defined by template
-					behavior.getLanguages().add(Constants.progLang)
+					behavior.getLanguages().add(progLang)
 					behavior.getBodies().add(body)
 
 					// -------------------------
@@ -273,7 +276,7 @@ class CppPortMapping implements IOOTrafo {
 					// owned, since it is synchronized automatically during model edit)
 					// getConnQ prefix may be empty to indicate that the port is accessed directly
 					// TODO: reconsider optimization that delegated required ports do not have a
-					// local attribute & associated operation (an inner class may delegate, but the
+					// local attribute and associated operation (an inner class may delegate, but the
 					// composite may be using it as well).
 					if ((PrefixConstants.getConnQ_Prefix.length() > 0) && (ce != null)) {
 						val getConnOpName = PrefixConstants.getConnQ_Prefix + portInfo.name
@@ -282,7 +285,7 @@ class CppPortMapping implements IOOTrafo {
 							getConnOp = implementation.createOwnedOperation(getConnOpName, null, null, requiredIntf)
 							val retParam = op.getOwnedParameters().get(0)
 							retParam.setName(Constants.retParamName)
-							StereotypeUtil.apply(retParam, Ptr)
+							applyRef(retParam)
 						}
 						val getConnBehavior = implementation.createOwnedBehavior(getConnOpName,
 							UMLPackage.eINSTANCE.getOpaqueBehavior()) as OpaqueBehavior
@@ -291,7 +294,7 @@ class CppPortMapping implements IOOTrafo {
 						// no delegation
 						val String name = PrefixConstants.attributePrefix + portInfo.name
 						body = '''return «name»;'''
-						behavior.getLanguages().add(Constants.progLang)
+						behavior.getLanguages().add(progLang)
 						behavior.getBodies().add(body)
 					}
 				}
@@ -304,12 +307,12 @@ class CppPortMapping implements IOOTrafo {
 	 * between composite parts. It only takes the assembly connections into
 	 * account, since delegation connectors are handled by the get_ and connect_
 	 * port operations above.
-	 *
+	 * 
 	 * @param implementation
 	 */
 	override addConnectionOperation(Class compositeImplementation) throws TransformationException {
-		var createConnBody = "" 
-		val Map<ConnectorEnd, Integer> indexMap = new HashMap<ConnectorEnd, Integer>()
+		var createConnBody = ""
+		val Map<MultiplicityElement, Integer> indexMap = new HashMap<MultiplicityElement, Integer>()
 
 		for (Connector connector : compositeImplementation.getOwnedConnectors()) {
 			if (ConnectorUtil.isAssembly(connector)) {
@@ -321,12 +324,12 @@ class CppPortMapping implements IOOTrafo {
 				}
 				val end1 = connector.ends.get(0)
 				val end2 = connector.ends.get(1)
-				var cmd = '''// realization of connector <«connector.name»>\n'''
+				var cmd = '''// realization of connector <«connector.name»>''' + NL
 				if ((end1.role instanceof Port) && PortUtils.isExtendedPort(end1.role as Port)) {
 					val port = end1.role as Port
 					val EList<PortInfo> subPorts = PortUtils.flattenExtendedPort(port)
 					for (PortInfo subPort : subPorts) {
-						cmd += '''  // realization of connection for sub-port «subPort.port.name»\n'''
+						cmd += '''  // realization of connection for sub-port «subPort.port.name»''' + NL
 						cmd += connectPorts(indexMap, connector, end1, end2, subPort.port)
 						cmd += connectPorts(indexMap, connector, end2, end1, subPort.port)
 					}
@@ -334,27 +337,25 @@ class CppPortMapping implements IOOTrafo {
 					cmd += connectPorts(indexMap, connector, end1, end2, null)
 					cmd += connectPorts(indexMap, connector, end2, end1, null)
 				}
-				createConnBody += cmd + "\n" 
+				createConnBody += cmd + NL
 			}
 		}
 
-		// TODO: use template, as in bootloader
 		if (createConnBody.length() > 0) {
 			val operation = compositeImplementation.createOwnedOperation(Constants.CREATE_CONNECTIONS, null, null)
 
-			val behavior = compositeImplementation.createOwnedBehavior("b:" + operation.name, 
+			val behavior = compositeImplementation.createOwnedBehavior(operation.name,
 				UMLPackage.eINSTANCE.getOpaqueBehavior()) as OpaqueBehavior
-			behavior.getLanguages().add(Constants.progLang)
+			behavior.getLanguages().add(progLang)
 			behavior.getBodies().add(createConnBody)
 			behavior.setSpecification(operation)
 		}
 	}
 
 	/**
-	 * Create the body C++ code code that creates a connection between the two ends
+	 * Create the body code that creates a connection between the two ends
 	 * of a connector. This function checks whether the first end really is a receptacle
 	 * and the second really is a facet.
-	 * TODO: cleaner rewrite in xtend
 	 * 
 	 * @param indexMap
 	 *            a map of indices that are used in case of multiplex
@@ -370,7 +371,7 @@ class CppPortMapping implements IOOTrafo {
 	 * @return
 	 * @throws TransformationException
 	 */
-	static def connectPorts(Map<ConnectorEnd, Integer> indexMap, Connector connector, ConnectorEnd receptacleEnd,
+	def connectPorts(Map<MultiplicityElement, Integer> indexMap, Connector connector, ConnectorEnd receptacleEnd,
 		ConnectorEnd facetEnd, Port subPort) throws TransformationException {
 		val association = connector.type
 		if ((receptacleEnd.role instanceof Port) && (facetEnd.role instanceof Port)) {
@@ -386,10 +387,10 @@ class CppPortMapping implements IOOTrafo {
 				var subPortName = ""
 				if(subPort != null) subPortName += "_" + subPort.name
 				val indexName = getIndexName(indexMap, receptaclePort, receptacleEnd)
-				val setter = '''«receptaclePart.nameRef»connect_«receptaclePort.name» «subPortName»;'''
-				val getter = '''«facetPart.nameRef»get_«facetPort.name» «subPortName»()'''
-				return '''«setter»(«indexName»«getter»);\n'''
-				}
+				val setter = '''«receptaclePart.nameRef»connect_«receptaclePort.name»«subPortName»'''
+				val getter = '''«facetPart.nameRef»get_«facetPort.name»«subPortName»()'''
+				return '''«setter»(«indexName»«getter»);''' + NL
+			}
 
 		} else if (receptacleEnd.role instanceof Port) {
 
@@ -401,8 +402,8 @@ class CppPortMapping implements IOOTrafo {
 
 				val indexName = getIndexName(indexMap, receptaclePort, receptacleEnd)
 				val setter = '''«receptaclePart.nameRef»connect_«receptaclePort.name»'''
-				val getter = '''&«facetPart.name»'''
-				return '''«setter»(«indexName»«getter»);\n'''
+				val getter = '''«facetPart.getRef»'''
+				return '''«setter»(«indexName»«getter»);''' + NL
 			}
 		} else if (facetEnd.role instanceof Port) {
 
@@ -414,7 +415,7 @@ class CppPortMapping implements IOOTrafo {
 
 				val setter = receptaclePart.name
 				val getter = '''«facetPart.nameRef»get_«facetPort.name»();'''
-				return '''«setter» = «getter»;\n'''
+				return '''«setter» = «getter»;''' + NL
 			}
 		} else if (association != null) {
 
@@ -427,20 +428,29 @@ class CppPortMapping implements IOOTrafo {
 
 			val assocProp1 = association.getMemberEnd(null, facetPart.type)
 
-			// Property assocProp2 = facetPart.getOtherEnd()
 			if ((assocProp1 != null) && assocProp1.isNavigable) {
-				val setter = '''«receptaclePart.nameRef»«assocProp1.name»'''
-				val getter = '''&«facetPart.name»'''
-				return '''«setter» = «getter»;\n'''
+				var setter = '''«receptaclePart.name».«assocProp1.name»'''
+				val getter = '''«facetPart.name»'''
+				if (assocProp1.upper != 1) {
+					// handle association ends with multiplicty != 1, use same map as for ports
+					var indexValue = indexMap.get(assocProp1)
+					if (indexValue == null) {
+						indexValue = new Integer(0)
+						indexMap.put(assocProp1, indexValue)
+					}
+					setter += '''[«indexValue++»]'''
+					indexMap.put(assocProp1, indexValue)
+				}
+				return '''«setter» = «getter»;''' + NL
 			}
+
 		} else {
 
 			// not handled (a connector not targeting a port must be typed)
-			throw new TransformationException(
-				"Connector <" + connector.name + 
-					"> does not use ports, but it is not typed (only connectors between ports should not be typed)") 
+			throw new TransformationException("Connector <" + connector.name +
+				"> does not use ports, but it is not typed (only connectors between ports should not be typed)")
 		}
-		return "" 
+		return ""
 	}
 
 	/**
@@ -449,12 +459,12 @@ class CppPortMapping implements IOOTrafo {
 	 * start with index 0. Implementations can make no assumption which
 	 * connection is associated with a certain index. [want to avoid associative
 	 * array in runtime].
-	 *
+	 * 
 	 * @param port
 	 * @param end
 	 * @return
 	 */
-	static def getIndexName(Map<ConnectorEnd, Integer> indexMap, Port port, ConnectorEnd end) {
+	static def getIndexName(Map<MultiplicityElement, Integer> indexMap, Port port, ConnectorEnd end) {
 		if ((port.getUpper() > 1) || (port.getUpper() == -1)) {
 
 			// index depends of combination of property and port, use connector
@@ -464,7 +474,7 @@ class CppPortMapping implements IOOTrafo {
 				indexValue = 0
 				indexMap.put(end, indexValue)
 			}
-			var index = indexValue + ", " 
+			var index = indexValue + ", "
 			indexValue++
 			indexMap.put(end, indexValue)
 			return index
@@ -474,9 +484,8 @@ class CppPortMapping implements IOOTrafo {
 
 	/**
 	 * Return true, if the bootloader is responsible for the instantiation of a
-	 * part. [Structual difference: bootloader can decide instance based - and
-	 * instances are deployed]
-	 *
+	 * part.
+	 * 
 	 * If a part is a component type or an abstract implementation, it cannot be
 	 * instantiated. Thus, a heir has to be selected in the deployment plan.
 	 * Since the selection might be different for different instances of the
@@ -484,18 +493,14 @@ class CppPortMapping implements IOOTrafo {
 	 * the bootloader. The bootloader also has to instantiate, if different
 	 * allocation variants are required. (this is for instance the case for
 	 * distribution connectors and for the system itself)
-	 *
+	 * 
 	 * If possible, we want to let composites instantiate sub-components, since
 	 * this eases the transition to systems which support reconfiguration.
-	 *
+	 * 
 	 * [TODO: optimization: analyze whether the deployment plan selects a single
 	 * implementation. If yes, let the composite instantiate]
-	 *
-	 * [TODO: elements within an assembly need to be instantiated by composite -
-	 * if System - by bootloader. assembly also need to be instantiated by
-	 * composite!!
-	 *
-	 * @param implementation
+	 * 
+	 * @param implementation a composite component
 	 * @return
 	 */
 	static def instantiateViaBootloader(Class implementation) {
@@ -507,7 +512,7 @@ class CppPortMapping implements IOOTrafo {
 	 * by the composite in which it is contained. The criteria is based on the
 	 * question whether the containing composite is flattened, as it is the case
 	 * for the system component and the interaction components for distribution.
-	 *
+	 * 
 	 * @param part
 	 * @return
 	 */
@@ -515,7 +520,6 @@ class CppPortMapping implements IOOTrafo {
 		if (part != null) {
 			if (part.type instanceof Class) {
 				val implementation = part.type as Class
-
 				// TODO: wrong criteria? (must be shared or not?)
 				return instantiateViaBootloader(implementation)
 			} else {
@@ -525,33 +529,5 @@ class CppPortMapping implements IOOTrafo {
 			}
 		}
 		return false
-	}
-
-	/**
-	 * Transform parts if necessary.
-	 * 
-	 * If the bootloader is responsible for creating an instance (if it is a
-	 * abstract type), mark the associated part as a C++ pointer. We do not want
-	 * to change the aggregation kind, since it remains logically a composition,
-	 * it is merely an implementation issue that it must be a pointer for C++ if
-	 * the concrete type is not yet known.
-	 *
-	 * @param compositeImplementation
-	 *            a (composite) component
-	 */
-	override transformParts(Class compositeImplementation) {
-
-		for (Property attribute : ElementUtils.getParts(compositeImplementation)) {
-			val type = attribute.type
-			if (type instanceof Class) {
-				val cl = type as Class
-
-				// => requires adaptations of boot-loader which is then only
-				// responsible for creating instances corresponding to types
-				if (instantiateViaBootloader(cl)) {
-					StereotypeUtil.apply(attribute, Ptr)
-				}
-			}
-		}
 	}
 }

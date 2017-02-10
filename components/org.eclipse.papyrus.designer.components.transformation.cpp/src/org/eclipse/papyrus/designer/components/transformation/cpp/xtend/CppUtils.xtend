@@ -7,20 +7,31 @@ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
 
 public class CppUtils {
 	public static def nameRef(Property part) {
-		part.name + refOp(part) 	
+		part.name + derefOp(part) 	
 	}
 	
 	/**
-	 * return the operator for (de-) referencing a part. If the part is
-	 * instantiate via the bootloader, it becomes a pointer. If it is
-	 * instantiated by the composite itself, it is not a pointer, it will be
-	 * instantiated along with the composite
+	 * return the operator for (de-) referencing a part, depending on
+	 * whether it is a pointer or a "normal" attribute
 	 *
 	 * @param part
-	 * @return
+	 * @return -> or .
 	 */
-	public static def refOp(Property part) {
-		if((part.getAggregation() == AggregationKind.SHARED_LITERAL) || StereotypeUtil.isApplied(part, Ptr)) "->" else "."
+	public static def derefOp(Property attribute) {
+		if(attribute.isRef) "->" else "."
+	}
+
+	/**
+	 * @return true, if attribute is a pointer.
+	 */
+	public static def isRef(Property attribute) {
+		return (attribute.getAggregation() == AggregationKind.SHARED_LITERAL) || StereotypeUtil.isApplied(attribute, Ptr);
 	}
 	
+	/**
+	 * @return reference of an attribute
+	 */
+	public static def String getRef(Property attribute) '''
+		«IF(attribute.isRef)»&«ENDIF»«attribute.name»
+	'''
 }

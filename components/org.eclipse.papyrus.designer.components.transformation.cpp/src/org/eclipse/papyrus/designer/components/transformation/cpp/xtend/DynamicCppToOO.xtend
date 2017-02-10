@@ -31,7 +31,6 @@ import java.util.Map
 import org.eclipse.uml2.uml.Connector
 import org.eclipse.emf.common.util.EList
 import org.eclipse.papyrus.designer.components.transformation.cpp.Messages
-import org.eclipse.papyrus.designer.components.transformation.cpp.Constants
 import static extension org.eclipse.papyrus.designer.components.transformation.cpp.xtend.CppUtils.nameRef;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil
 import org.eclipse.papyrus.designer.components.transformation.PortUtils
@@ -41,10 +40,12 @@ import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants.CIFvariant
+import org.eclipse.papyrus.designer.components.modellibs.core.transformations.Constants
 
 /**
- * This class realizes the dynamic variant of the OO-transformation 
- *
+ * This class realizes the dynamic variant of the OO-transformation
+ * 
+ * TODO: currently not tested/used, needs to be aligned with abstract transformation
  */
 class DynamicCppToOO implements IOOTrafo {
 
@@ -158,7 +159,7 @@ class DynamicCppToOO implements IOOTrafo {
 									portInfo.port.name, implementation.name))
 						}
 					}
-					behavior.getLanguages().add(Constants.progLang)
+					behavior.getLanguages().add(progLang)
 					behavior.getBodies().add(body)
 				}
 			}
@@ -196,7 +197,7 @@ class DynamicCppToOO implements IOOTrafo {
 						val eLong = ElementUtils.getQualifiedElementFromRS(PackageUtil.getRootPackage(implementation),
 							PrefixConstants.INDEX_TYPE_FOR_MULTI_RECEPTACLE)
 						if (eLong instanceof Type) {
-							op.createOwnedParameter("index", eLong as Type) 
+							op.createOwnedParameter("index", eLong) 
 						} else {
 							throw new RuntimeException(
 								String.format(Messages.CompImplTrafos_CannotFindType,
@@ -254,7 +255,7 @@ class DynamicCppToOO implements IOOTrafo {
 					}
 
 					// TODO: defined by template
-					behavior.getLanguages().add(Constants.progLang)
+					behavior.getLanguages().add(progLang)
 					behavior.getBodies().add(body)
 
 					// -------------------------
@@ -280,7 +281,7 @@ class DynamicCppToOO implements IOOTrafo {
 						// no delegation
 						val String name = PrefixConstants.attributePrefix + portInfo.name
 						body = '''return «name»;'''
-						behavior.getLanguages().add(Constants.progLang)
+						behavior.getLanguages().add(progLang)
 						behavior.getBodies().add(body)
 					}
 				}
@@ -331,9 +332,9 @@ class DynamicCppToOO implements IOOTrafo {
 		if (createConnBody.length() > 0) {
 			val operation = compositeImplementation.createOwnedOperation(Constants.CREATE_CONNECTIONS, null, null)
 
-			val behavior = compositeImplementation.createOwnedBehavior("b:" + operation.name, 
+			val behavior = compositeImplementation.createOwnedBehavior(operation.name, 
 				UMLPackage.eINSTANCE.getOpaqueBehavior()) as OpaqueBehavior
-			behavior.getLanguages().add(Constants.progLang)
+			behavior.getLanguages().add(progLang)
 			behavior.getBodies().add(createConnBody)
 			behavior.setSpecification(operation)
 		}
@@ -491,7 +492,7 @@ class DynamicCppToOO implements IOOTrafo {
 		
 		val partManager = ElementUtils.getQualifiedElementFromRS(compositeImplementation, PART_MANAGER);
 		if (partManager instanceof Type) {
-			compositeImplementation.createOwnedAttribute(PARTS, partManager as Type);
+			compositeImplementation.createOwnedAttribute(PARTS, partManager);
 		}
 		
 		val operation = compositeImplementation.createOwnedOperation(INIT_PARTS, null, null);

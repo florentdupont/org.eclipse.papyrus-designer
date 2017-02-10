@@ -4,12 +4,10 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.eclipse.papyrus.designer.components.transformation.cpp;
+package org.eclipse.papyrus.designer.components.modellibs.core.transformations;
 
 public class Constants {
 	public static final String CREATE_CONNECTIONS = "createConnections"; //$NON-NLS-1$
 	
-	public static final String progLang = "C/C++"; //$NON-NLS-1$
-
 	public static final String retParamName = "ret"; //$NON-NLS-1$
 }
