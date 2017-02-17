@@ -109,7 +109,7 @@ public class MapUtil {
 	 * Get the template signature of a templateable element (typically a package). The class must
 	 * (1) either own the signature
 	 * (2) or merge with a package which owns the signature.
-	 * Qompass enables the "extension" of existing packages via the package merge mechanism
+	 * SW Designer enables the "extension" of existing packages via the package merge mechanism
 	 *
 	 * @param template
 	 *            The potential template

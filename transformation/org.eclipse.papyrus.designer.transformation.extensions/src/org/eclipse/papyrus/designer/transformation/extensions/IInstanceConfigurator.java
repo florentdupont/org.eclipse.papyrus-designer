@@ -15,7 +15,7 @@ import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.uml2.uml.Property;
 
 /**
- * Interface used by Qompass extensions that supports specific instance configurators,
+ * Interface used by SW Designer extensions that supports specific instance configurators,
  * used for containers.
  */
 public interface IInstanceConfigurator {

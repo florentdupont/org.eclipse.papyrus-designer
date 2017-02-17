@@ -27,7 +27,7 @@ import org.eclipse.uml2.uml.Slot;
 
 /**
  * check whether an instance specification for a classifier defines slots for
- * each configuration attribute. This rule is specific to Qompass, since only
+ * each configuration attribute. This rule is specific to SW Designer, since only
  * attributes with the ConfigurationProperty stereotypes are checked.
  */
 public class InstanceSpecificationSlotForAllProperties extends AbstractModelConstraint {

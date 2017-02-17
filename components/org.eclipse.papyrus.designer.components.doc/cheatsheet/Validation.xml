@@ -4,7 +4,7 @@
 <intro>
 	<description>
 		Model validation enables the verification of a certain set of rules. Besides the standard UML rules,
-		Qompass defines a dozen of additional rules, for instance a validation of the typing rules for
+		SW Designer defines a dozen of additional rules, for instance a validation of the typing rules for
 		ports.
 	</description>
 </intro>
@@ -12,7 +12,7 @@
 	<description>
 		Verify the validation settings, i.e. the currently active validation rules (constraints).
 		Open the entry "Model Validation" within Window/Preferences and verify the active constraints.
-		Qompass related constraints are grouped.
+		SW Designer related constraints are grouped.
 	</description>
 </item>
 <item title="Validate your Model" skip="true">

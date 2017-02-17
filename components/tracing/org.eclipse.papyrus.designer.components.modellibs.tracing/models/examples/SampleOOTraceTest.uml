@@ -178,7 +178,7 @@ return a*b;</body>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_etOZkDLaEd2qeKRLMdIx_A" name="Client">
       <ownedComment xmi:id="_fBRcQDeGEeGPyrZ5I3hMlA" annotatedElement="_IfjoETLbEd2qeKRLMdIx_A">
-        <body>The operation &quot;run&quot; (not the associated behavior) has been added automatically by Qompass in order to implement the operations of interfaces provided by ports, in this case of the operations of the &quot;IStart&quot; interface. It would be tedious to manually copy operations from an interface, as it would imply copying the complete signature with all parameters. The component developper has to provide a suitable behavior. A validation rule verifies if operations without behavior exist.</body>
+        <body>The operation &quot;run&quot; (not the associated behavior) has been added automatically by SW Designer in order to implement the operations of interfaces provided by ports, in this case of the operations of the &quot;IStart&quot; interface. It would be tedious to manually copy operations from an interface, as it would imply copying the complete signature with all parameters. The component developper has to provide a suitable behavior. A validation rule verifies if operations without behavior exist.</body>
       </ownedComment>
       <packagedElement xmi:type="uml:Class" xmi:id="_IfjoETLbEd2qeKRLMdIx_A" name="Client_impl">
         <interfaceRealization xmi:id="_ZmdDkEdDEeGxo4rn9hBAOQ" name="derived realization of IStart" client="_IfjoETLbEd2qeKRLMdIx_A">

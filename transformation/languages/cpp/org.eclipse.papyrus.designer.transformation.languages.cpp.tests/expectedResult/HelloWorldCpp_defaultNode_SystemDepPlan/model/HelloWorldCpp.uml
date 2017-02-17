@@ -18,7 +18,7 @@
           <body>Configuration attribute within the Hello World component. Its value is configured on the instance level.</body>
         </ownedComment>
         <ownedComment xmi:id="_2OyuALcpEeWaTqnU44XdvA" annotatedElement="_UtCt0FTzEeKvFeqt5Q_lqw">
-          <body>The operation &quot;run&quot; is defined in interface IRunnnable that is provided by the IStart port. The synchronisation mechanism in Qompass (&quot;Sync. derived element&quot;, needs to be triggered by user) adds a corresponding &quot;derived&quot; operation to the class </body>
+          <body>The operation &quot;run&quot; is defined in interface IRunnnable that is provided by the IStart port. The synchronisation mechanism in SW Designer (&quot;Sync. derived element&quot;, needs to be triggered by user) adds a corresponding &quot;derived&quot; operation to the class </body>
         </ownedComment>
         <ownedAttribute xmi:id="_8pupUFTzEeKvFeqt5Q_lqw" name="message" visibility="public" aggregation="composite">
           <type xmi:type="uml:PrimitiveType" href="/HelloWorldCpp_defaultNode_SystemDepPlan/model/PrimitiveTypes.uml#String"/>

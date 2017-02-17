@@ -42,7 +42,7 @@ public class ConnectorCallMultiplicity extends AbstractModelConstraint
 
 		Property part = (Property) ctx.getTarget();
 		if (!StereotypeUtil.isApplicable(part, DerivedElement.class)) {
-			// make rule Qompass specific: only perform check, if the FCM profile is applied (checked via applicability
+			// make rule SW Designer specific: only perform check, if the FCM profile is applied (checked via applicability
 			// the DerviedElement stereotype)
 			return ctx.createSuccessStatus();
 		}

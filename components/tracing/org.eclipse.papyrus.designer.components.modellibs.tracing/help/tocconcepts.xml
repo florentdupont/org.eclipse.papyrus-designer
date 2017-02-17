@@ -2,6 +2,6 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="Concepts" link_to="../org.eclipse.papyrus.designer.components.transformation.doc/toc.xml#modellibs"> 
-	<topic label="Qompass trace support"  href="html/userguide.htm"> 
+	<topic label="SW Designer trace support"  href="html/userguide.htm"> 
 	</topic>
 </toc>

@@ -33,7 +33,7 @@ public class PapyrusDesignerPreferenceInitializer extends AbstractPreferenceInit
 		store.setDefault(PapyrusDesignerPreferenceConstants.P_SHOW_PROV_REQ_AS_PORT_ICONS, false);
 		store.setDefault(PapyrusDesignerPreferenceConstants.P_ALL_ATTRIBUTES_ARE_CONFIG_ATTRIBUTES, false);
 		store.setDefault(PapyrusDesignerPreferenceConstants.P_TREAT_NONE_AS_COMPOSITE, false);
-		store.setDefault(PapyrusDesignerPreferenceConstants.P_CODE_GEN_PREFIX, "// generated with Qompass toolchain");
+		store.setDefault(PapyrusDesignerPreferenceConstants.P_CODE_GEN_PREFIX, "// generated with SW Designer toolchain");
 	}
 
 }

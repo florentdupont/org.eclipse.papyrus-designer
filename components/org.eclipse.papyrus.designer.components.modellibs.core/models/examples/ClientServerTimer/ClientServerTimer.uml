@@ -171,7 +171,7 @@ cout &lt;&lt; &quot;result: &quot; &lt;&lt; q->mult(4, 5) &lt;&lt; endl;</body>
 &quot;configure instance properties&quot; popup (once timer attribute is selected)</body>
           </ownedComment>
           <ownedComment xmi:type="uml:Comment" xmi:id="_Qd-H4DenEeGPyrZ5I3hMlA" annotatedElement="_lKtZUCjYEeGFbebITJYb9g">
-            <body>Part of Qompasss modeling library</body>
+            <body>Part of SW Designers modeling library</body>
           </ownedComment>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_gV1cgDLiEd2RVeNawwNNzg" name="server" type="_oqZNUDLaEd2qeKRLMdIx_A" isUnique="false" aggregation="composite"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_i-I7gDLiEd2RVeNawwNNzg" name="client" visibility="public" type="_IfjoETLbEd2qeKRLMdIx_A" isUnique="false" aggregation="composite">

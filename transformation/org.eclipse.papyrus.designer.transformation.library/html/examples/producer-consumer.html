@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	<title>Producer-consumer example with Qompass</title>
+	<title>Producer-consumer example with SW Designer</title>
 	<link rel="StyleSheet"
 		href="../sitestyle.css"
 		type="text/css">
@@ -11,8 +11,8 @@
 
 <h1>A simple producer-consumer example</h1>
 
-In the sequel, we outline a simple producer consumer example using Qompass designer. Please note that the example
-can be found via File->New->Example in the category Qompass examples. It follows the same principles as the
+In the sequel, we outline a simple producer consumer example using SW Designer designer. Please note that the example
+can be found via File->New->Example in the category SW Designer examples. It follows the same principles as the
 <a href="hello-world.html">Hello World</a> example, i.e. a separation between components, platform and deployment plan.
 <p>
 
@@ -31,7 +31,7 @@ definition.
 </center>
 
 The producer is the main active component in our system. Therefore, it inherits (as the hello world component) from
-the CStart component within the Qompass "core" modeling library and gets an initial execution thread. This thread executes the
+the CStart component within the SW Designer "core" modeling library and gets an initial execution thread. This thread executes the
 component's "run" method is shown below. It executes 20 periods with a length of 200ms (we use only the simple POSIX call usleep
 instead of the OS abstraction library to ensure that this example runs on most machines). In each period, an instance of type
 PubData is send to the port q.
@@ -70,7 +70,7 @@ provides the lifecycle port. The interface associated with this port contains th
 lifecycle operations are called after creation, but -- unlike the start call -- should return the control immediately (or after
 a very short time).<br>
 Since we want that the consumer executes a periodic pull operation, we need to launch a new thread in the activation call and let
-this thread execute the pull loop. One way to achieve this Qompass is to use a <em>container service</em> that intercepts the
+this thread execute the pull loop. One way to achieve this SW Designer is to use a <em>container service</em> that intercepts the
 activation call. This service is call runStartThread and is visible in the context menu of the class.  
  
 <center>
@@ -91,8 +91,8 @@ calls the push operation that is provided by the consumer.
 The variant with a pull consumer is a bit more complicated. In this case, both producer and consumer call operations (push and
 pull respectively) and we need a mediator between this. A suitable choice is the use of a FIFO queue. The producer pushes data
 into the FIFO and the consumer polls for data "at the other end". Instead of explicitly introducing an additional part for the
-queue in the system, Qompass supports annotating UML connectors. In this case, we add the information to the connector between
-producer and consumer that a FIFO connector should be used. When the code for this system is generated, Qompass replaces the
+queue in the system, SW Designer supports annotating UML connectors. In this case, we add the information to the connector between
+producer and consumer that a FIFO connector should be used. When the code for this system is generated, SW Designer replaces the
 connection by a reified connector, as shown in the
 <a href="../../../org.eclipse.papyrus.designer.components.transformation.doc/html/reference/interactionComponent.html">reference guide</a>
  

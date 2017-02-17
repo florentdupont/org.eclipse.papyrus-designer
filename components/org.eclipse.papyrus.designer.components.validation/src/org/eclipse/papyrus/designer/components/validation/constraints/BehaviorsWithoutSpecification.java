@@ -40,7 +40,7 @@ public class BehaviorsWithoutSpecification extends AbstractModelConstraint {
 		if (behavior.getSpecification() == null) {
 			Element class_ = behavior.getOwner();
 			if (StereotypeUtil.isApplicable(class_, DerivedElement.class)) {
-				// check whether DerivedElement is applicable => indirect check whether FCM is applied (make rule specific to Qompass)
+				// check whether DerivedElement is applicable => indirect check whether FCM is applied (make rule specific to SW Designer)
 				// TODO alternative? check whether behavior is referenced from either an activity, since that is possible in general?
 				/*
 				 * boolean hasRef = false;

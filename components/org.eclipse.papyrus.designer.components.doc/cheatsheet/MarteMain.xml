@@ -10,7 +10,7 @@
       </intro>
       <taskGroup kind="choice" name="Step1: Create a new model" skip="true">
          <intro>
-            Either create a new Qompass model or start with a working example
+            Either create a new SW Designer model or start with a working example
          </intro>
          <task kind="cheatsheet" name="Step1a: Create a new model" skip="true">
             <param name="path" value="MarteNewModel.xml">
@@ -71,7 +71,7 @@
          <onCompletion>
             <b>Conclusion</b><br/>
 		You have now a binary per target which is ready for deployment. The actual transfer
-		to the target is out of Qompass&apos;s scope.
+		to the target is out of SW Designer&apos;s scope.
          </onCompletion>
          <param name="path" value="CodeCompilation.xml">
          </param>

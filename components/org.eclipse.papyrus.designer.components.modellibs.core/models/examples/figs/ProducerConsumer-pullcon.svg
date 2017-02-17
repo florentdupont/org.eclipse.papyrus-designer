@@ -123,7 +123,7 @@
 <line clip-path="url(#clipPath18)" fill="none" x1="616" x2="616" y1="109" y2="121"/>
 <line clip-path="url(#clipPath18)" fill="none" x1="616" x2="629" y1="121" y2="121"/>
 <path fill="white" d="M334 10 L616 10 L628 22 L628 81 L334 81 Z" clip-path="url(#clipPath20)" fill-rule="evenodd" stroke="none"/>
-<text font-size="8" x="340" y="24" clip-path="url(#clipPath21)" stroke="none" xml:space="preserve">Part of the Qompass model library. Provides the specific</text>
+<text font-size="8" x="340" y="24" clip-path="url(#clipPath21)" stroke="none" xml:space="preserve">Part of the SW Designer model library. Provides the specific</text>
 <text font-size="8" x="340" y="36" clip-path="url(#clipPath21)" stroke="none" xml:space="preserve">port "lc" (short for lifecycle). The "activate" operation of</text>
 <text font-size="8" x="340" y="48" clip-path="url(#clipPath21)" stroke="none" xml:space="preserve">this port is called by generated boot-code after</text>
 <text font-size="8" x="340" y="60" clip-path="url(#clipPath21)" stroke="none" xml:space="preserve">instantiation and configuration of a component. The</text>

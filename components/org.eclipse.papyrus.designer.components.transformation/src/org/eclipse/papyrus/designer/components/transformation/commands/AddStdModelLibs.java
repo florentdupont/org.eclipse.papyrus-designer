@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.eclipse.papyrus.designer.components.transformation.commands;
 
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -71,17 +70,8 @@ public class AddStdModelLibs extends RecordingCommand {
 		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
-	 */
-
 	/**
-	 * Return a list of package-imports for standard Qompass model libraries
-	 *
-	 * @return
-	 * @throws ExecutionException
+	 * @return a list of package-imports for standard SW Designer model libraries
 	 */
 	public EList<PackageImport> getAvailableImportPackages() {
 		if (availableImportPackages != null) {

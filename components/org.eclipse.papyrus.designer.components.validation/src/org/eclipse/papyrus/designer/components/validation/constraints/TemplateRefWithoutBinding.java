@@ -28,9 +28,9 @@ import org.eclipse.uml2.uml.TypedElement;
 /**
  * Check whether an element within a package template is referenced via a type from the outside, i.e. an element that is not
  * within this package template. This reference is only valid in the context of a template binding.
- * (within Qompass, binding is done implicitly via stereotypes - which was perhaps not the best way of doing it)
+ * (within SW Designer, binding is done implicitly via stereotypes - which was perhaps not the best way of doing it)
  *
- * The rule has been made specific to Qompass by checking whether FCM is applied (check DerivedElement stereotype).
+ * The rule has been made specific to SW Designer by checking whether FCM is applied (check DerivedElement stereotype).
  *
  */
 public class TemplateRefWithoutBinding extends AbstractModelConstraint {

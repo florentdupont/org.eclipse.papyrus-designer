@@ -204,7 +204,7 @@ public class ConfigurePortDialog extends SelectionStatusDialog {
 		fKindCombo = new Combo(instanceConfigurationGroup, SWT.NONE);
 		portKindList = getAvailableKinds(m_model);
 		if (portKindList.size() == 0) {
-			MessageDialog.openInformation(Display.getDefault().getActiveShell(), "No port kinds founds", "No port kinds are available. Please import a Qompass model library");
+			MessageDialog.openInformation(Display.getDefault().getActiveShell(), "No port kinds founds", "No port kinds are available. Please import a SW Designer model library");
 		}
 		String[] portKindStrList = new String[portKindList.size() + 1];
 		portKindStrList[0] = Messages.ConfigurePortDialog_None;

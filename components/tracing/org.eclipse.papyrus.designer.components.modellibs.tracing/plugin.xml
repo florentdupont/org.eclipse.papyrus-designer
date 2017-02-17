@@ -32,8 +32,8 @@
 	<extension
          point="org.eclipse.papyrus.infra.services.tracepoints.traceMechanism">
       <client
-            class="org.eclipse.papyrus.designer.components.modellibs.tracing.QompassTraceMechanism"
-            traceMechID="org.eclipse.papyrus.designer.components.modellibs.tracing.qompass">
+            class="org.eclipse.papyrus.designer.components.modellibs.tracing.SW DesignerTraceMechanism"
+            traceMechID="org.eclipse.papyrus.designer.components.modellibs.tracing">
       </client>
 	</extension>
 	<extension point="org.eclipse.ui.newWizards">

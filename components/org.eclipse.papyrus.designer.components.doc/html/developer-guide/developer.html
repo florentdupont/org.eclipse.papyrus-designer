@@ -10,11 +10,11 @@
 </head>
 
 <body>
-<h1>Qompass developer guide</h1>
+<h1>SW Designer developer guide</h1>
 
-The objective of this guide is to provide information about the architecture of Qompass designer and enable developers to
-contribute to its development, i.e. it is not intend for people that want to develop applications with Qompass designer.
-This guide is currently quite incomplete and should give a rough overview of the Qompass plug-ins.
+The objective of this guide is to provide information about the architecture of SW Designer designer and enable developers to
+contribute to its development, i.e. it is not intend for people that want to develop applications with SW Designer designer.
+This guide is currently quite incomplete and should give a rough overview of the SW Designer plug-ins.
 
 In general, there is a separation between the generic transformation mechanisms and the model libraries defining
 interaction components and container extensions. It is quite likely that a contribution only focusses on one of these two,
@@ -22,9 +22,9 @@ for instance on a model library for a dedicated interaction mechanism.
 
 The transformation mechanisms consists of the following plug.ins:
 <ul>
-<li>org.eclipse.papyrus.designer.components.transformation.feature This plugin contains the definition of the Qompass feature
+<li>org.eclipse.papyrus.designer.components.transformation.feature This plugin contains the definition of the SW Designer feature
 <p>
-<li><a href="org.eclipse.papyrus.designer.components.transformation.core.html">org.eclipse.papyrus.designer.components.transformation.core:</a> The main Qompass plugin
+<li><a href="org.eclipse.papyrus.designer.components.transformation.core.html">org.eclipse.papyrus.designer.components.transformation.core:</a> The main SW Designer plugin
 <li>org.eclipse.papyrus.designer.components.validation: A set of validation rules that check the well-formedness of models,
 	for instance, whether a connection betwee ports if syntactically valid.
 	The validation plug-ins defines a set of EMF validation rules in form of Java code.
@@ -37,7 +37,7 @@ The transformation mechanisms consists of the following plug.ins:
 </ul>
 
 <p>
-In addition to the generation plugins, Qompass contains a set of model libraries that are
+In addition to the generation plugins, SW Designer contains a set of model libraries that are
 dedicated for a specific domain and/or interaction mechanisms.
 
 <ul>

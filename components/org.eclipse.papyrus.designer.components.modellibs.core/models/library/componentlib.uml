@@ -140,7 +140,7 @@ return NULL;
 return values (also called deferred synchronous):
 Instead of specified return values, functions return a poller object which may be queried for
 the result.
-TODO: complete, move into model of Qompass AMI plugin</body>
+TODO: complete, move into model of SW Designer AMI plugin</body>
           </ownedComment>
           <generalization xmi:type="uml:Generalization" xmi:id="_3itBktdwEd-ZnqCk2P2ZKg" general="_KxQBELuXEd2TTr3gJIvazw"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_3itBk9dwEd-ZnqCk2P2ZKg" name="buffer" isUnique="false" aggregation="composite">

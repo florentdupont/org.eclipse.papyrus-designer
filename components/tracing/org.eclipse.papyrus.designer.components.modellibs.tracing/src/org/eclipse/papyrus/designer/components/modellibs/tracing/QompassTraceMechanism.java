@@ -39,7 +39,7 @@ import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
 
-public class QompassTraceMechanism implements ITraceMechanism {
+public class SW DesignerTraceMechanism implements ITraceMechanism {
 
 	public static final String EC3M_TRACING_URI = "pathmap://QML_TRACE/tracing.uml"; //$NON-NLS-1$
 
@@ -109,7 +109,7 @@ public class QompassTraceMechanism implements ITraceMechanism {
 		return false;
 	}
 
-	// QompassTraceMechanism
+	// SW DesignerTraceMechanism
 
 	public boolean isForTracing(ContainerRule rule) {
 		for (ConfigOption co : rule.getForConfig()) {

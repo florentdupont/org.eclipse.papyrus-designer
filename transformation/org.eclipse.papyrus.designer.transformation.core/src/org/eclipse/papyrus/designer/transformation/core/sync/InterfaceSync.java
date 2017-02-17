@@ -41,7 +41,7 @@ public class InterfaceSync {
 	public static final String SIG_PREFIX = "SIG_"; //$NON-NLS-1$
 
 	/**
-	 * Name of an interface for generic reception support within the Qompass
+	 * Name of an interface for generic reception support within the SW Designer
 	 * sysinterfaces modeling library
 	 */
 	private static final String SIGNAL_RECEPTION_QN = "sysinterfaces::SignalReception"; //$NON-NLS-1$

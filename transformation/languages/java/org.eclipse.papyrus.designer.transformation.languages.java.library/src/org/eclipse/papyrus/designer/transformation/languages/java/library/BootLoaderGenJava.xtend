@@ -38,6 +38,7 @@ import org.eclipse.uml2.uml.LiteralInteger
 import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.Slot
 import org.eclipse.uml2.uml.ValueSpecification
+import org.eclipse.uml2.uml.NamedElement
 
 /**
  * Create a BootLoader for Java
@@ -132,8 +133,14 @@ public class BootLoaderGenJava extends AbstractBootLoaderGen implements IM2MTraf
 		if (sf == null) {
 			throw new TransformationException(String.format("A slot for instance %s has no defining feature", instance.getName()));
 		}
-
-		val varName = instance.getName() + "." + sf.getName(); //$NON-NLS-1$
+		
+		val implementation = DepUtils.getClassifier(instance);
+		// add constructor invocation (unlike in C++, Java attributes need a separate instantiation)
+		if (instantiateViaBootloader(sf)) {
+			m_initCodeCConfig += '''«instance.name» = new «implementation.qualifiedName.replace(NamedElement.SEPARATOR, ".")»();''' + NL
+		}
+		
+		val varName = '''«instance.getName()».«sf.name»'''
 		for (ValueSpecification value : slot.getValues()) {
 
 			// only set value, if not null

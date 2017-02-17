@@ -29,7 +29,7 @@ import org.eclipse.uml2.uml.Type;
  * Alternative? give user a fine control in the instantiation model? Fractal: no need for a single
  * composed property?
  *
- * Rule has been made specific to Qompass, since we verify that configurationProperty is applicable (implying that the
+ * Rule has been made specific to SW Designer, since we verify that configurationProperty is applicable (implying that the
  * FCM profile is applied)
  *
  * @author ansgar
@@ -47,7 +47,7 @@ public class AggregationKindValid extends AbstractModelConstraint {
 			if (aggKind != AggregationKind.COMPOSITE_LITERAL) {
 				if (StereotypeUtil.isApplicable(attribute, ConfigurationProperty.class) && !DepUtils.isSingleton((Class) type)) {
 					// no composition, but not singleton: warn user to make up a proper deployment plan
-					// validation has been made Qompass specific by checking whether the Configuration attribute is applicable
+					// validation has been made SW Designer specific by checking whether the Configuration attribute is applicable
 
 					return ctx.createFailureStatus("The attribute '" + attribute.getName() + "' has a non-composition aggregation kind, but the referenced type ('" +
 							type.getName() + "') is not a singleton. The associated instance specifications have to be set-up manually");

@@ -2,7 +2,7 @@
 
 <cheatsheet title="Creating a new model">
 <intro>
-	<description>In this step you will create a new Qompass Model which applies the profile and optionally MARTE GCM</description>
+	<description>In this step you will create a new SW Designer Model which applies the profile and optionally MARTE GCM</description>
 </intro>
 <item title="Open the Papyrus perspective" dialog="false" skip="true">
 	<description> Start  setting up your environment&apos;s perspective. </description>
@@ -12,7 +12,7 @@
 <item title="Create a new project" dialog="true" skip="true">
 	<description>
 	  	Start creating the project that will host your model or create a new model within an existing project. 
-      	&#x0A;File &gt; New &gt; Project &gt; Papyrus project &gt; Enter your project name, then select UML as diagram language. On the next page, choose one of the Qompass templates
+      	&#x0A;File &gt; New &gt; Project &gt; Papyrus project &gt; Enter your project name, then select UML as diagram language. On the next page, choose one of the SW Designer templates
       	(currently two, one including MARTE and one without)
     </description>
 	<command required="false"
@@ -22,7 +22,7 @@
 	<description>
 	  	If you need to create additional models within a project, you can do this at any time using the
 	  	Papyrus model wizard. In the context of this tutorial, you can simply skip this step.
-	  	Enter your model name, then select UML as diagram language. On the next page, choose one of the Qompass templates
+	  	Enter your model name, then select UML as diagram language. On the next page, choose one of the SW Designer templates
       	(currently two, one including MARTE and one without)
     </description>
 	<command required="true"

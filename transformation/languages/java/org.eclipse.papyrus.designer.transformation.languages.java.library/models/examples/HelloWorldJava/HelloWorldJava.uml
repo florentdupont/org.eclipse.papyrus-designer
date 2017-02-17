@@ -14,7 +14,7 @@
       </ownedComment>
       <ownedComment xmi:type="uml:Comment" xmi:id="_0D64MDedEeGPyrZ5I3hMlA">
         <annotatedElement xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_N6fa4JsrEd61Eo3nmu3JhQ"/>
-        <body>Part of the Qompass core model library. Provides the specific port &quot;start&quot;. The &quot;run&quot; operation (defined within interface IStart) of this port is called by generated boot-code after instantiation and configuration of a component. </body>
+        <body>Part of the SW Designer core model library. Provides the specific port &quot;start&quot;. The &quot;run&quot; operation (defined within interface IStart) of this port is called by generated boot-code after instantiation and configuration of a component. </body>
       </ownedComment>
       <packagedElement xmi:type="uml:Class" xmi:id="_tyiqsc__Ed-TP80eVS-2Rg" name="HelloWorld">
         <ownedComment xmi:type="uml:Comment" xmi:id="_SxvpUFT0EeKvFeqt5Q_lqw" annotatedElement="_8pupUFTzEeKvFeqt5Q_lqw _tyiqsc__Ed-TP80eVS-2Rg">

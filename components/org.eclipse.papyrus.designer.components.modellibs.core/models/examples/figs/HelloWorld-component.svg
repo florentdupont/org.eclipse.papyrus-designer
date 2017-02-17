@@ -143,7 +143,7 @@
 <line clip-path="url(#clipPath13)" fill="none" x1="648" x2="648" y1="127" y2="139"/>
 <line clip-path="url(#clipPath13)" fill="none" x1="648" x2="661" y1="139" y2="139"/>
 <rect x="360" y="10" clip-path="url(#clipPath14)" fill="url(#linearGradient4)" width="301" height="114" stroke="none"/>
-<text x="366" font-size="13" y="29" clip-path="url(#clipPath15)" stroke="none" xml:space="preserve">Part of the Qompass core model library.</text>
+<text x="366" font-size="13" y="29" clip-path="url(#clipPath15)" stroke="none" xml:space="preserve">Part of the SW Designer core model library.</text>
 <text x="366" font-size="13" y="46" clip-path="url(#clipPath15)" stroke="none" xml:space="preserve">Provides the specific port "start". The "run"</text>
 <text x="366" font-size="13" y="63" clip-path="url(#clipPath15)" stroke="none" xml:space="preserve">operation (defined within interface IStart) of</text>
 <text x="366" font-size="13" y="80" clip-path="url(#clipPath15)" stroke="none" xml:space="preserve">this port is called by generated boot-code</text>

@@ -69,9 +69,9 @@ public class AddProfileAndModelLibsHandler extends CmdHandler {
 						return ((PackageImport) pi).getImportedPackage().getName();
 					}
 				},
-				"Select Qompass model libraries for package import.\n" + //$NON-NLS-1$
+				"Select SW Designer model libraries for package import.\n" + //$NON-NLS-1$
 						"Libraries that are already imported, are selected. Please note that additional\n" + //$NON-NLS-1$
-						"Qompass model library might be loaded with the standard \"import registered library\" option\n" + //$NON-NLS-1$
+						"SW Designer model library might be loaded with the standard \"import registered library\" option\n" + //$NON-NLS-1$
 						"\n" + //$NON-NLS-1$
 						"Pressing \"Ok\" will continue with the application of the FCM profile and (parts of) the MARTE profile\n");//$NON-NLS-1$
 

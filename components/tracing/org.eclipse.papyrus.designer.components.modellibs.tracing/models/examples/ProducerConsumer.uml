@@ -24,7 +24,7 @@ Use the context menu to find out that the PullConsumer supports the &quot;runSta
         </ownedComment>
         <ownedComment xmi:id="_0D64MDedEeGPyrZ5I3hMlA">
           <annotatedElement xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_-WNegNtxEd6nqsBVkgJEEA"/>
-          <body>Part of the Qompass model library. Provides the specific port &quot;lc&quot; (short for lifecycle). The &quot;activate&quot; operation of this port is called by generated boot-code after instantiation and configuration of a component. The deactivation is called before disposing a component</body>
+          <body>Part of the SW Designer model library. Provides the specific port &quot;lc&quot; (short for lifecycle). The &quot;activate&quot; operation of this port is called by generated boot-code after instantiation and configuration of a component. The deactivation is called before disposing a component</body>
         </ownedComment>
         <packagedElement xmi:type="uml:Class" xmi:id="_tyiqsc__Ed-TP80eVS-2Rg" clientDependency="_DHTiQDF7EeCpQdhNuFCtew" name="PullConsumer_impl">
           <generalization xmi:id="_tyiqss__Ed-TP80eVS-2Rg">
@@ -101,7 +101,7 @@ cout &lt;&lt; &quot;finished waiting&quot; &lt;&lt; endl;
       <packagedElement xmi:type="uml:Package" xmi:id="_etOZkDLaEd2qeKRLMdIx_A" name="Producer">
         <ownedComment xmi:id="_GzyJQDehEeGPyrZ5I3hMlA">
           <annotatedElement xmi:type="uml:Class" href="pathmap://QML_CORE/core.uml#_N6fa4JsrEd61Eo3nmu3JhQ"/>
-          <body>Let the producer instance execute by the main thread by realising the specific port &quot;start&quot;, inherited from CStart (part of the Qompass &quot;core&quot; model library).
+          <body>Let the producer instance execute by the main thread by realising the specific port &quot;start&quot;, inherited from CStart (part of the SW Designer &quot;core&quot; model library).
 </body>
         </ownedComment>
         <packagedElement xmi:type="uml:Class" xmi:id="_IfjoETLbEd2qeKRLMdIx_A" clientDependency="_jkNdADF8EeCpQdhNuFCtew" name="Producer_impl">

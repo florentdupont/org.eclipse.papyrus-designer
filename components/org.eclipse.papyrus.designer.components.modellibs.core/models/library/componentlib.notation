@@ -5675,7 +5675,7 @@
     </edges>
   </notation:Diagram>
   <css:ModelStyleSheets xmi:id="_qkkdcMc1EeSsAI2TZshUyg"/>
-  <css:EmbeddedStyleSheet xmi:id="_7gUz8Mc1EeSsAI2TZshUyg" label="Qompass" content="Label {&#xA;&#x9;maskLabel: name;&#xA;}&#xA;&#xA;Port > Label {&#xA;&#x9;maskLabel: name;&#xA;}&#xA;&#xA;Port {&#xA;&#x9;maskLabel: name;&#xA;}&#xA;&#xA;Property {&#xA;&#x9;maskLabel: name type;&#xA;}"/>
+  <css:EmbeddedStyleSheet xmi:id="_7gUz8Mc1EeSsAI2TZshUyg" label="SW Designer" content="Label {&#xA;&#x9;maskLabel: name;&#xA;}&#xA;&#xA;Port > Label {&#xA;&#x9;maskLabel: name;&#xA;}&#xA;&#xA;Port {&#xA;&#x9;maskLabel: name;&#xA;}&#xA;&#xA;Property {&#xA;&#x9;maskLabel: name type;&#xA;}"/>
   <notation:Diagram xmi:id="_BFN3YF4SEea4bLzKfwAjjA" type="CompositeStructure" name="transformations" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_bnzlQF4SEea4bLzKfwAjjA" type="Class_Shape">
       <children xmi:type="notation:DecorationNode" xmi:id="_bnzlQl4SEea4bLzKfwAjjA" type="Class_NameLabel"/>

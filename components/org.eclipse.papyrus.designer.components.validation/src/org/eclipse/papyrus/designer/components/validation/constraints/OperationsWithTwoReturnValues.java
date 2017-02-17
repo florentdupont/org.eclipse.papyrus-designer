@@ -27,7 +27,7 @@ import org.eclipse.uml2.uml.ParameterDirectionKind;
  * Verify that an operation has at most one return parameter
  *
  * Whereas this rule would make sense in general, it has been made specific to
- * Qompass by verifying whether FCM is applied (check if DerivedElement stereotype
+ * SW Designer by verifying whether FCM is applied (check if DerivedElement stereotype
  * is applicable)
  */
 public class OperationsWithTwoReturnValues extends AbstractModelConstraint

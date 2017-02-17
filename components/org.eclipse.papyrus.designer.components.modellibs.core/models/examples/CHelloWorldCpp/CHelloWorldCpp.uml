@@ -24,7 +24,7 @@
           <body>Configuration attribute within the Hello World component. Its value is configured on the instance level.</body>
         </ownedComment>
         <ownedComment xmi:type="uml:Comment" xmi:id="_2OyuALcpEeWaTqnU44XdvA" annotatedElement="_UtCt0FTzEeKvFeqt5Q_lqw">
-          <body>The operation &quot;run&quot; is defined in interface IRunnnable that is provided by the IStart port. The synchronisation mechanism in Qompass (&quot;Sync. derived element&quot;, needs to be triggered by user) adds a corresponding &quot;derived&quot; operation to the class </body>
+          <body>The operation &quot;run&quot; is defined in interface IRunnnable that is provided by the IStart port. The synchronisation mechanism in SW Designer (&quot;Sync. derived element&quot;, needs to be triggered by user) adds a corresponding &quot;derived&quot; operation to the class </body>
         </ownedComment>
         <generalization xmi:type="uml:Generalization" xmi:id="_tyiqss__Ed-TP80eVS-2Rg">
           <general xmi:type="uml:Class" href="pathmap://DML_C_CORE/componentlib.uml#_N6fa4JsrEd61Eo3nmu3JhQ"/>

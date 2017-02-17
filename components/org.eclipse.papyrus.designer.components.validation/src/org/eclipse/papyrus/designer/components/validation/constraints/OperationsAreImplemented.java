@@ -25,7 +25,7 @@ import org.eclipse.uml2.uml.Operation;
 /**
  * Check whether a non abstract operation has an implementation.
  * Whereas this rule would make sense in general, it has been made specific to
- * Qompass by verifying whether FCM is applied (check if DerivedElement stereotype
+ * SW Designer by verifying whether FCM is applied (check if DerivedElement stereotype
  * is applicable)
  */
 public class OperationsAreImplemented extends AbstractModelConstraint

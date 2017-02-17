@@ -380,7 +380,7 @@ public class ConnectorBinding {
 			} else {
 				// additional template parameters that are bound automatically based on their name
 				// (this might be considered as a hack, it is merely a convention for automatic template
-				// binding within the Qompass context.
+				// binding within the SW Designer context.
 				if (formal instanceof NamedElement) {
 					NamedElement formalNE = (NamedElement) formal;
 					if ((formal instanceof Class) && (formalNE.getName().equals("T"))) { //$NON-NLS-1$

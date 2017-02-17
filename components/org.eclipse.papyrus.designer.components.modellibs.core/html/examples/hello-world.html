@@ -2,21 +2,21 @@
 <html>
 <head>
 	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-	<title>Hello world example with Qompass</title>
+	<title>Hello world example with SW Designer</title>
 	<link rel="StyleSheet"
 		href="../sitestyle.css"
 		type="text/css">
 </head>
 <body>
 
-<h1>Hello world example with Qompass</h1>
+<h1>Hello world example with SW Designer</h1>
 
 In the sequel, we outline a simple hello world example using qompass designer. Please note that the example
-can be found via File->New->Example in the category Qompass examples. There are also two cheat-sheets that explain how
+can be found via File->New->Example in the category SW Designer examples. There are also two cheat-sheets that explain how
 to create your own example from scratch.
 <p>
 
-As for all Qompass examples, there are three different parts that needs to be modeled
+As for all SW Designer examples, there are three different parts that needs to be modeled
 <ol>
 <li>The software components
 <li>An abstraction of the hardware platform
@@ -39,14 +39,14 @@ The hello-world component is shown in the following screen shot.
 </center>
 <br>
 The hello world component inherits from a component called <em>CStart</em>. This is an abstract component defined in the
-Qompass core model library. It owns a port (called start) that provides the pre-defined interface <em>IStart</em>. This
+SW Designer core model library. It owns a port (called start) that provides the pre-defined interface <em>IStart</em>. This
 interface has a single operation <em>run</em>. Components that provide an interface via a port need to implement this
 interface. This include ports that are inherited. In our case, the hello world component needs to implement the <em>IStart</em>
 interface, i.e. contain an operation "run" as well as a behavior for this operation.<br>
-Qompass supports the user by automatically creating derived operations for interfaceS provided via a port, i.e. the operation
+SW Designer supports the user by automatically creating derived operations for interfaceS provided via a port, i.e. the operation
 signature is copied (and synchronized on demand) from the interface. The developer needs to provide behavior. In UML, behavior
 can be specified either via activities or by embedding code in a programming language (opaque behavior) into the model.
-Currently, Qompass focuses on the latter,in particular in form of embedded C++ code. A simple C/C++ view allows to enter
+Currently, SW Designer focuses on the latter,in particular in form of embedded C++ code. A simple C/C++ view allows to enter
 the code, as shown in the following screenshot (there is ongoing work concerning a CDT editor integration)
 
 <p>
@@ -64,7 +64,7 @@ start-up by a generated boot-loader.
 
 <h3>A system component</h3>
 
-All Qompass applications need to define a top-level component, typically called <em>System</em> that aggregates its components,
+All SW Designer applications need to define a top-level component, typically called <em>System</em> that aggregates its components,
 in our case the hello-world component.  It is defined by means of a composite class, contained components are
 modeled via attributes (use composite aggregation for these) typed by the contained components. Note that we define a role (or part)
 within a composition, the hello world component declaration is not part of the system class. This role corresponds to an
@@ -98,7 +98,7 @@ A deployment plan is a collection of instance specifications, stored within a UM
 to configure an <em>instance</em> of a component, i.e. to provide values for configuration attributes. The second is to allocate
 instance to processing resources such as threads or directly to a node of the platform definition.
 
-In case of the hello world component, the message that should be written is a configuration attribute. Qompass provides a
+In case of the hello world component, the message that should be written is a configuration attribute. SW Designer provides a
 dialog that simplifies the configuration of this attribute. The dialog lists instances and their configuration attributes and
 enables the user to provide a value in a text field. On the model level, a corresponding slot and a value specification are
 produced.<br>    

@@ -89,7 +89,7 @@ public class TemplateUtils {
 	 * Get the template signature of a templateable element (typically a package). The class must
 	 * (1) either own the signature
 	 * (2) or merge with a package which owns the signature.
-	 * Qompass enables the "extension" of existing packages via the package merge mechanism
+	 * SW Designer enables the "extension" of existing packages via the package merge mechanism
 	 *
 	 * @param template
 	 *            The potential template
@@ -116,7 +116,7 @@ public class TemplateUtils {
 
 	/**
 	 * Create a template binding by using a single, fixed actual (used within
-	 * Qompass for the binding of container extensions depending on the component
+	 * SW Designer for the binding of container extensions depending on the component
 	 * executor)
 	 *
 	 * @param model

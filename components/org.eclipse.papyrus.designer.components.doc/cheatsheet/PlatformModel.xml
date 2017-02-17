@@ -15,7 +15,7 @@
 		node is a class as well, the inner structure of a node can be equally modeled via parts. Thus, a hardware
 		specification can be organized hierarchically.
 		As for software components, we are in the end interested in the instances of our computation resources. An
-		operation of the Qompass context menu will create this hardware instances from the class representing the hardware
+		operation of the SW Designer context menu will create this hardware instances from the class representing the hardware
 		in a similar way as a deployment plan is created.
 		
 		Use the FCM stereotype "Target" on nodes to provide information about supported operating system and

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
   <uml:Profile xmi:id="_gPDsIBa-EearhdjjJ6cVzQ" name="Deployment" metaclassReference="_WWO_YBbAEearhdjjJ6cVzQ _LQB30CXmEea8zMl4rVTOhQ _bIj1ICi3EeaXvZJsTlfH8A _KjtPoEN6Eea4W-lfO7m_3g _jxqeAFiQEeanCpyPTMVlnA">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_VUNV0OojEeaHttsqUlAEYA" annotatedElement="_lxr1AFiQEeanCpyPTMVlnA">
+      <body>A deployment plan contains a set of instances along with their configuration. It can reference a transformation chain and optionally a set of additional transformations. The projectMapping allows to control the default name</body>
+    </ownedComment>
     <elementImport xmi:type="uml:ElementImport" xmi:id="_WWO_YBbAEearhdjjJ6cVzQ" alias="Model">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Model"/>
     </elementImport>
@@ -139,6 +142,11 @@
         <type xmi:type="uml:Stereotype" href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_tlAxcEFlEeaVWaGMtmQuJw"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t0GZoF-eEea4vqMyw9JI5Q"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t0Jc8F-eEea4vqMyw9JI5Q" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_fqb0sOohEeaHttsqUlAEYA" name="additionalTrafos" visibility="public">
+        <type xmi:type="uml:Stereotype" href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_w_XhsD3yEeajPtol9OalIw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m6Vw8OohEeaHttsqUlAEYA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m6bQgOohEeaHttsqUlAEYA" value="*"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_ofrFQFiQEeanCpyPTMVlnA" name="E_DeploymentPlan_Package1" memberEnd="_ofrsUFiQEeanCpyPTMVlnA _ofsTYFiQEeanCpyPTMVlnA">

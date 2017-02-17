@@ -19,7 +19,7 @@ namespace classes {
 
 /************************************************************/
 /**
- * Configuration attribute within the Hello World component. Its value is configured on the instance level.The operation "run" is defined in interface IRunnnable that is provided by the IStart port. The synchronisation mechanism in Qompass ("Sync. derived element", needs to be triggered by user) adds a corresponding "derived" operation to the class 
+ * Configuration attribute within the Hello World component. Its value is configured on the instance level.The operation "run" is defined in interface IRunnnable that is provided by the IStart port. The synchronisation mechanism in SW Designer ("Sync. derived element", needs to be triggered by user) adds a corresponding "derived" operation to the class 
  */
 class HelloWorld: public ::sysinterfaces::IStart {
 public:

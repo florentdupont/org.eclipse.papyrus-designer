@@ -21,9 +21,9 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.jface.dialogs.IDialogConstants;
-import org.eclipse.papyrus.commands.Activator;
 import org.eclipse.papyrus.designer.components.FCM.InteractionComponent;
 import org.eclipse.papyrus.designer.components.transformation.templates.ConnectorBinding;
+import org.eclipse.papyrus.designer.components.transformation.ui.Activator;
 import org.eclipse.papyrus.designer.transformation.base.utils.DescriptionUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
@@ -54,10 +54,6 @@ import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
  * Select a connector type and implementation (group)
- * TODO: show information about the used connector [usage, implem properties, ...]
- * similar help for ports?
- *
- * @author ansgar
  *
  */
 public class ConnectorSelectionDialog extends AbstractElementListSelectionDialog {
