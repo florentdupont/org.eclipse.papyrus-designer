@@ -17,7 +17,7 @@ import org.eclipse.uml2.uml.Enumeration
 class JavaInnerClassifiers {
 	static def javaInnerClassDefinition(Classifier classifier) '''
 		«JavaDocumentation.javaElementDoc(classifier)»
-		«JavaClassifierGenerator.classVisibility(classifier)»«JavaClassifierGenerator.classModifiers(classifier)»«JavaClassifierGenerator.classifierType(classifier)» «classifier.name»«JavaTemplates.templateSignature(classifier)»«JavaClassInheritedDeclarations.
+		«JavaClassifierGenerator.classVisibility(classifier)» «JavaClassifierGenerator.classModifiers(classifier)»«JavaClassifierGenerator.classifierType(classifier)» «classifier.name»«JavaTemplates.templateSignature(classifier)»«JavaClassInheritedDeclarations.
 			javaClassInheritedDeclarations(classifier)» {
 			«IF classifier instanceof Enumeration»«JavaEnumerations.javaEnumerationLiterals(classifier as Enumeration)»«ENDIF»
 			«JavaClassTypeAndEnum.javaClassTypeAndEnum(classifier)»

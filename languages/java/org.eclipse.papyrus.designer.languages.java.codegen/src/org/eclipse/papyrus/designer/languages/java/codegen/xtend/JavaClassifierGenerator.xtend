@@ -40,7 +40,7 @@ class JavaClassifierGenerator {
 		«JavaGenUtils.openNS(classifier)»
 		/************************************************************/
 		«JavaDocumentation.javaElementDoc(classifier)»
-		«classVisibility(classifier)»«classModifiers(classifier)»«classifierType(classifier)» «classifier.name»«JavaTemplates.templateSignature(classifier)»«JavaClassInheritedDeclarations.
+		«classVisibility(classifier)» «classModifiers(classifier)»«classifierType(classifier)» «classifier.name»«JavaTemplates.templateSignature(classifier)»«JavaClassInheritedDeclarations.
 			javaClassInheritedDeclarations(classifier)» {
 			«IF classifier instanceof Enumeration»«JavaEnumerations.javaEnumerationLiterals(classifier as Enumeration)»«ENDIF»
 			«JavaClassTypeAndEnum.javaClassTypeAndEnum(classifier)»
@@ -65,7 +65,7 @@ class JavaClassifierGenerator {
 			return classifier.visibility.toString.toLowerCase
 		} else {
 			if (classifier.visibility == VisibilityKind.PUBLIC_LITERAL) {
-				return "public "
+				return "public"
 			}
 			// protected and private are not legal modifiers of root classes
 			return "" //Java package-private visibility (default) for class

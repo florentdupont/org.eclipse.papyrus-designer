@@ -12,7 +12,9 @@
 package org.eclipse.papyrus.designer.languages.java.codegen.utils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils;
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.ExternLibrary;
@@ -28,7 +30,10 @@ import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.ParameterableElement;
 import org.eclipse.uml2.uml.PrimitiveType;
+import org.eclipse.uml2.uml.TemplateBinding;
 import org.eclipse.uml2.uml.TemplateParameter;
+import org.eclipse.uml2.uml.TemplateParameterSubstitution;
+import org.eclipse.uml2.uml.TemplateSignature;
 import org.eclipse.uml2.uml.UMLFactory;
 
 /**
@@ -98,12 +103,12 @@ public class JavaGenUtils {
 		if (owner instanceof Package) {
 			owningPkgName = ((Package) owner).getName();
 		}
+		
 		if (GenUtils.hasStereotype(ne, External.class) ||
 				GenUtils.hasStereotypeTree(ne, NoCodeGen.class) ||
 				GenUtils.hasStereotypeTree(ne, ExternLibrary.class)) {
 			return ne.getName();
-		}
-		else if (owningPkgName.equals(JAVA_LIB)) {
+		} else if (owningPkgName.equals(JAVA_LIB)) {
 			// always use the short name for types within the ANSI C library
 			return ne.getName();
 		} else if (ne instanceof PrimitiveType) {
@@ -111,10 +116,44 @@ public class JavaGenUtils {
 			if (!stdType.isEmpty()) {
 				return stdType;
 			}
-		}
-		else if (owner instanceof ClassifierTemplateParameter) {
+		} else if (owner instanceof ClassifierTemplateParameter) {
 			// return short name for template in Type
 			return ne.getName();
+		} else if (ne instanceof Classifier && !((Classifier) ne).getTemplateBindings().isEmpty()) { // TODO template stereotype
+			TemplateBinding templateBinding = ((Classifier) ne).getTemplateBindings().get(0);
+			TemplateSignature signature = templateBinding.getSignature();
+						
+			String specializedTypeName = "";
+			
+			if (signature != null && signature.getTemplate() instanceof Classifier) {
+				specializedTypeName = javaQualifiedName((Classifier) signature.getTemplate(), ne);
+				
+				List<TemplateParameter> templateParameters = signature.getOwnedParameters();
+				Map<TemplateParameter, NamedElement> parameterToClassMap = new HashMap<TemplateParameter, NamedElement>();
+				
+				List<TemplateParameterSubstitution> substitutions = templateBinding.getParameterSubstitutions();
+				for (TemplateParameterSubstitution substitution : substitutions) {
+					if (substitution.getFormal() != null
+							&& templateParameters.contains(substitution.getFormal())
+							&& substitution.getActual() instanceof NamedElement) {
+						parameterToClassMap.put(substitution.getFormal(), (NamedElement) substitution.getActual());
+					}
+				}
+				
+				if (parameterToClassMap.size() == templateParameters.size()) {
+					specializedTypeName += "<";
+					
+					for (TemplateParameter templateParameter : templateParameters) {
+						NamedElement substitutionType = parameterToClassMap.get(templateParameter);
+						specializedTypeName += javaQualifiedName(substitutionType, ne) + ", ";
+					}
+					
+					specializedTypeName = specializedTypeName.substring(0, specializedTypeName.length() - 2);
+					specializedTypeName += ">";
+				}
+				
+				return specializedTypeName;
+			}
 		}
 		
 		// Get qualified name and remove root name if root is a <<Project>>

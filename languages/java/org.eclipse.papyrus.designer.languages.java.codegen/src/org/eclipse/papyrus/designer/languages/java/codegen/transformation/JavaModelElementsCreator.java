@@ -51,6 +51,7 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Relationship;
 import org.eclipse.uml2.uml.Signal;
 import org.eclipse.uml2.uml.SignalEvent;
+import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.Usage;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
@@ -178,10 +179,7 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 			// Generate file
 			final String fileNameH = generationFolder + locStrategy.getFileName(classifier) + Constants.DOT + javaExt;
 			generateFile(fileNameH, fileContentH);
-		} else if ((!noCodeGen(classifier)) && (!GenUtils.hasStereotype(classifier, Template.class)) &&
-				(!(classifier instanceof Association))) {
-			// Only generate when no NoCodeGen stereotype is applied to the class
-			
+		} else if (!noCodeGen(classifier) && !isTemplate(classifier) && !(classifier instanceof Association)) {
 			// Generate file
 			final String classHeaderFileName = generationFolder + locStrategy.getFileName(classifier) + Constants.DOT + javaExt;
 			generateFile(classHeaderFileName, commentHeader + JavaClassifierGenerator.generateClassCode(classifier, prefix));
@@ -227,6 +225,11 @@ public class JavaModelElementsCreator extends ModelElementsCreator {
 		return GenUtils.hasStereotype(element, NoCodeGen.class) ||
 				GenUtils.hasStereotype(element, External.class) ||
 				GenUtils.hasStereotypeTree(element, ExternLibrary.class);
+	}
+	
+	protected boolean isTemplate(Classifier classifier) {
+		return !classifier.getSourceDirectedRelationships(UMLPackage.eINSTANCE.getTemplateBinding()).isEmpty()
+				|| GenUtils.hasStereotype(classifier, Template.class);
 	}
 
 	public String getSourceFolder() {

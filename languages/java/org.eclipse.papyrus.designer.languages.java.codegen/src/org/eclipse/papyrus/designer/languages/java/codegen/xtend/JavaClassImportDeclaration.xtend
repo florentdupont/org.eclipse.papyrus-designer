@@ -28,6 +28,7 @@ import org.eclipse.uml2.uml.Namespace
 import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.UMLFactory
 import org.eclipse.uml2.uml.util.UMLUtil
+import org.eclipse.uml2.uml.TemplateParameterSubstitution
 
 class JavaClassImportDeclaration {
 	
@@ -52,6 +53,11 @@ class JavaClassImportDeclaration {
 			if (GenUtils.hasStereotypeTree(ne, External)) {
 				return UMLUtil.getStereotypeApplication(ne, External).name
 			} else {
+				// ne is owned by a template parameter substitution and it is not stereotyped external. This is an invalid model.
+				if (ne.owner instanceof TemplateParameterSubstitution) {
+					return ""
+				}
+				
 				// Never import ne if its short name is the same as the name of an inner class directly owned by the current ns
 				// We will use the full name of ne later on
 				for (element : ns.ownedElements) {

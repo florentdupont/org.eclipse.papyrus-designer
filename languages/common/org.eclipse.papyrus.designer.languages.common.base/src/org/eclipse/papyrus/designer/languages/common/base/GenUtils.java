@@ -13,7 +13,10 @@ package org.eclipse.papyrus.designer.languages.common.base;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,6 +46,7 @@ import org.eclipse.uml2.uml.ParameterableElement;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.TemplateBinding;
 import org.eclipse.uml2.uml.TemplateParameter;
+import org.eclipse.uml2.uml.TemplateParameterSubstitution;
 import org.eclipse.uml2.uml.TemplateSignature;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.util.UMLUtil;
@@ -58,6 +62,48 @@ public class GenUtils {
 
 	public static final String NL = System.getProperties().getProperty("line.separator"); //$NON-NLS-1$
 
+	/**
+	 * Returns the required types of a specialization class of a template class
+	 */
+	public static List<Type> getTemplateRequiredTypes(Type type) {
+		List<Type> types = new ArrayList<Type>();
+		
+		if (type instanceof Classifier && !((Classifier) type).getTemplateBindings().isEmpty()) { // TODO template stereotype
+			TemplateBinding templateBinding = ((Classifier) type).getTemplateBindings().get(0);
+			TemplateSignature signature = templateBinding.getSignature();
+			
+			if (signature != null && signature.getTemplate() instanceof Classifier) {
+				types.add((Classifier) signature.getTemplate());
+				
+				List<TemplateParameter> templateParameters = signature.getOwnedParameters();
+				Map<TemplateParameter, NamedElement> parameterToClassMap = new HashMap<TemplateParameter, NamedElement>();
+				
+				List<TemplateParameterSubstitution> substitutions = templateBinding.getParameterSubstitutions();
+				for (TemplateParameterSubstitution substitution : substitutions) {
+					if (substitution.getFormal() != null
+							&& templateParameters.contains(substitution.getFormal())
+							&& substitution.getActual() instanceof NamedElement) {
+						parameterToClassMap.put(substitution.getFormal(), (NamedElement) substitution.getActual());
+					}
+				}
+				
+				if (parameterToClassMap.size() == templateParameters.size()) {
+					for (TemplateParameter templateParameter : templateParameters) {
+						NamedElement substitutionType = parameterToClassMap.get(templateParameter);
+						if (substitutionType instanceof Type) {
+							types.add((Type) substitutionType);
+						}
+					}
+				}
+			}
+			
+			return types;
+		}
+		
+		types.add(type);
+		return types;
+	}
+	
 	/**
 	 * Retrieve first template binding from list of template bindings, if
 	 * exactly one exists. Return null otherwise.
@@ -165,6 +211,7 @@ public class GenUtils {
 			Type type = currentAttribute.getType();
 			addFarthestOwnerType(type, result);
 		}
+		
 		return result;
 	}
 	
@@ -184,7 +231,11 @@ public class GenUtils {
 		while (attributes.hasNext()) {
 			Property currentAttribute = attributes.next();
 			Type type = currentAttribute.getType();
-			addClosestOwnerType(type, result);
+			
+			List<Type> requiredTypes = getTemplateRequiredTypes(type);
+			for (Type requiredType : requiredTypes) {
+				addFarthestOwnerType(requiredType, result);
+			}
 		}
 		return result;
 	}
@@ -318,11 +369,18 @@ public class GenUtils {
 		for (Operation operation : current.getOperations()) {
 			for (Parameter param : operation.getOwnedParameters()) {
 				Type type = param.getType();
-				addClosestOwnerType(type, result);
+				
+				List<Type> requiredTypes = getTemplateRequiredTypes(type);
+				for (Type requiredType : requiredTypes) {
+					addFarthestOwnerType(requiredType, result);
+				}
 			}
 			
 			for (Type type : operation.getRaisedExceptions()) {
-				addClosestOwnerType(type, result);
+				List<Type> requiredTypes = getTemplateRequiredTypes(type);
+				for (Type requiredType : requiredTypes) {
+					addFarthestOwnerType(requiredType, result);
+				}
 			}
 		}
 		return result;
@@ -982,14 +1040,8 @@ public class GenUtils {
 		if (element == null || result == null) {
 			return;
 		}
-		
-		// TODO why was this condition added?
-		// We don't need the namespace of a primitive type that is not defined since the namespace won't appear before the primitive type in the code
-		/*if (element instanceof PrimitiveType && !GenUtils.hasStereotype(element, "C_Cpp::Typedef")) {
-			return;
-		}*/
-		
-		if (element.getOwner() instanceof Package && element instanceof Classifier) {
+				
+		if ((element.getOwner() instanceof Package || element.getOwner() instanceof TemplateParameterSubstitution) && element instanceof Classifier) {
 			result.add((Classifier) element);
 		} else { // Type is an inner class. We want to return a classifier C directly owned by a package since it is "C.h" that should be included
 			addFarthestOwnerType(element.getOwner(), result);

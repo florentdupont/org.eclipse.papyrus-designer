@@ -47,7 +47,7 @@ public class ClassUtils {
 		// dependencies and associations
 		usedClasses.addAll(GenUtils.getDirectTypesViaRelationshipsNoDeps(currentClass));
 		usedClasses.addAll(GenUtils.getDirectTypesViaDependencies(currentClass));
-
+		
 		// template parameters are declared locally (if owned) and do not correspond to a file
 		// that can be included
 		usedClasses.removeAll(GenUtils.getTemplateParameteredElements(currentClass));
