@@ -12,8 +12,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<name>Designer Releng</name>
 	<description>This plug-in contains the different modules relatives to the releng of Designer from update site, to feature , product and rcp.</description>
 	<modules>
-		<module>org.eclipse.papyrus.designer.p2</module>
-	
 		<module>org.eclipse.papyrus.designer.languages.common.feature</module>
 		<!-- cpp -->
 		<module>org.eclipse.papyrus.designer.languages.cpp.feature</module>
