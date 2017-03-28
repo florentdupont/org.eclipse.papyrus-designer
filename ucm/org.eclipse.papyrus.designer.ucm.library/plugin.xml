@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+	<extension point="org.eclipse.emf.ecore.uri_mapping">
+		<mapping
+			source="pathmap://UCM_LIBRARY/"
+			target="platform:/plugin/org.eclipse.papyrus.designer.ucm.library/resources/"/>
+	</extension>
+
+	<extension name="StateMachine" point="org.eclipse.papyrus.uml.extensionpoints.UMLLibrary">
+		<library
+			iconpath="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/UCM-16x16.png"
+			name="UCM standard definitions"
+			path="pathmap://UCM_LIBRARY/ucmstandard.uml"
+			provider="CEA LIST">
+		</library>
+	</extension>
+</plugin>

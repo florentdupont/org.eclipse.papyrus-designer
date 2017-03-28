@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UCM_Supplement" nsURI="http://www.omg.org/ucm/supplement/0.9"
+    nsPrefix="UCM_Supplement">
+  <eClassifiers xsi:type="ecore:EClass" name="dummy"/>
+  <eSubpackages name="ucm_deployment" nsURI="http://www.omg.org/ucm/deployment/0.9"
+      nsPrefix="UCM_Supplement.ucm_deployment">
+    <eClassifiers xsi:type="ecore:EClass" name="AppAssembly">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An AppAssembly contains parts that reference IComponent and Connection. It has no port."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DeploymentModule">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A DeploymentModule contains a unique AppAssembly"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="programmingLanguages"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.papyrus.designer.ucm.profile/resources/UCMProfile.ecore#//ucm_technicalpolicies/ProgrammingLanguages"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AllocationPlan">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="ucm_detailed_components" nsURI="http://www.omg.org/ucm/detailedcomp/0.9"
+      nsPrefix="UCM_Supplement.ucm_detailed_components">
+    <eClassifiers xsi:type="ecore:EClass" name="DetailedComponentImplementation" eSuperTypes="../../org.eclipse.papyrus.designer.ucm.profile/resources/UCMProfile.ecore#//ucm_components/AtomicComponentImplementation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="portImplementation" ordered="false"
+          upperBound="-1" eType="#//ucm_detailed_components/IPortElementImplementation"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IPortElementImplementation" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="portElement" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.papyrus.designer.ucm.profile/resources/UCMProfile.ecore#//ucm_interactions/PortElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentPortImplementation" eSuperTypes="#//ucm_detailed_components/IPortElementImplementation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="port" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Port"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TechnicalPortImplementation" eSuperTypes="#//ucm_detailed_components/IPortElementImplementation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="policy" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.papyrus.designer.ucm.profile/resources/UCMProfile.ecore#//ucm_components/TechnicalPolicy"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="ucm_environment" nsURI="http://www.omg.org/ucm/environment/0.9"
+      nsPrefix="UCM_Supplement.ucm_environment">
+    <eClassifiers xsi:type="ecore:EClass" name="EnvironmentModule">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="EnvironmentModule packages contain instances of environment resources"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDefinitionModule">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ResourceDefinitionModule packages contain classes with MARTE GRM stereotypes"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="ucm_test_cases" nsURI="http://www.omg.org/ucm/testcases/0.9"
+      nsPrefix="UCM_Supplement.ucm_test_cases">
+    <eClassifiers xsi:type="ecore:EClass" name="TestCaseGroup">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="ucm_extra_types" nsURI="http://www.omg.org/ucm/extratypes/0.9"
+      nsPrefix="UCM_Supplement.ucm_extra_types">
+    <eClassifiers xsi:type="ecore:EClass" name="DataPointer" eSuperTypes="../../org.eclipse.papyrus.designer.ucm.types.profile/resources/UCMTypes.ecore#//Types/IDataType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//DataType"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

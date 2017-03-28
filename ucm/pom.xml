@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
+		<groupId>org.eclipse.papyrus.designer</groupId>
+		<version>1.0.4-SNAPSHOT</version>
+	</parent>
+	<artifactId>org.eclipse.papyrus.designer.ucm</artifactId>
+	<version>0.7.5-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Designer UCM</name>
+	<description>This module contains the plugins related to the unified component model.</description>
+
+	<modules>
+		<module>org.eclipse.papyrus.designer.ucm.core</module>
+		<module>org.eclipse.papyrus.designer.ucm.css</module>
+		<module>org.eclipse.papyrus.designer.ucm.diagrams</module>
+		<module>org.eclipse.papyrus.designer.ucm.library</module>
+		<module>org.eclipse.papyrus.designer.ucm.modelexplorer</module>
+		<module>org.eclipse.papyrus.designer.ucm.profile</module>
+		<module>org.eclipse.papyrus.designer.ucm.profile.ui</module>
+		<module>org.eclipse.papyrus.designer.ucm.properties</module>
+		<module>org.eclipse.papyrus.designer.ucm.supplement.profile</module>
+		<module>org.eclipse.papyrus.designer.ucm.supplement.profile.ui</module>
+		<module>org.eclipse.papyrus.designer.ucm.types.profile</module>
+		<module>org.eclipse.papyrus.designer.ucm.types.profile.ui</module>
+		<module>org.eclipse.papyrus.designer.ucm.ui</module>
+		<module>org.eclipse.papyrus.designer.ucm.wizards</module>
+	</modules>
+
+</project>

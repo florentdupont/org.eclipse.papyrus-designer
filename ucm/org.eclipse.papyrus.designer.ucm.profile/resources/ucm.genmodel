@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    copyrightText="Copyright (c) 2017 CEA LIST and Thales&#xA;&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.eclipse.papyrus.designer.ucm.profile/src-gen" editDirectory="/org.eclipse.papyrus.designer.ucm.profile.edit/src-gen"
+    editorDirectory="/org.eclipse.papyrus.designer.ucm.profile.editor/src-gen" modelPluginID="org.eclipse.papyrus.designer.ucm.profile"
+    modelName="Ucm" editPluginClass="org.eclipse.papyrus.designer.ucm.profile.UCMProfile.provider.UcmEditPlugin"
+    editorPluginClass="org.eclipse.papyrus.designer.ucm.profile.UCMProfile.presentation.UcmEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.uml2.uml.ecore.importer"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.uml2.types/model/Types.genmodel#//types ../../org.eclipse.uml2.uml/model/UML.genmodel#//uml"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="VALIDATION_DELEGATES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>ucm.profile.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="UCMProfile" basePackage="org.eclipse.papyrus.designer.ucm.profile"
+      disposableProviderFactory="true" ecorePackage="UCMProfile.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//dummy"/>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_components" basePackage="org.eclipse.papyrus.designer.ucm.profile.UCMProfile"
+        disposableProviderFactory="true" ecorePackage="UCMProfile.ecore#//ucm_components">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/InteractionItemBinding">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/InteractionItemBinding/item"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_components/IBinding">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/IBinding/base_Property"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/PortRoleSpec">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/PortRoleSpec/role"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_components/IPortSpec">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/IPortSpec/base_Class"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/PortTypeSpec">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/PortTypeSpec/type"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/Connection">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/Connection/base_Property"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/ConnectionLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/ConnectionLink/base_Connector"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/TechnicalPolicy">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/TechnicalPolicy/definition"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/TechnicalPolicy/base_Class"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/TechnicalPolicy/managedPort"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/TechnicalPolicy/managePolicy"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/AtomicComponentImplementation">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/AtomicComponentImplementation/language"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_components/IComponentImplementation"/>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_components/IComponent">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/IComponent/base_Class"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/ComponentType"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/CompositeComponentImplementation"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/AssemblyPart">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/AssemblyPart/base_Property"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="UCMProfile.ecore#//ucm_components/AssemblyPart/Constraint1">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="UCMProfile.ecore#//ucm_components/AssemblyPart/Constraint1/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="UCMProfile.ecore#//ucm_components/AssemblyPart/Constraint1/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/AbstractTypeBinding">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/AbstractTypeBinding/abstractType"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_components/ComponentModule">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_components/ComponentModule/base_Package"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_interactions" basePackage="org.eclipse.papyrus.designer.ucm.profile.UCMProfile"
+        disposableProviderFactory="true" ecorePackage="UCMProfile.ecore#//ucm_interactions">
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="UCMProfile.ecore#//ucm_interactions/PortElementKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_interactions/PortElementKind/PROVIDED"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_interactions/PortElementKind/REQUIRED"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="UCMProfile.ecore#//ucm_interactions/InteractionItemKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_interactions/InteractionItemKind/DATA"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_interactions/InteractionItemKind/INTERFACE"/>
+      </genEnums>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/InteractionDefinitionModule">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/InteractionDefinitionModule/base_Package"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/InteractionPattern"/>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_interactions/IInteractionDefinition">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/IInteractionDefinition/base_Class"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/ConnectorPort">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/ConnectorPort/implements"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/ConnectorPort/base_Property"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/InteractionRole">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/InteractionRole/involvedItem"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/InteractionRole/base_Property"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/PortElement">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMProfile.ecore#//ucm_interactions/PortElement/kind"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/PortElement/base_Property"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/ConnectorDefinition"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/ItemBinding">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/ItemBinding/base_Property"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/ItemBinding/interactionItem"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/PortType"/>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_interactions/IPortType">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/IPortType/base_Class"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/ConnectorPortConfiguration">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/ConnectorPortConfiguration/port"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/ConnectorPortConfiguration/base_Class"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/InteractionItem">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMProfile.ecore#//ucm_interactions/InteractionItem/nature"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/InteractionItem/base_Property"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_contracts" basePackage="org.eclipse.papyrus.designer.ucm.profile.UCMProfile"
+        disposableProviderFactory="true" ecorePackage="UCMProfile.ecore#//ucm_contracts">
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_contracts/AbstractDeclaration"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_contracts/Annotation">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/Annotation/definition"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/Annotation/base_Comment"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_contracts/IConfigured">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/IConfigured/values"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_contracts/AnnotationDefinition">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/AnnotationDefinition/base_Class"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_contracts/ConfigurationParameter"/>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_contracts/IConfigurationParameter">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/IConfigurationParameter/base_Property"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_contracts/ContractModule">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/ContractModule/base_Package"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_contracts/IConfigurationParameterValue">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/IConfigurationParameterValue/base_Slot"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_contracts/ConfigurationParameterValue"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_contracts/AbstractInterface">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/AbstractInterface/base_Interface"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_contracts/AbstractDataType">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/AbstractDataType/base_DataType"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_contracts/Constant">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_contracts/Constant/base_InstanceSpecification"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_contracts/IConfigurable"/>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_technicalpolicies"
+        basePackage="org.eclipse.papyrus.designer.ucm.profile.UCMProfile" disposableProviderFactory="true"
+        ecorePackage="UCMProfile.ecore#//ucm_technicalpolicies">
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalAspectConstraint">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalAspectConstraint/ANY_NUMBER"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalAspectConstraint/AT_MOST_ONE"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalAspectConstraint/EXACTLY_ONE"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalAspectConstraint/AT_LEAST_ONE"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalPolicyApplicability">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalPolicyApplicability/ON_COMPONENT_ONLY"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalPolicyApplicability/ON_SOME_PORTS"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalPolicyApplicability/ON_ALL_PORTS"/>
+      </genEnums>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalAspect">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMProfile.ecore#//ucm_technicalpolicies/TechnicalAspect/multiplicity"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_technicalpolicies/TechnicalAspect/base_Class"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_technicalpolicies/ProgrammingLanguages">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_technicalpolicies/ProgrammingLanguages/base_Package"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_technicalpolicies/ProgrammingLanguages/languages"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_technicalpolicies/Language">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_technicalpolicies/Language/base_Class"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="UCMProfile.ecore#//ucm_technicalpolicies/Language/Constraint1">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="UCMProfile.ecore#//ucm_technicalpolicies/Language/Constraint1/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="UCMProfile.ecore#//ucm_technicalpolicies/Language/Constraint1/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_technicalpolicies/NonfunctionalAspectModule">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_technicalpolicies/NonfunctionalAspectModule/base_Package"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_technicalpolicies/TechnicalPolicyDefinition">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_technicalpolicies/TechnicalPolicyDefinition/base_Class"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMProfile.ecore#//ucm_technicalpolicies/TechnicalPolicyDefinition/applicability"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_commons" basePackage="org.eclipse.papyrus.designer.ucm.profile.UCMProfile"
+        disposableProviderFactory="true" ecorePackage="UCMProfile.ecore#//ucm_commons">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_commons/ApplicationModule">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_commons/ApplicationModule/base_Package"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_commons/PlatformModule">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_commons/PlatformModule/base_Package"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

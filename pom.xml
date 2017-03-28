@@ -20,6 +20,7 @@
 
 	<modules>
 		<module>components</module>
+		<module>ucm</module>
 		<module>languages</module>
 		<module>deployment</module>
 		<module>transformation</module>

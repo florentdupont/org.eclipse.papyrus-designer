@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<extension point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+		<diagramCategory
+			class="org.omg.ucm.tooling.wizards.ui.CreateUCMModelCommand"
+			description="Unified component model diagrams"
+			icon="icons/Category.png"  
+			id="UCM-Application"
+			label="UCM-Application">
+		</diagramCategory>
+	</extension>
+
+	<extension point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+		<diagramCategory
+			class="org.omg.ucm.tooling.wizards.ui.CreateUCMModelCommand"
+			description="Unified component model diagrams"
+			icon="icons/Category.png"  
+			id="UCM-Platform"
+			label="UCM-Platform">
+		</diagramCategory>
+	</extension>
+
+	<extension point="org.eclipse.papyrus.uml.diagram.wizards.templates">
+		<template
+			di_file="resources/templates/ucm-application.di"
+			notation_file="resources/templates/ucm-application.notation"
+			file="resources/templates/ucm-application.uml"
+			id="org.omg.ucm.tooling.wizards.template.application"
+			language="UCM-Application"
+			name="An empty UCM application model">
+      </template>
+   </extension>
+
+	<extension point="org.eclipse.papyrus.uml.diagram.wizards.templates">
+		<template
+			di_file="resources/templates/ucm-platform.di"
+			notation_file="resources/templates/ucm-platform.notation"
+			file="resources/templates/ucm-platform.uml"
+ 			id="org.omg.ucm.tooling.wizards.template.platform"
+			language="UCM-Platform"
+			name="An empty UCM platform model">
+		</template>
+	</extension>
+</plugin>

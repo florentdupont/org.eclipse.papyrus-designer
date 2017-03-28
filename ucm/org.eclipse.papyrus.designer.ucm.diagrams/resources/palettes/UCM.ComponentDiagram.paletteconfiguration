@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ASCII"?>
+<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCM Component" label="UCM Component">
+  <drawerConfigurations id="UCM types" label="types" description="UCM types">
+  
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+    		id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentType"
+    		label="Component type"
+  	  		description="Create a component type">
+			<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/ComponentType.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentType_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentType_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+   			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Port"
+    		label="Port"
+			description="Create a port">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/Port.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.Port_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.Port_Shape_CN"/>
+	</ownedConfigurations>
+    
+  </drawerConfigurations>
+
+  <drawerConfigurations id="UCM implementations" label="implementations" description="UCM implementations">
+
+    <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AtomicComponentImplementation"
+    	label="Atomic component implementation"
+    	description="Create an atomic implementation">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/AtomicComponentImplementation.png"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AtomicComponentImplementation_Shape"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AtomicComponentImplementation_Shape_CN"/>
+    </ownedConfigurations>
+
+    <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.CompositeComponentImplementation"
+    	label="Composite component implementation"
+    	description="Create a composite implementation">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/CompositeComponentImplementation.png"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.CompositeComponentImplementation_Shape"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.CompositeComponentImplementation_Shape_CN"/>
+    </ownedConfigurations>
+
+    <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentTechnicalPolicyImplementation"
+    	label="Component technical policy"
+    	description="Create a technical policy">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/TechnicalPolicy.png"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentTechnicalPolicy_Shape"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentTechnicalPolicy_Shape_CN"/>
+    </ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+		id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentPortTechnicalPolicyImplementation"
+			label="Component port technical policy"
+			description="Create a port technical policy">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/TechnicalPolicy.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentPortTechnicalPolicy_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentPortTechnicalPolicy_Shape_CN"/>
+	</ownedConfigurations>
+    
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AffectPolicy"
+			kind="ConnectionTool"
+			label="Assign policy" description="Assign a policy">
+		<icon pluginID="org.eclipse.papyrus.uml.icons" iconPath="resource/gif/Dependency.gif"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AffectPolicy_Edge"/>
+	</ownedConfigurations>
+  </drawerConfigurations>
+
+  <requiredProfiles>UCMProfile</requiredProfiles>
+</paletteconfiguration:PaletteConfiguration>

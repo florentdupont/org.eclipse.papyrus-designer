@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UCMProfile.ucm_commons="http://www.omg.org/ucm/commons/0.9" xmlns:UCMProfile.ucm_contracts="http://www.omg.org/ucm/contracts/0.9" xmlns:UCMProfile.ucm_interactions="http://www.omg.org/ucm/interactions/0.9" xmlns:UCMProfile.ucm_technicalpolicies="http://www.omg.org/ucm/policies/0.9" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/ucm/commons/0.9 http://www.omg.org/ucm/0.9#//ucm_commons http://www.omg.org/ucm/contracts/0.9 http://www.omg.org/ucm/0.9#//ucm_contracts http://www.omg.org/ucm/interactions/0.9 http://www.omg.org/ucm/0.9#//ucm_interactions http://www.omg.org/ucm/policies/0.9 http://www.omg.org/ucm/0.9#//ucm_technicalpolicies">
+  <uml:Model xmi:id="__N2fwLFYEeaM0KkcZIyGsA" name="ucmstandard">
+    <packagedElement xmi:type="uml:Package" xmi:id="_N8BkYLFZEeaM0KkcZIyGsA" name="interactionsDT">
+      <ownedTemplateSignature xmi:type="uml:TemplateSignature" xmi:id="_IumWkLx4EeaMV-a9X3rlmQ" parameter="_KTmlgLx4EeaMV-a9X3rlmQ">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_KTmlgLx4EeaMV-a9X3rlmQ" parameteredElement="_T6C7ULx4EeaMV-a9X3rlmQ">
+          <ownedParameteredElement xmi:type="uml:DataType" xmi:id="_T6C7ULx4EeaMV-a9X3rlmQ" name="T" templateParameter="_KTmlgLx4EeaMV-a9X3rlmQ"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+      <packagedElement xmi:type="uml:Class" xmi:id="_UpuLcLFZEeaM0KkcZIyGsA" name="PortType1">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_r-3JwLx5EeaMV-a9X3rlmQ" name="pe1" type="_T6C7ULx4EeaMV-a9X3rlmQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_qHi7cLx8EeaMV-a9X3rlmQ" name="pe2" type="_d79vYLx8EeaMV-a9X3rlmQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_iZTlYLJgEeaduvwnGOKNuA" name="ConnectorDef">
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_rGoh4LJgEeaduvwnGOKNuA" name="Port1" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_SlEBMLx_EeaMV-a9X3rlmQ" name="ConnectorPort1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_d79vYLx8EeaMV-a9X3rlmQ" name="IPushAPI">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_i8eb4Lx8EeaMV-a9X3rlmQ" name="push">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_k43QELx8EeaMV-a9X3rlmQ" name="data" type="_T6C7ULx4EeaMV-a9X3rlmQ"/>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_F3mq0LIxEeaNi6dQbArxCg" name="TechnicalPolicyDefinition1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_KfQycLIxEeaNi6dQbArxCg" name="TechnicalPolicyDefinition2"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_WhZ_ILx4EeaMV-a9X3rlmQ" name="interactionsIntf">
+      <ownedTemplateSignature xmi:type="uml:TemplateSignature" xmi:id="_gZUfcLx4EeaMV-a9X3rlmQ" parameter="_iOXVgLx4EeaMV-a9X3rlmQ _ofjmwLx4EeaMV-a9X3rlmQ">
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_iOXVgLx4EeaMV-a9X3rlmQ" parameteredElement="_l46UoLx4EeaMV-a9X3rlmQ">
+          <ownedParameteredElement xmi:type="uml:Interface" xmi:id="_l46UoLx4EeaMV-a9X3rlmQ" name="I1" templateParameter="_iOXVgLx4EeaMV-a9X3rlmQ"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_ofjmwLx4EeaMV-a9X3rlmQ" parameteredElement="_slvZALx4EeaMV-a9X3rlmQ">
+          <ownedParameteredElement xmi:type="uml:Interface" xmi:id="_slvZALx4EeaMV-a9X3rlmQ" name="I2" templateParameter="_ofjmwLx4EeaMV-a9X3rlmQ"/>
+        </ownedParameter>
+      </ownedTemplateSignature>
+      <packagedElement xmi:type="uml:Class" xmi:id="_d40_ULFZEeaM0KkcZIyGsA" name="PortType2">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_XJIwsLx8EeaMV-a9X3rlmQ" name="pe1" visibility="public" type="_l46UoLx4EeaMV-a9X3rlmQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_evlvQLx9EeaMV-a9X3rlmQ" name="pe2" visibility="public" type="_slvZALx4EeaMV-a9X3rlmQ"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_EzPa8LFZEeaM0KkcZIyGsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cnh0ALJgEeaduvwnGOKNuA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cnh0AbJgEeaduvwnGOKNuA" key="Version" value="0.0.2"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cnh0ArJgEeaduvwnGOKNuA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cnh0A7JgEeaduvwnGOKNuA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cnh0BLJgEeaduvwnGOKNuA" key="Date" value="2016-10-10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cnh0BbJgEeaduvwnGOKNuA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EzSeQLFZEeaM0KkcZIyGsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_rZqWgNvTEeWGg4v4Bs5PXQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_EzWIoLFZEeaM0KkcZIyGsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EzWIobFZEeaM0KkcZIyGsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_components"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_thtBENvTEeWGg4v4Bs5PXQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_EzWvsLFZEeaM0KkcZIyGsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EzXWwLFZEeaM0KkcZIyGsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_interactions"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_7zDYENvZEeWGg4v4Bs5PXQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_EzZL8LFZEeaM0KkcZIyGsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EzZzALFZEeaM0KkcZIyGsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_technicalpolicies"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_dEIhwNvbEeWGg4v4Bs5PXQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_EzaaELFZEeaM0KkcZIyGsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EzbBILFZEeaM0KkcZIyGsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_contracts"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_Ses3UNvfEeWGg4v4Bs5PXQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_EzboMLFZEeaM0KkcZIyGsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EzboMbFZEeaM0KkcZIyGsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_commons"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_m3TlgI-UEeaJw_-5rf6q3Q"/>
+    </profileApplication>
+  </uml:Model>
+  <UCMProfile.ucm_interactions:PortType xmi:id="_nuqxILFbEeaeULFZDMAOLQ" base_Class="_UpuLcLFZEeaM0KkcZIyGsA"/>
+  <UCMProfile.ucm_interactions:PortType xmi:id="_o0iNALFbEeaeULFZDMAOLQ" base_Class="_d40_ULFZEeaM0KkcZIyGsA"/>
+  <UCMProfile.ucm_interactions:InteractionDefinitionModule xmi:id="_tFdPoLFbEeaeULFZDMAOLQ" base_Package="_N8BkYLFZEeaM0KkcZIyGsA"/>
+  <UCMProfile.ucm_commons:PlatformModule xmi:id="_wJjSwLFbEeaeULFZDMAOLQ" base_Package="__N2fwLFYEeaM0KkcZIyGsA"/>
+  <UCMProfile.ucm_technicalpolicies:TechnicalPolicyDefinition xmi:id="_IMJgULIxEeaNi6dQbArxCg" base_Class="_F3mq0LIxEeaNi6dQbArxCg"/>
+  <UCMProfile.ucm_technicalpolicies:TechnicalPolicyDefinition xmi:id="_KfSnoLIxEeaNi6dQbArxCg" base_Class="_KfQycLIxEeaNi6dQbArxCg"/>
+  <UCMProfile.ucm_interactions:ConnectorDefinition xmi:id="_lUpVILJgEeaduvwnGOKNuA" base_Class="_iZTlYLJgEeaduvwnGOKNuA"/>
+  <UCMProfile.ucm_interactions:ConnectorPort xmi:id="_wvoKsLJgEeaduvwnGOKNuA" base_Property="_rGoh4LJgEeaduvwnGOKNuA"/>
+  <UCMProfile.ucm_interactions:InteractionDefinitionModule xmi:id="_YFVQALx4EeaMV-a9X3rlmQ" base_Package="_WhZ_ILx4EeaMV-a9X3rlmQ"/>
+  <UCMProfile.ucm_interactions:PortElement xmi:id="_u3zlcLx8EeaMV-a9X3rlmQ" base_Property="_qHi7cLx8EeaMV-a9X3rlmQ"/>
+  <UCMProfile.ucm_interactions:PortElement xmi:id="_vw3UYLx8EeaMV-a9X3rlmQ" kind="REQUIRED" base_Property="_r-3JwLx5EeaMV-a9X3rlmQ"/>
+  <UCMProfile.ucm_interactions:PortElement xmi:id="_ltJ-ULx9EeaMV-a9X3rlmQ" base_Property="_XJIwsLx8EeaMV-a9X3rlmQ"/>
+  <UCMProfile.ucm_interactions:PortElement xmi:id="_m5vGMLx9EeaMV-a9X3rlmQ" base_Property="_evlvQLx9EeaMV-a9X3rlmQ"/>
+  <UCMProfile.ucm_interactions:ConnectorPort xmi:id="_SlHEgLx_EeaMV-a9X3rlmQ" base_Property="_SlEBMLx_EeaMV-a9X3rlmQ"/>
+  <UCMProfile.ucm_contracts:AbstractDataType xmi:id="_9UfzULyOEeaMV-a9X3rlmQ" base_DataType="_T6C7ULx4EeaMV-a9X3rlmQ"/>
+  <UCMProfile.ucm_contracts:AbstractInterface xmi:id="_-z0RALyOEeaMV-a9X3rlmQ" base_Interface="_l46UoLx4EeaMV-a9X3rlmQ"/>
+  <UCMProfile.ucm_contracts:AbstractInterface xmi:id="__8YbkLyOEeaMV-a9X3rlmQ" base_Interface="_slvZALx4EeaMV-a9X3rlmQ"/>
+</xmi:XMI>

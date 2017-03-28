@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="ASCII"?>
+<elementtypesconfigurations:ElementTypeSetConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elementtypesconfigurations="http://www.eclipse.org/papyrus/infra/elementtypesconfigurations/1.1" xmi:id="_sHw4IMQMEeS2vZeHP4gaVg" description="UCM UI" identifier="org.eclipse.papyrus.designer.ucm.diagrams.ui.elementTypes" name="UCM UI diagram" metamodelNsURI="http://www.eclipse.org/uml2/5.0.0/UML">
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_sHyGQcQMEeS2vZeHP4gaVg" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentType_Shape" name="Component type" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentType</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_65DxMLCREeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentType_Shape_CN" name="Component type CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentType</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_5xE_oKaEEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AtomicComponentImplementation_Shape" name="Atomic component implementation" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AtomicComponentImplementation</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_81fBoLCREeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AtomicComponentImplementation_Shape_CN" name="Atomic component implementation CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AtomicComponentImplementation</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_6AulMKaEEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.CompositeComponentImplementation_Shape" name="Composite component implementation" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.CompositeComponentImplementation</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_AwHrMLCSEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.CompositeComponentImplementation_Shape_CN" name="Composite component implementation CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.CompositeComponentImplementation</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_J3kKIKbJEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ApplicationModule_Shape" name="Application module" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ApplicationModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_DvsasLCSEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ApplicationModule_Shape_CN" name="Application module CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ApplicationModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_YY6TsKbJEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentModule_Shape" name="Component module" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_w83-cLCdEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentModule_Shape_CN" name="Component module CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_YjiPUKbJEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ContractModule_Shape" name="Contract module" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ContractModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_53B-YLCPEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ContractModule_Shape_CN" name="Contract module CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ContractModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_Yr_AsKbJEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.PlatformModule_Shape" name="Platform module" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.PlatformModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_0DPScLCdEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.PlatformModule_Shape_CN" name="Platform module CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.PlatformModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_37VpUMJMEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.NonFunctionalAspectsModule_Shape" name="Non-functional aspects module" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.NonFunctionalAspectsModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_F3pMIMJNEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.NonFunctionalAspectsModule_Shape_CN" name="Non-functional aspects module CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.NonFunctionalAspectsModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_hte_EMKkEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.InteractionDefinitionModule_Shape" name="Interaction definition module" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.InteractionDefinitionModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_ps-lMMKkEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.InteractionDefinitionModule_Shape_CN" name="Interaction definition module CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.InteractionDefinitionModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_RGdw0MJUEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.EnvironmentModule_Shape" name="Environment module" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.EnvironmentModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_d9gUsMJUEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.EnvironmentModule_Shape_CN" name="Environment module CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.EnvironmentModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_hXMCIMKoEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.DeploymentModule_Shape" name="Deployment module" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.DeploymentModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_nJh0MMKoEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.DeploymentModule_Shape_CN" name="Deployment module CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.DeploymentModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_EctdkMKtEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ResourceDefinitionModule_Shape" name="Resource definition module" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ResourceDefinitionModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_LXdCIMKtEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ResourceDefinitionModule_Shape_CN" name="Resource definition module CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ResourceDefinitionModule</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_vc6z8KuBEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentTechnicalPolicy_Shape" name="Component technical policy" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentTechnicalPolicy</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_5aqDELCdEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentTechnicalPolicy_Shape_CN" name="Component technical policy CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentTechnicalPolicy</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_BtIb8KuCEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentPortTechnicalPolicy_Shape" name="Component port technical policy" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentPortTechnicalPolicy</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_93KDkLCdEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentPortTechnicalPolicy_Shape_CN" name="Component port technical policy CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentPortTechnicalPolicy</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_LLLuIKbJEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Port_Shape" name="Port" hint="Port_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.Port</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Port_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_CmIUILCeEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Port_Shape_CN" name="Port CN" hint="Port_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.Port</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Port_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_30LCIK2XEea8u6I-XjDezQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Connection_Shape" name="Connection" hint="Property_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.Connection</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Property_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_ENM_oLCeEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Connection_Shape_CN" name="Connection CN" hint="Property_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.Connection</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Property_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_mDJQgK2XEea8u6I-XjDezQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ConnectionLink_Edge" name="Connection Link" hint="Connector_Edge">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ConnectionLink</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Connector_Edge</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_Y_8nwLvAEeagON7A6uz3tw" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Delegation_Edge" name="Delegation" hint="Connector_Edge">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.Delegation</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Connector_Edge</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_B72OAK2eEea8u6I-XjDezQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AssemblyPart_Shape" name="Assembly part" hint="Property_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AssemblyPart</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Property_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_NZNcMLCeEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AssemblyPart_Shape_CN" name="Assembly part CN" hint="Property_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AssemblyPart</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Property_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_a3_SkK_7EeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AffectPolicy_Edge" name="Assign policy" hint="Dependency_Edge">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AffectPolicy</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Dependency_Edge</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_z9OjkMEQEeaLpumP_4vuow" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AffectPolicyDef_Edge" name="Assign policy definition" hint="Realization_Edge">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AffectPolicyDef</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Realization_Edge</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_EbzQgLsLEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ConnectorDefinition_Shape" name="Connector definition" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ConnectorDefinition</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_NPPcELsLEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ConnectorDefinition_Shape_CN" name="Connector definition CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ConnectorDefinition</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_IC6agMCEEeaLpumP_4vuow" identifier="org.eclipse.papyrus.ucm.diagrams.ui.InteractionPattern_Shape" name="Interaction pattern" hint="Collaboration_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.InteractionPattern</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Collaboration_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_I5oAEMCEEeaLpumP_4vuow" identifier="org.eclipse.papyrus.ucm.diagrams.ui.InteractionPattern_Shape_CN" name="Interaction pattern CN" hint="Collaboration_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.InteractionPattern</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Collaboration_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_VPG1oLsLEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ConnectorPort_CA_Label" name="Connector port CA label" hint="Property_ClassAttributeLabel">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ConnectorPort</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Property_ClassAttributeLabel</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_hNvK0LsLEeaKr_s25plyiQ" description="" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ConnectorPort_Shape" name="Connector port" hint="Property_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ConnectorPort</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Property_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_RNyUQLsWEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.PortType_Shape" name="Port type" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.PortType</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_eS37MLsWEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.PortType_Shape_CN" name="Port type CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.PortType</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_IYw-4LsXEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.PortElement_CA_Label" name="Port element CA label" hint="Property_ClassAttributeLabel">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.PortElement</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Property_ClassAttributeLabel</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_V_RQ0LsXEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.PortElement_Shape" name="Port element CN" hint="Property_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.PortElement</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Property_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_X-IUwLsYEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalPolicyDefinition_Shape" name="Technical policy definition" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.TechnicalPolicyDefinition</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_kY7okLsYEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalPolicyDefinition_Shape_CN" name="Technical policy definition CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.TechnicalPolicyDefinition</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_uZd5YLsYEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalAspect_Shape" name="Technical aspect" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.TechnicalAspect</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_6uQr0LsYEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalAspect_Shape_CN" name="Technical aspect CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.TechnicalAspect</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_Au6msLsZEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ProgrammingLanguages_Shape" name="Programming languages" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ProgrammingLanguages</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_Gsk38LsZEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ProgrammingLanguages_Shape_CN" name="Programming languages CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ProgrammingLanguages</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_S5mJALvKEeagON7A6uz3tw" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AllocationPlan_Shape" name="Allocation plan" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AllocationPlan</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_b9hAkLvKEeagON7A6uz3tw" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AllocationPlan_Shape_CN" name="Allocation plan CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AllocationPlan</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_hPIEILvKEeagON7A6uz3tw" identifier="org.eclipse.papyrus.ucm.diagrams.ui.TestCaseGroup_Shape" name="Test case group" hint="Package_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.TestCaseGroup</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_oxPKsLvKEeagON7A6uz3tw" identifier="org.eclipse.papyrus.ucm.diagrams.ui.TestCaseGroup_Shape_CN" name="Test case group CN" hint="Package_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.TestCaseGroup</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_uhSdwLvKEeagON7A6uz3tw" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AppAssembly_Shape" name="Application assembly" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AppAssembly</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_01lGULvKEeagON7A6uz3tw" identifier="org.eclipse.papyrus.ucm.diagrams.ui.AppAssembly_Shape_CN" name="Application assembly CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.AppAssembly</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_TAsnoMCNEeaLpumP_4vuow" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Language_Shape" name="Language" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.Language</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_mdbGEMCNEeaLpumP_4vuow" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Language_Shape_CN" name="Language CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.Language</specializedTypesID>
+    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
+  </elementTypeConfigurations>
+</elementtypesconfigurations:ElementTypeSetConfiguration>

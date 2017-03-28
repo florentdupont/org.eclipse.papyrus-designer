@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ASCII"?>
+<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCMModule" label="UCM Module">
+  
+  <drawerConfigurations id="UCM packages" label="Modules" description="UCM modules">
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ApplicationModule"
+			label="Application module"
+			description="Create an application module">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/ApplicationModule.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ApplicationModule_Shape"/>
+    	<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ApplicationModule_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentModule"
+			label="Component module"
+			description="Create a component module">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/ComponentModule.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentModule_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentModule_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ContractModule"
+ 			label="Contract module"
+			description="Create a contract module">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/ContractModule.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ContractModule_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ContractModule_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.PlatformModule"
+			label="Platform module"
+			description="Create a platform module">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/PlatformModule.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.PlatformModule_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.PlatformModule_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AllocationPlan"
+			label="Allocation Plan"
+			description="Create an allocation plan">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/AllocationPlan.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AllocationPlan_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AllocationPlan_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.NonFunctionalAspectsModule"
+			label="Non-functional aspects"
+			description="Create a non-functional aspects module">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/PolicyModule.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.NonFunctionalAspectsModule_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.NonFunctionalAspectsModule_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.EnvironmentModule"
+			label="Environment module"
+			description="Create an environment module">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/EnvironmentModule.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.EnvironmentModule_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.EnvironmentModule_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ResourceDefinitionModule"
+			label="Resource definition module"
+			description="Create a resource definition module">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/ResourceModule.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ResourceDefinitionModule_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ResourceDefinitionModule_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.InteractionDefinitionModule"
+			label="Interaction definition module"
+			description="Create an interaction definition module">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/InteractionModule.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.InteractionDefinitionModule_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.InteractionDefinitionModule_Shape_CN"/>
+	</ownedConfigurations>
+
+     <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.TestCaseGroup"
+    	label="Test case group"
+    	description="Create a test case group">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/TestCaseGroup.png"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TestCaseGroup_Shape"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TestCaseGroup_Shape_CN"/>
+	</ownedConfigurations>
+	
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.DeploymentModule"
+    	label="Deployment module"
+    	description="Create a deployment module">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/DeploymentModule.png"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.DeploymentModule_Shape"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.DeploymentModule_Shape_CN"/>
+	</ownedConfigurations>
+
+  </drawerConfigurations>
+
+  <requiredProfiles>UCMProfile</requiredProfiles>
+</paletteconfiguration:PaletteConfiguration>

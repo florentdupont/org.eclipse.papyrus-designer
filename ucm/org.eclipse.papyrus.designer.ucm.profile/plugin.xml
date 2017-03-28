@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm -->
+      <package
+            uri="http://www.omg.org/ucm/0.9"
+            class="org.eclipse.papyrus.designer.ucm.profile.UCMProfile.UCMProfilePackage"
+            genModel="resources/ucm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm -->
+      <package
+            uri="http://www.omg.org/ucm/components/0.9"
+            class="org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_components.Ucm_componentsPackage"
+            genModel="resources/ucm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm -->
+      <package
+            uri="http://www.omg.org/ucm/interactions/0.9"
+            class="org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.Ucm_interactionsPackage"
+            genModel="resources/ucm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm -->
+      <package
+            uri="http://www.omg.org/ucm/contracts/0.9"
+            class="org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_contracts.Ucm_contractsPackage"
+            genModel="resources/ucm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm -->
+      <package
+            uri="http://www.omg.org/ucm/policies/0.9"
+            class="org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_technicalpolicies.Ucm_technicalpoliciesPackage"
+            genModel="resources/ucm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm -->
+      <package
+            uri="http://www.omg.org/ucm/commons/0.9"
+            class="org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_commons.Ucm_commonsPackage"
+            genModel="resources/ucm.genmodel"/>
+   </extension>
+
+	<extension point="org.eclipse.emf.ecore.uri_mapping">
+		<mapping
+			source="pathmap://UCM_PROFILE/"
+			target="platform:/plugin/org.eclipse.papyrus.designer.ucm.profile/resources/"/>
+	</extension>
+
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+			uri="http://www.omg.org/ucm/0.9"
+			location="pathmap://UCM_PROFILE/ucm.profile.uml#_rZqWgNvTEeWGg4v4Bs5PXQ"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+			uri="http://www.omg.org/ucm/components/0.9"
+			location="pathmap://UCM_PROFILE/ucm.profile.uml#_thtBENvTEeWGg4v4Bs5PXQ"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.omg.org/ucm/interactions/0.9"
+			location="pathmap://UCM_PROFILE/ucm.profile.uml#_7zDYENvZEeWGg4v4Bs5PXQ"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+			uri="http://www.omg.org/ucm/contracts/0.9"
+			location="pathmap://UCM_PROFILE/ucm.profile.uml#_Ses3UNvfEeWGg4v4Bs5PXQ"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+			uri="http://www.omg.org/ucm/policies/0.9"
+			location="pathmap://UCM_PROFILE/ucm.profile.uml#_dEIhwNvbEeWGg4v4Bs5PXQ"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+			uri="http://www.omg.org/ucm/commons/0.9"
+			location="pathmap://UCM_PROFILE/ucm.profile.uml#_m3TlgI-UEeaJw_-5rf6q3Q"/>
+	</extension>
+</plugin>

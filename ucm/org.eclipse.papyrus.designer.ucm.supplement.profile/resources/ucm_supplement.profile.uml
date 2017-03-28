@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2__qUIViEeaHtaLPHUIwTg" name="UCM_Supplement" URI="http://www.omg.org/ucm/supplement/0.9">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qDOcEIxsEeabN8K3VNrupg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_m6GQgI70EeauP5fdgllOfw">
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_rZqWgNvTEeWGg4v4Bs5PXQ"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_m6G3kI70EeauP5fdgllOfw">
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_thtBENvTEeWGg4v4Bs5PXQ"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_m6HeoI70EeauP5fdgllOfw">
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_7zDYENvZEeWGg4v4Bs5PXQ"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_m6HeoY70EeauP5fdgllOfw">
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_dEIhwNvbEeWGg4v4Bs5PXQ"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_m6IFsI70EeauP5fdgllOfw">
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_Ses3UNvfEeWGg4v4Bs5PXQ"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_8z-MoAsQEee54Zc7XcY5ag">
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UCM_TYPES_PROFILE/ucm_types.profile.uml#_dZKm0BBCEeadyesW8v6O0Q"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_VBRFkIVjEeaHtaLPHUIwTg" name="ucm_deployment" URI="http://www.omg.org/ucm/deployment/0.9" metaclassReference="_XezPYLJPEeaduvwnGOKNuA _g6S5cLJPEeaduvwnGOKNuA">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_VBRFkYVjEeaHtaLPHUIwTg" annotatedElement="_VBRFk4VjEeaHtaLPHUIwTg">
+      <body>An AppAssembly contains parts that reference IComponent and Connection. It has no port.</body>
+    </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_VBRFkoVjEeaHtaLPHUIwTg" annotatedElement="_VBRFlYVjEeaHtaLPHUIwTg">
+      <body>A DeploymentModule contains a unique AppAssembly</body>
+    </ownedComment>
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_XezPYLJPEeaduvwnGOKNuA" alias="Class">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </elementImport>
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_g6S5cLJPEeaduvwnGOKNuA" alias="Package">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_VBRFk4VjEeaHtaLPHUIwTg" name="AppAssembly">
+      <generalization xmi:type="uml:Generalization" xmi:id="_VBRFlIVjEeaHtaLPHUIwTg">
+        <general xmi:type="uml:Stereotype" href="../org.omg.ucm.uml.profile/ucm.profile.uml#_5J610NvdEeWGg4v4Bs5PXQ"/>
+      </generalization>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_YdSQ4LJPEeaduvwnGOKNuA" name="base_Class" association="_YclGQLJPEeaduvwnGOKNuA">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      </ownedAttribute>
+      <icon xmi:type="uml:Image" xmi:id="_YDv-UA5LEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.supplement.profile/resources/icons/ext_ucm/AppAssembly.png">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YDv-UQ5LEeeiFbRAhY23pA" source="image_papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YDv-Ug5LEeeiFbRAhY23pA" key="image_kind_key" value="icon"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YDv-Uw5LEeeiFbRAhY23pA" key="image_name_key" value="app_assembly"/>
+        </eAnnotations>
+      </icon>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_VBRFlYVjEeaHtaLPHUIwTg" name="DeploymentModule">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VBRFl4VjEeaHtaLPHUIwTg" name="programmingLanguages" aggregation="composite">
+        <type xmi:type="uml:Stereotype" href="pathmap://UCM_PROFILE/ucm.profile.uml#_dJcRMPvoEeWuGcYx5zIFOg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bItgIcLIEeaAPfL_pSbQfQ" name="base_Package" association="_bIrD4MLIEeaAPfL_pSbQfQ">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+      </ownedAttribute>
+      <icon xmi:type="uml:Image" xmi:id="_MoCI8A5LEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.supplement.profile/resources/icons/ext_ucm/DeploymentModule.png">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MoCI8Q5LEeeiFbRAhY23pA" source="image_papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MoCI8g5LEeeiFbRAhY23pA" key="image_kind_key" value="icon"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MoCI8w5LEeeiFbRAhY23pA" key="image_name_key" value="deployment_module"/>
+        </eAnnotations>
+      </icon>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_YclGQLJPEeaduvwnGOKNuA" name="E_AppAssembly_Class1" memberEnd="_YdRp0LJPEeaduvwnGOKNuA _YdSQ4LJPEeaduvwnGOKNuA">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_YdRp0LJPEeaduvwnGOKNuA" name="extension_AppAssembly" type="_VBRFk4VjEeaHtaLPHUIwTg" aggregation="composite" association="_YclGQLJPEeaduvwnGOKNuA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_lRwB4LJPEeaduvwnGOKNuA" name="AllocationPlan">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_nkjyAbJPEeaduvwnGOKNuA" name="base_Package" association="_nkjK8LJPEeaduvwnGOKNuA">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+      </ownedAttribute>
+      <icon xmi:type="uml:Image" xmi:id="_Sf7wcA5LEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.supplement.profile/resources/icons/ext_ucm/AllocationPlan.png">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Sf7wcQ5LEeeiFbRAhY23pA" source="image_papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Sf7wcg5LEeeiFbRAhY23pA" key="image_kind_key" value="icon"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Sf7wcw5LEeeiFbRAhY23pA" key="image_name_key" value="allocation_plan"/>
+        </eAnnotations>
+      </icon>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_nkjK8LJPEeaduvwnGOKNuA" name="E_AllocationPlan_Package1" memberEnd="_nkjyALJPEeaduvwnGOKNuA _nkjyAbJPEeaduvwnGOKNuA">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_nkjyALJPEeaduvwnGOKNuA" name="extension_AllocationPlan" type="_lRwB4LJPEeaduvwnGOKNuA" aggregation="composite" association="_nkjK8LJPEeaduvwnGOKNuA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_bIrD4MLIEeaAPfL_pSbQfQ" name="E_DeploymentModule_Package1" memberEnd="_bItgIMLIEeaAPfL_pSbQfQ _bItgIcLIEeaAPfL_pSbQfQ">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_bItgIMLIEeaAPfL_pSbQfQ" name="extension_DeploymentModule" type="_VBRFlYVjEeaHtaLPHUIwTg" aggregation="composite" association="_bIrD4MLIEeaAPfL_pSbQfQ"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_VBXMMIVjEeaHtaLPHUIwTg" name="ucm_detailed_components" URI="http://www.omg.org/ucm/detailedcomp/0.9">
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_VBXMMYVjEeaHtaLPHUIwTg" name="DetailedComponentImplementation">
+      <generalization xmi:type="uml:Generalization" xmi:id="_FX7woLJPEeaduvwnGOKNuA">
+        <general xmi:type="uml:Stereotype" href="pathmap://UCM_PROFILE/ucm.profile.uml#_JHqMQNvbEeWGg4v4Bs5PXQ"/>
+      </generalization>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VBXMM4VjEeaHtaLPHUIwTg" name="portImplementation" type="_VBXMPIVjEeaHtaLPHUIwTg" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VBXMNIVjEeaHtaLPHUIwTg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VBXMNYVjEeaHtaLPHUIwTg" value="*"/>
+      </ownedAttribute>
+      <icon xmi:type="uml:Image" xmi:id="_d8WJYA5LEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.supplement.profile/resources/icons/ext_ucm/DetailedComponentImplementation.png">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_d8WJYQ5LEeeiFbRAhY23pA" source="image_papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_d8WJYg5LEeeiFbRAhY23pA" key="image_kind_key" value="icon"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_d8WJYw5LEeeiFbRAhY23pA" key="image_name_key" value="detailed_component_implementation"/>
+        </eAnnotations>
+      </icon>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_VBXMNoVjEeaHtaLPHUIwTg" name="ComponentPortImplementation">
+      <generalization xmi:type="uml:Generalization" xmi:id="_VBXMN4VjEeaHtaLPHUIwTg" general="_VBXMPIVjEeaHtaLPHUIwTg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VBXMOIVjEeaHtaLPHUIwTg" name="port">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Port"/>
+      </ownedAttribute>
+      <icon xmi:type="uml:Image" xmi:id="_kDZnMA5LEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.supplement.profile/resources/icons/ext_ucm/PortImplementation.png">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kDZnMQ5LEeeiFbRAhY23pA" source="image_papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kDZnMg5LEeeiFbRAhY23pA" key="image_kind_key" value="icon"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kDZnMw5LEeeiFbRAhY23pA" key="image_name_key" value="port_implementation"/>
+        </eAnnotations>
+      </icon>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_VBXMOYVjEeaHtaLPHUIwTg" name="TechnicalPortImplementation">
+      <generalization xmi:type="uml:Generalization" xmi:id="_VBXMOoVjEeaHtaLPHUIwTg" general="_VBXMPIVjEeaHtaLPHUIwTg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VBXMO4VjEeaHtaLPHUIwTg" name="policy">
+        <type xmi:type="uml:Stereotype" href="pathmap://UCM_PROFILE/ucm.profile.uml#_K9i6YNvcEeWGg4v4Bs5PXQ"/>
+      </ownedAttribute>
+      <icon xmi:type="uml:Image" xmi:id="_oxzQAA5LEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.supplement.profile/resources/icons/ext_ucm/PortImplementation.png">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oxzQAQ5LEeeiFbRAhY23pA" source="image_papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oxzQAg5LEeeiFbRAhY23pA" key="image_kind_key" value="icon"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oxzQAw5LEeeiFbRAhY23pA" key="image_name_key" value="port_implementation"/>
+        </eAnnotations>
+      </icon>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_VBXMPIVjEeaHtaLPHUIwTg" name="IPortElementImplementation" isAbstract="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VBXMPYVjEeaHtaLPHUIwTg" name="portElement">
+        <type xmi:type="uml:Stereotype" href="pathmap://UCM_PROFILE/ucm.profile.uml#_EjWE0NvhEeWGg4v4Bs5PXQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VBXMPoVjEeaHtaLPHUIwTg" name="base_Class" association="_VBXMP4VjEeaHtaLPHUIwTg">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_VBXMP4VjEeaHtaLPHUIwTg" name="E_IPortElementImplementation_Class1" memberEnd="_VBXMQIVjEeaHtaLPHUIwTg _VBXMPoVjEeaHtaLPHUIwTg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_VBXMQIVjEeaHtaLPHUIwTg" name="extension_IPortElementImplementation" type="_VBXMPIVjEeaHtaLPHUIwTg" aggregation="composite" association="_VBXMP4VjEeaHtaLPHUIwTg"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_VBdS0IVjEeaHtaLPHUIwTg" name="ucm_environment" URI="http://www.omg.org/ucm/environment/0.9">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_VBdS0YVjEeaHtaLPHUIwTg" annotatedElement="_VBdS04VjEeaHtaLPHUIwTg">
+      <body>EnvironmentModule packages contain instances of environment resources</body>
+    </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_VBdS0oVjEeaHtaLPHUIwTg" annotatedElement="_VBdS1YVjEeaHtaLPHUIwTg">
+      <body>ResourceDefinitionModule packages contain classes with MARTE GRM stereotypes</body>
+    </ownedComment>
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_D9rbYMKxEeaRmo7JWVzOhw" alias="Package">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_VBdS04VjEeaHtaLPHUIwTg" name="EnvironmentModule">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GznGsMKxEeaRmo7JWVzOhw" name="base_Package" association="_GzkDYMKxEeaRmo7JWVzOhw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+      </ownedAttribute>
+      <icon xmi:type="uml:Image" xmi:id="_eNG44BYEEeejmPlb4BoLmw" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.supplement.profile/resources/icons/ext_ucm/EnvironmentModule.png">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_eNG44RYEEeejmPlb4BoLmw" source="image_papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_eNG44hYEEeejmPlb4BoLmw" key="image_kind_key" value="icon"/>
+        </eAnnotations>
+      </icon>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_VBdS1YVjEeaHtaLPHUIwTg" name="ResourceDefinitionModule">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Hfbq4MKxEeaRmo7JWVzOhw" name="base_Package" association="_HfbD0MKxEeaRmo7JWVzOhw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+      </ownedAttribute>
+      <icon xmi:type="uml:Image" xmi:id="_hapy8BYEEeejmPlb4BoLmw" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.supplement.profile/resources/icons/ext_ucm/ResourceModule.png">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hapy8RYEEeejmPlb4BoLmw" source="image_papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hapy8hYEEeejmPlb4BoLmw" key="image_kind_key" value="icon"/>
+        </eAnnotations>
+      </icon>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_GzkDYMKxEeaRmo7JWVzOhw" name="E_EnvironmentModule_Package1" memberEnd="_GzmfoMKxEeaRmo7JWVzOhw _GznGsMKxEeaRmo7JWVzOhw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_GzmfoMKxEeaRmo7JWVzOhw" name="extension_EnvironmentModule" type="_VBdS04VjEeaHtaLPHUIwTg" aggregation="composite" association="_GzkDYMKxEeaRmo7JWVzOhw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_HfbD0MKxEeaRmo7JWVzOhw" name="E_ResourceDefinitionModule_Package1" memberEnd="_HfbD0cKxEeaRmo7JWVzOhw _Hfbq4MKxEeaRmo7JWVzOhw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_HfbD0cKxEeaRmo7JWVzOhw" name="extension_ResourceDefinitionModule" type="_VBdS1YVjEeaHtaLPHUIwTg" aggregation="composite" association="_HfbD0MKxEeaRmo7JWVzOhw"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_U-wtUI7pEeaNGo1LsQhqXQ" name="dummy" visibility="private"/>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_zpEswLJPEeaduvwnGOKNuA" name="ucm_test_cases" URI="http://www.omg.org/ucm/testcases/0.9" metaclassReference="_8tYl4LJPEeaduvwnGOKNuA">
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_8tYl4LJPEeaduvwnGOKNuA" alias="Package">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_5QN7cLJPEeaduvwnGOKNuA" name="TestCaseGroup">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9h-EgLJPEeaduvwnGOKNuA" name="base_Package" association="_9h9dcLJPEeaduvwnGOKNuA">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_9h9dcLJPEeaduvwnGOKNuA" name="E_Stereotype1_Package1" memberEnd="_9h9dcbJPEeaduvwnGOKNuA _9h-EgLJPEeaduvwnGOKNuA">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_9h9dcbJPEeaduvwnGOKNuA" name="extension_Stereotype1" type="_5QN7cLJPEeaduvwnGOKNuA" aggregation="composite" association="_9h9dcLJPEeaduvwnGOKNuA"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_0TpKUAsQEee54Zc7XcY5ag" name="ucm_extra_types" URI="http://www.omg.org/ucm/extratypes/0.9">
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_Be_xUAsREee54Zc7XcY5ag" name="DataPointer">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Dcq-8AsREee54Zc7XcY5ag">
+        <general xmi:type="uml:Stereotype" href="pathmap://UCM_TYPES_PROFILE/ucm_types.profile.uml#_kGvagBHhEeaE7cO7tIoQcw"/>
+      </generalization>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GCPTAAsREee54Zc7XcY5ag" name="type" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#DataType"/>
+      </ownedAttribute>
+    </packagedElement>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hvx9MI7zEeauP5fdgllOfw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hvzyYI7zEeauP5fdgllOfw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+  </profileApplication>
+</uml:Profile>

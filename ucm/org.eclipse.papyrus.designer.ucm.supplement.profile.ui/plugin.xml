@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+     
+	<extension point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+		<profile
+			description="UCM profile"
+			iconpath="platform:/plugin/org.eclipse.papyrus.designer.ucm.profile.ui/icons/ucm.gif"
+			name="UCM profile (supplement)"
+			path="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml"
+			provider="Thales / CEA LIST"/>
+	</extension>
+
+</plugin>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm_supplement.profile -->
+      <package
+            uri="http://www.omg.org/ucm/supplement/0.9"
+            class="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement.UCM_SupplementPackage"
+            genModel="resources/ucm_supplement.profile.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm_supplement.profile -->
+      <package
+            uri="http://www.omg.org/ucm/deployment/0.9"
+            class="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement.ucm_deployment.Ucm_deploymentPackage"
+            genModel="resources/ucm_supplement.profile.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm_supplement.profile -->
+      <package
+            uri="http://www.omg.org/ucm/detailedcomp/0.9"
+            class="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement.ucm_detailed_components.Ucm_detailed_componentsPackage"
+            genModel="resources/ucm_supplement.profile.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm_supplement.profile -->
+      <package
+            uri="http://www.omg.org/ucm/environment/0.9"
+            class="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement.ucm_environment.Ucm_environmentPackage"
+            genModel="resources/ucm_supplement.profile.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm_supplement.profile -->
+      <package
+            uri="http://www.omg.org/ucm/testcases/0.9"
+            class="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement.ucm_test_cases.Ucm_test_casesPackage"
+            genModel="resources/ucm_supplement.profile.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm_supplement.profile -->
+      <package
+            uri="http://www.omg.org/ucm/extratypes/0.9"
+            class="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement.ucm_extra_types.Ucm_extra_typesPackage"
+            genModel="resources/ucm_supplement.profile.genmodel"/>
+   </extension>
+
+	<extension point="org.eclipse.emf.ecore.uri_mapping">
+		<mapping
+			source="pathmap://UCM_SUPP_PROFILE/"
+			target="platform:/plugin/org.eclipse.papyrus.designer.ucm.supplement.profile/resources/"/>
+	</extension>
+	
+ 	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.omg.org/ucm/supplement/0.9"
+			location="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_2__qUIViEeaHtaLPHUIwTg"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.omg.org/ucm/deployment/0.9"
+			location="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_VBRFkIVjEeaHtaLPHUIwTg"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.omg.org/ucm/detailedcomp/0.9"
+			location="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_VBXMMIVjEeaHtaLPHUIwTg"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.omg.org/ucm/environment/0.9"
+			location="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_VBdS0IVjEeaHtaLPHUIwTg"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.omg.org/ucm/testcases/0.9"
+			location="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_zpEswLJPEeaduvwnGOKNuA"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.omg.org/ucm/extratypes/0.9"
+			location="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_0TpKUAsQEee54Zc7XcY5ag"/>
+	</extension>
+</plugin>

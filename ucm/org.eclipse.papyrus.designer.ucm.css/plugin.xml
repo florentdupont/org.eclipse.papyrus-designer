@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.infra.gmfdiag.css.theme">
+      <themeDefinition
+            icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/UCM-16x16.png"
+            id="org.eclipse.papyrus.css.ucm_theme"
+            label="UCM Theme">
+      </themeDefinition>
+      <themeContribution
+            id="org.eclipse.papyrus.css.ucm_theme">
+         <stylesheet
+               stylesheetPath="theme/ucm_theme.css">
+         </stylesheet>
+      </themeContribution>
+   </extension>
+
+	<!--CSS Theme -->
+	<extension point="org.eclipse.papyrus.infra.gmfdiag.css.domElementAdapter">
+		<factory
+			factory="org.eclipse.papyrus.designer.ucm.css.GMFUCMElementProviderFactory"
+			order="1">
+		</factory>
+	</extension>
+</plugin>

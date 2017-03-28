@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UCMTypes" nsURI="http://www.omg.org/ucm/typespkg/0.9" nsPrefix="UCMTypes">
+  <eClassifiers xsi:type="ecore:EClass" name="dummy"/>
+  <eSubpackages name="Types" nsURI="http://www.omg.org/ucm/types/0.9" nsPrefix="UCMTypes.Types">
+    <eClassifiers xsi:type="ecore:EClass" name="StructureField">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UnionCase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="selectorValue" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//EnumerationLiteral"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDefaultCase" ordered="false"
+          lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Boolean"
+          defaultValueLiteral="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayDimension" eSuperTypes="#//Types/IIndexable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" ordered="false"
+          lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IIndexable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="indexType" ordered="false"
+          lowerBound="1" eType="#//Types/PrimitiveIntegerKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveIntegerKind">
+      <eLiterals name="SHORT"/>
+      <eLiterals name="LONG" value="1"/>
+      <eLiterals name="LONGLONG" value="2"/>
+      <eLiterals name="USHORT" value="3"/>
+      <eLiterals name="ULONG" value="4"/>
+      <eLiterals name="ULONGLONG" value="5"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Alias" eSuperTypes="#//Types/IStandardDataType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="aliasedType" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IStandardDataType" abstract="true"
+        eSuperTypes="#//Types/IDataType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IDataType" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_DataType" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Structure" eSuperTypes="#//Types/IStandardDataType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Union" eSuperTypes="#//Types/IStandardDataType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectorName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="selectorType" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Enumeration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IResizable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxSize" ordered="false"
+          lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Array" eSuperTypes="#//Types/IStandardDataType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//DataType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Types/ArrayDimension" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="#//Types/IResizable #//Types/IStandardDataType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="charBase" ordered="false"
+          lowerBound="1" eType="#//Types/PrimitiveCharKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveCharKind">
+      <eLiterals name="CHAR"/>
+      <eLiterals name="WCHAR" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NativeType" eSuperTypes="#//Types/IResizable #//Types/IStandardDataType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//Types/IIndexable #//Types/IResizable #//Types/IStandardDataType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveFloatKind">
+      <eLiterals name="FLOAT"/>
+      <eLiterals name="DOUBLE" value="1"/>
+      <eLiterals name="LONGDOUBLE" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveInteger" eSuperTypes="#//Types/IStandardDataType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Types/PrimitiveIntegerKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveFloat" eSuperTypes="#//Types/IStandardDataType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Types/PrimitiveFloatKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveChar" eSuperTypes="#//Types/IStandardDataType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Types/PrimitiveCharKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveBoolean" eSuperTypes="#//Types/IStandardDataType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveOctet" eSuperTypes="#//Types/IStandardDataType"/>
+  </eSubpackages>
+</ecore:EPackage>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ElementCreationMenuModel:Folder xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ElementCreationMenuModel="http://www.eclipse.org/papyrus/infra/newchild/elementcreationmenumodel" xmlns:filters="http://www.eclipse.org/Papyrus/2014/common/filters" xmlns:umlfilters="http://www.eclipse.org/Papyrus/2014/uml/filters" label="New UCM Child">
+  <filter xsi:type="filters:CompoundFilter" filter="//@filter/@ownedFilter.0">
+    <ownedFilter xsi:type="umlfilters:ProfileApplied" name="isUCMApplied" profileQualifiedName="UCMProfile" profileURI="pathmap://UCM_PROFILE/ucm.profile.uml#_rZqWgNvTEeWGg4v4Bs5PXQ"/>
+  </filter>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Component type" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.ComponentType"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Atomic component implementation" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.AtomicComponentImplementation"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Composite component implementation" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.CompositeComponentImplementation"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Assembly part" icon="" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.AssemblyPart"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Connection" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.Connection"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="PortElement" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.ui.PortElement"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Port" icon="" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.Port" role=""/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Application module" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.ApplicationModule"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Component module" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.ComponentModule"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Contract module" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.ContractModule"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Platform module" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.PlatformModule"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Deployment module" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.DeploymentModule"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Interaction definition module" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.InteractionDefinitionModule"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Environment module" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.EnvironmentModule"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Resource definition module" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.ResourceDefinitionModule"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Allocation plan" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.AllocationPlan"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Connector definition" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.ConnectorDefinition"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Technical aspect" icon="" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.TechnicalAspect"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Technical policy definition" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.TechnicalPolicyDefinition"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Application assembly" icon="" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.AppAssembly"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Test case group" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.TestCaseGroup"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Programming languages" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.ProgrammingLanguages"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Language" elementTypeIdRef="org.eclipse.papyrus.designer.ucm.core.Language"/>
+</ElementCreationMenuModel:Folder>

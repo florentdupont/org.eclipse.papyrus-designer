@@ -1,0 +1,12 @@
+Stereotype > Compartment[kind="symbol"] {
+    visible:false;
+}
+Stereotype > Compartment[kind="operations"] {
+    visible:false;
+}
+Metaclass > Compartment[kind="symbol"] {
+    visible:false;
+}
+Enumeration > Compartment[kind="symbol"] {
+    visible:false;
+}

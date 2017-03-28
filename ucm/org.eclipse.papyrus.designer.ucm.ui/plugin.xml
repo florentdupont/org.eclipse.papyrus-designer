@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			allPopups="true"
+			locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup?after=others">
+			<menu
+				icon="icons/UCM-16x16.png"
+				id="org.eclipse.papyrus.designer.ucm.popup"
+				label="UCM">
+			</menu>
+		</menuContribution>
+		<menuContribution
+			allPopups="true"
+			locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu?after=additions">
+			<menu
+				icon="icons/UCM-16x16.png"
+				id="org.eclipse.papyrus.designer.ucm.popup"
+				label="UCM">
+			</menu>
+		</menuContribution>
+	</extension>
+
+	<extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.papyrus.designer.ucm.popup">
+          <command
+               commandId="org.eclipse.papyrus.designer.ucm.configure_port.command"
+               icon="icons/UCM-16x16.png"
+               label="Configure port"
+               style="push"
+               tooltip="Configure port">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Configure port"
+            categoryId="org.eclipse.papyrus.editor.category"
+            id="org.eclipse.papyrus.designer.ucm.configure_port.command"
+            defaultHandler="org.eclipse.papyrus.designer.ucm.ui.handlers.ConfigurePortHandler"
+            name="Configure port">
+      </command>
+   </extension>
+
+</plugin>

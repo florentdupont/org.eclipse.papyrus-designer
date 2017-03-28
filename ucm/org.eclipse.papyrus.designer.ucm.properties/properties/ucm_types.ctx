@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:constraints="http://www.eclipse.org/papyrus/constraints/0.9" xmlns:contexts="http://www.eclipse.org/papyrus/properties/contexts/0.9">
+  <contexts:Context xmi:id="_j79hwO-nEeaDUM5-xE3Itw" name="UCMTypes">
+    <dependencies href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_69QJkKDJEeSZxfCXzZz3-w"/>
+    <tabs xmi:id="_nn-ggO-nEeaDUM5-xE3Itw" label="UCMTypes" id="ucmtypes" priority="100">
+      <sections xmi:id="_nn-gge-nEeaDUM5-xE3Itw" name="Single dummy" sectionFile="ui/Singledummy.xwt">
+        <widget href="ui/Singledummy.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_HkO-nEeaDUM5-xE3Itw" name="Multiple dummy" sectionFile="ui/Multipledummy.xwt">
+        <widget href="ui/Multipledummy.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_Hke-nEeaDUM5-xE3Itw" name="Single IDataType" sectionFile="ui/SingleIDataType.xwt">
+        <widget href="ui/SingleIDataType.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_Hku-nEeaDUM5-xE3Itw" name="Multiple IDataType" sectionFile="ui/MultipleIDataType.xwt">
+        <widget href="ui/MultipleIDataType.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_Hk--nEeaDUM5-xE3Itw" name="Single Array" sectionFile="ui/SingleArray.xwt">
+        <widget href="ui/SingleArray.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_HlO-nEeaDUM5-xE3Itw" name="Multiple Array" sectionFile="ui/MultipleArray.xwt">
+        <widget href="ui/MultipleArray.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_Hle-nEeaDUM5-xE3Itw" name="Single IStandardDataType" sectionFile="ui/SingleIStandardDataType.xwt">
+        <widget href="ui/SingleIStandardDataType.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_Hlu-nEeaDUM5-xE3Itw" name="Multiple IStandardDataType" sectionFile="ui/MultipleIStandardDataType.xwt">
+        <widget href="ui/MultipleIStandardDataType.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_Hl--nEeaDUM5-xE3Itw" name="Single Alias" sectionFile="ui/SingleAlias.xwt">
+        <widget href="ui/SingleAlias.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_uoO-nEeaDUM5-xE3Itw" name="Multiple Alias" sectionFile="ui/MultipleAlias.xwt">
+        <widget href="ui/MultipleAlias.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_uoe-nEeaDUM5-xE3Itw" name="Single Sequence" sectionFile="ui/SingleSequence.xwt">
+        <widget href="ui/SingleSequence.xwt#/"/>
+      </sections>
+      <sections xmi:id="_nn_uou-nEeaDUM5-xE3Itw" name="Multiple Sequence" sectionFile="ui/MultipleSequence.xwt">
+        <widget href="ui/MultipleSequence.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noAVsO-nEeaDUM5-xE3Itw" name="Single IIndexable" sectionFile="ui/SingleIIndexable.xwt">
+        <widget href="ui/SingleIIndexable.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noAVse-nEeaDUM5-xE3Itw" name="Multiple IIndexable" sectionFile="ui/MultipleIIndexable.xwt">
+        <widget href="ui/MultipleIIndexable.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noAVsu-nEeaDUM5-xE3Itw" name="Single IResizable" sectionFile="ui/SingleIResizable.xwt">
+        <widget href="ui/SingleIResizable.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noA8wO-nEeaDUM5-xE3Itw" name="Multiple IResizable" sectionFile="ui/MultipleIResizable.xwt">
+        <widget href="ui/MultipleIResizable.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noA8we-nEeaDUM5-xE3Itw" name="Single StringType" sectionFile="ui/SingleStringType.xwt">
+        <widget href="ui/SingleStringType.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noA8wu-nEeaDUM5-xE3Itw" name="Multiple StringType" sectionFile="ui/MultipleStringType.xwt">
+        <widget href="ui/MultipleStringType.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noBj0O-nEeaDUM5-xE3Itw" name="Single UnionCase" sectionFile="ui/SingleUnionCase.xwt">
+        <widget href="ui/SingleUnionCase.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noCK4O-nEeaDUM5-xE3Itw" name="Multiple UnionCase" sectionFile="ui/MultipleUnionCase.xwt">
+        <widget href="ui/MultipleUnionCase.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noCK4e-nEeaDUM5-xE3Itw" name="Single PrimitiveChar" sectionFile="ui/SinglePrimitiveChar.xwt">
+        <widget href="ui/SinglePrimitiveChar.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noCK4u-nEeaDUM5-xE3Itw" name="Multiple PrimitiveChar" sectionFile="ui/MultiplePrimitiveChar.xwt">
+        <widget href="ui/MultiplePrimitiveChar.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noCx8O-nEeaDUM5-xE3Itw" name="Single PrimitiveFloat" sectionFile="ui/SinglePrimitiveFloat.xwt">
+        <widget href="ui/SinglePrimitiveFloat.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noCx8e-nEeaDUM5-xE3Itw" name="Multiple PrimitiveFloat" sectionFile="ui/MultiplePrimitiveFloat.xwt">
+        <widget href="ui/MultiplePrimitiveFloat.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noCx8u-nEeaDUM5-xE3Itw" name="Single StructureField" sectionFile="ui/SingleStructureField.xwt">
+        <widget href="ui/SingleStructureField.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noCx8--nEeaDUM5-xE3Itw" name="Multiple StructureField" sectionFile="ui/MultipleStructureField.xwt">
+        <widget href="ui/MultipleStructureField.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noCx9O-nEeaDUM5-xE3Itw" name="Single ArrayDimension" sectionFile="ui/SingleArrayDimension.xwt">
+        <widget href="ui/SingleArrayDimension.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noDZAO-nEeaDUM5-xE3Itw" name="Multiple ArrayDimension" sectionFile="ui/MultipleArrayDimension.xwt">
+        <widget href="ui/MultipleArrayDimension.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noDZAe-nEeaDUM5-xE3Itw" name="Single Structure" sectionFile="ui/SingleStructure.xwt">
+        <widget href="ui/SingleStructure.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noDZAu-nEeaDUM5-xE3Itw" name="Multiple Structure" sectionFile="ui/MultipleStructure.xwt">
+        <widget href="ui/MultipleStructure.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noDZA--nEeaDUM5-xE3Itw" name="Single NativeType" sectionFile="ui/SingleNativeType.xwt">
+        <widget href="ui/SingleNativeType.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noDZBO-nEeaDUM5-xE3Itw" name="Multiple NativeType" sectionFile="ui/MultipleNativeType.xwt">
+        <widget href="ui/MultipleNativeType.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noEAEO-nEeaDUM5-xE3Itw" name="Single PrimitiveInteger" sectionFile="ui/SinglePrimitiveInteger.xwt">
+        <widget href="ui/SinglePrimitiveInteger.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noEAEe-nEeaDUM5-xE3Itw" name="Multiple PrimitiveInteger" sectionFile="ui/MultiplePrimitiveInteger.xwt">
+        <widget href="ui/MultiplePrimitiveInteger.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noEAEu-nEeaDUM5-xE3Itw" name="Single Union" sectionFile="ui/SingleUnion.xwt">
+        <widget href="ui/SingleUnion.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noEAE--nEeaDUM5-xE3Itw" name="Multiple Union" sectionFile="ui/MultipleUnion.xwt">
+        <widget href="ui/MultipleUnion.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noEnIO-nEeaDUM5-xE3Itw" name="Single PrimitiveBoolean" sectionFile="ui/SinglePrimitiveBoolean.xwt">
+        <widget href="ui/SinglePrimitiveBoolean.xwt#/"/>
+      </sections>
+      <sections xmi:id="_noEnIe-nEeaDUM5-xE3Itw" name="Multiple PrimitiveBoolean" sectionFile="ui/MultiplePrimitiveBoolean.xwt">
+        <widget href="ui/MultiplePrimitiveBoolean.xwt#/"/>
+      </sections>
+    </tabs>
+    <views xmi:id="_j79hwe-nEeaDUM5-xE3Itw" name="Single dummy" sections="_nn-gge-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iVu-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79hwu-nEeaDUM5-xE3Itw" name="isSingledummy">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79hw--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::dummy"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79hxO-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple dummy" sections="_nn_HkO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iVu-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79hxe-nEeaDUM5-xE3Itw" name="isMultipledummy">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79hxu-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::dummy"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79hx--nEeaDUM5-xE3Itw" name="Single IDataType" sections="_nn_Hke-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iP--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79hyO-nEeaDUM5-xE3Itw" name="isSingleIDataType">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79hye-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::IDataType"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79hyu-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple IDataType" sections="_nn_Hku-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iP--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79hy--nEeaDUM5-xE3Itw" name="isMultipleIDataType">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79hzO-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::IDataType"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79hze-nEeaDUM5-xE3Itw" name="Single Array" sections="_nn_Hk--nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iNe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79hzu-nEeaDUM5-xE3Itw" name="isSingleArray">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79hz--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Array"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h0O-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple Array" sections="_nn_HlO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iNe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h0e-nEeaDUM5-xE3Itw" name="isMultipleArray">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h0u-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Array"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h0--nEeaDUM5-xE3Itw" name="Single IStandardDataType" sections="_nn_Hle-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iQO-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h1O-nEeaDUM5-xE3Itw" name="isSingleIStandardDataType">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h1e-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::IStandardDataType"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h1u-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple IStandardDataType" sections="_nn_Hlu-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iQO-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h1--nEeaDUM5-xE3Itw" name="isMultipleIStandardDataType">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h2O-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::IStandardDataType"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h2e-nEeaDUM5-xE3Itw" name="Single Alias" sections="_nn_Hl--nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iQe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h2u-nEeaDUM5-xE3Itw" name="isSingleAlias">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h2--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Alias"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h3O-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple Alias" sections="_nn_uoO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iQe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h3e-nEeaDUM5-xE3Itw" name="isMultipleAlias">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h3u-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Alias"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h3--nEeaDUM5-xE3Itw" name="Single Sequence" sections="_nn_uoe-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iTe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h4O-nEeaDUM5-xE3Itw" name="isSingleSequence">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h4e-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Sequence"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h4u-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple Sequence" sections="_nn_uou-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iTe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h4--nEeaDUM5-xE3Itw" name="isMultipleSequence">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h5O-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Sequence"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h5e-nEeaDUM5-xE3Itw" name="Single IIndexable" sections="_noAVsO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iOO-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h5u-nEeaDUM5-xE3Itw" name="isSingleIIndexable">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h5--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::IIndexable"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h6O-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple IIndexable" sections="_noAVse-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iOO-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h6e-nEeaDUM5-xE3Itw" name="isMultipleIIndexable">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h6u-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::IIndexable"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h6--nEeaDUM5-xE3Itw" name="Single IResizable" sections="_noAVsu-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iRe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h7O-nEeaDUM5-xE3Itw" name="isSingleIResizable">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h7e-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::IResizable"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h7u-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple IResizable" sections="_noA8wO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iRe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h7--nEeaDUM5-xE3Itw" name="isMultipleIResizable">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h8O-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::IResizable"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h8e-nEeaDUM5-xE3Itw" name="Single StringType" sections="_noA8we-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iQ--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h8u-nEeaDUM5-xE3Itw" name="isSingleStringType">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h8--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::StringType"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h9O-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple StringType" sections="_noA8wu-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iQ--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h9e-nEeaDUM5-xE3Itw" name="isMultipleStringType">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h9u-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::StringType"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h9--nEeaDUM5-xE3Itw" name="Single UnionCase" sections="_noBj0O-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iT--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h-O-nEeaDUM5-xE3Itw" name="isSingleUnionCase">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h-e-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::UnionCase"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h-u-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple UnionCase" sections="_noCK4O-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iT--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h---nEeaDUM5-xE3Itw" name="isMultipleUnionCase">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h_O-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::UnionCase"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79h_e-nEeaDUM5-xE3Itw" name="Single PrimitiveChar" sections="_noCK4e-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iPe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79h_u-nEeaDUM5-xE3Itw" name="isSinglePrimitiveChar">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79h_--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::PrimitiveChar"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iAO-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple PrimitiveChar" sections="_noCK4u-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iPe-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iAe-nEeaDUM5-xE3Itw" name="isMultiplePrimitiveChar">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iAu-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::PrimitiveChar"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iA--nEeaDUM5-xE3Itw" name="Single PrimitiveFloat" sections="_noCx8O-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iO--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iBO-nEeaDUM5-xE3Itw" name="isSinglePrimitiveFloat">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iBe-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::PrimitiveFloat"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iBu-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple PrimitiveFloat" sections="_noCx8e-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iO--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iB--nEeaDUM5-xE3Itw" name="isMultiplePrimitiveFloat">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iCO-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::PrimitiveFloat"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iCe-nEeaDUM5-xE3Itw" name="Single StructureField" sections="_noCx8u-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iTO-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iCu-nEeaDUM5-xE3Itw" name="isSingleStructureField">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iC--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::StructureField"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iDO-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple StructureField" sections="_noCx8--nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iTO-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iDe-nEeaDUM5-xE3Itw" name="isMultipleStructureField">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iDu-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::StructureField"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iD--nEeaDUM5-xE3Itw" name="Single ArrayDimension" sections="_noCx9O-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iSO-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iEO-nEeaDUM5-xE3Itw" name="isSingleArrayDimension">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iEe-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::ArrayDimension"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iEu-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple ArrayDimension" sections="_noDZAO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iSO-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iE--nEeaDUM5-xE3Itw" name="isMultipleArrayDimension">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iFO-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::ArrayDimension"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iFe-nEeaDUM5-xE3Itw" name="Single Structure" sections="_noDZAe-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iOu-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iFu-nEeaDUM5-xE3Itw" name="isSingleStructure">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iF--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Structure"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iGO-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple Structure" sections="_noDZAu-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iOu-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iGe-nEeaDUM5-xE3Itw" name="isMultipleStructure">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iGu-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Structure"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iG--nEeaDUM5-xE3Itw" name="Single NativeType" sections="_noDZA--nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iUu-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iHO-nEeaDUM5-xE3Itw" name="isSingleNativeType">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iHe-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::NativeType"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iHu-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple NativeType" sections="_noDZBO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iUu-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iH--nEeaDUM5-xE3Itw" name="isMultipleNativeType">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iIO-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::NativeType"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iIe-nEeaDUM5-xE3Itw" name="Single PrimitiveInteger" sections="_noEAEO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iSu-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iIu-nEeaDUM5-xE3Itw" name="isSinglePrimitiveInteger">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iI--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::PrimitiveInteger"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iJO-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple PrimitiveInteger" sections="_noEAEe-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iSu-nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iJe-nEeaDUM5-xE3Itw" name="isMultiplePrimitiveInteger">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iJu-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::PrimitiveInteger"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iJ--nEeaDUM5-xE3Itw" name="Single Union" sections="_noEAEu-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iU--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iKO-nEeaDUM5-xE3Itw" name="isSingleUnion">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iKe-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Union"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iKu-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple Union" sections="_noEAE--nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iU--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iK--nEeaDUM5-xE3Itw" name="isMultipleUnion">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iLO-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::Union"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iLe-nEeaDUM5-xE3Itw" name="Single PrimitiveBoolean" sections="_noEnIO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iR--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iLu-nEeaDUM5-xE3Itw" name="isSinglePrimitiveBoolean">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iL--nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::PrimitiveBoolean"/>
+      </constraints>
+    </views>
+    <views xmi:id="_j79iMO-nEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple PrimitiveBoolean" sections="_noEnIe-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iR--nEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iMe-nEeaDUM5-xE3Itw" name="isMultiplePrimitiveBoolean">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iMu-nEeaDUM5-xE3Itw" name="stereotypeName" value="UCMTypes::Types::PrimitiveBoolean"/>
+      </constraints>
+    </views>
+    <dataContexts xmi:id="_j79iM--nEeaDUM5-xE3Itw" name="UCMTypes">
+      <elements xsi:type="contexts:DataContextPackage" xmi:id="_j79iNO-nEeaDUM5-xE3Itw" name="Types">
+        <elements xmi:id="_j79iNe-nEeaDUM5-xE3Itw" name="Array" supertypes="_j79iQO-nEeaDUM5-xE3Itw">
+          <properties xmi:id="_j79iNu-nEeaDUM5-xE3Itw" name="type" type="Reference"/>
+          <properties xmi:id="_j79iN--nEeaDUM5-xE3Itw" name="dimension" type="Reference" multiplicity="-1"/>
+        </elements>
+        <elements xmi:id="_j79iOO-nEeaDUM5-xE3Itw" name="IIndexable">
+          <properties xmi:id="_j79iOe-nEeaDUM5-xE3Itw" name="indexType" type="Enumeration"/>
+        </elements>
+        <elements xmi:id="_j79iOu-nEeaDUM5-xE3Itw" name="Structure" supertypes="_j79iQO-nEeaDUM5-xE3Itw"/>
+        <elements xmi:id="_j79iO--nEeaDUM5-xE3Itw" name="PrimitiveFloat" supertypes="_j79iQO-nEeaDUM5-xE3Itw">
+          <properties xmi:id="_j79iPO-nEeaDUM5-xE3Itw" name="kind" type="Enumeration"/>
+        </elements>
+        <elements xmi:id="_j79iPe-nEeaDUM5-xE3Itw" name="PrimitiveChar" supertypes="_j79iQO-nEeaDUM5-xE3Itw">
+          <properties xmi:id="_j79iPu-nEeaDUM5-xE3Itw" name="kind" type="Enumeration"/>
+        </elements>
+        <elements xmi:id="_j79iP--nEeaDUM5-xE3Itw" name="IDataType">
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690y1qDJEeSZxfCXzZz3-w"/>
+        </elements>
+        <elements xmi:id="_j79iQO-nEeaDUM5-xE3Itw" name="IStandardDataType" supertypes="_j79iP--nEeaDUM5-xE3Itw"/>
+        <elements xmi:id="_j79iQe-nEeaDUM5-xE3Itw" name="Alias" supertypes="_j79iQO-nEeaDUM5-xE3Itw">
+          <properties xmi:id="_j79iQu-nEeaDUM5-xE3Itw" name="aliasedType" type="Reference"/>
+        </elements>
+        <elements xmi:id="_j79iQ--nEeaDUM5-xE3Itw" name="StringType" supertypes="_j79iRe-nEeaDUM5-xE3Itw _j79iQO-nEeaDUM5-xE3Itw">
+          <properties xmi:id="_j79iRO-nEeaDUM5-xE3Itw" name="charBase" type="Enumeration"/>
+        </elements>
+        <elements xmi:id="_j79iRe-nEeaDUM5-xE3Itw" name="IResizable">
+          <properties xmi:id="_j79iRu-nEeaDUM5-xE3Itw" name="maxSize" type="Integer"/>
+        </elements>
+        <elements xmi:id="_j79iR--nEeaDUM5-xE3Itw" name="PrimitiveBoolean" supertypes="_j79iQO-nEeaDUM5-xE3Itw"/>
+        <elements xmi:id="_j79iSO-nEeaDUM5-xE3Itw" name="ArrayDimension">
+          <properties xmi:id="_j79iSe-nEeaDUM5-xE3Itw" name="size" type="Integer"/>
+          <supertypes href="#_j79iOO-nEeaDUM5-xE3Itw"/>
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+        </elements>
+        <elements xmi:id="_j79iSu-nEeaDUM5-xE3Itw" name="PrimitiveInteger" supertypes="_j79iQO-nEeaDUM5-xE3Itw">
+          <properties xmi:id="_j79iS--nEeaDUM5-xE3Itw" name="kind" type="Enumeration"/>
+        </elements>
+        <elements xmi:id="_j79iTO-nEeaDUM5-xE3Itw" name="StructureField">
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+          <supertypes href="#_j79iV--nEeaDUM5-xE3Itw"/>
+        </elements>
+        <elements xmi:id="_j79iTe-nEeaDUM5-xE3Itw" name="Sequence" supertypes="_j79iOO-nEeaDUM5-xE3Itw _j79iRe-nEeaDUM5-xE3Itw _j79iQO-nEeaDUM5-xE3Itw">
+          <properties xmi:id="_j79iTu-nEeaDUM5-xE3Itw" name="type" type="Reference"/>
+        </elements>
+        <elements xmi:id="_j79iT--nEeaDUM5-xE3Itw" name="UnionCase">
+          <properties xmi:id="_j79iUO-nEeaDUM5-xE3Itw" name="selectorValue" type="Reference"/>
+          <properties xmi:id="_j79iUe-nEeaDUM5-xE3Itw" name="isDefaultCase" type="Boolean"/>
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+          <supertypes href="#_j79iV--nEeaDUM5-xE3Itw"/>
+        </elements>
+        <elements xmi:id="_j79iUu-nEeaDUM5-xE3Itw" name="NativeType" supertypes="_j79iRe-nEeaDUM5-xE3Itw _j79iQO-nEeaDUM5-xE3Itw"/>
+        <elements xmi:id="_j79iU--nEeaDUM5-xE3Itw" name="Union" supertypes="_j79iQO-nEeaDUM5-xE3Itw">
+          <properties xmi:id="_j79iVO-nEeaDUM5-xE3Itw" name="selectorName"/>
+          <properties xmi:id="_j79iVe-nEeaDUM5-xE3Itw" name="selectorType" type="Reference"/>
+        </elements>
+      </elements>
+      <elements xmi:id="_j79iVu-nEeaDUM5-xE3Itw" name="dummy"/>
+      <modelElementFactory href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@modelElementFactories.2"/>
+    </dataContexts>
+  </contexts:Context>
+  <contexts:DataContextElement xmi:id="_j79iV--nEeaDUM5-xE3Itw"/>
+  <contexts:View xmi:id="_j79iWO-nEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_j79iV--nEeaDUM5-xE3Itw">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iWe-nEeaDUM5-xE3Itw">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iWu-nEeaDUM5-xE3Itw" name="stereotypeName"/>
+    </constraints>
+  </contexts:View>
+  <contexts:View xmi:id="_j79iW--nEeaDUM5-xE3Itw" elementMultiplicity="-1" automaticContext="true" datacontexts="_j79iV--nEeaDUM5-xE3Itw">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_j79iXO-nEeaDUM5-xE3Itw">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_j79iXe-nEeaDUM5-xE3Itw" name="stereotypeName"/>
+    </constraints>
+  </contexts:View>
+</xmi:XMI>

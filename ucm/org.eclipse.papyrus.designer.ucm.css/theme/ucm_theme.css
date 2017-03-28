@@ -1,0 +1,369 @@
+/*****************************************************************************
+ * Copyright (c) 2016 Thales.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *  Thomas Vergnaud (Thales) thomas.vergnaud@thalesgroup.com
+ *****************************************************************************/
+
+Class, Component {
+	fillcolor: lightgrey;
+}
+
+Stereotype > Label {
+	visible:true;
+	depth:"none";
+}
+
+Class > Label[type=StereotypeLabel],
+Component > Label[type=StereotypeLabel] {
+	visible: true;
+}
+
+/**
+ * Data types and interfaces
+ */
+
+DataType, 
+Interface, 
+Enumeration {
+	fillcolor: #ffff99;
+	gradient : white vertical;
+}
+
+
+DataType[appliedStereotypes~="AbstractDataType"], 
+Interface[appliedStereotypes~="AbstractInterface"] {
+	fillcolor: #ffcc66;
+	gradient : white vertical;
+}
+
+/**
+ * Components
+ */
+
+Class[appliedStereotypes~="ComponentType"], 
+Component[appliedStereotypes~="ComponentType"] {
+	fillColor: powderblue;
+	gradient : white vertical;
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+}
+
+Class[appliedStereotypes~="ComponentType"] > Property, 
+Component[appliedStereotypes~="ComponentType"] > Property{
+	fillColor: blue;	
+	maskLabel : name type;
+}
+
+Class[appliedStereotypes~="ComponentType"] > Port, 
+Component[appliedStereotypes~="ComponentType"] > Port{
+	maskLabel : name type;
+}
+
+
+Class[appliedStereotypes~="AtomicComponentImplementation"], 
+Component[appliedStereotypes~="AtomicComponentImplementation"] {
+	fillColor: royalblue;
+	gradient : white vertical;
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+}
+ 
+Class[appliedStereotypes~="CompositeComponentImplementation"], 
+Component[appliedStereotypes~="CompositeComponentImplementation"] {
+	fillColor: dodgerblue;
+	gradient : white vertical;
+	elementIcon: false;	
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+}
+
+Class[appliedStereotypes~="CompositeComponentImplementation"]  Property[appliedStereotypes~="AssemblyPart"], 
+Component[appliedStereotypes~="CompositeComponentImplementation"]  Property[appliedStereotypes~="AssemblyPart"] {
+	fillColor: darkgrey;
+	gradient : lightgrey vertical;
+	elementIcon: true;	
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+}
+
+Class[appliedStereotypes~="CompositeComponentImplementation"] Property[appliedStereotypes~="Connection"], 
+Component[appliedStereotypes~="CompositeComponentImplementation"] Property[appliedStereotypes~="Connection"] {
+	fillColor: grey;
+	gradient : lightgrey vertical;
+	elementIcon: true;	
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/interaction.svg";	
+}
+
+
+Class[appliedStereotypes~="ComponentTechnicalPolicy"],
+Class[appliedStereotypes~="ComponentPortTechnicalPolicy"] {
+	fillColor: slateblue;
+	gradient : white vertical;
+	elementIcon: true;
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/policy.svg";	
+}
+
+Class[appliedStereotypes~="PortTypeSpec"] {
+	fillColor: slateblue;
+	gradient : white vertical;
+	elementIcon: true;
+}
+
+/**
+ * Interactions
+ */
+
+Class[appliedStereotypes~="ConnectorDefinition"] {
+	fillcolor: mediumpurple;
+	gradient : white vertical;
+	elementIcon: true;
+	radiusWidth: 30;
+	radiusHeight: 30;
+}
+
+Class[appliedStereotypes~="PortType"] {
+	fillcolor: mediumpurple;
+	gradient : white vertical;
+	elementIcon: true;
+}
+
+
+Class[appliedStereotypes~="InteractionPattern"],
+Collaboration[appliedStereotypes~="InteractionPattern"] {
+	fillcolor: thistle;
+	gradient : white vertical;
+	elementIcon: true;
+	radiusWidth: 30;
+	radiusHeight: 30;	
+}
+
+/**
+ * Technical policies
+ */
+
+Class[appliedStereotypes~="TechnicalPolicyDefinition"],
+Component[appliedStereotypes~="TechnicalPolicyDefinition"] {
+	fillcolor: purple;
+	gradient : white vertical;
+	elementIcon: true;	
+}
+
+Class[appliedStereotypes~="TechnicalAspect"],
+Component[appliedStereotypes~="TechnicalAspect"] {
+	fillcolor: mediumpurple;
+	gradient : white vertical;
+	elementIcon: false;	
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/policy.svg";	
+}
+
+
+/*
+ * Deployment
+ */
+ 
+ Component[appliedStereotypes~="AppAssembly"],
+ Class[appliedStereotypes~="AppAssembly"] {
+ 	fillcolor: lightgreen;
+ 	gradient : white vertical;
+ 	elementIcon: true;
+ }
+ 
+ CompositeStructureDiagram Component[appliedStereotypes~="AppAssembly"],
+ CompositeStructureDiagram Class[appliedStereotypes~="AppAssembly"] {
+ 	fillcolor: lightgreen;
+ 	gradient : white vertical;
+ 	elementIcon: true;
+ }
+ 
+Class[appliedStereotypes~=AppAssembly] Property[appliedStereotypes~="AssemblyPart"], 
+Component[appliedStereotypes~=AppAssembly] Property[appliedStereotypes~="AssemblyPart"] {
+	fillColor: darkgrey;
+	gradient : lightgrey vertical;
+	elementIcon: true;	
+	labelMask: name type;
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+}
+
+Class[appliedStereotypes~=AppAssembly] Property[appliedStereotypes~="Connection"], 
+Component[appliedStereotypes~=AppAssembly] Property[appliedStereotypes~="Connection"] {
+	fillColor: grey;
+	gradient : lightgrey vertical;
+	elementIcon: true;	
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/interaction.svg";
+}
+ 
+ /*
+  * Miscellaneous
+  */
+
+Comment {
+	fillColor: lightyellow;
+}
+
+Constraint {
+	fillColor: #C8FFE6;
+}
+
+/*
+ *  Modules
+ */
+
+Package {
+	fillColor: white;
+}
+
+Package[appliedStereotypes~="PlatformModule"],
+Package[appliedStereotypes~="InteractionDefinitionModule"],
+Package[appliedStereotypes~="NonfunctionalAspectModule"],
+Package[appliedStereotypes~="ResourceModule"],
+Model[appliedStereotypes~="PlatformModule"],
+Model[appliedStereotypes~="InteractionDefinitionModule"],
+Model[appliedStereotypes~="NonfunctionalAspectModule"],
+Model[appliedStereotypes~="ResourceModule"] {
+	fillColor: mediumpurple;
+	gradient : white vertical;
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";
+	elementIcon: true;
+}
+
+Package[appliedStereotypes~="ApplicationModule"],
+Model[appliedStereotypes~="ApplicationModule"] {
+	fillColor: lightgreen;
+	gradient : powderblue vertical;
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";
+	elementIcon: true;
+}
+
+Package[appliedStereotypes~="ComponentModule"],
+Model[appliedStereotypes~="ComponentModule"] {
+	fillColor: royalblue;
+	gradient : white vertical;
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";
+	elementIcon: true;
+}
+
+Package[appliedStereotypes~="EnvironmentModule"],
+Package[appliedStereotypes~="DeploymentModule"], 
+Package[appliedStereotypes~="AllocationPlan"],
+Package[appliedStereotypes~="TestCaseGroup"],
+Model[appliedStereotypes~="EnvironmentModule"],
+Model[appliedStereotypes~="DeploymentModule"], 
+Model[appliedStereotypes~="AllocationPlan"],
+Model[appliedStereotypes~="TestCaseGroup"] {
+	fillColor: limegreen;
+	gradient : white vertical;
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";	
+	elementIcon: true;
+}
+
+Package[appliedStereotypes~="ContractModule"],
+Model[appliedStereotypes~="ContractModule"] {
+	fillColor: gold;
+	gradient : white vertical;
+	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";
+}
+
+Operation[isAbstract=true] {
+	italic:true;
+}
+
+/** This is the Diagram's root element. It doesn't support 
+ gradient and should have the same color as the diagram */
+SequenceDiagram > Interaction {
+	fillColor:white;
+}
+
+SequenceDiagram CombinedFragment,ConsiderIgnoreFragment, 
+SequenceDiagram CombinedFragment,ConsiderIgnoreFragment * {
+	fillColor:white;
+}
+
+TimingDiagram OccurrenceSpecification,MessageOccurrenceSpecification {
+	fillColor: #006000;
+	lineColor: #006000;
+}
+
+TimingDiagram Lifeline {
+	gradient: white vertical;
+	fontHeight: 12;
+}
+
+TimingDiagram StateInvariant {
+	lineColor: black;
+	fillColor: #9BC7CC;
+	gradient: white vertical;
+}
+
+TimingDiagram Interaction {
+	fillColor: #9BC7CC;
+	gradient: none;
+}
+
+TimingDiagram Gate {
+	fillColor: #2A52BE;
+	lineColor: #2A52BE;
+}
+
+ParametricDiagram [appliedStereotypes~=ConstraintProperty] Property,
+ParametricDiagram [appliedStereotypes~=ConstraintProperty] {
+	elementIcon: true;
+}
+
+ActivityDiagram Activity *,InteractionOverviewDiagram Activity * {
+	elementIcon: true;
+}
+
+/* no gradient for symbol to permit to change color */
+ActivityDiagram MergeNode, 
+ActivityDiagram ActivityFinalNode, 
+ActivityDiagram FlowFinalNode, 
+ActivityDiagram DecisionNode, 
+ActivityDiagram SendSignalAction,
+ActivityDiagram AcceptEventAction,
+InteractionOverviewDiagram MergeNode, 
+InteractionOverviewDiagram ActivityFinalNode, 
+InteractionOverviewDiagram FlowFinalNode, 
+InteractionOverviewDiagram DecisionNode {
+	gradient: none;
+	fillColor: white;
+}
+
+ActivityDiagram InitialNode,
+InteractionOverviewDiagram InitialNode {
+	gradient: none;
+	fillColor: black;
+}
+
+ClassDiagram Dependency {
+	fillColor: Black;
+	gradient: none;
+}
+
+/*
+ * The Actor element icon is not useful either
+ */
+UseCaseDiagram Actor {
+	elementIcon:false;
+}
+
+TimingDiagram * {
+	gradient: none;
+}
+
+UseCaseDiagram UseCase {
+	fillColor: white;
+}
+
+StateMachineDiagram Pseudostate[kind="exitPoint"],
+StateMachineDiagram Pseudostate[kind="entryPoint"] {
+	fillColor: white;
+}
+
+StateMachineDiagram Pseudostate[kind="initial"],
+StateMachineDiagram Pseudostate[kind="junction"] {
+	gradient: none;
+	fillColor: black;
+}
+

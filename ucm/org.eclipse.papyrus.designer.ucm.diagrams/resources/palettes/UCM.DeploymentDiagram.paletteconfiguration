@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCMDeployment" label="UCM Deployment">
+
+  <drawerConfigurations id="UCM deployment" label="deployment" description="UCM deployment">
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AppAssembly"
+			label="Application assembly"
+			description="Create an application assembly">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/AppAssembly.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AppAssembly_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AppAssembly_Shape_CN"/>
+	</ownedConfigurations>
+    
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.TestCaseGroup"
+			label="Test case group"
+			description="Create a test case group">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/TestCaseGroup.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TestCaseGroup_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TestCaseGroup_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AllocationPlan"
+				label="Allocation plan"
+		description="Create an allocation plan">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/AllocationPlan.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AllocationPlan_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AllocationPlan_Shape_CN"/>
+	</ownedConfigurations>
+    
+  </drawerConfigurations>
+
+  <drawerConfigurations id="UCM instances" label="instances" description="UCM instances">
+
+  </drawerConfigurations>
+
+  <requiredProfiles>UCMProfile</requiredProfiles>
+</paletteconfiguration:PaletteConfiguration>

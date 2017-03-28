@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_pG7gYBBAEeadyesW8v6O0Q" name="UCMTypes" URI="http://www.omg.org/ucm/typespkg/0.9" metaclassReference="_r7ckgBBCEeadyesW8v6O0Q _r7ckgRBCEeadyesW8v6O0Q _r7ckghBCEeadyesW8v6O0Q _r7ckgxBCEeadyesW8v6O0Q _VcHtEBHJEeas2_4FCncldA _bly4sBHXEeas2_4FCncldA">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Lq6m8BBDEeadyesW8v6O0Q" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_r7ckgBBCEeadyesW8v6O0Q" alias="Classifier">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Classifier"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_r7ckgRBCEeadyesW8v6O0Q" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_r7ckghBCEeadyesW8v6O0Q" alias="Type">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Type"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_r7ckgxBCEeadyesW8v6O0Q" alias="DataType">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#DataType"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_VcHtEBHJEeas2_4FCncldA" alias="Property">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_bly4sBHXEeas2_4FCncldA" alias="EnumerationLiteral">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#EnumerationLiteral"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Profile" xmi:id="_dZKm0BBCEeadyesW8v6O0Q" name="Types" URI="http://www.omg.org/ucm/types/0.9">
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_kbrz8BHaEea5wabYjrYTEw" name="StructureField">
+      <generalization xmi:type="uml:Generalization" xmi:id="_4tuJwBHaEea5wabYjrYTEw">
+        <general xmi:type="uml:Stereotype" href="../org.omg.ucm.uml.profile/ucm.profile.uml#_-xN9cPwGEeWuGcYx5zIFOg"/>
+      </generalization>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_mCW20hHaEea5wabYjrYTEw" name="base_Property" association="_mCW20BHaEea5wabYjrYTEw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_mCW20BHaEea5wabYjrYTEw" name="E_StructureField_Property1" memberEnd="_mCW20RHaEea5wabYjrYTEw _mCW20hHaEea5wabYjrYTEw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_mCW20RHaEea5wabYjrYTEw" name="extension_StructureField" type="_kbrz8BHaEea5wabYjrYTEw" aggregation="composite" association="_mCW20BHaEea5wabYjrYTEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_8jStIBHaEea5wabYjrYTEw" name="UnionCase">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Na48YBHbEea5wabYjrYTEw">
+        <general xmi:type="uml:Stereotype" href="../org.omg.ucm.uml.profile/ucm.profile.uml#_-xN9cPwGEeWuGcYx5zIFOg"/>
+      </generalization>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-aNLchHaEea5wabYjrYTEw" name="base_Property" association="_-aNLcBHaEea5wabYjrYTEw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Na48YRHbEea5wabYjrYTEw" name="selectorValue">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#EnumerationLiteral"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Na48YhHbEea5wabYjrYTEw" name="isDefaultCase" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_Na48YxHbEea5wabYjrYTEw" name="false"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_-aNLcBHaEea5wabYjrYTEw" name="E_UnionCase_Property1" memberEnd="_-aNLcRHaEea5wabYjrYTEw _-aNLchHaEea5wabYjrYTEw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_-aNLcRHaEea5wabYjrYTEw" name="extension_UnionCase" type="_8jStIBHaEea5wabYjrYTEw" aggregation="composite" association="_-aNLcBHaEea5wabYjrYTEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_VFwg4BHcEea5wabYjrYTEw" name="ArrayDimension">
+      <generalization xmi:type="uml:Generalization" xmi:id="_D3jTABHdEea5wabYjrYTEw" general="_5w_SsBHcEea5wabYjrYTEw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_LlrcUBHdEea5wabYjrYTEw" name="size" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_X3RJwhHdEea5wabYjrYTEw" name="base_Property" association="_X3RJwBHdEea5wabYjrYTEw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_5w_SsBHcEea5wabYjrYTEw" name="IIndexable" isAbstract="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-dZXcBHcEea5wabYjrYTEw" name="indexType" type="_eqzIgBHcEea5wabYjrYTEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_X3RJwBHdEea5wabYjrYTEw" name="E_ArrayDimension_Property1" memberEnd="_X3RJwRHdEea5wabYjrYTEw _X3RJwhHdEea5wabYjrYTEw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_X3RJwRHdEea5wabYjrYTEw" name="extension_ArrayDimension" type="_VFwg4BHcEea5wabYjrYTEw" aggregation="composite" association="_X3RJwBHdEea5wabYjrYTEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_oFEtwBHgEeaE7cO7tIoQcw" name="Alias">
+      <generalization xmi:type="uml:Generalization" xmi:id="_O3wUQBHhEeaE7cO7tIoQcw" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_DiE1cBHhEeaE7cO7tIoQcw" name="aliasedType">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#DataType"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_11cGUBHgEeaE7cO7tIoQcw" name="Structure">
+      <generalization xmi:type="uml:Generalization" xmi:id="_PdT4YBHhEeaE7cO7tIoQcw" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_JZR5YBHhEeaE7cO7tIoQcw" name="IStandardDataType" isAbstract="true">
+      <generalization xmi:type="uml:Generalization" xmi:id="_lw_V0BHhEeaE7cO7tIoQcw" general="_kGvagBHhEeaE7cO7tIoQcw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_SebgABHhEeaE7cO7tIoQcw" name="Union">
+      <generalization xmi:type="uml:Generalization" xmi:id="_U3KR8BHhEeaE7cO7tIoQcw" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bBma8BHhEeaE7cO7tIoQcw" name="selectorName" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bBma8RHhEeaE7cO7tIoQcw" name="selectorType">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Enumeration"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_1sZmcBHdEea5wabYjrYTEw" name="IResizable" isAbstract="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_6DpTgBHdEea5wabYjrYTEw" name="maxSize" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_kGvagBHhEeaE7cO7tIoQcw" name="IDataType" isAbstract="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9DjdYBHhEeaE7cO7tIoQcw" name="base_DataType" association="_9DZsYBHhEeaE7cO7tIoQcw">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#DataType"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_9DZsYBHhEeaE7cO7tIoQcw" name="E_IDataType_DataType1" memberEnd="_9DZsYRHhEeaE7cO7tIoQcw _9DjdYBHhEeaE7cO7tIoQcw">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_9DZsYRHhEeaE7cO7tIoQcw" name="extension_IDataType" type="_kGvagBHhEeaE7cO7tIoQcw" aggregation="composite" association="_9DZsYBHhEeaE7cO7tIoQcw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_NvOJcBHiEeaE7cO7tIoQcw" name="Array">
+      <generalization xmi:type="uml:Generalization" xmi:id="_bnLXwBHiEeaE7cO7tIoQcw" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WeBFkBHiEeaE7cO7tIoQcw" name="type">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#DataType"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_WeBFkRHiEeaE7cO7tIoQcw" name="dimension" type="_VFwg4BHcEea5wabYjrYTEw" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WeBFkhHiEeaE7cO7tIoQcw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WeBFkxHiEeaE7cO7tIoQcw" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_xxEYUBHoEeaNhIJAkZMvtQ" name="StringType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_15Q8wBHoEeaNhIJAkZMvtQ" general="_1sZmcBHdEea5wabYjrYTEw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_9JlIsBHoEeaNhIJAkZMvtQ" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xsgooITMEea3T_8T8wLJww" name="charBase" type="_U99ZgITMEea3T_8T8wLJww"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_zxqXEBHoEeaNhIJAkZMvtQ" name="NativeType">
+      <generalization xmi:type="uml:Generalization" xmi:id="_2hfaYBHoEeaNhIJAkZMvtQ" general="_1sZmcBHdEea5wabYjrYTEw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="__HpX4BHoEeaNhIJAkZMvtQ" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_HUKtYBHpEeaNhIJAkZMvtQ" name="Sequence">
+      <generalization xmi:type="uml:Generalization" xmi:id="_IoD-MBHpEeaNhIJAkZMvtQ" general="_5w_SsBHcEea5wabYjrYTEw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_JiUnABHpEeaNhIJAkZMvtQ" general="_1sZmcBHdEea5wabYjrYTEw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_LL-FYBHpEeaNhIJAkZMvtQ" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OlPHQBHpEeaNhIJAkZMvtQ" name="type">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#DataType"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_eqzIgBHcEea5wabYjrYTEw" name="PrimitiveIntegerKind">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lqRcEBHcEea5wabYjrYTEw" name="SHORT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_nb-DMBHcEea5wabYjrYTEw" name="LONG"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_oJa_EBHcEea5wabYjrYTEw" name="LONGLONG"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_qXk4sBHcEea5wabYjrYTEw" name="USHORT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_reW6kBHcEea5wabYjrYTEw" name="ULONG"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_sXbQkBHcEea5wabYjrYTEw" name="ULONGLONG"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_Pttn4ITMEea3T_8T8wLJww" name="PrimitiveFloatKind">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_RJJEEITMEea3T_8T8wLJww" name="FLOAT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_SFXbwITMEea3T_8T8wLJww" name="DOUBLE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_S1MWMITMEea3T_8T8wLJww" name="LONGDOUBLE"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_U99ZgITMEea3T_8T8wLJww" name="PrimitiveCharKind">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_WmIRMITMEea3T_8T8wLJww" name="CHAR"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_XPTKAITMEea3T_8T8wLJww" name="WCHAR"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_KdBU4ITNEea3T_8T8wLJww" name="PrimitiveInteger">
+      <generalization xmi:type="uml:Generalization" xmi:id="_KdBU4YTNEea3T_8T8wLJww" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KdBU4oTNEea3T_8T8wLJww" name="kind" type="_eqzIgBHcEea5wabYjrYTEw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_SRrkAITNEea3T_8T8wLJww" name="PrimitiveFloat">
+      <generalization xmi:type="uml:Generalization" xmi:id="_SRrkAYTNEea3T_8T8wLJww" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_SRrkAoTNEea3T_8T8wLJww" name="kind" type="_Pttn4ITMEea3T_8T8wLJww"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_Sh_38ITNEea3T_8T8wLJww" name="PrimitiveChar">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Sh_38YTNEea3T_8T8wLJww" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Sh_38oTNEea3T_8T8wLJww" name="kind" type="_U99ZgITMEea3T_8T8wLJww"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_SttYsITNEea3T_8T8wLJww" name="PrimitiveBoolean">
+      <generalization xmi:type="uml:Generalization" xmi:id="_SttYsYTNEea3T_8T8wLJww" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_ZGIQIAsQEee54Zc7XcY5ag" name="PrimitiveOctet">
+      <generalization xmi:type="uml:Generalization" xmi:id="_e2ZloAsQEee54Zc7XcY5ag" general="_JZR5YBHhEeaE7cO7tIoQcw"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_KtR2cI7pEeaNGo1LsQhqXQ" name="dummy" visibility="private"/>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Fy5eYJEeEeaxO5ymtYt6_w">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Fy8hsJEeEeaxO5ymtYt6_w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
+</uml:Profile>

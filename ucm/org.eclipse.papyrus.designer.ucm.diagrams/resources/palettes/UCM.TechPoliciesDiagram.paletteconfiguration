@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCMTechPolicies" label="UCM technical policies">
+  <drawerConfigurations id="UCMTechPolicies" label="technical policies" description="UCM technical policies">
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.TechnicalPolicy"
+			label="Technical policy definition" description="Create a technical policy definition">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/TechnicalPolicy.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalPolicyDefinition_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalPolicyDefinition_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.TechnicalAspect"
+			label="Technical aspect" description="Create a technical aspect">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/TechnicalAspect.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalAspect_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalAspect_Shape_CN"/>
+	</ownedConfigurations>
+	
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Language"
+			label="Language" description="Create a new programming language">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/Language.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.Language_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.Language_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ProgrammingLanguages"
+			label="Programming languages" description="Create new programming languages folder">
+		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/ProgrammingLanguages.png"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ProgrammingLanguages_Shape"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ProgrammingLanguages_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AffectPolicyDef"
+			kind="ConnectionTool"
+			label="Assign policy definition" description="Assign a policy definition">
+		<icon pluginID="org.eclipse.papyrus.uml.icons" iconPath="resource/gif/Realization.gif"/>
+		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AffectPolicyDef_Edge"/>
+    </ownedConfigurations>
+
+  </drawerConfigurations>
+
+  <requiredProfiles>UCMProfile</requiredProfiles>
+</paletteconfiguration:PaletteConfiguration>

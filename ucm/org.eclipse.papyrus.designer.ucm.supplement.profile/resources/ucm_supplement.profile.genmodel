@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    copyrightText="Copyright (c) 2017 CEA LIST and Thales&#xA;&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.eclipse.papyrus.designer.ucm.supplement.profile/src-gen"
+    modelPluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" modelName="Ucm_supplement"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.uml2.uml.ecore.importer"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.uml2.types/model/Types.genmodel#//types ../../org.eclipse.papyrus.designer.ucm.profile/resources/ucm.genmodel#//UCMProfile ../../org.eclipse.papyrus.designer.ucm.types.profile/resources/ucm_types.genmodel#//UCMTypes ../../org.eclipse.uml2.uml/model/UML.genmodel#//uml"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="VALIDATION_DELEGATES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>ucm_supplement.profile.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="UCM_Supplement" basePackage="org.eclipse.papyrus.designer.ucm.supplement.profile"
+      disposableProviderFactory="true" ecorePackage="UCM_Supplement.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//dummy"/>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_deployment" basePackage="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement"
+        disposableProviderFactory="true" ecorePackage="UCM_Supplement.ecore#//ucm_deployment">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_deployment/AppAssembly">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_deployment/AppAssembly/base_Class"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_deployment/DeploymentModule">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_deployment/DeploymentModule/programmingLanguages"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_deployment/DeploymentModule/base_Package"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_deployment/AllocationPlan">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_deployment/AllocationPlan/base_Package"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_detailed_components"
+        basePackage="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement"
+        disposableProviderFactory="true" ecorePackage="UCM_Supplement.ecore#//ucm_detailed_components">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_detailed_components/DetailedComponentImplementation">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_detailed_components/DetailedComponentImplementation/portImplementation"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCM_Supplement.ecore#//ucm_detailed_components/IPortElementImplementation">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_detailed_components/IPortElementImplementation/portElement"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_detailed_components/IPortElementImplementation/base_Class"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_detailed_components/ComponentPortImplementation">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_detailed_components/ComponentPortImplementation/port"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_detailed_components/TechnicalPortImplementation">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_detailed_components/TechnicalPortImplementation/policy"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_environment" basePackage="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement"
+        disposableProviderFactory="true" ecorePackage="UCM_Supplement.ecore#//ucm_environment">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_environment/EnvironmentModule">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_environment/EnvironmentModule/base_Package"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_environment/ResourceDefinitionModule">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_environment/ResourceDefinitionModule/base_Package"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_test_cases" basePackage="org.eclipse.papyrus.designer.ucm.supplement.profile.UCM_Supplement"
+        disposableProviderFactory="true" ecorePackage="UCM_Supplement.ecore#//ucm_test_cases">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_test_cases/TestCaseGroup">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_test_cases/TestCaseGroup/base_Package"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Ucm_extra_types" disposableProviderFactory="true"
+        ecorePackage="UCM_Supplement.ecore#//ucm_extra_types">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCM_Supplement.ecore#//ucm_extra_types/DataPointer">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCM_Supplement.ecore#//ucm_extra_types/DataPointer/type"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

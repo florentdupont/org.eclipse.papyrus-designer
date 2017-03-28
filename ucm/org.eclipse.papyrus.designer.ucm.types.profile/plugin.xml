@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+	
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm_types -->
+      <package
+            uri="http://www.omg.org/ucm/typespkg/0.9"
+            class="org.eclipse.papyrus.designer.ucm.types.profile.UCMTypes.UCMTypesPackage"
+            genModel="resources/ucm_types.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ucm_types -->
+      <package
+            uri="http://www.omg.org/ucm/types/0.9"
+            class="org.eclipse.papyrus.designer.ucm.types.profile.UCMTypes.Types.TypesPackage"
+            genModel="resources/ucm_types.genmodel"/>
+   </extension>
+   
+   	<extension point="org.eclipse.emf.ecore.uri_mapping">
+		<mapping
+			source="pathmap://UCM_TYPES_PROFILE/"
+			target="platform:/plugin/org.eclipse.papyrus.designer.ucm.types.profile/resources/"/>
+	</extension>
+	
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.omg.org/ucm/typespkg/0.9"
+			location="pathmap://UCM_TYPES_PROFILE/ucm_types.profile.uml#_pG7gYBBAEeadyesW8v6O0Q"/>
+	</extension>
+	<extension point="org.eclipse.uml2.uml.generated_package">
+		<profile
+            uri="http://www.omg.org/ucm/types/0.9"
+			location="pathmap://UCM_TYPES_PROFILE/ucm_types.profile.uml#_dZKm0BBCEeadyesW8v6O0Q"/>
+	</extension>
+
+</plugin>

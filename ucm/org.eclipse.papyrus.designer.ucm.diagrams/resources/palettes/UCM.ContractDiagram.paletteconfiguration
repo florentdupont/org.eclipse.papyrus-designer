@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCMContract" label="UCM Contract">
+  <drawerConfigurations id="UCM types" label="contracts" description="UCM contracts">
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.DataType"
+    	label="data type"
+    	description="Create a data type">
+      <icon pluginID="org.eclipse.papyrus.uml.diagram.common" iconPath="icons/DataType.gif"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.umldi.DataType_Shape"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.umldi.DataType_Shape_CN"/>
+	</ownedConfigurations>
+
+	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
+    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Interface"
+    	label="interface"
+    	description="Create an interface">
+      <icon pluginID="org.eclipse.papyrus.uml.diagram.common" iconPath="icons/Interface.gif"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.umldi.Interface_Shape"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.umldi.Interface_Shape_CN"/>
+ 	</ownedConfigurations>
+  </drawerConfigurations>
+
+  <requiredProfiles>UCMProfile</requiredProfiles>
+</paletteconfiguration:PaletteConfiguration>

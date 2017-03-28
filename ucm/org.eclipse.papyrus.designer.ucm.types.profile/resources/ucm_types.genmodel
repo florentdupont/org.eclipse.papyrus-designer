@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    copyrightText="Copyright (c) 2017 CEA LIST and Thales&#xA;&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.eclipse.papyrus.designer.ucm.types.profile/src-gen" modelPluginID="org.eclipse.papyrus.designer.ucm.types.profile"
+    modelName="Ucm" modelPluginClass="" editorPluginClass="org.eclipse.papyrus.designer.ucm.types.profile.UCMTypes.presentation.UcmEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.uml2.uml.ecore.importer"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.uml2.types/model/Types.genmodel#//types ../../org.eclipse.uml2.uml/model/UML.genmodel#//uml"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="VALIDATION_DELEGATES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>ucm_types.profile.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="UCMTypes" basePackage="org.eclipse.papyrus.designer.ucm.types.profile"
+      disposableProviderFactory="true" ecorePackage="UCMTypes.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//dummy"/>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Types" basePackage="org.eclipse.papyrus.designer.ucm.types.profile.UCMTypes"
+        disposableProviderFactory="true" ecorePackage="UCMTypes.ecore#//Types">
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="UCMTypes.ecore#//Types/PrimitiveIntegerKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveIntegerKind/SHORT"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveIntegerKind/LONG"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveIntegerKind/LONGLONG"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveIntegerKind/USHORT"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveIntegerKind/ULONG"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveIntegerKind/ULONGLONG"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="UCMTypes.ecore#//Types/PrimitiveCharKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveCharKind/CHAR"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveCharKind/WCHAR"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="UCMTypes.ecore#//Types/PrimitiveFloatKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveFloatKind/FLOAT"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveFloatKind/DOUBLE"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="UCMTypes.ecore#//Types/PrimitiveFloatKind/LONGDOUBLE"/>
+      </genEnums>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/StructureField">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/StructureField/base_Property"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/UnionCase">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/UnionCase/base_Property"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/UnionCase/selectorValue"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMTypes.ecore#//Types/UnionCase/isDefaultCase"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/ArrayDimension">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMTypes.ecore#//Types/ArrayDimension/size"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/ArrayDimension/base_Property"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMTypes.ecore#//Types/IIndexable">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMTypes.ecore#//Types/IIndexable/indexType"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/Alias">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/Alias/aliasedType"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMTypes.ecore#//Types/IStandardDataType"/>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMTypes.ecore#//Types/IDataType">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/IDataType/base_DataType"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/Structure"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/Union">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMTypes.ecore#//Types/Union/selectorName"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/Union/selectorType"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMTypes.ecore#//Types/IResizable">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMTypes.ecore#//Types/IResizable/maxSize"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/Array">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/Array/type"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/Array/dimension"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/StringType">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMTypes.ecore#//Types/StringType/charBase"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/NativeType"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/Sequence">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMTypes.ecore#//Types/Sequence/type"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/PrimitiveInteger">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMTypes.ecore#//Types/PrimitiveInteger/kind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/PrimitiveFloat">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMTypes.ecore#//Types/PrimitiveFloat/kind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/PrimitiveChar">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute UCMTypes.ecore#//Types/PrimitiveChar/kind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/PrimitiveBoolean"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMTypes.ecore#//Types/PrimitiveOctet"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

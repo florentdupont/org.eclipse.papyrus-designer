@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:constraints="http://www.eclipse.org/papyrus/constraints/0.9" xmlns:contexts="http://www.eclipse.org/papyrus/properties/contexts/0.9">
+  <contexts:Context xmi:id="_LleCkO-oEeaDUM5-xE3Itw" name="UCM_Supplement" label="UCM">
+    <dependencies href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_69QJkKDJEeSZxfCXzZz3-w"/>
+    <tabs xmi:id="_N-HU8O-oEeaDUM5-xE3Itw" label="UCM_Supplement" id="ucm_supplement" priority="100">
+      <sections xmi:id="_N-H8AO-oEeaDUM5-xE3Itw" name="Single dummy" sectionFile="ui/Singledummy.xwt">
+        <widget href="ui/Singledummy.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-H8Ae-oEeaDUM5-xE3Itw" name="Multiple dummy" sectionFile="ui/Multipledummy.xwt">
+        <widget href="ui/Multipledummy.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-H8Au-oEeaDUM5-xE3Itw" name="Single IPortElementImplementation" sectionFile="ui/SingleIPortElementImplementation.xwt">
+        <widget href="ui/SingleIPortElementImplementation.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-IjEO-oEeaDUM5-xE3Itw" name="Multiple IPortElementImplementation" sectionFile="ui/MultipleIPortElementImplementation.xwt">
+        <widget href="ui/MultipleIPortElementImplementation.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-IjEe-oEeaDUM5-xE3Itw" name="Single DetailedComponentImplementation" sectionFile="ui/SingleDetailedComponentImplementation.xwt">
+        <widget href="ui/SingleDetailedComponentImplementation.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-JKIO-oEeaDUM5-xE3Itw" name="Multiple DetailedComponentImplementation" sectionFile="ui/MultipleDetailedComponentImplementation.xwt">
+        <widget href="ui/MultipleDetailedComponentImplementation.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-JKIe-oEeaDUM5-xE3Itw" name="Single ComponentPortImplementation" sectionFile="ui/SingleComponentPortImplementation.xwt">
+        <widget href="ui/SingleComponentPortImplementation.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-JxMO-oEeaDUM5-xE3Itw" name="Multiple ComponentPortImplementation" sectionFile="ui/MultipleComponentPortImplementation.xwt">
+        <widget href="ui/MultipleComponentPortImplementation.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-KYQO-oEeaDUM5-xE3Itw" name="Single TechnicalPortImplementation" sectionFile="ui/SingleTechnicalPortImplementation.xwt">
+        <widget href="ui/SingleTechnicalPortImplementation.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-K_UO-oEeaDUM5-xE3Itw" name="Multiple TechnicalPortImplementation" sectionFile="ui/MultipleTechnicalPortImplementation.xwt">
+        <widget href="ui/MultipleTechnicalPortImplementation.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-K_Ue-oEeaDUM5-xE3Itw" name="Single TestCaseGroup" sectionFile="ui/SingleTestCaseGroup.xwt">
+        <widget href="ui/SingleTestCaseGroup.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-K_Uu-oEeaDUM5-xE3Itw" name="Multiple TestCaseGroup" sectionFile="ui/MultipleTestCaseGroup.xwt">
+        <widget href="ui/MultipleTestCaseGroup.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-K_U--oEeaDUM5-xE3Itw" name="Single ResourceDefinitionModule" sectionFile="ui/SingleResourceDefinitionModule.xwt">
+        <widget href="ui/SingleResourceDefinitionModule.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-K_VO-oEeaDUM5-xE3Itw" name="Multiple ResourceDefinitionModule" sectionFile="ui/MultipleResourceDefinitionModule.xwt">
+        <widget href="ui/MultipleResourceDefinitionModule.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-LmYO-oEeaDUM5-xE3Itw" name="Single EnvironmentModule" sectionFile="ui/SingleEnvironmentModule.xwt">
+        <widget href="ui/SingleEnvironmentModule.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-LmYe-oEeaDUM5-xE3Itw" name="Multiple EnvironmentModule" sectionFile="ui/MultipleEnvironmentModule.xwt">
+        <widget href="ui/MultipleEnvironmentModule.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-LmYu-oEeaDUM5-xE3Itw" name="Single AllocationPlan" sectionFile="ui/SingleAllocationPlan.xwt">
+        <widget href="ui/SingleAllocationPlan.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-LmY--oEeaDUM5-xE3Itw" name="Multiple AllocationPlan" sectionFile="ui/MultipleAllocationPlan.xwt">
+        <widget href="ui/MultipleAllocationPlan.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-LmZO-oEeaDUM5-xE3Itw" name="Single DeploymentModule" sectionFile="ui/SingleDeploymentModule.xwt">
+        <widget href="ui/SingleDeploymentModule.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-MNcO-oEeaDUM5-xE3Itw" name="Multiple DeploymentModule" sectionFile="ui/MultipleDeploymentModule.xwt">
+        <widget href="ui/MultipleDeploymentModule.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-MNce-oEeaDUM5-xE3Itw" name="Single AppAssembly" sectionFile="ui/SingleAppAssembly.xwt">
+        <widget href="ui/SingleAppAssembly.xwt#/"/>
+      </sections>
+      <sections xmi:id="_N-MNcu-oEeaDUM5-xE3Itw" name="Multiple AppAssembly" sectionFile="ui/MultipleAppAssembly.xwt">
+        <widget href="ui/MultipleAppAssembly.xwt#/"/>
+      </sections>
+    </tabs>
+    <views xmi:id="_LleCl--oEeaDUM5-xE3Itw" name="Single IPortElementImplementation" sections="_N-H8Au-oEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_LleC2O-oEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleCmO-oEeaDUM5-xE3Itw" name="isSingleIPortElementImplementation">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_LleCme-oEeaDUM5-xE3Itw" name="stereotypeName" value="UCM_Supplement::ucm_detailed_components::IPortElementImplementation"/>
+      </constraints>
+    </views>
+    <views xmi:id="_LleCmu-oEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple IPortElementImplementation" sections="_N-IjEO-oEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_LleC2O-oEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleCm--oEeaDUM5-xE3Itw" name="isMultipleIPortElementImplementation">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_LleCnO-oEeaDUM5-xE3Itw" name="stereotypeName" value="UCM_Supplement::ucm_detailed_components::IPortElementImplementation"/>
+      </constraints>
+    </views>
+    <views xmi:id="_LleCo--oEeaDUM5-xE3Itw" name="Single ComponentPortImplementation" sections="_N-JKIe-oEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_LleC2u-oEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleCpO-oEeaDUM5-xE3Itw" name="isSingleComponentPortImplementation">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_LleCpe-oEeaDUM5-xE3Itw" name="stereotypeName" value="UCM_Supplement::ucm_detailed_components::ComponentPortImplementation"/>
+      </constraints>
+    </views>
+    <views xmi:id="_LleCpu-oEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple ComponentPortImplementation" sections="_N-JxMO-oEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_LleC2u-oEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleCp--oEeaDUM5-xE3Itw" name="isMultipleComponentPortImplementation">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_LleCqO-oEeaDUM5-xE3Itw" name="stereotypeName" value="UCM_Supplement::ucm_detailed_components::ComponentPortImplementation"/>
+      </constraints>
+    </views>
+    <views xmi:id="_LleCqe-oEeaDUM5-xE3Itw" name="Single TechnicalPortImplementation" sections="_N-KYQO-oEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_LleC3O-oEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleCqu-oEeaDUM5-xE3Itw" name="isSingleTechnicalPortImplementation">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_LleCq--oEeaDUM5-xE3Itw" name="stereotypeName" value="UCM_Supplement::ucm_detailed_components::TechnicalPortImplementation"/>
+      </constraints>
+    </views>
+    <views xmi:id="_LleCrO-oEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple TechnicalPortImplementation" sections="_N-K_UO-oEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_LleC3O-oEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleCre-oEeaDUM5-xE3Itw" name="isMultipleTechnicalPortImplementation">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_LleCru-oEeaDUM5-xE3Itw" name="stereotypeName" value="UCM_Supplement::ucm_detailed_components::TechnicalPortImplementation"/>
+      </constraints>
+    </views>
+    <views xmi:id="_LleCx--oEeaDUM5-xE3Itw" name="Single DeploymentModule" sections="_N-LmZO-oEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_LleC5u-oEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleCyO-oEeaDUM5-xE3Itw" name="isSingleDeploymentModule">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_LleCye-oEeaDUM5-xE3Itw" name="stereotypeName" value="UCM_Supplement::ucm_deployment::DeploymentModule"/>
+      </constraints>
+    </views>
+    <views xmi:id="_LleCyu-oEeaDUM5-xE3Itw" elementMultiplicity="-1" name="Multiple DeploymentModule" sections="_N-MNcO-oEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_LleC5u-oEeaDUM5-xE3Itw">
+      <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleCy--oEeaDUM5-xE3Itw" name="isMultipleDeploymentModule">
+        <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+        <properties xsi:type="constraints:ValueProperty" xmi:id="_LleCzO-oEeaDUM5-xE3Itw" name="stereotypeName" value="UCM_Supplement::ucm_deployment::DeploymentModule"/>
+      </constraints>
+    </views>
+    <dataContexts xmi:id="_LleC0--oEeaDUM5-xE3Itw" name="UCM_Supplement">
+      <elements xmi:id="_LleC1O-oEeaDUM5-xE3Itw" name="dummy"/>
+      <elements xsi:type="contexts:DataContextPackage" xmi:id="_LleC1e-oEeaDUM5-xE3Itw" name="ucm_detailed_components">
+        <elements xmi:id="_LleC2O-oEeaDUM5-xE3Itw" name="IPortElementImplementation">
+          <properties xmi:id="_LleC2e-oEeaDUM5-xE3Itw" name="portElement" type="Reference"/>
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+        </elements>
+        <elements xmi:id="_LleC2u-oEeaDUM5-xE3Itw" name="ComponentPortImplementation" supertypes="_LleC2O-oEeaDUM5-xE3Itw">
+          <properties xmi:id="_LleC2--oEeaDUM5-xE3Itw" name="port" type="Reference"/>
+        </elements>
+        <elements xmi:id="_LleC3O-oEeaDUM5-xE3Itw" name="TechnicalPortImplementation" supertypes="_LleC2O-oEeaDUM5-xE3Itw">
+          <properties xmi:id="_LleC3e-oEeaDUM5-xE3Itw" name="policy" type="Reference"/>
+        </elements>
+      </elements>
+      <elements xsi:type="contexts:DataContextPackage" xmi:id="_LleC3u-oEeaDUM5-xE3Itw" name="ucm_environment">
+        <elements xmi:id="_LleC3--oEeaDUM5-xE3Itw" name="EnvironmentModule">
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+        </elements>
+        <elements xmi:id="_LleC4O-oEeaDUM5-xE3Itw" name="ResourceDefinitionModule">
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+        </elements>
+      </elements>
+      <elements xsi:type="contexts:DataContextPackage" xmi:id="_LleC4e-oEeaDUM5-xE3Itw" name="ucm_test_cases">
+        <elements xmi:id="_LleC4u-oEeaDUM5-xE3Itw" name="TestCaseGroup">
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+        </elements>
+      </elements>
+      <elements xsi:type="contexts:DataContextPackage" xmi:id="_LleC4--oEeaDUM5-xE3Itw" name="ucm_deployment">
+        <elements xmi:id="_LleC5O-oEeaDUM5-xE3Itw" name="AllocationPlan">
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+        </elements>
+        <elements xmi:id="_LleC5e-oEeaDUM5-xE3Itw" name="AppAssembly">
+          <supertypes href="#_LleEX--oEeaDUM5-xE3Itw"/>
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+        </elements>
+        <elements xmi:id="_LleC5u-oEeaDUM5-xE3Itw" name="DeploymentModule">
+          <properties xmi:id="_LleC5--oEeaDUM5-xE3Itw" name="programmingLanguages" type="Reference"/>
+          <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+        </elements>
+      </elements>
+      <modelElementFactory href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@modelElementFactories.2"/>
+    </dataContexts>
+  </contexts:Context>
+  <contexts:DataContextElement xmi:id="_LleEX--oEeaDUM5-xE3Itw"/>
+  <contexts:View xmi:id="_LleEYO-oEeaDUM5-xE3Itw" automaticContext="true" datacontexts="_LleEX--oEeaDUM5-xE3Itw">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleEYe-oEeaDUM5-xE3Itw">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_LleEYu-oEeaDUM5-xE3Itw" name="stereotypeName"/>
+    </constraints>
+  </contexts:View>
+  <contexts:View xmi:id="_LleEY--oEeaDUM5-xE3Itw" elementMultiplicity="-1" automaticContext="true" datacontexts="_LleEX--oEeaDUM5-xE3Itw">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_LleEZO-oEeaDUM5-xE3Itw">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_LleEZe-oEeaDUM5-xE3Itw" name="stereotypeName"/>
+    </constraints>
+  </contexts:View>
+</xmi:XMI>

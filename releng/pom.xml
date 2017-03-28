@@ -26,6 +26,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		<!-- components -->
 		<module>org.eclipse.papyrus.designer.components.main.feature</module>
 		<module>org.eclipse.papyrus.designer.components.tracing.feature</module>
+
+		<!-- ucm -->
+		<module>org.eclipse.papyrus.designer.ucm.feature</module>
 	</modules>
 	
 	<profiles>

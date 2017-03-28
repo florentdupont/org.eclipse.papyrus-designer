@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UCMProfile" nsURI="http://www.omg.org/ucm/0.9" nsPrefix="UCMProfile">
+  <eClassifiers xsi:type="ecore:EClass" name="dummy"/>
+  <eSubpackages name="ucm_components" nsURI="http://www.omg.org/ucm/components/0.9"
+      nsPrefix="UCMProfile.ucm_components">
+    <eClassifiers xsi:type="ecore:EClass" name="InteractionItemBinding" eSuperTypes="#//ucm_components/IBinding">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Association type from metaclass property must refers to the actual type of the binding"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="item" ordered="false"
+          lowerBound="1" eType="#//ucm_interactions/InteractionItem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IBinding" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PortRoleSpec" eSuperTypes="#//ucm_components/IPortSpec">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="PortTypeSpec can contain AbstractTypeBinding properties"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role" ordered="false"
+          lowerBound="1" eType="#//ucm_interactions/InteractionRole"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IPortSpec" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PortTypeSpec" eSuperTypes="#//ucm_components/IPortSpec">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="PortRoleSpec can contain InteractionItemBinding properties"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false"
+          lowerBound="1" eType="#//ucm_interactions/IPortType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connection" eSuperTypes="#//ucm_contracts/IConfigured">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Connection has to be typed by a IInteractionDefinition"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConnectionLink">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ConnectionLink corresponds to the ConnectorEnd in the MM"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Connector" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Connector"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TechnicalPolicy" eSuperTypes="#//ucm_contracts/IConfigured">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="managedComponent is computed from&#xD;&#xA;the association between componentTechnicalPolicy&#xD;&#xA; and AtomicComponentImplementation&#xA;policy is computed from&#xD;&#xA;the association between componentTechnicalPolicy&#xD;&#xA;and AtomicComponentImplementation&#xA;managedPort and managedPolicy are optional. The former is only used in case of applicability = &quot;ON_SOME_PORTS&quot;"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+          lowerBound="1" eType="#//ucm_technicalpolicies/TechnicalPolicyDefinition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="managedPort" ordered="false"
+          upperBound="-1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Port"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="managePolicy" ordered="false"
+          upperBound="-1" eType="#//ucm_components/TechnicalPolicy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AtomicComponentImplementation" eSuperTypes="#//ucm_components/IComponentImplementation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="policy is computed from&#xD;&#xA;the association between componentTechnicalPolicy&#xD;&#xA;and AtomicComponentImplementation"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="language" ordered="false"
+          lowerBound="1" eType="#//ucm_technicalpolicies/Language"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IComponentImplementation" abstract="true"
+        eSuperTypes="#//ucm_components/IComponent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IComponent" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentType" eSuperTypes="#//ucm_components/IComponent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeComponentImplementation"
+        eSuperTypes="#//ucm_components/IComponentImplementation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssemblyPart">
+      <eOperations name="Constraint1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractTypeBinding" eSuperTypes="#//ucm_components/IBinding">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="abstractType" ordered="false"
+          lowerBound="1" eType="#//ucm_contracts/AbstractDeclaration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="ucm_interactions" nsURI="http://www.omg.org/ucm/interactions/0.9"
+      nsPrefix="UCMProfile.ucm_interactions">
+    <eClassifiers xsi:type="ecore:EClass" name="InteractionDefinitionModule">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Subpackages must be ContractModule or, InteractionDefinitionModule. Contained elements must be IntercationPattern, IPortType or ConnectorDefinition"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InteractionPattern" eSuperTypes="#//ucm_interactions/IInteractionDefinition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="InteractionRole and InteractionItem classes are linked by a composition relationship with an InteractionPattern&#xA;To extends an InteractionPattern, use the redefinedClassifier association form metaclass."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IInteractionDefinition" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Can extend either a class or a collaboration. Collaboration is the better choice, as it makes more sense. But some modeler might not manage collaboration diagrams correctly."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConnectorPort">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="type association from metaclass Port must refers to a IPortType"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implements" ordered="false"
+          lowerBound="1" eType="#//ucm_interactions/InteractionRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InteractionRole">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="involvedItem" ordered="false"
+          lowerBound="1" eType="#//ucm_interactions/InteractionItem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PortElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="type association from metaclass Property must refers to an interface&#xA;type from metaclass property must refer to an interface"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//ucm_interactions/PortElementKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PortElementKind">
+      <eLiterals name="PROVIDED"/>
+      <eLiterals name="REQUIRED" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConnectorDefinition" eSuperTypes="#//ucm_interactions/IInteractionDefinition #//ucm_contracts/IConfigurable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ConnectorDefinition's ports (ownedPorts) must be ConnectorPorts&#xA;To extends anConnectorDefinition, use the redefinedClassifier association form metaclass.&#xA;Item bindings must be added in the metaclass component properties (ownedAttributes)&#xA;verify that connectorDefinition realizes InteractionPattern"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemBinding">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Binds the interaction item with any data type (association type from metaclass property)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interactionItem" ordered="false"
+          lowerBound="1" eType="#//ucm_interactions/InteractionItem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PortType" eSuperTypes="#//ucm_interactions/IPortType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the PortType properties (from metaclass Class) must contain PortElements"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IPortType" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConnectorPortConfiguration" eSuperTypes="#//ucm_contracts/IConfigurable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Must be in a nested class within a connector definition"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="port" ordered="false"
+          lowerBound="1" eType="#//ucm_interactions/ConnectorPort"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="InteractionItemKind">
+      <eLiterals name="DATA"/>
+      <eLiterals name="INTERFACE" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InteractionItem">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nature" ordered="false"
+          lowerBound="1" eType="#//ucm_interactions/InteractionItemKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="ucm_contracts" nsURI="http://www.omg.org/ucm/contracts/0.9"
+      nsPrefix="UCMProfile.ucm_contracts">
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractDeclaration" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//ucm_contracts/IConfigured">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false"
+          lowerBound="1" eType="#//ucm_contracts/AnnotationDefinition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Comment" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Comment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IConfigured" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="values" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//InstanceSpecification"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationDefinition" eSuperTypes="#//ucm_contracts/IConfigurable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConfigurationParameter" eSuperTypes="#//ucm_contracts/IConfigurationParameter"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IConfigurationParameter" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An IConfigurationParameter must belong to an IConfigurable"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContractModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IConfigurationParameterValue" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Slot sterotyped by IConfigurationParameterValue must belong to an IConfigured. The type of the Slot itself must be an IConfigurationParameter"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Slot" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Slot"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConfigurationParameterValue" eSuperTypes="#//ucm_contracts/IConfigurationParameterValue"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractInterface" eSuperTypes="#//ucm_contracts/AbstractDeclaration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Interface" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Interface"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractDataType" eSuperTypes="#//ucm_contracts/AbstractDeclaration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_DataType" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constant">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_InstanceSpecification"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//InstanceSpecification"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IConfigurable" abstract="true"/>
+  </eSubpackages>
+  <eSubpackages name="ucm_technicalpolicies" nsURI="http://www.omg.org/ucm/policies/0.9"
+      nsPrefix="UCMProfile.ucm_technicalpolicies">
+    <eClassifiers xsi:type="ecore:EClass" name="TechnicalAspect">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="TechnicalPolicyDefinition realizes TechnicalAspect"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" ordered="false"
+          lowerBound="1" eType="#//ucm_technicalpolicies/TechnicalAspectConstraint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="TechnicalAspectConstraint">
+      <eLiterals name="ANY_NUMBER"/>
+      <eLiterals name="AT_MOST_ONE" value="1"/>
+      <eLiterals name="EXACTLY_ONE" value="2"/>
+      <eLiterals name="AT_LEAST_ONE" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProgrammingLanguages">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Must only contain Languages. container = NFAspectModule (OCL rule)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="languages" ordered="false"
+          upperBound="-1" eType="#//ucm_technicalpolicies/Language" volatile="true"
+          transient="true" derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Language">
+      <eOperations name="Constraint1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="base_Class.owner.getStereotypeApplications:oclKindOfns ProgrammingLanguages"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NonfunctionalAspectModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="TechnicalPolicyApplicability">
+      <eLiterals name="ON_COMPONENT_ONLY"/>
+      <eLiterals name="ON_SOME_PORTS" value="1"/>
+      <eLiterals name="ON_ALL_PORTS" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TechnicalPolicyDefinition" eSuperTypes="#//ucm_contracts/IConfigurable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="applicability" ordered="false"
+          lowerBound="1" eType="#//ucm_technicalpolicies/TechnicalPolicyApplicability"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="ucm_commons" nsURI="http://www.omg.org/ucm/commons/0.9" nsPrefix="UCMProfile.ucm_commons">
+    <eClassifiers xsi:type="ecore:EClass" name="ApplicationModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlatformModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

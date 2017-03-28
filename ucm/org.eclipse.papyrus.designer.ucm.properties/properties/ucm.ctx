@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="ASCII"?>
+<contexts:Context xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:constraints="http://www.eclipse.org/papyrus/constraints/0.9" xmlns:contexts="http://www.eclipse.org/papyrus/properties/contexts/0.9" xmi:id="_sVMXMO-fEeaSecuZnRjrUA" name="UCMProfile" label="UCM">
+  <dependencies href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_69QJkKDJEeSZxfCXzZz3-w"/>
+  <tabs xmi:id="_uPQ3MO-fEeaSecuZnRjrUA" label="UCM" id="ucmprofile" priority="100">
+    <sections xmi:id="_uPZaEO-fEeaSecuZnRjrUA" name="Single dummy" sectionFile="ui/Singledummy.xwt">
+      <widget href="ui/Singledummy.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPZaEe-fEeaSecuZnRjrUA" name="Multiple dummy" sectionFile="ui/Multipledummy.xwt">
+      <widget href="ui/Multipledummy.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPZaEu-fEeaSecuZnRjrUA" name="Single PlatformModule" sectionFile="ui/SinglePlatformModule.xwt">
+      <widget href="ui/SinglePlatformModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPaBIO-fEeaSecuZnRjrUA" name="Multiple PlatformModule" sectionFile="ui/MultiplePlatformModule.xwt">
+      <widget href="ui/MultiplePlatformModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPaBIe-fEeaSecuZnRjrUA" name="Single ApplicationModule" sectionFile="ui/SingleApplicationModule.xwt">
+      <widget href="ui/SingleApplicationModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPaBIu-fEeaSecuZnRjrUA" name="Multiple ApplicationModule" sectionFile="ui/MultipleApplicationModule.xwt">
+      <widget href="ui/MultipleApplicationModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPaBI--fEeaSecuZnRjrUA" name="Single ProgrammingLanguages" sectionFile="ui/SingleProgrammingLanguages.xwt">
+      <widget href="ui/SingleProgrammingLanguages.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPaoMO-fEeaSecuZnRjrUA" name="Multiple ProgrammingLanguages" sectionFile="ui/MultipleProgrammingLanguages.xwt">
+      <widget href="ui/MultipleProgrammingLanguages.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPdEcO-fEeaSecuZnRjrUA" name="Single TechnicalPolicyDefinition" sectionFile="ui/SingleTechnicalPolicyDefinition.xwt">
+      <widget href="ui/SingleTechnicalPolicyDefinition.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPdrgO-fEeaSecuZnRjrUA" name="Multiple TechnicalPolicyDefinition" sectionFile="ui/MultipleTechnicalPolicyDefinition.xwt">
+      <widget href="ui/MultipleTechnicalPolicyDefinition.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPdrge-fEeaSecuZnRjrUA" name="Single IConfigurable" sectionFile="ui/SingleIConfigurable.xwt">
+      <widget href="ui/SingleIConfigurable.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPdrgu-fEeaSecuZnRjrUA" name="Multiple IConfigurable" sectionFile="ui/MultipleIConfigurable.xwt">
+      <widget href="ui/MultipleIConfigurable.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPgHwO-fEeaSecuZnRjrUA" name="Single Language" sectionFile="ui/SingleLanguage.xwt">
+      <widget href="ui/SingleLanguage.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPgHwe-fEeaSecuZnRjrUA" name="Multiple Language" sectionFile="ui/MultipleLanguage.xwt">
+      <widget href="ui/MultipleLanguage.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPgu0O-fEeaSecuZnRjrUA" name="Single TechnicalAspect" sectionFile="ui/SingleTechnicalAspect.xwt">
+      <widget href="ui/SingleTechnicalAspect.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPgu0e-fEeaSecuZnRjrUA" name="Multiple TechnicalAspect" sectionFile="ui/MultipleTechnicalAspect.xwt">
+      <widget href="ui/MultipleTechnicalAspect.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPgu0u-fEeaSecuZnRjrUA" name="Single NonfunctionalAspectModule" sectionFile="ui/SingleNonfunctionalAspectModule.xwt">
+      <widget href="ui/SingleNonfunctionalAspectModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPgu0--fEeaSecuZnRjrUA" name="Multiple NonfunctionalAspectModule" sectionFile="ui/MultipleNonfunctionalAspectModule.xwt">
+      <widget href="ui/MultipleNonfunctionalAspectModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPhV4O-fEeaSecuZnRjrUA" name="Single ConfigurationParameter" sectionFile="ui/SingleConfigurationParameter.xwt">
+      <widget href="ui/SingleConfigurationParameter.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPhV4e-fEeaSecuZnRjrUA" name="Multiple ConfigurationParameter" sectionFile="ui/MultipleConfigurationParameter.xwt">
+      <widget href="ui/MultipleConfigurationParameter.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPhV4u-fEeaSecuZnRjrUA" name="Single IConfigurationParameter" sectionFile="ui/SingleIConfigurationParameter.xwt">
+      <widget href="ui/SingleIConfigurationParameter.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPhV4--fEeaSecuZnRjrUA" name="Multiple IConfigurationParameter" sectionFile="ui/MultipleIConfigurationParameter.xwt">
+      <widget href="ui/MultipleIConfigurationParameter.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPhV5O-fEeaSecuZnRjrUA" name="Single AnnotationDefinition" sectionFile="ui/SingleAnnotationDefinition.xwt">
+      <widget href="ui/SingleAnnotationDefinition.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPhV5e-fEeaSecuZnRjrUA" name="Multiple AnnotationDefinition" sectionFile="ui/MultipleAnnotationDefinition.xwt">
+      <widget href="ui/MultipleAnnotationDefinition.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh88O-fEeaSecuZnRjrUA" name="Single Constant" sectionFile="ui/SingleConstant.xwt">
+      <widget href="ui/SingleConstant.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh88e-fEeaSecuZnRjrUA" name="Multiple Constant" sectionFile="ui/MultipleConstant.xwt">
+      <widget href="ui/MultipleConstant.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh88u-fEeaSecuZnRjrUA" name="Single AbstractDeclaration" sectionFile="ui/SingleAbstractDeclaration.xwt">
+      <widget href="ui/SingleAbstractDeclaration.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh88--fEeaSecuZnRjrUA" name="Multiple AbstractDeclaration" sectionFile="ui/MultipleAbstractDeclaration.xwt">
+      <widget href="ui/MultipleAbstractDeclaration.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh89O-fEeaSecuZnRjrUA" name="Single ConfigurationParameterValue" sectionFile="ui/SingleConfigurationParameterValue.xwt">
+      <widget href="ui/SingleConfigurationParameterValue.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh89e-fEeaSecuZnRjrUA" name="Multiple ConfigurationParameterValue" sectionFile="ui/MultipleConfigurationParameterValue.xwt">
+      <widget href="ui/MultipleConfigurationParameterValue.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh89u-fEeaSecuZnRjrUA" name="Single IConfigurationParameterValue" sectionFile="ui/SingleIConfigurationParameterValue.xwt">
+      <widget href="ui/SingleIConfigurationParameterValue.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh89--fEeaSecuZnRjrUA" name="Multiple IConfigurationParameterValue" sectionFile="ui/MultipleIConfigurationParameterValue.xwt">
+      <widget href="ui/MultipleIConfigurationParameterValue.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh8-O-fEeaSecuZnRjrUA" name="Single AbstractDataType" sectionFile="ui/SingleAbstractDataType.xwt">
+      <widget href="ui/SingleAbstractDataType.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh8-e-fEeaSecuZnRjrUA" name="Multiple AbstractDataType" sectionFile="ui/MultipleAbstractDataType.xwt">
+      <widget href="ui/MultipleAbstractDataType.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPh8-u-fEeaSecuZnRjrUA" name="Single ContractModule" sectionFile="ui/SingleContractModule.xwt">
+      <widget href="ui/SingleContractModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPikAO-fEeaSecuZnRjrUA" name="Multiple ContractModule" sectionFile="ui/MultipleContractModule.xwt">
+      <widget href="ui/MultipleContractModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPikAe-fEeaSecuZnRjrUA" name="Single IConfigured" sectionFile="ui/SingleIConfigured.xwt">
+      <widget href="ui/SingleIConfigured.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPikAu-fEeaSecuZnRjrUA" name="Multiple IConfigured" sectionFile="ui/MultipleIConfigured.xwt">
+      <widget href="ui/MultipleIConfigured.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPikA--fEeaSecuZnRjrUA" name="Single Annotation" sectionFile="ui/SingleAnnotation.xwt">
+      <widget href="ui/SingleAnnotation.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjLEO-fEeaSecuZnRjrUA" name="Multiple Annotation" sectionFile="ui/MultipleAnnotation.xwt">
+      <widget href="ui/MultipleAnnotation.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjLEe-fEeaSecuZnRjrUA" name="Single AbstractInterface" sectionFile="ui/SingleAbstractInterface.xwt">
+      <widget href="ui/SingleAbstractInterface.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjLEu-fEeaSecuZnRjrUA" name="Multiple AbstractInterface" sectionFile="ui/MultipleAbstractInterface.xwt">
+      <widget href="ui/MultipleAbstractInterface.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjLE--fEeaSecuZnRjrUA" name="Single ComponentType" sectionFile="ui/SingleComponentType.xwt">
+      <widget href="ui/SingleComponentType.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjLFO-fEeaSecuZnRjrUA" name="Multiple ComponentType" sectionFile="ui/MultipleComponentType.xwt">
+      <widget href="ui/MultipleComponentType.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjLFe-fEeaSecuZnRjrUA" name="Single IComponent" sectionFile="ui/SingleIComponent.xwt">
+      <widget href="ui/SingleIComponent.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjLFu-fEeaSecuZnRjrUA" name="Multiple IComponent" sectionFile="ui/MultipleIComponent.xwt">
+      <widget href="ui/MultipleIComponent.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjyIO-fEeaSecuZnRjrUA" name="Single AbstractTypeBinding" sectionFile="ui/SingleAbstractTypeBinding.xwt">
+      <widget href="ui/SingleAbstractTypeBinding.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjyIe-fEeaSecuZnRjrUA" name="Multiple AbstractTypeBinding" sectionFile="ui/MultipleAbstractTypeBinding.xwt">
+      <widget href="ui/MultipleAbstractTypeBinding.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjyIu-fEeaSecuZnRjrUA" name="Single IBinding" sectionFile="ui/SingleIBinding.xwt">
+      <widget href="ui/SingleIBinding.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPjyI--fEeaSecuZnRjrUA" name="Multiple IBinding" sectionFile="ui/MultipleIBinding.xwt">
+      <widget href="ui/MultipleIBinding.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPkZMO-fEeaSecuZnRjrUA" name="Single InteractionItemBinding" sectionFile="ui/SingleInteractionItemBinding.xwt">
+      <widget href="ui/SingleInteractionItemBinding.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPkZMe-fEeaSecuZnRjrUA" name="Multiple InteractionItemBinding" sectionFile="ui/MultipleInteractionItemBinding.xwt">
+      <widget href="ui/MultipleInteractionItemBinding.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPkZMu-fEeaSecuZnRjrUA" name="Single IComponentImplementation" sectionFile="ui/SingleIComponentImplementation.xwt">
+      <widget href="ui/SingleIComponentImplementation.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPkZM--fEeaSecuZnRjrUA" name="Multiple IComponentImplementation" sectionFile="ui/MultipleIComponentImplementation.xwt">
+      <widget href="ui/MultipleIComponentImplementation.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPkZNO-fEeaSecuZnRjrUA" name="Single AssemblyPart" sectionFile="ui/SingleAssemblyPart.xwt">
+      <widget href="ui/SingleAssemblyPart.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPkZNe-fEeaSecuZnRjrUA" name="Multiple AssemblyPart" sectionFile="ui/MultipleAssemblyPart.xwt">
+      <widget href="ui/MultipleAssemblyPart.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPlAQO-fEeaSecuZnRjrUA" name="Single ComponentPortTechnicalPolicy" sectionFile="ui/SingleComponentPortTechnicalPolicy.xwt">
+      <widget href="ui/SingleComponentPortTechnicalPolicy.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPlAQe-fEeaSecuZnRjrUA" name="Multiple ComponentPortTechnicalPolicy" sectionFile="ui/MultipleComponentPortTechnicalPolicy.xwt">
+      <widget href="ui/MultipleComponentPortTechnicalPolicy.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPlAQu-fEeaSecuZnRjrUA" name="Single ComponentTechnicalPolicy" sectionFile="ui/SingleComponentTechnicalPolicy.xwt">
+      <widget href="ui/SingleComponentTechnicalPolicy.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPlnUO-fEeaSecuZnRjrUA" name="Multiple ComponentTechnicalPolicy" sectionFile="ui/MultipleComponentTechnicalPolicy.xwt">
+      <widget href="ui/MultipleComponentTechnicalPolicy.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPlnUe-fEeaSecuZnRjrUA" name="Single IPortSpec" sectionFile="ui/SingleIPortSpec.xwt">
+      <widget href="ui/SingleIPortSpec.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPlnUu-fEeaSecuZnRjrUA" name="Multiple IPortSpec" sectionFile="ui/MultipleIPortSpec.xwt">
+      <widget href="ui/MultipleIPortSpec.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPlnU--fEeaSecuZnRjrUA" name="Single PortTypeSpec" sectionFile="ui/SinglePortTypeSpec.xwt">
+      <widget href="ui/SinglePortTypeSpec.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPmOYO-fEeaSecuZnRjrUA" name="Multiple PortTypeSpec" sectionFile="ui/MultiplePortTypeSpec.xwt">
+      <widget href="ui/MultiplePortTypeSpec.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPmOYe-fEeaSecuZnRjrUA" name="Single AtomicComponentImplementation" sectionFile="ui/SingleAtomicComponentImplementation.xwt">
+      <widget href="ui/SingleAtomicComponentImplementation.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPmOYu-fEeaSecuZnRjrUA" name="Multiple AtomicComponentImplementation" sectionFile="ui/MultipleAtomicComponentImplementation.xwt">
+      <widget href="ui/MultipleAtomicComponentImplementation.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPmOY--fEeaSecuZnRjrUA" name="Single ComponentModule" sectionFile="ui/SingleComponentModule.xwt">
+      <widget href="ui/SingleComponentModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPmOZO-fEeaSecuZnRjrUA" name="Multiple ComponentModule" sectionFile="ui/MultipleComponentModule.xwt">
+      <widget href="ui/MultipleComponentModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPm1cO-fEeaSecuZnRjrUA" name="Single Connection" sectionFile="ui/SingleConnection.xwt">
+      <widget href="ui/SingleConnection.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPm1ce-fEeaSecuZnRjrUA" name="Multiple Connection" sectionFile="ui/MultipleConnection.xwt">
+      <widget href="ui/MultipleConnection.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPm1cu-fEeaSecuZnRjrUA" name="Single PortRoleSpec" sectionFile="ui/SinglePortRoleSpec.xwt">
+      <widget href="ui/SinglePortRoleSpec.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPm1c--fEeaSecuZnRjrUA" name="Multiple PortRoleSpec" sectionFile="ui/MultiplePortRoleSpec.xwt">
+      <widget href="ui/MultiplePortRoleSpec.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPpRsO-fEeaSecuZnRjrUA" name="Single CompositeComponentImplementation" sectionFile="ui/SingleCompositeComponentImplementation.xwt">
+      <widget href="ui/SingleCompositeComponentImplementation.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPpRse-fEeaSecuZnRjrUA" name="Multiple CompositeComponentImplementation" sectionFile="ui/MultipleCompositeComponentImplementation.xwt">
+      <widget href="ui/MultipleCompositeComponentImplementation.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPpRsu-fEeaSecuZnRjrUA" name="Single ConnectionLink" sectionFile="ui/SingleConnectionLink.xwt">
+      <widget href="ui/SingleConnectionLink.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPpRs--fEeaSecuZnRjrUA" name="Multiple ConnectionLink" sectionFile="ui/MultipleConnectionLink.xwt">
+      <widget href="ui/MultipleConnectionLink.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPp4wO-fEeaSecuZnRjrUA" name="Single ConnectorPortConfiguration" sectionFile="ui/SingleConnectorPortConfiguration.xwt">
+      <widget href="ui/SingleConnectorPortConfiguration.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPp4we-fEeaSecuZnRjrUA" name="Multiple ConnectorPortConfiguration" sectionFile="ui/MultipleConnectorPortConfiguration.xwt">
+      <widget href="ui/MultipleConnectorPortConfiguration.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPp4wu-fEeaSecuZnRjrUA" name="Single InteractionDefinitionModule" sectionFile="ui/SingleInteractionDefinitionModule.xwt">
+      <widget href="ui/SingleInteractionDefinitionModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPp4w--fEeaSecuZnRjrUA" name="Multiple InteractionDefinitionModule" sectionFile="ui/MultipleInteractionDefinitionModule.xwt">
+      <widget href="ui/MultipleInteractionDefinitionModule.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPp4xO-fEeaSecuZnRjrUA" name="Single IInteractionDefinition" sectionFile="ui/SingleIInteractionDefinition.xwt">
+      <widget href="ui/SingleIInteractionDefinition.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPqf0O-fEeaSecuZnRjrUA" name="Multiple IInteractionDefinition" sectionFile="ui/MultipleIInteractionDefinition.xwt">
+      <widget href="ui/MultipleIInteractionDefinition.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPqf0e-fEeaSecuZnRjrUA" name="Single PortElement" sectionFile="ui/SinglePortElement.xwt">
+      <widget href="ui/SinglePortElement.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPqf0u-fEeaSecuZnRjrUA" name="Multiple PortElement" sectionFile="ui/MultiplePortElement.xwt">
+      <widget href="ui/MultiplePortElement.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPqf0--fEeaSecuZnRjrUA" name="Single InteractionPattern" sectionFile="ui/SingleInteractionPattern.xwt">
+      <widget href="ui/SingleInteractionPattern.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPqf1O-fEeaSecuZnRjrUA" name="Multiple InteractionPattern" sectionFile="ui/MultipleInteractionPattern.xwt">
+      <widget href="ui/MultipleInteractionPattern.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPrG4O-fEeaSecuZnRjrUA" name="Single ItemBinding" sectionFile="ui/SingleItemBinding.xwt">
+      <widget href="ui/SingleItemBinding.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPrG4e-fEeaSecuZnRjrUA" name="Multiple ItemBinding" sectionFile="ui/MultipleItemBinding.xwt">
+      <widget href="ui/MultipleItemBinding.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPrG4u-fEeaSecuZnRjrUA" name="Single PortType" sectionFile="ui/SinglePortType.xwt">
+      <widget href="ui/SinglePortType.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPrG4--fEeaSecuZnRjrUA" name="Multiple PortType" sectionFile="ui/MultiplePortType.xwt">
+      <widget href="ui/MultiplePortType.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPrG5O-fEeaSecuZnRjrUA" name="Single IPortType" sectionFile="ui/SingleIPortType.xwt">
+      <widget href="ui/SingleIPortType.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPrt8O-fEeaSecuZnRjrUA" name="Multiple IPortType" sectionFile="ui/MultipleIPortType.xwt">
+      <widget href="ui/MultipleIPortType.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPsVAO-fEeaSecuZnRjrUA" name="Single InteractionItem" sectionFile="ui/SingleInteractionItem.xwt">
+      <widget href="ui/SingleInteractionItem.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPsVAe-fEeaSecuZnRjrUA" name="Multiple InteractionItem" sectionFile="ui/MultipleInteractionItem.xwt">
+      <widget href="ui/MultipleInteractionItem.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPsVAu-fEeaSecuZnRjrUA" name="Single InteractionRole" sectionFile="ui/SingleInteractionRole.xwt">
+      <widget href="ui/SingleInteractionRole.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPs8EO-fEeaSecuZnRjrUA" name="Multiple InteractionRole" sectionFile="ui/MultipleInteractionRole.xwt">
+      <widget href="ui/MultipleInteractionRole.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPs8Ee-fEeaSecuZnRjrUA" name="Single ConnectorPort" sectionFile="ui/SingleConnectorPort.xwt">
+      <widget href="ui/SingleConnectorPort.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPs8Eu-fEeaSecuZnRjrUA" name="Multiple ConnectorPort" sectionFile="ui/MultipleConnectorPort.xwt">
+      <widget href="ui/MultipleConnectorPort.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPs8E--fEeaSecuZnRjrUA" name="Single ConnectorDefinition" sectionFile="ui/SingleConnectorDefinition.xwt">
+      <widget href="ui/SingleConnectorDefinition.xwt#/"/>
+    </sections>
+    <sections xmi:id="_uPs8FO-fEeaSecuZnRjrUA" name="Multiple ConnectorDefinition" sectionFile="ui/MultipleConnectorDefinition.xwt">
+      <widget href="ui/MultipleConnectorDefinition.xwt#/"/>
+    </sections>
+  </tabs>
+  <views xmi:id="_sVM-Ue-fEeaSecuZnRjrUA" name="Single TechnicalPolicyDefinition" sections="_uPdEcO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_fO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-Uu-fEeaSecuZnRjrUA" name="isSingleTechnicalPolicyDefinition">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-U--fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_technicalpolicies::TechnicalPolicyDefinition"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-VO-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple TechnicalPolicyDefinition" sections="_uPdrgO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_fO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-Ve-fEeaSecuZnRjrUA" name="isMultipleTechnicalPolicyDefinition">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-Vu-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_technicalpolicies::TechnicalPolicyDefinition"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-V--fEeaSecuZnRjrUA" name="Single IConfigurable" sections="_uPdrge-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_bu-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-WO-fEeaSecuZnRjrUA" name="isSingleIConfigurable">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-We-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_contracts::IConfigurable"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-Wu-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple IConfigurable" sections="_uPdrgu-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_bu-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-W--fEeaSecuZnRjrUA" name="isMultipleIConfigurable">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-XO-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_contracts::IConfigurable"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-Y--fEeaSecuZnRjrUA" name="Single TechnicalAspect" sections="_uPgu0O-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_ee-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-ZO-fEeaSecuZnRjrUA" name="isSingleTechnicalAspect">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-Ze-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_technicalpolicies::TechnicalAspect"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-Zu-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple TechnicalAspect" sections="_uPgu0e-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_ee-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-Z--fEeaSecuZnRjrUA" name="isMultipleTechnicalAspect">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-aO-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_technicalpolicies::TechnicalAspect"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-q--fEeaSecuZnRjrUA" name="Single Annotation" sections="_uPikA--fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_ae-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-rO-fEeaSecuZnRjrUA" name="isSingleAnnotation">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-re-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_contracts::Annotation"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-ru-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple Annotation" sections="_uPjLEO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_ae-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-r--fEeaSecuZnRjrUA" name="isMultipleAnnotation">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-sO-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_contracts::Annotation"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-w--fEeaSecuZnRjrUA" name="Single AbstractTypeBinding" sections="_uPjyIO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_l--fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-xO-fEeaSecuZnRjrUA" name="isSingleAbstractTypeBinding">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-xe-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::AbstractTypeBinding"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-xu-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple AbstractTypeBinding" sections="_uPjyIe-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_l--fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-x--fEeaSecuZnRjrUA" name="isMultipleAbstractTypeBinding">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-yO-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::AbstractTypeBinding"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-z--fEeaSecuZnRjrUA" name="Single InteractionItemBinding" sections="_uPkZMO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_me-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-0O-fEeaSecuZnRjrUA" name="isSingleInteractionItemBinding">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-0e-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::InteractionItemBinding"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-0u-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple InteractionItemBinding" sections="_uPkZMe-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_me-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-0--fEeaSecuZnRjrUA" name="isMultipleInteractionItemBinding">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-1O-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::InteractionItemBinding"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-4e-fEeaSecuZnRjrUA" name="Single ComponentPortTechnicalPolicy" sections="_uPlAQO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_qe-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-4u-fEeaSecuZnRjrUA" name="isSingleComponentPortTechnicalPolicy">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-4--fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::ComponentPortTechnicalPolicy"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-5O-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple ComponentPortTechnicalPolicy" sections="_uPlAQe-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_qe-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-5e-fEeaSecuZnRjrUA" name="isMultipleComponentPortTechnicalPolicy">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-5u-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::ComponentPortTechnicalPolicy"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-5--fEeaSecuZnRjrUA" name="Single ComponentTechnicalPolicy" sections="_uPlAQu-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_nO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-6O-fEeaSecuZnRjrUA" name="isSingleComponentTechnicalPolicy">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-6e-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::ComponentTechnicalPolicy"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-6u-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple ComponentTechnicalPolicy" sections="_uPlnUO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_nO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-6--fEeaSecuZnRjrUA" name="isMultipleComponentTechnicalPolicy">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-7O-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::ComponentTechnicalPolicy"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-8--fEeaSecuZnRjrUA" name="Single PortTypeSpec" sections="_uPlnU--fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_nu-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-9O-fEeaSecuZnRjrUA" name="isSinglePortTypeSpec">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-9e-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::PortTypeSpec"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-9u-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple PortTypeSpec" sections="_uPmOYO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_nu-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-9--fEeaSecuZnRjrUA" name="isMultiplePortTypeSpec">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM--O-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::PortTypeSpec"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM--e-fEeaSecuZnRjrUA" name="Single AtomicComponentImplementation" sections="_uPmOYe-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_q--fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM--u-fEeaSecuZnRjrUA" name="isSingleAtomicComponentImplementation">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM----fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::AtomicComponentImplementation"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM-_O-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple AtomicComponentImplementation" sections="_uPmOYu-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_q--fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM-_e-fEeaSecuZnRjrUA" name="isMultipleAtomicComponentImplementation">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM-_u-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::AtomicComponentImplementation"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_Be-fEeaSecuZnRjrUA" name="Single Connection" sections="_uPm1cO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_pe-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_Bu-fEeaSecuZnRjrUA" name="isSingleConnection">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_B--fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::Connection"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_CO-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple Connection" sections="_uPm1ce-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_pe-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_Ce-fEeaSecuZnRjrUA" name="isMultipleConnection">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_Cu-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::Connection"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_C--fEeaSecuZnRjrUA" name="Single PortRoleSpec" sections="_uPm1cu-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_oO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_DO-fEeaSecuZnRjrUA" name="isSinglePortRoleSpec">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_De-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::PortRoleSpec"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_Du-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple PortRoleSpec" sections="_uPm1c--fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_oO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_D--fEeaSecuZnRjrUA" name="isMultiplePortRoleSpec">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_EO-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_components::PortRoleSpec"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_He-fEeaSecuZnRjrUA" name="Single ConnectorPortConfiguration" sections="_uPp4wO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_iO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_Hu-fEeaSecuZnRjrUA" name="isSingleConnectorPortConfiguration">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_H--fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::ConnectorPortConfiguration"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_IO-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple ConnectorPortConfiguration" sections="_uPp4we-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_iO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_Ie-fEeaSecuZnRjrUA" name="isMultipleConnectorPortConfiguration">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_Iu-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::ConnectorPortConfiguration"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_L--fEeaSecuZnRjrUA" name="Single PortElement" sections="_uPqf0e-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_hu-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_MO-fEeaSecuZnRjrUA" name="isSinglePortElement">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_Me-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::PortElement"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_Mu-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple PortElement" sections="_uPqf0u-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_hu-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_M--fEeaSecuZnRjrUA" name="isMultiplePortElement">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_NO-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::PortElement"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_O--fEeaSecuZnRjrUA" name="Single ItemBinding" sections="_uPrG4O-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_iu-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_PO-fEeaSecuZnRjrUA" name="isSingleItemBinding">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_Pe-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::ItemBinding"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_Pu-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple ItemBinding" sections="_uPrG4e-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_iu-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_P--fEeaSecuZnRjrUA" name="isMultipleItemBinding">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_QO-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::ItemBinding"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_Te-fEeaSecuZnRjrUA" name="Single InteractionItem" sections="_uPsVAO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_je-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_Tu-fEeaSecuZnRjrUA" name="isSingleInteractionItem">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_T--fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::InteractionItem"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_UO-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple InteractionItem" sections="_uPsVAe-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_je-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_Ue-fEeaSecuZnRjrUA" name="isMultipleInteractionItem">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_Uu-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::InteractionItem"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_U--fEeaSecuZnRjrUA" name="Single InteractionRole" sections="_uPsVAu-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_j--fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_VO-fEeaSecuZnRjrUA" name="isSingleInteractionRole">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_Ve-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::InteractionRole"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_Vu-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple InteractionRole" sections="_uPs8EO-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_j--fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_V--fEeaSecuZnRjrUA" name="isMultipleInteractionRole">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_WO-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::InteractionRole"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_We-fEeaSecuZnRjrUA" name="Single ConnectorPort" sections="_uPs8Ee-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_gO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_Wu-fEeaSecuZnRjrUA" name="isSingleConnectorPort">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_W--fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::ConnectorPort"/>
+    </constraints>
+  </views>
+  <views xmi:id="_sVM_XO-fEeaSecuZnRjrUA" elementMultiplicity="-1" name="Multiple ConnectorPort" sections="_uPs8Eu-fEeaSecuZnRjrUA" automaticContext="true" datacontexts="_sVM_gO-fEeaSecuZnRjrUA">
+    <constraints xsi:type="constraints:SimpleConstraint" xmi:id="_sVM_Xe-fEeaSecuZnRjrUA" name="isMultipleConnectorPort">
+      <constraintType href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@constraintTypes.1"/>
+      <properties xsi:type="constraints:ValueProperty" xmi:id="_sVM_Xu-fEeaSecuZnRjrUA" name="stereotypeName" value="UCMProfile::ucm_interactions::ConnectorPort"/>
+    </constraints>
+  </views>
+  <dataContexts xmi:id="_sVM_Ze-fEeaSecuZnRjrUA" name="UCMProfile">
+    <elements xsi:type="contexts:DataContextPackage" xmi:id="_sVM_Zu-fEeaSecuZnRjrUA" name="ucm_contracts">
+      <elements xmi:id="_sVM_Z--fEeaSecuZnRjrUA" name="ConfigurationParameterValue" supertypes="_sVM_aO-fEeaSecuZnRjrUA"/>
+      <elements xmi:id="_sVM_aO-fEeaSecuZnRjrUA" name="IConfigurationParameterValue">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690zD6DJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_ae-fEeaSecuZnRjrUA" name="Annotation">
+        <properties xmi:id="_sVM_au-fEeaSecuZnRjrUA" name="definition" type="Reference"/>
+        <supertypes href="#_sVM_cu-fEeaSecuZnRjrUA"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xgqDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_a--fEeaSecuZnRjrUA" name="AbstractInterface">
+        <supertypes href="#_sVM_ce-fEeaSecuZnRjrUA"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690ybKDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_bO-fEeaSecuZnRjrUA" name="Constant">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690zC6DJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_be-fEeaSecuZnRjrUA" name="AnnotationDefinition">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+        <supertypes href="#_sVM_bu-fEeaSecuZnRjrUA"/>
+      </elements>
+      <elements xmi:id="_sVM_bu-fEeaSecuZnRjrUA" name="IConfigurable"/>
+      <elements xmi:id="_sVM_b--fEeaSecuZnRjrUA" name="ContractModule">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_cO-fEeaSecuZnRjrUA" name="ConfigurationParameter" supertypes="_sVM_de-fEeaSecuZnRjrUA"/>
+      <elements xmi:id="_sVM_ce-fEeaSecuZnRjrUA" name="AbstractDeclaration"/>
+      <elements xmi:id="_sVM_cu-fEeaSecuZnRjrUA" name="IConfigured">
+        <properties xmi:id="_sVM_c--fEeaSecuZnRjrUA" name="values" type="Reference"/>
+      </elements>
+      <elements xmi:id="_sVM_dO-fEeaSecuZnRjrUA" name="AbstractDataType">
+        <supertypes href="#_sVM_ce-fEeaSecuZnRjrUA"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690y1qDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_de-fEeaSecuZnRjrUA" name="IConfigurationParameter">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+      </elements>
+    </elements>
+    <elements xsi:type="contexts:DataContextPackage" xmi:id="_sVM_du-fEeaSecuZnRjrUA" name="ucm_technicalpolicies">
+      <elements xmi:id="_sVM_d--fEeaSecuZnRjrUA" name="ProgrammingLanguages">
+        <properties xmi:id="_sVM_eO-fEeaSecuZnRjrUA" name="languages" type="Reference" multiplicity="-1"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_ee-fEeaSecuZnRjrUA" name="TechnicalAspect">
+        <properties xmi:id="_sVM_eu-fEeaSecuZnRjrUA" name="multiplicity" type="Enumeration"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_e--fEeaSecuZnRjrUA" name="NonfunctionalAspectModule">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_fO-fEeaSecuZnRjrUA" name="TechnicalPolicyDefinition">
+        <properties xmi:id="_sVM_fe-fEeaSecuZnRjrUA" name="applicability" type="Enumeration"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+        <supertypes href="#_sVM_bu-fEeaSecuZnRjrUA"/>
+      </elements>
+      <elements xmi:id="_sVM_fu-fEeaSecuZnRjrUA" name="Language">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+      </elements>
+    </elements>
+    <elements xsi:type="contexts:DataContextPackage" xmi:id="_sVM_f--fEeaSecuZnRjrUA" name="ucm_interactions">
+      <elements xmi:id="_sVM_gO-fEeaSecuZnRjrUA" name="ConnectorPort">
+        <properties xmi:id="_sVM_ge-fEeaSecuZnRjrUA" name="implements" type="Reference"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_gu-fEeaSecuZnRjrUA" name="ConnectorDefinition" supertypes="_sVM_g--fEeaSecuZnRjrUA _sVM_bu-fEeaSecuZnRjrUA"/>
+      <elements xmi:id="_sVM_g--fEeaSecuZnRjrUA" name="IInteractionDefinition">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_hO-fEeaSecuZnRjrUA" name="InteractionDefinitionModule">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_he-fEeaSecuZnRjrUA" name="IPortType">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_hu-fEeaSecuZnRjrUA" name="PortElement">
+        <properties xmi:id="_sVM_h--fEeaSecuZnRjrUA" name="kind" type="Enumeration"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_iO-fEeaSecuZnRjrUA" name="ConnectorPortConfiguration">
+        <properties xmi:id="_sVM_ie-fEeaSecuZnRjrUA" name="port" type="Reference"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+        <supertypes href="#_sVM_bu-fEeaSecuZnRjrUA"/>
+      </elements>
+      <elements xmi:id="_sVM_iu-fEeaSecuZnRjrUA" name="ItemBinding">
+        <properties xmi:id="_sVM_i--fEeaSecuZnRjrUA" name="interactionItem" type="Reference"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_jO-fEeaSecuZnRjrUA" name="InteractionPattern" supertypes="_sVM_g--fEeaSecuZnRjrUA"/>
+      <elements xmi:id="_sVM_je-fEeaSecuZnRjrUA" name="InteractionItem">
+        <properties xmi:id="_sVM_ju-fEeaSecuZnRjrUA" name="nature" type="Enumeration"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_j--fEeaSecuZnRjrUA" name="InteractionRole">
+        <properties xmi:id="_sVM_kO-fEeaSecuZnRjrUA" name="involvedItem" type="Reference"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_ke-fEeaSecuZnRjrUA" name="PortType" supertypes="_sVM_he-fEeaSecuZnRjrUA"/>
+    </elements>
+    <elements xmi:id="_sVM_ku-fEeaSecuZnRjrUA" name="dummy"/>
+    <elements xsi:type="contexts:DataContextPackage" xmi:id="_sVM_k--fEeaSecuZnRjrUA" name="ucm_commons">
+      <elements xmi:id="_sVM_lO-fEeaSecuZnRjrUA" name="ApplicationModule">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_le-fEeaSecuZnRjrUA" name="PlatformModule">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+      </elements>
+    </elements>
+    <elements xsi:type="contexts:DataContextPackage" xmi:id="_sVM_lu-fEeaSecuZnRjrUA" name="ucm_components">
+      <elements xmi:id="_sVM_l--fEeaSecuZnRjrUA" name="AbstractTypeBinding" supertypes="_sVM_o--fEeaSecuZnRjrUA">
+        <properties xmi:id="_sVM_mO-fEeaSecuZnRjrUA" name="abstractType" type="Reference"/>
+      </elements>
+      <elements xmi:id="_sVM_me-fEeaSecuZnRjrUA" name="InteractionItemBinding" supertypes="_sVM_o--fEeaSecuZnRjrUA">
+        <properties xmi:id="_sVM_mu-fEeaSecuZnRjrUA" name="item" type="Reference"/>
+      </elements>
+      <elements xmi:id="_sVM_m--fEeaSecuZnRjrUA" name="IComponent">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_nO-fEeaSecuZnRjrUA" name="ComponentTechnicalPolicy">
+        <properties xmi:id="_sVM_ne-fEeaSecuZnRjrUA" name="definition" type="Reference"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+        <supertypes href="#_sVM_cu-fEeaSecuZnRjrUA"/>
+      </elements>
+      <elements xmi:id="_sVM_nu-fEeaSecuZnRjrUA" name="PortTypeSpec" supertypes="_sVM_pu-fEeaSecuZnRjrUA">
+        <properties xmi:id="_sVM_n--fEeaSecuZnRjrUA" name="type" type="Reference"/>
+      </elements>
+      <elements xmi:id="_sVM_oO-fEeaSecuZnRjrUA" name="PortRoleSpec" supertypes="_sVM_pu-fEeaSecuZnRjrUA">
+        <properties xmi:id="_sVM_oe-fEeaSecuZnRjrUA" name="role" type="Reference"/>
+      </elements>
+      <elements xmi:id="_sVM_ou-fEeaSecuZnRjrUA" name="IComponentImplementation" supertypes="_sVM_m--fEeaSecuZnRjrUA"/>
+      <elements xmi:id="_sVM_o--fEeaSecuZnRjrUA" name="IBinding">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_pO-fEeaSecuZnRjrUA" name="ComponentModule">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690xiaDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_pe-fEeaSecuZnRjrUA" name="Connection">
+        <supertypes href="#_sVM_cu-fEeaSecuZnRjrUA"/>
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_pu-fEeaSecuZnRjrUA" name="IPortSpec">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yXqDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_p--fEeaSecuZnRjrUA" name="ConnectionLink">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yvqDJEeSZxfCXzZz3-w"/>
+      </elements>
+      <elements xmi:id="_sVM_qO-fEeaSecuZnRjrUA" name="ComponentType" supertypes="_sVM_m--fEeaSecuZnRjrUA"/>
+      <elements xmi:id="_sVM_qe-fEeaSecuZnRjrUA" name="ComponentPortTechnicalPolicy" supertypes="_sVM_nO-fEeaSecuZnRjrUA">
+        <properties xmi:id="_sVM_qu-fEeaSecuZnRjrUA" name="managedPort" type="Reference" multiplicity="-1"/>
+      </elements>
+      <elements xmi:id="_sVM_q--fEeaSecuZnRjrUA" name="AtomicComponentImplementation" supertypes="_sVM_ou-fEeaSecuZnRjrUA">
+        <properties xmi:id="_sVM_rO-fEeaSecuZnRjrUA" name="language" type="Reference"/>
+      </elements>
+      <elements xmi:id="_sVM_re-fEeaSecuZnRjrUA" name="CompositeComponentImplementation" supertypes="_sVM_ou-fEeaSecuZnRjrUA"/>
+      <elements xmi:id="_sVM_ru-fEeaSecuZnRjrUA" name="AssemblyPart">
+        <supertypes href="ppe:/context/org.eclipse.papyrus.uml.properties/Model/UML/UML.ctx#_690yG6DJEeSZxfCXzZz3-w"/>
+      </elements>
+    </elements>
+    <modelElementFactory href="ppe:/environment/org.eclipse.papyrus.uml.properties/Model/Environment.xmi#//@modelElementFactories.2"/>
+  </dataContexts>
+</contexts:Context>

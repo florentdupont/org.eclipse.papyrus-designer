@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.infra.viewpoints.policy.custom">
+      <configuration
+            file="configuration/UCM.configuration"
+            priority="98">
+      </configuration>
+   </extension>
+     
+   <extension
+         point="org.eclipse.papyrus.infra.types.core.elementTypeSetConfiguration">
+      <elementTypeSet
+            clientContextID="org.eclipse.papyrus.infra.services.edit.TypeContext"
+            path="resources/elementtypes/UCM.UI.elementtypesconfigurations">
+      </elementTypeSet>
+   </extension>
+
+   <extension
+         point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+      <creationCommand
+            creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMModuleDiagramCommand"
+			creationCondition="org.eclipse.papyrus.uml.diagram.clazz.ClassDiagramCreationCondition"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMModule.png"
+			id="org.eclipse.papyrus.uml.diagram.clazz.CreateClassDiagramCommand"
+			language="uml"
+			label="UCM Module Diagram">
+      </creationCommand>
+   </extension>
+
+  <extension
+         point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+      <creationCommand
+            creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMComponentDiagramCommand"
+            creationCondition="org.eclipse.papyrus.uml.diagram.composite.CompositeDiagramCreationCondition"
+            icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMComponent.png"
+            id="org.eclipse.papyrus.uml.diagram.composite.createCompositeDiagram"
+			language="UCM-Application"
+            label="UCM component diagram">
+      </creationCommand>
+   </extension>
+   
+	<extension point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+		<creationCommand
+			creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMCompositeDiagramCommand"
+			creationCondition="org.eclipse.papyrus.uml.diagram.composite.CompositeDiagramCreationCondition"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMComposite.png"
+			id="org.eclipse.papyrus.uml.diagram.composite.createCompositeDiagram"
+			language="UCM-Application"
+			label="UCM composite diagram">
+		</creationCommand>
+  	</extension>
+
+	<extension point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+		<creationCommand
+			creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMInteractionDiagramCommand"
+			creationCondition="org.eclipse.papyrus.uml.diagram.composite.CompositeDiagramCreationCondition"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMInteraction.png"
+			id="org.eclipse.papyrus.uml.diagram.composite.createCompositeDiagram"
+			language="UCM-Platform"
+			label="UCM interaction diagram">
+		</creationCommand>
+  	</extension>
+
+	<extension point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+		<creationCommand
+			creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMTechPoliciesDiagramCommand"
+			creationCondition="org.eclipse.papyrus.uml.diagram.clazz.ClassDiagramCreationCondition"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMTechPolicies.png"
+			id="org.eclipse.papyrus.uml.diagram.clazz.CreateClassDiagramCommand"
+			language="UCM-Application"
+			label="UCM technical policy diagram">
+		</creationCommand>
+  	</extension>
+      
+	<extension point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+		<creationCommand
+			creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMDeploymentDiagramCommand"
+			creationCondition="org.eclipse.papyrus.uml.diagram.clazz.ClassDiagramCreationCondition"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMDeployment.png"
+			id="org.eclipse.papyrus.uml.diagram.clazz.CreateClassDiagramCommand"
+			language="UCM-Application"
+			label="UCM deployment diagram">
+		</creationCommand>
+  	</extension>
+
+	<extension point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+		<creationCommand
+			creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMContractDiagramCommand"
+			creationCondition="org.eclipse.papyrus.uml.diagram.clazz.ClassDiagramCreationCondition"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMContract.png"
+			id="org.eclipse.papyrus.uml.diagram.clazz.CreateClassDiagramCommand"
+			language="uml"
+			label="UCM contract diagram">
+		</creationCommand>
+  	</extension>
+
+	<extension point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+		<creationCommand
+			creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMResourcesDiagramCommand"
+			creationCondition="org.eclipse.papyrus.uml.diagram.clazz.ClassDiagramCreationCondition"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMResources.png"
+			id="org.eclipse.papyrus.uml.diagram.clazz.CreateClassDiagramCommand"
+			language="uml"
+			label="UCM resource diagram">
+		</creationCommand>
+  	</extension>
+
+	<extension point="org.eclipse.papyrus.infra.ui.papyrusDiagram">
+		<creationCommand
+			creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMEnvironmentDiagramCommand"
+			creationCondition="org.eclipse.papyrus.uml.diagram.clazz.ClassDiagramCreationCondition"
+			icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMEnvironment.png"
+			id="org.eclipse.papyrus.uml.diagram.clazz.CreateClassDiagramCommand"
+			language="uml"
+			label="UCM environment diagram">
+		</creationCommand>
+  	</extension>
+</plugin>
