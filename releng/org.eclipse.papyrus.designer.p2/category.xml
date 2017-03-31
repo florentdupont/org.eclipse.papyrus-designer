@@ -21,6 +21,9 @@
    <feature url="features/org.eclipse.papyrus.designer.components.tracing.feature_0.7.5.qualifier.jar" id="org.eclipse.papyrus.designer.components.tracing.feature" version="0.7.5.qualifier">
       <category name="org.eclipse.papyrus.category"/>
    </feature>
+   <feature url="features/org.eclipse.papyrus.designer.components.ucm.feature_0.7.5.qualifier.jar" id="org.eclipse.papyrus.designer.ucm.feature" version="0.7.5.qualifier">
+      <category name="org.eclipse.papyrus.category"/>
+   </feature>
    <category-def name="org.eclipse.papyrus.category" label="Papyrus Designer Category">
       <description>
          Papyrus Designer Category
