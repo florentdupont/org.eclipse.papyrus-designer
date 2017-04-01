@@ -6,7 +6,7 @@
       provider-name="%providerName">
 
    <description>
-      Implementation of the unified component model (OMG UCM)
+      Implementation of the Unified Component Model (OMG UCM)
    </description>
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">
@@ -101,6 +101,20 @@ http://www.eclipse.org/legal/epl-v10.html
 
    <plugin
          id="org.eclipse.papyrus.designer.ucm.library"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.ucm.css"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.papyrus.designer.ucm.properties"
          download-size="0"
          install-size="0"
          version="0.0.0"
