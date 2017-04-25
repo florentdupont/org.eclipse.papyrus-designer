@@ -9,7 +9,7 @@
 			<projectDescriptor
 				contentURI="models/examples/HelloWorldOO/"
 				name="HelloWorldOO"
-				description="apyrus Designer Simple C++ hello world example (direct code generation).">
+				description="Papyrus Designer Simple C++ hello world example (direct code generation).">
 			</projectDescriptor>
 			<fileToOpen
 				location="/HelloWorldOO/HelloWorldOO.di">

@@ -192,13 +192,7 @@ public class CppGenUtils {
 		}
 
 		if (GenUtils.hasStereotype(ne, External.class)) {
-			External external = UMLUtil.getStereotypeApplication(ne, External.class);
-			// external might define a name that differs from the UML name
-			if (external.getName() != null && external.getName().length() > 0) {
-				return external.getName();
-			} else {
-				return ne.getName();
-			}
+			return ne.getName();
 		}
 		else if (GenUtils.hasStereotypeTree(ne, NoCodeGen.class)) {
 			return ne.getName();
