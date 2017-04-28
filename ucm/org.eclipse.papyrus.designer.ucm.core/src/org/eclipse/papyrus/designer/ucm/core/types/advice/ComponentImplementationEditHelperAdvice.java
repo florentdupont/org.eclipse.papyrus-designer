@@ -29,6 +29,7 @@ import org.eclipse.papyrus.designer.ucm.core.Activator;
 import org.eclipse.papyrus.designer.ucm.core.menu.EnhancedPopupMenu;
 import org.eclipse.papyrus.designer.ucm.core.menu.MenuHelper;
 import org.eclipse.papyrus.designer.ucm.core.provider.UCMContentProvider;
+import org.eclipse.papyrus.designer.ucm.core.types.UCMElementTypesEnumerator;
 import org.eclipse.papyrus.designer.ucm.core.utils.CreateUtils;
 import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_components.ComponentModule;
 import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_components.ComponentType;
@@ -79,7 +80,7 @@ public class ComponentImplementationEditHelperAdvice extends AbstractEditHelperA
 		return false;
 	}
 
-	
+
 	/**
 	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterCreateCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest)
 	 */
@@ -88,7 +89,7 @@ public class ComponentImplementationEditHelperAdvice extends AbstractEditHelperA
 		// System.err.println("Create implementation");
 		return super.getAfterCreateCommand(request);
 	}
-	
+
 	/**
 	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest)
 	 */
@@ -101,57 +102,69 @@ public class ComponentImplementationEditHelperAdvice extends AbstractEditHelperA
 		}
 		IElementEditService commandProvider = ElementEditServiceUtils.getCommandProvider(newElement);
 
-		IStaticContentProvider cp = new UCMContentProvider(
-				PackageUtil.getRootPackage((Element) newElement), UMLPackage.eINSTANCE.getClass_(), ComponentType.class);
-		
+		IStaticContentProvider cp = new UCMContentProvider(PackageUtil.getRootPackage((Element) newElement), UMLPackage.eINSTANCE.getClass_(), ComponentType.class);
+
 		EnhancedPopupMenu popupMenu = MenuHelper.createPopupMenu(cp, "Choose component type", true);
 
 		if (popupMenu.show(Display.getDefault().getActiveShell())) {
 			Object result = popupMenu.getSubResult();
-			if (result instanceof Type) {
-				Type componentType = (Type) result;
-
-				CreateElementRequest createGeneralizationReq =
-						new CreateElementRequest(newElement, UMLElementTypes.GENERALIZATION, UMLPackage.eINSTANCE.getClassifier_Generalization());
-				ICommand createGeneralizationCm = commandProvider.getEditCommand(createGeneralizationReq);
-				compositeCommand.add(createGeneralizationCm);
-				// TODO: command executed here + later? (since part of composition)
+			if (result.equals(MenuHelper.CREATE_NEW_TYPE) && newElement instanceof Element) {
+				CreateElementRequest createComponentType = new CreateElementRequest(((Element) newElement).getNearestPackage(), /* UMLElementTypes.CLASS */ UCMElementTypesEnumerator.COMPONENT_TYPE,
+						UMLPackage.eINSTANCE.getPackage_PackagedElement()/* Ucm_componentsPackage.eINSTANCE.getComponentType() */);
+				ICommand createComponentTypeCmd = commandProvider.getEditCommand(createComponentType);
 				try {
-					createGeneralizationCm.execute(null, null);
+					createComponentTypeCmd.execute(null, null);
 				} catch (ExecutionException e) {
 					Activator.log.error(e);
 				}
-				newElement = GMFCommandUtils.getCommandEObjectResult(createGeneralizationCm);
-				
+				result = GMFCommandUtils.getCommandEObjectResult(createComponentTypeCmd);
+			}
+			if (result instanceof Type) {
+				Type componentType = (Type) result;
+
+				CreateElementRequest createGeneralizationReq = new CreateElementRequest(newElement, UMLElementTypes.GENERALIZATION, UMLPackage.eINSTANCE.getClassifier_Generalization());
+				ICommand createGeneralizationCmd = commandProvider.getEditCommand(createGeneralizationReq);
+				compositeCommand.add(createGeneralizationCmd);
+				// TODO: command executed here + later? (since part of composition)
+				try {
+					createGeneralizationCmd.execute(null, null);
+				} catch (ExecutionException e) {
+					Activator.log.error(e);
+				}
+				newElement = GMFCommandUtils.getCommandEObjectResult(createGeneralizationCmd);
+
+				// addToDiagram(newElement);
 				SetRequest setType = new SetRequest(createGeneralizationReq.getNewElement(), UMLPackage.eINSTANCE.getGeneralization_General(), componentType);
 				compositeCommand.add(commandProvider.getEditCommand(setType));
 			}
-		}
-		else {
+		} else {
 			// User cancelled the menu
 		}
-	
+
 		return compositeCommand.isEmpty() ? super.getAfterConfigureCommand(request) : compositeCommand;
 	}
-	
-	public void ToDiagram(EObject obj) throws ServiceException {
-		ISashWindowsContainer windowsContainer = ServiceUtilsForEObject.getInstance()
-				.getServiceRegistry(obj).getService(ISashWindowsContainer.class);
-		Object model = windowsContainer.getActiveSashWindowsPage().getRawModel();
-		if (model instanceof PageRef) {
-			EObject diagramEObj = ((PageRef) model).getEmfPageIdentifier();
-			if (diagramEObj instanceof Diagram) {
-				Diagram diagram = (Diagram) diagramEObj;
-				/*
-				View cuEdge = compViewProvider.createDependency_RoleBindingEdge(rb,
-						((BasicCompartment) compartment).getDiagram(), -1, true,
-						org.eclipse.papyrus.uml.diagram.composite.part.UMLDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-				if (cuEdge instanceof Edge) {
-					((Edge) cuEdge).setSource(roleBindingView);
-					((Edge) cuEdge).setTarget(roleView);
+
+	public void addToDiagram(EObject generalization) {
+		try {
+			ISashWindowsContainer windowsContainer = ServiceUtilsForEObject.getInstance().getServiceRegistry(generalization).getService(ISashWindowsContainer.class);
+			Object model = windowsContainer.getActiveSashWindowsPage().getRawModel();
+			if (model instanceof PageRef) {
+				EObject diagramEObj = ((PageRef) model).getEmfPageIdentifier();
+				if (diagramEObj instanceof Diagram) {
+					Diagram diagram = (Diagram) diagramEObj;
+					
+					// UMLViewProvider compViewProvider = new UMLViewProvider();
+
+					//View genEdge = compViewProvider.createGeneralization_Edge(generalization, diagram, -1, true,
+					//		org.eclipse.papyrus.uml.diagram.composite.part.UMLDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+					//if (genEdge instanceof Edge) {
+						// ((Edge) genEdge).setSource(implementation);
+						// ((Edge) genEdge).setTarget(type);
+					//}
 				}
-				*/
 			}
+		} catch (ServiceException e) {
+			Activator.log.error(e);
 		}
 	}
 }

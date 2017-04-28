@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.emf.type.core.AbstractElementTypeEnumerator;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 
 /**
- * Static list of UML-RT specific element types
+ * Static list of UCM specific element types
  */
 public class UCMElementTypesEnumerator extends AbstractElementTypeEnumerator implements IUCMElementTypes {
 

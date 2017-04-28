@@ -24,6 +24,9 @@ import org.eclipse.uml2.uml.Type;
  * Simplify the creation of an enhanced popup menu
  */
 public class MenuHelper {
+	
+	public static final String CREATE_NEW_TYPE = "Create new type"; //$NON-NLS-1$
+
 	/**
 	 * Create a list of menu items based on the result content provider
 	 * @param cp a content provider
@@ -37,7 +40,7 @@ public class MenuHelper {
 		menuItems.add(new EnhancedPopupMenu.Disabled(title));
 		menuItems.add(new EnhancedPopupMenu.Separator());
 		if (allowNew) {
-			menuItems.add("Create new type");
+			menuItems.add(CREATE_NEW_TYPE);
 		}
 		if (cp.getElements().length > 0) {
 			if (cp.getElements().length < 5) {
