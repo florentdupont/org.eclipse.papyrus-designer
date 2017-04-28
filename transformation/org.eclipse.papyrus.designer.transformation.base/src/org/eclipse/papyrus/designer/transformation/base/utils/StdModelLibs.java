@@ -19,8 +19,7 @@ import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Package;
 
 /**
- * This class adds "standard" model libraries for component-based development: the FCM profile, parts of the MARTE profile (allocation)
- * and the associated package imports to your model.
+ * This class adds models via a given URI to a resourceSet. It also defines common URIs
  */
 public class StdModelLibs {
 
@@ -31,17 +30,39 @@ public class StdModelLibs {
 	public static final URI FCM_PROFILE_URI = URI.createURI("pathmap://FCM_PROFILES/FCM.profile.uml"); //$NON-NLS-1$
 
 	public static final URI MARTE_PROFILE_URI = URI.createURI("pathmap://Papyrus_PROFILES/MARTE.profile.uml");//$NON-NLS-1$
+	
+	public static final URI DEP_PROFILE_URI = URI.createURI("pathmap://DEP_PROFILE/Deployment.profile.uml"); //$NON-NLS-1$
 
+	public static final URI TRAFO_PROFILE_URI = URI.createURI("pathmap://TRAFO_PROFILE/Transformation.profile.uml"); //$NON-NLS-1$
+
+
+	/**
+	 * Add the resource with a given URI to the resource set of the passed element
+	 * @param uri the URI of the resource to add
+	 * @param anElement an element of a given resource. Used to determine the resource set
+	 * @return the contents of the resource in form of a UML package
+	 */
 	public static Package addResource(URI uri, Element anElement) {
 		return addResource(uri, anElement.eResource().getResourceSet());
 	}
-	
+
+	/**
+	 * add a resource with a given URI to a resource set
+	 * @param uri the URI of the resource to add
+	 * @param rs the URI into which it should be loaded
+	 * @return the contents of the resource in form of a UML package
+	 */
 	public static Package addResource(URI uri, ResourceSet rs) {
 		Resource resource = rs.getResource(uri, true);
-		return addResource(resource);
+		return getPackage(resource);
 	}
 
-	public static Package addResource(Resource resource) {
+	/**
+	 * Get the contents of a resource in form of a UML package (all UML resources have a root package). 
+	 * @param resource a UML resource
+	 * @return the contents of the resource in form of a UML package
+	 */
+	public static Package getPackage(Resource resource) {
 		EList<EObject> contentObj = resource.getContents();
 		if ((contentObj.size() > 0) && (contentObj.get(0) instanceof Package)) {
 			return (Package) contentObj.get(0);

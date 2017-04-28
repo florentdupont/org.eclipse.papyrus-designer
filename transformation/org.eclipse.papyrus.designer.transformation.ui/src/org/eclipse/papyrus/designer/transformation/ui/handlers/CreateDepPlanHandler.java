@@ -93,7 +93,7 @@ public class CreateDepPlanHandler extends CmdHandler {
 					}
 				}
 
-				Package cdp = depPlans.createNestedPackage(depPlanName);
+				Package cdp = DepCreation.createDepPlanPkg(depPlans, depPlanName);
 				try {
 					InstanceSpecification newRootIS = DepCreation.createDepPlan(cdp, selectedComposite, DeployConstants.MAIN_INSTANCE, true);
 					DepCreation.initAutoValues(newRootIS);

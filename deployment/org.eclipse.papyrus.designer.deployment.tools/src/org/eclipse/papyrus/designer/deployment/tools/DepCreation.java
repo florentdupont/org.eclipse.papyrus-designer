@@ -19,11 +19,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.AutoIndex;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.AutoIndexPerNode;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.ConfigurationProperty;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.CopyAttributeValue;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
+import org.eclipse.papyrus.designer.transformation.base.utils.ApplyProfile;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.StdModelLibs;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
 import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
@@ -137,6 +142,23 @@ public class DepCreation {
 		return slot;
 	}
 
+	/**
+	 * Create a new deployment plan package that is later filled
+	 * @param parent
+	 * @return
+	 */
+	public static Package createDepPlanPkg(Package parent, String name) {
+		Package cdpPkg = parent.createNestedPackage(name);
+		EObject cdp = StereotypeUtil.applyApp(cdpPkg, DeploymentPlan.class);
+		if (cdp == null) {
+			// application failed. Assume that profile application is missing and apply profile
+			// first and then stereotype again
+			CommandSupport.exec(TransactionUtil.getEditingDomain(cdpPkg), new ApplyProfile(cdpPkg, StdModelLibs.DEP_PROFILE_URI));
+			StereotypeUtil.applyApp(cdpPkg, DeploymentPlan.class);
+		}
+		return cdpPkg;
+	}
+	
 	/**
 	 * create a deployment plan, i.e. a set of instances that correspond to an
 	 * implementation which is potentially a composite. In case of the latter,
