@@ -16,17 +16,8 @@ package org.eclipse.papyrus.designer.transformation.base.utils;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.common.util.WrappedException;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.papyrus.designer.transformation.base.Activator;
-import org.eclipse.papyrus.designer.transformation.base.Messages;
-import org.eclipse.papyrus.designer.transformation.base.UIContext;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Extension;
-import org.eclipse.uml2.uml.Package;
-import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 
@@ -110,61 +101,4 @@ public class StUtils {
 		}
 		return true;
 	}
-
-	/**
-	 * Copy the profile applications from one model to another
-	 * @param sourceModel the existing model
-	 * @param targetModel the target model
-	 * @throws TransformationException
-	 */
-	public static void copyProfileApplications(Package sourceModel, Package targetModel) throws TransformationException {
-		try {
-			// copy profile application
-			for (Profile profile : sourceModel.getAppliedProfiles()) {
-				// reload profile in resource of new model
-				UIContext.monitor.subTask(Messages.InstantiateDepPlan_InfoApplyProfile + profile.getQualifiedName());
-
-				if (profile.eResource() == null) {
-					String profileName = profile.getQualifiedName();
-					if (profileName == null) {
-						if (profile instanceof MinimalEObjectImpl.Container) {
-							URI uri = ((MinimalEObjectImpl.Container) profile).eProxyURI();
-							if (uri != null) {
-								throw new TransformationException(String.format(Messages.InstantiateDepPlan_CheckInputModelProfileNoRes, uri));
-							}
-						}
-						throw new TransformationException(Messages.InstantiateDepPlan_CheckInputModelProfileNoResNoName);
-					}
-					throw new TransformationException(String.format(Messages.InstantiateDepPlan_CheckInputModelProfile3, profileName));
-				}
-
-				Resource profileResource = null;
-				try {
-					profileResource = ModelManagement.getResourceSet().getResource(profile.eResource().getURI(), true);
-				} catch (WrappedException e) {
-					// read 2nd time (some diagnostic errors are raised only
-					// once)
-					Activator.log.warn("Warning: exception in profile.eResource() " + e.getMessage()); //$NON-NLS-1$
-					profileResource = ModelManagement.getResourceSet().getResource(profile.eResource().getURI(), true);
-				}
-				if (profileResource.getContents().size() == 0) {
-					throw new TransformationException(String.format("Cannot copy profile with URI %s. Check whether the URI corresponds to an existing location", profileResource.getURI()));
-				}
-				Profile newProfileTop = (Profile) profileResource.getContents().get(0);
-				Profile newProfile;
-				String qname = profile.getQualifiedName();
-				if ((qname != null) && qname.contains("::")) { //$NON-NLS-1$
-					// profile is a sub-profile within same resource
-					newProfile = (Profile) ElementUtils.getQualifiedElement(newProfileTop, qname);
-				} else {
-					newProfile = newProfileTop;
-				}
-				newProfile.getMember("dummy"); // force profile loading //$NON-NLS-1$
-				targetModel.applyProfile(newProfile);
-			}
-		} catch (IllegalArgumentException e) {
-			throw new TransformationException(Messages.InstantiateDepPlan_IllegalArgumentDuringCopy + e.toString());
-		}
-	}
-
 }

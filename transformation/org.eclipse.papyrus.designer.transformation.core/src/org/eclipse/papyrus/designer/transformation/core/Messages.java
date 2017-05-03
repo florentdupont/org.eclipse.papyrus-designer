@@ -37,7 +37,6 @@ public class Messages extends NLS {
 	public static String UpdateUtils_CannotApplyTrafoStereotype;
 
 	public static String TextTemplateBinding_TemplateNotFound;
-
 	public static String TextTemplateBinding_TemplateResultIsNotAString;
 
 	static {
