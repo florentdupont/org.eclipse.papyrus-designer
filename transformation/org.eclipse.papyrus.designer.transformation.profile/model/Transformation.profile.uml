@@ -2,7 +2,7 @@
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
   <uml:Profile xmi:id="_fPDsIBa-EearhdjjJ6cVzQ" name="Transformation" metaclassReference="_WWO_YBbAEearhdjjJ6cVzQ _LQB30CXmEea8zMl4rVTOhQ _bIj1ICi3EeaXvZJsTlfH8A _KjtPoEN6Eea4W-lfO7m_3g">
     <ownedComment xmi:type="uml:Comment" xmi:id="__1b5QF4LEea4bLzKfwAjjA" annotatedElement="_w_XhsD3yEeajPtol9OalIw">
-      <body>Represents a M2M transformation. Such a M2M is directly associated with a Java implementation (via an extension point) </body>
+      <body>Represents a M2M transformation. Such an M2M is directly associated with a Java implementation (via an extension point). Can define a relative execution order by referencing other transformations</body>
     </ownedComment>
     <ownedComment xmi:type="uml:Comment" xmi:id="_ZJNKsG-_Eea89JTVlr8RHA" annotatedElement="_tlAxcEFlEeaVWaGMtmQuJw">
       <body>Represents a M2M transformation chain: a class whoses attributes are typed with M2M transformations
@@ -41,6 +41,14 @@
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_w_XhsD3yEeajPtol9OalIw" name="M2MTrafo">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_78sx8D3yEeajPtol9OalIw" name="base_Class" association="_78sK4D3yEeajPtol9OalIw">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_lHpdkOocEeaHttsqUlAEYA" name="before" visibility="public" type="_w_XhsD3yEeajPtol9OalIw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vypAoOocEeaHttsqUlAEYA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vyvHQOocEeaHttsqUlAEYA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pAcUEOocEeaHttsqUlAEYA" name="after" visibility="public" type="_w_XhsD3yEeajPtol9OalIw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wenV0OocEeaHttsqUlAEYA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wesOUOocEeaHttsqUlAEYA" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_78sK4D3yEeajPtol9OalIw" name="E_M2MTrafo_Class1" memberEnd="_78sK4T3yEeajPtol9OalIw _78sx8D3yEeajPtol9OalIw">

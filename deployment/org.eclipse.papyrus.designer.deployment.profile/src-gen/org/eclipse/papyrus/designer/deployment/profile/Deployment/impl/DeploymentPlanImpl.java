@@ -13,8 +13,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPackage;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 
 /**
@@ -28,6 +30,7 @@ import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTra
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl#getBase_Package <em>Base Package</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl#getProjectMappings <em>Project Mappings</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl#getChain <em>Chain</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl#getAdditionalTrafos <em>Additional Trafos</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,6 +65,16 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected M2MTrafoChain chain;
+
+	/**
+	 * The cached value of the '{@link #getAdditionalTrafos() <em>Additional Trafos</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAdditionalTrafos()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<M2MTrafo> additionalTrafos;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,6 +188,18 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<M2MTrafo> getAdditionalTrafos() {
+		if (additionalTrafos == null) {
+			additionalTrafos = new EObjectResolvingEList<M2MTrafo>(M2MTrafo.class, this, DeploymentPackage.DEPLOYMENT_PLAN__ADDITIONAL_TRAFOS);
+		}
+		return additionalTrafos;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -186,6 +211,8 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 			case DeploymentPackage.DEPLOYMENT_PLAN__CHAIN:
 				if (resolve) return getChain();
 				return basicGetChain();
+			case DeploymentPackage.DEPLOYMENT_PLAN__ADDITIONAL_TRAFOS:
+				return getAdditionalTrafos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -209,6 +236,10 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 			case DeploymentPackage.DEPLOYMENT_PLAN__CHAIN:
 				setChain((M2MTrafoChain)newValue);
 				return;
+			case DeploymentPackage.DEPLOYMENT_PLAN__ADDITIONAL_TRAFOS:
+				getAdditionalTrafos().clear();
+				getAdditionalTrafos().addAll((Collection<? extends M2MTrafo>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -230,6 +261,9 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 			case DeploymentPackage.DEPLOYMENT_PLAN__CHAIN:
 				setChain((M2MTrafoChain)null);
 				return;
+			case DeploymentPackage.DEPLOYMENT_PLAN__ADDITIONAL_TRAFOS:
+				getAdditionalTrafos().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -248,6 +282,8 @@ public class DeploymentPlanImpl extends MinimalEObjectImpl.Container implements 
 				return projectMappings != null && !projectMappings.isEmpty();
 			case DeploymentPackage.DEPLOYMENT_PLAN__CHAIN:
 				return chain != null;
+			case DeploymentPackage.DEPLOYMENT_PLAN__ADDITIONAL_TRAFOS:
+				return additionalTrafos != null && !additionalTrafos.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

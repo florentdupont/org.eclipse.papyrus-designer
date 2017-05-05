@@ -78,15 +78,15 @@ public class TransformationSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TransformationPackage.APPLY_TRANSFORMATION: {
-				ApplyTransformation applyTransformation = (ApplyTransformation)theEObject;
-				T result = caseApplyTransformation(applyTransformation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TransformationPackage.DERIVED_ELEMENT: {
 				DerivedElement derivedElement = (DerivedElement)theEObject;
 				T result = caseDerivedElement(derivedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TransformationPackage.APPLY_TRANSFORMATION: {
+				ApplyTransformation applyTransformation = (ApplyTransformation)theEObject;
+				T result = caseApplyTransformation(applyTransformation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

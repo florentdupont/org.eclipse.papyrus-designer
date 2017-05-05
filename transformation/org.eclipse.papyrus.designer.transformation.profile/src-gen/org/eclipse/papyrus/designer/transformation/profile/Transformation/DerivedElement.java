@@ -11,6 +11,10 @@ import org.eclipse.uml2.uml.Element;
  * A representation of the model object '<em><b>Derived Element</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * An element that is e result of a M2M transformation
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

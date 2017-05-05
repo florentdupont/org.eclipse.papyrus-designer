@@ -4,12 +4,17 @@ package org.eclipse.papyrus.designer.deployment.profile.Deployment;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Plan</b></em>'.
  * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * A deployment plan contains a set of instances along with their configuration. It can reference a transformation chain and optionally a set of additional transformations. The projectMapping allows to control the default name
+ * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
@@ -18,6 +23,7 @@ import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTra
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan#getBase_Package <em>Base Package</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan#getProjectMappings <em>Project Mappings</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan#getChain <em>Chain</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan#getAdditionalTrafos <em>Additional Trafos</em>}</li>
  * </ul>
  *
  * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPackage#getDeploymentPlan()
@@ -92,5 +98,21 @@ public interface DeploymentPlan extends EObject {
 	 * @generated
 	 */
 	void setChain(M2MTrafoChain value);
+
+	/**
+	 * Returns the value of the '<em><b>Additional Trafos</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Additional Trafos</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Additional Trafos</em>' reference list.
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPackage#getDeploymentPlan_AdditionalTrafos()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	EList<M2MTrafo> getAdditionalTrafos();
 
 } // DeploymentPlan

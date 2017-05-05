@@ -2,6 +2,19 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Deployment" nsURI="http://www.eclipse.org/papyrus/Deployment/1"
     nsPrefix="Deployment">
+  <eClassifiers xsi:type="ecore:EClass" name="DeploymentPlan">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A deployment plan contains a set of instances along with their configuration. It can reference a transformation chain and optionally a set of additional transformations. The projectMapping allows to control the default name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectMappings" ordered="false"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" ordered="false"
+        eType="ecore:EClass ../../org.eclipse.papyrus.designer.transformation.profile/model/Transformation.ecore#//M2MTrafoChain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalTrafos" ordered="false"
+        upperBound="-1" eType="ecore:EClass ../../org.eclipse.papyrus.designer.transformation.profile/model/Transformation.ecore#//M2MTrafo"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Property" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
@@ -37,8 +50,14 @@
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="availROM" ordered="false"
         lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" ordered="false"
+        lowerBound="1" eType="#//TargetArchitecture"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperatingSystem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TargetArchitecture">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
   </eClassifiers>
@@ -53,18 +72,6 @@
         upperBound="-1" eType="#//OperatingSystem"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arch" ordered="false" lowerBound="1"
         eType="#//TargetArchitecture"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TargetArchitecture">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeploymentPlan">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Package" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectMappings" ordered="false"
-        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" ordered="false"
-        eType="ecore:EClass ../../org.eclipse.papyrus.designer.transformation.profile/model/Transformation.ecore#//M2MTrafoChain"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Singleton">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"

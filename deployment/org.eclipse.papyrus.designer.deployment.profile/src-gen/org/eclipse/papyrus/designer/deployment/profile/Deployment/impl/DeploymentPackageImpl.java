@@ -359,6 +359,15 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTarget_Target() {
+		return (EReference)targetEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOperatingSystem() {
 		return operatingSystemEClass;
 	}
@@ -485,6 +494,15 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDeploymentPlan_AdditionalTrafos() {
+		return (EReference)deploymentPlanEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSingleton() {
 		return singletonEClass;
 	}
@@ -580,6 +598,12 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		isCreated = true;
 
 		// Create classes and their features
+		deploymentPlanEClass = createEClass(DEPLOYMENT_PLAN);
+		createEReference(deploymentPlanEClass, DEPLOYMENT_PLAN__BASE_PACKAGE);
+		createEAttribute(deploymentPlanEClass, DEPLOYMENT_PLAN__PROJECT_MAPPINGS);
+		createEReference(deploymentPlanEClass, DEPLOYMENT_PLAN__CHAIN);
+		createEReference(deploymentPlanEClass, DEPLOYMENT_PLAN__ADDITIONAL_TRAFOS);
+
 		configurationPropertyEClass = createEClass(CONFIGURATION_PROPERTY);
 		createEReference(configurationPropertyEClass, CONFIGURATION_PROPERTY__BASE_PROPERTY);
 
@@ -603,9 +627,13 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		createEReference(targetEClass, TARGET__USED_OS);
 		createEAttribute(targetEClass, TARGET__AVAIL_RAM);
 		createEAttribute(targetEClass, TARGET__AVAIL_ROM);
+		createEReference(targetEClass, TARGET__TARGET);
 
 		operatingSystemEClass = createEClass(OPERATING_SYSTEM);
 		createEReference(operatingSystemEClass, OPERATING_SYSTEM__BASE_CLASS);
+
+		targetArchitectureEClass = createEClass(TARGET_ARCHITECTURE);
+		createEReference(targetArchitectureEClass, TARGET_ARCHITECTURE__BASE_CLASS);
 
 		implementationPropertiesEClass = createEClass(IMPLEMENTATION_PROPERTIES);
 		createEReference(implementationPropertiesEClass, IMPLEMENTATION_PROPERTIES__BASE_CLASS);
@@ -613,14 +641,6 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		createEAttribute(implementationPropertiesEClass, IMPLEMENTATION_PROPERTIES__SIZE_ROM);
 		createEReference(implementationPropertiesEClass, IMPLEMENTATION_PROPERTIES__SUPPORTED_OS);
 		createEReference(implementationPropertiesEClass, IMPLEMENTATION_PROPERTIES__ARCH);
-
-		targetArchitectureEClass = createEClass(TARGET_ARCHITECTURE);
-		createEReference(targetArchitectureEClass, TARGET_ARCHITECTURE__BASE_CLASS);
-
-		deploymentPlanEClass = createEClass(DEPLOYMENT_PLAN);
-		createEReference(deploymentPlanEClass, DEPLOYMENT_PLAN__BASE_PACKAGE);
-		createEAttribute(deploymentPlanEClass, DEPLOYMENT_PLAN__PROJECT_MAPPINGS);
-		createEReference(deploymentPlanEClass, DEPLOYMENT_PLAN__CHAIN);
 
 		singletonEClass = createEClass(SINGLETON);
 		createEReference(singletonEClass, SINGLETON__BASE_CLASS);
@@ -669,6 +689,12 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(deploymentPlanEClass, DeploymentPlan.class, "DeploymentPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDeploymentPlan_Base_Package(), theUMLPackage.getPackage(), null, "base_Package", null, 1, 1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDeploymentPlan_ProjectMappings(), theTypesPackage.getString(), "projectMappings", null, 0, -1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDeploymentPlan_Chain(), theTransformationPackage.getM2MTrafoChain(), null, "chain", null, 0, 1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDeploymentPlan_AdditionalTrafos(), theTransformationPackage.getM2MTrafo(), null, "additionalTrafos", null, 0, -1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		initEClass(configurationPropertyEClass, ConfigurationProperty.class, "ConfigurationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConfigurationProperty_Base_Property(), theUMLPackage.getProperty(), null, "base_Property", null, 1, 1, ConfigurationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -692,9 +718,13 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		initEReference(getTarget_UsedOS(), this.getOperatingSystem(), null, "usedOS", null, 1, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getTarget_AvailRAM(), theTypesPackage.getInteger(), "availRAM", null, 1, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getTarget_AvailROM(), theTypesPackage.getInteger(), "availROM", null, 1, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getTarget_Target(), this.getTargetArchitecture(), null, "target", null, 1, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(operatingSystemEClass, OperatingSystem.class, "OperatingSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperatingSystem_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, OperatingSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(targetArchitectureEClass, TargetArchitecture.class, "TargetArchitecture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTargetArchitecture_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, TargetArchitecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(implementationPropertiesEClass, ImplementationProperties.class, "ImplementationProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationProperties_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, ImplementationProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -702,14 +732,6 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
 		initEAttribute(getImplementationProperties_SizeROM(), theTypesPackage.getInteger(), "sizeROM", null, 1, 1, ImplementationProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getImplementationProperties_SupportedOS(), this.getOperatingSystem(), null, "supportedOS", null, 0, -1, ImplementationProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getImplementationProperties_Arch(), this.getTargetArchitecture(), null, "arch", null, 1, 1, ImplementationProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(targetArchitectureEClass, TargetArchitecture.class, "TargetArchitecture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTargetArchitecture_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, TargetArchitecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(deploymentPlanEClass, DeploymentPlan.class, "DeploymentPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDeploymentPlan_Base_Package(), theUMLPackage.getPackage(), null, "base_Package", null, 1, 1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDeploymentPlan_ProjectMappings(), theTypesPackage.getString(), "projectMappings", null, 0, -1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getDeploymentPlan_Chain(), theTransformationPackage.getM2MTrafoChain(), null, "chain", null, 0, 1, DeploymentPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(singletonEClass, Singleton.class, "Singleton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleton_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, Singleton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

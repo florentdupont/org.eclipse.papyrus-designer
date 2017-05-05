@@ -4,10 +4,14 @@
     nsPrefix="Transformation">
   <eClassifiers xsi:type="ecore:EClass" name="M2MTrafo">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Represents a M2M transformation. Such a M2M is directly associated with a Java implementation (via an extension point) "/>
+      <details key="documentation" value="Represents a M2M transformation. Such an M2M is directly associated with a Java implementation (via an extension point). Can define a relative execution order by referencing other transformations"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="before" ordered="false"
+        eType="#//M2MTrafo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="after" ordered="false"
+        eType="#//M2MTrafo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="M2MTrafoChain">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -16,16 +20,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ApplyTransformation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="trafo" ordered="false"
-        upperBound="-1" eType="#//M2MTrafo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Element" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DerivedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An element that is e result of a M2M transformation"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Element" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplyTransformation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Force the application of a specific M2M transformtion on an element."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trafo" ordered="false"
+        upperBound="-1" eType="#//M2MTrafo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Element" ordered="false"
         lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Element"/>
   </eClassifiers>
 </ecore:EPackage>

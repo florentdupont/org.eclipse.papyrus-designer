@@ -64,7 +64,151 @@ public interface DeploymentPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getConfigurationProperty()
 	 * @generated
 	 */
-	int CONFIGURATION_PROPERTY = 0;
+	int CONFIGURATION_PROPERTY = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.AutoIndexImpl <em>Auto Index</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.AutoIndexImpl
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getAutoIndex()
+	 * @generated
+	 */
+	int AUTO_INDEX = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.AutoIndexPerNodeImpl <em>Auto Index Per Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.AutoIndexPerNodeImpl
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getAutoIndexPerNode()
+	 * @generated
+	 */
+	int AUTO_INDEX_PER_NODE = 3;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.CopyAttributeValueImpl <em>Copy Attribute Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.CopyAttributeValueImpl
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getCopyAttributeValue()
+	 * @generated
+	 */
+	int COPY_ATTRIBUTE_VALUE = 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.InitPrecedenceImpl <em>Init Precedence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.InitPrecedenceImpl
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getInitPrecedence()
+	 * @generated
+	 */
+	int INIT_PRECEDENCE = 5;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetImpl <em>Target</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetImpl
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getTarget()
+	 * @generated
+	 */
+	int TARGET = 6;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.OperatingSystemImpl <em>Operating System</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.OperatingSystemImpl
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getOperatingSystem()
+	 * @generated
+	 */
+	int OPERATING_SYSTEM = 7;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.ImplementationPropertiesImpl <em>Implementation Properties</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.ImplementationPropertiesImpl
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getImplementationProperties()
+	 * @generated
+	 */
+	int IMPLEMENTATION_PROPERTIES = 9;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetArchitectureImpl <em>Target Architecture</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetArchitectureImpl
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getTargetArchitecture()
+	 * @generated
+	 */
+	int TARGET_ARCHITECTURE = 8;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl <em>Plan</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getDeploymentPlan()
+	 * @generated
+	 */
+	int DEPLOYMENT_PLAN = 0;
+
+	/**
+	 * The feature id for the '<em><b>Base Package</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT_PLAN__BASE_PACKAGE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Project Mappings</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT_PLAN__PROJECT_MAPPINGS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Chain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT_PLAN__CHAIN = 2;
+
+	/**
+	 * The feature id for the '<em><b>Additional Trafos</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT_PLAN__ADDITIONAL_TRAFOS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Plan</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT_PLAN_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Plan</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT_PLAN_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Base Property</b></em>' reference.
@@ -94,16 +238,6 @@ public interface DeploymentPackage extends EPackage {
 	int CONFIGURATION_PROPERTY_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.AutoIndexImpl <em>Auto Index</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.AutoIndexImpl
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getAutoIndex()
-	 * @generated
-	 */
-	int AUTO_INDEX = 1;
-
-	/**
 	 * The feature id for the '<em><b>Base Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,16 +265,6 @@ public interface DeploymentPackage extends EPackage {
 	int AUTO_INDEX_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.AutoIndexPerNodeImpl <em>Auto Index Per Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.AutoIndexPerNodeImpl
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getAutoIndexPerNode()
-	 * @generated
-	 */
-	int AUTO_INDEX_PER_NODE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Base Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,16 +290,6 @@ public interface DeploymentPackage extends EPackage {
 	 * @ordered
 	 */
 	int AUTO_INDEX_PER_NODE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.CopyAttributeValueImpl <em>Copy Attribute Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.CopyAttributeValueImpl
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getCopyAttributeValue()
-	 * @generated
-	 */
-	int COPY_ATTRIBUTE_VALUE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Base Property</b></em>' reference.
@@ -212,16 +326,6 @@ public interface DeploymentPackage extends EPackage {
 	 * @ordered
 	 */
 	int COPY_ATTRIBUTE_VALUE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.InitPrecedenceImpl <em>Init Precedence</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.InitPrecedenceImpl
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getInitPrecedence()
-	 * @generated
-	 */
-	int INIT_PRECEDENCE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -269,16 +373,6 @@ public interface DeploymentPackage extends EPackage {
 	int INIT_PRECEDENCE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetImpl <em>Target</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetImpl
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getTarget()
-	 * @generated
-	 */
-	int TARGET = 5;
-
-	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -315,13 +409,22 @@ public interface DeploymentPackage extends EPackage {
 	int TARGET__AVAIL_ROM = 3;
 
 	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET__TARGET = 4;
+
+	/**
 	 * The number of structural features of the '<em>Target</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TARGET_FEATURE_COUNT = 4;
+	int TARGET_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Target</em>' class.
@@ -331,16 +434,6 @@ public interface DeploymentPackage extends EPackage {
 	 * @ordered
 	 */
 	int TARGET_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.OperatingSystemImpl <em>Operating System</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.OperatingSystemImpl
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getOperatingSystem()
-	 * @generated
-	 */
-	int OPERATING_SYSTEM = 6;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -370,14 +463,31 @@ public interface DeploymentPackage extends EPackage {
 	int OPERATING_SYSTEM_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.ImplementationPropertiesImpl <em>Implementation Properties</em>}' class.
+	 * The feature id for the '<em><b>Base Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.ImplementationPropertiesImpl
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getImplementationProperties()
 	 * @generated
+	 * @ordered
 	 */
-	int IMPLEMENTATION_PROPERTIES = 7;
+	int TARGET_ARCHITECTURE__BASE_CLASS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Target Architecture</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ARCHITECTURE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Target Architecture</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TARGET_ARCHITECTURE_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Base Class</b></em>' reference.
@@ -441,99 +551,6 @@ public interface DeploymentPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMPLEMENTATION_PROPERTIES_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetArchitectureImpl <em>Target Architecture</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetArchitectureImpl
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getTargetArchitecture()
-	 * @generated
-	 */
-	int TARGET_ARCHITECTURE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Base Class</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_ARCHITECTURE__BASE_CLASS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Target Architecture</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_ARCHITECTURE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Target Architecture</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TARGET_ARCHITECTURE_OPERATION_COUNT = 0;
-
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl <em>Plan</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPlanImpl
-	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.DeploymentPackageImpl#getDeploymentPlan()
-	 * @generated
-	 */
-	int DEPLOYMENT_PLAN = 9;
-
-	/**
-	 * The feature id for the '<em><b>Base Package</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_PLAN__BASE_PACKAGE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Project Mappings</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_PLAN__PROJECT_MAPPINGS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Chain</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_PLAN__CHAIN = 2;
-
-	/**
-	 * The number of structural features of the '<em>Plan</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_PLAN_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Plan</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT_PLAN_OPERATION_COUNT = 0;
 
 
 	/**
@@ -860,6 +877,17 @@ public interface DeploymentPackage extends EPackage {
 	EAttribute getTarget_AvailROM();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.Target#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.Target#getTarget()
+	 * @see #getTarget()
+	 * @generated
+	 */
+	EReference getTarget_Target();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.OperatingSystem <em>Operating System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1008,6 +1036,17 @@ public interface DeploymentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDeploymentPlan_Chain();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan#getAdditionalTrafos <em>Additional Trafos</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Additional Trafos</em>'.
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan#getAdditionalTrafos()
+	 * @see #getDeploymentPlan()
+	 * @generated
+	 */
+	EReference getDeploymentPlan_AdditionalTrafos();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.Singleton <em>Singleton</em>}'.
@@ -1274,6 +1313,14 @@ public interface DeploymentPackage extends EPackage {
 		EAttribute TARGET__AVAIL_ROM = eINSTANCE.getTarget_AvailROM();
 
 		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TARGET__TARGET = eINSTANCE.getTarget_Target();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.OperatingSystemImpl <em>Operating System</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1392,6 +1439,14 @@ public interface DeploymentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEPLOYMENT_PLAN__CHAIN = eINSTANCE.getDeploymentPlan_Chain();
+
+		/**
+		 * The meta object literal for the '<em><b>Additional Trafos</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOYMENT_PLAN__ADDITIONAL_TRAFOS = eINSTANCE.getDeploymentPlan_AdditionalTrafos();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.SingletonImpl <em>Singleton</em>}' class.

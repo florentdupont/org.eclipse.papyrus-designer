@@ -61,7 +61,7 @@ public class M2MTrafoExt {
 	}
 
 	/**
-	 * The a language specific M2M transformation from a generic one, provided that the following
+	 * Get a language specific M2M transformation from a generic one, provided that the following
 	 * convention is applied: a language specific transformation is registered by appending the language
 	 * name and :: as separator as transformation ID
 	 * @param m2mTrafo a generic transformation

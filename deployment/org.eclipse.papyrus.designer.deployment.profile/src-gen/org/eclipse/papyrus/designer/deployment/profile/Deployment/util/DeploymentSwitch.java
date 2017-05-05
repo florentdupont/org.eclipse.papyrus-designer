@@ -66,6 +66,12 @@ public class DeploymentSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case DeploymentPackage.DEPLOYMENT_PLAN: {
+				DeploymentPlan deploymentPlan = (DeploymentPlan)theEObject;
+				T result = caseDeploymentPlan(deploymentPlan);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DeploymentPackage.CONFIGURATION_PROPERTY: {
 				ConfigurationProperty configurationProperty = (ConfigurationProperty)theEObject;
 				T result = caseConfigurationProperty(configurationProperty);
@@ -108,21 +114,15 @@ public class DeploymentSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DeploymentPackage.IMPLEMENTATION_PROPERTIES: {
-				ImplementationProperties implementationProperties = (ImplementationProperties)theEObject;
-				T result = caseImplementationProperties(implementationProperties);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DeploymentPackage.TARGET_ARCHITECTURE: {
 				TargetArchitecture targetArchitecture = (TargetArchitecture)theEObject;
 				T result = caseTargetArchitecture(targetArchitecture);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DeploymentPackage.DEPLOYMENT_PLAN: {
-				DeploymentPlan deploymentPlan = (DeploymentPlan)theEObject;
-				T result = caseDeploymentPlan(deploymentPlan);
+			case DeploymentPackage.IMPLEMENTATION_PROPERTIES: {
+				ImplementationProperties implementationProperties = (ImplementationProperties)theEObject;
+				T result = caseImplementationProperties(implementationProperties);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

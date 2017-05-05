@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPackage;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.OperatingSystem;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.TargetArchitecture;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +27,7 @@ import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetImpl#getUsedOS <em>Used OS</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetImpl#getAvailRAM <em>Avail RAM</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetImpl#getAvailROM <em>Avail ROM</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.impl.TargetImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +92,16 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 	 * @ordered
 	 */
 	protected int availROM = AVAIL_ROM_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTarget()
+	 * @generated
+	 * @ordered
+	 */
+	protected TargetArchitecture target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -233,6 +245,44 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TargetArchitecture getTarget() {
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (TargetArchitecture)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DeploymentPackage.TARGET__TARGET, oldTarget, target));
+			}
+		}
+		return target;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TargetArchitecture basicGetTarget() {
+		return target;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTarget(TargetArchitecture newTarget) {
+		TargetArchitecture oldTarget = target;
+		target = newTarget;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DeploymentPackage.TARGET__TARGET, oldTarget, target));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -246,6 +296,9 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 				return getAvailRAM();
 			case DeploymentPackage.TARGET__AVAIL_ROM:
 				return getAvailROM();
+			case DeploymentPackage.TARGET__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -269,6 +322,9 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 				return;
 			case DeploymentPackage.TARGET__AVAIL_ROM:
 				setAvailROM((Integer)newValue);
+				return;
+			case DeploymentPackage.TARGET__TARGET:
+				setTarget((TargetArchitecture)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -294,6 +350,9 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 			case DeploymentPackage.TARGET__AVAIL_ROM:
 				setAvailROM(AVAIL_ROM_EDEFAULT);
 				return;
+			case DeploymentPackage.TARGET__TARGET:
+				setTarget((TargetArchitecture)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -314,6 +373,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target {
 				return availRAM != AVAIL_RAM_EDEFAULT;
 			case DeploymentPackage.TARGET__AVAIL_ROM:
 				return availROM != AVAIL_ROM_EDEFAULT;
+			case DeploymentPackage.TARGET__TARGET:
+				return target != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -68,6 +68,10 @@ public class DeploymentAdapterFactory extends AdapterFactoryImpl {
 	protected DeploymentSwitch<Adapter> modelSwitch =
 		new DeploymentSwitch<Adapter>() {
 			@Override
+			public Adapter caseDeploymentPlan(DeploymentPlan object) {
+				return createDeploymentPlanAdapter();
+			}
+			@Override
 			public Adapter caseConfigurationProperty(ConfigurationProperty object) {
 				return createConfigurationPropertyAdapter();
 			}
@@ -96,16 +100,12 @@ public class DeploymentAdapterFactory extends AdapterFactoryImpl {
 				return createOperatingSystemAdapter();
 			}
 			@Override
-			public Adapter caseImplementationProperties(ImplementationProperties object) {
-				return createImplementationPropertiesAdapter();
-			}
-			@Override
 			public Adapter caseTargetArchitecture(TargetArchitecture object) {
 				return createTargetArchitectureAdapter();
 			}
 			@Override
-			public Adapter caseDeploymentPlan(DeploymentPlan object) {
-				return createDeploymentPlanAdapter();
+			public Adapter caseImplementationProperties(ImplementationProperties object) {
+				return createImplementationPropertiesAdapter();
 			}
 			@Override
 			public Adapter caseSingleton(Singleton object) {

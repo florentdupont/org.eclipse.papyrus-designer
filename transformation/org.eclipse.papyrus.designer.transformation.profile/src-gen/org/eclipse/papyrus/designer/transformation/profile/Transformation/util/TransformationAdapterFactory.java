@@ -76,12 +76,12 @@ public class TransformationAdapterFactory extends AdapterFactoryImpl {
 				return createM2MTrafoChainAdapter();
 			}
 			@Override
-			public Adapter caseApplyTransformation(ApplyTransformation object) {
-				return createApplyTransformationAdapter();
-			}
-			@Override
 			public Adapter caseDerivedElement(DerivedElement object) {
 				return createDerivedElementAdapter();
+			}
+			@Override
+			public Adapter caseApplyTransformation(ApplyTransformation object) {
+				return createApplyTransformationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

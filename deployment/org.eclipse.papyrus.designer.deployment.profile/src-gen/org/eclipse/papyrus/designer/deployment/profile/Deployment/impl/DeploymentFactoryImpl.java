@@ -56,6 +56,7 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements DeploymentFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case DeploymentPackage.DEPLOYMENT_PLAN: return createDeploymentPlan();
 			case DeploymentPackage.CONFIGURATION_PROPERTY: return createConfigurationProperty();
 			case DeploymentPackage.AUTO_INDEX: return createAutoIndex();
 			case DeploymentPackage.AUTO_INDEX_PER_NODE: return createAutoIndexPerNode();
@@ -63,9 +64,8 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements DeploymentFac
 			case DeploymentPackage.INIT_PRECEDENCE: return createInitPrecedence();
 			case DeploymentPackage.TARGET: return createTarget();
 			case DeploymentPackage.OPERATING_SYSTEM: return createOperatingSystem();
-			case DeploymentPackage.IMPLEMENTATION_PROPERTIES: return createImplementationProperties();
 			case DeploymentPackage.TARGET_ARCHITECTURE: return createTargetArchitecture();
-			case DeploymentPackage.DEPLOYMENT_PLAN: return createDeploymentPlan();
+			case DeploymentPackage.IMPLEMENTATION_PROPERTIES: return createImplementationProperties();
 			case DeploymentPackage.SINGLETON: return createSingleton();
 			case DeploymentPackage.INSTANCE_CONFIGURATOR: return createInstanceConfigurator();
 			case DeploymentPackage.USE_INSTANCE_CONFIGURATOR: return createUseInstanceConfigurator();

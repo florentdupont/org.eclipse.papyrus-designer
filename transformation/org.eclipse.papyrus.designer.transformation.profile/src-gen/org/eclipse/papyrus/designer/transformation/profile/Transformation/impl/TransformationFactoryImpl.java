@@ -58,8 +58,8 @@ public class TransformationFactoryImpl extends EFactoryImpl implements Transform
 		switch (eClass.getClassifierID()) {
 			case TransformationPackage.M2M_TRAFO: return createM2MTrafo();
 			case TransformationPackage.M2M_TRAFO_CHAIN: return createM2MTrafoChain();
-			case TransformationPackage.APPLY_TRANSFORMATION: return createApplyTransformation();
 			case TransformationPackage.DERIVED_ELEMENT: return createDerivedElement();
+			case TransformationPackage.APPLY_TRANSFORMATION: return createApplyTransformation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

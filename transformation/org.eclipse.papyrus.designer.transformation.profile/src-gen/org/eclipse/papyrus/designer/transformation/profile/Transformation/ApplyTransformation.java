@@ -11,6 +11,10 @@ import org.eclipse.uml2.uml.Element;
  * A representation of the model object '<em><b>Apply Transformation</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Force the application of a specific M2M transformtion on an element.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

@@ -14,6 +14,7 @@
 package org.eclipse.papyrus.designer.deployment.tools;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Stack;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -31,6 +32,7 @@ import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
 import org.eclipse.papyrus.designer.transformation.base.preferences.PapyrusDesignerPreferenceConstants;
 import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.StdModelLibs;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.common.util.UML2Util;
@@ -607,5 +609,15 @@ public class DepUtils {
 			}
 		}
 		return chain;
+	}
+	
+	public static List<M2MTrafo> getAdditionalTransformations(Package cdp) {
+		if (cdp != null) {
+			DeploymentPlan cdpStereo = UMLUtil.getStereotypeApplication(cdp, DeploymentPlan.class);
+			if (cdpStereo != null) {
+				return cdpStereo.getAdditionalTrafos();
+			}
+		}
+		return null;
 	}
 }

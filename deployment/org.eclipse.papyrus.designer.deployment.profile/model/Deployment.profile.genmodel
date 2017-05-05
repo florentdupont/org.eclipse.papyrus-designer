@@ -38,6 +38,15 @@
   <foreignModel>Deployment.profile.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Deployment" basePackage="org.eclipse.papyrus.designer.deployment.profile"
       disposableProviderFactory="true" ecorePackage="Deployment.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//DeploymentPlan">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//DeploymentPlan/base_Package"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//DeploymentPlan/projectMappings"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//DeploymentPlan/chain"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//DeploymentPlan/additionalTrafos"/>
+    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//ConfigurationProperty">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//ConfigurationProperty/base_Property"/>
@@ -71,10 +80,16 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//Target/usedOS"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//Target/availRAM"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//Target/availROM"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//Target/target"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//OperatingSystem">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//OperatingSystem/base_Class"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//TargetArchitecture">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//TargetArchitecture/base_Class"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//ImplementationProperties">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -85,17 +100,6 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//ImplementationProperties/supportedOS"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//ImplementationProperties/arch"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//TargetArchitecture">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//TargetArchitecture/base_Class"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//DeploymentPlan">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//DeploymentPlan/base_Package"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute Deployment.ecore#//DeploymentPlan/projectMappings"/>
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference Deployment.ecore#//DeploymentPlan/chain"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Deployment.ecore#//Singleton">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

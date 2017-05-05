@@ -63,7 +63,7 @@ public interface TransformationPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getApplyTransformation()
 	 * @generated
 	 */
-	int APPLY_TRANSFORMATION = 2;
+	int APPLY_TRANSFORMATION = 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.M2MTrafoImpl <em>M2M Trafo</em>}' class.
@@ -85,13 +85,31 @@ public interface TransformationPackage extends EPackage {
 	int M2M_TRAFO__BASE_CLASS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int M2M_TRAFO__BEFORE = 1;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int M2M_TRAFO__AFTER = 2;
+
+	/**
 	 * The number of structural features of the '<em>M2M Trafo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int M2M_TRAFO_FEATURE_COUNT = 1;
+	int M2M_TRAFO_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>M2M Trafo</em>' class.
@@ -140,42 +158,6 @@ public interface TransformationPackage extends EPackage {
 	int M2M_TRAFO_CHAIN_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Trafo</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLY_TRANSFORMATION__TRAFO = 0;
-
-	/**
-	 * The feature id for the '<em><b>Base Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLY_TRANSFORMATION__BASE_ELEMENT = 1;
-
-	/**
-	 * The number of structural features of the '<em>Apply Transformation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLY_TRANSFORMATION_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Apply Transformation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int APPLY_TRANSFORMATION_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.DerivedElementImpl <em>Derived Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,7 +165,7 @@ public interface TransformationPackage extends EPackage {
 	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.TransformationPackageImpl#getDerivedElement()
 	 * @generated
 	 */
-	int DERIVED_ELEMENT = 3;
+	int DERIVED_ELEMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Base Element</b></em>' reference.
@@ -220,6 +202,42 @@ public interface TransformationPackage extends EPackage {
 	 * @ordered
 	 */
 	int DERIVED_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Trafo</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLY_TRANSFORMATION__TRAFO = 0;
+
+	/**
+	 * The feature id for the '<em><b>Base Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLY_TRANSFORMATION__BASE_ELEMENT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Apply Transformation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLY_TRANSFORMATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Apply Transformation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLY_TRANSFORMATION_OPERATION_COUNT = 0;
 
 
 	/**
@@ -274,6 +292,28 @@ public interface TransformationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getM2MTrafo_Base_Class();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getBefore <em>Before</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Before</em>'.
+	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getBefore()
+	 * @see #getM2MTrafo()
+	 * @generated
+	 */
+	EReference getM2MTrafo_Before();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getAfter <em>After</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>After</em>'.
+	 * @see org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo#getAfter()
+	 * @see #getM2MTrafo()
+	 * @generated
+	 */
+	EReference getM2MTrafo_After();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain <em>M2M Trafo Chain</em>}'.
@@ -394,6 +434,22 @@ public interface TransformationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference M2M_TRAFO__BASE_CLASS = eINSTANCE.getM2MTrafo_Base_Class();
+
+		/**
+		 * The meta object literal for the '<em><b>Before</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference M2M_TRAFO__BEFORE = eINSTANCE.getM2MTrafo_Before();
+
+		/**
+		 * The meta object literal for the '<em><b>After</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference M2M_TRAFO__AFTER = eINSTANCE.getM2MTrafo_After();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.transformation.profile.Transformation.impl.M2MTrafoChainImpl <em>M2M Trafo Chain</em>}' class.

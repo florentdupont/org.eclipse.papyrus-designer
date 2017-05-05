@@ -43,13 +43,14 @@ public class MapUtil {
 	}
 
 	/**
-	 * 
+	 * Create a derived type
+	 *
 	 * @param element
 	 * @param format a format string for the name of the new type. This name is obtained by call the String.format function and
 	 * 	passing the original type name as parameter. E.g. the call can use a fixed name, if the format string does not contain
 	 *  a %s directive, a %s at the end of the format string enables a fixed prefix and so on.
-	 * @param type
-	 * @param createKind
+	 * @param type an existing type on which the mapped type is based
+	 * @param createKind enumeration to specify the type of the element to create (INTERFACE or CLASS)
 	 * @return
 	 */
 	public static Type getOrCreateDerivedType(Element element, String format, Type type, ECreateKind createKind) {
@@ -69,10 +70,8 @@ public class MapUtil {
 				// type already exists
 				return (Type) pe;
 			} else if (createKind == ECreateKind.INTERFACE) {
-				// System.out.println ("Derived port types: create new interface " + typeName + " in package " + owner.getQualifiedName ());
 				intf = owner.createOwnedInterface(typeName);
 	
-				// System.out.println ("Derived port types: Apply derived stereotype annotation to interface: " + intf.getQualifiedName());
 				DerivedElement de = applyDE(intf);
 				if (de != null) {
 					// de may be null, if FCM is not properly applied
@@ -80,10 +79,8 @@ public class MapUtil {
 				}
 				return intf;
 			} else if (createKind == ECreateKind.CLASS) {
-				// System.out.println ("Derived port types: create new interface " + typeName + " in package " + owner.getQualifiedName ());
 				Class newType = owner.createOwnedClass(typeName, false);
 	
-				// System.out.println ("Derived port types: Apply derived stereotype annotation to interface: " + intf.getQualifiedName());
 				DerivedElement de = applyDE(newType);
 				if (de != null) {
 					// de may be null, if FCM is not properly applied

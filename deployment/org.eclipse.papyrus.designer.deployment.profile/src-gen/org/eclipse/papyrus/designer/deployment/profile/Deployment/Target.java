@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.Target#getUsedOS <em>Used OS</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.Target#getAvailRAM <em>Avail RAM</em>}</li>
  *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.Target#getAvailROM <em>Avail ROM</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.Target#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPackage#getTarget()
@@ -127,5 +128,31 @@ public interface Target extends EObject {
 	 * @generated
 	 */
 	void setAvailROM(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(TargetArchitecture)
+	 * @see org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPackage#getTarget_Target()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	TargetArchitecture getTarget();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.deployment.profile.Deployment.Target#getTarget <em>Target</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
+	 * @generated
+	 */
+	void setTarget(TargetArchitecture value);
 
 } // Target

@@ -42,22 +42,26 @@
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Transformation.ecore#//M2MTrafo">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//M2MTrafo/base_Class"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//M2MTrafo/before"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//M2MTrafo/after"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Transformation.ecore#//M2MTrafoChain">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//M2MTrafoChain/base_Class"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Transformation.ecore#//ApplyTransformation">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//ApplyTransformation/trafo"/>
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//ApplyTransformation/base_Element"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="Transformation.ecore#//DerivedElement">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//DerivedElement/base_Element"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//DerivedElement/source"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="Transformation.ecore#//ApplyTransformation">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//ApplyTransformation/trafo"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//ApplyTransformation/base_Element"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
