@@ -116,15 +116,15 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InteractionPattern" eSuperTypes="#//ucm_interactions/IInteractionDefinition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="InteractionRole and InteractionItem classes are linked by a composition relationship with an InteractionPattern&#xA;To extends an InteractionPattern, use the redefinedClassifier association form metaclass."/>
+        <details key="documentation" value="InteractionRole and InteractionItem classes are linked by a composition relationship with an InteractionPattern&#xA;To extend an InteractionPattern, use the &quot;redefinedClassifier&quot; association from metaclass."/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IInteractionDefinition" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Can extend either a class or a collaboration. Collaboration is the better choice, as it makes more sense. But some modeler might not manage collaboration diagrams correctly."/>
+        <details key="documentation" value="Can extend either a class or a collaboration. Collaborations are preferable, since they are used to capture collaboration roles. But some modelers might not manage collaboration diagrams correctly."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="base_Class" ordered="false"
-          lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base_StructuredClassifier"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//StructuredClassifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ConnectorPort">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

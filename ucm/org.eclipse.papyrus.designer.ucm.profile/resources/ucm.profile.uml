@@ -436,7 +436,7 @@ Must be abstract, may not contain parts. Authorize single class that is type and
       <ownedAttribute xmi:type="uml:Property" xmi:id="_dPHCkXwUEeabMOtBfHM5AQ" name="base_Property" association="_dO94oHwUEeabMOtBfHM5AQ">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
       </ownedAttribute>
-      <icon xmi:type="uml:Image" xmi:id="_FTeP4A1_EeeLnZAWymPFew" format="PNG" location="platfom:/plugin/org.eclipse.papyrus.designer.ucm.profile/resources/icons/ucm/Connection.png">
+      <icon xmi:type="uml:Image" xmi:id="_FTeP4A1_EeeLnZAWymPFew" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.profile/resources/icons/ucm/Connection.png">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FTeP4Q1_EeeLnZAWymPFew" source="image_papyrus">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FTeP4g1_EeeLnZAWymPFew" key="image_name_key" value="connection"/>
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FTeP4w1_EeeLnZAWymPFew" key="image_kind_key" value="icon"/>
@@ -593,7 +593,7 @@ Must be abstract, may not contain parts. Authorize single class that is type and
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_P7fosXwaEeabMOtBfHM5AQ" name="extension_ComponentTechnicalPolicy" type="_K9i6YNvcEeWGg4v4Bs5PXQ" aggregation="composite" association="_P7fosHwaEeabMOtBfHM5AQ"/>
     </packagedElement>
   </packagedElement>
-  <packagedElement xmi:type="uml:Profile" xmi:id="_7zDYENvZEeWGg4v4Bs5PXQ" name="ucm_interactions" URI="http://www.omg.org/ucm/interactions/0.9" metaclassReference="_HIE20L37Eea3OttB0-KitQ">
+  <packagedElement xmi:type="uml:Profile" xmi:id="_7zDYENvZEeWGg4v4Bs5PXQ" name="ucm_interactions" URI="http://www.omg.org/ucm/interactions/0.9" metaclassReference="_HIE20L37Eea3OttB0-KitQ _AUXDEDGFEeeNO70SeUfIIg">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J7DzsI8HEeaVRe1tUwhkow" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <contents xmi:type="ecore:EPackage" xmi:id="_ZHRfMI8HEeaVRe1tUwhkow" name="ucm_interactions" nsURI="http://www.omg.org/ucm/interactions/1" nsPrefix="ucm_interactions">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZHRfMY8HEeaVRe1tUwhkow" source="http://www.eclipse.org/uml2/4.1.0/UML" references="_ZHN00I8HEeaVRe1tUwhkow"/>
@@ -788,7 +788,7 @@ Must be abstract, may not contain parts. Authorize single class that is type and
       <body>Subpackages must be ContractModule or, InteractionDefinitionModule. Contained elements must be IntercationPattern, IPortType or ConnectorDefinition</body>
     </ownedComment>
     <ownedComment xmi:type="uml:Comment" xmi:id="_T8A6UPvSEeWuGcYx5zIFOg" annotatedElement="_OCJgwPvOEeWuGcYx5zIFOg">
-      <body>To extends an InteractionPattern, use the redefinedClassifier association form metaclass.</body>
+      <body>To extend an InteractionPattern, use the &quot;redefinedClassifier&quot; association from metaclass.</body>
     </ownedComment>
     <ownedComment xmi:type="uml:Comment" xmi:id="_mirokPvUEeWuGcYx5zIFOg" annotatedElement="_SPv64PvUEeWuGcYx5zIFOg">
       <body>type association from metaclass Port must refers to a IPortType</body>
@@ -823,6 +823,9 @@ Must be abstract, may not contain parts. Authorize single class that is type and
     <elementImport xmi:type="uml:ElementImport" xmi:id="_HIE20L37Eea3OttB0-KitQ" alias="Class">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
     </elementImport>
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_AUXDEDGFEeeNO70SeUfIIg" alias="StructuredClassifier">
+      <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#StructuredClassifier"/>
+    </elementImport>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_984yYNvZEeWGg4v4Bs5PXQ" name="IPortType" isAbstract="true">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Zwn6od7xEeWilcfOqaNf1w" name="base_Class" association="_ZwnTkN7xEeWilcfOqaNf1w">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
@@ -830,10 +833,10 @@ Must be abstract, may not contain parts. Authorize single class that is type and
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_WYFV8NvaEeWGg4v4Bs5PXQ" name="IInteractionDefinition" isAbstract="true">
       <ownedComment xmi:type="uml:Comment" xmi:id="_-D_hEJFhEea5u6ulHFCSFA" annotatedElement="_WYFV8NvaEeWGg4v4Bs5PXQ">
-        <body>Can extend either a class or a collaboration. Collaboration is the better choice, as it makes more sense. But some modeler might not manage collaboration diagrams correctly.</body>
+        <body>Can extend either a class or a collaboration. Collaborations are preferable, since they are used to capture collaboration roles. But some modelers might not manage collaboration diagrams correctly.</body>
       </ownedComment>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_nyTXsnwYEeabMOtBfHM5AQ" name="base_Class" association="_nyTXsHwYEeabMOtBfHM5AQ">
-        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_BYNFsTGFEeeNO70SeUfIIg" name="base_StructuredClassifier" association="_BYI0QDGFEeeNO70SeUfIIg">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#StructuredClassifier"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_nAKlsNveEeWGg4v4Bs5PXQ" name="PortType">
@@ -969,9 +972,6 @@ Must be abstract, may not contain parts. Authorize single class that is type and
     <packagedElement xmi:type="uml:Extension" xmi:id="_asKXgP2KEeWY4LeDrpmlIQ" name="E_PortElement_Property1" memberEnd="_asKXgf2KEeWY4LeDrpmlIQ _asKXgv2KEeWY4LeDrpmlIQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_asKXgf2KEeWY4LeDrpmlIQ" name="extension_PortElement" type="_EjWE0NvhEeWGg4v4Bs5PXQ" aggregation="composite" association="_asKXgP2KEeWY4LeDrpmlIQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_nyTXsHwYEeabMOtBfHM5AQ" name="E_IInteractionDefinition_Class1" memberEnd="_nyTXsXwYEeabMOtBfHM5AQ _nyTXsnwYEeabMOtBfHM5AQ">
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_nyTXsXwYEeabMOtBfHM5AQ" name="extension_IInteractionDefinition" type="_WYFV8NvaEeWGg4v4Bs5PXQ" aggregation="composite" association="_nyTXsHwYEeabMOtBfHM5AQ"/>
-    </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_gxcSYIySEeabN8K3VNrupg" name="E_ConnectorPort_Property1" memberEnd="_gxc5cIySEeabN8K3VNrupg _gxdggIySEeabN8K3VNrupg">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_gxc5cIySEeabN8K3VNrupg" name="extension_ConnectorPort" type="_SPv64PvUEeWuGcYx5zIFOg" aggregation="composite" association="_gxcSYIySEeabN8K3VNrupg"/>
     </packagedElement>
@@ -983,6 +983,9 @@ Must be abstract, may not contain parts. Authorize single class that is type and
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_IW1wAL37Eea3OttB0-KitQ" name="E_ConnectorPortConfiguration_Class1" memberEnd="_IXX7gL37Eea3OttB0-KitQ _IXYikL37Eea3OttB0-KitQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_IXX7gL37Eea3OttB0-KitQ" name="extension_ConnectorPortConfiguration" type="_ClB_YPvdEeWuGcYx5zIFOg" aggregation="composite" association="_IW1wAL37Eea3OttB0-KitQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_BYI0QDGFEeeNO70SeUfIIg" name="E_IInteractionDefinition_StructuredClassifier1" memberEnd="_BYNFsDGFEeeNO70SeUfIIg _BYNFsTGFEeeNO70SeUfIIg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_BYNFsDGFEeeNO70SeUfIIg" name="extension_IInteractionDefinition" type="_WYFV8NvaEeWGg4v4Bs5PXQ" aggregation="composite" association="_BYI0QDGFEeeNO70SeUfIIg"/>
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Profile" xmi:id="_dEIhwNvbEeWGg4v4Bs5PXQ" name="ucm_technicalpolicies" URI="http://www.omg.org/ucm/policies/0.9">

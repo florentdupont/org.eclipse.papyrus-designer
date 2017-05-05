@@ -246,11 +246,11 @@
     </matcherConfiguration>
   </elementTypeConfigurations>
   <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_NmJkgL5eEeaSV_z7ahpr-g" identifier="org.eclipse.papyrus.designer.ucm.core.InteractionPattern" name="Interaction Pattern">
-    <iconEntry xmi:id="_NmJkgb5eEeaSV_z7ahpr-g" iconPath="/resources/icons/ext_ucm/AppAssembly.png" bundleId="org.eclipse.papyrus.designer.ucm.supplement.profile"/>
+    <iconEntry xmi:id="_NmJkgb5eEeaSV_z7ahpr-g" iconPath="/resources/icons/ucm/InteractionPattern.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
     <specializedTypesID>org.eclipse.papyrus.uml.Collaboration</specializedTypesID>
     <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_NmJkgr5eEeaSV_z7ahpr-g" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.InteractionPatternEditHelperAdvice"/>
     <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_WkxooMBcEea0otz58s7TCw" profileUri="http://www.omg.org/ucm/0.9">
-      <stereotypesQualifiedNames>UCM_Supplement::ucm_interactions::InteractionPattern</stereotypesQualifiedNames>
+      <stereotypesQualifiedNames>UCMProfile::ucm_interactions::InteractionPattern</stereotypesQualifiedNames>
     </matcherConfiguration>
   </elementTypeConfigurations>
   <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_ubJcyaeUEeSUR5jX0TaAcA" description="ComponentType" target="_PlJqjlj354Wnbt9JeO78zA">
@@ -372,8 +372,8 @@
     <stereotypesToApply xmi:id="_TqTUkbvHEeagON7A6uz3tw" stereotypeQualifiedName="UCM_Supplement::ucm_deployment::AllocationPlan" updateName="true"/>
   </adviceBindingsConfigurations>
   <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_cBxgkL5eEeaSV_z7ahpr-g" description="Interaction pattern" target="_NmJkgL5eEeaSV_z7ahpr-g">
-    <stereotypesToApply xmi:id="_cBxgkb5eEeaSV_z7ahpr-g" stereotypeQualifiedName="UCM_Supplement::ucm_interactions::InteractionPattern" updateName="true">
-      <requiredProfiles>UCM_Supplement</requiredProfiles>
+    <stereotypesToApply xmi:id="_cBxgkb5eEeaSV_z7ahpr-g" stereotypeQualifiedName="UCMProfile::ucm_interactions::InteractionPattern" updateName="true">
+      <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
   <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_BfMDQMCOEeaLpumP_4vuow" description="Language" target="_zr5SgMCNEeaLpumP_4vuow">

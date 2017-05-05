@@ -280,7 +280,7 @@ public class Ucm_interactionsPackageImpl extends EPackageImpl implements Ucm_int
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIInteractionDefinition_Base_Class() {
+	public EReference getIInteractionDefinition_Base_StructuredClassifier() {
 		return (EReference)iInteractionDefinitionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -534,7 +534,7 @@ public class Ucm_interactionsPackageImpl extends EPackageImpl implements Ucm_int
 		interactionPatternEClass = createEClass(INTERACTION_PATTERN);
 
 		iInteractionDefinitionEClass = createEClass(IINTERACTION_DEFINITION);
-		createEReference(iInteractionDefinitionEClass, IINTERACTION_DEFINITION__BASE_CLASS);
+		createEReference(iInteractionDefinitionEClass, IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER);
 
 		connectorPortEClass = createEClass(CONNECTOR_PORT);
 		createEReference(connectorPortEClass, CONNECTOR_PORT__IMPLEMENTS);
@@ -617,7 +617,7 @@ public class Ucm_interactionsPackageImpl extends EPackageImpl implements Ucm_int
 		initEClass(interactionPatternEClass, InteractionPattern.class, "InteractionPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iInteractionDefinitionEClass, IInteractionDefinition.class, "IInteractionDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIInteractionDefinition_Base_Class(), theUMLPackage.getClass_(), null, "base_Class", null, 1, 1, IInteractionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getIInteractionDefinition_Base_StructuredClassifier(), theUMLPackage.getStructuredClassifier(), null, "base_StructuredClassifier", null, 1, 1, IInteractionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(connectorPortEClass, ConnectorPort.class, "ConnectorPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConnectorPort_Implements(), this.getInteractionRole(), null, "implements", null, 1, 1, ConnectorPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

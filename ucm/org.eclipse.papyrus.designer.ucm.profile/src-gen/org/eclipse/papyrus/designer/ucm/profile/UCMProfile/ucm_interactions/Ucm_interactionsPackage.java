@@ -113,13 +113,13 @@ public interface Ucm_interactionsPackage extends EPackage {
 	int IINTERACTION_DEFINITION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * The feature id for the '<em><b>Base Structured Classifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IINTERACTION_DEFINITION__BASE_CLASS = 0;
+	int IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER = 0;
 
 	/**
 	 * The number of structural features of the '<em>IInteraction Definition</em>' class.
@@ -150,13 +150,13 @@ public interface Ucm_interactionsPackage extends EPackage {
 	int INTERACTION_PATTERN = 1;
 
 	/**
-	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * The feature id for the '<em><b>Base Structured Classifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERACTION_PATTERN__BASE_CLASS = IINTERACTION_DEFINITION__BASE_CLASS;
+	int INTERACTION_PATTERN__BASE_STRUCTURED_CLASSIFIER = IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER;
 
 	/**
 	 * The number of structural features of the '<em>Interaction Pattern</em>' class.
@@ -325,13 +325,13 @@ public interface Ucm_interactionsPackage extends EPackage {
 	int CONNECTOR_DEFINITION = 6;
 
 	/**
-	 * The feature id for the '<em><b>Base Class</b></em>' reference.
+	 * The feature id for the '<em><b>Base Structured Classifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_DEFINITION__BASE_CLASS = IINTERACTION_DEFINITION__BASE_CLASS;
+	int CONNECTOR_DEFINITION__BASE_STRUCTURED_CLASSIFIER = IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER;
 
 	/**
 	 * The number of structural features of the '<em>Connector Definition</em>' class.
@@ -626,15 +626,15 @@ public interface Ucm_interactionsPackage extends EPackage {
 	EClass getIInteractionDefinition();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.IInteractionDefinition#getBase_Class <em>Base Class</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.IInteractionDefinition#getBase_StructuredClassifier <em>Base Structured Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Base Class</em>'.
-	 * @see org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.IInteractionDefinition#getBase_Class()
+	 * @return the meta object for the reference '<em>Base Structured Classifier</em>'.
+	 * @see org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.IInteractionDefinition#getBase_StructuredClassifier()
 	 * @see #getIInteractionDefinition()
 	 * @generated
 	 */
-	EReference getIInteractionDefinition_Base_Class();
+	EReference getIInteractionDefinition_Base_StructuredClassifier();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.ConnectorPort <em>Connector Port</em>}'.
@@ -951,12 +951,12 @@ public interface Ucm_interactionsPackage extends EPackage {
 		EClass IINTERACTION_DEFINITION = eINSTANCE.getIInteractionDefinition();
 
 		/**
-		 * The meta object literal for the '<em><b>Base Class</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Base Structured Classifier</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference IINTERACTION_DEFINITION__BASE_CLASS = eINSTANCE.getIInteractionDefinition_Base_Class();
+		EReference IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER = eINSTANCE.getIInteractionDefinition_Base_StructuredClassifier();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.impl.ConnectorPortImpl <em>Connector Port</em>}' class.

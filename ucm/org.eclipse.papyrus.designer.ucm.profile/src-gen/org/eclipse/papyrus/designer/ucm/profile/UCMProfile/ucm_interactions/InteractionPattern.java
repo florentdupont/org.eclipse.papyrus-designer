@@ -16,7 +16,7 @@ package org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions;
  *
  * <!-- begin-model-doc -->
  * InteractionRole and InteractionItem classes are linked by a composition relationship with an InteractionPattern
- * To extends an InteractionPattern, use the redefinedClassifier association form metaclass.
+ * To extend an InteractionPattern, use the "redefinedClassifier" association from metaclass.
  * <!-- end-model-doc -->
  *
  *

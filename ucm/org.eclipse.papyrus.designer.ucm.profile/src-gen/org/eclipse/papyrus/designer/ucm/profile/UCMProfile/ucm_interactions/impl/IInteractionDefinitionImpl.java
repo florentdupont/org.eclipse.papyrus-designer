@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.IInteractionDefinition;
 import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.Ucm_interactionsPackage;
+import org.eclipse.uml2.uml.StructuredClassifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,22 +28,21 @@ import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.Ucm_
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.impl.IInteractionDefinitionImpl#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.impl.IInteractionDefinitionImpl#getBase_StructuredClassifier <em>Base Structured Classifier</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class IInteractionDefinitionImpl extends MinimalEObjectImpl.Container implements IInteractionDefinition {
 	/**
-	 * The cached value of the '{@link #getBase_Class() <em>Base Class</em>}' reference.
+	 * The cached value of the '{@link #getBase_StructuredClassifier() <em>Base Structured Classifier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBase_Class()
+	 * @see #getBase_StructuredClassifier()
 	 * @generated
 	 * @ordered
 	 */
-	protected org.eclipse.uml2.uml.Class base_Class;
-
+	protected StructuredClassifier base_StructuredClassifier;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,16 +67,16 @@ public abstract class IInteractionDefinitionImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.eclipse.uml2.uml.Class getBase_Class() {
-		if (base_Class != null && base_Class.eIsProxy()) {
-			InternalEObject oldBase_Class = (InternalEObject)base_Class;
-			base_Class = (org.eclipse.uml2.uml.Class)eResolveProxy(oldBase_Class);
-			if (base_Class != oldBase_Class) {
+	public StructuredClassifier getBase_StructuredClassifier() {
+		if (base_StructuredClassifier != null && base_StructuredClassifier.eIsProxy()) {
+			InternalEObject oldBase_StructuredClassifier = (InternalEObject)base_StructuredClassifier;
+			base_StructuredClassifier = (StructuredClassifier)eResolveProxy(oldBase_StructuredClassifier);
+			if (base_StructuredClassifier != oldBase_StructuredClassifier) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_CLASS, oldBase_Class, base_Class));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER, oldBase_StructuredClassifier, base_StructuredClassifier));
 			}
 		}
-		return base_Class;
+		return base_StructuredClassifier;
 	}
 
 	/**
@@ -84,8 +84,8 @@ public abstract class IInteractionDefinitionImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.eclipse.uml2.uml.Class basicGetBase_Class() {
-		return base_Class;
+	public StructuredClassifier basicGetBase_StructuredClassifier() {
+		return base_StructuredClassifier;
 	}
 
 	/**
@@ -93,11 +93,11 @@ public abstract class IInteractionDefinitionImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBase_Class(org.eclipse.uml2.uml.Class newBase_Class) {
-		org.eclipse.uml2.uml.Class oldBase_Class = base_Class;
-		base_Class = newBase_Class;
+	public void setBase_StructuredClassifier(StructuredClassifier newBase_StructuredClassifier) {
+		StructuredClassifier oldBase_StructuredClassifier = base_StructuredClassifier;
+		base_StructuredClassifier = newBase_StructuredClassifier;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_CLASS, oldBase_Class, base_Class));
+			eNotify(new ENotificationImpl(this, Notification.SET, Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER, oldBase_StructuredClassifier, base_StructuredClassifier));
 	}
 
 	/**
@@ -108,9 +108,9 @@ public abstract class IInteractionDefinitionImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_CLASS:
-				if (resolve) return getBase_Class();
-				return basicGetBase_Class();
+			case Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER:
+				if (resolve) return getBase_StructuredClassifier();
+				return basicGetBase_StructuredClassifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,8 +123,8 @@ public abstract class IInteractionDefinitionImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_CLASS:
-				setBase_Class((org.eclipse.uml2.uml.Class)newValue);
+			case Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER:
+				setBase_StructuredClassifier((StructuredClassifier)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public abstract class IInteractionDefinitionImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_CLASS:
-				setBase_Class((org.eclipse.uml2.uml.Class)null);
+			case Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER:
+				setBase_StructuredClassifier((StructuredClassifier)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -153,8 +153,8 @@ public abstract class IInteractionDefinitionImpl extends MinimalEObjectImpl.Cont
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_CLASS:
-				return base_Class != null;
+			case Ucm_interactionsPackage.IINTERACTION_DEFINITION__BASE_STRUCTURED_CLASSIFIER:
+				return base_StructuredClassifier != null;
 		}
 		return super.eIsSet(featureID);
 	}

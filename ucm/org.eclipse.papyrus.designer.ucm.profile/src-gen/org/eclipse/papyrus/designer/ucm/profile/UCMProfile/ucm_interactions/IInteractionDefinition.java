@@ -9,6 +9,7 @@
 package org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.uml2.uml.StructuredClassifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,14 +17,14 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Can extend either a class or a collaboration. Collaboration is the better choice, as it makes more sense. But some modeler might not manage collaboration diagrams correctly.
+ * Can extend either a class or a collaboration. Collaborations are preferable, since they are used to capture collaboration roles. But some modelers might not manage collaboration diagrams correctly.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.IInteractionDefinition#getBase_Class <em>Base Class</em>}</li>
+ *   <li>{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.IInteractionDefinition#getBase_StructuredClassifier <em>Base Structured Classifier</em>}</li>
  * </ul>
  *
  * @see org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.Ucm_interactionsPackage#getIInteractionDefinition()
@@ -32,29 +33,29 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface IInteractionDefinition extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Base Class</b></em>' reference.
+	 * Returns the value of the '<em><b>Base Structured Classifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Base Class</em>' reference isn't clear,
+	 * If the meaning of the '<em>Base Structured Classifier</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Base Class</em>' reference.
-	 * @see #setBase_Class(org.eclipse.uml2.uml.Class)
-	 * @see org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.Ucm_interactionsPackage#getIInteractionDefinition_Base_Class()
+	 * @return the value of the '<em>Base Structured Classifier</em>' reference.
+	 * @see #setBase_StructuredClassifier(StructuredClassifier)
+	 * @see org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.Ucm_interactionsPackage#getIInteractionDefinition_Base_StructuredClassifier()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	org.eclipse.uml2.uml.Class getBase_Class();
+	StructuredClassifier getBase_StructuredClassifier();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.IInteractionDefinition#getBase_Class <em>Base Class</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.IInteractionDefinition#getBase_StructuredClassifier <em>Base Structured Classifier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base Class</em>' reference.
-	 * @see #getBase_Class()
+	 * @param value the new value of the '<em>Base Structured Classifier</em>' reference.
+	 * @see #getBase_StructuredClassifier()
 	 * @generated
 	 */
-	void setBase_Class(org.eclipse.uml2.uml.Class value);
+	void setBase_StructuredClassifier(StructuredClassifier value);
 
 } // IInteractionDefinition

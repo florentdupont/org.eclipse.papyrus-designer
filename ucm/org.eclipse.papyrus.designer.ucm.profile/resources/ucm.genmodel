@@ -122,7 +122,7 @@
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/InteractionPattern"/>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="UCMProfile.ecore#//ucm_interactions/IInteractionDefinition">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/IInteractionDefinition/base_Class"/>
+            propertySortChoices="true" ecoreFeature="ecore:EReference UCMProfile.ecore#//ucm_interactions/IInteractionDefinition/base_StructuredClassifier"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="UCMProfile.ecore#//ucm_interactions/ConnectorPort">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
