@@ -197,7 +197,7 @@ public class InstantiateDepPlan {
 
 		M2MTrafoChain chain = DepUtils.getTransformationChain(srcModelComponentDeploymentPlan);
 
-		ExecuteTransformationChain.apply(chain);
+		ExecuteTransformationChain.apply(chain, DepUtils.getAdditionalTransformations(srcModelComponentDeploymentPlan));
 
 		/*
 		 * if (!generateCACOnly) {
