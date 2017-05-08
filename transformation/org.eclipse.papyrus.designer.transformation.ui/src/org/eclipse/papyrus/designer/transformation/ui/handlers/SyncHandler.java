@@ -26,7 +26,6 @@ import org.eclipse.papyrus.designer.transformation.core.sync.InterfaceSync;
 import org.eclipse.papyrus.uml.diagram.common.handlers.CmdHandler;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Property;
@@ -49,9 +48,6 @@ public class SyncHandler extends CmdHandler {
 		}
 		
 		if (selectedEObject instanceof Interface) {
-			return true;
-		}
-		if (selectedEObject instanceof Class) {
 			return true;
 		}
 		else if (selectedEObject instanceof Package) {

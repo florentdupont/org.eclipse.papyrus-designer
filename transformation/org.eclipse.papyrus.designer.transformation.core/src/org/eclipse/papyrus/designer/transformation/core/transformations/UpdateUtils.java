@@ -18,7 +18,7 @@ import java.util.Iterator;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.transformation.base.utils.TransformationRTException;
+import org.eclipse.papyrus.designer.deployment.tools.Activator;
 import org.eclipse.papyrus.designer.transformation.core.Messages;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
@@ -69,7 +69,7 @@ public class UpdateUtils {
 			de.setSource(source);
 		}
 		else {
-			throw new TransformationRTException(Messages.UpdateUtils_CannotApplyTrafoStereotype);
+			Activator.log.warn(Messages.UpdateUtils_CannotApplyTrafoStereotype);
 		}
 	}
 

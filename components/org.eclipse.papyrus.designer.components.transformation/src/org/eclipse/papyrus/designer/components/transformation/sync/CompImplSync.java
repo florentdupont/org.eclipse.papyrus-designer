@@ -114,7 +114,6 @@ public class CompImplSync {
 				foundGeneralization = true;
 				Classifier cl = ((Generalization) relationship).getSpecific();
 				if (cl instanceof Class) {
-					Activator.log.info(String.format(Messages.CompImplSync_InfoSyncViaType, cl.getName()));
 					Class implementation = (Class) cl;
 					updatePorts(implementation);
 					if (!cl.isAbstract()) {

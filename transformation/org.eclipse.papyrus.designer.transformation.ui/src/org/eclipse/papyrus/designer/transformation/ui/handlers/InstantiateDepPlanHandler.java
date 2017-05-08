@@ -22,10 +22,12 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan;
 import org.eclipse.papyrus.designer.transformation.base.utils.ProjectManagement;
 import org.eclipse.papyrus.designer.transformation.core.transformations.InstantiateDepPlan;
 import org.eclipse.papyrus.designer.transformation.ui.dialogs.GenerationOptionsDialog;
 import org.eclipse.papyrus.uml.diagram.common.handlers.CmdHandler;
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.uml2.uml.Package;
 
@@ -41,7 +43,7 @@ public class InstantiateDepPlanHandler extends CmdHandler {
 	public boolean isEnabled() {
 		updateSelectedEObject();
 		if (selectedEObject instanceof Package) {
-			return true;
+			return StereotypeUtil.isApplied((Package) selectedEObject,  DeploymentPlan.class);
 		}
 		return false;
 	}

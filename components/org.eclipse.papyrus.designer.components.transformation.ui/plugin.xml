@@ -26,6 +26,13 @@
       </command>
       <command
             categoryId="org.eclipse.papyrus.editor.category"
+            defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.SyncHandler"
+            description="Synchronize derived elements (components)"
+            id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.SyncCmd"
+            name="dummy">
+      </command>
+      <command
+            categoryId="org.eclipse.papyrus.editor.category"
             defaultHandler="org.eclipse.papyrus.designer.components.transformation.ui.handlers.AddProfileAndModelLibsHandler"
             description="Add FCM profile and basic model library (component-based design)"
             id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.AddProfileAndModelLibsCmd"
@@ -65,6 +72,18 @@
                icon="icons/selContainer.gif"
                id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.ConfigurePortsMenu"
                label="Configure ports"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.SyncCmd"
+               icon="icons/sync.gif"
+               id="org.eclipse.papyrus.designer.components.transformation.ui.menuActions.SyncMenu"
+               label="Synchronize derived elements (components)"
+               mnemonic="s"
+               mode="FORCE_TEXT"
                style="push">
             <visibleWhen
                   checkEnabled="true">
