@@ -15,7 +15,7 @@
       <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:ExternLibrary xmi:id="_NJsxsDWpEea5ROkfuvcZmg" base_package="_vc-DEDWoEea5ROkfuvcZmg"/>
+  <C_Cpp:ExternLibrary xmi:id="_NJsxsDWpEea5ROkfuvcZmg" base_package="_vc-DEDWoEea5ROkfuvcZmg" prefix="std::"/>
   <C_Cpp:External xmi:id="_KEH0IDXmEea5ROkfuvcZmg" name="vector" base_Classifier="_zb0eQDWoEea5ROkfuvcZmg"/>
   <C_Cpp:External xmi:id="_M6bS4DXmEea5ROkfuvcZmg" name="string" base_Classifier="_0v5VQDWoEea5ROkfuvcZmg"/>
   <C_Cpp:External xmi:id="_QDD3wDXmEea5ROkfuvcZmg" name="array" base_Classifier="_55d3IDWoEea5ROkfuvcZmg"/>

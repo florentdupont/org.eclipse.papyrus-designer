@@ -69,6 +69,8 @@ public class CppCodegenTest {
 
 	private static final String Class9_fragment = "_jcK5MDG0EeOOEc5pE2t6oQ";
 
+	private static final String TestSTL_fragment = "_VzoE8DSOEeeZL4rbVc-GpQ";
+
 	private static final String Package1_fragment = "_nZ5DgDEmEeOSfbt-FmCdoQ";
 
 	private static final String Model_fragment = "_1_ToYCoNEeOncLSXAkfRBA";
@@ -177,6 +179,13 @@ public class CppCodegenTest {
 		assertGenerate(Class7_fragment);
 		assertGeneratedMatchesExpected("Class7.h");
 		assertGeneratedMatchesExpected("Class7.cpp");
+	}
+
+	@Test
+	public void testGenerateTestSTL() throws Exception {
+		assertGenerate(TestSTL_fragment);
+		assertGeneratedMatchesExpected("TestSTL.h");
+		assertGeneratedMatchesExpected("TestSTL.cpp");
 	}
 
 	@Test

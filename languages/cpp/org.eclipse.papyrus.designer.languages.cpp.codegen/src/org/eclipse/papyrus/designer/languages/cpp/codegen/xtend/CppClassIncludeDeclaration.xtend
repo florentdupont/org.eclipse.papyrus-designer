@@ -29,7 +29,14 @@ class CppClassIncludeDeclaration {
 	static def cppClassIncludes(NamedElement ne) {
 		var List<String> result = new ArrayList<String>()
 		if (GenUtils.hasStereotypeTree(ne, ExternLibrary)) {
-			result = GenUtils.getApplicationTree(ne, ExternLibrary).includes
+			// If a class is in an external library, use #include
+			// directives defined there
+			result.addAll(GenUtils.getApplicationTree(ne, ExternLibrary).includes)
+			// No individual includes are produced for members
+			// unless the stereotype "External" defines one explicitly
+			if (GenUtils.hasStereotype(ne, External)) {
+				result.add(includeName(ne))			
+			}
 		} else {
 			result.add(includeName(ne))
 		}

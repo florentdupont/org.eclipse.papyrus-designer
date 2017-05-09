@@ -450,6 +450,11 @@ bVal = false;</body>
         </ownedOperation>
       </packagedElement>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_VzoE8DSOEeeZL4rbVc-GpQ" name="TestSTL">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bTmUoDSOEeeZL4rbVc-GpQ" name="str" visibility="public">
+        <type xmi:type="uml:Class" href="pathmap://PapyrusC_Cpp_LIBRARIES/STL.uml#_0v5VQDWoEea5ROkfuvcZmg"/>
+      </ownedAttribute>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_CS78MCoZEeOncLSXAkfRBA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CTHiYCoZEeOncLSXAkfRBA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/C_Cpp/1#/"/>

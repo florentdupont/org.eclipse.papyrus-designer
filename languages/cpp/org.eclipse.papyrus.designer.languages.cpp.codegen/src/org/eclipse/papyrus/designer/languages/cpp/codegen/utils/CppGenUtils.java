@@ -191,10 +191,7 @@ public class CppGenUtils {
 			}
 		}
 
-		if (GenUtils.hasStereotype(ne, External.class)) {
-			return ne.getName();
-		}
-		else if (GenUtils.hasStereotypeTree(ne, NoCodeGen.class)) {
+		if (GenUtils.hasStereotypeTree(ne, NoCodeGen.class)) {
 			return ne.getName();
 		}
 		else if (GenUtils.hasStereotypeTree(ne, ExternLibrary.class)) {
@@ -202,6 +199,11 @@ public class CppGenUtils {
 			// handle potential prefix defined for all types within the external library
 			return GenUtils.maskNull(extLibrary.getPrefix()) + ne.getName();
 		}
+		else if (GenUtils.hasStereotype(ne, External.class)) {
+			// check External after ExternLibrary stereotype, in order to take an
+			// eventual prefix defined by the latter into account
+			return ne.getName();
+		} 
 		else if (owningPkgName.equals(ANSI_C_LIB)) {
 			// always use the short name for types within the ANSI C library
 			return ne.getName();
