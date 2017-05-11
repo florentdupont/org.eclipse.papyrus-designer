@@ -395,7 +395,7 @@
 <line clip-path="url(#clipPath21)" fill="none" x1="699" x2="699" y1="458" y2="470"/>
 <line clip-path="url(#clipPath21)" fill="none" x1="699" x2="712" y1="470" y2="470"/>
 <rect x="10" y="566" clip-path="url(#clipPath22)" fill="url(#linearGradient7)" width="595" height="42" stroke="none"/>
-<text xml:space="preserve" x="16" y="584" clip-path="url(#clipPath23)" stroke="none">In order to support icons, all port kinds are stereotypes, but for Qompass they are classes</text>
+<text xml:space="preserve" x="16" y="584" clip-path="url(#clipPath23)" stroke="none">In order to support icons, all port kinds are stereotypes, but for SW Designer they are classes</text>
 <text xml:space="preserve" x="16" y="599" clip-path="url(#clipPath23)" stroke="none">stereotyped as "PortKind"</text>
 <line clip-path="url(#clipPath24)" fill="none" x1="10" x2="592" y1="566" y2="566"/>
 <line clip-path="url(#clipPath24)" fill="none" x1="592" x2="604" y1="566" y2="578"/>
