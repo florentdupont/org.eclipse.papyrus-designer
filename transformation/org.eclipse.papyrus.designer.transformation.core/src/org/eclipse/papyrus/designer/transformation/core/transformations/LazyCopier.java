@@ -405,6 +405,10 @@ public class LazyCopier extends Copier {
 				if (base != null) {
 					owner = base; // containment check is done with base element
 				}
+				// check case that owner is already bound package (which can only be the case for a stereotype)
+				if (get(owner) == boundPackage) {
+					return true;
+				}
 			}
 			while (owner != null) {
 				owner = owner.eContainer();
@@ -776,7 +780,7 @@ public class LazyCopier extends Copier {
 					// create a shallow copy of the containment: update only references already in the copy map
 					if (sourceEObj != targetEObj) {
 						if (eReference.getName().equals("profileApplication")) { //$NON-NLS-1$
-							// make a complete copy of te profileApplication
+							// make a complete copy of the profileApplication
 							copyContainment(eReference, sourceEObj, targetEObj);
 						}
 						else {
