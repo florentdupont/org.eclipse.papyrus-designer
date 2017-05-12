@@ -23,18 +23,6 @@
 			</modules>
 		</profile>
 		<profile>
-			<id>neon-papyrusmilestone</id>
-			<activation>
-				<property>
-					<name>eclipse.targetrelease</name>
-					<value>neon-papyrusmilestone</value>
-				</property>
-			</activation>
-			<modules>
-				<module>org.eclipse.papyrus.designer.targetplatform.neon-papyrusmilestone</module>
-			</modules>
-		</profile>
-		<profile>
 			<id>neon-papyrusnightly</id>
 			<activation>
 				<property>
