@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.deployment</artifactId>
-		<version>0.7.5-SNAPSHOT</version>
+		<version>0.7.5</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.deployment.profile</artifactId>
 	<packaging>eclipse-plugin</packaging>

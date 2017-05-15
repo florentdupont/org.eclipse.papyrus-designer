@@ -5,6 +5,33 @@
 		<title>Changes Report: Papyrus Designer</title>
 	</properties>
 	<body>
+		<release version="1.0.4" date="2017-05-01" description="Panther">
+			<action dev="sli" type="add" issue="507126">
+				Addition of Unified component model (UCM)
+			</action>
+			<action dev="sli" type="add" issue="512656">
+				Support template bindings in Java
+			</action>
+			<action dev="sli" type="fix" issue="511889">
+				Factor out common code of Java and C++ model-to-model transformations (component-to-OO, bootloader)
+			</action>
+			<action dev="sli" type="fix" issue="508053">
+				Better organisation of examples
+			</action>
+			<action dev="sli" type="add" issue="510846">
+				Tests covering complete transformation chain
+			</action>
+			<action dev="sli" type="add" issue="501066">
+				Support generation of Maven projects
+			</action>
+			<action dev="sli" type="add" issue="">
+				Reverse engineering enhancements
+			</action>
+			<action dev="sli" type="fix" issue="">
+				Bug fixes
+			</action>
+		</release>
+		
 		<release version="1.0.2" date="2016-08-10" description="Jaguar">
 			<action dev="sli" type="add" issue="496481">
 				Reverse java feature

@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.papyrus.designer.feature"
       label="%featureName"
-      version="1.0.4.qualifier"
+      version="1.0.4"
       provider-name="%providerName">
 
    <description url="https://eclipse.org/papyrus/components/designer/">

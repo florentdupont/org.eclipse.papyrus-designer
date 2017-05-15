@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.ucm</artifactId>
-		<version>0.7.5-SNAPSHOT</version>
+		<version>0.7.5</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.ucm.types.profile.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
