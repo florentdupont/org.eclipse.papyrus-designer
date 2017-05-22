@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.transformation</artifactId>
-		<version>0.7.5</version>
+		<version>0.7.6-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.transformation.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>

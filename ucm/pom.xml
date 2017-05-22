@@ -5,10 +5,10 @@
 	<parent>
 		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
 		<groupId>org.eclipse.papyrus.designer</groupId>
-		<version>1.0.4</version>
+		<version>1.0.5-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.ucm</artifactId>
-	<version>0.7.5</version>
+	<version>0.7.6-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Designer UCM</name>
 	<description>This module contains the plugins related to the unified component model.</description>

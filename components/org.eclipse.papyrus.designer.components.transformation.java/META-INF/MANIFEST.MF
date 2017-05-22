@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.designer.components.modellibs.core;bundle-version="0.7.5"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.5
+Bundle-Version: 0.7.6.qualifier
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
 Bundle-ManifestVersion: 2

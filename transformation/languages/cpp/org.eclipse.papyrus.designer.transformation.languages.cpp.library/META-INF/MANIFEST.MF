@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.papyrus.designer.transformation.languages.cpp.library;singleton:=true
-Bundle-Version: 0.7.5
+Bundle-Version: 0.7.6.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.3",
  org.eclipse.papyrus.designer.transformation.profile;bundle-version="0.7.3",

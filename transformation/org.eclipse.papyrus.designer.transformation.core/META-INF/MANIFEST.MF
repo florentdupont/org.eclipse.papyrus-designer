@@ -40,7 +40,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.papyrus.designer.languages.common.base;bundle-version="1.0.4"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.5
+Bundle-Version: 0.7.6.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.transformation.core.Activator

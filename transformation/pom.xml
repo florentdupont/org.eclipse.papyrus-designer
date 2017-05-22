@@ -5,10 +5,10 @@
 	<parent>
 		<groupId>org.eclipse.papyrus.designer</groupId>
 		<artifactId>org.eclipse.papyrus.designer.parent</artifactId>
-		<version>1.0.4</version>
+		<version>1.0.5-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.papyrus.designer.transformation</artifactId>
-	<version>0.7.5</version>
+	<version>0.7.6-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Designer transformation</name>
 	<description>This module contains the different plugins required for model-2-model transformations</description>

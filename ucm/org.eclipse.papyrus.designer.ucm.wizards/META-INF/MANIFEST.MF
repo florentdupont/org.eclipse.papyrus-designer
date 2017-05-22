@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.eclipse.papyrus.designer.ucm.wizards;singleton:=true
-Bundle-Version: 0.7.5
+Bundle-Version: 0.7.6.qualifier
 Bundle-Activator: org.omg.ucm.tooling.wizards.Activator
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.ui;bundle-version="[3.108.0,4.0.0)",

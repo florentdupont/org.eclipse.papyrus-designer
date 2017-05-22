@@ -29,7 +29,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.papyrus.designer.deployment.profile;bundle-version="0.7.3"
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.7.5
+Bundle-Version: 0.7.6.qualifier
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-Activator: org.eclipse.papyrus.designer.transformation.ui.Activator

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.papyrus.designer.languages.common.feature_1.0.4.jar" id="org.eclipse.papyrus.designer.languages.common.feature" version="1.0.4">
+   <feature url="features/org.eclipse.papyrus.designer.languages.common.feature_1.0.5.qualifier.jar" id="org.eclipse.papyrus.designer.languages.common.feature" version="1.0.5.qualifier">
       <category name="org.eclipse.papyrus.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.designer.languages.cpp.feature_1.0.4.jar" id="org.eclipse.papyrus.designer.languages.cpp.feature" version="1.0.4">
+   <feature url="features/org.eclipse.papyrus.designer.languages.cpp.feature_1.0.5.qualifier.jar" id="org.eclipse.papyrus.designer.languages.cpp.feature" version="1.0.5.qualifier">
       <category name="org.eclipse.papyrus.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.designer.languages.java.profile.feature_1.0.4.jar" id="org.eclipse.papyrus.designer.languages.java.feature" version="1.0.4">
+   <feature url="features/org.eclipse.papyrus.designer.languages.java.profile.feature_1.0.5.qualifier.jar" id="org.eclipse.papyrus.designer.languages.java.feature" version="1.0.5.qualifier">
       <category name="org.eclipse.papyrus.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.designer.languages.idl.feature_1.0.4.jar" id="org.eclipse.papyrus.designer.languages.idl.feature" version="1.0.4">
+   <feature url="features/org.eclipse.papyrus.designer.languages.idl.feature_1.0.5.qualifier.jar" id="org.eclipse.papyrus.designer.languages.idl.feature" version="1.0.5.qualifier">
       <category name="org.eclipse.papyrus.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.designer.transformation.main.feature_0.7.5.jar" id="org.eclipse.papyrus.designer.transformation.main.feature" version="0.7.5">
+   <feature url="features/org.eclipse.papyrus.designer.transformation.main.feature_0.7.6.qualifier.jar" id="org.eclipse.papyrus.designer.transformation.main.feature" version="0.7.6.qualifier">
       <category name="org.eclipse.papyrus.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.designer.components.main.feature_0.7.5.jar" id="org.eclipse.papyrus.designer.components.main.feature" version="0.7.5">
+   <feature url="features/org.eclipse.papyrus.designer.components.main.feature_0.7.6.qualifier.jar" id="org.eclipse.papyrus.designer.components.main.feature" version="0.7.6.qualifier">
       <category name="org.eclipse.papyrus.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.designer.components.tracing.feature_0.7.5.jar" id="org.eclipse.papyrus.designer.components.tracing.feature" version="0.7.5">
+   <feature url="features/org.eclipse.papyrus.designer.components.tracing.feature_0.7.6.qualifier.jar" id="org.eclipse.papyrus.designer.components.tracing.feature" version="0.7.6.qualifier">
       <category name="org.eclipse.papyrus.category"/>
    </feature>
-   <feature url="features/org.eclipse.papyrus.designer.components.ucm.feature_0.7.5.jar" id="org.eclipse.papyrus.designer.ucm.feature" version="0.7.5">
+   <feature url="features/org.eclipse.papyrus.designer.components.ucm.feature_0.7.6.qualifier.jar" id="org.eclipse.papyrus.designer.ucm.feature" version="0.7.6.qualifier">
       <category name="org.eclipse.papyrus.category"/>
    </feature>
    <category-def name="org.eclipse.papyrus.category" label="Papyrus Designer Category">
