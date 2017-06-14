@@ -952,7 +952,7 @@ public class GenUtils {
 	 * @return the fully qualified name with separator character
 	 */
 	public static String getFullName(NamedElement ne, String separator) {
-		return ne.getQualifiedName().replace("::", separator); //$NON-NLS-1$ //$NON-NLS-2$
+		return ne.getQualifiedName().replace("::", separator); //$NON-NLS-1$
 	}
 	
 	/**
