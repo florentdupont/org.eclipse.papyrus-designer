@@ -38,6 +38,7 @@
 			</subsection>
 			<subsection name="Target Environment">
 				<p>We have developed a target-platform-configuration artifact located at /org.eclipse.papyrus-designer/targetplatform/org.eclipse.papyrus.designer.targetplatform.neon/org.eclipse.papyrus.designer.targetplatform.neon.target</p>
+				<p>Another target-platform-configuration is located at /org.eclipse.papyrus-designer/targetplatform/org.eclipse.papyrus.designer.targetplatform.oxygen/org.eclipse.papyrus.designer.targetplatform.oxygen.target</p>
 				<p>Open it and click at the upper right corner to set it has the target platform.</p>
 			</subsection>
 		</section>

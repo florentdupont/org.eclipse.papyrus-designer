@@ -187,8 +187,8 @@ Java and all Java-based trademarks are trademarks of Oracle Corporation in the U
       <feature id="org.eclipse.papyrus.designer.feature"/>
       <feature id="org.eclipse.papyrus.designer.rcp.feature"/>
       <feature id="org.eclipse.rcp"/>
-      <feature id="org.eclipse.papyrus.customization.feature"/>
       <feature id="org.eclipse.papyrus.editor.feature"/>
+      <feature id="org.eclipse.papyrus.infra.architecture.feature"/>
       <feature id="org.eclipse.papyrus.infra.core.feature"/>
       <feature id="org.eclipse.papyrus.infra.feature"/>
       <feature id="org.eclipse.papyrus.infra.gmfdiag.feature"/>
@@ -217,6 +217,7 @@ Java and all Java-based trademarks are trademarks of Oracle Corporation in the U
       <feature id="org.eclipse.papyrus.emf.facet.feature"/>
       <feature id="org.eclipse.papyrus.infra.viewpoints.feature"/>
       <feature id="org.eclipse.papyrus.uml.decoratormodel.feature"/>
+      <feature id="org.eclipse.papyrus.uml.architecture.feature"/>
       <feature id="org.eclipse.papyrus.uml.assistants.feature"/>
    </features>
 

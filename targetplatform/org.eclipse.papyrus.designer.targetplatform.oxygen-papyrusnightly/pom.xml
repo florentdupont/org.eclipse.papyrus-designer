@@ -7,8 +7,8 @@
 		<artifactId>org.eclipse.papyrus.designer.targetplatform</artifactId>
 		<version>1.0.5-SNAPSHOT</version>
 	</parent>
-	<artifactId>org.eclipse.papyrus.designer.targetplatform.neon-papyrusnightly</artifactId>
+	<artifactId>org.eclipse.papyrus.designer.targetplatform.oxygen-papyrusnightly</artifactId>
 	<packaging>eclipse-target-definition</packaging>
-	<name>org.eclipse.papyrus.designer.targetplatform.neon-papyrusnightly</name>
-	<description>This plug-in contains the target definition for Papyrus Designer in Neon with Papyrus nightly.</description>
+	<name>org.eclipse.papyrus.designer.targetplatform.oxygen-papyrusnightly</name>
+	<description>This plug-in contains the target definition for Papyrus Designer in Oxygen with Papyrus nightly.</description>
 </project>

@@ -37,14 +37,6 @@ public class NewUCMModelWizard extends CreateModelWizard {
 		return PAPYRUS_UCM;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected String[] getDiagramCategoryIds() {
-		return new String[] {};
-	}
-
 	@Override
 	public boolean isPapyrusRootWizard() {
 		return false;

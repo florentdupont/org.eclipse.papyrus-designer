@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architecture:ArchitectureDomain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:architecture="http://www.eclipse.org/papyrus/infra/core/architecture" xmlns:gmfdiagrepresentation="http://www.eclipse.org/papyrus/infra/gmfdiag/representation" xmi:id="_CBeUoEMqEeeNE9tB5iN5zA" id="org.eclipse.papyrus.designer.ucm" name="UCM" description="Architecture domain for UCM">
+  <stakeholders xmi:id="_JbecIFjjEee4w6HDzCmkhg" id="org.eclipse.papyrus.ucm.stakeholder.ucmArchitect" name="UCM architect" concerns="_Ke2XAFWpEeeI4cf0sf4_zg _NC3y8FWpEeeI4cf0sf4_zg"/>
+  <concerns xmi:id="_Ke2XAFWpEeeI4cf0sf4_zg" id="org.eclipse.papyrus.designer.ucm.concerns.application" name="application" description="Application development" icon=""/>
+  <concerns xmi:id="_NC3y8FWpEeeI4cf0sf4_zg" id="org.eclipse.papyrus.designer.ucm.concerns.platform" name="platform" description="Platform development" icon=""/>
+  <contexts xsi:type="architecture:ArchitectureDescriptionLanguage" xmi:id="_XiGkgEMqEeeNE9tB5iN5zA" id="org.eclipse.papyrus.ucm.architecture" name="UCM ADL" description="Extension for UCM (Unified Component Model)" extensionPrefix="" creationCommandClass="org.eclipse.papyrus.designer.ucm.core.commands.CreateUCMModelCommand">
+    <viewpoints xmi:id="_yw4C8EMqEeeNE9tB5iN5zA" id="org.eclipse.papyrus.designer.ucm.viewpoints.application" name="UCM application viewpoint" description="UCM application Viewpoint" icon="" concerns="_Ke2XAFWpEeeI4cf0sf4_zg" representationKinds="_d79eQHcZEeSndfsfQOfW2A _d79eQHcZEeSnWagfdgwW2B _zecocLiiEeaKr_s25plyiQ _z59fwLiiEeaKr_s25plyiQ _TuTAML3qEea-Cdq6DL1D-g _zx5I4LiiEeaKr_s25plyiQ _8pUzMLAIEeacWfm2fO2yZA"/>
+    <viewpoints xmi:id="_3p1_4FWoEeeI4cf0sf4_zg" id="org.eclipse.papyrus.designer.ucm.viewpoints.platform" name="UCM platform viewpoint" description="UCM platform viewpoint" concerns="_NC3y8FWpEeeI4cf0sf4_zg" representationKinds="_d79eQHcZEeSndfsfQOfW2A _d79eQHcZEeSnWagfdgwW2B _zecocLiiEeaKr_s25plyiQ _TuTAML3qEea-Cdq6DL1D-g _zx5I4LiiEeaKr_s25plyiQ _8pUzMLAIEeacWfm2fO2yZA _8Q5RsK8vEea4LORm7y2CsQ"/>
+    <elementTypes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_ubJcsKeUEeSUR5jX0TaAcB"/>
+    <elementTypes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_sHw4IMQMEeS2vZeHP4gaVg"/>
+    <elementTypes href="platform:/plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#_ScP1oFYCEeS0WsAAtVmToA"/>
+    <elementTypes href="platform:/plugin/org.eclipse.papyrus.uml.service.types/model/umldi.elementtypesconfigurations#_ScP1oFYCEeS0WsAAtVmToA"/>
+    <elementTypes href="platform:/plugin/org.eclipse.papyrus.infra.gmfdiag.common/model/notation.elementtypesconfigurations#_ScP1oFYCEeS0WsAAtVmToA"/>
+    <elementTypes href="platform:/plugin/org.eclipse.papyrus.uml.diagram.composite/model/compositediagram.elementtypesconfigurations#_tL86sLazEeSbnofizoRSMQ"/>
+    <elementTypes href="platform:/plugin/org.eclipse.papyrus.uml.diagram.clazz/model/classdiagram.elementtypesconfigurations#_rWI4YHPzEeSnGJwaJWHCSg"/>
+    <representationKinds xsi:type="gmfdiagrepresentation:PapyrusDiagram" xmi:id="_d79eQHcZEeSndfsfQOfW2A" id="org.eclipse.papyrus.designer.ucm.diagram.component" name="UCM component diagram" description="UCM component diagram" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMComponent.png" concerns="_Ke2XAFWpEeeI4cf0sf4_zg" implementationID="UCMComponentDiagram" customStyle="platform:/plugin/org.eclipse.papyrus.designer.ucm.css/theme/ucm_theme.css" creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMComponentDiagramCommand">
+      <modelRules xmi:id="_IfzbAHk9EeSk0Zv84QxXew">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </modelRules>
+      <owningRules xmi:id="_0YJbEak7EeSk0Zv84QxXew">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </owningRules>
+      <paletteRules xmi:id="_J1gfEXk9EeSk0Zv84QxXew" element="composite.group.*"/>
+      <palettes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/palettes/UCM.ComponentDiagram.paletteconfiguration#/"/>
+    </representationKinds>
+    <representationKinds xsi:type="gmfdiagrepresentation:PapyrusDiagram" xmi:id="_d79eQHcZEeSnWagfdgwW2B" id="org.eclipse.papyrus.designer.ucm.diagram.composite" name="UCM composite diagram" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMComposite.png" concerns="_Ke2XAFWpEeeI4cf0sf4_zg" implementationID="UCMCompositeDiagram" customStyle="platform:/plugin/org.eclipse.papyrus.designer.ucm.css/theme/ucm_theme.css" creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMCompositeDiagramCommand">
+      <modelRules xmi:id="_IfzbAHk9EeSk0Zv84QxXew">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </modelRules>
+      <owningRules xmi:id="_0YJbEak7EeSk0Zv84QxXew">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </owningRules>
+      <paletteRules xmi:id="_J1gfEXk9EeSk0Zv84QxXew" element="composite.group.*"/>
+      <palettes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/palettes/UCM.CompositeDiagram.paletteconfiguration#/"/>
+    </representationKinds>
+    <representationKinds xsi:type="gmfdiagrepresentation:PapyrusDiagram" xmi:id="_8pUzMLAIEeacWfm2fO2yZA" id="org.eclipse.papyrus.designer.ucm.diagram.module" name="UCM module diagram" description="" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMModule.png" concerns="_Ke2XAFWpEeeI4cf0sf4_zg _NC3y8FWpEeeI4cf0sf4_zg" implementationID="UCMModuleDiagram" customStyle="platform:/plugin/org.eclipse.papyrus.designer.ucm.css/theme/ucm_theme.css" creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMModuleDiagramCommand">
+      <modelRules xmi:id="_8pUzMbAIEeacWfm2fO2yZA">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </modelRules>
+      <owningRules xmi:id="_8pUzM7AIEeacWfm2fO2yZA">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </owningRules>
+      <paletteRules xmi:id="_8pUzNbAIEeacWfm2fO2yZA" permit="false" element="class.group.*"/>
+      <palettes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/palettes/UCM.ModuleDiagram.paletteconfiguration#/"/>
+    </representationKinds>
+    <representationKinds xsi:type="gmfdiagrepresentation:PapyrusDiagram" xmi:id="_8Q5RsK8vEea4LORm7y2CsQ" id="org.eclipse.papyrus.designer.ucm.diagram.interaction" name="UCM interaction diagram" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMInteraction.png" concerns="_NC3y8FWpEeeI4cf0sf4_zg" implementationID="UCMInteractionDiagram" customStyle="platform:/plugin/org.eclipse.papyrus.designer.ucm.css/theme/ucm_theme.css" creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMInteractionDiagramCommand">
+      <modelRules xmi:id="_IfzbAHk9EeSk0Zv84QxXew">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </modelRules>
+      <owningRules xmi:id="_0YJbEak7EeSk0Zv84QxXew">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </owningRules>
+      <paletteRules xmi:id="_J1gfEXk9EeSk0Zv84QxXew" element="class.group.*"/>
+      <palettes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/palettes/UCM.InteractionDiagram.paletteconfiguration#/"/>
+    </representationKinds>
+    <representationKinds xsi:type="gmfdiagrepresentation:PapyrusDiagram" xmi:id="_zecocLiiEeaKr_s25plyiQ" id="org.eclipse.papyrus.designer.ucm.diagram.contract" name="UCM contract diagram" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMContract.png" concerns="_Ke2XAFWpEeeI4cf0sf4_zg" implementationID="UCMContractDiagram" customStyle="platform:/plugin/org.eclipse.papyrus.designer.ucm.css/theme/ucm_theme.css" creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMContractDiagramCommand">
+      <modelRules xmi:id="_zecocbiiEeaKr_s25plyiQ">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </modelRules>
+      <owningRules xmi:id="_zecoc7iiEeaKr_s25plyiQ">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </owningRules>
+      <paletteRules xmi:id="_zecodbiiEeaKr_s25plyiQ" element="class.group.*"/>
+      <palettes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/palettes/UCM.ContractDiagram.paletteconfiguration#/"/>
+    </representationKinds>
+    <representationKinds xsi:type="gmfdiagrepresentation:PapyrusDiagram" xmi:id="_zx5I4LiiEeaKr_s25plyiQ" id="org.eclipse.papyrus.designer.ucm.diagram.techpolicies" name="UCM technical policies diagram" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMTechPolicies.png" concerns="_Ke2XAFWpEeeI4cf0sf4_zg _NC3y8FWpEeeI4cf0sf4_zg" implementationID="UCMTechPoliciesDiagram" customStyle="platform:/plugin/org.eclipse.papyrus.designer.ucm.css/theme/ucm_theme.css" creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMTechPoliciesDiagramCommand">
+      <modelRules xmi:id="_zx5I4biiEeaKr_s25plyiQ">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </modelRules>
+      <owningRules xmi:id="_zx5I47iiEeaKr_s25plyiQ">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </owningRules>
+      <paletteRules xmi:id="_zx5I5biiEeaKr_s25plyiQ" element="class.group.*"/>
+      <palettes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/palettes/UCM.TechPoliciesDiagram.paletteconfiguration#/"/>
+    </representationKinds>
+    <representationKinds xsi:type="gmfdiagrepresentation:PapyrusDiagram" xmi:id="_z59fwLiiEeaKr_s25plyiQ" id="org.eclipse.papyrus.designer.ucm.diagram.deployment" name="UCM deployment diagram" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMDeployment.png" concerns="_Ke2XAFWpEeeI4cf0sf4_zg" implementationID="UCMDeploymentDiagram" customStyle="platform:/plugin/org.eclipse.papyrus.designer.ucm.css/theme/ucm_theme.css" creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMDeploymentDiagramCommand">
+      <modelRules xmi:id="_z59fwbiiEeaKr_s25plyiQ">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </modelRules>
+      <owningRules xmi:id="_z59fw7iiEeaKr_s25plyiQ">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </owningRules>
+      <paletteRules xmi:id="_z59fxbiiEeaKr_s25plyiQ" element="class.group.*"/>
+      <palettes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/palettes/UCM.DeploymentDiagram.paletteconfiguration#/"/>
+    </representationKinds>
+    <representationKinds xsi:type="gmfdiagrepresentation:PapyrusDiagram" xmi:id="_Tgi4EL3qEea-Cdq6DL1D-g" id="org.eclipse.papyrus.designer.ucm.diagram.resources" name="UCM resources diagram" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMResources.png" concerns="_Ke2XAFWpEeeI4cf0sf4_zg" implementationID="UCMResourcesDiagram" customStyle="platform:/plugin/org.eclipse.papyrus.designer.ucm.css/theme/ucm_theme.css" creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMResourcesDiagramCommand">
+      <modelRules xmi:id="_Tgi4Eb3qEea-Cdq6DL1D-g">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </modelRules>
+      <owningRules xmi:id="_Tgi4E73qEea-Cdq6DL1D-g">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </owningRules>
+      <paletteRules xmi:id="_Tgi4Fb3qEea-Cdq6DL1D-g" element="class.group.*"/>
+      <palettes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/palettes/UCM.ResourcesDiagram.paletteconfiguration#/"/>
+    </representationKinds>
+    <representationKinds xsi:type="gmfdiagrepresentation:PapyrusDiagram" xmi:id="_TuTAML3qEea-Cdq6DL1D-g" id="org.eclipse.papyrus.designer.ucm.diagram.environment" name="UCM environment diagram" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.ui/icons/Diagram_UCMEnvironment.png" concerns="_Ke2XAFWpEeeI4cf0sf4_zg _NC3y8FWpEeeI4cf0sf4_zg" implementationID="UCMEnvironmentDiagram" customStyle="platform:/plugin/org.eclipse.papyrus.designer.ucm.css/theme/ucm_theme.css" creationCommandClass="org.eclipse.papyrus.designer.ucm.diagrams.commands.CreateUCMEnvironmentDiagramCommand">
+      <modelRules xmi:id="_TuTAMb3qEea-Cdq6DL1D-g">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </modelRules>
+      <owningRules xmi:id="_TuTAM73qEea-Cdq6DL1D-g">
+        <element href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </owningRules>
+      <paletteRules xmi:id="_TuTANb3qEea-Cdq6DL1D-g" element="class.group.*"/>
+      <palettes href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/palettes/UCM.EnvironmentDiagram.paletteconfiguration#/"/>
+    </representationKinds>
+    <metamodel href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    <profiles href="http://www.omg.org/ucm/0.9#/"/>
+    <profiles href="http://www.omg.org/ucm/0.9#//ucm_commons"/>
+    <profiles href="http://www.omg.org/ucm/0.9#//ucm_components"/>
+    <profiles href="http://www.omg.org/ucm/0.9#//ucm_contracts"/>
+    <profiles href="http://www.omg.org/ucm/supplement/0.9#//ucm_deployment"/>
+    <profiles href="http://www.omg.org/ucm/supplement/0.9#//ucm_detailed_components"/>
+    <profiles href="http://www.omg.org/ucm/supplement/0.9#//ucm_environment"/>
+    <profiles href="http://www.omg.org/ucm/supplement/0.9#//ucm_extra_types"/>
+    <profiles href="http://www.omg.org/ucm/0.9#//ucm_interactions"/>
+    <profiles href="http://www.omg.org/ucm/0.9#//ucm_technicalpolicies"/>
+    <profiles href="http://www.omg.org/ucm/supplement/0.9#/"/>
+    <profiles href="http://www.omg.org/ucm/supplement/0.9#//ucm_test_cases"/>
+    <profiles href="http://www.omg.org/ucm/typespkg/0.9#//Types"/>
+    <profiles href="http://www.omg.org/ucm/typespkg/0.9#/"/>
+  </contexts>
+</architecture:ArchitectureDomain>

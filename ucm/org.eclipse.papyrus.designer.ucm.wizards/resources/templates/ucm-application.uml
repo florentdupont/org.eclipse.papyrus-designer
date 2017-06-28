@@ -6,50 +6,92 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="_nVVl4LIxEeaNi6dQbArxCg" client="_M6LNQN2REeK2yvTixhtyWQ">
       <supplier xmi:type="uml:Model" href="pathmap://UCM_LIBRARY/ucmstandard.uml#__N2fwLFYEeaM0KkcZIyGsA"/>
     </packagedElement>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_zlpacKULEeaXsbg9f-pImA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zlrPoKULEeaXsbg9f-pImA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_components"/>
-      </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_thtBENvTEeWGg4v4Bs5PXQ"/>
-    </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_zlx9UKULEeaXsbg9f-pImA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zlx9UaULEeaXsbg9f-pImA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_interactions"/>
-      </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_7zDYENvZEeWGg4v4Bs5PXQ"/>
-    </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_zlzLcKULEeaXsbg9f-pImA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zlzLcaULEeaXsbg9f-pImA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_technicalpolicies"/>
-      </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_dEIhwNvbEeWGg4v4Bs5PXQ"/>
-    </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_PrTdwKUxEeaBwKloE0E3_w">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PrUr4KUxEeaBwKloE0E3_w" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_contracts"/>
-      </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_Ses3UNvfEeWGg4v4Bs5PXQ"/>
-    </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_TNrYUKUxEeaBwKloE0E3_w">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TNr_YKUxEeaBwKloE0E3_w" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/typespkg/0.9#//Types"/>
-      </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_TYPES_PROFILE/ucm_types.profile.uml#_dZKm0BBCEeadyesW8v6O0Q"/>
-    </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hgv_cKWsEeamx4SN3GP6VA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hg4iUKWsEeamx4SN3GP6VA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hN16EF8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hN3IMF8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#/"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_rZqWgNvTEeWGg4v4Bs5PXQ"/>
     </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_r-JKsKbFEeahAe6OWwnwNA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_r-NcIKbFEeahAe6OWwnwNA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hN3vQF8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hN3vQV8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_components"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_thtBENvTEeWGg4v4Bs5PXQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hN4WUF8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hN4WUV8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_interactions"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_7zDYENvZEeWGg4v4Bs5PXQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hN49YF8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hN49YV8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_technicalpolicies"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_dEIhwNvbEeWGg4v4Bs5PXQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hN5kcF8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hN5kcV8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_contracts"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_Ses3UNvfEeWGg4v4Bs5PXQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_hN6LgF8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hN6ykF8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/0.9#//ucm_commons"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_PROFILE/ucm.profile.uml#_m3TlgI-UEeaJw_-5rf6q3Q"/>
     </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_iwf_oF8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iwhNwF8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/typespkg/0.9#//Types"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_TYPES_PROFILE/ucm_types.profile.uml#_dZKm0BBCEeadyesW8v6O0Q"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_iwh00F8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iwib4F8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/typespkg/0.9#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_TYPES_PROFILE/ucm_types.profile.uml#_pG7gYBBAEeadyesW8v6O0Q"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_lKU9wF8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lKVk0F8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/supplement/0.9#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_2__qUIViEeaHtaLPHUIwTg"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_lKWL4F8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lKWL4V8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/supplement/0.9#//ucm_deployment"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_VBRFkIVjEeaHtaLPHUIwTg"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_lKWy8F8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lKWy8V8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/supplement/0.9#//ucm_detailed_components"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_VBXMMIVjEeaHtaLPHUIwTg"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_lKWy8l8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lKXaAF8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/supplement/0.9#//ucm_environment"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_VBdS0IVjEeaHtaLPHUIwTg"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_lKXaAV8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lKYBEF8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/supplement/0.9#//ucm_test_cases"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_zpEswLJPEeaduvwnGOKNuA"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_lKYBEV8CEeeNYtD4bzme8w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lKYoIF8CEeeNYtD4bzme8w" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.omg.org/ucm/supplement/0.9#//ucm_extra_types"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UCM_SUPP_PROFILE/ucm_supplement.profile.uml#_0TpKUAsQEee54Zc7XcY5ag"/>
+    </profileApplication>
   </uml:Model>
-  <UCMProfile.ucm_components:ComponentModule xmi:id="_RPTKcKUNEeaBwKloE0E3_w" base_Package="_N9yWYKUNEeaBwKloE0E3_w"/>
-  <UCMProfile.ucm_contracts:ContractModule xmi:id="_SnJ48KUzEeaBwKloE0E3_w" base_Package="_f11WAKUNEeaBwKloE0E3_w"/>
-  <UCMProfile.ucm_commons:ApplicationModule xmi:id="_6yiz4KdZEeaP9PXfXYr5Pw" base_Package="_M6LNQN2REeK2yvTixhtyWQ"/>
+  <UCMProfile.ucm_commons:ApplicationModule xmi:id="_nW7_QF8CEeeNYtD4bzme8w" base_Package="_M6LNQN2REeK2yvTixhtyWQ"/>
+  <UCMProfile.ucm_components:ComponentModule xmi:id="_omRgMF8CEeeNYtD4bzme8w" base_Package="_N9yWYKUNEeaBwKloE0E3_w"/>
+  <UCMProfile.ucm_contracts:ContractModule xmi:id="_p6-CQF8CEeeNYtD4bzme8w" base_Package="_f11WAKUNEeaBwKloE0E3_w"/>
 </xmi:XMI>

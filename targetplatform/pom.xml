@@ -11,27 +11,26 @@
 	<packaging>pom</packaging>
 	<name>Designer Target Platform</name>
 	<description>This module contains the different Eclipse target platform definitions.</description>
-
 	<profiles>
 		<profile>
-			<id>neon</id>
+			<id>oxygen</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
-				<module>org.eclipse.papyrus.designer.targetplatform.neon</module>
+				<module>org.eclipse.papyrus.designer.targetplatform.oxygen</module>
 			</modules>
 		</profile>
 		<profile>
-			<id>neon-papyrusnightly</id>
+			<id>oxygen-papyrusnightly</id>
 			<activation>
 				<property>
 					<name>eclipse.targetrelease</name>
-					<value>neon-papyrusnightly</value>
+					<value>oxygen-papyrusnightly</value>
 				</property>
 			</activation>
 			<modules>
-				<module>org.eclipse.papyrus.designer.targetplatform.neon-papyrusnightly</module>
+				<module>org.eclipse.papyrus.designer.targetplatform.oxygen-papyrusnightly</module>
 			</modules>
 		</profile>
 	</profiles>

@@ -20,7 +20,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.uml2.uml.profile.standard;bundle-version="1.0.100",
  org.eclipse.uml2.uml.resources;bundle-version="5.2.0",
  org.eclipse.papyrus.designer.languages.cpp.library.ui;bundle-version="1.0.4",
- org.eclipse.papyrus.designer.languages.common.base;bundle-version="1.0.4"
+ org.eclipse.papyrus.designer.languages.common.base;bundle-version="1.0.4",
+ org.eclipse.papyrus.uml.architecture;bundle-version="1.0.0"
 Export-Package: org.eclipse.papyrus.designer.languages.cpp.codegen.tests
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy

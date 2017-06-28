@@ -126,7 +126,7 @@ public class ElementTypeUtils {
 	public static ICommand getConfigureAsCommand(IElementType type, EObject object) {
 		ICommand result;
 
-		IElementEditService edit = ElementEditServiceUtils.getCommandProvider(type);
+		IElementEditService edit = ElementEditServiceUtils.getCommandProvider(object);
 
 		if (edit == null) {
 			// Can't do it

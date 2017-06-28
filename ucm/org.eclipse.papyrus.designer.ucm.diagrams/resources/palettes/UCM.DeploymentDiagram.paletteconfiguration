@@ -1,38 +1,28 @@
-<?xml version="1.0" encoding="ASCII"?>
-<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCMDeployment" label="UCM Deployment">
+<?xml version="1.0" encoding="ASCII" standalone="no"?><paletteconfiguration:PaletteConfiguration xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.8" xmlns:elementtypesconfigurations="http://www.eclipse.org/papyrus/infra/elementtypesconfigurations/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="UCMDeployment" label="UCM Deployment">
 
-  <drawerConfigurations id="UCM deployment" label="deployment" description="UCM deployment">
+  <drawerConfigurations description="UCM deployment" id="UCM deployment" label="deployment">
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AppAssembly"
-			label="Application assembly"
-			description="Create an application assembly">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/AppAssembly.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AppAssembly_Shape"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AppAssembly_Shape_CN"/>
+	<ownedConfigurations description="Create an application assembly" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AppAssembly" label="Application assembly" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ext_ucm/AppAssembly.png" pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_uhSdwLvKEeagON7A6uz3tw" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_01lGULvKEeagON7A6uz3tw" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
     
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.TestCaseGroup"
-			label="Test case group"
-			description="Create a test case group">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/TestCaseGroup.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TestCaseGroup_Shape"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TestCaseGroup_Shape_CN"/>
+	<ownedConfigurations description="Create a test case group" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.TestCaseGroup" label="Test case group" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ext_ucm/TestCaseGroup.png" pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_hPIEILvKEeagON7A6uz3tw" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_oxPKsLvKEeagON7A6uz3tw" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AllocationPlan"
-				label="Allocation plan"
-		description="Create an allocation plan">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/AllocationPlan.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AllocationPlan_Shape"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AllocationPlan_Shape_CN"/>
+	<ownedConfigurations description="Create an allocation plan" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AllocationPlan" label="Allocation plan" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ext_ucm/AllocationPlan.png" pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_S5mJALvKEeagON7A6uz3tw" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_b9hAkLvKEeagON7A6uz3tw" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
     
   </drawerConfigurations>
 
-  <drawerConfigurations id="UCM instances" label="instances" description="UCM instances">
+  <drawerConfigurations description="UCM instances" id="UCM instances" label="instances">
 
   </drawerConfigurations>
 

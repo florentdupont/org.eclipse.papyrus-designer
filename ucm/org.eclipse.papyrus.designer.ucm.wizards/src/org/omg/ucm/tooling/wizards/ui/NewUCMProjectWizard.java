@@ -14,7 +14,6 @@
 package org.omg.ucm.tooling.wizards.ui;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.papyrus.uml.diagram.wizards.pages.SelectDiagramCategoryPage;
 import org.eclipse.papyrus.uml.diagram.wizards.wizards.NewPapyrusProjectWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
@@ -46,26 +45,9 @@ public class NewUCMProjectWizard extends NewPapyrusProjectWizard {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected SelectDiagramCategoryPage createSelectDiagramCategoryPage() {
-		// here UML RT is the only available category
-		return null;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void saveDiagramCategorySettings() {
 		// do nothing
 		// here UML RT is the only available category
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected String[] getDiagramCategoryIds() {
-		return new String[] {};
 	}
 
 	@Override

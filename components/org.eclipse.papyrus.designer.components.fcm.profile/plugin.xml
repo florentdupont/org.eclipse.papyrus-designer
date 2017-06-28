@@ -46,35 +46,4 @@
 			provider="CEA LIST"/>
 	</extension>
 
-	<extension
-        	point="org.eclipse.papyrus.uml.diagram.common.paletteDefinition">
-		<paletteDefinition
-			ID="com.cea.profiles.fcm.compositePalette"
-			class="org.eclipse.papyrus.uml.diagram.common.service.PluginPaletteProvider"
-			name="com.cea.profiles.fcm.compositePalette"
-			path="palettes/palette-composite.xml">
-			<Priority
-				name="Medium">
-			</Priority>
-			<editor
-				id="org.eclipse.papyrus.uml.diagram.composite">
-			</editor>
-		</paletteDefinition>
-	</extension>
-	
-	<extension
-			point="org.eclipse.papyrus.uml.diagram.common.paletteDefinition">
-		<paletteDefinition
-			ID="com.cea.profiles.fcm.classPalette"
-			class="org.eclipse.papyrus.uml.diagram.common.service.PluginPaletteProvider"
-			name="com.cea.profiles.fcm.classPalette"
-			path="palettes/palette-classdep.xml">
-			<Priority
-				name="Medium">
-			</Priority>
-			<editor
-				id="org.eclipse.papyrus.uml.diagram.clazz">
-			</editor>
-		</paletteDefinition>
-	</extension>
 </plugin>

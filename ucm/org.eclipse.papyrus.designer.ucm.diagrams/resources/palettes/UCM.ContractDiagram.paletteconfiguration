@@ -1,23 +1,16 @@
-<?xml version="1.0" encoding="ASCII"?>
-<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCMContract" label="UCM Contract">
-  <drawerConfigurations id="UCM types" label="contracts" description="UCM contracts">
+<?xml version="1.0" encoding="ASCII" standalone="no"?><paletteconfiguration:PaletteConfiguration xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.8" xmlns:elementtypesconfigurations="http://www.eclipse.org/papyrus/infra/elementtypesconfigurations/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="UCMContract" label="UCM Contract">
+  <drawerConfigurations description="UCM contracts" id="UCM types" label="contracts">
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.DataType"
-    	label="data type"
-    	description="Create a data type">
-      <icon pluginID="org.eclipse.papyrus.uml.diagram.common" iconPath="icons/DataType.gif"/>
-      <elementDescriptors elementTypeId="org.eclipse.papyrus.umldi.DataType_Shape"/>
-      <elementDescriptors elementTypeId="org.eclipse.papyrus.umldi.DataType_Shape_CN"/>
+	<ownedConfigurations description="Create a data type" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.DataType" label="data type" xsi:type="paletteconfiguration:ToolConfiguration">
+      <icon iconPath="icons/DataType.gif" pluginID="org.eclipse.papyrus.uml.diagram.common"/>
+      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.uml.service.types/model/umldi.elementtypesconfigurations#org.eclipse.papyrus.umldi.DataType_Shape" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.uml.service.types/model/umldi.elementtypesconfigurations#org.eclipse.papyrus.umldi.DataType_Shape_CN" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Interface"
-    	label="interface"
-    	description="Create an interface">
-      <icon pluginID="org.eclipse.papyrus.uml.diagram.common" iconPath="icons/Interface.gif"/>
-      <elementDescriptors elementTypeId="org.eclipse.papyrus.umldi.Interface_Shape"/>
-      <elementDescriptors elementTypeId="org.eclipse.papyrus.umldi.Interface_Shape_CN"/>
+	<ownedConfigurations description="Create an interface" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Interface" label="interface" xsi:type="paletteconfiguration:ToolConfiguration">
+      <icon iconPath="icons/Interface.gif" pluginID="org.eclipse.papyrus.uml.diagram.common"/>
+      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.uml.service.types/model/umldi.elementtypesconfigurations#org.eclipse.papyrus.umldi.Interface_Shape" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.uml.service.types/model/umldi.elementtypesconfigurations#org.eclipse.papyrus.umldi.Interface_Shape_CN" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
  	</ownedConfigurations>
   </drawerConfigurations>
 

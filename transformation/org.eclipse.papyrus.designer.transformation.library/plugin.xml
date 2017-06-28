@@ -140,7 +140,7 @@
       <wizard
             canFinishEarly="false"
 			category="org.eclipse.ui.Examples/org.eclipse.papyrus.examples"
-            class="org.eclipse.papyrus.uml.diagram.wizards.wizardstmp.PapyrusExampleInstallerWizard"
+            class="org.eclipse.papyrus.uml.diagram.wizards.wizards.PapyrusExampleInstallerWizard"
             finalPerspective="org.eclipse.papyrus.infra.core.perspective"
             icon="platform:/plugin/org.eclipse.papyrus.designer.ui/icons/designer-16x16.gif"
             id="org.eclipse.papyrus.designer.examples.category.DesignerExamplesWithM2Mtrafo.installer"

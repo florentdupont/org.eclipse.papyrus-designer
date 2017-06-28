@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:configuration="http://www.eclipse.org/papyrus/infra/viewpoints/configuration" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <notation:Diagram xmi:id="_QrrRYLIxEeaNi6dQbArxCg" type="PapyrusUMLClassDiagram" name="modules" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_ShMok7IxEeaNi6dQbArxCg" type="StereotypeComment">
       <styles xmi:type="notation:TitleStyle" xmi:id="_ShMolLIxEeaNi6dQbArxCg"/>
@@ -69,12 +69,11 @@
       <element xsi:nil="true"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ko08VbIxEeaNi6dQbArxCg" x="200"/>
     </children>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_QrrRYbIxEeaNi6dQbArxCg" name="diagram_compatibility_version" stringValue="1.2.0"/>
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_QrrRYrIxEeaNi6dQbArxCg"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_QrrRY7IxEeaNi6dQbArxCg">
+    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_-KYh418CEeeNYtD4bzme8w" diagramKindId="org.eclipse.papyrus.designer.ucm.diagram.module">
       <owner xmi:type="uml:Model" href="ucm-application.uml#_M6LNQN2REeK2yvTixhtyWQ"/>
-      <configuration xmi:type="configuration:PapyrusDiagram" href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/configuration/UCM.configuration#_8pUzMLAIEeacWfm2fO2yZA"/>
     </styles>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_QrrRYbIxEeaNi6dQbArxCg" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_QrrRYrIxEeaNi6dQbArxCg"/>
     <element xmi:type="uml:Model" href="ucm-application.uml#_M6LNQN2REeK2yvTixhtyWQ"/>
     <edges xmi:type="notation:Connector" xmi:id="_ShNPobIxEeaNi6dQbArxCg" type="StereotypeCommentLink" source="_ShHJALIxEeaNi6dQbArxCg" target="_ShMok7IxEeaNi6dQbArxCg">
       <styles xmi:type="notation:FontStyle" xmi:id="_ShNPorIxEeaNi6dQbArxCg"/>
@@ -132,12 +131,11 @@
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nWgqkbIxEeaNi6dQbArxCg" id="(0.49956933677863913,0.0)"/>
     </edges>
   </notation:Diagram>
-  <notation:Diagram xmi:id="_ePQcELI6EeaNi6dQbArxCg" type="CompositeStructure" name="components" measurementUnit="Pixel">
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_ePQcEbI6EeaNi6dQbArxCg" name="diagram_compatibility_version" stringValue="1.2.0"/>
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_ePQcErI6EeaNi6dQbArxCg"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_ePQcE7I6EeaNi6dQbArxCg">
+  <notation:Diagram xmi:id="_-KYh4F8CEeeNYtD4bzme8w" type="CompositeStructure" name="components" measurementUnit="Pixel">
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_-KYh4V8CEeeNYtD4bzme8w" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_-KYh4l8CEeeNYtD4bzme8w"/>
+    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_-KYh418CEeeNYtD4bzme8w" diagramKindId="org.eclipse.papyrus.designer.ucm.diagram.component">
       <owner xmi:type="uml:Package" href="ucm-application.uml#_N9yWYKUNEeaBwKloE0E3_w"/>
-      <configuration xmi:type="configuration:PapyrusDiagram" href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/configuration/UCM.configuration#_d79eQHcZEeSndfsfQOfW2A"/>
     </styles>
     <element xmi:type="uml:Package" href="ucm-application.uml#_N9yWYKUNEeaBwKloE0E3_w"/>
   </notation:Diagram>

@@ -1,45 +1,34 @@
-<?xml version="1.0" encoding="ASCII"?>
-<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCMInteraction" label="UCM Interaction">
-  <drawerConfigurations id="UCM interactions" label="interactions" description="UCM Connector definition">
+<?xml version="1.0" encoding="ASCII" standalone="no"?><paletteconfiguration:PaletteConfiguration xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.8" xmlns:elementtypesconfigurations="http://www.eclipse.org/papyrus/infra/elementtypesconfigurations/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="UCMInteraction" label="UCM Interaction">
+  <drawerConfigurations description="UCM Connector definition" id="UCM interactions" label="interactions">
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ConnectorDefinition"
-			label="Connector definition" description="Create a connector definition">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/ConnectorDefinition.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ConnectorDefinition_Shape"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ConnectorDefinition_Shape_CN"/>
+	<ownedConfigurations description="Create a connector definition" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ConnectorDefinition" label="Connector definition" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ucm/ConnectorDefinition.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_EbzQgLsLEeaKr_s25plyiQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_NPPcELsLEeaKr_s25plyiQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.InteractionPattern"
-			label="Interaction pattern" description="Create an interaction pattern">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/InteractionPattern.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.InteractionPattern_Shape"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.InteractionPattern_Shape_CN"/>
+	<ownedConfigurations description="Create an interaction pattern" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.InteractionPattern" label="Interaction pattern" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ucm/InteractionPattern.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_IC6agMCEEeaLpumP_4vuow" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_I5oAEMCEEeaLpumP_4vuow" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ConnectorPort"
-			label="Connector port" description="Create a connector port">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile" iconPath="resources/icons/ext_ucm/CommunicationPort.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ConnectorPort_CA_Label"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ConnectorPort_Shape"/>
+	<ownedConfigurations description="Create a connector port" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ConnectorPort" label="Connector port" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ext_ucm/CommunicationPort.png" pluginID="org.eclipse.papyrus.designer.ucm.supplement.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_VPG1oLsLEeaKr_s25plyiQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_hNvK0LsLEeaKr_s25plyiQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.PortType"
-			label="Port type" description="Create a port type">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/PortType.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.PortType_Shape"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.PortType_Shape_CN"/>
+	<ownedConfigurations description="Create a port type" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.PortType" label="Port type" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ucm/PortType.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_RNyUQLsWEeaKr_s25plyiQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_eS37MLsWEeaKr_s25plyiQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.PortElement"
-			label="Port element" description="Create a port element">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/Port.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.PortElement_CA_Label"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.PortElement_Shape"/>
+	<ownedConfigurations description="Create a port element" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.PortElement" label="Port element" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ucm/Port.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_IYw-4LsXEeaKr_s25plyiQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_V_RQ0LsXEeaKr_s25plyiQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 
   </drawerConfigurations>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="ASCII"?>
-<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCMResources" label="UCM Resources">
-  <drawerConfigurations id="UCMResources" label="resources" description="UCM resources">
+<?xml version="1.0" encoding="ASCII" standalone="no"?><paletteconfiguration:PaletteConfiguration xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.8" xmlns:elementtypesconfigurations="http://www.eclipse.org/papyrus/infra/elementtypesconfigurations/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="UCMResources" label="UCM Resources">
+  <drawerConfigurations description="UCM resources" id="UCMResources" label="resources">
 
   </drawerConfigurations>
 

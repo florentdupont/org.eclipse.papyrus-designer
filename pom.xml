@@ -37,7 +37,7 @@
 		<component.package.rootname>org.eclipse.papyrus.designer</component.package.rootname>
 		<component.rcp.name>org.eclipse.papyrus.designer.rcp</component.rcp.name>
 		<component.apibaseline.url>http://download.eclipse.org/modeling/mdt/papyrus/components/designer/</component.apibaseline.url>
-		<eclipse.targetrelease>neon</eclipse.targetrelease>
+		<eclipse.targetrelease>oxygen</eclipse.targetrelease>
 		<target.version>1.0.5-SNAPSHOT</target.version>
 	</properties>
 

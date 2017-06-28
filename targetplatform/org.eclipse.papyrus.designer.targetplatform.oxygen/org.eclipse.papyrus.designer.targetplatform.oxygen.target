@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="Papyrus oxygen Papyrus 3.0" sequenceNumber="1466666614">
+<locations>
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.cdt.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.equinox.p2.discovery.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
+		<repository location="http://download.eclipse.org/releases/oxygen/"/>
+	</location>
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<unit id="org.eclipse.papyrus.marte.core.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.marte.view.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.papyrus.marte.textedit.feature.feature.group" version="0.0.0"/>
+		<repository location="http://download.eclipse.org/modeling/mdt/papyrus/components/marte/neon/"/>
+	</location>
+	<location includeAllPlatforms="false" includeMode="planner" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+		<unit id="org.eclipse.papyrus.junit.feature.feature.group" version="0.0.0"/>
+		<repository id="papyrus-oxygen-developer-nightly" location="https://hudson.eclipse.org/papyrus/job/Papyrus-Oxygen-Developer/lastSuccessfulBuild/artifact/repository/"/>
+	</location>
+	<location includeAllPlatforms="false" includeMode="planner" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+		<unit id="org.eclipse.gmf.tooling.runtime.feature.group" version="0.0.0"/>
+		<repository id="gmf-tooling" location="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/"/>
+	</location>
+</locations>
+</target>

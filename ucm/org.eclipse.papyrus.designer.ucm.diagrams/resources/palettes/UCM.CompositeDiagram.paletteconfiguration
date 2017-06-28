@@ -1,41 +1,26 @@
-<?xml version="1.0" encoding="ASCII"?>
-<paletteconfiguration:PaletteConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.7" id="UCMComposite" label="UCM Composite">
-  <drawerConfigurations id="UCM types" label="UCM parts" description="UCM parts">
+<?xml version="1.0" encoding="ASCII" standalone="no"?><paletteconfiguration:PaletteConfiguration xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.8" xmlns:elementtypesconfigurations="http://www.eclipse.org/papyrus/infra/elementtypesconfigurations/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="UCMComposite" label="UCM Composite">
+  <drawerConfigurations description="UCM parts" id="UCM types" label="UCM parts">
   
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-		id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AssemblyPart"
-	   	label="Assembly Part"
-		description="Create an assembly part">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/AssemblyPart.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AssemblyPart_Shape"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.AssemblyPart_Shape_CN"/>
+	<ownedConfigurations description="Create an assembly part" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AssemblyPart" label="Assembly Part" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ucm/AssemblyPart.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_B72OAK2eEea8u6I-XjDezQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_NZNcMLCeEeacWfm2fO2yZA" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-		id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Connection"
-	   	label="Connection"
-		description="Create a connection">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/Connection.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.Connection_Shape"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.Connection_Shape_CN"/>
+	<ownedConfigurations description="Create a connection" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Connection" label="Connection" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resources/icons/ucm/Connection.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_30LCIK2XEea8u6I-XjDezQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_ENM_oLCeEeacWfm2fO2yZA" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 	
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-		id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ConnectionLink"
-		kind="ConnectionTool"
-	   	label="Connection Link"
-		description="Create a connection link">
-		<icon pluginID="org.eclipse.papyrus.uml.resources/icons" iconPath="resource/gif/Connector.gif"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ConnectionLink_Edge"/>
+	<ownedConfigurations description="Create a connection link" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ConnectionLink" kind="ConnectionTool" label="Connection Link" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resource/gif/Connector.gif" pluginID="org.eclipse.papyrus.uml.resources/icons"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_mDJQgK2XEea8u6I-XjDezQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 	
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-		id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Delegation"
-		kind="ConnectionTool"
-	   	label="Delegation"
-		description="Create a delegation link">
-		<icon pluginID="org.eclipse.papyrus.uml.resources/icons" iconPath="resource/gif/Connector.gif"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.Delegation_Edge"/>
+	<ownedConfigurations description="Create a delegation link" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Delegation" kind="ConnectionTool" label="Delegation" xsi:type="paletteconfiguration:ToolConfiguration">
+		<icon iconPath="resource/gif/Connector.gif" pluginID="org.eclipse.papyrus.uml.resources/icons"/>
+		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_Y_8nwLvAEeagON7A6uz3tw" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
 	</ownedConfigurations>
 
   </drawerConfigurations>
