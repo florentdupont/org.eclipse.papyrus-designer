@@ -27,5 +27,9 @@
       <unit id="org.eclipse.papyrus.junit.feature.feature.group" version="0.0.0"/>
       <repository id="papyrus-oxygen-developper-nightly" location="https://hudson.eclipse.org/papyrus/job/Papyrus-Oxygen-Developer/lastSuccessfulBuild/artifact/repository/"/>
     </location>
+    <location includeAllPlatforms="false" includeMode="planner" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+		<unit id="org.eclipse.gmf.tooling.runtime.feature.group" version="0.0.0"/>
+		<repository id="gmf-tooling" location="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/"/>
+	</location>
   </locations>
 </target>
