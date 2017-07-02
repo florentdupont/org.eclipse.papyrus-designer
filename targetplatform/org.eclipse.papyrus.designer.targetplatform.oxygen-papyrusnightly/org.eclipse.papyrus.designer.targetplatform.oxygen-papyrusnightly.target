@@ -15,7 +15,7 @@
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.papyrus.sdk.feature.feature.group" version="0.0.0"/>
-      <repository id="eclipse-oxygen-papyrus-nighlty" location="http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/oxygen/main/"/>
+      <repository id="eclipse-oxygen-papyrus-nighlty" location="http://download.eclipse.org/modeling/mdt/papyrus/updates/nightly/oxygen/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.papyrus.marte.core.feature.feature.group" version="0.0.0"/>
