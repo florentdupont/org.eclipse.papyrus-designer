@@ -15,7 +15,6 @@ import org.eclipse.cdt.core.CCorePlugin;
 import org.eclipse.cdt.core.ToolFactory;
 import org.eclipse.cdt.core.formatter.CodeFormatter;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.text.BadLocationException;
@@ -44,6 +43,7 @@ import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Enumeration;
+import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.PrimitiveType;
@@ -121,9 +121,8 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 	 * the attributes, public operations and virtual / abstract operations and
 	 * one body file.
 	 * 
-	 * @param folder
-	 * @param classifier
-	 * @throws CoreException
+	 * @param element The element for which code should be generated
+	 * @param monitor A progress monitor (currently unused)
 	 */
 	@Override
 	protected void createPackageableElementFile(PackageableElement element, IProgressMonitor monitor) {
@@ -164,7 +163,7 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 			final String fileContentH = commentHeader + cppInclude.getHeader();
 
 			// generate header code
-			final String fileNameH = locStrategy.getFileName(classifier) + Constants.DOT + hppExt;
+			final String fileNameH = getFileName(classifier) + Constants.DOT + hppExt;
 
 			generateFile(fileNameH, fileContentH);
 
@@ -176,7 +175,7 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 			if (ext.length() == 0) {
 				ext = cppExt;
 			}
-			String fileNameB = locStrategy.getFileName(classifier) + Constants.DOT + ext;
+			String fileNameB = getFileName(classifier) + Constants.DOT + ext;
 			generateFile(fileNameB, fileContentB);
 		}
 
@@ -186,33 +185,46 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 
 			// Template Bound Class
 			if (GenUtils.isTemplateBoundElement(classifier)) {
-				final String bindHeaderFileName = locStrategy.getFileName(classifier) + Constants.DOT + hppExt;
+				final String bindHeaderFileName = getFileName(classifier) + Constants.DOT + hppExt;
 				generateFile(bindHeaderFileName, commentHeader + CppClassifierGenerator.generateBindHeaderCode(classifier));
 
-				final String bindBodyFileName = locStrategy.getFileName(classifier) + Constants.DOT + cppExt;
+				final String bindBodyFileName = getFileName(classifier) + Constants.DOT + cppExt;
 				generateFile(bindBodyFileName, commentHeader + CppClassifierGenerator.generateBindBodyCode(classifier));
 			}
 			else {
 				// Class Header file generation
-				final String classHeaderFileName = locStrategy.getFileName(classifier) + Constants.DOT + hppExt;
+				final String classHeaderFileName = getFileName(classifier) + Constants.DOT + hppExt;
 				generateFile(classHeaderFileName, commentHeader + CppClassifierGenerator.generateClassHeaderCode(classifier));
 
 				// Class Body file generation
 				if (classifier instanceof Class) {
-					final String classBodyFileName = locStrategy.getFileName(classifier) + Constants.DOT + cppExt;
+					final String classBodyFileName = getFileName(classifier) + Constants.DOT + cppExt;
 					generateFile(classBodyFileName, commentHeader + CppClassifierGenerator.generateClassBodyCode(classifier));
 				}
 			}
 		}
 	}
 
+	/**
+	 * Obtain fileName of file(s) generated for a named element. Overrides superclass definition to take
+	 * sourceFolder into account.
+	 *
+	 * @param element
+	 *            a named element.
+	 * @return
+	 */
+	@Override
+	public String getFileName(NamedElement element) {
+		return sourceFolder + locStrategy.getFileName(element);
+	}
+	
 	protected void generatePkg(Package pkg) {
-		final String fileName = locStrategy.getFileName(pkg) + Constants.DOT + hppExt;
+		final String fileName = getFileName(pkg) + Constants.DOT + hppExt;
 		generateFile(fileName, CppPackageHeaderGenerator.generateCode(pkg).toString());
 	}
 
 	protected void generateFile(String fileName, String content) {
-		fileSystemAccess.generateFile(sourceFolder + fileName, format(content));
+		fileSystemAccess.generateFile(fileName, format(content));
 	}
 
 	/**
