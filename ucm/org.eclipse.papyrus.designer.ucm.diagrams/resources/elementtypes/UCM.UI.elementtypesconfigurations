@@ -96,20 +96,12 @@
     <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ResourceDefinitionModule</specializedTypesID>
     <specializedTypesID>org.eclipse.papyrus.umldi.Package_Shape_CN</specializedTypesID>
   </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_vc6z8KuBEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentTechnicalPolicy_Shape" name="Component technical policy" hint="Class_Shape">
-    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentTechnicalPolicy</specializedTypesID>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_vc6z8KuBEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalPolicy_Shape" name="Technical policy" hint="Class_Shape">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.TechnicalPolicy</specializedTypesID>
     <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
   </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_5aqDELCdEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentTechnicalPolicy_Shape_CN" name="Component technical policy CN" hint="Class_Shape_CN">
-    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentTechnicalPolicy</specializedTypesID>
-    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
-  </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_BtIb8KuCEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentPortTechnicalPolicy_Shape" name="Component port technical policy" hint="Class_Shape">
-    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentPortTechnicalPolicy</specializedTypesID>
-    <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape</specializedTypesID>
-  </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_93KDkLCdEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ComponentPortTechnicalPolicy_Shape_CN" name="Component port technical policy CN" hint="Class_Shape_CN">
-    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.ComponentPortTechnicalPolicy</specializedTypesID>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_5aqDELCdEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalPolicy_Shape_CN" name="Technical policy CN" hint="Class_Shape_CN">
+    <specializedTypesID>org.eclipse.papyrus.designer.ucm.core.TechnicalPolicy</specializedTypesID>
     <specializedTypesID>org.eclipse.papyrus.umldi.Class_Shape_CN</specializedTypesID>
   </elementTypeConfigurations>
   <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_LLLuIKbJEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Port_Shape" name="Port" hint="Port_Shape">

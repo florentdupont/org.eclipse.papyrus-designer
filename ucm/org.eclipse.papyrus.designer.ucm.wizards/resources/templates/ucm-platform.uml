@@ -62,5 +62,4 @@
   <UCMProfile.ucm_commons:PlatformModule xmi:id="_CG5LQKdaEeaP9PXfXYr5Pw" base_Package="_M6LNQN2REeK2yvTixhtyWQ"/>
   <UCMProfile.ucm_interactions:InteractionDefinitionModule xmi:id="_-ukb8L3_Eea5FJSlmdDSlQ" base_Package="_i9u7EKUNEeaBwKloE0E3_w"/>
   <UCMProfile.ucm_technicalpolicies:NonfunctionalAspectModule xmi:id="_Ct4KIL4AEea5FJSlmdDSlQ" base_Package="_BQOgYL4AEea5FJSlmdDSlQ"/>
-  <UCMProfile.ucm_interactions:ConnectorDefinition xmi:id="_dIkykMC5EeaZ1oXgxscphw" base_Class="_dBn2AMC5EeaZ1oXgxscphw"/>
 </xmi:XMI>

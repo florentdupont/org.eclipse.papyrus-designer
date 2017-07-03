@@ -118,20 +118,12 @@
     <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_ATQgIqa6EeaAGI_5QNiFYQ" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.PortEditHelperAdvice"/>
     <matcherConfiguration xsi:type="elementtypesconfigurations:MatcherConfiguration" xmi:id="_HPQyUO_fEeaaPuDhdgNw5w" matcherClassName="org.eclipse.papyrus.designer.ucm.core.types.matcher.PortMatcher"/>
   </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_UH7sUKsfEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.designer.ucm.core.ComponentTechnicalPolicy" name="Component technical policy">
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_UH7sUKsfEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.designer.ucm.core.TechnicalPolicy" name="Technical policy">
     <iconEntry xmi:id="_UH7sUasfEeaAGI_5QNiFYQ" iconPath="/resources/icons/ucm/TechnicalPolicy.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
     <specializedTypesID>org.eclipse.papyrus.uml.Class</specializedTypesID>
     <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_UH7sUqsfEeaAGI_5QNiFYQ" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.TechnicalPolicyEditHelperAdvice"/>
     <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_WkxooMBcEea0otz58s7TCw" profileUri="http://www.omg.org/ucm/0.9">
-      <stereotypesQualifiedNames>UCMProfile::ucm_components::ComponentTechnicalPolicy</stereotypesQualifiedNames>
-    </matcherConfiguration>
-  </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_UZsxwKsfEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.designer.ucm.core.ComponentPortTechnicalPolicy" name="Component port technical policy">
-    <iconEntry xmi:id="_UZsxwasfEeaAGI_5QNiFYQ" iconPath="/resources/icons/ucm/TechnicalPolicy.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
-    <specializedTypesID>org.eclipse.papyrus.uml.Class</specializedTypesID>
-    <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_UZsxwqsfEeaAGI_5QNiFYQ" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.TechnicalPolicyEditHelperAdvice"/>
-    <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_WkxooMBcEea0otz58s7TCw" profileUri="http://www.omg.org/ucm/0.9">
-      <stereotypesQualifiedNames>UCMProfile::ucm_components::ComponentPortTechnicalPolicy</stereotypesQualifiedNames>
+      <stereotypesQualifiedNames>UCMProfile::ucm_components::TechnicalPolicy</stereotypesQualifiedNames>
     </matcherConfiguration>
   </elementTypeConfigurations>
   <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_PeEM8K2KEea8u6I-XjDezQ" identifier="org.eclipse.papyrus.designer.ucm.core.AffectPolicy" name="Affect policy">
@@ -303,13 +295,8 @@
       <requiredProfiles>UCM_Supplement</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_JtGQ8KznEeaAGI_5QNiFYQ" description="Component technical policy" target="_UH7sUKsfEeaAGI_5QNiFYQ">
-    <stereotypesToApply xmi:id="_JtGQ8aznEeaAGI_5QNiFYQ" stereotypeQualifiedName="UCMProfile::ucm_components::ComponentTechnicalPolicy" updateName="true">
-      <requiredProfiles>UCMProfile</requiredProfiles>
-    </stereotypesToApply>
-  </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_KQEbIKznEeaAGI_5QNiFYQ" description="Component Port technical policy" target="_UZsxwKsfEeaAGI_5QNiFYQ">
-    <stereotypesToApply xmi:id="_KQEbIaznEeaAGI_5QNiFYQ" stereotypeQualifiedName="UCMProfile::ucm_components::ComponentPortTechnicalPolicy" updateName="true">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_JtGQ8KznEeaAGI_5QNiFYQ" description="Technical policy" target="_UH7sUKsfEeaAGI_5QNiFYQ">
+    <stereotypesToApply xmi:id="_JtGQ8aznEeaAGI_5QNiFYQ" stereotypeQualifiedName="UCMProfile::ucm_components::TechnicalPolicy" updateName="true">
       <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
@@ -348,13 +335,13 @@
       <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_sqgnkLr0EeaKr_s25plyiQ" description="Technical aspect" target="_cz6XwLrzEeaKr_s25plyiQ">
-    <stereotypesToApply xmi:id="_sqgnkbr0EeaKr_s25plyiQ" stereotypeQualifiedName="UCMProfile::ucm_technicalpolicies::TechnicalAspect" updateName="true">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_tAuIILr0EeaKr_s25plyiQ" description="Programming languages" target="_c8Aj0LrzEeaKr_s25plyiQ">
+    <stereotypesToApply xmi:id="_tAuIIbr0EeaKr_s25plyiQ" stereotypeQualifiedName="UCMProfile::ucm_technicalpolicies::ProgrammingLanguages" updateName="true">
       <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_tAuIILr0EeaKr_s25plyiQ" description="Programming languages" target="_c8Aj0LrzEeaKr_s25plyiQ">
-    <stereotypesToApply xmi:id="_tAuIIbr0EeaKr_s25plyiQ" stereotypeQualifiedName="UCMProfile::ucm_technicalpolicies::ProgrammingLanguages" updateName="true">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_sqgnkLr0EeaKr_s25plyiQ" description="Technical aspect" target="_cz6XwLrzEeaKr_s25plyiQ">
+    <stereotypesToApply xmi:id="_sqgnkbr0EeaKr_s25plyiQ" stereotypeQualifiedName="UCMProfile::ucm_technicalpolicies::TechnicalAspect" updateName="true">
       <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>

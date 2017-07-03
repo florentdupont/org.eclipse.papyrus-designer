@@ -43,23 +43,14 @@
     </ownedConfigurations>
 
     <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentTechnicalPolicyImplementation"
-    	label="Component technical policy"
+    	id="palettemodel.org.eclipse.papyrus.designer.ucm.core.TechnicalPolicy"
+    	label="Technical policy"
     	description="Create a technical policy">
       <icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/TechnicalPolicy.png"/>
-      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentTechnicalPolicy_Shape"/>
-      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentTechnicalPolicy_Shape_CN"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalPolicy_Shape"/>
+      <elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.TechnicalPolicy_Shape_CN"/>
     </ownedConfigurations>
 
-	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
-		id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentPortTechnicalPolicyImplementation"
-			label="Component port technical policy"
-			description="Create a port technical policy">
-		<icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/TechnicalPolicy.png"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentPortTechnicalPolicy_Shape"/>
-		<elementDescriptors elementTypeId="org.eclipse.papyrus.ucm.diagrams.ui.ComponentPortTechnicalPolicy_Shape_CN"/>
-	</ownedConfigurations>
-    
 	<ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration"
 			id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AffectPolicy"
 			kind="ConnectionTool"
