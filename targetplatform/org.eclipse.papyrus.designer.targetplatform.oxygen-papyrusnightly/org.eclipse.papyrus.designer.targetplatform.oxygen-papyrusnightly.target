@@ -21,7 +21,7 @@
       <unit id="org.eclipse.papyrus.marte.core.feature.feature.group" version="0.0.0"/>
 	  <unit id="org.eclipse.papyrus.marte.view.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.papyrus.marte.textedit.feature.feature.group" version="0.0.0"/>
-      <repository id="eclipse-neon-papyrus-extra-nightly" location="https://hudson.eclipse.org/papyrus/view/Marte/job/papyrus-marte-neon/ws/releng/org.eclipse.papyrus.marte.p2/target/repository/"/>
+      <repository id="eclipse-neon-papyrus-extra-nightly" location="https://hudson.eclipse.org/papyrus/view/Marte/job/papyrus-marte-neon/lastSuccessful/archive/releng/org.eclipse.papyrus.marte.p2/target/repository/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.papyrus.junit.feature.feature.group" version="0.0.0"/>
