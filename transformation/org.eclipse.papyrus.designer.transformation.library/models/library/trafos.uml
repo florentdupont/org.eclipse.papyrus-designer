@@ -496,6 +496,7 @@ for (;;) {
         <ownedAttribute xmi:type="uml:Property" xmi:id="_UCZDsG-EEea89JTVlr8RHA" name="createAndConfigure" type="_sCpX8GoDEeaDvKuEhyP_8g"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_TUnXsG-EEea89JTVlr8RHA" name="generateCode" type="_KVyWYGnwEead2IFRwKRBMw"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_m5RYIPkCEeahjbU2agCBUg" name="MergeClass"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_d5c-0HCJEeaAna84v3Lx-w" name="defaultPlatform">
       <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_iE2oQHCJEeaAna84v3Lx-w" name="defaultNode" classifier="_mhxfgHCJEeaAna84v3Lx-w"/>
@@ -627,4 +628,5 @@ for (;;) {
   <Transformation:M2MTrafo xmi:id="_gKYt8G6MEeaxr7fYazRp4A" base_Class="_g8oe8LsMEeO0n5elMxN1LQ"/>
   <Transformation:M2MTrafo xmi:id="_pytwwG6lEea28Jw2WrLiEw" base_Class="_pvv8UG6lEea28Jw2WrLiEw"/>
   <Transformation:M2MTrafoChain xmi:id="_A7oqsG-DEea89JTVlr8RHA" base_Class="_3e-jAG-CEea89JTVlr8RHA"/>
+  <Transformation:M2MTrafo xmi:id="_m5SmQPkCEeahjbU2agCBUg" base_Class="_m5RYIPkCEeahjbU2agCBUg"/>
 </xmi:XMI>

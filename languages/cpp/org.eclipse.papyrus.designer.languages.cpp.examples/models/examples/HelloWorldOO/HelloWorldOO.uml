@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="HelloWorld">
-    <packagedElement xmi:type="uml:Package" xmi:id="_LOqIEDLaEd2qeKRLMdIx_A" name="classes">
-      <ownedComment xmi:type="uml:Comment" xmi:id="_-Hd2MDecEeGPyrZ5I3hMlA" annotatedElement="_tyiqsc__Ed-TP80eVS-2Rg">
-        <body>Simple HelloWorld component that prints a message in its &quot;run&quot; operation
+    <ownedComment xmi:type="uml:Comment" xmi:id="_-Hd2MDecEeGPyrZ5I3hMlA" annotatedElement="_tyiqsc__Ed-TP80eVS-2Rg">
+      <body>Simple HelloWorld component that prints a message in its &quot;run&quot; operation
 </body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_P1ssIMrDEeOpmd7vWBVZJQ" annotatedElement="_l7i4AMq6EeOpmd7vWBVZJQ">
-        <body>Class with main function. This function is not declared (since it would always be a member function), but directly added via the ManualGeneration stereptype).</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_PIPsAMuOEeOR-ZT-tu0VTw" annotatedElement="_z1dFsMuMEeOR-ZT-tu0VTw">
-        <body>The dependency is necessary, since the use of the class HelloWorld is happening inside the body (types appearing in the signature of operations or attributes are managed automatically).</body>
-      </ownedComment>
-      <ownedComment xmi:type="uml:Comment" xmi:id="_9oJc4MuOEeOR-ZT-tu0VTw" annotatedElement="_O6TiIDLUEd26WNosUASSSw">
-        <body>Use the package to generate code. Open the context menu and select &quot;generate code&quot;.</body>
-      </ownedComment>
-      <packagedElement xmi:type="uml:Class" xmi:id="_tyiqsc__Ed-TP80eVS-2Rg" name="HelloWorld">
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tyjRwc__Ed-TP80eVS-2Rg" name="run" specification="_UtCt0FTzEeKvFeqt5Q_lqw">
-          <language>C/C++</language>
-          <body>cout &lt;&lt; &quot;Hello world&quot; &lt;&lt; endl;</body>
-        </ownedBehavior>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_UtCt0FTzEeKvFeqt5Q_lqw" name="run" method="_tyjRwc__Ed-TP80eVS-2Rg"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_l7i4AMq6EeOpmd7vWBVZJQ" name="Main"/>
-      <packagedElement xmi:type="uml:Dependency" xmi:id="_z1dFsMuMEeOR-ZT-tu0VTw" name="Dependency1" client="_l7i4AMq6EeOpmd7vWBVZJQ" supplier="_tyiqsc__Ed-TP80eVS-2Rg"/>
+    </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_PIPsAMuOEeOR-ZT-tu0VTw" annotatedElement="_z1dFsMuMEeOR-ZT-tu0VTw">
+      <body>The dependency is necessary, since the use of the class HelloWorld is happening inside the body (types appearing in the signature of operations or attributes are managed automatically).</body>
+    </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_P1ssIMrDEeOpmd7vWBVZJQ" annotatedElement="_l7i4AMq6EeOpmd7vWBVZJQ">
+      <body>Class with main function. This function is not declared (since it would always be a member function), but directly added via the ManualGeneration stereptype).</body>
+    </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_9oJc4MuOEeOR-ZT-tu0VTw" annotatedElement="_O6TiIDLUEd26WNosUASSSw">
+      <body>Use the package to generate code. Open the context menu and select &quot;generate code&quot;.</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Class" xmi:id="_l7i4AMq6EeOpmd7vWBVZJQ" name="Main"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_tyiqsc__Ed-TP80eVS-2Rg" name="HelloWorld">
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_uMoiYGGMEeeuOZJ4FMjokQ" name="run" specification="_uMfYcGGMEeeuOZJ4FMjokQ" isReentrant="false">
+        <language>C/C++</language>
+        <body>	cout &lt;&lt; &quot;Hello world&quot; &lt;&lt; endl;</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_uMfYcGGMEeeuOZJ4FMjokQ" name="run" method="_uMoiYGGMEeeuOZJ4FMjokQ">
+        <ownedComment xmi:type="uml:Comment" xmi:id="_uMpJcGGMEeeuOZJ4FMjokQ" annotatedElement="_uMpJcGGMEeeuOZJ4FMjokQ">
+          <body>-</body>
+        </ownedComment>
+      </ownedOperation>
     </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_z1dFsMuMEeOR-ZT-tu0VTw" name="Dependency1" client="_l7i4AMq6EeOpmd7vWBVZJQ" supplier="_tyiqsc__Ed-TP80eVS-2Rg"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_O6TiIjLUEd26WNosUASSSw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O6TiIzLUEd26WNosUASSSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
@@ -39,5 +41,5 @@
     </profileApplication>
   </uml:Model>
   <C_Cpp:Include xmi:id="_11OtwPcaEd-KM6l7lmIPkw" body="#include &lt;iostream>&#xA;using namespace std;" base_class="_tyiqsc__Ed-TP80eVS-2Rg"/>
-  <C_Cpp:Include xmi:id="_GzL9QMrYEeOpmd7vWBVZJQ" body="int main(int argc, const char* args[]) {&#xA;&#x9;classes::HelloWorld hw;&#xA;&#x9;hw.run();&#xA;&#x9;return 1;&#xA;}" base_class="_l7i4AMq6EeOpmd7vWBVZJQ"/>
+  <C_Cpp:Include xmi:id="_GzL9QMrYEeOpmd7vWBVZJQ" body="int main(int argc, const char* args[]) {&#xA;&#x9;HelloWorld::HelloWorld hw;&#xA;&#x9;hw.run();&#xA;&#x9;return 1;&#xA;}" base_class="_l7i4AMq6EeOpmd7vWBVZJQ"/>
 </xmi:XMI>

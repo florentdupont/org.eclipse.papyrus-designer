@@ -906,8 +906,8 @@
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_TjxdAFy9EeORBN8YBc21fg" visible="false" type="AppliedStereotypeCompartement">
         <styles xmi:type="notation:TitleStyle" xmi:id="_TjxdAVy9EeORBN8YBc21fg" showTitle="true"/>
-        <element xmi:type="FCM:DeploymentPlan" href="ClientServerTimer.uml#_6dGQgP6zEd6Ie_kieu_3CQ"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TjxdAly9EeORBN8YBc21fg"/>
+        <element xmi:type="FCM:DeploymentPlan" href="ClientServerTimer.uml#_6dGQgP6zEd6Ie_kieu_3CQ"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_TjyEEFy9EeORBN8YBc21fg" visible="false" type="compartment_shape_display">
         <styles xmi:type="notation:TitleStyle" xmi:id="_TjyEEVy9EeORBN8YBc21fg"/>
@@ -933,8 +933,8 @@
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_Tj0gUFy9EeORBN8YBc21fg" visible="false" type="AppliedStereotypeCompartement">
         <styles xmi:type="notation:TitleStyle" xmi:id="_Tj0gUVy9EeORBN8YBc21fg" showTitle="true"/>
-        <element xmi:type="FCM:DeploymentPlan" href="ClientServerTimer.uml#_bBdJUP_BEd6628OhKk_dpg"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tj0gUly9EeORBN8YBc21fg"/>
+        <element xmi:type="FCM:DeploymentPlan" href="ClientServerTimer.uml#_bBdJUP_BEd6628OhKk_dpg"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_Tj1HYFy9EeORBN8YBc21fg" visible="false" type="compartment_shape_display">
         <styles xmi:type="notation:TitleStyle" xmi:id="_Tj1HYVy9EeORBN8YBc21fg"/>
@@ -975,8 +975,8 @@
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_Tj4KsFy9EeORBN8YBc21fg" visible="false" type="AppliedStereotypeCompartement">
         <styles xmi:type="notation:TitleStyle" xmi:id="_Tj4KsVy9EeORBN8YBc21fg" showTitle="true"/>
-        <element xmi:type="FCM:Configuration" href="ClientServerTimer.uml#_Y10_QKDjEd-rLNbSWf1QuA"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tj4Ksly9EeORBN8YBc21fg"/>
+        <element xmi:type="FCM:Configuration" href="ClientServerTimer.uml#_Y10_QKDjEd-rLNbSWf1QuA"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_Tj5Y0Fy9EeORBN8YBc21fg" visible="false" type="compartment_shape_display">
         <styles xmi:type="notation:TitleStyle" xmi:id="_Tj5Y0Vy9EeORBN8YBc21fg"/>

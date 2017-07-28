@@ -77,7 +77,7 @@
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_tZuBwE0tEeG4IqgA7gSE6w">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tisXkE0tEeG4IqgA7gSE6w" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//Alloc"/>
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//MARTE_Foundations/Alloc"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_ar8OsAPMEdyuUt-4qHuVvQ"/>
     </profileApplication>
