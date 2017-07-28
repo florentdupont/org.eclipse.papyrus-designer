@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <notation:Diagram xmi:id="_U1UegPcXEd-KM6l7lmIPkw" type="PapyrusUMLClassDiagram" name="deployment" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_gdmuADefEeGPyrZ5I3hMlA" type="Comment_Shape" fontName="Sans Serif" lineColor="0">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gdmuAjefEeGPyrZ5I3hMlA" source="ShadowFigure">
@@ -56,7 +56,7 @@
             <layoutConstraint xmi:type="notation:Location" xmi:id="_pm6pA9p_EeWr5tIXyQonbg" y="5"/>
           </children>
           <element xmi:type="uml:InstanceSpecification" href="HelloWorldJava.uml#_ymQR4FT2EeKvFeqt5Q_lqw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z7T5gVWjEeKOivupHOJ8Ew" x="12" y="33" width="261" height="64"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z7T5gVWjEeKOivupHOJ8Ew" x="54" y="33" width="261" height="64"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_wCUSAFZVEeKKZs15rvNNjA" type="Comment_Shape_CN" fontName="Sans Serif" lineColor="0">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wCX8YFZVEeKKZs15rvNNjA" source="ShadowFigure">
@@ -70,14 +70,14 @@
           </eAnnotations>
           <children xmi:type="notation:DecorationNode" xmi:id="_wCYjc1ZVEeKKZs15rvNNjA" type="Comment_BodyLabel_CN"/>
           <element xmi:type="uml:Comment" href="HelloWorldJava.uml#_wAbboFZVEeKKZs15rvNNjA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wCUSAVZVEeKKZs15rvNNjA" x="113" y="147" width="420" height="67"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wCUSAVZVEeKKZs15rvNNjA" x="134" y="133" width="420" height="67"/>
         </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_-4lixFWREeKdxoQIVxFNNg"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-4lixVWREeKdxoQIVxFNNg"/>
       </children>
       <styles xmi:type="notation:IntValueStyle" xmi:id="_u3oFQLkXEeS7TYMQS2xzng" name="shapeDirection" intValue="1"/>
       <element xmi:type="uml:Package" href="HelloWorldJava.uml#_yl9-AFT2EeKvFeqt5Q_lqw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-4h4YVWREeKdxoQIVxFNNg" x="20" y="200" width="571" height="275"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-4h4YVWREeKdxoQIVxFNNg" x="20" y="200" width="641" height="275"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_obNuEFWiEeKOivupHOJ8Ew" type="Comment_Shape" fontName="Sans Serif" lineColor="0">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_obQxYFWiEeKOivupHOJ8Ew" source="ShadowFigure">
@@ -102,21 +102,24 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pqN0otp_EeWr5tIXyQonbg" x="220" y="200"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_U1UegfcXEd-KM6l7lmIPkw"/>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_pm6pBtp_EeWr5tIXyQonbg" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_pm6pBtp_EeWr5tIXyQonbg" name="diagram_compatibility_version" stringValue="1.3.0"/>
+    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_NVtbwGGkEeeuOZJ4FMjokQ" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
+      <owner xmi:type="uml:Package" href="HelloWorldJava.uml#_234GEDLiEd2RVeNawwNNzg"/>
+    </styles>
     <element xmi:type="uml:Package" href="HelloWorldJava.uml#_234GEDLiEd2RVeNawwNNzg"/>
     <edges xmi:type="notation:Connector" xmi:id="_Sqs9MFWkEeKOivupHOJ8Ew" type="Comment_AnnotatedElementEdge" source="_obNuEFWiEeKOivupHOJ8Ew" target="_-4h4YFWREeKdxoQIVxFNNg" routing="Rectilinear" lineColor="0">
       <styles xmi:type="notation:FontStyle" xmi:id="_Sqs9MVWkEeKOivupHOJ8Ew" fontName="Sans Serif"/>
       <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Sqs9MlWkEeKOivupHOJ8Ew" points="[315, 133, -643984, -643984]$[176, 133, -643984, -643984]$[176, 221, -643984, -643984]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SrQW0FWkEeKOivupHOJ8Ew" id="(0.0,0.5972222222222222)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SrQW0VWkEeKOivupHOJ8Ew" id="(0.27495621716287216,0.07636363636363637)"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Sqs9MlWkEeKOivupHOJ8Ew" points="[315, 120, -643984, -643984]$[180, 120, -643984, -643984]$[180, 221, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SrQW0FWkEeKOivupHOJ8Ew" id="(0.0,0.4166666666666667)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SrQW0VWkEeKOivupHOJ8Ew" id="(0.24960998439937598,0.07636363636363637)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_71Q7oFZVEeKKZs15rvNNjA" type="Comment_AnnotatedElementEdge" source="_wCUSAFZVEeKKZs15rvNNjA" target="_Z7T5gFWjEeKOivupHOJ8Ew" routing="Rectilinear" lineColor="0">
       <styles xmi:type="notation:FontStyle" xmi:id="_71Q7oVZVEeKKZs15rvNNjA" fontName="Sans Serif"/>
       <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_71Q7olZVEeKKZs15rvNNjA" points="[259, 374, -643984, -643984]$[259, 324, -643984, -643984]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_71iBYFZVEeKKZs15rvNNjA" id="(0.2833333333333333,0.0)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_71iBYVZVEeKKZs15rvNNjA" id="(0.842911877394636,1.0)"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_71Q7olZVEeKKZs15rvNNjA" points="[280, 360, -643984, -643984]$[280, 324, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_71iBYFZVEeKKZs15rvNNjA" id="(0.2857142857142857,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_71iBYVZVEeKKZs15rvNNjA" id="(0.7662835249042146,1.0)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_pqN0pNp_EeWr5tIXyQonbg" type="StereotypeCommentLink" source="_-4h4YFWREeKdxoQIVxFNNg" target="_pqN0oNp_EeWr5tIXyQonbg">
       <styles xmi:type="notation:FontStyle" xmi:id="_pqN0pdp_EeWr5tIXyQonbg"/>
@@ -218,9 +221,9 @@
       <element xmi:type="uml:Comment" href="HelloWorldJava.uml#_SxvpUFT0EeKvFeqt5Q_lqw"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_spOhUXEKEeatX-i6MtVR2A" x="545" y="156" width="276"/>
     </children>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_b9zF0XEKEeatX-i6MtVR2A" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_b9zF0XEKEeatX-i6MtVR2A" name="diagram_compatibility_version" stringValue="1.3.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_b9zF0nEKEeatX-i6MtVR2A"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_b9zF03EKEeatX-i6MtVR2A">
+    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_L8QVgGGkEeeuOZJ4FMjokQ" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
       <owner xmi:type="uml:Package" href="HelloWorldJava.uml#_LOqIEDLaEd2qeKRLMdIx_A"/>
     </styles>
     <element xmi:type="uml:Package" href="HelloWorldJava.uml#_LOqIEDLaEd2qeKRLMdIx_A"/>

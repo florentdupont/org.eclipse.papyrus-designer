@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Alloc="http://www.eclipse.org/papyrus/Alloc/1" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:FCM="http://www.eclipse.org/papyrus/FCM/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/Alloc/1 http://www.eclipse.org/papyrus/MARTE/1#//Alloc">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Alloc="http://www.eclipse.org/papyrus/Alloc/1" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:FCM="http://www.eclipse.org/papyrus/FCM/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/Alloc/1 http://www.eclipse.org/papyrus/MARTE/1#//MARTE_Foundations/Alloc">
   <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="ClientServerTimer">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_O6TiITLUEd26WNosUASSSw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -355,61 +355,38 @@ cout &lt;&lt; &quot;result: &quot; &lt;&lt; q->mult(4, 5) &lt;&lt; endl;</body>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2aRhwGkEEeG997IUAIbceQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2eU7UGkEEeG997IUAIbceQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//Alloc"/>
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//MARTE_Foundations/Alloc"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_ar8OsAPMEdyuUt-4qHuVvQ"/>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2eX-oGkEEeG997IUAIbceQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2hLbAGkEEeG997IUAIbceQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//HLAM"/>
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//MARTE_DesignModel/HLAM"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_yNSZIAPMEdyuUt-4qHuVvQ"/>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_2hOeUGkEEeG997IUAIbceQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2kYgAGkEEeG997IUAIbceQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//GCM"/>
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//MARTE_DesignModel/GCM"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_YgAioAPMEdyuUt-4qHuVvQ"/>
     </profileApplication>
   </uml:Model>
-  <Transformation:DerivedElement xmi:id="_DWb6oP6yEd6Ie_kieu_3CQ" base_Element="_TbIjUJYlEd6G9q9hwr11bw" source="_DGs6wDLgEd28fJKJJnUaeQ"/>
-  <Transformation:DerivedElement xmi:id="_DXK6cP6yEd6Ie_kieu_3CQ" base_Element="_4ZEZwHecEd6r18stFZxmFQ" source="_L8EY8DLgEd28fJKJJnUaeQ"/>
   <FCM:RuleApplication xmi:id="_DWIYoP6yEd6Ie_kieu_3CQ" base_Class="_oqZNUDLaEd2qeKRLMdIx_A">
     <containerRule xmi:type="FCM:ContainerRule" href="pathmap://QML_TRACE/tracing.uml#_ISo6gLdwEd-CtfrGQre34Q"/>
-    <interceptor href="pathmap://QML_TRACE/tracing.uml#_35od4DKrEd-z5o2wSoJ16A"/>
   </FCM:RuleApplication>
   <FCM:Port xmi:id="_GofhQP6yEd6Ie_kieu_3CQ" base_Port="_4KiE8DLbEd2qeKRLMdIx_A" type="_cn-H0DLbEd2qeKRLMdIx_A">
     <kind xmi:type="FCM:PortKind" href="pathmap://DML_C_CORE/componentlib.uml#_wySlkFRxEd6GqrP6fkWBoQ"/>
   </FCM:Port>
-  <Deployment:DeploymentPlan xmi:id="_6dGQgP6zEd6Ie_kieu_3CQ" mainInstance="_L9xhwDLjEd2RVeNawwNNzg" base_Package="_5Z7MEDLiEd2RVeNawwNNzg"/>
   <C_Cpp:Include xmi:id="_7SAnAP76Ed6Zw96O-tCw7A" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>" base_class="_IfjoETLbEd2qeKRLMdIx_A"/>
   <C_Cpp:Include xmi:id="_Sa4nEP77Ed6Zw96O-tCw7A" body="#include &lt;iostream>&#xA;using namespace std;" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
-  <Deployment:DeploymentPlan xmi:id="_bBdJUP_BEd6628OhKk_dpg" mainInstance="_bBdwYP_BEd6628OhKk_dpg" base_Package="_bBSxQP_BEd6628OhKk_dpg"/>
   <FCM:Port xmi:id="_IWQqoP6yEd6Ie_kieu_3CQ" base_Port="_DtWn4DLcEd2qeKRLMdIx_A" type="_cn-H0DLbEd2qeKRLMdIx_A">
     <kind xmi:type="FCM:PortKind" href="pathmap://DML_C_CORE/componentlib.uml#_9Fif4FRxEd6GqrP6fkWBoQ"/>
   </FCM:Port>
-  <Transformation:DerivedElement xmi:id="_vd5cgKDcEd-t8JNe-ruCrQ" base_Element="_4CRrYHpbEd-X4Z9aZ0cpCQ">
-    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_C9IK4JsqEd61Eo3nmu3JhQ"/>
-  </Transformation:DerivedElement>
-  <FCM:Configuration xmi:id="_Y10_QKDjEd-rLNbSWf1QuA" base_Class="_QT6okKDjEd-rLNbSWf1QuA" deploymentPlan="_6dGQgP6zEd6Ie_kieu_3CQ">
-    <configOptions xmi:type="FCM:ConfigOption" href="pathmap://DML_C_CORE/componentlib.uml#_u6LqoH7eEd-FNNgSS03RxQ"/>
-  </FCM:Configuration>
-  <FCM:Target xmi:id="_Et5N4LqQEd-BObGGoBbehA" base_Node="_MxayMP_BEd6628OhKk_dpg">
-    <targetArch xmi:type="FCM:TargetArchitecture" href="pathmap://DML_C_CORE/componentlib.uml#_FYOqwF0OEd-12d_h0i1xhQ"/>
-    <usedOS xmi:type="FCM:OperatingSystem" href="pathmap://DML_C_CORE/componentlib.uml#_r4nVcCp9EeG1Y7BvjQ0T-w"/>
-  </FCM:Target>
-  <FCM:Target xmi:id="_HvbFMLqQEd-BObGGoBbehA" base_Node="_zY9vMDLiEd2RVeNawwNNzg">
-    <targetArch xmi:type="FCM:TargetArchitecture" href="pathmap://DML_C_CORE/componentlib.uml#_FYOqwF0OEd-12d_h0i1xhQ"/>
-    <usedOS xmi:type="FCM:OperatingSystem" href="pathmap://DML_C_CORE/componentlib.uml#_1eULwF0NEd-12d_h0i1xhQ"/>
-  </FCM:Target>
   <FCM:Port xmi:id="_U509QCkDEeGDDbdzqSb4UA" base_Port="_U50WMCkDEeGDDbdzqSb4UA">
     <kind xmi:type="FCM:PortKind" href="pathmap://DML_C_CORE/componentlib.uml#_wySlkFRxEd6GqrP6fkWBoQ"/>
     <type xmi:type="uml:Interface" href="pathmap://DML_TRAFO/sysinterfaces.uml#_Xb-y0AweEd6it_RkGhz_AA"/>
   </FCM:Port>
-  <Transformation:DerivedElement xmi:id="_qf85ACozEeGxrprK9wB9iA" base_Element="_qf6cwCozEeGxrprK9wB9iA">
-    <source xmi:type="uml:Operation" href="pathmap://DML_TRAFO/sysinterfaces.uml#_asFRoAweEd6it_RkGhz_AA"/>
-  </Transformation:DerivedElement>
   <Alloc:Allocate xmi:id="_2lLKMGkEEeG997IUAIbceQ" base_Abstraction="_2kbjUGkEEeG997IUAIbceQ"/>
   <Alloc:Allocate xmi:id="_3pYZMGkEEeG997IUAIbceQ" base_Abstraction="_3pREcGkEEeG997IUAIbceQ"/>
-  <Transformation:DerivedElement xmi:id="_AMxu8Cz7Eea25uwDpRQuxg" base_Element="_AMpzIiz7Eea25uwDpRQuxg" source="_cn-H0DLbEd2qeKRLMdIx_A"/>
 </xmi:XMI>

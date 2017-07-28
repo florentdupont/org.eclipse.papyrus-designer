@@ -1856,6 +1856,26 @@
       <element xsi:nil="true"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_A8JBAm-DEea89JTVlr8RHA" x="1140" y="40"/>
     </children>
+    <children xmi:type="notation:Shape" xmi:id="_m5R_MPkCEeahjbU2agCBUg" type="Class_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_m5R_MfkCEeahjbU2agCBUg" type="Class_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_m5R_MvkCEeahjbU2agCBUg" type="Class_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_m5R_M_kCEeahjbU2agCBUg" y="5"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_m5R_NPkCEeahjbU2agCBUg" visible="false" type="Class_StructureCompartment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_m5R_NfkCEeahjbU2agCBUg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m5R_NvkCEeahjbU2agCBUg"/>
+      </children>
+      <element xmi:type="uml:Class" href="trafos.uml#_m5RYIPkCEeahjbU2agCBUg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m5R_TfkCEeahjbU2agCBUg" x="1060" y="120" width="201" height="61"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_m6eSAPkCEeahjbU2agCBUg" type="StereotypeComment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_m6eSAfkCEeahjbU2agCBUg"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_m6e5EPkCEeahjbU2agCBUg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="trafos.uml#_m5RYIPkCEeahjbU2agCBUg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m6eSAvkCEeahjbU2agCBUg" x="1270" y="30"/>
+    </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_PRoIMV4REea4bLzKfwAjjA" name="diagram_compatibility_version" stringValue="1.2.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_PRoIMl4REea4bLzKfwAjjA"/>
     <styles xmi:type="style:PapyrusViewStyle" xmi:id="_PRoIM14REea4bLzKfwAjjA">
@@ -1942,6 +1962,16 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_A8JoEm-DEea89JTVlr8RHA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_A8KPIG-DEea89JTVlr8RHA"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_A8KPIW-DEea89JTVlr8RHA"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_m6e5EfkCEeahjbU2agCBUg" type="StereotypeCommentLink" source="_m5R_MPkCEeahjbU2agCBUg" target="_m6eSAPkCEeahjbU2agCBUg">
+      <styles xmi:type="notation:FontStyle" xmi:id="_m6e5EvkCEeahjbU2agCBUg"/>
+      <styles xmi:type="notation:EObjectValueStyle" xmi:id="_m6fgIPkCEeahjbU2agCBUg" name="BASE_ELEMENT">
+        <eObjectValue xmi:type="uml:Class" href="trafos.uml#_m5RYIPkCEeahjbU2agCBUg"/>
+      </styles>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_m6e5E_kCEeahjbU2agCBUg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_m6e5FPkCEeahjbU2agCBUg"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_m6e5FfkCEeahjbU2agCBUg"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_SDMJwG6MEeaxr7fYazRp4A" type="PapyrusUMLClassDiagram" name="Binding helpers" measurementUnit="Pixel">
