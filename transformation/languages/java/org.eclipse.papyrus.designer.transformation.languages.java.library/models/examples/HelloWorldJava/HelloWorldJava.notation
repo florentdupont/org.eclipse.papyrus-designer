@@ -103,9 +103,6 @@
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_U1UegfcXEd-KM6l7lmIPkw"/>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_pm6pBtp_EeWr5tIXyQonbg" name="diagram_compatibility_version" stringValue="1.3.0"/>
-    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_NVtbwGGkEeeuOZJ4FMjokQ" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
-      <owner xmi:type="uml:Package" href="HelloWorldJava.uml#_234GEDLiEd2RVeNawwNNzg"/>
-    </styles>
     <element xmi:type="uml:Package" href="HelloWorldJava.uml#_234GEDLiEd2RVeNawwNNzg"/>
     <edges xmi:type="notation:Connector" xmi:id="_Sqs9MFWkEeKOivupHOJ8Ew" type="Comment_AnnotatedElementEdge" source="_obNuEFWiEeKOivupHOJ8Ew" target="_-4h4YFWREeKdxoQIVxFNNg" routing="Rectilinear" lineColor="0">
       <styles xmi:type="notation:FontStyle" xmi:id="_Sqs9MVWkEeKOivupHOJ8Ew" fontName="Sans Serif"/>
@@ -223,9 +220,6 @@
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_b9zF0XEKEeatX-i6MtVR2A" name="diagram_compatibility_version" stringValue="1.3.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_b9zF0nEKEeatX-i6MtVR2A"/>
-    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_L8QVgGGkEeeuOZJ4FMjokQ" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
-      <owner xmi:type="uml:Package" href="HelloWorldJava.uml#_LOqIEDLaEd2qeKRLMdIx_A"/>
-    </styles>
     <element xmi:type="uml:Package" href="HelloWorldJava.uml#_LOqIEDLaEd2qeKRLMdIx_A"/>
     <edges xmi:type="notation:Connector" xmi:id="_nvAqEHEKEeatX-i6MtVR2A" type="InterfaceRealization_Edge" source="_do25cHEKEeatX-i6MtVR2A" target="_hSPa8HEKEeatX-i6MtVR2A">
       <children xmi:type="notation:DecorationNode" xmi:id="_nvAqE3EKEeatX-i6MtVR2A" type="InterfaceRealization_StereotypeLabel">

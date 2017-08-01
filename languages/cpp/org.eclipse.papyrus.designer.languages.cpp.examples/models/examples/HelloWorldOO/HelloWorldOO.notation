@@ -108,9 +108,6 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hVXngiHNEeWwIcUD6ApW1Q" x="258" y="201"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_4fWngMpkEeOpmd7vWBVZJQ"/>
-    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_bqwioGGMEeeuOZJ4FMjokQ" diagramKindId="org.eclipse.papyrus.uml.diagram.class">
-      <owner xmi:type="uml:Model" href="HelloWorldOO.uml#_O6TiIDLUEd26WNosUASSSw"/>
-    </styles>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_gyx30CHNEeWwIcUD6ApW1Q" name="diagram_compatibility_version" stringValue="1.3.0"/>
     <element xmi:type="uml:Model" href="HelloWorldOO.uml#_O6TiIDLUEd26WNosUASSSw"/>
     <edges xmi:type="notation:Connector" xmi:id="_z440MMuMEeOR-ZT-tu0VTw" type="Dependency_Edge" source="_l7o-oMq6EeOpmd7vWBVZJQ" target="_7IaUcMpkEeOpmd7vWBVZJQ">
