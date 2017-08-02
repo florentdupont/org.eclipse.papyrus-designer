@@ -32,7 +32,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.papyrus.designer.languages.cpp.reverse.reverse.CommandSupport;
+import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.uml2.common.util.UML2Util;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Model;
@@ -56,7 +57,7 @@ public class ModelManagement {
 
 	public void createOrgetModel(final String name, final String uri, final boolean create, final boolean reset) {
 		getResourceSet();
-		CommandSupport.executeCmd(resourceSet, new Runnable() {
+		CommandSupport.exec(TransactionUtil.getEditingDomain(resourceSet), "create or get model", new Runnable() {
 			
 			@Override
 			public void run() {

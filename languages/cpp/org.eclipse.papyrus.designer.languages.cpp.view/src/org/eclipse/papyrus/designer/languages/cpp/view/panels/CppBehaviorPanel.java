@@ -13,7 +13,7 @@ package org.eclipse.papyrus.designer.languages.cpp.view.panels;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Virtual;
-import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -129,7 +129,7 @@ public class CppBehaviorPanel extends CppAbstractPanel {
 		if (selectedBehavior == null) {
 			/* Log.debug("saveBody : selectedOperation is null"); */
 		} else {
-			CommandSupport.exec("C++ behavior save", new Runnable() {
+			CommandSupport.exec(selectedBehavior, "C++ behavior save", new Runnable() {
 
 				@Override
 				public void run() {
@@ -256,7 +256,7 @@ public class CppBehaviorPanel extends CppAbstractPanel {
 	@Override
 	protected void updateModel()
 	{
-		CommandSupport.exec("C++ behavior save", new Runnable() { //$NON-NLS-1$
+		CommandSupport.exec(selectedBehavior, "C++ behavior save", new Runnable() { //$NON-NLS-1$
 
 			@Override
 			public void run()

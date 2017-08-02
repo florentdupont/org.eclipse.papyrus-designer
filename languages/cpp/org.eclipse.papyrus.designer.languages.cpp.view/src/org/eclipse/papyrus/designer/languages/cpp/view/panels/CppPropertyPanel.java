@@ -16,7 +16,7 @@ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Const;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref;
-import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -219,7 +219,7 @@ public class CppPropertyPanel extends CppAbstractPanel {
 			/* Log.debug("saveBody : selectedProperty is null"); */
 		}
 		else {
-			CommandSupport.exec("C++ package save", new Runnable() {
+			CommandSupport.exec(selectedProperty, "C++ package save", new Runnable() {
 
 				@Override
 				public void run()
@@ -369,7 +369,7 @@ public class CppPropertyPanel extends CppAbstractPanel {
 	@Override
 	protected void updateModel()
 	{
-		CommandSupport.exec("C++ property save", new Runnable() {
+		CommandSupport.exec(selectedProperty, "C++ property save", new Runnable() {
 
 			@Override
 			public void run()

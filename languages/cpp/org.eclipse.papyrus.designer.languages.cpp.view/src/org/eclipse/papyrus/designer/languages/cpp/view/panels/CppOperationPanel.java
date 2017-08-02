@@ -18,7 +18,7 @@ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.ConstInit;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Friend;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Inline;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Virtual;
-import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -144,7 +144,7 @@ public class CppOperationPanel extends CppAbstractPanel {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				CommandSupport.exec("C++ operation save", new Runnable() {
+				CommandSupport.exec(selectedOperation, "C++ operation save", new Runnable() {
 
 					@Override
 					public void run() {
@@ -176,7 +176,7 @@ public class CppOperationPanel extends CppAbstractPanel {
 
 					@Override
 					public void widgetSelected(SelectionEvent event) {
-						CommandSupport.exec("C++ virtual update", new Runnable() {
+						CommandSupport.exec(selectedOperation, "C++ virtual update", new Runnable() {
 
 							@Override
 							public void run() {
@@ -249,7 +249,7 @@ public class CppOperationPanel extends CppAbstractPanel {
 		if (selectedOperation == null) {
 			/* Log.debug("saveBody : selectedOperation is null"); */
 		} else {
-			CommandSupport.exec("C++ operation save", new Runnable() {
+			CommandSupport.exec(selectedOperation, "C++ operation save", new Runnable() {
 
 				@Override
 				public void run() {
@@ -609,7 +609,7 @@ public class CppOperationPanel extends CppAbstractPanel {
 	@Override
 	protected void updateModel()
 	{
-		CommandSupport.exec("C++ operation save", new Runnable() {
+		CommandSupport.exec(selectedOperation, "C++ operation save", new Runnable() {
 
 			@Override
 			public void run()

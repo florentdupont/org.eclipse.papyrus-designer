@@ -46,7 +46,6 @@ import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodege
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.ILangCodegen2;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.LanguageCodegen;
 import org.eclipse.papyrus.designer.languages.common.extensionpoints.SyncInformation;
-import org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor.CommandSupport;
 import org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor.TextEditorConstants;
 import org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor.Utils;
 import org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor.listener.ModelListener;
@@ -59,6 +58,7 @@ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.StorageClass;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Volatile;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.infra.core.Activator;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.papyrus.uml.tools.utils.UMLUtil;
@@ -99,7 +99,7 @@ public class SyncCDTtoModel implements Runnable {
 	public final String c_cpp_langID = "C/C++"; //$NON-NLS-1$
 
 	public void syncCDTtoModel() {
-		CommandSupport.exec("update model from CDT", this);
+		CommandSupport.exec(m_classifier, "update model from CDT", this);
 	}
 
 	@Override

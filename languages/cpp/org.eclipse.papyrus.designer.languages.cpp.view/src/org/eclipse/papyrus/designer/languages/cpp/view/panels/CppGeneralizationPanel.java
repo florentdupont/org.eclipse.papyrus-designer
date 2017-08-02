@@ -13,7 +13,7 @@ package org.eclipse.papyrus.designer.languages.cpp.view.panels;
 
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Visibility;
 import org.eclipse.papyrus.designer.languages.cpp.view.Activator;
-import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -139,7 +139,7 @@ public class CppGeneralizationPanel extends CppAbstractPanel {
 		if (visibility != null) {
 			String vis = visibility.getValue();
 			if (!vis.equals(visibilityVal)) {
-				CommandSupport.exec("Set visibility for generalization", new Runnable() {
+				CommandSupport.exec(selectedGeneralization, "Set visibility for generalization", new Runnable() {
 
 					@Override
 					public void run() {
@@ -250,7 +250,7 @@ public class CppGeneralizationPanel extends CppAbstractPanel {
 		final Visibility visibility = UMLUtil.getStereotypeApplication(selectedGeneralization, Visibility.class);
 		if (visibility != null) {
 			if (!isModelValid()) {
-				CommandSupport.exec("Correct illegal visibility value", new Runnable() {
+				CommandSupport.exec(selectedGeneralization, "Correct illegal visibility value", new Runnable() {
 
 					@Override
 					public void run() {

@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.cdt.core,
  org.eclipse.papyrus.designer.languages.cpp.profile;bundle-version="0.7.4",
  org.eclipse.papyrus.designer.languages.cpp.cdt.texteditor;bundle-version="0.7.4",
  org.eclipse.papyrus.designer.languages.common.texteditor.model;bundle-version="0.7.4",
- org.eclipse.papyrus.designer.languages.common.base;bundle-version="0.7.4"
+ org.eclipse.papyrus.designer.languages.common.base;bundle-version="0.7.4",
+ org.eclipse.papyrus.designer.transformation.base;bundle-version="0.7.6"
 Export-Package: org.eclipse.papyrus.designer.languages.cpp.reverse.reverse,
  org.eclipse.papyrus.designer.languages.cpp.reverse.reverse.change,
  org.eclipse.papyrus.designer.languages.cpp.reverse.utils

@@ -17,7 +17,7 @@ import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Array;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Const;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ref;
-import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -204,7 +204,7 @@ public class CppParameterPanel extends CppAbstractPanel {
 			/* Log.debug("saveBody : selectedParameter is null"); */
 		}
 		else {
-			CommandSupport.exec("C++ parameter save", new Runnable() {
+			CommandSupport.exec(selectedParameter, "C++ parameter save", new Runnable() {
 
 				@Override
 				public void run()
@@ -334,7 +334,7 @@ public class CppParameterPanel extends CppAbstractPanel {
 	protected void updateModel() {
 
 		// Check button changes
-		CommandSupport.exec("C++ parameter update", new Runnable() {
+		CommandSupport.exec(selectedParameter, "C++ parameter update", new Runnable() {
 
 			@Override
 			public void run()

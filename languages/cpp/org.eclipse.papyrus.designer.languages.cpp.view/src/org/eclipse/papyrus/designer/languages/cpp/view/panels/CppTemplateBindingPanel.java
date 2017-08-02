@@ -13,7 +13,7 @@ package org.eclipse.papyrus.designer.languages.cpp.view.panels;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.source.SourceViewer;
-import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -115,7 +115,7 @@ public class CppTemplateBindingPanel extends CppAbstractPanel {
 			/* Log.debug("saveBody : selectedTemplateBinding is null"); */
 		}
 		else {
-			CommandSupport.exec("C++ template binding save", new Runnable() {
+			CommandSupport.exec(selectedTB, "C++ template binding save", new Runnable() {
 
 				@Override
 				public void run()

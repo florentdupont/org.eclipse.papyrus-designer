@@ -14,7 +14,7 @@ package org.eclipse.papyrus.designer.languages.cpp.view.panels;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.source.SourceViewer;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include;
-import org.eclipse.papyrus.designer.languages.cpp.view.CommandSupport;
+import org.eclipse.papyrus.designer.transformation.base.utils.CommandSupport;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -141,7 +141,7 @@ public class CppClassPanel extends CppAbstractPanel {
 		if (selectedClass == null) {
 			/* Log.debug("saveBody : selectedOperation is null"); */
 		} else {
-			CommandSupport.exec("C++ header/body save", new Runnable() {
+			CommandSupport.exec(selectedClass, "C++ header/body save", new Runnable() {
 
 				@Override
 				public void run() {
