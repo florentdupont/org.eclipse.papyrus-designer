@@ -5,6 +5,7 @@
 			point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
 		<profile
         description="Profile used for code generation"
+		iconpath="icons/codegen.gif"
         name="Papyrus Code Generation Profile"
         path="pathmap://Codegen_PROFILES/Codegen.profile.uml"
         provider="Papyrus Designer"/>
