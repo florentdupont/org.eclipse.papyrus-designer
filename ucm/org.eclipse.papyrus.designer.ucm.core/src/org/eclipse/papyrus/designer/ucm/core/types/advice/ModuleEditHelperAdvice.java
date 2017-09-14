@@ -93,9 +93,10 @@ public class ModuleEditHelperAdvice extends AbstractEditHelperAdvice {
 						StereotypeUtil.isApplied(container, ComponentModule.class) ||
 						StereotypeUtil.isApplied(container, PlatformModule.class) ||
 						StereotypeUtil.isApplied(container, NonfunctionalAspectModule.class) || 
+						StereotypeUtil.isApplied(container, InteractionDefinitionModule.class) || 
 						StereotypeUtil.isApplied(container, ContractModule.class)) {
 					return true;
-				}		
+				}
 			}
 			else if (ElementTypeUtils.isTypeCompatible(type, ElementTypeRegistry.getInstance().getType(IUCMElementTypes.PLATFORM_MODULE_ID))) {
 				// check platform module conditions:
@@ -130,8 +131,8 @@ public class ModuleEditHelperAdvice extends AbstractEditHelperAdvice {
 				}
 			}
 			else if (ElementTypeUtils.isTypeCompatible(type, ElementTypeRegistry.getInstance().getType(IUCMElementTypes.RESOURCE_DEFINITION_MODULE_ID))) {
-				// check interaction module conditions:
-				// - can be owned by platform or interaction module
+				// check resource definition module conditions:
+				// - can be owned by platform module
 				if (container == null || StereotypeUtil.isApplied(container, PlatformModule.class)) {
 					return true;
 				}

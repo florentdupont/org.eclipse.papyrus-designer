@@ -902,7 +902,7 @@ Must be abstract, may not contain parts. Authorize single class that is type and
       <ownedAttribute xmi:type="uml:Property" xmi:id="_JDZDUJFhEea5u6ulHFCSFA" name="base_Property" association="_JDX1MJFhEea5u6ulHFCSFA">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
       </ownedAttribute>
-      <icon xmi:type="uml:Image" xmi:id="_0rG1wA5KEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.profile/resources/icons/ucm/AbstractDataType.png">
+      <icon xmi:type="uml:Image" xmi:id="_0rG1wA5KEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.profile/resources/icons/ucm/InteractionItem.png">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0rG1wQ5KEeeiFbRAhY23pA" source="image_papyrus">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0rG1wg5KEeeiFbRAhY23pA" key="image_kind_key" value="icon"/>
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0rG1ww5KEeeiFbRAhY23pA" key="image_name_key" value="interaction_item"/>
@@ -917,7 +917,7 @@ Must be abstract, may not contain parts. Authorize single class that is type and
       <ownedAttribute xmi:type="uml:Property" xmi:id="_IREOgJFhEea5u6ulHFCSFA" name="base_Property" association="_IRCZUJFhEea5u6ulHFCSFA">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
       </ownedAttribute>
-      <icon xmi:type="uml:Image" xmi:id="_7tViYA5KEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.profile/resources/icons/ucm/ConnectorPort.png">
+      <icon xmi:type="uml:Image" xmi:id="_7tViYA5KEeeiFbRAhY23pA" format="PNG" location="platform:/plugin/org.eclipse.papyrus.designer.ucm.profile/resources/icons/ucm/InteractionRole.png">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7tViYQ5KEeeiFbRAhY23pA" source="image_papyrus">
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7tViYg5KEeeiFbRAhY23pA" key="image_kind_key" value="icon"/>
           <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7tViYw5KEeeiFbRAhY23pA" key="image_name_key" value="interaction_role"/>

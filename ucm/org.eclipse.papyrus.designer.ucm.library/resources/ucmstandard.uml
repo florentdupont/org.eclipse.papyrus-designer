@@ -87,7 +87,6 @@
   <UCMProfile.ucm_commons:PlatformModule xmi:id="_wJjSwLFbEeaeULFZDMAOLQ" base_Package="__N2fwLFYEeaM0KkcZIyGsA"/>
   <UCMProfile.ucm_technicalpolicies:TechnicalPolicyDefinition xmi:id="_IMJgULIxEeaNi6dQbArxCg" base_Class="_F3mq0LIxEeaNi6dQbArxCg"/>
   <UCMProfile.ucm_technicalpolicies:TechnicalPolicyDefinition xmi:id="_KfSnoLIxEeaNi6dQbArxCg" base_Class="_KfQycLIxEeaNi6dQbArxCg"/>
-  <UCMProfile.ucm_interactions:ConnectorDefinition xmi:id="_lUpVILJgEeaduvwnGOKNuA" base_Class="_iZTlYLJgEeaduvwnGOKNuA"/>
   <UCMProfile.ucm_interactions:ConnectorPort xmi:id="_wvoKsLJgEeaduvwnGOKNuA" base_Property="_rGoh4LJgEeaduvwnGOKNuA"/>
   <UCMProfile.ucm_interactions:InteractionDefinitionModule xmi:id="_YFVQALx4EeaMV-a9X3rlmQ" base_Package="_WhZ_ILx4EeaMV-a9X3rlmQ"/>
   <UCMProfile.ucm_interactions:PortElement xmi:id="_u3zlcLx8EeaMV-a9X3rlmQ" base_Property="_qHi7cLx8EeaMV-a9X3rlmQ"/>

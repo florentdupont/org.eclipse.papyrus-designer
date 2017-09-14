@@ -3,29 +3,29 @@
   <filter xsi:type="filters:CompoundFilter" filter="//@filter/@ownedFilter.0">
     <ownedFilter xsi:type="umlfilters:ProfileApplied" name="isUCMApplied" profileQualifiedName="UCMProfile" profileURI="pathmap://UCM_PROFILE/ucm.profile.uml#_rZqWgNvTEeWGg4v4Bs5PXQ"/>
   </filter>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Component type">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_PlJqjlj354Wnbt9JeO78zA"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Allocation plan">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_5YxFALvHEeagON7A6uz3tw"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Atomic component implementation">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_J7_dIKaHEeaAGI_5QNiFYQ"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Application assembly" icon="">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#__WsRcLvGEeagON7A6uz3tw"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Composite component implementation">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_KLxlkKaHEeaAGI_5QNiFYQ"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Application module">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_cRZi0Ka2EeaAGI_5QNiFYQ"/>
   </menu>
   <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Assembly part">
     <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_qfSAcK2eEea8u6I-XjDezQ"/>
   </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Atomic component implementation">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_J7_dIKaHEeaAGI_5QNiFYQ"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Component type">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_PlJqjlj354Wnbt9JeO78zA"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Composite component implementation">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_KLxlkKaHEeaAGI_5QNiFYQ"/>
+  </menu>
   <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Connection">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_CKMawK2YEea8u6I-XjDezQ"/>
-  </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="PortElement" icon="">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#__Z174LrxEeaKr_s25plyiQ"/>
-  </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Port">
-    <elementType xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Port"/>
-  </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Application module">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_cRZi0Ka2EeaAGI_5QNiFYQ"/>
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_D_kcgI_rEeeqvJXzJiqT0A"/>
   </menu>
   <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Component module">
     <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_pG3ZYKa2EeaAGI_5QNiFYQ"/>
@@ -33,8 +33,14 @@
   <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Contract module">
     <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_ptPc4Ka2EeaAGI_5QNiFYQ"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Platform module">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_ZL5FQKbIEeaAGI_5QNiFYQ"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Connector definition">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_mlq3oLrxEeaKr_s25plyiQ"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Connector port" icon="">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_-9J_4LrxEeaKr_s25plyiQ"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Environment module">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_zFX7wMJTEeaZYOYMFPracQ"/>
   </menu>
   <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Deployment module">
     <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_J-zmcMKoEeaZYOYMFPracQ"/>
@@ -42,34 +48,55 @@
   <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Interaction definition module">
     <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_AYkBwMKkEeaZYOYMFPracQ"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Environment module">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_zFX7wMJTEeaZYOYMFPracQ"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Interaction item">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_W1SngJTcEee7X_OPIqQE7Q"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Resource definition module">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_EEve8MKsEeaZYOYMFPracQ"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Interaction role">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_6dztMJTeEee7X_OPIqQE7Q"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Allocation plan">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_5YxFALvHEeagON7A6uz3tw"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Interaction pattern">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_NmJkgL5eEeaSV_z7ahpr-g"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Connector definition">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_mlq3oLrxEeaKr_s25plyiQ"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Item binding">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_TtooIJTeEee7X_OPIqQE7Q"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Technical aspect" icon="">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_cz6XwLrzEeaKr_s25plyiQ"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Language">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_zr5SgMCNEeaLpumP_4vuow"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Technical policy definition">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_cd32ULrzEeaKr_s25plyiQ"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Non-functional aspects module">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_T6e0wMJNEeaZYOYMFPracQ"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Application assembly" icon="">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#__WsRcLvGEeagON7A6uz3tw"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="PortElement" icon="">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#__Z174LrxEeaKr_s25plyiQ"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Test case group" icon="">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_OC0HoLvHEeagON7A6uz3tw"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Platform module">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_ZL5FQKbIEeaAGI_5QNiFYQ"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Port" icon="platform:/plugin/org.eclipse.papyrus.designer.ucm.profile/resources/icons/ucm/Port.png">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_QDwkwJSZEee7X_OPIqQE7Q"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Port Type">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#__THo0LrxEeaKr_s25plyiQ"/>
   </menu>
   <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Programming languages">
     <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_c8Aj0LrzEeaKr_s25plyiQ"/>
   </menu>
-  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Language">
-    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_zr5SgMCNEeaLpumP_4vuow"/>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Resource definition module">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_EEve8MKsEeaZYOYMFPracQ"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Technical policy definition">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_cd32ULrzEeaKr_s25plyiQ"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Technical aspect" icon="">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_cz6XwLrzEeaKr_s25plyiQ"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Test case group" icon="">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_OC0HoLvHEeagON7A6uz3tw"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreationMenu" label="Technical policy">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_UH7sUKsfEeaAGI_5QNiFYQ"/>
+  </menu>
+  <menu xsi:type="ElementCreationMenuModel:CreateRelationshipMenu" label="Connection link">
+    <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_CKMawK2YEea8u6I-XjDezQ"/>
   </menu>
 </ElementCreationMenuModel:Folder>

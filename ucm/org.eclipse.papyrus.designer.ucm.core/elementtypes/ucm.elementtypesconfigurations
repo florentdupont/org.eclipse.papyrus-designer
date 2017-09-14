@@ -81,7 +81,7 @@
     <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Package"/>
   </elementTypeConfigurations>
   <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_T6e0wMJNEeaZYOYMFPracQ" identifier="org.eclipse.papyrus.designer.ucm.core.NonFunctionalAspectsModule" name="Non-functional aspects module" hint="UML::Package">
-    <iconEntry xmi:id="_T6e0wcJNEeaZYOYMFPracQ" iconPath="/resources/icons/ucm/NonFunctionalAspectsModule.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
+    <iconEntry xmi:id="_T6e0wcJNEeaZYOYMFPracQ" iconPath="/resources/icons/ucm/PolicyModule.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
     <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_T6e0wsJNEeaZYOYMFPracQ" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.ModuleEditHelperAdvice"/>
     <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_T6e0w8JNEeaZYOYMFPracQ" profileUri="http://www.omg.org/ucm/0.9">
       <stereotypesQualifiedNames>UCMProfile::ucm_technicalpolicies::NonFunctionalAspectModule</stereotypesQualifiedNames>
@@ -112,25 +112,18 @@
     </matcherConfiguration>
     <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Package"/>
   </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_UH7sUKsfEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.designer.ucm.core.ComponentTechnicalPolicy" name="Component technical policy" hint="UML::Class">
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_UH7sUKsfEeaAGI_5QNiFYQ" identifier="org.eclipse.papyrus.designer.ucm.core.TechnicalPolicy" name="Technical policy" hint="UML::Class">
     <iconEntry xmi:id="_UH7sUasfEeaAGI_5QNiFYQ" iconPath="/resources/icons/ucm/TechnicalPolicy.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
     <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_UH7sUqsfEeaAGI_5QNiFYQ" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.TechnicalPolicyEditHelperAdvice"/>
     <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_WkxooMBcEea0otz58s7TCw" profileUri="http://www.omg.org/ucm/0.9">
-      <stereotypesQualifiedNames>UCMProfile::ucm_components::ComponentTechnicalPolicy</stereotypesQualifiedNames>
+      <stereotypesQualifiedNames>UCMProfile::ucm_components::TechnicalPolicy</stereotypesQualifiedNames>
     </matcherConfiguration>
     <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Class"/>
   </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_UZsxwKsfEeaAGI_5QNiFYQ" description="" identifier="org.eclipse.papyrus.designer.ucm.core.ComponentPortTechnicalPolicy" name="Component port technical policy">
-    <iconEntry xmi:id="_UZsxwasfEeaAGI_5QNiFYQ" iconPath="/resources/icons/ucm/TechnicalPolicy.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
-    <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_UZsxwqsfEeaAGI_5QNiFYQ" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.TechnicalPolicyEditHelperAdvice"/>
-    <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_WkxooMBcEea0otz58s7TCw" profileUri="http://www.omg.org/ucm/0.9">
-      <stereotypesQualifiedNames>UCMProfile::ucm_components::ComponentPortTechnicalPolicy</stereotypesQualifiedNames>
-    </matcherConfiguration>
-    <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Class"/>
-  </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_PeEM8K2KEea8u6I-XjDezQ" identifier="org.eclipse.papyrus.designer.ucm.core.AffectPolicy" name="Affect policy" hint="UML::Class">
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_PeEM8K2KEea8u6I-XjDezQ" identifier="org.eclipse.papyrus.designer.ucm.core.AffectPolicy" name="Affect policy" hint="UML::Dependency">
     <iconEntry xmi:id="_PeEM8a2KEea8u6I-XjDezQ" iconPath="/resources/icons/ucm/TechnicalPolicy.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
     <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_PeEM8q2KEea8u6I-XjDezQ" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.AffectPolicyEditHelperAdvice"/>
+    <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Dependency"/>
   </elementTypeConfigurations>
   <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_S_C10MEREeaLpumP_4vuow" identifier="org.eclipse.papyrus.designer.ucm.core.AffectPolicyDef" name="Affect policy definition" hint="UML::Class">
     <iconEntry xmi:id="_S_C10cEREeaLpumP_4vuow" iconPath="/resources/icons/ucm/TechnicalPolicy.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
@@ -177,7 +170,7 @@
     <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Class"/>
   </elementTypeConfigurations>
   <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="__Z174LrxEeaKr_s25plyiQ" identifier="org.eclipse.papyrus.designer.ucm.core.PortElement" name="Port element" hint="UML::Property">
-    <iconEntry xmi:id="__Z174brxEeaKr_s25plyiQ" iconPath="/resources/icons/ucm/ConnectorDefinition.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
+    <iconEntry xmi:id="__Z174brxEeaKr_s25plyiQ" iconPath="/resources/icons/ucm/PortElement.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
     <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="__Z174rrxEeaKr_s25plyiQ" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.PortElementEditHelperAdvice"/>
     <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_WkxooMBcEea0otz58s7TCw" profileUri="http://www.omg.org/ucm/0.9">
       <stereotypesQualifiedNames>UCMProfile::ucm_interactions::PortElement</stereotypesQualifiedNames>
@@ -224,13 +217,49 @@
     </matcherConfiguration>
     <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Class"/>
   </elementTypeConfigurations>
-  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_NmJkgL5eEeaSV_z7ahpr-g" identifier="org.eclipse.papyrus.designer.ucm.core.InteractionPattern" name="Interaction Pattern" hint="UML::Class">
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_NmJkgL5eEeaSV_z7ahpr-g" identifier="org.eclipse.papyrus.designer.ucm.core.InteractionPattern" name="Interaction pattern" hint="UML::Class">
     <iconEntry xmi:id="_NmJkgb5eEeaSV_z7ahpr-g" iconPath="/resources/icons/ucm/InteractionPattern.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
     <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_NmJkgr5eEeaSV_z7ahpr-g" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.InteractionPatternEditHelperAdvice"/>
     <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_WkxooMBcEea0otz58s7TCw" profileUri="http://www.omg.org/ucm/0.9">
       <stereotypesQualifiedNames>UCMProfile::ucm_interactions::InteractionPattern</stereotypesQualifiedNames>
     </matcherConfiguration>
     <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Collaboration"/>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_D_kcgI_rEeeqvJXzJiqT0A" description="" identifier="org.eclipse.papyrus.designer.ucm.core.Connection" name="Connection" hint="UML::Property">
+    <iconEntry xmi:id="_eG4joI_rEeeqvJXzJiqT0A" iconPath="/resources/icons/ucm/Connection.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
+    <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_650hIJSZEee7X_OPIqQE7Q" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.ConnectionEditHelperAdvice"/>
+    <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_pK0yMI_rEeeqvJXzJiqT0A" profileUri="http://www.omg.org/ucm/0.9">
+      <stereotypesQualifiedNames>UCMProfile::ucm_components::Connection</stereotypesQualifiedNames>
+    </matcherConfiguration>
+    <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Property"/>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_QDwkwJSZEee7X_OPIqQE7Q" identifier="org.eclipse.papyrus.designer.ucm.core.Port" name="Port" hint="UML::Port">
+    <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_oKc38JSZEee7X_OPIqQE7Q" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.PortEditHelperAdvice"/>
+    <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Port"/>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_W1SngJTcEee7X_OPIqQE7Q" identifier="org.eclipse.papyrus.designer.ucm.core.InteractionItem" name="Interaction Item" hint="UML::Property">
+    <iconEntry xmi:id="_W1SngZTcEee7X_OPIqQE7Q" iconPath="/resources/icons/ucm/InteractionItem.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
+    <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_W1SngpTcEee7X_OPIqQE7Q" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.InteractionItemEditHelperAdvice"/>
+    <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_W1Sng5TcEee7X_OPIqQE7Q" profileUri="http://www.omg.org/ucm/0.9">
+      <stereotypesQualifiedNames>UCMProfile::ucm_interactions::InteractionItem</stereotypesQualifiedNames>
+    </matcherConfiguration>
+    <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Property"/>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_TtooIJTeEee7X_OPIqQE7Q" identifier="org.eclipse.papyrus.designer.ucm.core.ItemBinding" name="Item binding" hint="UML::Property">
+    <iconEntry xmi:id="_TtooIZTeEee7X_OPIqQE7Q" iconPath="/resources/icons/ucm/ItemBinding.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
+    <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_TtooIpTeEee7X_OPIqQE7Q" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.ItemBindingEditHelperAdvice"/>
+    <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_TtooI5TeEee7X_OPIqQE7Q" profileUri="http://www.omg.org/ucm/0.9">
+      <stereotypesQualifiedNames>UCMProfile::ucm_interactions::ItemBinding</stereotypesQualifiedNames>
+    </matcherConfiguration>
+    <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Property"/>
+  </elementTypeConfigurations>
+  <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_6dztMJTeEee7X_OPIqQE7Q" identifier="org.eclipse.papyrus.designer.ucm.core.InteractionRole" name="Interaction role" hint="UML::Property">
+    <iconEntry xmi:id="_6dztMZTeEee7X_OPIqQE7Q" iconPath="/resources/icons/ucm/InteractionRole.png" bundleId="org.eclipse.papyrus.designer.ucm.profile"/>
+    <editHelperAdviceConfiguration xsi:type="elementtypesconfigurations:EditHelperAdviceConfiguration" xmi:id="_6dztMpTeEee7X_OPIqQE7Q" description="" editHelperAdviceClassName="org.eclipse.papyrus.designer.ucm.core.types.advice.InteractionRoleEditHelperAdvice"/>
+    <matcherConfiguration xsi:type="stereotypematcher:StereotypeApplicationMatcherConfiguration" xmi:id="_6dztM5TeEee7X_OPIqQE7Q" profileUri="http://www.omg.org/ucm/0.9">
+      <stereotypesQualifiedNames>UCMProfile::ucm_interactions::InteractionRole</stereotypesQualifiedNames>
+    </matcherConfiguration>
+    <specializedTypes xsi:type="elementtypesconfigurations:MetamodelTypeConfiguration" href="../../../plugin/org.eclipse.papyrus.uml.service.types/model/uml.elementtypesconfigurations#org.eclipse.papyrus.uml.Property"/>
   </elementTypeConfigurations>
   <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_ubJcyaeUEeSUR5jX0TaAcA" description="ComponentType" identifier="org.eclipse.papyrus.desinger.ucm.apply.ComponentType" target="_PlJqjlj354Wnbt9JeO78zA">
     <stereotypesToApply xmi:id="_ubJcyqeUEeSUR5jX0TaAcA" stereotypeQualifiedName="UCMProfile::ucm_components::ComponentType" updateName="true">
@@ -282,17 +311,12 @@
       <requiredProfiles>UCM_Supplement</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_JtGQ8KznEeaAGI_5QNiFYQ" description="Component technical policy" identifier="org.eclipse.papyrus.desinger.ucm.apply.TechPolicy" target="_UH7sUKsfEeaAGI_5QNiFYQ">
-    <stereotypesToApply xmi:id="_JtGQ8aznEeaAGI_5QNiFYQ" stereotypeQualifiedName="UCMProfile::ucm_components::ComponentTechnicalPolicy" updateName="true">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_JtGQ8KznEeaAGI_5QNiFYQ" description="Technical policy" identifier="org.eclipse.papyrus.desinger.ucm.apply.TechPolicy" target="_UH7sUKsfEeaAGI_5QNiFYQ">
+    <stereotypesToApply xmi:id="_JtGQ8aznEeaAGI_5QNiFYQ" stereotypeQualifiedName="UCMProfile::ucm_components::TechnicalPolicy" updateName="true">
       <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_KQEbIKznEeaAGI_5QNiFYQ" description="Component Port technical policy" identifier="org.eclipse.papyrus.desinger.ucm.apply.PortTechPolicy" target="_UZsxwKsfEeaAGI_5QNiFYQ">
-    <stereotypesToApply xmi:id="_KQEbIaznEeaAGI_5QNiFYQ" stereotypeQualifiedName="UCMProfile::ucm_components::ComponentPortTechnicalPolicy" updateName="true">
-      <requiredProfiles>UCMProfile</requiredProfiles>
-    </stereotypesToApply>
-  </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_0JMIsK2YEea8u6I-XjDezQ" description="Connection" identifier="org.eclipse.papyrus.desinger.ucm.apply.Connection">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_0JMIsK2YEea8u6I-XjDezQ" description="Connection" identifier="org.eclipse.papyrus.desinger.ucm.apply.Connection" target="_D_kcgI_rEeeqvJXzJiqT0A">
     <stereotypesToApply xmi:id="_0JMIsa2YEea8u6I-XjDezQ" stereotypeQualifiedName="UCMProfile::ucm_components::Connection" updateName="true">
       <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
@@ -342,34 +366,49 @@
       <requiredProfiles>UCM_Supplement</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_TdQXELvHEeagON7A6uz3tw" description="Test case group" identifier="org.eclipse.papyrus.desinger.ucm.apply.TestCaseGroup" target="_OC0HoLvHEeagON7A6uz3tw">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_TdQXELvHEeagON7A6uz3tw" description="Test case group" identifier="org.eclipse.papyrus.designer.ucm.apply.TestCaseGroup" target="_OC0HoLvHEeagON7A6uz3tw">
     <stereotypesToApply xmi:id="_TdQXEbvHEeagON7A6uz3tw" stereotypeQualifiedName="UCM_Supplement::ucm_test_cases::TestCaseGroup" updateName="true">
       <requiredProfiles>UCM_Supplement</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_TqTUkLvHEeagON7A6uz3tw" description="Allocation plan" identifier="org.eclipse.papyrus.desinger.ucm.apply.AllocationPlan" target="_5YxFALvHEeagON7A6uz3tw">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_TqTUkLvHEeagON7A6uz3tw" description="Allocation plan" identifier="org.eclipse.papyrus.designer.ucm.apply.AllocationPlan" target="_5YxFALvHEeagON7A6uz3tw">
     <stereotypesToApply xmi:id="_TqTUkbvHEeagON7A6uz3tw" stereotypeQualifiedName="UCM_Supplement::ucm_deployment::AllocationPlan" updateName="true">
       <requiredProfiles>UCM_Supplement</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_cBxgkL5eEeaSV_z7ahpr-g" description="Interaction pattern" identifier="org.eclipse.papyrus.desinger.ucm.apply.InteractionPattern" target="_NmJkgL5eEeaSV_z7ahpr-g">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_cBxgkL5eEeaSV_z7ahpr-g" description="Interaction pattern" identifier="org.eclipse.papyrus.designer.ucm.apply.InteractionPattern" target="_NmJkgL5eEeaSV_z7ahpr-g">
     <stereotypesToApply xmi:id="_cBxgkb5eEeaSV_z7ahpr-g" stereotypeQualifiedName="UCMProfile::ucm_interactions::InteractionPattern" updateName="true">
       <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_BfMDQMCOEeaLpumP_4vuow" description="Language" identifier="org.eclipse.papyrus.desinger.ucm.apply.Language" target="_zr5SgMCNEeaLpumP_4vuow">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_BfMDQMCOEeaLpumP_4vuow" description="Language" identifier="org.eclipse.papyrus.designer.ucm.apply.Language" target="_zr5SgMCNEeaLpumP_4vuow">
     <stereotypesToApply xmi:id="_BfMDQcCOEeaLpumP_4vuow" stereotypeQualifiedName="UCMProfile::ucm_technicalpolicies::Language" updateName="true">
       <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_thVTIMJNEeaZYOYMFPracQ" description="Non-functional aspects module" identifier="org.eclipse.papyrus.desinger.ucm.apply.NonFunctAspectsModule" target="_T6e0wMJNEeaZYOYMFPracQ">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_thVTIMJNEeaZYOYMFPracQ" description="Non-functional aspects module" identifier="org.eclipse.papyrus.designer.ucm.apply.NonFunctAspectsModule" target="_T6e0wMJNEeaZYOYMFPracQ">
     <stereotypesToApply xmi:id="_thVTIcJNEeaZYOYMFPracQ" stereotypeQualifiedName="UCMProfile::ucm_technicalpolicies::NonFunctionalAspectModule" updateName="true">
       <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
-  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_R2pIkMKsEeaZYOYMFPracQ" description="ResourceDefinitionModule" identifier="org.eclipse.papyrus.desinger.WResourceDefModule" target="_EEve8MKsEeaZYOYMFPracQ">
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_R2pIkMKsEeaZYOYMFPracQ" description="ResourceDefinitionModule" identifier="org.eclipse.papyrus.designer.appyly.ResourceDefModule" target="_EEve8MKsEeaZYOYMFPracQ">
     <stereotypesToApply xmi:id="_R2pIkcKsEeaZYOYMFPracQ" stereotypeQualifiedName="UCM_Supplement::ucm_environment::ResourceDefinitionModule" updateName="true">
       <requiredProfiles>UCM_Supplement</requiredProfiles>
+    </stereotypesToApply>
+  </adviceBindingsConfigurations>
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_vEldEJTcEee7X_OPIqQE7Q" description="InteractionItem" identifier="org.eclipse.papyrus.designer.apply.InteractionItem" target="_W1SngJTcEee7X_OPIqQE7Q">
+    <stereotypesToApply xmi:id="_vEldEZTcEee7X_OPIqQE7Q" stereotypeQualifiedName="UCMProfile::ucm_interactions::InteractionItem" updateName="true">
+      <requiredProfiles>UCMProfile</requiredProfiles>
+    </stereotypesToApply>
+  </adviceBindingsConfigurations>
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_5DTeEJTeEee7X_OPIqQE7Q" description="InteractionRole" identifier="org.eclipse.papyrus.designer.apply.InteractionRole" target="_6dztMJTeEee7X_OPIqQE7Q">
+    <stereotypesToApply xmi:id="_5DTeEZTeEee7X_OPIqQE7Q" stereotypeQualifiedName="UCMProfile::ucm_interactions::InteractionRole" updateName="true">
+      <requiredProfiles>UCMProfile</requiredProfiles>
+    </stereotypesToApply>
+  </adviceBindingsConfigurations>
+  <adviceBindingsConfigurations xsi:type="applystereotypeadvice:ApplyStereotypeAdviceConfiguration" xmi:id="_i7i8wJTeEee7X_OPIqQE7Q" description="ItemBinding" identifier="org.eclipse.papyrus.designer.apply.ItemBinding" target="_TtooIJTeEee7X_OPIqQE7Q">
+    <stereotypesToApply xmi:id="_i7i8wZTeEee7X_OPIqQE7Q" stereotypeQualifiedName="UCMProfile::ucm_interactions::ItemBinding" updateName="true">
+      <requiredProfiles>UCMProfile</requiredProfiles>
     </stereotypesToApply>
   </adviceBindingsConfigurations>
 </elementtypesconfigurations:ElementTypeSetConfiguration>

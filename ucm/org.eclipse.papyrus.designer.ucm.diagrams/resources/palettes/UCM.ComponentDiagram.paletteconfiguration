@@ -1,51 +1,59 @@
-<?xml version="1.0" encoding="ASCII" standalone="no"?><paletteconfiguration:PaletteConfiguration xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.8" xmlns:elementtypesconfigurations="http://www.eclipse.org/papyrus/infra/elementtypesconfigurations/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="UCM Component" label="UCM Component">
-  <drawerConfigurations description="UCM types" id="UCM types" label="types">
-  
-	<ownedConfigurations description="Create a component type" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentType" label="Component type" xsi:type="paletteconfiguration:ToolConfiguration">
-			<icon iconPath="resources/icons/ucm/ComponentType.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
-		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_sHyGQcQMEeS2vZeHP4gaVg" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_65DxMLCREeacWfm2fO2yZA" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-	</ownedConfigurations>
-
-	<ownedConfigurations description="Create a port" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Port" label="Port" xsi:type="paletteconfiguration:ToolConfiguration">
-		<icon iconPath="resources/icons/ucm/Port.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
-		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_LLLuIKbJEeaAGI_5QNiFYQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_CmIUILCeEeacWfm2fO2yZA" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-	</ownedConfigurations>
-    
+<?xml version="1.0" encoding="ASCII"?>
+<paletteconfiguration:PaletteConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:elementtypesconfigurations="http://www.eclipse.org/papyrus/infra/elementtypesconfigurations/1.2" xmlns:paletteconfiguration="http://www.eclipse.org/papyrus/diagram/paletteconfiguration/0.8" id="UCM Component" label="UCM Component">
+  <drawerConfigurations id="UCM types" label="types" description="UCM types">
+    <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentType" label="Component type" description="Create a component type">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/ComponentType.png"/>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_sHyGQcQMEeS2vZeHP4gaVg"/>
+      </elementDescriptors>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_65DxMLCREeacWfm2fO2yZA"/>
+      </elementDescriptors>
+    </ownedConfigurations>
+    <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.Port" label="Port" description="Create a port">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/Port.png"/>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_LLLuIKbJEeaAGI_5QNiFYQ"/>
+      </elementDescriptors>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_CmIUILCeEeacWfm2fO2yZA"/>
+      </elementDescriptors>
+    </ownedConfigurations>
   </drawerConfigurations>
-
-  <drawerConfigurations description="UCM implementations" id="UCM implementations" label="implementations">
-
-    <ownedConfigurations description="Create an atomic implementation" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AtomicComponentImplementation" label="Atomic component implementation" xsi:type="paletteconfiguration:ToolConfiguration">
-      <icon iconPath="resources/icons/ucm/AtomicComponentImplementation.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
-      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_5xE_oKaEEeaAGI_5QNiFYQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_81fBoLCREeacWfm2fO2yZA" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+  <drawerConfigurations id="UCM implementations" label="implementations" description="UCM implementations">
+    <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AtomicComponentImplementation" label="Atomic component implementation" description="Create an atomic implementation">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/AtomicComponentImplementation.png"/>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_5xE_oKaEEeaAGI_5QNiFYQ"/>
+      </elementDescriptors>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_81fBoLCREeacWfm2fO2yZA"/>
+      </elementDescriptors>
     </ownedConfigurations>
-
-    <ownedConfigurations description="Create a composite implementation" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.CompositeComponentImplementation" label="Composite component implementation" xsi:type="paletteconfiguration:ToolConfiguration">
-      <icon iconPath="resources/icons/ucm/CompositeComponentImplementation.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
-      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_6AulMKaEEeaAGI_5QNiFYQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_AwHrMLCSEeacWfm2fO2yZA" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+    <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.CompositeComponentImplementation" label="Composite component implementation" description="Create a composite implementation">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/CompositeComponentImplementation.png"/>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_6AulMKaEEeaAGI_5QNiFYQ"/>
+      </elementDescriptors>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_AwHrMLCSEeacWfm2fO2yZA"/>
+      </elementDescriptors>
     </ownedConfigurations>
-
-    <ownedConfigurations description="Create a technical policy" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentTechnicalPolicyImplementation" label="Component technical policy" xsi:type="paletteconfiguration:ToolConfiguration">
-      <icon iconPath="resources/icons/ucm/TechnicalPolicy.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
-      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_vc6z8KuBEeaAGI_5QNiFYQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-      <elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_5aqDELCdEeacWfm2fO2yZA" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
+    <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.TechnicalPolicyImplementation" label="Technical policy" description="Create a technical policy">
+      <icon pluginID="org.eclipse.papyrus.designer.ucm.profile" iconPath="resources/icons/ucm/TechnicalPolicy.png"/>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_vc6z8KuBEeaAGI_5QNiFYQ"/>
+      </elementDescriptors>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_5aqDELCdEeacWfm2fO2yZA"/>
+      </elementDescriptors>
     </ownedConfigurations>
-
-	<ownedConfigurations description="Create a port technical policy" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.ComponentPortTechnicalPolicyImplementation" label="Component port technical policy" xsi:type="paletteconfiguration:ToolConfiguration">
-		<icon iconPath="resources/icons/ucm/TechnicalPolicy.png" pluginID="org.eclipse.papyrus.designer.ucm.profile"/>
-		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_BtIb8KuCEeaAGI_5QNiFYQ" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_93KDkLCdEeacWfm2fO2yZA" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-	</ownedConfigurations>
-    
-	<ownedConfigurations description="Assign a policy" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AffectPolicy" kind="ConnectionTool" label="Assign policy" xsi:type="paletteconfiguration:ToolConfiguration">
-		<icon iconPath="resource/gif/Dependency.gif" pluginID="org.eclipse.papyrus.uml.icons"/>
-		<elementDescriptors><elementType href="platform:/plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_a3_SkK_7EeacWfm2fO2yZA" xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration"/></elementDescriptors>
-	</ownedConfigurations>
+    <ownedConfigurations xsi:type="paletteconfiguration:ToolConfiguration" id="palettemodel.org.eclipse.papyrus.designer.ucm.core.AffectPolicy" label="Assign policy" description="Assign a policy" kind="ConnectionTool">
+      <icon pluginID="org.eclipse.papyrus.uml.icons" iconPath="resource/gif/Dependency.gif"/>
+      <elementDescriptors>
+        <elementType xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.diagrams/resources/elementtypes/UCM.UI.elementtypesconfigurations#_a3_SkK_7EeacWfm2fO2yZA"/>
+      </elementDescriptors>
+    </ownedConfigurations>
   </drawerConfigurations>
-
   <requiredProfiles>UCMProfile</requiredProfiles>
 </paletteconfiguration:PaletteConfiguration>

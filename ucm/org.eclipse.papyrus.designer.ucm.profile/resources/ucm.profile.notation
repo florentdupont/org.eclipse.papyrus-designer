@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:style_1="http://www.eclipse.org/papyrus/infra/gmfdiag/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <notation:Diagram xmi:id="_xrEqMNvTEeWGg4v4Bs5PXQ" type="PapyrusUMLProfileDiagram" name="ucm_components" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_yQ1CoNvTEeWGg4v4Bs5PXQ" type="Stereotype_Shape">
       <children xmi:type="notation:DecorationNode" xmi:id="_yQ1CotvTEeWGg4v4Bs5PXQ" type="Stereotype_NameLabel"/>
@@ -1194,13 +1194,6 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TkWq8pIBEeaimOhtq9DquQ" x="244" y="-52"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_HIHTEL37Eea3OttB0-KitQ" type="Class_MetaclassShape">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HIJvUL37Eea3OttB0-KitQ" source="Stereotype_Annotation">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HINZsL37Eea3OttB0-KitQ" key="StereotypeWithQualifiedNameList" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HINZsb37Eea3OttB0-KitQ" key="StereotypeList" value="StandardProfile::Metaclass"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HINZsr37Eea3OttB0-KitQ" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HINZs737Eea3OttB0-KitQ" key="PropStereoDisplay" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HINZtL37Eea3OttB0-KitQ" key="StereotypePropertyLocation" value="Compartment"/>
-      </eAnnotations>
       <children xmi:type="notation:DecorationNode" xmi:id="_HIH6IL37Eea3OttB0-KitQ" type="Class_MetaclassNameLabel"/>
       <element xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HIH6Ib37Eea3OttB0-KitQ" x="1360" y="120" height="81"/>
@@ -1218,9 +1211,9 @@
       <element xmi:type="uml:Comment" href="ucm.profile.uml#_YCzdIL38Eea3OttB0-KitQ"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YC1SUb38Eea3OttB0-KitQ" x="1280" y="380" width="161" height="81"/>
     </children>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_DS84IdvaEeWGg4v4Bs5PXQ" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_DS84IdvaEeWGg4v4Bs5PXQ" name="diagram_compatibility_version" stringValue="1.3.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_DS84ItvaEeWGg4v4Bs5PXQ"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_DS84I9vaEeWGg4v4Bs5PXQ">
+    <styles xmi:type="style_1:PapyrusDiagramStyle" xmi:id="_Eeqx0JiHEee8nZCbeZ5GPQ" diagramKindId="org.eclipse.papyrus.uml.diagram.profile">
       <owner xmi:type="uml:Profile" href="ucm.profile.uml#_7zDYENvZEeWGg4v4Bs5PXQ"/>
     </styles>
     <styles xmi:type="notation:EObjectListValueStyle" xmi:id="_WmNDgJEeEeaIpLuBWsjfAA" name="css_stylesheets"/>
@@ -1689,9 +1682,9 @@
       <element xmi:type="uml:Constraint" href="ucm.profile.uml#_Son84JdvEeax9YmGRX1ZdQ"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_So2mYZdvEeax9YmGRX1ZdQ" x="980" y="200" width="341"/>
     </children>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_Er5WIdvcEeWGg4v4Bs5PXQ" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_Er5WIdvcEeWGg4v4Bs5PXQ" name="diagram_compatibility_version" stringValue="1.3.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_Er5WItvcEeWGg4v4Bs5PXQ"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_Er5WI9vcEeWGg4v4Bs5PXQ">
+    <styles xmi:type="style_1:PapyrusDiagramStyle" xmi:id="_Ds59sJiHEee8nZCbeZ5GPQ" diagramKindId="org.eclipse.papyrus.uml.diagram.profile">
       <owner xmi:type="uml:Profile" href="ucm.profile.uml#_dEIhwNvbEeWGg4v4Bs5PXQ"/>
     </styles>
     <styles xmi:type="notation:EObjectListValueStyle" xmi:id="_WrM3QJEpEeaIpLuBWsjfAA" name="css_stylesheets"/>

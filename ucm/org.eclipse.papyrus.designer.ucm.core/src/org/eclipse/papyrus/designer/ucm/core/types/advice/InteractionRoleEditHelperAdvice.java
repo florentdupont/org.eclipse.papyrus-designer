@@ -21,15 +21,15 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.GetEditContextRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
-import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.InteractionDefinitionModule;
 import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.InteractionPattern;
-import org.eclipse.uml2.uml.Package;
+import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.InteractionRole;
+import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
- * Edit Helper Advice for {@link InteractionPattern}
+ * Edit Helper Advice for {@link InteractionRole}
  */
-public class InteractionPatternEditHelperAdvice extends AbstractEditHelperAdvice {
+public class InteractionRoleEditHelperAdvice extends AbstractEditHelperAdvice {
 
 	@Override
 	public boolean approveRequest(IEditCommandRequest request) {
@@ -43,7 +43,7 @@ public class InteractionPatternEditHelperAdvice extends AbstractEditHelperAdvice
 	}
 
 	/**
-	 * Check the creation condition for the creation of an interaction pattern
+	 * Check the creation condition for the creation of an interaction role
 	 *
 	 * @param request
 	 *            the create request
@@ -52,14 +52,13 @@ public class InteractionPatternEditHelperAdvice extends AbstractEditHelperAdvice
 	protected boolean approveCreateElementRequest(CreateElementRequest request) {
 		IElementType type = request.getElementType();
 		EObject container = request.getContainer();
-		if (type != null && container instanceof Package) {
-			if (UMLUtil.getStereotypeApplication((Package) container, InteractionDefinitionModule.class) != null) {
+		if (type != null && container instanceof StructuredClassifier) {
+			if (UMLUtil.getStereotypeApplication((StructuredClassifier) container, InteractionPattern.class) != null) {
 				return true;
 			}
 		}
 		return false;
 	}
-
 
 	/**
 	 * {@inheritDoc}

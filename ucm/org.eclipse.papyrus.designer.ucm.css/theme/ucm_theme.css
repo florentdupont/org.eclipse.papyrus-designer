@@ -50,7 +50,7 @@ Class[appliedStereotypes~="ComponentType"],
 Component[appliedStereotypes~="ComponentType"] {
 	fillColor: powderblue;
 	gradient : white vertical;
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+	elementIcon: true;
 }
 
 Class[appliedStereotypes~="ComponentType"] > Property, 
@@ -61,7 +61,7 @@ Component[appliedStereotypes~="ComponentType"] > Property{
 
 Class[appliedStereotypes~="ComponentType"] > Port, 
 Component[appliedStereotypes~="ComponentType"] > Port{
-	maskLabel : name type;
+	maskLabel : name;
 }
 
 
@@ -69,40 +69,56 @@ Class[appliedStereotypes~="AtomicComponentImplementation"],
 Component[appliedStereotypes~="AtomicComponentImplementation"] {
 	fillColor: royalblue;
 	gradient : white vertical;
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+	elementIcon: true;
 }
+
+Class[appliedStereotypes~="DetailedComponentImplementation"], 
+Component[appliedStereotypes~="DetailedComponentImplementation"] {
+	fillColor: lightblue;
+	gradient : white vertical;
+	elementIcon: true;
+}
+ 
+Class[appliedStereotypes~="ComponentPortImplementation"],
+Class[appliedStereotypes~="TechnicalPortImplementation"] {
+	fillColor: lightblue;
+	gradient : white vertical;
+	elementIcon: true;	
+} 
+ 
  
 Class[appliedStereotypes~="CompositeComponentImplementation"], 
 Component[appliedStereotypes~="CompositeComponentImplementation"] {
 	fillColor: dodgerblue;
 	gradient : white vertical;
-	elementIcon: false;	
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+	elementIcon: true;		
 }
 
 Class[appliedStereotypes~="CompositeComponentImplementation"]  Property[appliedStereotypes~="AssemblyPart"], 
 Component[appliedStereotypes~="CompositeComponentImplementation"]  Property[appliedStereotypes~="AssemblyPart"] {
-	fillColor: darkgrey;
-	gradient : lightgrey vertical;
+	fillColor: lightsteelblue;
+	gradient : whitesmoke vertical;
 	elementIcon: true;	
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+	maskLabel : name type;
+	displayTag: false;	
 }
 
 Class[appliedStereotypes~="CompositeComponentImplementation"] Property[appliedStereotypes~="Connection"], 
 Component[appliedStereotypes~="CompositeComponentImplementation"] Property[appliedStereotypes~="Connection"] {
-	fillColor: grey;
-	gradient : lightgrey vertical;
+	fillColor: plum;
+	gradient : whitesmoke vertical;
 	elementIcon: true;	
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/interaction.svg";	
+	radiusWidth: 30;
+	radiusHeight: 30;
+	maskLabel : name;
+	displayTag: false;
 }
 
 
-Class[appliedStereotypes~="ComponentTechnicalPolicy"],
-Class[appliedStereotypes~="ComponentPortTechnicalPolicy"] {
+Class[appliedStereotypes~="TechnicalPolicy"] {
 	fillColor: slateblue;
 	gradient : white vertical;
-	elementIcon: true;
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/policy.svg";	
+	elementIcon: true;	
 }
 
 Class[appliedStereotypes~="PortTypeSpec"] {
@@ -154,8 +170,7 @@ Class[appliedStereotypes~="TechnicalAspect"],
 Component[appliedStereotypes~="TechnicalAspect"] {
 	fillcolor: mediumpurple;
 	gradient : white vertical;
-	elementIcon: false;	
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/policy.svg";	
+	elementIcon: true;	
 }
 
 
@@ -179,19 +194,22 @@ Component[appliedStereotypes~="TechnicalAspect"] {
  
 Class[appliedStereotypes~=AppAssembly] Property[appliedStereotypes~="AssemblyPart"], 
 Component[appliedStereotypes~=AppAssembly] Property[appliedStereotypes~="AssemblyPart"] {
-	fillColor: darkgrey;
-	gradient : lightgrey vertical;
+	fillColor: lightsteelblue;
+	gradient : whitesmoke vertical;
 	elementIcon: true;	
-	labelMask: name type;
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/component.svg";	
+	maskLabel : name type;
+	displayTag: false;	
 }
 
 Class[appliedStereotypes~=AppAssembly] Property[appliedStereotypes~="Connection"], 
 Component[appliedStereotypes~=AppAssembly] Property[appliedStereotypes~="Connection"] {
-	fillColor: grey;
-	gradient : lightgrey vertical;
+	fillColor: plum;
+	gradient : whitesmoke vertical;
 	elementIcon: true;	
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/interaction.svg";
+	radiusWidth: 30;
+	radiusHeight: 30;
+	maskLabel : name;
+	displayTag: false;
 }
  
  /*
@@ -224,7 +242,6 @@ Model[appliedStereotypes~="NonfunctionalAspectModule"],
 Model[appliedStereotypes~="ResourceModule"] {
 	fillColor: mediumpurple;
 	gradient : white vertical;
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";
 	elementIcon: true;
 }
 
@@ -232,7 +249,6 @@ Package[appliedStereotypes~="ApplicationModule"],
 Model[appliedStereotypes~="ApplicationModule"] {
 	fillColor: lightgreen;
 	gradient : powderblue vertical;
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";
 	elementIcon: true;
 }
 
@@ -240,7 +256,6 @@ Package[appliedStereotypes~="ComponentModule"],
 Model[appliedStereotypes~="ComponentModule"] {
 	fillColor: royalblue;
 	gradient : white vertical;
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";
 	elementIcon: true;
 }
 
@@ -254,7 +269,6 @@ Model[appliedStereotypes~="AllocationPlan"],
 Model[appliedStereotypes~="TestCaseGroup"] {
 	fillColor: limegreen;
 	gradient : white vertical;
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";	
 	elementIcon: true;
 }
 
@@ -262,7 +276,7 @@ Package[appliedStereotypes~="ContractModule"],
 Model[appliedStereotypes~="ContractModule"] {
 	fillColor: gold;
 	gradient : white vertical;
-	svgFile: "platform:/plugin/org.eclipse.papyrus.designer.ucm.css/icons/module.svg";
+	elementIcon: true;
 }
 
 Operation[isAbstract=true] {

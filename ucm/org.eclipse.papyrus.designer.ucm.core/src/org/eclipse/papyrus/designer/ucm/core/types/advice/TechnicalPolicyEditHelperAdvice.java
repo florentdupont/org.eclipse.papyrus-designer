@@ -18,12 +18,16 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.GetEditContextRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 import org.eclipse.papyrus.designer.ucm.core.menu.EnhancedPopupMenu;
 import org.eclipse.papyrus.designer.ucm.core.menu.MenuHelper;
 import org.eclipse.papyrus.designer.ucm.core.provider.TechnicalPolicyContentProvider;
+import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_components.ComponentModule;
 import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_components.TechnicalPolicy;
 import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_technicalpolicies.TechnicalPolicyDefinition;
 import org.eclipse.papyrus.infra.emf.gmf.command.EMFtoGMFCommandWrapper;
@@ -31,6 +35,7 @@ import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Port;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.util.UMLUtil;
@@ -42,9 +47,32 @@ public class TechnicalPolicyEditHelperAdvice extends AbstractEditHelperAdvice {
 
 	@Override
 	public boolean approveRequest(IEditCommandRequest request) {
+		if (request instanceof GetEditContextRequest) {
+			GetEditContextRequest context = (GetEditContextRequest) request;
+			if (context.getEditCommandRequest() instanceof CreateElementRequest) {
+				return approveCreateElementRequest((CreateElementRequest) context.getEditCommandRequest());
+			}
+		}
 		return super.approveRequest(request);
 	}
 
+	/**
+	 * Check the creation condition for a technical policy definition
+	 *
+	 * @param request
+	 *            the create request
+	 * @return true, if the element can be created
+	 */
+	protected boolean approveCreateElementRequest(CreateElementRequest request) {
+		IElementType type = request.getElementType();
+		EObject container = request.getContainer();
+		if (type != null && container instanceof Package) {
+			if (UMLUtil.getStereotypeApplication((Package) container, ComponentModule.class) != null) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * {@inheritDoc}

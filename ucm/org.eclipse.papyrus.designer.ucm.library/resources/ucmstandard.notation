@@ -35,7 +35,7 @@
       <element xsi:nil="true"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NAYilbx9EeaMV-a9X3rlmQ" x="200"/>
     </children>
-    <styles xmi:type="notation:StringValueStyle" xmi:id="_lOAdIbFZEeaM0KkcZIyGsA" name="diagram_compatibility_version" stringValue="1.2.0"/>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_lOAdIbFZEeaM0KkcZIyGsA" name="diagram_compatibility_version" stringValue="1.3.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_lOAdIrFZEeaM0KkcZIyGsA"/>
     <styles xmi:type="style:PapyrusViewStyle" xmi:id="_lOAdI7FZEeaM0KkcZIyGsA">
       <owner xmi:type="uml:Model" href="ucmstandard.uml#__N2fwLFYEeaM0KkcZIyGsA"/>
