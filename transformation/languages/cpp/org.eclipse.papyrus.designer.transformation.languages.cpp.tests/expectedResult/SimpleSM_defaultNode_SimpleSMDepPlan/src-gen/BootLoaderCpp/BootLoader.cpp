@@ -43,6 +43,7 @@ namespace BootLoaderCpp {
  * 
  */
 void BootLoader::init() {
+	mainInstance.run();
 }
 
 } // of namespace BootLoaderCpp

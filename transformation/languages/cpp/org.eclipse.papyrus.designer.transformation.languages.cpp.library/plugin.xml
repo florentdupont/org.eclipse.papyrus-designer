@@ -34,18 +34,29 @@
 			<fileToOpen
 				location="HelloWorldCpp/HelloWorldCpp.di">
 			</fileToOpen>
+
 			<projectDescriptor
 				contentURI="models/examples/SimpleSM/"
 				name="SimpleSM"
-				description="Papyrus Designer example using a busing a simple state machine.">
+				description="Papyrus Designer example using a simple state machine with time events.">
 			</projectDescriptor>
 			<fileToOpen
 				location="SimpleSM/SimpleSM.di">
 			</fileToOpen>
+
+			<projectDescriptor
+				contentURI="models/examples/SMwithJunction/"
+				name="SMwithJunction"
+				description="Papyrus Designer example of a state machine containing a junction.">
+			</projectDescriptor>
+			<fileToOpen
+				location="SMwithJunction/SMwithJunction.di">
+			</fileToOpen>
+
 			<projectDescriptor
 				contentURI="models/examples/ComplexSM/"
 				name="ComplexSM"
-				description="Papyrus Designer example using a bit more complex state machine.">
+				description="Papyrus Designer example using a hierarchical state machine.">
 			</projectDescriptor>
 			<fileToOpen
 				location="ComplexSM/ComplexSM.di">

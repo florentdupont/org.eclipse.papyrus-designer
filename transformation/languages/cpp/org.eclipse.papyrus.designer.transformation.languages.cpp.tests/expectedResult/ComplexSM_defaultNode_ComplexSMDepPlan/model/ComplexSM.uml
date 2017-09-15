@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:Deployment="http://www.eclipse.org/papyrus/Deployment/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <uml:Model xmi:id="_O6TiIDLUEd26WNosUASSSw" name="ComplexSM">
-    <packagedElement xmi:type="uml:Package" xmi:id="_1ciNEeVVEeaYxL1QJO8D3g" name="deployment">
-      <packagedElement xmi:type="uml:Package" xmi:id="_1ci0JOVVEeaYxL1QJO8D3g" name="ComplexSMDepPlan">
+    <packagedElement xmi:type="uml:Package" xmi:id="_nhXNUJnsEeeCzKHJj7Wq7w" name="deployment">
+      <packagedElement xmi:type="uml:Package" xmi:id="_nhX0YZnsEeeCzKHJj7Wq7w" name="ComplexSMDepPlan">
         <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_KY5NgJbOEeanRKHSrFuDZA" name="mainInstance" classifier="_oqZNUDLaEd2qeKRLMdIx_A"/>
       </packagedElement>
       <profileApplication xmi:id="_OTdTUOSmEeaYxL1QJO8D3g">
@@ -12,70 +12,70 @@
         <appliedProfile href="pathmap://DEP_PROFILE/Deployment.profile.uml#_gPDsIBa-EearhdjjJ6cVzQ"/>
       </profileApplication>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_1ci0KeVVEeaYxL1QJO8D3g" name="classes">
-      <packagedElement xmi:type="uml:Class" xmi:id="_oqZNUDLaEd2qeKRLMdIx_A" name="ComplexSM" classifierBehavior="_1chmAOVVEeaYxL1QJO8D3g">
+    <packagedElement xmi:type="uml:Package" xmi:id="_nhYbcZnsEeeCzKHJj7Wq7w" name="classes">
+      <packagedElement xmi:type="uml:Class" xmi:id="_oqZNUDLaEd2qeKRLMdIx_A" name="ComplexSM" classifierBehavior="_nhP4kZnsEeeCzKHJj7Wq7w">
         <ownedAttribute xmi:id="_Ya5_oCkFEeaWptp_P1JVYQ" name="x">
           <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1bOlgOVVEeaYxL1QJO8D3g" name="systemState">
+        <ownedAttribute xmi:id="_nUxi0JnsEeeCzKHJj7Wq7w" name="systemState">
           <type xmi:type="uml:Enumeration" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/statemachine.uml#_uYyt0CdFEea3Ob5UfxuCGA"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1biHgOVVEeaYxL1QJO8D3g" name="Junction1">
+        <ownedAttribute xmi:id="_nf0VMJnsEeeCzKHJj7Wq7w" name="Junction1">
           <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1bnAAOVVEeaYxL1QJO8D3g" name="states" type="_1biukuVVEeaYxL1QJO8D3g"/>
-        <ownedAttribute xmi:id="_1bqDUOVVEeaYxL1QJO8D3g" name="activeStateID" type="_1biHgeVVEeaYxL1QJO8D3g"/>
-        <ownedAttribute xmi:id="_1b1pgeVVEeaYxL1QJO8D3g" name="dispatchFlag">
+        <ownedAttribute xmi:id="_nf7p8JnsEeeCzKHJj7Wq7w" name="states" type="_nf0VNZnsEeeCzKHJj7Wq7w"/>
+        <ownedAttribute xmi:id="_nf_7YZnsEeeCzKHJj7Wq7w" name="activeStateID" type="_nf0VMZnsEeeCzKHJj7Wq7w"/>
+        <ownedAttribute xmi:id="_ngS2UZnsEeeCzKHJj7Wq7w" name="dispatchFlag">
           <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1b_agOVVEeaYxL1QJO8D3g" name="threads">
+        <ownedAttribute xmi:id="_ngmYUJnsEeeCzKHJj7Wq7w" name="threads">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/pthread.uml#_ea234NYGEd-CgJIavLpOxQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1cCd0eVVEeaYxL1QJO8D3g" name="flags">
+        <ownedAttribute xmi:id="_ngqCsJnsEeeCzKHJj7Wq7w" name="flags">
           <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1cETAeVVEeaYxL1QJO8D3g" name="conds">
+        <ownedAttribute xmi:id="_ngttEZnsEeeCzKHJj7Wq7w" name="conds">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/pthread.uml#_-vYZoCa0EeazPcQ6-9hBeQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1cGvQOVVEeaYxL1QJO8D3g" name="mutexes">
+        <ownedAttribute xmi:id="_ngwJUZnsEeeCzKHJj7Wq7w" name="mutexes">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/pthread.uml#__niwsCa0EeazPcQ6-9hBeQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1cIkceVVEeaYxL1QJO8D3g" name="threadStructs">
+        <ownedAttribute xmi:id="_ngylkZnsEeeCzKHJj7Wq7w" name="threadStructs">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/statemachine.uml#_4Z1UwCmREearkPe7QerpcQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1cSVcOVVEeaYxL1QJO8D3g" name="doActivityTable" type="_1cP5MeVVEeaYxL1QJO8D3g"/>
-        <ownedAttribute xmi:id="_1cVYweVVEeaYxL1QJO8D3g" name="timeEventTable" type="_1cP5MeVVEeaYxL1QJO8D3g"/>
-        <ownedAttribute xmi:id="_1cXN8eVVEeaYxL1QJO8D3g" name="timeEventThreads">
+        <ownedAttribute xmi:id="_ng7IcZnsEeeCzKHJj7Wq7w" name="doActivityTable" type="_ng4sMpnsEeeCzKHJj7Wq7w"/>
+        <ownedAttribute xmi:id="_nhAA8JnsEeeCzKHJj7Wq7w" name="timeEventTable" type="_ng4sMpnsEeeCzKHJj7Wq7w"/>
+        <ownedAttribute xmi:id="_nhCdMJnsEeeCzKHJj7Wq7w" name="timeEventThreads">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/pthread.uml#_ea234NYGEd-CgJIavLpOxQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1cZDIeVVEeaYxL1QJO8D3g" name="timeEventFlags">
+        <ownedAttribute xmi:id="_nhESYZnsEeeCzKHJj7Wq7w" name="timeEventFlags">
           <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1caRQeVVEeaYxL1QJO8D3g" name="timeEventConds">
+        <ownedAttribute xmi:id="_nhGuoJnsEeeCzKHJj7Wq7w" name="timeEventConds">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/pthread.uml#_-vYZoCa0EeazPcQ6-9hBeQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1ccGceVVEeaYxL1QJO8D3g" name="timeEventMutexes">
+        <ownedAttribute xmi:id="_nhIj0ZnsEeeCzKHJj7Wq7w" name="timeEventMutexes">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/pthread.uml#__niwsCa0EeazPcQ6-9hBeQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1cdUkeVVEeaYxL1QJO8D3g" name="timeEventThreadStructs">
+        <ownedAttribute xmi:id="_nhKZAZnsEeeCzKHJj7Wq7w" name="timeEventThreadStructs">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/statemachine.uml#_4Z1UwCmREearkPe7QerpcQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1cfw0OVVEeaYxL1QJO8D3g" name="eventQueue">
+        <ownedAttribute xmi:id="_nhM1Q5nsEeeCzKHJj7Wq7w" name="eventQueue">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/statemachine.uml#_dWxYQD0zEeaQfbTekb55bw"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1cfw0eVVEeaYxL1QJO8D3g" name="currentEvent">
+        <ownedAttribute xmi:id="_nhNcUJnsEeeCzKHJj7Wq7w" name="currentEvent">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/statemachine.uml#_MyJIUD0zEeaQfbTekb55bw"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1chmAeVVEeaYxL1QJO8D3g" name="dispatchThread">
+        <ownedAttribute xmi:id="_nhQfoJnsEeeCzKHJj7Wq7w" name="dispatchThread">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/pthread.uml#_ea234NYGEd-CgJIavLpOxQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1chmAuVVEeaYxL1QJO8D3g" name="dispatchStruct">
+        <ownedAttribute xmi:id="_nhQfoZnsEeeCzKHJj7Wq7w" name="dispatchStruct">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/statemachine.uml#_4Z1UwCmREearkPe7QerpcQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1chmA-VVEeaYxL1QJO8D3g" name="runToCompletionMutex">
+        <ownedAttribute xmi:id="_nhQfopnsEeeCzKHJj7Wq7w" name="runToCompletionMutex">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/pthread.uml#__niwsCa0EeazPcQ6-9hBeQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_1chmBOVVEeaYxL1QJO8D3g" name="runToCompletionCond">
+        <ownedAttribute xmi:id="_nhQfo5nsEeeCzKHJj7Wq7w" name="runToCompletionCond">
           <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/pthread.uml#_-vYZoCa0EeazPcQ6-9hBeQ"/>
         </ownedAttribute>
         <interfaceRealization xmi:id="_YQqH0JYlEd6G9q9hwr11bw" name="realization of ICompute" client="_oqZNUDLaEd2qeKRLMdIx_A" supplier="_cn-H0DLbEd2qeKRLMdIx_A" contract="_cn-H0DLbEd2qeKRLMdIx_A"/>
@@ -83,7 +83,7 @@
           <supplier xmi:type="uml:Interface" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
           <contract href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/sysinterfaces.uml#_PTWzwCS-Ed-A_I32T0fkaA"/>
         </interfaceRealization>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1chmAOVVEeaYxL1QJO8D3g" name="dispatchEvent" specification="_1cg-8eVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_nhP4kZnsEeeCzKHJj7Wq7w" name="dispatchEvent" specification="_nhP4kJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>bool popDeferred = false;
 while(true) {
@@ -165,7 +165,7 @@ cout &lt;&lt; &quot;sleeping for 15 seconds (statemachine remains active);&quot;
 sleep(15);
 </body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1bu70OVVEeaYxL1QJO8D3g" name="SMSimple_Region0_Enter" specification="_1buUwOVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ngGpEJnsEeeCzKHJj7Wq7w" name="SMSimple_Region0_Enter" specification="_ngGCAJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>switch(enter_mode) {
 	case SMSIMPLE_REGION0_DEFAULT:
@@ -184,7 +184,7 @@ sleep(15);
 		break;
 }</body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1bvi4eVVEeaYxL1QJO8D3g" name="State3_Region1_Enter" specification="_1bu70eVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ngIeQJnsEeeCzKHJj7Wq7w" name="State3_Region1_Enter" specification="_ngHQIJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>switch(enter_mode) {
 	case STATE3_REGION1_SHALLOWHISTORY1: 
@@ -209,7 +209,7 @@ sleep(15);
 		break;
 }</body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1bwJ8eVVEeaYxL1QJO8D3g" name="State3_Region1_Exit" specification="_1bwJ8OVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ngKTcJnsEeeCzKHJj7Wq7w" name="State3_Region1_Exit" specification="_ngJsYJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>//exiting region Region1
 if (states[STATE3_ID].actives[0] != STATE_MAX) {
@@ -229,11 +229,11 @@ if (states[STATE3_ID].actives[0] != STATE_MAX) {
 	states[STATE3_ID].actives[0] = STATE_MAX;
 }</body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1b1CcOVVEeaYxL1QJO8D3g" name="ComplexSM" specification="_1bxYEOVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ngPL8ZnsEeeCzKHJj7Wq7w" name="ComplexSM" specification="_ngK6gJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>startBehavior();</body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1b1pgOVVEeaYxL1QJO8D3g" name="startBehavior" specification="_1b1CceVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ngS2UJnsEeeCzKHJj7Wq7w" name="startBehavior" specification="_ngPzAJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>systemState = statemachine::IDLE;
 doActivityTable[STATE0_ID] =  states[STATE0_ID].doActivity;
@@ -284,7 +284,7 @@ while(!dispatchFlag) {}
 SMSimple_Region0_Enter(SMSIMPLE_REGION0_DEFAULT);
 </body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1b23oOVVEeaYxL1QJO8D3g" name="processTE_value_50_unit_ms_" specification="_1b2QkOVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ngXu0JnsEeeCzKHJj7Wq7w" name="processTE_value_50_unit_ms_" specification="_ngTdYJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>systemState = statemachine::EVENT_PROCESSING;
 if (systemState == statemachine::EVENT_PROCESSING) {
@@ -307,7 +307,7 @@ if (systemState == statemachine::EVENT_PROCESSING) {
 }
 </body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1b568OVVEeaYxL1QJO8D3g" name="processTE_value_500_unit_ms_" specification="_1b23oeVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ngd1cJnsEeeCzKHJj7Wq7w" name="processTE_value_500_unit_ms_" specification="_ngXu0ZnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>systemState = statemachine::EVENT_PROCESSING;
 if (states[STATE3_ID].actives[0] == STATE3_1_ID) {
@@ -338,7 +338,6 @@ if (systemState == statemachine::EVENT_PROCESSING) {
 			//from State1 to State0
 			if (true) {
 			setFlag(COMPLEXSM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID), statemachine::TF_TIME_EVENT, false);
-			add(2,3);
 			mult(3,5);
 			std::cout &lt;&lt;&quot;From State1 to State0 \n&quot;;
 			activeStateID = STATE0_ID;
@@ -380,7 +379,7 @@ if (systemState == statemachine::EVENT_PROCESSING) {
 }
 </body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1b6iAOVVEeaYxL1QJO8D3g" name="processCE_CServer_impl_add" specification="_1b568eVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ngecgJnsEeeCzKHJj7Wq7w" name="processCE_CServer_impl_add" specification="_ngd1cZnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>COMPLEXSM_GET_CONTROL
 systemState = statemachine::EVENT_PROCESSING;
@@ -405,7 +404,7 @@ if (systemState == statemachine::EVENT_PROCESSING) {
 COMPLEXSM_RELEASE_CONTROL
 </body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1b8-QeVVEeaYxL1QJO8D3g" name="processTE_value_25_unit_ms_" specification="_1b8-QOVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ngj8EJnsEeeCzKHJj7Wq7w" name="processTE_value_25_unit_ms_" specification="_ngjVAJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>systemState = statemachine::EVENT_PROCESSING;
 if (systemState == statemachine::EVENT_PROCESSING) {
@@ -430,16 +429,16 @@ if (systemState == statemachine::EVENT_PROCESSING) {
 }
 </body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1b-MYeVVEeaYxL1QJO8D3g" name="processCompletionEvent" specification="_1b-MYOVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_nglKMJnsEeeCzKHJj7Wq7w" name="processCompletionEvent" specification="_ngkjIJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>systemState = statemachine::EVENT_PROCESSING;
 </body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1b-zdOVVEeaYxL1QJO8D3g" name="State2_entry" specification="_1b-zc-VVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_nglxQZnsEeeCzKHJj7Wq7w" name="State2_entry" specification="_nglxQJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>x = 5;</body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1cP5MOVVEeaYxL1QJO8D3g" name="thread_func_wrapper" specification="_1cLAseVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ng4sMZnsEeeCzKHJj7Wq7w" name="thread_func_wrapper" specification="_ng0awZnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>statemachine::StructForThread_t* cptr = (statemachine::StructForThread_t*)data;
 ComplexSM* ptr = (ComplexSM*) cptr->ptr;
@@ -453,7 +452,7 @@ switch(cptr->func_type) {
 }
 return NULL;</body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1cUxs-VVEeaYxL1QJO8D3g" name="doCallActivity" specification="_1cUxseVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ng-LwJnsEeeCzKHJj7Wq7w" name="doCallActivity" specification="_ng9ksJnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>flags[id] = false;
 while(true) {
@@ -471,7 +470,7 @@ while(true) {
 	pthread_mutex_unlock(&amp;mutexes[id]);
 }</body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1cVYwOVVEeaYxL1QJO8D3g" name="setFlag" specification="_1cUxtOVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ng-y0JnsEeeCzKHJj7Wq7w" name="setFlag" specification="_ng-LwZnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>//value = true => start activity
 //value = false => stop activity
@@ -486,7 +485,7 @@ if (func_type == statemachine::TF_DO_ACTIVITY) {
 }
 </body>
         </ownedBehavior>
-        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1cfJxOVVEeaYxL1QJO8D3g" name="listenTimeEvent" specification="_1cfJweVVEeaYxL1QJO8D3g">
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_nhM1QpnsEeeCzKHJj7Wq7w" name="listenTimeEvent" specification="_nhMOMZnsEeeCzKHJj7Wq7w">
           <language>C++</language>
           <body>struct timeval tv;
 struct timespec ts;
@@ -519,7 +518,7 @@ while(true) {
 	}
 }</body>
         </ownedBehavior>
-        <ownedOperation xmi:id="_1cg-8eVVEeaYxL1QJO8D3g" name="dispatchEvent" method="_1chmAOVVEeaYxL1QJO8D3g"/>
+        <ownedOperation xmi:id="_nhP4kJnsEeeCzKHJj7Wq7w" name="dispatchEvent" method="_nhP4kZnsEeeCzKHJj7Wq7w"/>
         <ownedOperation xmi:id="_TbIjUJYlEd6G9q9hwr11bw" name="add" method="_ML-4AKI5Ed6FqJCjEUrkqQ">
           <ownedParameter xmi:id="_espUoC1REea25uwDpRQuxg" name="a">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
@@ -555,91 +554,91 @@ while(true) {
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:id="_VGsRACgBEeapjr3l63b85A" name="run" method="_YNCW4CgBEeapjr3l63b85A"/>
-        <ownedOperation xmi:id="_1buUwOVVEeaYxL1QJO8D3g" name="SMSimple_Region0_Enter" method="_1bu70OVVEeaYxL1QJO8D3g">
-          <ownedParameter xmi:id="_1buUweVVEeaYxL1QJO8D3g" name="enter_mode">
+        <ownedOperation xmi:id="_ngGCAJnsEeeCzKHJj7Wq7w" name="SMSimple_Region0_Enter" method="_ngGpEJnsEeeCzKHJj7Wq7w">
+          <ownedParameter xmi:id="_ngGCAZnsEeeCzKHJj7Wq7w" name="enter_mode">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xmi:id="_1bu70eVVEeaYxL1QJO8D3g" name="State3_Region1_Enter" method="_1bvi4eVVEeaYxL1QJO8D3g">
-          <ownedParameter xmi:id="_1bvi4OVVEeaYxL1QJO8D3g" name="enter_mode">
+        <ownedOperation xmi:id="_ngHQIJnsEeeCzKHJj7Wq7w" name="State3_Region1_Enter" method="_ngIeQJnsEeeCzKHJj7Wq7w">
+          <ownedParameter xmi:id="_ngHQIZnsEeeCzKHJj7Wq7w" name="enter_mode">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xmi:id="_1bwJ8OVVEeaYxL1QJO8D3g" name="State3_Region1_Exit" method="_1bwJ8eVVEeaYxL1QJO8D3g"/>
-        <ownedOperation xmi:id="_1bxYEOVVEeaYxL1QJO8D3g" name="ComplexSM" method="_1b1CcOVVEeaYxL1QJO8D3g"/>
-        <ownedOperation xmi:id="_1b1CceVVEeaYxL1QJO8D3g" name="startBehavior" method="_1b1pgOVVEeaYxL1QJO8D3g"/>
-        <ownedOperation xmi:id="_1b2QkOVVEeaYxL1QJO8D3g" name="processTE_value_50_unit_ms_" method="_1b23oOVVEeaYxL1QJO8D3g"/>
-        <ownedOperation xmi:id="_1b23oeVVEeaYxL1QJO8D3g" name="processTE_value_500_unit_ms_" method="_1b568OVVEeaYxL1QJO8D3g"/>
-        <ownedOperation xmi:id="_1b568eVVEeaYxL1QJO8D3g" name="processCE_CServer_impl_add" method="_1b6iAOVVEeaYxL1QJO8D3g">
-          <ownedParameter xmi:id="_1b7JEOVVEeaYxL1QJO8D3g" name="a">
+        <ownedOperation xmi:id="_ngJsYJnsEeeCzKHJj7Wq7w" name="State3_Region1_Exit" method="_ngKTcJnsEeeCzKHJj7Wq7w"/>
+        <ownedOperation xmi:id="_ngK6gJnsEeeCzKHJj7Wq7w" name="ComplexSM" method="_ngPL8ZnsEeeCzKHJj7Wq7w"/>
+        <ownedOperation xmi:id="_ngPzAJnsEeeCzKHJj7Wq7w" name="startBehavior" method="_ngS2UJnsEeeCzKHJj7Wq7w"/>
+        <ownedOperation xmi:id="_ngTdYJnsEeeCzKHJj7Wq7w" name="processTE_value_50_unit_ms_" method="_ngXu0JnsEeeCzKHJj7Wq7w"/>
+        <ownedOperation xmi:id="_ngXu0ZnsEeeCzKHJj7Wq7w" name="processTE_value_500_unit_ms_" method="_ngd1cJnsEeeCzKHJj7Wq7w"/>
+        <ownedOperation xmi:id="_ngd1cZnsEeeCzKHJj7Wq7w" name="processCE_CServer_impl_add" method="_ngecgJnsEeeCzKHJj7Wq7w">
+          <ownedParameter xmi:id="_nggRsJnsEeeCzKHJj7Wq7w" name="a">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1b7wIOVVEeaYxL1QJO8D3g" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1b7wIeVVEeaYxL1QJO8D3g" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nggRsZnsEeeCzKHJj7Wq7w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nggRspnsEeeCzKHJj7Wq7w" value="1"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_1b7wIuVVEeaYxL1QJO8D3g" name="b">
+          <ownedParameter xmi:id="_ngg4wJnsEeeCzKHJj7Wq7w" name="b">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_8heigBydEduyofBvg4RL2w"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1b7wI-VVEeaYxL1QJO8D3g" value="1"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1b7wJOVVEeaYxL1QJO8D3g" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ngg4wZnsEeeCzKHJj7Wq7w" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ngg4wpnsEeeCzKHJj7Wq7w" value="1"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xmi:id="_1b8-QOVVEeaYxL1QJO8D3g" name="processTE_value_25_unit_ms_" method="_1b8-QeVVEeaYxL1QJO8D3g"/>
-        <ownedOperation xmi:id="_1b-MYOVVEeaYxL1QJO8D3g" name="processCompletionEvent" method="_1b-MYeVVEeaYxL1QJO8D3g"/>
-        <ownedOperation xmi:id="_1b-zc-VVEeaYxL1QJO8D3g" name="State2_entry" method="_1b-zdOVVEeaYxL1QJO8D3g"/>
-        <ownedOperation xmi:id="_1cLAseVVEeaYxL1QJO8D3g" name="thread_func_wrapper" isStatic="true" method="_1cP5MOVVEeaYxL1QJO8D3g">
-          <ownedParameter xmi:id="_1cLAsuVVEeaYxL1QJO8D3g" name="data">
+        <ownedOperation xmi:id="_ngjVAJnsEeeCzKHJj7Wq7w" name="processTE_value_25_unit_ms_" method="_ngj8EJnsEeeCzKHJj7Wq7w"/>
+        <ownedOperation xmi:id="_ngkjIJnsEeeCzKHJj7Wq7w" name="processCompletionEvent" method="_nglKMJnsEeeCzKHJj7Wq7w"/>
+        <ownedOperation xmi:id="_nglxQJnsEeeCzKHJj7Wq7w" name="State2_entry" method="_nglxQZnsEeeCzKHJj7Wq7w"/>
+        <ownedOperation xmi:id="_ng0awZnsEeeCzKHJj7Wq7w" name="thread_func_wrapper" isStatic="true" method="_ng4sMZnsEeeCzKHJj7Wq7w">
+          <ownedParameter xmi:id="_ng0awpnsEeeCzKHJj7Wq7w" name="data">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_1cNc8eVVEeaYxL1QJO8D3g" name="ret" direction="return">
+          <ownedParameter xmi:id="_ng23AZnsEeeCzKHJj7Wq7w" name="ret" direction="return">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_8I6RgBydEduyofBvg4RL2w"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xmi:id="_1cUxseVVEeaYxL1QJO8D3g" name="doCallActivity" method="_1cUxs-VVEeaYxL1QJO8D3g">
-          <ownedParameter xmi:id="_1cUxsuVVEeaYxL1QJO8D3g" name="id">
+        <ownedOperation xmi:id="_ng9ksJnsEeeCzKHJj7Wq7w" name="doCallActivity" method="_ng-LwJnsEeeCzKHJj7Wq7w">
+          <ownedParameter xmi:id="_ng9ksZnsEeeCzKHJj7Wq7w" name="id">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xmi:id="_1cUxtOVVEeaYxL1QJO8D3g" name="setFlag" method="_1cVYwOVVEeaYxL1QJO8D3g">
-          <ownedParameter xmi:id="_1cUxteVVEeaYxL1QJO8D3g" name="id">
+        <ownedOperation xmi:id="_ng-LwZnsEeeCzKHJj7Wq7w" name="setFlag" method="_ng-y0JnsEeeCzKHJj7Wq7w">
+          <ownedParameter xmi:id="_ng-LwpnsEeeCzKHJj7Wq7w" name="id">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_1cUxtuVVEeaYxL1QJO8D3g" name="func_type">
+          <ownedParameter xmi:id="_ng-Lw5nsEeeCzKHJj7Wq7w" name="func_type">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_5lVhgBydEduyofBvg4RL2w"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_1cUxt-VVEeaYxL1QJO8D3g" name="value">
+          <ownedParameter xmi:id="_ng-LxJnsEeeCzKHJj7Wq7w" name="value">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xmi:id="_1cfJweVVEeaYxL1QJO8D3g" name="listenTimeEvent" method="_1cfJxOVVEeaYxL1QJO8D3g">
-          <ownedParameter xmi:id="_1cfJwuVVEeaYxL1QJO8D3g" name="id">
+        <ownedOperation xmi:id="_nhMOMZnsEeeCzKHJj7Wq7w" name="listenTimeEvent" method="_nhM1QpnsEeeCzKHJj7Wq7w">
+          <ownedParameter xmi:id="_nhM1QJnsEeeCzKHJj7Wq7w" name="id">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
           </ownedParameter>
-          <ownedParameter xmi:id="_1cfJw-VVEeaYxL1QJO8D3g" name="duration">
+          <ownedParameter xmi:id="_nhM1QZnsEeeCzKHJj7Wq7w" name="duration">
             <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
           </ownedParameter>
         </ownedOperation>
-        <ownedOperation xmi:id="_1biHguVVEeaYxL1QJO8D3g" name="entry_dft"/>
-        <ownedOperation xmi:id="_1biukOVVEeaYxL1QJO8D3g" name="exit_dft"/>
-        <ownedOperation xmi:id="_1biukeVVEeaYxL1QJO8D3g" name="doActivity_dft"/>
-        <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_1biukuVVEeaYxL1QJO8D3g" name="State_t"/>
-        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_1biHgeVVEeaYxL1QJO8D3g" name="StateIDEnum">
-          <ownedLiteral xmi:id="_1b-zcOVVEeaYxL1QJO8D3g" name="STATE0_ID"/>
-          <ownedLiteral xmi:id="_1b-zceVVEeaYxL1QJO8D3g" name="STATE1_ID"/>
-          <ownedLiteral xmi:id="_1b-zcuVVEeaYxL1QJO8D3g" name="STATE2_ID"/>
-          <ownedLiteral xmi:id="_1b-zdeVVEeaYxL1QJO8D3g" name="STATE3_ID"/>
-          <ownedLiteral xmi:id="_1b-zduVVEeaYxL1QJO8D3g" name="STATE3_1_ID"/>
-          <ownedLiteral xmi:id="_1b-zd-VVEeaYxL1QJO8D3g" name="STATE3_2_ID"/>
-          <ownedLiteral xmi:id="_1b-zeOVVEeaYxL1QJO8D3g" name="STATE_MAX"/>
+        <ownedOperation xmi:id="_nf0VMpnsEeeCzKHJj7Wq7w" name="entry_dft"/>
+        <ownedOperation xmi:id="_nf0VM5nsEeeCzKHJj7Wq7w" name="exit_dft"/>
+        <ownedOperation xmi:id="_nf0VNJnsEeeCzKHJj7Wq7w" name="doActivity_dft"/>
+        <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_nf0VNZnsEeeCzKHJj7Wq7w" name="State_t"/>
+        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_nf0VMZnsEeeCzKHJj7Wq7w" name="StateIDEnum">
+          <ownedLiteral xmi:id="_nglKMZnsEeeCzKHJj7Wq7w" name="STATE0_ID"/>
+          <ownedLiteral xmi:id="_nglKMpnsEeeCzKHJj7Wq7w" name="STATE1_ID"/>
+          <ownedLiteral xmi:id="_nglKM5nsEeeCzKHJj7Wq7w" name="STATE2_ID"/>
+          <ownedLiteral xmi:id="_nglxQpnsEeeCzKHJj7Wq7w" name="STATE3_ID"/>
+          <ownedLiteral xmi:id="_nglxQ5nsEeeCzKHJj7Wq7w" name="STATE3_1_ID"/>
+          <ownedLiteral xmi:id="_nglxRJnsEeeCzKHJj7Wq7w" name="STATE3_2_ID"/>
+          <ownedLiteral xmi:id="_nglxRZnsEeeCzKHJj7Wq7w" name="STATE_MAX"/>
         </nestedClassifier>
-        <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_1cP5MeVVEeaYxL1QJO8D3g" name="FptPointer"/>
-        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_1bZkoOVVEeaYxL1QJO8D3g" name="EventId_t">
-          <ownedLiteral xmi:id="_1baLsOVVEeaYxL1QJO8D3g" name="TE_VALUE_50_UNIT_MS__ID"/>
-          <ownedLiteral xmi:id="_1baLseVVEeaYxL1QJO8D3g" name="TE_VALUE_500_UNIT_MS__ID"/>
-          <ownedLiteral xmi:id="_1baywOVVEeaYxL1QJO8D3g" name="TE_VALUE_25_UNIT_MS__ID"/>
-          <ownedLiteral xmi:id="_1bcA4OVVEeaYxL1QJO8D3g" name="CE_CSERVER_IMPL_ADD_ID"/>
-          <ownedLiteral xmi:id="_1bcn8OVVEeaYxL1QJO8D3g" name="COMPLETIONEVENT_ID"/>
+        <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="_ng4sMpnsEeeCzKHJj7Wq7w" name="FptPointer"/>
+        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_nfpWEJnsEeeCzKHJj7Wq7w" name="EventId_t">
+          <ownedLiteral xmi:id="_nfsZYJnsEeeCzKHJj7Wq7w" name="TE_VALUE_50_UNIT_MS__ID"/>
+          <ownedLiteral xmi:id="_nfsZYZnsEeeCzKHJj7Wq7w" name="TE_VALUE_500_UNIT_MS__ID"/>
+          <ownedLiteral xmi:id="_nfsZYpnsEeeCzKHJj7Wq7w" name="TE_VALUE_25_UNIT_MS__ID"/>
+          <ownedLiteral xmi:id="_nfuOkJnsEeeCzKHJj7Wq7w" name="CE_CSERVER_IMPL_ADD_ID"/>
+          <ownedLiteral xmi:id="_nfu1oJnsEeeCzKHJj7Wq7w" name="COMPLETIONEVENT_ID"/>
         </nestedClassifier>
       </packagedElement>
-      <packagedElement xmi:type="uml:Package" xmi:id="_1cjbM-VVEeaYxL1QJO8D3g" name="Interfaces">
+      <packagedElement xmi:type="uml:Package" xmi:id="_nhZCgpnsEeeCzKHJj7Wq7w" name="Interfaces">
         <packagedElement xmi:type="uml:Interface" xmi:id="_cn-H0DLbEd2qeKRLMdIx_A" name="ICompute">
           <ownedReception xmi:id="_1U0U8McqEeSsAI2TZshUyg" name="add" signal="_ywk2kMcqEeSsAI2TZshUyg"/>
           <ownedReception xmi:id="_M-tXYMcrEeSsAI2TZshUyg" name="mult" signal="_z0nGcMcqEeSsAI2TZshUyg"/>
@@ -681,10 +680,10 @@ while(true) {
         <packagedElement xmi:type="uml:Signal" xmi:id="_ywk2kMcqEeSsAI2TZshUyg" name="Add"/>
         <packagedElement xmi:type="uml:Signal" xmi:id="_z0nGcMcqEeSsAI2TZshUyg" name="Mult"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Dependency" xmi:id="_1bOlgeVVEeaYxL1QJO8D3g" client="_oqZNUDLaEd2qeKRLMdIx_A">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_nUxi0ZnsEeeCzKHJj7Wq7w" client="_oqZNUDLaEd2qeKRLMdIx_A">
         <supplier xmi:type="uml:Enumeration" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/statemachine.uml#_hNs5oCdSEea6h5xPEh8iAg"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Dependency" xmi:id="_1bmY8OVVEeaYxL1QJO8D3g" client="_1biukuVVEeaYxL1QJO8D3g" supplier="_1biHgeVVEeaYxL1QJO8D3g"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_nf7C4JnsEeeCzKHJj7Wq7w" client="_nf0VNZnsEeeCzKHJj7Wq7w" supplier="_nf0VMZnsEeeCzKHJj7Wq7w"/>
     </packagedElement>
     <profileApplication xmi:id="_O6TiIjLUEd26WNosUASSSw">
       <eAnnotations xmi:id="_O6TiIzLUEd26WNosUASSSw" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -700,36 +699,36 @@ while(true) {
     </profileApplication>
     <profileApplication xmi:id="_zi-sUE2sEeGl8qrc8BM7vA">
       <eAnnotations xmi:id="_0QJUUE2sEeGl8qrc8BM7vA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//Alloc"/>
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/MARTE/1#//MARTE_Foundations/Alloc"/>
       </eAnnotations>
       <appliedProfile href="pathmap://Papyrus_PROFILES/MARTE.profile.uml#_ar8OsAPMEdyuUt-4qHuVvQ"/>
     </profileApplication>
-    <profileApplication xmi:id="_1bPMkOVVEeaYxL1QJO8D3g">
-      <eAnnotations xmi:id="_1bPMkeVVEeaYxL1QJO8D3g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:id="_nU5eoJnsEeeCzKHJj7Wq7w">
+      <eAnnotations xmi:id="_nU-XIJnsEeeCzKHJj7Wq7w" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
       </eAnnotations>
       <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Deployment:DeploymentPlan xmi:id="_1ci0KOVVEeaYxL1QJO8D3g" base_Package="_1ci0JOVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Include xmi:id="_1cjbMuVVEeaYxL1QJO8D3g" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" header="#define COMPLEXSM_TIME_EVENT_LOWER_BOUND (0)&#xA;#define COMPLEXSM_CHANGE_EVENT_LOWER_BOUND (3)&#xA;#define COMPLEXSM_TE_INDEX(id) (id - COMPLEXSM_TIME_EVENT_LOWER_BOUND)&#xA;#define COMPLEXSM_CHE_INDEX(id) (id - COMPLEXSM_CHANGE_EVENT_LOWER_BOUND)&#xA;#define SMSIMPLE_REGION0_DEFAULT (0)&#xA;#define SMSIMPLE_REGION0_STATE1 (1)&#xA;#define STATE3_REGION1_SHALLOWHISTORY1 (1)&#xA;#define SMSIMPLE_REGION0 (0)&#xA;#define STATE3_REGION1 (1)&#xA;#include &quot;time.h&quot;&#xA;#include &quot;pthread.h&quot;&#xA;#include &quot;time.h&quot;&#xA;&#x9;&#x9;#include &quot;sys/time.h&quot;&#xA;#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING) {return;}&#xA;#define ComplexSM_THREAD_CREATE(thThread, str) pthread_create(&amp;thThread, NULL, &amp;ComplexSM::thread_func_wrapper, &amp;str);&#xA;#define COMPLEXSM_GET_CONTROL /*mutex synchronization to protect run-to-completion semantics*/ \&#xA;&#x9;&#x9;pthread_mutex_lock(&amp;runToCompletionMutex); \&#xA;&#x9;&#x9;while (systemState != statemachine::IDLE) {\&#xA;&#x9;&#x9;&#x9;pthread_cond_wait(&amp;runToCompletionCond, &amp;runToCompletionMutex);\&#xA;&#x9;&#x9;}&#xA;#define COMPLEXSM_RELEASE_CONTROL systemState = statemachine::IDLE; pthread_cond_signal(&amp;runToCompletionCond); \&#xA;&#x9;&#x9;&#x9;&#x9;pthread_mutex_unlock(&amp;runToCompletionMutex);" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
-  <C_Cpp:Typedef xmi:id="_1cr-EOVVEeaYxL1QJO8D3g" definition="struct State_t {&#xA;&#x9;//1 is configured as the maximum number of orthogonal regions a composite states can have&#xA;&#x9;unsigned int /*StateIDEnum*/ previousStates[1]; //for history states&#xA;&#x9;unsigned int /*StateIDEnum*/ actives[1];&#xA;&#x9;void (ComplexSM::*entry)();&#xA;&#x9;void (ComplexSM::*exit)();&#xA;&#x9;void (ComplexSM::*doActivity)();&#xA;&#x9;State_t() {&#xA;&#x9;&#x9;entry = &amp;ComplexSM::entry_dft;&#xA;&#x9;&#x9;exit = &amp;ComplexSM::exit_dft;&#xA;&#x9;&#x9;doActivity = &amp;ComplexSM::doActivity_dft;&#xA;&#x9;&#x9;for(int i = 0; i &lt; 1; i++) {&#xA;&#x9;&#x9;&#x9;previousStates[i] = STATE_MAX;&#xA;&#x9;&#x9;&#x9;actives[i] = STATE_MAX;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;} " base_primitivetype="_1biukuVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1cr-EeVVEeaYxL1QJO8D3g" definition="[6]" base_property="_1bnAAOVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1ctzQOVVEeaYxL1QJO8D3g" definition="[STATE_MAX]" base_property="_1b_agOVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1ctzQuVVEeaYxL1QJO8D3g" definition="[STATE_MAX]" base_property="_1cCd0eVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1cuaUeVVEeaYxL1QJO8D3g" definition="[STATE_MAX]" base_property="_1cETAeVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1cvBYOVVEeaYxL1QJO8D3g" definition="[STATE_MAX]" base_property="_1cGvQOVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1cz54uVVEeaYxL1QJO8D3g" definition="[STATE_MAX]" base_property="_1cIkceVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Typedef xmi:id="_1c0g8eVVEeaYxL1QJO8D3g" definition="void (ComplexSM::*typeName)()" base_primitivetype="_1cP5MeVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1c1IAOVVEeaYxL1QJO8D3g" definition="[STATE_MAX]" base_property="_1cSVcOVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1c1IAuVVEeaYxL1QJO8D3g" definition="[3]" base_property="_1cVYweVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1c1IBOVVEeaYxL1QJO8D3g" definition="[3]" base_property="_1cXN8eVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1c1vEOVVEeaYxL1QJO8D3g" definition="[3]" base_property="_1cZDIeVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1c1vEuVVEeaYxL1QJO8D3g" definition="[3]" base_property="_1caRQeVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1c2WIOVVEeaYxL1QJO8D3g" definition="[3]" base_property="_1ccGceVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Array xmi:id="_1c2WIuVVEeaYxL1QJO8D3g" definition="[3]" base_property="_1cdUkeVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Ptr xmi:id="_1dB8UOVVEeaYxL1QJO8D3g" base_property="_1cfw0eVVEeaYxL1QJO8D3g"/>
-  <standard:Create xmi:id="_1dJ4IeVVEeaYxL1QJO8D3g" base_BehavioralFeature="_1bxYEOVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Ptr xmi:id="_1dOwoOVVEeaYxL1QJO8D3g" base_parameter="_1cLAsuVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Ptr xmi:id="_1dOwouVVEeaYxL1QJO8D3g" base_parameter="_1cNc8eVVEeaYxL1QJO8D3g"/>
+  <Deployment:DeploymentPlan xmi:id="_nhYbcJnsEeeCzKHJj7Wq7w" base_Package="_nhX0YZnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Include xmi:id="_nhZCgZnsEeeCzKHJj7Wq7w" body="#include &lt;iostream>&#xA;using namespace std;&#xA;&#xA;#include &lt;unistd.h>&#xA;" header="#define COMPLEXSM_TIME_EVENT_LOWER_BOUND (0)&#xA;#define COMPLEXSM_CHANGE_EVENT_LOWER_BOUND (3)&#xA;#define COMPLEXSM_TE_INDEX(id) (id - COMPLEXSM_TIME_EVENT_LOWER_BOUND)&#xA;#define COMPLEXSM_CHE_INDEX(id) (id - COMPLEXSM_CHANGE_EVENT_LOWER_BOUND)&#xA;#define SMSIMPLE_REGION0_DEFAULT (0)&#xA;#define SMSIMPLE_REGION0_STATE1 (1)&#xA;#define STATE3_REGION1_SHALLOWHISTORY1 (1)&#xA;#define SMSIMPLE_REGION0 (0)&#xA;#define STATE3_REGION1 (1)&#xA;#include &quot;time.h&quot;&#xA;#include &quot;pthread.h&quot;&#xA;#include &quot;time.h&quot;&#xA;&#x9;&#x9;#include &quot;sys/time.h&quot;&#xA;#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING) {return;}&#xA;#define ComplexSM_THREAD_CREATE(thThread, str) pthread_create(&amp;thThread, NULL, &amp;ComplexSM::thread_func_wrapper, &amp;str);&#xA;#define COMPLEXSM_GET_CONTROL /*mutex synchronization to protect run-to-completion semantics*/ \&#xA;&#x9;&#x9;pthread_mutex_lock(&amp;runToCompletionMutex); \&#xA;&#x9;&#x9;while (systemState != statemachine::IDLE) {\&#xA;&#x9;&#x9;&#x9;pthread_cond_wait(&amp;runToCompletionCond, &amp;runToCompletionMutex);\&#xA;&#x9;&#x9;}&#xA;#define COMPLEXSM_RELEASE_CONTROL systemState = statemachine::IDLE; pthread_cond_signal(&amp;runToCompletionCond); \&#xA;&#x9;&#x9;&#x9;&#x9;pthread_mutex_unlock(&amp;runToCompletionMutex);" base_class="_oqZNUDLaEd2qeKRLMdIx_A"/>
+  <C_Cpp:Typedef xmi:id="_nhtyoJnsEeeCzKHJj7Wq7w" definition="struct State_t {&#xA;&#x9;//1 is configured as the maximum number of orthogonal regions a composite states can have&#xA;&#x9;unsigned int /*StateIDEnum*/ previousStates[1]; //for history states&#xA;&#x9;unsigned int /*StateIDEnum*/ actives[1];&#xA;&#x9;void (ComplexSM::*entry)();&#xA;&#x9;void (ComplexSM::*exit)();&#xA;&#x9;void (ComplexSM::*doActivity)();&#xA;&#x9;State_t() {&#xA;&#x9;&#x9;entry = &amp;ComplexSM::entry_dft;&#xA;&#x9;&#x9;exit = &amp;ComplexSM::exit_dft;&#xA;&#x9;&#x9;doActivity = &amp;ComplexSM::doActivity_dft;&#xA;&#x9;&#x9;for(int i = 0; i &lt; 1; i++) {&#xA;&#x9;&#x9;&#x9;previousStates[i] = STATE_MAX;&#xA;&#x9;&#x9;&#x9;actives[i] = STATE_MAX;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;} " base_primitivetype="_nf0VNZnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nhtyoZnsEeeCzKHJj7Wq7w" definition="[6]" base_property="_nf7p8JnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nhvn0JnsEeeCzKHJj7Wq7w" definition="[STATE_MAX]" base_property="_ngmYUJnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nhwO4JnsEeeCzKHJj7Wq7w" definition="[STATE_MAX]" base_property="_ngqCsJnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nhw18JnsEeeCzKHJj7Wq7w" definition="[STATE_MAX]" base_property="_ngttEZnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nhyEEJnsEeeCzKHJj7Wq7w" definition="[STATE_MAX]" base_property="_ngwJUZnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nihD4JnsEeeCzKHJj7Wq7w" definition="[STATE_MAX]" base_property="_ngylkZnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Typedef xmi:id="_nihq8JnsEeeCzKHJj7Wq7w" definition="void (ComplexSM::*typeName)()" base_primitivetype="_ng4sMpnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nihq8ZnsEeeCzKHJj7Wq7w" definition="[STATE_MAX]" base_property="_ng7IcZnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_niiSAJnsEeeCzKHJj7Wq7w" definition="[3]" base_property="_nhAA8JnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_niiSApnsEeeCzKHJj7Wq7w" definition="[3]" base_property="_nhCdMJnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nii5EJnsEeeCzKHJj7Wq7w" definition="[3]" base_property="_nhESYZnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nii5EpnsEeeCzKHJj7Wq7w" definition="[3]" base_property="_nhGuoJnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nii5FJnsEeeCzKHJj7Wq7w" definition="[3]" base_property="_nhIj0ZnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Array xmi:id="_nijgIJnsEeeCzKHJj7Wq7w" definition="[3]" base_property="_nhKZAZnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Ptr xmi:id="_njR44JnsEeeCzKHJj7Wq7w" base_property="_nhNcUJnsEeeCzKHJj7Wq7w"/>
+  <standard:Create xmi:id="_njdfEJnsEeeCzKHJj7Wq7w" base_BehavioralFeature="_ngK6gJnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Ptr xmi:id="_njgiYZnsEeeCzKHJj7Wq7w" base_parameter="_ng0awpnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Ptr xmi:id="_njhJcJnsEeeCzKHJj7Wq7w" base_parameter="_ng23AZnsEeeCzKHJj7Wq7w"/>
 </xmi:XMI>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_1cnFkOVVEeaYxL1QJO8D3g" name="statemachine">
+  <uml:Model xmi:id="_nhjakJnsEeeCzKHJj7Wq7w" name="statemachine">
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_hNs5oCdSEea6h5xPEh8iAg" name="ThreadFunctions">
       <ownedLiteral xmi:id="_kWR0ICdSEea6h5xPEh8iAg" name="TF_CHANGE_EVENT"/>
       <ownedLiteral xmi:id="_tj4MICdSEea6h5xPEh8iAg" name="TF_TIME_EVENT"/>
@@ -266,21 +266,21 @@ return ret;</body>
       <appliedProfile href="pathmap://TRAFO_PROFILE/Transformation.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_1cnFluVVEeaYxL1QJO8D3g" header="// common definitions for statemachine&#xA;&#xA;#define TIME_EVENT_LOWER_BOUND (0)&#xA;#define CHANGE_EVENT_LOWER_BOUND (2)&#xA;#define TE_INDEX(id) (id - TIME_EVENT_LOWER_BOUND)&#xA;#define CHE_INDEX(id) (id - CHANGE_EVENT_LOWER_BOUND)&#xA;#define SMSERVER_REGION0_DEFAULT (0)&#xA;#define SMSERVER_REGION0 (0)&#xA;#include &quot;time.h&quot;&#xA;#include &quot;pthread.h&quot;&#xA;#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING) {return;}" base_package="_1cnFkOVVEeaYxL1QJO8D3g"/>
-  <C_Cpp:Ptr xmi:id="_1cvoceVVEeaYxL1QJO8D3g" base_property="_jliRwCkVEea0-deBroAIbQ"/>
-  <standard:Create xmi:id="_1cxdoOVVEeaYxL1QJO8D3g" base_BehavioralFeature="_ZmpmwCkVEea0-deBroAIbQ"/>
-  <C_Cpp:ConstInit xmi:id="_1cxdoeVVEeaYxL1QJO8D3g" initialisation="ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration)" base_operation="_ZmpmwCkVEea0-deBroAIbQ"/>
-  <C_Cpp:Ptr xmi:id="_1cxdouVVEeaYxL1QJO8D3g" base_parameter="_E56cgCkWEea0-deBroAIbQ"/>
-  <standard:Create xmi:id="_1cz54eVVEeaYxL1QJO8D3g" base_BehavioralFeature="_-pXrgCkVEea0-deBroAIbQ"/>
-  <C_Cpp:Include xmi:id="_1c29MeVVEeaYxL1QJO8D3g" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;#include &quot;string.h&quot;&#xD;&#xA;&#xD;&#xA;#define defSize (10)" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Include xmi:id="_1c3kQOVVEeaYxL1QJO8D3g" header="#define EVENT_DATA_SIZE (50)" base_class="_MyJIUD0zEeaQfbTekb55bw" base_Classifier="_MyJIUD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_1c4yYOVVEeaYxL1QJO8D3g" definition="[EVENT_DATA_SIZE]" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_1c6AgOVVEeaYxL1QJO8D3g" definition="[10]" base_property="_dWxYQT0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_1c71seVVEeaYxL1QJO8D3g" definition="[4]" base_property="_dWxYST0zEeaQfbTekb55bw"/>
-  <C_Cpp:Array xmi:id="_1c9D0OVVEeaYxL1QJO8D3g" definition="[defSize]" base_property="_dWxYTj0zEeaQfbTekb55bw"/>
-  <standard:Create xmi:id="_1c-R8OVVEeaYxL1QJO8D3g" base_BehavioralFeature="_dWx_XD0zEeaQfbTekb55bw"/>
-  <C_Cpp:ConstInit xmi:id="_1c-R8eVVEeaYxL1QJO8D3g" initialisation="size(10), numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0) " base_operation="_dWx_XD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_1c-5AuVVEeaYxL1QJO8D3g" base_parameter="_dWx_WD0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ptr xmi:id="_1dAHIuVVEeaYxL1QJO8D3g" base_parameter="_dWx_Uz0zEeaQfbTekb55bw"/>
-  <C_Cpp:Ref xmi:id="_1dBVQOVVEeaYxL1QJO8D3g" base_parameter="_dWx_Xz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Include xmi:id="_nhjalpnsEeeCzKHJj7Wq7w" header="// common definitions for statemachine&#xA;&#xA;#define TIME_EVENT_LOWER_BOUND (0)&#xA;#define CHANGE_EVENT_LOWER_BOUND (2)&#xA;#define TE_INDEX(id) (id - TIME_EVENT_LOWER_BOUND)&#xA;#define CHE_INDEX(id) (id - CHANGE_EVENT_LOWER_BOUND)&#xA;#define SMSERVER_REGION0_DEFAULT (0)&#xA;#define SMSERVER_REGION0 (0)&#xA;#include &quot;time.h&quot;&#xA;#include &quot;pthread.h&quot;&#xA;#define CHECKPOINT if (systemState == statemachine::EVENT_PROCESSING) {return;}" base_package="_nhjakJnsEeeCzKHJj7Wq7w"/>
+  <C_Cpp:Ptr xmi:id="_nh0gUJnsEeeCzKHJj7Wq7w" base_property="_jliRwCkVEea0-deBroAIbQ"/>
+  <standard:Create xmi:id="_niP-IJnsEeeCzKHJj7Wq7w" base_BehavioralFeature="_ZmpmwCkVEea0-deBroAIbQ"/>
+  <C_Cpp:ConstInit xmi:id="_niQlMJnsEeeCzKHJj7Wq7w" initialisation="ptr(ptr), id(id), enter_mode(enter_mode), func_type(func_type), duration(duration)" base_operation="_ZmpmwCkVEea0-deBroAIbQ"/>
+  <C_Cpp:Ptr xmi:id="_niRMQJnsEeeCzKHJj7Wq7w" base_parameter="_E56cgCkWEea0-deBroAIbQ"/>
+  <standard:Create xmi:id="_nigc0JnsEeeCzKHJj7Wq7w" base_BehavioralFeature="_-pXrgCkVEea0-deBroAIbQ"/>
+  <C_Cpp:Include xmi:id="_nivtYJnsEeeCzKHJj7Wq7w" header="#include &quot;pthread.h&quot;&#xD;&#xA;#include &quot;stdio.h&quot;&#xD;&#xA;#include &quot;string.h&quot;&#xD;&#xA;&#xD;&#xA;#define defSize (10)" base_class="_dWxYQD0zEeaQfbTekb55bw" base_Classifier="_dWxYQD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Include xmi:id="_ni3CIJnsEeeCzKHJj7Wq7w" header="#define EVENT_DATA_SIZE (50)" base_class="_MyJIUD0zEeaQfbTekb55bw" base_Classifier="_MyJIUD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_ni4QQJnsEeeCzKHJj7Wq7w" definition="[EVENT_DATA_SIZE]" base_property="_MyJIUz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_njAMEJnsEeeCzKHJj7Wq7w" definition="[10]" base_property="_dWxYQT0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_njFroZnsEeeCzKHJj7Wq7w" definition="[4]" base_property="_dWxYST0zEeaQfbTekb55bw"/>
+  <C_Cpp:Array xmi:id="_njHg0JnsEeeCzKHJj7Wq7w" definition="[defSize]" base_property="_dWxYTj0zEeaQfbTekb55bw"/>
+  <standard:Create xmi:id="_njJWAJnsEeeCzKHJj7Wq7w" base_BehavioralFeature="_dWx_XD0zEeaQfbTekb55bw"/>
+  <C_Cpp:ConstInit xmi:id="_njJWAZnsEeeCzKHJj7Wq7w" initialisation="size(10), numberOfElements(0), readPos(0), writePos(0), compSize(4), compNumbers(0), compReadPos(0), compWritePos(0), numberOfDeferreds(0), readDef(0), writeDef(0) " base_operation="_dWx_XD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_njLLMJnsEeeCzKHJj7Wq7w" base_parameter="_dWx_WD0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ptr xmi:id="_njNAYJnsEeeCzKHJj7Wq7w" base_parameter="_dWx_Uz0zEeaQfbTekb55bw"/>
+  <C_Cpp:Ref xmi:id="_njOOgJnsEeeCzKHJj7Wq7w" base_parameter="_dWx_Xz0zEeaQfbTekb55bw"/>
 </xmi:XMI>

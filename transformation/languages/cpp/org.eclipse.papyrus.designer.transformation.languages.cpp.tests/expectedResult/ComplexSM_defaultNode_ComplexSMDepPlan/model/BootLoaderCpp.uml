@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:C_Cpp="http://www.eclipse.org/papyrus/C_Cpp/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_1dSbAOVVEeaYxL1QJO8D3g" name="BootLoaderCpp">
+  <uml:Model xmi:id="_njpsUJnsEeeCzKHJj7Wq7w" name="BootLoaderCpp">
     <packagedElement xmi:type="uml:Class" xmi:id="_yvoocHhpEealuJVOx0h2iw" name="BootLoader">
       <ownedAttribute xmi:id="_i8h2AHlvEeavUcYMQ2Z1Aw" name="argc" isStatic="true">
         <type xmi:type="uml:PrimitiveType" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/PrimitiveTypes.uml#Integer"/>
@@ -10,15 +10,15 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JDJtYHjkEeakrcXZeNIVKw" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JDNXwHjkEeakrcXZeNIVKw" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_1dVeVeVVEeaYxL1QJO8D3g" name="mainInstance" aggregation="composite">
+      <ownedAttribute xmi:id="_njxoIJnsEeeCzKHJj7Wq7w" name="mainInstance" aggregation="composite">
         <type xmi:type="uml:Class" href="/ComplexSM_defaultNode_ComplexSMDepPlan/model/ComplexSM.uml#_oqZNUDLaEd2qeKRLMdIx_A"/>
       </ownedAttribute>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1dWFYOVVEeaYxL1QJO8D3g" name="init" specification="_8b9jYHjjEeakrcXZeNIVKw">
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_njyPMJnsEeeCzKHJj7Wq7w" name="init" specification="_8b9jYHjjEeakrcXZeNIVKw">
         <language>C/C++</language>
         <body>mainInstance.run();
 </body>
       </ownedBehavior>
-      <ownedOperation xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init" method="_1dWFYOVVEeaYxL1QJO8D3g"/>
+      <ownedOperation xmi:id="_8b9jYHjjEeakrcXZeNIVKw" name="init" method="_njyPMJnsEeeCzKHJj7Wq7w"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_CS_KsHjwEeasG4qn4umteA" name="NodeInfo">
       <ownedAttribute xmi:id="_IHT5wHjwEeasG4qn4umteA" name="nodeIndex" isStatic="true">
@@ -37,6 +37,6 @@
       <appliedProfile href="pathmap://PapyrusC_Cpp_PROFILES/C_Cpp.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
     </profileApplication>
   </uml:Model>
-  <C_Cpp:Include xmi:id="_1dSbBeVVEeaYxL1QJO8D3g" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
-  <C_Cpp:Ptr xmi:id="_1dUQM-VVEeaYxL1QJO8D3g" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
+  <C_Cpp:Include xmi:id="_njqTYJnsEeeCzKHJj7Wq7w" body="BootLoaderCpp::BootLoader bootloader;&#xA;&#xA;int main (int argc, const char* argv[])&#xA;{&#xA;&#x9;// store arguments for future access&#xA;&#x9;BootLoaderCpp::BootLoader::argc = argc;&#xA;&#x9;BootLoaderCpp::BootLoader::argv = argv;&#xA;&#xA;&#x9;bootloader.init();&#xA;&#x9;return 0;&#xA;}&#xA;" base_class="_yvoocHhpEealuJVOx0h2iw" base_Classifier="_yvoocHhpEealuJVOx0h2iw"/>
+  <C_Cpp:Ptr xmi:id="_njvL4JnsEeeCzKHJj7Wq7w" base_property="_ET2FoHjkEeakrcXZeNIVKw"/>
 </xmi:XMI>

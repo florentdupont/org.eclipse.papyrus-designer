@@ -17,10 +17,11 @@
 #include "statemachine/EventPriorityQueue.h"
 #include "statemachine/Pkg_statemachine.h"
 #include "statemachine/StructForThread_t.h"
+#include "sysinterfaces/IStart.h"
 
 // Include from Include stereotype (header)
 #define SIMPLESM_TIME_EVENT_LOWER_BOUND (0)
-#define SIMPLESM_CHANGE_EVENT_LOWER_BOUND (3)
+#define SIMPLESM_CHANGE_EVENT_LOWER_BOUND (2)
 #define SIMPLESM_TE_INDEX(id) (id - SIMPLESM_TIME_EVENT_LOWER_BOUND)
 #define SIMPLESM_CHE_INDEX(id) (id - SIMPLESM_CHANGE_EVENT_LOWER_BOUND)
 #define SMSIMPLE_REGION0_DEFAULT (0)
@@ -51,7 +52,7 @@ namespace classes {
 /**
  * State-machine support is enabled with a container rule
  */
-class SimpleSM {
+class SimpleSM: public ::sysinterfaces::IStart {
 public:
 	/**
 	 * 
@@ -81,15 +82,11 @@ public:
 		/**
 		 * 
 		 */
-		STATE0_ID,
+		FLIP_ID,
 		/**
 		 * 
 		 */
-		STATE1_ID,
-		/**
-		 * 
-		 */
-		STATE2_ID,
+		FLOP_ID,
 		/**
 		 * 
 		 */
@@ -107,15 +104,11 @@ public:
 		/**
 		 * 
 		 */
-		TE_VALUE_50_UNIT_MS__ID,
+		TE_VALUE_250_UNIT_MS__ID,
 		/**
 		 * 
 		 */
 		TE_VALUE_500_UNIT_MS__ID,
-		/**
-		 * 
-		 */
-		TE_VALUE_25_UNIT_MS__ID,
 		/**
 		 * 
 		 */
@@ -132,11 +125,7 @@ public:
 	/**
 	 * 
 	 */
-	int Junction;
-	/**
-	 * 
-	 */
-	::SimpleSM::classes::SimpleSM::State_t states[3];
+	::SimpleSM::classes::SimpleSM::State_t states[2];
 	/**
 	 * 
 	 */
@@ -172,27 +161,27 @@ public:
 	/**
 	 * 
 	 */
-	::SimpleSM::classes::SimpleSM::FptPointer timeEventTable[3];
+	::SimpleSM::classes::SimpleSM::FptPointer timeEventTable[2];
 	/**
 	 * 
 	 */
-	pthread_t timeEventThreads[3];
+	pthread_t timeEventThreads[2];
 	/**
 	 * 
 	 */
-	bool timeEventFlags[3];
+	bool timeEventFlags[2];
 	/**
 	 * 
 	 */
-	pthread_cond_t timeEventConds[3];
+	pthread_cond_t timeEventConds[2];
 	/**
 	 * 
 	 */
-	pthread_mutex_t timeEventMutexes[3];
+	pthread_mutex_t timeEventMutexes[2];
 	/**
 	 * 
 	 */
-	::statemachine::StructForThread_t timeEventThreadStructs[3];
+	::statemachine::StructForThread_t timeEventThreadStructs[2];
 	/**
 	 * 
 	 */
@@ -234,15 +223,6 @@ public:
 
 	/**
 	 * 
-	 * @param a 
-	 * @param b 
-	 * @return res 
-	 */
-	::PrimitiveTypes::Integer mult(::PrimitiveTypes::Integer /*in*/a,
-			::PrimitiveTypes::Integer /*in*/b);
-
-	/**
-	 * 
 	 */
 	void run();
 
@@ -264,16 +244,6 @@ public:
 
 	/**
 	 * 
-	 */
-	void processTE_value_50_unit_ms_();
-
-	/**
-	 * 
-	 */
-	void processTE_value_500_unit_ms_();
-
-	/**
-	 * 
 	 * @param a 
 	 * @param b 
 	 */
@@ -283,7 +253,12 @@ public:
 	/**
 	 * 
 	 */
-	void processTE_value_25_unit_ms_();
+	void processTE_value_250_unit_ms_();
+
+	/**
+	 * 
+	 */
+	void processTE_value_500_unit_ms_();
 
 	/**
 	 * 

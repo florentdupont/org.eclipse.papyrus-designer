@@ -106,10 +106,9 @@ return a+b;</body>
               <trigger xmi:type="uml:Trigger" xmi:id="_rHpXoOtoEeCjb9i0gG4phA" event="_rHoJgOtoEeCjb9i0gG4phA"/>
             </transition>
             <transition xmi:type="uml:Transition" xmi:id="_OH_UYOYYEeCBL_IbXY9ofw" name="Transition2" source="_7_1cMOYXEeCBL_IbXY9ofw" target="_53E_8OYXEeCBL_IbXY9ofw">
-              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_CAWpgSSoEeG6GJ4vU06VYQ" name="add" isAbstract="true">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_CAWpgSSoEeG6GJ4vU06VYQ" name="mult" isAbstract="true">
                 <language>C/C++</language>
-                <body>add(2,3);&#xD;
-mult(3,5);&#xD;
+                <body>mult(3,5);&#xD;
 std::cout &lt;&lt;&quot;From State1 to State0 \n&quot;;</body>
               </effect>
               <trigger xmi:type="uml:Trigger" xmi:id="_-aQtACaeEeG4fZdVXNtoOQ" event="_-PMFcCaeEeG4fZdVXNtoOQ"/>

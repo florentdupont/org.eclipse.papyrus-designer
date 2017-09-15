@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
-  <uml:Model xmi:id="_PBMu8OWqEeaYxL1QJO8D3g" name="AnsiCLibrary">
+  <uml:Model xmi:id="_BKOBYpnuEeeCzKHJj7Wq7w" name="AnsiCLibrary">
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_8I6RgBydEduyofBvg4RL2w" name="void"/>
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_LTZesByeEduyofBvg4RL2w" name="unsigned int"/>
     <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5lVhgBydEduyofBvg4RL2w" name="char"/>
@@ -13,5 +13,5 @@
       <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <standard:ModelLibrary xmi:id="_PBMu8-WqEeaYxL1QJO8D3g" base_Package="_PBMu8OWqEeaYxL1QJO8D3g"/>
+  <standard:ModelLibrary xmi:id="_BKOocJnuEeeCzKHJj7Wq7w" base_Package="_BKOBYpnuEeeCzKHJj7Wq7w"/>
 </xmi:XMI>

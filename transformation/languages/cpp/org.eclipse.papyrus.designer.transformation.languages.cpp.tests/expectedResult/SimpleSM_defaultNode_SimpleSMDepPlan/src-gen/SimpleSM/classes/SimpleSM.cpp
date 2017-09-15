@@ -41,14 +41,11 @@ void SimpleSM::dispatchEvent() {
 		if (currentEvent != NULL) {
 			SIMPLESM_GET_CONTROL
 			switch (currentEvent->eventID) {
-			case TE_VALUE_50_UNIT_MS__ID:
-				processTE_value_50_unit_ms_();
+			case TE_VALUE_250_UNIT_MS__ID:
+				processTE_value_250_unit_ms_();
 				break;
 			case TE_VALUE_500_UNIT_MS__ID:
 				processTE_value_500_unit_ms_();
-				break;
-			case TE_VALUE_25_UNIT_MS__ID:
-				processTE_value_25_unit_ms_();
 				break;
 			case COMPLETIONEVENT_ID:
 				processCompletionEvent();
@@ -80,18 +77,6 @@ void SimpleSM::dispatchEvent() {
 
 /**
  * 
- * @param a 
- * @param b 
- * @return res 
- */
-::PrimitiveTypes::Integer SimpleSM::mult(::PrimitiveTypes::Integer /*in*/a,
-		::PrimitiveTypes::Integer /*in*/b) {
-	cout << "a=" << a << " b=" << b << " a*b=" << a * b << endl;
-	return a * b;
-}
-
-/**
- * 
  */
 void SimpleSM::run() {
 	cout << "call add (2, 3);" << endl;
@@ -107,11 +92,9 @@ void SimpleSM::run() {
 void SimpleSM::SMSimple_Region0_Enter(char /*in*/enter_mode) {
 	switch (enter_mode) {
 	case SMSIMPLE_REGION0_DEFAULT:
-		activeStateID = STATE0_ID;
+		activeStateID = FLIP_ID;
 
-		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID),
-				statemachine::TF_TIME_EVENT, true);
-		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID),
+		setFlag(SIMPLESM_TE_INDEX(TE_VALUE_250_UNIT_MS__ID),
 				statemachine::TF_TIME_EVENT, true);
 
 		//TODO: set systemState to EVENT_CONSUMED
@@ -131,9 +114,8 @@ SimpleSM::SimpleSM() {
  */
 void SimpleSM::startBehavior() {
 	systemState = statemachine::IDLE;
-	doActivityTable[STATE0_ID] = states[STATE0_ID].doActivity;
-	doActivityTable[STATE1_ID] = states[STATE1_ID].doActivity;
-	doActivityTable[STATE2_ID] = states[STATE2_ID].doActivity;
+	doActivityTable[FLIP_ID] = states[FLIP_ID].doActivity;
+	doActivityTable[FLOP_ID] = states[FLOP_ID].doActivity;
 
 	// initialize all threads, the threads wait until the associated flag is set
 	for (int i = 0; i < (int) STATE_MAX; i++) {
@@ -148,13 +130,11 @@ void SimpleSM::startBehavior() {
 		}
 	}
 
-	timeEventThreadStructs[SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID)].duration =
-			50;
+	timeEventThreadStructs[SIMPLESM_TE_INDEX(TE_VALUE_250_UNIT_MS__ID)].duration =
+			250;
 	timeEventThreadStructs[SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID)].duration =
 			500;
-	timeEventThreadStructs[SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID)].duration =
-			25;
-	for (int i = SIMPLESM_TIME_EVENT_LOWER_BOUND; i < 3; i++) {
+	for (int i = SIMPLESM_TIME_EVENT_LOWER_BOUND; i < 2; i++) {
 		timeEventThreadStructs[SIMPLESM_TE_INDEX(i)].id = i;
 		timeEventThreadStructs[SIMPLESM_TE_INDEX(i)].ptr = this;
 		timeEventThreadStructs[SIMPLESM_TE_INDEX(i)].func_type =
@@ -184,19 +164,48 @@ void SimpleSM::startBehavior() {
 
 /**
  * 
+ * @param a 
+ * @param b 
  */
-void SimpleSM::processTE_value_50_unit_ms_() {
+void SimpleSM::processCE_CServer_impl_add(::PrimitiveTypes::Integer /*in*/a,
+		::PrimitiveTypes::Integer /*in*/b) {
+	SIMPLESM_GET_CONTROL systemState = statemachine::EVENT_PROCESSING;
+	if (systemState == statemachine::EVENT_PROCESSING) {
+		switch (activeStateID) {
+		case FLIP_ID:
+			//from Flip to Flop
+			if (true) {
+				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_250_UNIT_MS__ID),
+						statemachine::TF_TIME_EVENT, false);
+				activeStateID = FLOP_ID;
+				//starting the counters for time events
+				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID),
+						statemachine::TF_TIME_EVENT, true);
+				systemState = statemachine::EVENT_CONSUMED;
+			}
+			break;
+		default:
+			//do nothing
+			break;
+		}
+	}
+	SIMPLESM_RELEASE_CONTROL
+}
+
+/**
+ * 
+ */
+void SimpleSM::processTE_value_250_unit_ms_() {
 	systemState = statemachine::EVENT_PROCESSING;
 	if (systemState == statemachine::EVENT_PROCESSING) {
 		switch (activeStateID) {
-		case STATE0_ID:
-			//from State0 to State1
+		case FLIP_ID:
+			//from Flip to Flop
 			if (true) {
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID),
+				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_250_UNIT_MS__ID),
 						statemachine::TF_TIME_EVENT, false);
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID),
-						statemachine::TF_TIME_EVENT, false);
-				activeStateID = STATE1_ID;
+				std::cout << "From Flip to Flop" << std::endl;
+				activeStateID = FLOP_ID;
 				//starting the counters for time events
 				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID),
 						statemachine::TF_TIME_EVENT, true);
@@ -217,107 +226,15 @@ void SimpleSM::processTE_value_500_unit_ms_() {
 	systemState = statemachine::EVENT_PROCESSING;
 	if (systemState == statemachine::EVENT_PROCESSING) {
 		switch (activeStateID) {
-		case STATE1_ID:
-			//from State1 to State0
+		case FLOP_ID:
+			//from Flop to Flip
 			if (true) {
 				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID),
 						statemachine::TF_TIME_EVENT, false);
-				add(2, 3);
-				mult(3, 5);
-				std::cout << "From State1 to State0 \n";
-				activeStateID = STATE0_ID;
+				std::cout << "From Flop to Flip" << std::endl;
+				activeStateID = FLIP_ID;
 				//starting the counters for time events
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID),
-						statemachine::TF_TIME_EVENT, true);
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID),
-						statemachine::TF_TIME_EVENT, true);
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		case STATE2_ID:
-			//from State2 to Junction
-			if (true) {
-				Junction = 0;
-				if (true) {
-					Junction = 1;
-				}
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID),
-						statemachine::TF_TIME_EVENT, false);
-				std::cout << "From State 2 to Junction1\n";
-				if (Junction == 0) {
-					activeStateID = STATE0_ID;
-					//starting the counters for time events
-					setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID),
-							statemachine::TF_TIME_EVENT, true);
-					setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID),
-							statemachine::TF_TIME_EVENT, true);
-				} else if (Junction == 1) {
-					std::cout << "From Junction1 to State 1 \n";
-					activeStateID = STATE1_ID;
-					//starting the counters for time events
-					setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID),
-							statemachine::TF_TIME_EVENT, true);
-				}
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-}
-
-/**
- * 
- * @param a 
- * @param b 
- */
-void SimpleSM::processCE_CServer_impl_add(::PrimitiveTypes::Integer /*in*/a,
-		::PrimitiveTypes::Integer /*in*/b) {
-	SIMPLESM_GET_CONTROL systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case STATE0_ID:
-			//from State0 to State1
-			if (true) {
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID),
-						statemachine::TF_TIME_EVENT, false);
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID),
-						statemachine::TF_TIME_EVENT, false);
-				activeStateID = STATE1_ID;
-				//starting the counters for time events
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID),
-						statemachine::TF_TIME_EVENT, true);
-				systemState = statemachine::EVENT_CONSUMED;
-			}
-			break;
-		default:
-			//do nothing
-			break;
-		}
-	}
-	SIMPLESM_RELEASE_CONTROL
-}
-
-/**
- * 
- */
-void SimpleSM::processTE_value_25_unit_ms_() {
-	systemState = statemachine::EVENT_PROCESSING;
-	if (systemState == statemachine::EVENT_PROCESSING) {
-		switch (activeStateID) {
-		case STATE0_ID:
-			//from State0 to State2
-			if (true) {
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_50_UNIT_MS__ID),
-						statemachine::TF_TIME_EVENT, false);
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_25_UNIT_MS__ID),
-						statemachine::TF_TIME_EVENT, false);
-				std::cout << "From State 0 to State 2\n";
-				activeStateID = STATE2_ID;
-				//starting the counters for time events
-				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_500_UNIT_MS__ID),
+				setFlag(SIMPLESM_TE_INDEX(TE_VALUE_250_UNIT_MS__ID),
 						statemachine::TF_TIME_EVENT, true);
 				systemState = statemachine::EVENT_CONSUMED;
 			}
