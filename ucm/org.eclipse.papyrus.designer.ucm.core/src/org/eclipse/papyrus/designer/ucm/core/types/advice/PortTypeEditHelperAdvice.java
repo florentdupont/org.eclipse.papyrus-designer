@@ -13,22 +13,48 @@
 
 package org.eclipse.papyrus.designer.ucm.core.types.advice;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.GetEditContextRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
-import org.eclipse.uml2.uml.Port;
+import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.InteractionDefinitionModule;
+import org.eclipse.papyrus.designer.ucm.profile.UCMProfile.ucm_interactions.PortType;
+import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
- * Edit Helper Advice for {@link Port}
+ * Edit Helper Advice for {@link PortType}
  */
 public class PortTypeEditHelperAdvice extends AbstractEditHelperAdvice {
 
 	@Override
 	public boolean approveRequest(IEditCommandRequest request) {
+		if (request instanceof GetEditContextRequest) {
+			GetEditContextRequest context = (GetEditContextRequest) request;
+			if (context.getEditCommandRequest() instanceof CreateElementRequest) {
+				return approveCreateElementRequest((CreateElementRequest) context.getEditCommandRequest());
+			}
+		}
 		return super.approveRequest(request);
 	}
 
+	/**
+	 * Allow creation only, if container is an interaction definition module
+	 */
+	protected boolean approveCreateElementRequest(CreateElementRequest request) {
+		IElementType type = request.getElementType();
+		EObject container = request.getContainer();
+		if (type != null && container instanceof Package) {
+			if (UMLUtil.getStereotypeApplication((Package) container, InteractionDefinitionModule.class) != null) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * {@inheritDoc}
