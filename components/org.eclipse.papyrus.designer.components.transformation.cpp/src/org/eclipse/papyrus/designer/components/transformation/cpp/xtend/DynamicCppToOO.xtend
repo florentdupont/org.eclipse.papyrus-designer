@@ -37,10 +37,11 @@ import org.eclipse.papyrus.designer.components.transformation.PortUtils
 import org.eclipse.papyrus.designer.components.transformation.PortInfo
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants.CIFvariant
 import org.eclipse.papyrus.designer.components.modellibs.core.transformations.Constants
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils
+import org.eclipse.papyrus.designer.transformation.base.utils.PartsUtil
 
 /**
  * This class realizes the dynamic variant of the OO-transformation
@@ -482,7 +483,7 @@ class DynamicCppToOO implements IOOTrafo {
 		}
 */	
 		var String initPartsBody = ""
-		for (Property attribute : ElementUtils.getParts(compositeImplementation)) {
+		for (Property attribute : PartsUtil.getParts(compositeImplementation)) {
 			val type = attribute.type;
 			if (type instanceof Class) {
 				initPartsBody += initPartBody(attribute);

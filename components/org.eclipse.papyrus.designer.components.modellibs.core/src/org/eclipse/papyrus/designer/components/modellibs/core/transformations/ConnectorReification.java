@@ -26,8 +26,8 @@ import org.eclipse.papyrus.designer.components.transformation.templates.Connecto
 import org.eclipse.papyrus.designer.components.transformation.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoCDP;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
@@ -131,6 +131,14 @@ public class ConnectorReification implements IM2MTrafoCDP {
 		// choose an implementation
 		Class connectorImplemTemplate = CompDepUtils.chooseImplementation(connImplementation, AllocUtils.getAllNodes(compositeIS), null);
 
+		if (connectorImplemTemplate == null) {
+			if (AllocUtils.getAllNodes(compositeIS).size() > 1) {
+				throw new TransformationException(String.format("Can not find an implementation for connector %s. Check whether it supports distribution", connImplementation.getName()));
+			}
+			else {
+				throw new TransformationException(String.format("Can not find an implementation for connector %s.", connImplementation.getName()));		
+			}
+		}
 		TemplateBinding binding = ConnectorBinding.obtainBinding(composite, connectorPart, connectorImplemTemplate, true);
 		Class connectorImplem;
 

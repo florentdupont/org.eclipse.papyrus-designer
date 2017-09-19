@@ -25,7 +25,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.InitPrecedence;
 import org.eclipse.papyrus.designer.deployment.tools.AllocUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils;
+import org.eclipse.papyrus.designer.languages.common.base.StringUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoCDP;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
@@ -151,7 +152,7 @@ abstract public class AbstractBootLoaderGen implements IM2MTrafoCDP {
 						// Therefore, configuration and initial calls use
 						// - the path, if instantiated by the composite
 						// - the variable name, if done by the bootloader
-						path = ElementUtils.varName(path); // use variable name instead.
+						path = StringUtils.varName(path); // use variable name instead.
 					}
 					path += "." + pathElement.getDefiningFeature().getName(); //$NON-NLS-1$
 					previousInstantiatedByBL = instantiateViaBootloader(pathElement.getDefiningFeature());
@@ -159,7 +160,7 @@ abstract public class AbstractBootLoaderGen implements IM2MTrafoCDP {
 			}
 			if (previousInstantiatedByBL && !accessName) {
 				// name of the variable for this expression instantiated by the bootloader
-				path = ElementUtils.varName(path);
+				path = StringUtils.varName(path);
 			}
 			return path;
 		}

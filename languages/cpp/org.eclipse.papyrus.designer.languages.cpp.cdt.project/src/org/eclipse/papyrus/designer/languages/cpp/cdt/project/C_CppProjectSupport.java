@@ -152,10 +152,6 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 
 				// now set include path and preprocessor code
 				for (ICLanguageSetting lang : languageSettings) {
-					// selection better via ID? (instead of extension)
-					// Log.log(Status.INFO, Log.CODEGEN, "CppLanguageSupport:
-					// lang.getID: " + lang.getId() + " lang.getLanguageID: " +
-					// lang.getLanguageId());
 					for (String ext : lang.getSourceExtensions()) {
 						if (ext.equals(CPP) || ext.equals(C)) {
 							lang.setSettingEntries(ICSettingEntry.INCLUDE_PATH, icIncludePaths);
@@ -169,22 +165,23 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 					}
 				}
 				IConfiguration main = ManagedBuildManager.getConfigurationForDescription(configDescr);
-				// change artifact name
-				// main.setArtifactName(main.getArtifactName () + ".bin");
 
 				// add to -l (libraries)
 				ITool cfTool = main.calculateTargetTool();
 
-				// IOption libOption = cfTool.getOptionBy(IOption.TYPE_LIB);
-
-				for (IOption opt : cfTool.getOptions()) {
-					if (opt.getValueType() == IOption.LIBRARIES) {
-						main.setOption(cfTool, opt, settings.libs.toArray(new String[0]));
-					} else if (opt.getValueType() == IOption.LIBRARY_PATHS) {
-						main.setOption(cfTool, opt, settings.libPaths.toArray(new String[0]));
+				if (cfTool != null) {
+					for (IOption opt : cfTool.getOptions()) {
+						if (opt.getValueType() == IOption.LIBRARIES) {
+							main.setOption(cfTool, opt, settings.libs.toArray(new String[0]));
+						} else if (opt.getValueType() == IOption.LIBRARY_PATHS) {
+							main.setOption(cfTool, opt, settings.libPaths.toArray(new String[0]));
+						}
 					}
+					mngr.setProjectDescription(project, cdesc, true, null);
 				}
-				mngr.setProjectDescription(project, cdesc, true, null);
+				else {
+					Activator.log.warn("could not write project settings. Please check whether a C++ toolchain (compiler) is installed");
+				}
 			}
 			ManagedBuildManager.saveBuildInfo(project, true);
 		} catch (BuildException be) {
@@ -199,8 +196,7 @@ public class C_CppProjectSupport implements ILangProjectSupport {
 		CDTSettings settings = new CDTSettings();
 		settings.includePaths = new UniqueEList<String>();
 		// include project directory (all paths are relative to it)
-		// TODO: choose source folder depending on model (which is currently not
-		// passed as a parameter)
+		// TODO: choose source folder depending on model (which is currently not passed as a parameter)
 		settings.includePaths.add(WS_PREFIX + "src-gen"); //$NON-NLS-1$
 
 		settings.libs = new UniqueEList<String>();

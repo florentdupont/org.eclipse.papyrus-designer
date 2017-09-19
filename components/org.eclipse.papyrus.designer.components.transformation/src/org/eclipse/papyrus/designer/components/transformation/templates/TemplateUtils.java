@@ -21,8 +21,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.transformation.Activator;
 import org.eclipse.papyrus.designer.components.transformation.Messages;
 import org.eclipse.papyrus.designer.components.transformation.PortUtils;
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.CreationUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.uml.tools.utils.ConnectorUtil;
@@ -106,9 +106,11 @@ public class TemplateUtils {
 		// enable multiple package templates sharing the same signature.
 		if (template instanceof Package) {
 			Package pkg = (Package) template;
-			for (PackageMerge pkgImport : pkg.getPackageMerges()) {
-				Package importedPkg = pkgImport.getMergedPackage();
-				return getSignature(importedPkg);
+			for (PackageMerge pkgMerge : pkg.getPackageMerges()) {
+				Package mergedPkg = pkgMerge.getMergedPackage();
+				if (mergedPkg != pkg) {
+					return getSignature(mergedPkg);
+				}
 			}
 		}
 		return null;

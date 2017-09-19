@@ -697,7 +697,7 @@ public class LazyCopier extends Copier {
 								target.add(copyEObj);
 							}
 							catch (Exception e) {
-								System.err.println(e);
+								Activator.log.error(e);
 							}
 						}
 					}
@@ -779,7 +779,10 @@ public class LazyCopier extends Copier {
 					EReference eReference = (EReference) eStructuralFeature;
 					// create a shallow copy of the containment: update only references already in the copy map
 					if (sourceEObj != targetEObj) {
-						if (eReference.getName().equals("profileApplication")) { //$NON-NLS-1$
+						// three cases: shallowCopy (copy, if exists, (2) reference original and (3) create copy
+						if (eReference.getName().equals("profileApplication") ||
+							eReference.getName().equals("packageMerge")
+									) { //$NON-NLS-1$
 							// make a complete copy of the profileApplication
 							copyContainment(eReference, sourceEObj, targetEObj);
 						}

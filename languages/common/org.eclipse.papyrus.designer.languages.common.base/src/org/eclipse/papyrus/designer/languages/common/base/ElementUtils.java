@@ -12,7 +12,7 @@
  *
  *****************************************************************************/
 
-package org.eclipse.papyrus.designer.transformation.base.utils;
+package org.eclipse.papyrus.designer.languages.common.base;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -21,47 +21,26 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.papyrus.designer.languages.common.base.StringConstants;
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External;
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.NoCodeGen;
-import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef;
-import org.eclipse.papyrus.designer.transformation.base.Activator;
-import org.eclipse.papyrus.designer.transformation.base.preferences.PapyrusDesignerPreferenceConstants;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;
-import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
-import org.eclipse.uml2.uml.AggregationKind;
-import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Dependency;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.InstanceSpecification;
-import org.eclipse.uml2.uml.Interface;
-import org.eclipse.uml2.uml.InterfaceRealization;
-import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Parameter;
-import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Relationship;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.resource.UMLResource;
-import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
  * A set of utility functions around elements
- * @deprecated Class has been chiefly moved to ElementUtils in org.eclipse.papyrus.designer.languages.common.base
- *   Functions that are not related to elements have been moved from ElementUtils to new utility classes
- *   StringUtils for quoting and variable names
- *   PartUtils for determining parts (depending on preference setting)
- *   ListUtils reverse list order
  */
-@Deprecated
 public class ElementUtils {
 
 	/**
@@ -124,40 +103,30 @@ public class ElementUtils {
 	}
 
 	/**
-	 * return true, if an instance specification is a composite, i.e. has > 1
-	 * slots TODO: distinguish parts and configuration attributes
+	 * @param is an instance specification
+	 * @return true, if an instance specification is a composite, i.e. has more than 1 slots
 	 */
-
 	public static boolean isComposite(InstanceSpecification is) {
 		return (is.getSlots().size() > 0);
 	}
 
-	public static boolean treatNoneAsComposite() {
-		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
-		return store.getBoolean(PapyrusDesignerPreferenceConstants.P_TREAT_NONE_AS_COMPOSITE);
-	}
-
-	public static EList<Property> getParts(Class implementation) {
-		if (treatNoneAsComposite()) {
-			EList<Property> parts = new BasicEList<Property>();
-			for (Property part : implementation.getAttributes()) {
-				if (part.getAggregation() != AggregationKind.SHARED_LITERAL) {
-					parts.add(part);
-				}
-			}
-			return parts;
-		} else {
-			return implementation.getParts();
-		}
-	}
-
+	/**
+	 * Get an element via its qualified name.  This function will find the first element with a
+	 * matching qualified name within the resource set associated with the passed element
+	 *
+	 * @param element
+	 * 				An element within a resource which in turn is part of the search resource set
+	 * @param qualifiedName
+	 *            the qualified name of an element
+	 * @return the found element or null
+	 */
 	public static NamedElement getQualifiedElementFromRS(Element element, String qualifiedName) {
 		return getQualifiedElementFromRS(element.eResource().getResourceSet(), qualifiedName);
 	}
 	
 	/**
-	 * Get an element via its qualified name. This function will find all elements in the
-	 * resource set that have this qualified name (whether imported or not)
+	 * Get an element via its qualified name. This function will find the first element in the
+	 * resource set that has this qualified name (whether imported or not)
 	 *
 	 * @param rs
 	 *            a resource set
@@ -260,40 +229,6 @@ public class ElementUtils {
 	}
 
 	/**
-	 * Put quotes around a string, unless string already starts with a quote.
-	 *
-	 * @param str
-	 * @return
-	 */
-	public static String quoteString(String str) {
-		if (str.startsWith(StringConstants.QUOTE)) {
-			return str;
-		} else {
-			return StringConstants.QUOTE + str + StringConstants.QUOTE;
-		}
-	}
-
-	/**
-	 * TODO: copy&paste from C++ generator (& specific for C++)
-	 *
-	 * @param ne
-	 * @return
-	 */
-	public static String cppQName(NamedElement ne) {
-		if ((StereotypeUtil.isApplied(ne, External.class)) || (StereotypeUtil.isApplied(ne, NoCodeGen.class))) {
-			return ne.getName();
-		} else {
-			String qName = ne.getName();
-			for (Namespace ns : ne.allNamespaces()) {
-				if (!(ns instanceof Model)) {
-					qName = ns.getName() + "::" + qName; //$NON-NLS-1$
-				}
-			}
-			return qName;
-		}
-	}
-
-	/**
 	 * Convenience function: Declare a dependency from source to destination. The function checks,
 	 * if a dependency already exists to avoid double dependencies.
 	 *
@@ -312,25 +247,7 @@ public class ElementUtils {
 		source.createDependency(dest);
 	}
 
-	/**
-	 *
-	 * TODO: Specific to C++
-	 *
-	 * @param type
-	 *            a type
-	 * @return return the definition of a typedef, if the type has been defined via
-	 *         the stereotype CppType of the Cpp profile
-	 */
-	public static String dereferenceTypedef(Type type) {
-		if (type instanceof PrimitiveType) {
-			Typedef cppType = UMLUtil.getStereotypeApplication(type, Typedef.class);
-			if (cppType != null) {
-				return cppType.getDefinition();
-			}
-		}
-		return type.getQualifiedName();
 
-	}
 
 	/**
 	 * This method returns all types that are referenced by a classifier. This includes
@@ -364,50 +281,6 @@ public class ElementUtils {
 		return list;
 	}
 
-	/**
-	 * Return the interface which owns an operation that is implemented by a class.
-	 * Context: a class might implement several interfaces by defining their operations.
-	 * The operation is useful in the context of state-machines: when a transition is triggered by
-	 * the call of an operation of the class, we'd like to know which interceptor (for which interface)
-	 * belongs to it (since the operations are enumerated within each interface).
-	 * TODO: move operation into state-chart java code
-	 * TODO: would not work for ROOM ports typed with a collaboration
-	 *
-	 * @param operation
-	 * @return the interface which the operation belongs
-	 */
-	public static Interface implementsInterface(Operation operation) {
-		Element owner = operation.getOwner();
-		if (owner instanceof BehavioredClassifier) {
-			String name = operation.getName();
-			EList<Type> types = new BasicEList<Type>();
-			for (Parameter parameter : operation.getOwnedParameters()) {
-				types.add(parameter.getType());
-			}
-			// loop over implemented realizations. Do not rely on FCM derivedElement information
-			// as it might be missing on some models (it would point from an operation of the class
-			// to the associated operation of the interface)
-			for (InterfaceRealization ir : ((BehavioredClassifier) owner).getInterfaceRealizations()) {
-				// check for types to allow for overloading
-				Operation candidate = ir.getContract().getOwnedOperation(name, null, types);
-				if (candidate != null) {
-					return ir.getContract();
-				}
-			}
-		} else if (owner instanceof Interface) {
-			return (Interface) owner;
-		}
-		return null;
-	}
-
-	public static <T extends EObject> EList<T> reverse(EList<T> list) {
-		EList<T> reverseList = new BasicEList<T>();
-		for (int i = list.size() - 1; i >= 0; i--) {
-			reverseList.add(list.get(i));
-		}
-		return reverseList;
-	}
-
 	public static EList<Namespace> usedNamespaces(NamedElement element) {
 		EList<Namespace> list = new BasicEList<Namespace>(element.allNamespaces());
 
@@ -424,42 +297,7 @@ public class ElementUtils {
 	 * Unlike varName2, replace scoping signs as well
 	 */
 	public static String varName(NamedElement element) {
-		return varName(element.getName());
-	}
-
-	/**
-	 * A small helper function that makes names compliant with variable
-	 * names in programming languages such as C++ or Java
-	 * Unlike varName2, replace scoping signs as well
-	 */
-	public static String varName(String umlName) {
-		umlName = umlName.replace(".", StringConstants.UNDERSCORE); //$NON-NLS-1$
-		umlName = umlName.replace(NamedElement.SEPARATOR, StringConstants.UNDERSCORE);
-		return varName2(umlName);
-	}
-
-	/**
-	 * A small helper function that makes names compliant with variable
-	 * names in programming languages such as C++ or Java
-	 * TODO: obviously, it is not complete (e.g. in case of "$", national characters ("ä", "é", ...) , ...)
-	 */
-	public static String varName2(NamedElement element) {
-		String umlName = element.getName();
-		return varName2(umlName);
-	}
-
-	/**
-	 * Like varName, but does not replace "." with "_"
-	 *
-	 * @param umlName
-	 * @return
-	 */
-	public static String varName2(String umlName) {
-		umlName = umlName.replace(" ", StringConstants.UNDERSCORE); //$NON-NLS-1$
-		umlName = umlName.replace("-", StringConstants.UNDERSCORE); //$NON-NLS-1$
-		umlName = umlName.replace("+", StringConstants.UNDERSCORE); //$NON-NLS-1$
-		umlName = umlName.replace("?", StringConstants.UNDERSCORE); //$NON-NLS-1$
-		return umlName;
+		return StringUtils.varName(element.getName());
 	}
 
 	/**

@@ -10,7 +10,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.uml.tools.utils.PackageUtil;

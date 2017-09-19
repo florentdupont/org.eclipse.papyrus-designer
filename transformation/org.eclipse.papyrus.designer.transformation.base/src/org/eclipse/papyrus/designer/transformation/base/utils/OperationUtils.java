@@ -20,9 +20,12 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
+import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Interface;
+import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Parameter;
 import org.eclipse.uml2.uml.ParameterDirectionKind;
@@ -277,5 +280,40 @@ public class OperationUtils {
 		} else {
 			return parameter.getName();
 		}
+	}
+
+	/**
+	 * Return the interface which owns an operation that is implemented by a class.
+	 * Context: a class might implement several interfaces by defining their operations.
+	 * The operation is useful in the context of state-machines: when a transition is triggered by
+	 * the call of an operation of the class, we'd like to know which interceptor (for which interface)
+	 * belongs to it (since the operations are enumerated within each interface).
+	 * TODO: would not work for ROOM ports typed with a collaboration
+	 *
+	 * @param operation
+	 * @return the interface which the operation belongs
+	 */
+	public static Interface implementsInterface(Operation operation) {
+		Element owner = operation.getOwner();
+		if (owner instanceof BehavioredClassifier) {
+			String name = operation.getName();
+			EList<Type> types = new BasicEList<Type>();
+			for (Parameter parameter : operation.getOwnedParameters()) {
+				types.add(parameter.getType());
+			}
+			// loop over implemented realizations. Do not rely on FCM derivedElement information
+			// as it might be missing on some models (it would point from an operation of the class
+			// to the associated operation of the interface)
+			for (InterfaceRealization ir : ((BehavioredClassifier) owner).getInterfaceRealizations()) {
+				// check for types to allow for overloading
+				Operation candidate = ir.getContract().getOwnedOperation(name, null, types);
+				if (candidate != null) {
+					return ir.getContract();
+				}
+			}
+		} else if (owner instanceof Interface) {
+			return (Interface) owner;
+		}
+		return null;
 	}
 }

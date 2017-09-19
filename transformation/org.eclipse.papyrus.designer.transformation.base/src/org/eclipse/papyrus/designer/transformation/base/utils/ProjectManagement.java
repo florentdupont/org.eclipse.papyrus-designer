@@ -22,9 +22,9 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 
-// TODO: mixture of model and Eclipse project management. Move parts depending on CDT into
-// a separate plugin
-
+/**
+ * Utility function for project management
+ */
 public class ProjectManagement {
 
 	/**

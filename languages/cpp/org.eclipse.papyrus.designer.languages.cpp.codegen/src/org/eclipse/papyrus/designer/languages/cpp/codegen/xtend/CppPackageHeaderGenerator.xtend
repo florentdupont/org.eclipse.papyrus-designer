@@ -15,6 +15,12 @@ import org.eclipse.papyrus.designer.languages.cpp.codegen.preferences.CppCodeGen
 import org.eclipse.papyrus.designer.languages.cpp.codegen.utils.CppGenUtils
 import org.eclipse.uml2.uml.Package
 import org.eclipse.papyrus.designer.languages.common.base.GenUtils
+import org.eclipse.uml2.uml.ValueSpecification
+import org.eclipse.uml2.uml.LiteralInteger
+import org.eclipse.uml2.uml.LiteralBoolean
+import org.eclipse.uml2.uml.LiteralReal
+import org.eclipse.uml2.uml.LiteralString
+import org.eclipse.uml2.uml.LiteralUnlimitedNatural
 
 /**
  * @author Önder GÜRCAN (onder.gurcan@cea.fr)
@@ -55,10 +61,34 @@ class CppPackageHeaderGenerator {
 		«CppClassTypeAndEnum.CppClassTypeAndEnumPackage(pkg)»
 		«CppGenUtils.closeNS(pkg)»
 		
+		«FOR pe : pkg.packagedElements»
+			«IF pe instanceof ValueSpecification»
+				«(pe as ValueSpecification).defineConstants»
+			«ENDIF»
+		«ENDFOR»
+
 		/************************************************************
 		              End of Pkg_«pkg.name» package header
 		 ************************************************************/
 		
 		#endif
 	'''
+	
+	def static defineConstants(ValueSpecification vs) {
+		if (vs instanceof LiteralInteger) {
+			'''const int «vs.name» = «vs.integerValue»;'''
+		}
+		else if (vs instanceof LiteralUnlimitedNatural) {
+			'''const int «vs.name» = «vs.unlimitedValue»;'''
+		}
+		else if (vs instanceof LiteralReal) {
+			'''const double «vs.name» = «vs.realValue»;'''
+		}
+		else if (vs instanceof LiteralBoolean) {
+			'''const bool «vs.name» = «vs.booleanValue»;'''
+		}
+		else if (vs instanceof LiteralString) {
+			'''const char* «vs.name» = «vs.stringValue»;'''
+		}
+	}
 }

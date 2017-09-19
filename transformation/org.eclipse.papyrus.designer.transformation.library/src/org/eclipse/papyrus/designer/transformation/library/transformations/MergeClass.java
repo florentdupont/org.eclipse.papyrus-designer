@@ -25,7 +25,12 @@ import org.eclipse.papyrus.designer.transformation.base.utils.TransformationExce
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoElem;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier;
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyStatus;
+import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
+import org.eclipse.papyrus.designer.transformation.extensions.IM2MTrafo;
+import org.eclipse.papyrus.designer.transformation.extensions.M2MTrafoExt;
 import org.eclipse.papyrus.designer.transformation.library.Messages;
+import org.eclipse.papyrus.designer.transformation.library.transformations.bindinghelpers.BindOperation;
+import org.eclipse.papyrus.designer.transformation.profile.Transformation.ApplyTransformation;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Behavior;
@@ -41,6 +46,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.profile.standard.Create;
 import org.eclipse.uml2.uml.profile.standard.Destroy;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 /**
  * A model-2-model transformation that merges a class with another.
@@ -81,20 +87,32 @@ public class MergeClass implements IM2MTrafoElem {
 			boolean templateOpIsDestructor = StereotypeUtil.isApplied(templateOperation, Destroy.class);
 
 			boolean needsMerge = (templateOpIsConstructor && hasConstructor) || (templateOpIsDestructor && hasDestructor);
+			// check, whether the operation has a specific binding hind (in this case, do not copy it)
+			ApplyTransformation trafoOnOpSt = UMLUtil.getStereotypeApplication(templateOperation, ApplyTransformation.class);
+			boolean isTemplate = false;
+			if (trafoOnOpSt != null) {
+				for (M2MTrafo stTrafo : trafoOnOpSt.getTrafo()) {
+					IM2MTrafo trafoOnOp = M2MTrafoExt.getM2MTrafo(stTrafo);
+					if (trafoOnOp instanceof BindOperation) {
+						isTemplate = true;
+						break;
+					}
+				}
+			}
 			if (needsMerge) {
 				// reset package template. Make sure not to use template map, otherwise methods of original class might be duplicated
 				copier.setPackageTemplate(null, null);
 
 				mergeOperations(tmClass, mergeTemplateClass, templateOperation);
 
-			} else {
+			} else if (!isTemplate) {
 				copier.setPackageTemplate(mergeTemplateClass, tmClass);
 				// normal operation. Copy from container to class
 				// TODO: C++/Java specific
 				Operation newOperation = copier.getCopy(templateOperation);
 				if (templateOpIsConstructor) {
 					newOperation.setName(tmClass.getName());
-				} else if (templateOpIsConstructor) {
+				} else if (templateOpIsDestructor) {
 					newOperation.setName("~" + tmClass.getName()); //$NON-NLS-1$
 				}
 			}
@@ -170,11 +188,10 @@ public class MergeClass implements IM2MTrafoElem {
 	}
 
 	/**
-	 * Configure the merged instance, i.e. create subinstances for parts
+	 * Configure the merged instance, i.e. create sub-instances for parts
 	 * @param mergedInstance
 	 * @throws TransformationException
 	 */
-
 	public void configureMergedInstance(InstanceSpecification mergedInstance, Class tmClass) throws TransformationException {
 
 		Package tmCDP = mergedInstance.getNearestPackage();
@@ -195,9 +212,9 @@ public class MergeClass implements IM2MTrafoElem {
 
 	@Override
 	public void transformElement(M2MTrafo trafo, Element element) throws org.eclipse.papyrus.designer.transformation.base.utils.TransformationException {
-		// TODO Auto-generated method stub
 		if (element instanceof Class) {
 			Class tmClass = (Class) element;
+			copier = TransformationContext.current.copier;
 			mergeClass(trafo.getBase_Class(), tmClass);
 		}
 		else if (element instanceof InstanceSpecification) {

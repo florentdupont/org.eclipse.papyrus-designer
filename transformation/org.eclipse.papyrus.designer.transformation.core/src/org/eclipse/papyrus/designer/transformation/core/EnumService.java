@@ -17,8 +17,8 @@ package org.eclipse.papyrus.designer.transformation.core;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.papyrus.designer.languages.common.base.StringUtils;
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.CppInit;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Class;
@@ -33,7 +33,7 @@ import org.eclipse.uml2.uml.UMLPackage;
 
 
 /**
- * Manage enumerations within Acceleo code
+ * Manage enumerations within xtend templates
  */
 public class EnumService {
 
@@ -54,7 +54,7 @@ public class EnumService {
 	}
 
 	public static String quoteLiteral(Element dummy, String enumName, String literal) {
-		return ElementUtils.quoteString(literal(enumName, literal));
+		return StringUtils.quoteString(literal(enumName, literal));
 	}
 
 	/**

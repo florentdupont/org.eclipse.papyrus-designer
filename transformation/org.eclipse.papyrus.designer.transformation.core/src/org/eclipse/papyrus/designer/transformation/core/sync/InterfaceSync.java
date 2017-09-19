@@ -16,7 +16,7 @@ package org.eclipse.papyrus.designer.transformation.core.sync;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.DerivedElement;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;

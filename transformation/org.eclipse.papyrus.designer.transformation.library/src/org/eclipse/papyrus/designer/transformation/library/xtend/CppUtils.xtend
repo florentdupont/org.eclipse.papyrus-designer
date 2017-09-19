@@ -6,9 +6,17 @@ import org.eclipse.uml2.uml.Parameter
 import org.eclipse.uml2.uml.ParameterDirectionKind
 import org.eclipse.uml2.uml.Type
 import static extension org.eclipse.papyrus.designer.transformation.base.utils.OperationUtils.parametersNonRet
-import static extension org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils.usedNamespaces
-import static extension org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils.dereferenceTypedef
+import static extension org.eclipse.papyrus.designer.languages.common.base.ElementUtils.usedNamespaces
+import static extension org.eclipse.papyrus.designer.languages.common.base.ElementUtils.dereferenceTypedef
 import org.eclipse.papyrus.designer.transformation.extensions.ITextTemplate
+import org.eclipse.uml2.uml.PrimitiveType
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Typedef
+import org.eclipse.uml2.uml.util.UMLUtil
+import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
+import org.eclipse.uml2.uml.Namespace
+import org.eclipse.uml2.uml.Model
+import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.External
+import org.eclipse.papyrus.designer.languages.common.profile.Codegen.NoCodeGen
 
 class CppUtils implements ITextTemplate {
 
@@ -31,6 +39,44 @@ class CppUtils implements ITextTemplate {
 		«ENDFOR»)
 	'''
 
+	/**
+	 *
+	 * @param ne
+	 * @return
+	 */
+	public static def cppQName(NamedElement ne) {
+		if (StereotypeUtil.isApplied(ne, External) || StereotypeUtil.isApplied(ne, NoCodeGen)) {
+			return ne.name
+		}
+		else {
+			var qName = ne.name;
+			for (Namespace ns : ne.allNamespaces()) {
+				if (!(ns instanceof Model)) {
+					qName = '''«ns.name»::«qName»'''
+				}
+			}
+			return qName
+		}
+	}
+	
+	/**
+	 *
+	 * @param type
+	 *            a type
+	 * @return return the definition of a typedef, if the type has been defined via
+	 *         the stereotype CppType of the Cpp profile
+	 */
+	public static def dereferenceTypedef(Type type) {
+		if (type instanceof PrimitiveType) {
+			val cppType = UMLUtil.getStereotypeApplication(type, Typedef)
+			if (cppType !== null) {
+				cppType.definition
+			}
+		}
+		return type.qualifiedName
+
+	}
+	
 	/**
 	 * make a C++ call, pass all parameters except the return parameter, prefix with "return",
 	 * if there is a return type in the operations declaration
@@ -55,7 +101,7 @@ class CppUtils implements ITextTemplate {
 
 
 	public static def cppRetType(Operation operation) '''
-		«IF (operation.type == null)»
+		«IF (operation.type === null)»
 			void
 		«ELSE»
 			«operation.type.cppType»

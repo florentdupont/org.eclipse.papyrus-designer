@@ -27,10 +27,10 @@ import org.eclipse.papyrus.designer.deployment.profile.Deployment.DeploymentPlan
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.ImplementationProperties;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.Singleton;
 import org.eclipse.papyrus.designer.deployment.profile.Deployment.Target;
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils;
 import org.eclipse.papyrus.designer.languages.common.profile.Codegen.GeneratorHint;
 import org.eclipse.papyrus.designer.transformation.base.ElementFilter;
 import org.eclipse.papyrus.designer.transformation.base.preferences.PapyrusDesignerPreferenceConstants;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.StdModelLibs;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo;
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafoChain;

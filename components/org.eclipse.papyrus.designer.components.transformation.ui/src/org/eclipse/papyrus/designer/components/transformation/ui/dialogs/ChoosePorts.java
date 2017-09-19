@@ -20,7 +20,7 @@ import java.util.Collections;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.papyrus.designer.components.FCM.InterceptionRule;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils;
 import org.eclipse.papyrus.uml.profile.ui.dialogs.AlphabeticalViewerSorter;
 import org.eclipse.papyrus.uml.profile.ui.dialogs.ChooseSetAssistedDialog;
 import org.eclipse.papyrus.uml.profile.ui.dialogs.IChooseDialog;

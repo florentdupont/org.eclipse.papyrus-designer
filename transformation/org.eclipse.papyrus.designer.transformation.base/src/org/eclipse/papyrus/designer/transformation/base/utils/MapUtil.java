@@ -122,9 +122,11 @@ public class MapUtil {
 		// enable multiple package templates sharing the same signature.
 		if (template instanceof Package) {
 			Package pkg = (Package) template;
-			for (PackageMerge pkgImport : pkg.getPackageMerges()) {
-				Package importedPkg = pkgImport.getMergedPackage();
-				return getSignature(importedPkg);
+			for (PackageMerge pkgMerge : pkg.getPackageMerges()) {
+				Package mergedPackage = pkgMerge.getMergedPackage();
+				if (mergedPackage != pkg) {
+					return getSignature(mergedPackage);
+				}
 			}
 		}
 		return null;

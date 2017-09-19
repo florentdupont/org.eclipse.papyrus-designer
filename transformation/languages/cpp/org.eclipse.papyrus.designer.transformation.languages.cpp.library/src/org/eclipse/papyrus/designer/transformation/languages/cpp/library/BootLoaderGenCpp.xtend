@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.common.util.URI
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Include
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 import org.eclipse.papyrus.designer.transformation.base.utils.LibraryUtils
 import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
@@ -37,6 +36,7 @@ import org.eclipse.uml2.uml.LiteralInteger
 import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.Slot
 import org.eclipse.uml2.uml.ValueSpecification
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils
 
 /**
  * Create a BootLoader for C++
@@ -69,12 +69,12 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 		m_copier = copier;
 		
 		val bootloader_ml = LibraryUtils.getContent(CPP_BOOTLOADER_URI, ModelManagement.resourceSet) as Package
-		if (bootloader_ml == null) {
+		if (bootloader_ml === null) {
 			throw new TransformationException(String.format(
 					Messages.BootLoaderGen_CannotRetrieveTemplate, CPP_BOOTLOADER_URI));
 		}
 		val template = ElementUtils.getQualifiedElement(bootloader_ml, CPP_BOOTLOADER_QNAME) as Class
-		if (template == null) {
+		if (template === null) {
 			throw new TransformationException(String.format(
 					Messages.BootLoaderGen_CannotRetrieveTemplate, CPP_BOOTLOADER_QNAME));
 		}
@@ -82,7 +82,7 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 		m_bootLoader = copier.getCopy(template)
 
 		val cppInclude = StereotypeUtil.applyApp(m_bootLoader, Include);
-		if (cppInclude == null) {
+		if (cppInclude === null) {
 			throw new TransformationException("Cannot apply cppInclude stereotype. Make sure that the C/C++ profile is applied to your model.");
 		}
 		val existingBody = cppInclude.body
@@ -143,7 +143,7 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 		val slot = slotPath.peek();
 		// String varName = getPath(slotPath, instance, false);
 		val sf = slot.getDefiningFeature();
-		if (sf == null) {
+		if (sf === null) {
 			throw new TransformationException(String.format("A slot for instance %s has no defining feature", instance.getName())); //$NON-NLS-1$
 		}
 
@@ -151,7 +151,7 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 		for (ValueSpecification value : slot.getValues()) {
 
 			// only set value, if not null
-			if (value.stringValue() != null) {
+			if (value.stringValue() !== null) {
 				m_initCodeCConfig += varName + " = " + value.stringValue() + EOL; //$NON-NLS-1$
 			}
 		}
@@ -168,8 +168,6 @@ public class BootLoaderGenCpp extends AbstractBootLoaderGen implements IM2MTrafo
 	}
 
 	def override public void languageInit() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	def override public String languageActivation(Class[] activationKeys) '''

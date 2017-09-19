@@ -45,8 +45,8 @@ class JavaClassifierGenerator {
 			«IF classifier instanceof Enumeration»«JavaEnumerations.javaEnumerationLiterals(classifier as Enumeration)»«ENDIF»
 			«JavaClassTypeAndEnum.javaClassTypeAndEnum(classifier)»
 			««« TODO: Not possible to model inner classifier in an Enumeration in UML»
-			«JavaClassAttributesDeclaration.javaClassAttributesDeclaration(classifier).toString»
-			«JavaClassOperationsDeclaration.javaClassOperationsDeclaration(classifier).toString»
+			«JavaClassAttributesDeclaration.javaClassAttributesDeclaration(classifier)»
+			«JavaClassOperationsDeclaration.javaClassOperationsDeclaration(classifier)»
 		};
 	'''
 	

@@ -20,14 +20,12 @@ import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.common.util.URI
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils
 import org.eclipse.papyrus.designer.languages.java.profile.PapyrusJava.Import
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 import org.eclipse.papyrus.designer.transformation.base.utils.LibraryUtils
 import org.eclipse.papyrus.designer.transformation.base.utils.ModelManagement
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException
 import org.eclipse.papyrus.designer.transformation.core.Messages
 import org.eclipse.papyrus.designer.transformation.core.m2minterfaces.IM2MTrafoCDP
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
-import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier.CopyStatus
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext
 import org.eclipse.papyrus.designer.transformation.library.transformations.AbstractBootLoaderGen
 import org.eclipse.papyrus.designer.transformation.profile.Transformation.M2MTrafo
@@ -39,6 +37,7 @@ import org.eclipse.uml2.uml.Package
 import org.eclipse.uml2.uml.Slot
 import org.eclipse.uml2.uml.ValueSpecification
 import org.eclipse.uml2.uml.NamedElement
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils
 
 /**
  * Create a BootLoader for Java

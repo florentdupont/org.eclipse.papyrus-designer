@@ -36,11 +36,11 @@ import org.eclipse.papyrus.designer.transformation.base.utils.TransformationExce
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.papyrus.designer.components.FCM.Assembly
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants
 import org.eclipse.papyrus.designer.components.transformation.component.PrefixConstants.CIFvariant
 import org.eclipse.uml2.uml.MultiplicityElement
 import org.eclipse.uml2.uml.Element
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils
 
 /**
  * This class realizes the transformation from component-based to object-oriented

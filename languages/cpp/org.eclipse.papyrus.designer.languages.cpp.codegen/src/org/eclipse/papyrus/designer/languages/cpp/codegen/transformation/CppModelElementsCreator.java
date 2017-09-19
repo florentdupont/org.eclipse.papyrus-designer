@@ -51,6 +51,7 @@ import org.eclipse.uml2.uml.Relationship;
 import org.eclipse.uml2.uml.Signal;
 import org.eclipse.uml2.uml.SignalEvent;
 import org.eclipse.uml2.uml.Usage;
+import org.eclipse.uml2.uml.ValueSpecification;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
 
@@ -134,7 +135,8 @@ public class CppModelElementsCreator extends ModelElementsCreator {
 			generatePkg((Package) element);
 		}
 
-		else if ((element instanceof PrimitiveType) || (element instanceof Enumeration) || (element instanceof Usage)) {
+		else if (element instanceof PrimitiveType || element instanceof Enumeration ||
+				element instanceof Usage || element instanceof ValueSpecification) {
 			// do nothing, included in package
 		}
 		else if (element instanceof Classifier) {

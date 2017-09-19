@@ -501,7 +501,7 @@ public class ConfigureInstanceDialog extends SelectionStatusDialog {
 		});
 		
 		fDescriptionLabel = new Label(instanceConfigurationGroup, SWT.NONE);
-		fDescriptionLabel.setText("DescriptionUtils:");
+		fDescriptionLabel.setText("Description:");
 		fDescriptionLabel.setLayoutData(span2);
 
 		span2 = new GridData();

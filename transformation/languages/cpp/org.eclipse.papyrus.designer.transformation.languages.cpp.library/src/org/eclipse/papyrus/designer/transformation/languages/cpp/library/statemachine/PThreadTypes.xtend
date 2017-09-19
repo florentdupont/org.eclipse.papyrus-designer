@@ -14,9 +14,9 @@
 
 package org.eclipse.papyrus.designer.transformation.languages.cpp.library.statemachine
 
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 import org.eclipse.uml2.uml.Type
 import org.eclipse.papyrus.designer.transformation.core.transformations.TransformationContext
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils
 
 class PThreadTypes {
 

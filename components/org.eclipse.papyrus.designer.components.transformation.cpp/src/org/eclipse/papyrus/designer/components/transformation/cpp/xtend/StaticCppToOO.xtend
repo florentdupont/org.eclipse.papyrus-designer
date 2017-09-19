@@ -16,12 +16,12 @@ package org.eclipse.papyrus.designer.components.transformation.cpp.xtend
 import org.eclipse.papyrus.designer.components.modellibs.core.transformations.AbstractCompToOO
 import org.eclipse.papyrus.designer.components.transformation.extensions.IOOTrafo
 import org.eclipse.papyrus.designer.languages.cpp.profile.C_Cpp.Ptr
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils
 import org.eclipse.papyrus.designer.transformation.core.transformations.LazyCopier
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil
 import org.eclipse.uml2.uml.Class
 import org.eclipse.uml2.uml.Element
 import org.eclipse.uml2.uml.Property
+import org.eclipse.papyrus.designer.transformation.base.utils.PartsUtil
 
 /**
  * This class realizes the transformation from component-based to object-oriented
@@ -60,7 +60,7 @@ class StaticCppToOO extends AbstractCompToOO implements IOOTrafo {
 	 */
 	override transformParts(Class compositeImplementation) {
 
-		for (Property attribute : ElementUtils.getParts(compositeImplementation)) {
+		for (Property attribute : PartsUtil.getParts(compositeImplementation)) {
 			val type = attribute.type
 			if (type instanceof Class) {
 				// => requires adaptations of boot-loader which is then only

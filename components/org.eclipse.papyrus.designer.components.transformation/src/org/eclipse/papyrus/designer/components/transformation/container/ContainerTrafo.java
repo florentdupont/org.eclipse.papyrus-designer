@@ -34,9 +34,10 @@ import org.eclipse.papyrus.designer.components.transformation.extensions.Abstrac
 import org.eclipse.papyrus.designer.components.transformation.templates.TemplateUtils;
 import org.eclipse.papyrus.designer.deployment.tools.DepCreation;
 import org.eclipse.papyrus.designer.deployment.tools.DepUtils;
+import org.eclipse.papyrus.designer.languages.common.base.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.CopyUtils;
-import org.eclipse.papyrus.designer.transformation.base.utils.ElementUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.MapUtil;
+import org.eclipse.papyrus.designer.transformation.base.utils.PartsUtil;
 import org.eclipse.papyrus.designer.transformation.base.utils.StUtils;
 import org.eclipse.papyrus.designer.transformation.base.utils.TransformationException;
 import org.eclipse.papyrus.designer.transformation.core.templates.TemplateInstantiation;
@@ -604,7 +605,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 	public void createConnectorForAssociations() {
 		// TODO: keep list of added parts, only re-check those!
 
-		for (Property part : ElementUtils.getParts(tmContainerImpl)) {
+		for (Property part : PartsUtil.getParts(tmContainerImpl)) {
 			if (part.getType() == null) {
 				continue;
 			}
@@ -619,7 +620,7 @@ public class ContainerTrafo extends AbstractContainerTrafo {
 						// examining
 						// thus, it might belong to another part of the
 						// composite
-						for (Property checkPart : ElementUtils.getParts(tmContainerImpl)) {
+						for (Property checkPart : PartsUtil.getParts(tmContainerImpl)) {
 							if (type == checkPart.getType()) {
 								// found an association between two parts of the
 								// container => create connection,
