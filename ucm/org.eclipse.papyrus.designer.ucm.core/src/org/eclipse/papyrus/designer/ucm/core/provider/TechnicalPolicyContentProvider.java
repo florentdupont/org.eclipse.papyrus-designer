@@ -23,7 +23,7 @@ import org.eclipse.uml2.uml.Package;
 
 /**
  * Provide the list of available policy definitions for a given component (filtering on applicability)
- *
+ * TODO: currently, filtering is not done.
  */
 public class TechnicalPolicyContentProvider extends UCMContentProvider implements IStaticContentProvider {
 

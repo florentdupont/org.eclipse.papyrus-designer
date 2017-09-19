@@ -18,12 +18,16 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.papyrus.infra.widgets.providers.AbstractStaticContentProvider;
 import org.eclipse.papyrus.infra.widgets.providers.IStaticContentProvider;
 import org.eclipse.papyrus.uml.tools.utils.StereotypeUtil;
 import org.eclipse.uml2.uml.Dependency;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.Profile;
+import org.eclipse.uml2.uml.resource.UMLResource;
 
 /**
  * Similar to Papyrus MetaClassContentProvider: filter elements based on wanted meta-classes
@@ -53,7 +57,24 @@ public class UCMContentProvider extends AbstractStaticContentProvider implements
 	public Object[] getElements() {
 		List<Element> results = new ArrayList<Element>();
 		List<Package> visitedPkgs = new ArrayList<Package>();
-		getElements(rootPkg, results, visitedPkgs);
+		if (rootPkg.eResource() != null) {
+			// search in all resources, see Bug 522365 ... definition list is empty
+			ResourceSet rs = rootPkg.eResource().getResourceSet();
+			for (Resource resource : rs.getResources()) {
+				if (resource instanceof UMLResource) {
+					if (resource.getContents().size() > 0) {
+						EObject topLevelElem = resource.getContents().get(0);
+						// look into packages, but not profiles
+						if (topLevelElem instanceof Package && !(topLevelElem instanceof Profile)) {
+							getElements(rootPkg, results, visitedPkgs);
+						}
+					}
+				}
+			}
+		}
+		else {
+			getElements(rootPkg, results, visitedPkgs);
+		}
 		return results.toArray();
 	}
 
