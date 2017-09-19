@@ -111,9 +111,11 @@
     <specializedTypes xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.uml.service.types/model/umldi.elementtypesconfigurations#org.eclipse.papyrus.umldi.Port_Shape_CN"/>
   </elementTypeConfigurations>
   <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_30LCIK2XEea8u6I-XjDezQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Connection_Shape" name="Connection TN" hint="Property_Shape">
+    <specializedTypes xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_D_kcgI_rEeeqvJXzJiqT0A"/>
     <specializedTypes xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.uml.service.types/model/umldi.elementtypesconfigurations#org.eclipse.papyrus.umldi.Property_Shape"/>
   </elementTypeConfigurations>
   <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_ENM_oLCeEeacWfm2fO2yZA" identifier="org.eclipse.papyrus.ucm.diagrams.ui.Connection_Shape_CN" name="Connection CN" hint="Property_Shape">
+    <specializedTypes xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.designer.ucm.core/elementtypes/ucm.elementtypesconfigurations#_D_kcgI_rEeeqvJXzJiqT0A"/>
     <specializedTypes xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" href="../../../../plugin/org.eclipse.papyrus.uml.service.types/model/umldi.elementtypesconfigurations#org.eclipse.papyrus.umldi.Property_Shape_CN"/>
   </elementTypeConfigurations>
   <elementTypeConfigurations xsi:type="elementtypesconfigurations:SpecializationTypeConfiguration" xmi:id="_mDJQgK2XEea8u6I-XjDezQ" identifier="org.eclipse.papyrus.ucm.diagrams.ui.ConnectionLink_Edge" name="Connection Link" hint="Connector_Edge">
